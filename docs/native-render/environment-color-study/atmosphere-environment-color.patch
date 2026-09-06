@@ -1,0 +1,33 @@
+--- a/src/world/atmosphere.ts
++++ b/src/world/atmosphere.ts
+@@ -7,7 +7,19 @@
+ export const atmosphereLighting={sunIntensity:4.4,skyIntensity:.65};
+ export function createAtmosphere(renderer:THREE.WebGLRenderer){const group=new THREE.Group();group.name='atmosphere';const material=new THREE.ShaderMaterial({side:THREE.BackSide,depthWrite:false,uniforms:{uSun:{value:sunDirection},uTime:worldTime,uEye:{value:new THREE.Vector3()},uSunDisk:{value:1},uOutputScale:{value:1},uSceneCaptureScale:sceneCaptureScale},vertexShader:`varying vec3 vDirection;void main(){vDirection=position;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}`,fragmentShader:`precision highp float;varying vec3 vDirection;uniform vec3 uSun,uEye;uniform float uTime,uSunDisk,uOutputScale,uSceneCaptureScale;${cloudFieldGLSL}
+ 
+-void main(){vec3 ray=normalize(vDirection);float h=max(ray.y,0.);float sunDot=dot(ray,uSun);float scatter=pow(max(sunDot,0.),5.);vec3 zenith=vec3(.075,.17,.29),horizon=vec3(.95,.245,.045);vec3 color=mix(horizon,zenith,pow(smoothstep(0.,.8,h),.42));color+=vec3(.88,.205,.020)*pow(max(sunDot,0.),12.)*exp(-h*3.);color=mix(color,vec3(.56,.36,.20),(1.-smoothstep(-.13,0.,ray.y)));color+=vec3(2.4,.68,.065)*pow(max(sunDot,0.),850.);float disk=smoothstep(cos(.009),cos(.006),sunDot);color+=vec3(22.,11.,2.8)*disk*uSunDisk;float skyTransmittance=1.;
++void main(){vec3 ray=normalize(vDirection);float h=max(ray.y,0.);float sunDot=dot(ray,uSun);
++ // Warm aerosol haze is strongest toward the sun, not uniformly over 360 degrees.
++ // These are scene-linear artistic radiance fits, not spectral sky simulation.
++ vec2 horizontalRay=ray.xz/max(length(ray.xz),.0001);
++ float solarHorizon=pow(max(dot(horizontalRay,normalize(uSun.xz)),0.),4.);
++ vec3 zenith=vec3(.065,.13,.23);
++ vec3 horizon=mix(vec3(.30,.36,.43),vec3(.72,.40,.19),solarHorizon);
++ vec3 color=mix(horizon,zenith,pow(smoothstep(0.,.8,h),.42));
++ color+=vec3(.26,.16,.075)*pow(max(sunDot,0.),12.)*exp(-h*3.);
++ // The lower probe hemisphere represents low-radiance land/sea bounce. A bright
++ // orange constant here leaks warm energy into PMREM and tilted water facets.
++ color=mix(color,vec3(.028,.035,.033),(1.-smoothstep(-.13,0.,ray.y)));
++ color+=vec3(1.25,.78,.37)*pow(max(sunDot,0.),850.);float disk=smoothstep(cos(.009),cos(.006),sunDot);color+=vec3(22.,11.,2.8)*disk*uSunDisk;float skyTransmittance=1.;
+ vec2 interval=cloudSegment(uEye,ray);
+ if(interval.y>interval.x){
+  float steps=clamp(ceil((interval.y-interval.x)/60.),12.,128.);float stepLen=(interval.y-interval.x)/steps;float trans=1.;vec3 cloudLight=vec3(0.);
+@@ -19,7 +31,8 @@
+   float heightFill=mix(.75,1.15,smoothstep(cloudBase,cloudTop,p.y));
+   vec3 ambient=vec3(.075,.105,.16)*heightFill;
+   float forward=pow(max(sunDot,0.),10.);
+-  vec3 lit=ambient+vec3(1.85,.43,.065)*illumination*(.65+.55*forward);
++  // Match the existing directional-light tint in linear RGB, at similar luminance.
++  vec3 lit=ambient+vec3(1.02,.65,.36)*illumination*(.65+.55*forward);
+   float alpha=1.-exp(-d*stepLen*cloudExtinction);
+   cloudLight+=lit*alpha*trans;trans*=1.-alpha;if(trans<.008)break;
+  }

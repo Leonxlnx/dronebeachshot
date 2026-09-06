@@ -1,0 +1,49 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> last-light-bay@0.1.0 test
+> node --experimental-strip-types --test src/world/math.test.ts src/camera/cinematic.test.ts src/world/lod.test.ts src/world/coastal.test.ts src/world/coastal-field.test.ts src/world/terrain-surface.test.ts src/world/rock-shelter.test.ts
+
+✔ route starts above highest surveyed summit and finishes seaward (244.270991ms)
+✔ flight has finite positions, no terrain clipping, C1 velocity at every phase boundary (77.43811ms)
+✖ conservative tree envelopes keep the flight corridor clear (988.643698ms)
+✔ all 16 evaluation cameras are distinct and above terrain (0.817541ms)
+✔ coastal atlas preserves transformed rock surfaces and waterline distance (2970.809179ms)
+✔ a shallow crest travels inland and along the shoreline normal (1.885747ms)
+✔ swash velocity agrees with displacement in both advance and retreat (1.561658ms)
+✔ sand retains moisture behind a retreating wave, without wetting unreached sand (10.504205ms)
+✔ LOD coverage conserves opacity at every distance (22.745656ms)
+✔ cell culling never hides a contributing tree LOD (37.278889ms)
+✔ LOD weights and first derivative meet continuously at threshold boundaries (0.360264ms)
+✔ determinism and seed separation (1.783991ms)
+✔ coastline continuous, seabed continues, terrain never NaN (499.706788ms)
+✔ summit scale and asymmetric bay (1.106792ms)
+✔ rock lee is downstream, bounded, recovers and follows wave direction (55.505903ms)
+✔ water contact height agrees with actual rendered terrain triangles (403.56172ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 15
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3597.465132
+
+✖ failing tests:
+
+test at src/camera/cinematic.test.ts:8:1
+✖ conservative tree envelopes keep the flight corridor clear (988.643698ms)
+  AssertionError [ERR_ASSERTION]: tree envelope intersects frame 277
+      at TestContext.<anonymous> (file:///workspace/sites/last-light-bay/src/camera/cinematic.test.ts:8:364)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

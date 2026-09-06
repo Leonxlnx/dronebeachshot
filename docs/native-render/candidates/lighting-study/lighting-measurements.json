@@ -1,0 +1,197 @@
+{
+  "method": "Display-referred sRGB pixels decoded to linear for comparison; fixed image ROIs include trees/terrain, not semantic masks; metrics do not replace visual judgment",
+  "rows": [
+    {
+      "camera": "headland",
+      "variant": "baseline",
+      "roi": {
+        "x": 0,
+        "y": 125,
+        "w": 768,
+        "h": 307
+      },
+      "meanDisplayLinearLuminance": 0.06942032024549626,
+      "p10": 0.023910823051035958,
+      "p50": 0.060257827587635614,
+      "p90": 0.12759000103966447,
+      "contrastP90P10": 5.336077339008058,
+      "meanDisplaySRGB": [
+        0.3532571792969042,
+        0.25944241194053325,
+        0.11636553338784737
+      ],
+      "meanLuminanceDelta": 0,
+      "changedFractionAbove8Bytes": 0,
+      "lighterFractionAbovePoint005": 0,
+      "darkerFractionAbovePoint005": 0
+    },
+    {
+      "camera": "headland",
+      "variant": "bias-only",
+      "roi": {
+        "x": 0,
+        "y": 125,
+        "w": 768,
+        "h": 307
+      },
+      "meanDisplayLinearLuminance": 0.06802163944503518,
+      "p10": 0.02336273906990513,
+      "p50": 0.05876117399352542,
+      "p90": 0.1251499932723088,
+      "contrastP90P10": 5.35682022976157,
+      "meanDisplaySRGB": [
+        0.3493357104650767,
+        0.25669417366585234,
+        0.11544427013498873
+      ],
+      "meanLuminanceDelta": -0.0013986808004604729,
+      "changedFractionAbove8Bytes": 0.19052405673181325,
+      "lighterFractionAbovePoint005": 0.10476045059717698,
+      "darkerFractionAbovePoint005": 0.16987734120521172
+    },
+    {
+      "camera": "headland",
+      "variant": "balance",
+      "roi": {
+        "x": 0,
+        "y": 125,
+        "w": 768,
+        "h": 307
+      },
+      "meanDisplayLinearLuminance": 0.07175028634780709,
+      "p10": 0.020309261157501583,
+      "p50": 0.06174123788240367,
+      "p90": 0.13778113055610952,
+      "contrastP90P10": 6.784152780723765,
+      "meanDisplaySRGB": [
+        0.3640929875615739,
+        0.25679012715310495,
+        0.10824469819166463
+      ],
+      "meanLuminanceDelta": 0.002329966102313344,
+      "changedFractionAbove8Bytes": 0.33756192318132466,
+      "lighterFractionAbovePoint005": 0.45889742806731815,
+      "darkerFractionAbovePoint005": 0.2231652076547231
+    },
+    {
+      "camera": "headland",
+      "variant": "balance-neutral",
+      "roi": {
+        "x": 0,
+        "y": 125,
+        "w": 768,
+        "h": 307
+      },
+      "meanDisplayLinearLuminance": 0.08199497835279053,
+      "p10": 0.02105529957477729,
+      "p50": 0.07102063359219875,
+      "p90": 0.15967874245991281,
+      "contrastP90P10": 7.583779176013067,
+      "meanDisplaySRGB": [
+        0.3664273567734282,
+        0.2812012332078853,
+        0.13647138992698826
+      ],
+      "meanLuminanceDelta": 0.012574658107288557,
+      "changedFractionAbove8Bytes": 0.6144815418023887,
+      "lighterFractionAbovePoint005": 0.6197619774701412,
+      "darkerFractionAbovePoint005": 0.16723076140065146
+    },
+    {
+      "camera": "mountain-wide",
+      "variant": "baseline",
+      "roi": {
+        "x": 350,
+        "y": 145,
+        "w": 418,
+        "h": 287
+      },
+      "meanDisplayLinearLuminance": 0.0843196112186553,
+      "p10": 0.02822568719363633,
+      "p50": 0.0870563044297997,
+      "p90": 0.14650554909529165,
+      "contrastP90P10": 5.190504241410367,
+      "meanDisplaySRGB": [
+        0.3635933122228677,
+        0.2929023680893794,
+        0.15886471755250758
+      ],
+      "meanLuminanceDelta": 0,
+      "changedFractionAbove8Bytes": 0,
+      "lighterFractionAbovePoint005": 0,
+      "darkerFractionAbovePoint005": 0
+    },
+    {
+      "camera": "mountain-wide",
+      "variant": "bias-only",
+      "roi": {
+        "x": 350,
+        "y": 145,
+        "w": 418,
+        "h": 287
+      },
+      "meanDisplayLinearLuminance": 0.08130976074158626,
+      "p10": 0.0280021055249438,
+      "p50": 0.07560294939239574,
+      "p90": 0.14516773567129154,
+      "contrastP90P10": 5.184172152411132,
+      "meanDisplaySRGB": [
+        0.35541740094343127,
+        0.28738305918715584,
+        0.15709653682940616
+      ],
+      "meanLuminanceDelta": -0.003009850477071435,
+      "changedFractionAbove8Bytes": 0.1465248487071337,
+      "lighterFractionAbovePoint005": 0.06785255822483037,
+      "darkerFractionAbovePoint005": 0.12395178633946284
+    },
+    {
+      "camera": "mountain-wide",
+      "variant": "balance",
+      "roi": {
+        "x": 350,
+        "y": 145,
+        "w": 418,
+        "h": 287
+      },
+      "meanDisplayLinearLuminance": 0.08264543138973068,
+      "p10": 0.020092264985884407,
+      "p50": 0.07607658886703411,
+      "p90": 0.158578251865107,
+      "contrastP90P10": 7.892502511614014,
+      "meanDisplaySRGB": [
+        0.3609268377675657,
+        0.2781542025143895,
+        0.1442349842261041
+      ],
+      "meanLuminanceDelta": -0.0016741798289354546,
+      "changedFractionAbove8Bytes": 0.3778987379757598,
+      "lighterFractionAbovePoint005": 0.4342730440291416,
+      "darkerFractionAbovePoint005": 0.43033026024040144
+    },
+    {
+      "camera": "mountain-wide",
+      "variant": "balance-neutral",
+      "roi": {
+        "x": 350,
+        "y": 145,
+        "w": 418,
+        "h": 287
+      },
+      "meanDisplayLinearLuminance": 0.09325603926639975,
+      "p10": 0.020131624010145416,
+      "p50": 0.0862801293679472,
+      "p90": 0.1818727026992131,
+      "contrastP90P10": 9.034179388983103,
+      "meanDisplaySRGB": [
+        0.3626058102084456,
+        0.29861120781621997,
+        0.16868504899936812
+      ],
+      "meanLuminanceDelta": 0.008936428047741626,
+      "changedFractionAbove8Bytes": 0.705533234416418,
+      "lighterFractionAbovePoint005": 0.5107780537819049,
+      "darkerFractionAbovePoint005": 0.38916026207425436
+    }
+  ]
+}

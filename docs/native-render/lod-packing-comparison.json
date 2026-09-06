@@ -1,0 +1,12 @@
+{
+  "before": "frames/cycle-03/mountain-wide-mode-0-960.png",
+  "after": "frames/lod-packing-retry/mountain-wide-mode-0-960.png",
+  "bytes": 1555200,
+  "differingChannels": 0,
+  "meanAbsoluteChannelDifference": 0,
+  "maxChannelDifference": 0,
+  "trianglesBefore": 64316358,
+  "trianglesAfter": 55834837,
+  "callsBefore": 2053,
+  "callsAfter": 2017
+}

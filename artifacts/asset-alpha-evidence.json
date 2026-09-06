@@ -1,0 +1,62 @@
+[
+  {
+    "file": "island-tree-far.glb",
+    "materialIndex": 1,
+    "materialName": "island_tree_02_leaves",
+    "baseColorTextureIndex": 3,
+    "imageIndex": 4,
+    "imageName": "island_tree_02_leaves_diff-island_tree_02_leaves_alpha",
+    "mode": "RGBA",
+    "alphaRange": [
+      0,
+      255
+    ],
+    "fullyTransparentPixels": 780331,
+    "fullyOpaquePixels": 256574
+  },
+  {
+    "file": "island-tree-hero.glb",
+    "materialIndex": 1,
+    "materialName": "island_tree_02_leaves",
+    "baseColorTextureIndex": 3,
+    "imageIndex": 4,
+    "imageName": "island_tree_02_leaves_diff-island_tree_02_leaves_alpha",
+    "mode": "RGBA",
+    "alphaRange": [
+      0,
+      255
+    ],
+    "fullyTransparentPixels": 780331,
+    "fullyOpaquePixels": 256574
+  },
+  {
+    "file": "island-tree-medium.glb",
+    "materialIndex": 1,
+    "materialName": "island_tree_02_leaves",
+    "baseColorTextureIndex": 3,
+    "imageIndex": 4,
+    "imageName": "island_tree_02_leaves_diff-island_tree_02_leaves_alpha",
+    "mode": "RGBA",
+    "alphaRange": [
+      0,
+      255
+    ],
+    "fullyTransparentPixels": 780331,
+    "fullyOpaquePixels": 256574
+  },
+  {
+    "file": "palm-tree.glb",
+    "materialIndex": 0,
+    "materialName": "Palm bark and fronds",
+    "baseColorTextureIndex": 0,
+    "imageIndex": 0,
+    "imageName": "Palm diffuse alpha",
+    "mode": "RGBA",
+    "alphaRange": [
+      0,
+      255
+    ],
+    "fullyTransparentPixels": 238189,
+    "fullyOpaquePixels": 767230
+  }
+]

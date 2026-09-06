@@ -1,0 +1,66 @@
+{
+  "completed": [
+    {
+      "camera": "beach-transition",
+      "time": 10,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/frames/beach-color-grass/beach-transition-mode-0-1280.png",
+      "render": {
+        "frame": 29,
+        "calls": 674,
+        "triangles": 64392842,
+        "points": 656,
+        "lines": 0
+      },
+      "programs": 73,
+      "glError": 0
+    },
+    {
+      "camera": "sand-detail",
+      "time": 11,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/frames/beach-color-grass/sand-detail-mode-0-1280.png",
+      "render": {
+        "frame": 58,
+        "calls": 678,
+        "triangles": 61557280,
+        "points": 656,
+        "lines": 0
+      },
+      "programs": 73,
+      "glError": 0
+    },
+    {
+      "camera": "wet-sand",
+      "time": 11.5,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/frames/beach-color-grass/wet-sand-mode-0-1280.png",
+      "render": {
+        "frame": 87,
+        "calls": 693,
+        "triangles": 51037338,
+        "points": 656,
+        "lines": 0
+      },
+      "programs": 73,
+      "glError": 0
+    },
+    {
+      "camera": "headland",
+      "time": 14,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/frames/beach-color-grass/headland-mode-0-1280.png",
+      "render": {
+        "frame": 116,
+        "calls": 654,
+        "triangles": 47188930,
+        "points": 656,
+        "lines": 0
+      },
+      "programs": 73,
+      "glError": 0
+    }
+  ],
+  "requested": [
+    "beach-transition",
+    "sand-detail",
+    "wet-sand",
+    "headland"
+  ]
+}

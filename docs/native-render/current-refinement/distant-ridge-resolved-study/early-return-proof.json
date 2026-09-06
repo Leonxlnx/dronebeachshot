@@ -1,0 +1,18 @@
+{
+  "vertices": 817600,
+  "rings": 292,
+  "mismatches": 0,
+  "maxFloatError": 0,
+  "examples": [],
+  "previousSHA256": "1ff431c5374882e59dc2caed6cfd9c6e51e388b2587ddeb4e1311eb495be0d1e",
+  "proposedSHA256": "1ff431c5374882e59dc2caed6cfd9c6e51e388b2587ddeb4e1311eb495be0d1e",
+  "heightBuffersByteEqual": true,
+  "normalSamples": 5087,
+  "normalMaxComponentError": 8.049116928532385e-15,
+  "normalFloatMismatches": 0,
+  "oldWallSeconds": 16.739935138,
+  "fastWallSeconds": 9.151124053,
+  "timingCaveat": "One exhaustive equivalence run while other native work may compete for CPU; not a consumer performance benchmark.",
+  "referenceTerrainSHA256": "051d98a77a1516ed2ada31ea93e2477b27d6b16e38435e1ff92f3dcee3e225eb",
+  "optimizedTerrainSHA256": "16519e8832d61ff078e7c38d1f048ab94b2e534767f5b7be7f68b11bc8d3ff1b"
+}

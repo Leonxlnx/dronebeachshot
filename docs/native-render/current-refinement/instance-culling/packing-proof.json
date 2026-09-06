@@ -1,0 +1,288 @@
+{
+  "cameraSourceSHA256": "1729a9a1c5505bd1dfe074db21e5f558c8b81634e47029863e1af58b36bb171b",
+  "independentBufferBytes": 10534360,
+  "twinDisposal": {
+    "twinDisposed": 2260,
+    "sharedGeometryDisposed": 0,
+    "sharedMaterialDisposed": 0
+  },
+  "method": "CPU test of the actual scratch packing helper, production source GLB sphere metadata checked by source SHA, actual Float32 placement matrices/colors, independent plane-intersection oracle, production high/balanced/low LOD weights, real refraction callbacks executed in a no-GPU renderer stub, repeated interleaved camera/quality seeks.",
+  "registeredMeshes": 2260,
+  "extraSphereCacheBytes": 4435520,
+  "refractionOmissionChecks": 5736,
+  "sourceGeometryHashes": [
+    {
+      "file": "island-tree-near.glb",
+      "sha256": "c81e6ece28b7646aa59f2c2c68142619b2790d0db62c5d829278fec92e4373d7"
+    },
+    {
+      "file": "island-tree-hero.glb",
+      "sha256": "8d892e4a572bb30804aecc3a88adb57e92b852220ccf8f59068f400cf6713a5b"
+    },
+    {
+      "file": "island-tree-medium.glb",
+      "sha256": "2c210426ac4e761261b6c4dfc8c250fedd72ca1787de918abc965d4d3f32be64"
+    },
+    {
+      "file": "syringa-tree-near.glb",
+      "sha256": "cb794443092f8b4b7b257c4d86f42e6f2b0ec91a2f95d2d3f34043f0a3b49b07"
+    },
+    {
+      "file": "syringa-tree-hero.glb",
+      "sha256": "df11a6b9f0a2bf51b8ffd5bb12e4a18a864b47d767177cd53ad263996d8a5f2f"
+    },
+    {
+      "file": "syringa-tree-medium.glb",
+      "sha256": "c4ef49e31bf9fb6565ccfdfa7dfa05b84ca6a9054401f2362c81c6f2538770de"
+    },
+    {
+      "file": "palm-tree.glb",
+      "sha256": "5e3f42cc9bd4a52d1e4249184fc8cba7bf87acf91b1403711115acaa7f2ca0f6"
+    }
+  ],
+  "helperSHA256": "1755cef4f6446c91579944cd57fdcbbb584e014b1ec2e1807038ca35128164a0",
+  "candidateVegetationSHA256": "1c965d5fce5b5579ae0a0d56c5f831827b2a12dc863e59ff6b26cd54fbc250c3",
+  "results": [
+    {
+      "name": "flight-0",
+      "tier": "high",
+      "fov": 42,
+      "repeated": false,
+      "sunStats": {
+        "tested": 18244,
+        "kept": 13457,
+        "culled": 4787,
+        "meshes": 446
+      },
+      "sunProof": {
+        "packingSHA256": "5b96e074e4ee15e5ffee65b6d754b8d311fd229145895cc36f039b990063ca66",
+        "matricesByteEqual": 13457,
+        "colorsByteEqual": 13457,
+        "lodWeightsUnchanged": 13457,
+        "triangles": 30987326,
+        "offscreenShadowCasters": 12797
+      },
+      "mainStats": {
+        "tested": 18244,
+        "kept": 695,
+        "culled": 17549,
+        "meshes": 446
+      },
+      "mainProof": {
+        "packingSHA256": "255b2f400d62b0a5b5af49507e0b52dc59ce7d8081014259f212299f00a07485",
+        "matricesByteEqual": 695,
+        "colorsByteEqual": 695,
+        "lodWeightsUnchanged": 695,
+        "triangles": 4029677,
+        "offscreenShadowCasters": 0
+      }
+    },
+    {
+      "name": "wet-sand",
+      "tier": "high",
+      "fov": 54,
+      "repeated": false,
+      "sunStats": {
+        "tested": 17470,
+        "kept": 13009,
+        "culled": 4461,
+        "meshes": 434
+      },
+      "sunProof": {
+        "packingSHA256": "bd0432c289a53754907a3eb0b9a7342bdef8486ddbf3764ea1ddc27a75308df7",
+        "matricesByteEqual": 13009,
+        "colorsByteEqual": 13009,
+        "lodWeightsUnchanged": 13009,
+        "triangles": 16060720,
+        "offscreenShadowCasters": 10510
+      },
+      "mainStats": {
+        "tested": 17470,
+        "kept": 3038,
+        "culled": 14432,
+        "meshes": 434
+      },
+      "mainProof": {
+        "packingSHA256": "7bc4c2b7318bb1acbcc626aa4323c7e00676ab5ec8cffc4ec461945210801474",
+        "matricesByteEqual": 3038,
+        "colorsByteEqual": 3038,
+        "lodWeightsUnchanged": 3038,
+        "triangles": 2952586,
+        "offscreenShadowCasters": 0
+      }
+    },
+    {
+      "name": "flight-5",
+      "tier": "balanced",
+      "fov": 42,
+      "repeated": false,
+      "sunStats": {
+        "tested": 16804,
+        "kept": 12343,
+        "culled": 4461,
+        "meshes": 436
+      },
+      "sunProof": {
+        "packingSHA256": "7da1457437d6632b7da90d379b11c039669856fedd1c5340285685a23ca88cde",
+        "matricesByteEqual": 12343,
+        "colorsByteEqual": 12343,
+        "lodWeightsUnchanged": 12343,
+        "triangles": 9074792,
+        "offscreenShadowCasters": 12010
+      },
+      "mainStats": {
+        "tested": 16804,
+        "kept": 333,
+        "culled": 16471,
+        "meshes": 436
+      },
+      "mainProof": {
+        "packingSHA256": "894105de5b7bb853e3bc1c78de8c00ef1acf0bfed03e28eea6463f5892d0c07e",
+        "matricesByteEqual": 333,
+        "colorsByteEqual": 333,
+        "lodWeightsUnchanged": 333,
+        "triangles": 666,
+        "offscreenShadowCasters": 0
+      }
+    },
+    {
+      "name": "flight-0",
+      "tier": "high",
+      "fov": 42,
+      "repeated": true,
+      "sunStats": {
+        "tested": 18244,
+        "kept": 13457,
+        "culled": 4787,
+        "meshes": 446
+      },
+      "sunProof": {
+        "packingSHA256": "5b96e074e4ee15e5ffee65b6d754b8d311fd229145895cc36f039b990063ca66",
+        "matricesByteEqual": 13457,
+        "colorsByteEqual": 13457,
+        "lodWeightsUnchanged": 13457,
+        "triangles": 30987326,
+        "offscreenShadowCasters": 12797
+      },
+      "mainStats": {
+        "tested": 18244,
+        "kept": 695,
+        "culled": 17549,
+        "meshes": 446
+      },
+      "mainProof": {
+        "packingSHA256": "255b2f400d62b0a5b5af49507e0b52dc59ce7d8081014259f212299f00a07485",
+        "matricesByteEqual": 695,
+        "colorsByteEqual": 695,
+        "lodWeightsUnchanged": 695,
+        "triangles": 4029677,
+        "offscreenShadowCasters": 0
+      }
+    },
+    {
+      "name": "wet-sand",
+      "tier": "low",
+      "fov": 54,
+      "repeated": false,
+      "sunStats": {
+        "tested": 13861,
+        "kept": 9400,
+        "culled": 4461,
+        "meshes": 226
+      },
+      "sunProof": {
+        "packingSHA256": "286d56f2e5d345181761266e78917e986d8b14544818d6d03b88f302cc584646",
+        "matricesByteEqual": 9400,
+        "colorsByteEqual": 9400,
+        "lodWeightsUnchanged": 9400,
+        "triangles": 18800,
+        "offscreenShadowCasters": 7763
+      },
+      "mainStats": {
+        "tested": 13861,
+        "kept": 2176,
+        "culled": 11685,
+        "meshes": 226
+      },
+      "mainProof": {
+        "packingSHA256": "c385b6ce24cfe3b7b769815678810721b285a9085b9bc2c53387399ca33883f1",
+        "matricesByteEqual": 2176,
+        "colorsByteEqual": 2176,
+        "lodWeightsUnchanged": 2176,
+        "triangles": 4352,
+        "offscreenShadowCasters": 0
+      }
+    },
+    {
+      "name": "wet-sand",
+      "tier": "high",
+      "fov": 54,
+      "repeated": true,
+      "sunStats": {
+        "tested": 17470,
+        "kept": 13009,
+        "culled": 4461,
+        "meshes": 434
+      },
+      "sunProof": {
+        "packingSHA256": "bd0432c289a53754907a3eb0b9a7342bdef8486ddbf3764ea1ddc27a75308df7",
+        "matricesByteEqual": 13009,
+        "colorsByteEqual": 13009,
+        "lodWeightsUnchanged": 13009,
+        "triangles": 16060720,
+        "offscreenShadowCasters": 10510
+      },
+      "mainStats": {
+        "tested": 17470,
+        "kept": 3038,
+        "culled": 14432,
+        "meshes": 434
+      },
+      "mainProof": {
+        "packingSHA256": "7bc4c2b7318bb1acbcc626aa4323c7e00676ab5ec8cffc4ec461945210801474",
+        "matricesByteEqual": 3038,
+        "colorsByteEqual": 3038,
+        "lodWeightsUnchanged": 3038,
+        "triangles": 2952586,
+        "offscreenShadowCasters": 0
+      }
+    },
+    {
+      "name": "flight-0",
+      "tier": "high",
+      "fov": 42,
+      "repeated": true,
+      "sunStats": {
+        "tested": 18244,
+        "kept": 13457,
+        "culled": 4787,
+        "meshes": 446
+      },
+      "sunProof": {
+        "packingSHA256": "5b96e074e4ee15e5ffee65b6d754b8d311fd229145895cc36f039b990063ca66",
+        "matricesByteEqual": 13457,
+        "colorsByteEqual": 13457,
+        "lodWeightsUnchanged": 13457,
+        "triangles": 30987326,
+        "offscreenShadowCasters": 12797
+      },
+      "mainStats": {
+        "tested": 18244,
+        "kept": 695,
+        "culled": 17549,
+        "meshes": 446
+      },
+      "mainProof": {
+        "packingSHA256": "255b2f400d62b0a5b5af49507e0b52dc59ce7d8081014259f212299f00a07485",
+        "matricesByteEqual": 695,
+        "colorsByteEqual": 695,
+        "lodWeightsUnchanged": 695,
+        "triangles": 4029677,
+        "offscreenShadowCasters": 0
+      }
+    }
+  ],
+  "extraSceneMeshes": 2260,
+  "independentMatrixBytes": 8871040,
+  "independentColorBytes": 1663320
+}

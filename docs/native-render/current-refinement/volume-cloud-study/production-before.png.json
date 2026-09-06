@@ -1,0 +1,27 @@
+{
+  "method": "Native ANGLE production createAtmosphere; sky-only investigation, not browser QA",
+  "module": "/workspace/sites/last-light-bay/src/world/atmosphere.ts",
+  "moduleSHA256": "18ed6276e4c28de5a99783a2435abf49b4337f3335db668cc3cff59ddf002bc5",
+  "cloudModuleFile": "/workspace/sites/last-light-bay/src/world/clouds.ts",
+  "cloudModuleSHA256": "2d9ef05ceb56fb65ff9983771d214d233a98955170b30172140837bec15b749f",
+  "width": 960,
+  "height": 540,
+  "time": 17,
+  "camera": {
+    "position": [
+      10,
+      4,
+      -28
+    ],
+    "target": [
+      -365,
+      80,
+      -940
+    ],
+    "fov": 54
+  },
+  "shaderErrors": [],
+  "glError": 0,
+  "renderMilliseconds": 1869,
+  "renderer": "ANGLE (Mesa, llvmpipe (LLVM 20.1.2 256 bits), OpenGL ES 3.2 Mesa 25.2.8-0ubuntu0.24.04.2)"
+}

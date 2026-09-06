@@ -1,0 +1,31 @@
+{
+  "status": "blocked",
+  "test": "First live WebGL2 render",
+  "observed": "THREE.WebGLRenderer: A WebGL context could not be created. GL_VENDOR = Disabled, GL_RENDERER = Disabled, Sandboxed = yes, ErrorMessage = BindToCurrentSequence failed",
+  "impact": [
+    "No rendered baseline",
+    "No valid visual refinement cycle",
+    "No visual quality claim",
+    "No final screenshot gallery",
+    "No final deterministic video capture"
+  ],
+  "source": "Cloud browser console on http://terminal.local:4173/?inspect=1&camera=mountain-wide",
+  "fallbackPolicy": "Do not fabricate images or substitute a prerendered scene. Browser skill exposes only the selected browser; no documented GPU enable capability.",
+  "lowResourceFallback": "Verified failure after antialias=false, default-power WebGL2 attempt",
+  "secondaryInfrastructureIssue": "The single shared preview was replaced by another active project during subsequent inspection. A later screenshot showed that other project and was rejected as evidence. The Last Light Bay DOM and console error logs are the primary proof.",
+  "continuationAttempt": {
+    "date": "2026-09-05",
+    "firstNavigation": "ERR_CONNECTION_REFUSED at allowed terminal.local:4173 after supervised start",
+    "boundedRetry": "DOM identified unrelated Forma editor, not Last Light Bay",
+    "result": "No valid scene preview; unrelated process untouched; no image accepted as scene evidence"
+  },
+  "latestAttempt": {
+    "at": "2026-09-05T03:43:25.744529+00:00",
+    "url": "http://terminal.local:4173/?inspect=1&camera=mountain-wide&quality=high",
+    "correctApplicationObserved": true,
+    "sceneLabel": "Last Light Bay interactive three-dimensional coastal environment",
+    "alert": "The scene could not load. Error: WebGL2 is unavailable in this browser, including the low-resource context.",
+    "gpuSceneRendered": false,
+    "scope": "Canonical browser DOM after supervised preview restart; no scene quality evidence"
+  }
+}

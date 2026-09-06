@@ -1,0 +1,81 @@
+{
+  "completed": [
+    {
+      "camera": "mountain-wide",
+      "time": 2,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/frames/baseline/mountain-wide-mode-0-640.png",
+      "render": {
+        "frame": 28,
+        "calls": 2032,
+        "triangles": 43684084,
+        "points": 928,
+        "lines": 0
+      },
+      "programs": 72,
+      "glError": 0
+    },
+    {
+      "camera": "flight-0",
+      "time": 0,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/frames/baseline/flight-0-mode-0-640.png",
+      "render": {
+        "frame": 56,
+        "calls": 1244,
+        "triangles": 40468864,
+        "points": 928,
+        "lines": 0
+      },
+      "programs": 76,
+      "glError": 0
+    },
+    {
+      "camera": "descent-reveal",
+      "time": 8,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/frames/baseline/descent-reveal-mode-0-640.png",
+      "render": {
+        "frame": 84,
+        "calls": 1130,
+        "triangles": 66196305,
+        "points": 928,
+        "lines": 0
+      },
+      "programs": 76,
+      "glError": 0
+    },
+    {
+      "camera": "wet-sand",
+      "time": 11.5,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/frames/baseline/wet-sand-mode-0-640.png",
+      "render": {
+        "frame": 112,
+        "calls": 1306,
+        "triangles": 64077153,
+        "points": 928,
+        "lines": 0
+      },
+      "programs": 76,
+      "glError": 0
+    },
+    {
+      "camera": "sunset-reflection",
+      "time": 17,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/frames/baseline/sunset-reflection-mode-0-640.png",
+      "render": {
+        "frame": 140,
+        "calls": 843,
+        "triangles": 30254034,
+        "points": 928,
+        "lines": 0
+      },
+      "programs": 76,
+      "glError": 0
+    }
+  ],
+  "requested": [
+    "mountain-wide",
+    "flight-0",
+    "descent-reveal",
+    "wet-sand",
+    "sunset-reflection"
+  ]
+}

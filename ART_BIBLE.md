@@ -1,0 +1,10 @@
+# Art bible
+Visual thesis: a monumental fractured coastal ridge falls into a small luminous crescent of water; warm low sun rakes the rock while a dense, varied forest retains cool readable shadows.
+
+Remote fictional humid subtropical bay, late summer; steep weathered limestone/granite-like coastal towers, not volcanic cones. Playable hero region 900 m across with distant continuations. Main summit 425 m above sea; connected distant crests remain below 410 m. Three coherent tree families: spreading broadleaf, narrow evergreen broadleaf, coastal palm; young/mature/damaged forms. Palms favor low sheltered shelves. No conifer asset mismatch.
+
+Sand: pale buff dry sand, compact beige, dynamic dark wet swash zone, submerged sand with stones. Ocean: teal shallows → desaturated deep blue, copper sun glints. Sun direction (-0.38,0.10,-0.92), shared by disk, lighting and specular. Sky upper steel blue, horizon warm apricot; no global orange filter. Exposure starts 1.0, tune by actual frames. Ground remains readable. Saturation restrained, rock roughness .72–.95, dry sand .95, wet sand .22–.5; water roughness .08–.22. Wind from sea inland with slowly moving gust field.
+
+Camera: one 20 s continuous shot from the highest ridge, downhill to bay, low along curved beach, then out toward ocean horizon. 42° vertical cinematic FOV, equivalent to 26.38 mm on a 16:9 full-frame image; stable horizon and limited bank. Separate path and look curves; measured clearance. Full 3D geometry and shaders only; no image background, billboard cloud panorama, video plane, or hidden empty terrain.
+
+Reference notes: all nine uploads inspected at full supplied resolution. 01/02 establish long rugged coastline and golden sea path; 03 emphasizes visible submerged rocks and fragmented surf; 04 steep hero tower and nested bay; 05/06 reverse coast orientation with strong exposed rock faces; 07/09 foreground palm leaflet detail and layered broadleaf canopy; 08 dry/wet/submerged beach gradation. Images are user references, not production assets or publicly redistributed sources.

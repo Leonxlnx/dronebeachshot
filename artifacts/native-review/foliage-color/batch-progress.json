@@ -1,0 +1,36 @@
+{
+  "completed": [
+    {
+      "camera": "headland",
+      "time": 14,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/frames/foliage-color/headland-mode-0-960.png",
+      "render": {
+        "frame": 28,
+        "calls": 1149,
+        "triangles": 53338708,
+        "points": 624,
+        "lines": 0
+      },
+      "programs": 76,
+      "glError": 0
+    },
+    {
+      "camera": "mountain-wide",
+      "time": 2,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/frames/foliage-color/mountain-wide-mode-0-960.png",
+      "render": {
+        "frame": 56,
+        "calls": 1402,
+        "triangles": 38728447,
+        "points": 624,
+        "lines": 0
+      },
+      "programs": 76,
+      "glError": 0
+    }
+  ],
+  "requested": [
+    "headland",
+    "mountain-wide"
+  ]
+}

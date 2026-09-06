@@ -1,0 +1,188 @@
+{
+  "format": "rock-geometry-v1",
+  "family": "rock_moss_set_01",
+  "sourceGlbSha256": "864ece45cf6cafeb7fab5ab65704b1810622ba411da2026ebad847a0a08eab2f",
+  "source": "https://polyhaven.com/a/rock_moss_set_01",
+  "license": "CC0-1.0",
+  "sceneName": "Scene",
+  "byteOrder": "little-endian",
+  "payloadBytes": 786620,
+  "meshes": [
+    {
+      "name": "rock_moss_set_01_rock01",
+      "geometryName": "modelShape.005",
+      "transform": {
+        "translation": [
+          -2.799999952316284,
+          0,
+          -2.122781276702881
+        ]
+      },
+      "position": {
+        "byteOffset": 0,
+        "byteLength": 72936,
+        "count": 6078,
+        "componentType": 5126,
+        "itemSize": 3,
+        "sha256": "45a6e384295591a6461751b8c011af95365dbd4989f2ba3c1c6b9ba20a8060ca"
+      },
+      "index": {
+        "byteOffset": 72936,
+        "byteLength": 66000,
+        "count": 33000,
+        "componentType": 5123,
+        "itemSize": 1,
+        "sha256": "a250e8d14d3dc57c0514e06326aeda4ff46b739d2304c7c97b24d54ee04b9196"
+      }
+    },
+    {
+      "name": "rock_moss_set_01_rock02",
+      "geometryName": "modelShape.002",
+      "transform": {
+        "translation": [
+          0,
+          0,
+          -2.122781276702881
+        ]
+      },
+      "position": {
+        "byteOffset": 138936,
+        "byteLength": 74304,
+        "count": 6192,
+        "componentType": 5126,
+        "itemSize": 3,
+        "sha256": "c8f5bd99f492c803894986282fdc57f05d0443ac5b15e57365acb3d21a24475f"
+      },
+      "index": {
+        "byteOffset": 213240,
+        "byteLength": 65976,
+        "count": 32988,
+        "componentType": 5123,
+        "itemSize": 1,
+        "sha256": "1bcbede08901bd838b4942e4debc79a141072596107f1ce5797672d4c694ac47"
+      }
+    },
+    {
+      "name": "rock_moss_set_01_rock03",
+      "geometryName": "modelShape",
+      "transform": {
+        "translation": [
+          3,
+          0,
+          -2.122781276702881
+        ]
+      },
+      "position": {
+        "byteOffset": 279216,
+        "byteLength": 32892,
+        "count": 2741,
+        "componentType": 5126,
+        "itemSize": 3,
+        "sha256": "ba13fcbea84d3623800f75d7801166193cd8745032c03eed86b0a36c34e04df0"
+      },
+      "index": {
+        "byteOffset": 312108,
+        "byteLength": 30000,
+        "count": 15000,
+        "componentType": 5123,
+        "itemSize": 1,
+        "sha256": "c967f98745c7b10160f20b48b149ce90a4fb05b5b2028e8760ca8073450ecc62"
+      }
+    },
+    {
+      "name": "rock_moss_set_01_rock04",
+      "geometryName": "medium.001",
+      "transform": {
+        "translation": [
+          -2.700000047683716,
+          0,
+          1.5772186517715454
+        ]
+      },
+      "position": {
+        "byteOffset": 342108,
+        "byteLength": 68292,
+        "count": 5691,
+        "componentType": 5126,
+        "itemSize": 3,
+        "sha256": "5d32f151be6128e60a2775540e755decfc988382f6232c4cdfa87aedd4f0fa68"
+      },
+      "index": {
+        "byteOffset": 410400,
+        "byteLength": 63534,
+        "count": 31767,
+        "componentType": 5123,
+        "itemSize": 1,
+        "sha256": "edb509da15f5359eb2f8f72c70269f308a73719f10f1eac965c94e7f5bdb8ee0"
+      }
+    },
+    {
+      "name": "rock_moss_set_01_rock05",
+      "geometryName": "modelShape.003",
+      "transform": {
+        "translation": [
+          0.15000000596046448,
+          0,
+          1.4772186279296875
+        ]
+      },
+      "position": {
+        "byteOffset": 473936,
+        "byteLength": 102456,
+        "count": 8538,
+        "componentType": 5126,
+        "itemSize": 3,
+        "sha256": "fbe45f2e7290cb9cc31981d960a8ba211b5bf5931d46f8decf2c1af2962e98ea"
+      },
+      "index": {
+        "byteOffset": 576392,
+        "byteLength": 99288,
+        "count": 49644,
+        "componentType": 5123,
+        "itemSize": 1,
+        "sha256": "9f6ff7718bc06c03612646050d7d1bbbf3b98a8a18f6752f3e4e822a5156e007"
+      }
+    },
+    {
+      "name": "rock_moss_set_01_rock06",
+      "geometryName": "mesh1-geometry.003",
+      "transform": {
+        "translation": [
+          2.799999952316284,
+          0,
+          1.5772186517715454
+        ]
+      },
+      "position": {
+        "byteOffset": 675680,
+        "byteLength": 56976,
+        "count": 4748,
+        "componentType": 5126,
+        "itemSize": 3,
+        "sha256": "f20f743cd44c86e4ce4dc0d07b650b0fcd40b9d774a708166f21fdaa7905c60f"
+      },
+      "index": {
+        "byteOffset": 732656,
+        "byteLength": 53964,
+        "count": 26982,
+        "componentType": 5123,
+        "itemSize": 1,
+        "sha256": "31f575eeecdbe7eb5da1d1d8796e705d8eb8f192e17a6060b1347cedc416389f"
+      }
+    }
+  ],
+  "omitted": [
+    "normals",
+    "UVs",
+    "images",
+    "materials"
+  ],
+  "changes": "Only original POSITION and index byte ranges copied. No reordering, simplification, quantization or transformation.",
+  "pack": {
+    "path": "/workspace/scratch/2b912ce37941/native-render/hero-rock-source/rock_moss_set_01_geometry.bin",
+    "bytes": 789976,
+    "sha256": "581b4f5b375b1eb2bed91178120d31811d09001904f43ee5f78e0168b61f6e42",
+    "metadataBytes": 3339,
+    "payloadOffset": 3356
+  }
+}

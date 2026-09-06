@@ -1,0 +1,74 @@
+{
+  "method": "Native actual terrain, rocks, coastal field, atmosphere, refraction and ocean; vegetation omitted to isolate water; unchanged geometry and fixed paired time/camera",
+  "shaderErrors": [],
+  "glError": 0,
+  "rows": [
+    {
+      "camera": "aerial",
+      "time": 5,
+      "variant": "before",
+      "mode": 0,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/ocean-groups/aerial-before-mode-0.png",
+      "cumulativeRendererTriangles": 8497590
+    },
+    {
+      "camera": "aerial",
+      "time": 5,
+      "variant": "after",
+      "mode": 0,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/ocean-groups/aerial-after-mode-0.png",
+      "cumulativeRendererTriangles": 14541990
+    },
+    {
+      "camera": "aerial",
+      "time": 5,
+      "variant": "before",
+      "mode": 10,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/ocean-groups/aerial-before-mode-10.png",
+      "cumulativeRendererTriangles": 20584470
+    },
+    {
+      "camera": "aerial",
+      "time": 5,
+      "variant": "after",
+      "mode": 10,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/ocean-groups/aerial-after-mode-10.png",
+      "cumulativeRendererTriangles": 26626950
+    },
+    {
+      "camera": "low",
+      "time": 12.8,
+      "variant": "before",
+      "mode": 0,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/ocean-groups/low-before-mode-0.png",
+      "cumulativeRendererTriangles": 34804540
+    },
+    {
+      "camera": "low",
+      "time": 12.8,
+      "variant": "after",
+      "mode": 0,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/ocean-groups/low-after-mode-0.png",
+      "cumulativeRendererTriangles": 40528940
+    },
+    {
+      "camera": "low",
+      "time": 12.8,
+      "variant": "before",
+      "mode": 10,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/ocean-groups/low-before-mode-10.png",
+      "cumulativeRendererTriangles": 46251420
+    },
+    {
+      "camera": "low",
+      "time": 12.8,
+      "variant": "after",
+      "mode": 10,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/ocean-groups/low-after-mode-10.png",
+      "cumulativeRendererTriangles": 51973900
+    }
+  ],
+  "oceanBeforeSHA256": "26a4af4a04e001e24adc0bf8bd2c3d533bb26af3320c223012f9853af0a27ed0",
+  "oceanCandidateSHA256": "8964bd6eae2973db4befa97ffc9b650b8f260acad78996657dfbee8386458c6f",
+  "metricNote": "Renderer triangle counter accumulated through paired calls; it is not per-frame performance. Geometry identity is verified separately in mathematical-check.json."
+}

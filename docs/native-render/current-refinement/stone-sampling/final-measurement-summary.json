@@ -1,0 +1,44 @@
+{
+  "sameFilterComparison": {
+    "before": {
+      "meanLuminance": 0.24115595601225143,
+      "stdLuminance": 0.07902859466085559,
+      "meanRGB": [
+        0.3440225926180105,
+        0.22281865104362453,
+        0.11990101932496033
+      ],
+      "tilePeriodCorrelationX": 0.838078512231213,
+      "tilePeriodCorrelationY": 0.9088245096699069,
+      "gradientRMS": 0.033274480418454606,
+      "laplacianRMS": 0.06855663003965805,
+      "maxMeanRowGradient": 0.06862837767033524,
+      "medianMeanRowGradient": 0.023039165243886234
+    },
+    "candidate": {
+      "meanLuminance": 0.24069816311052905,
+      "stdLuminance": 0.0772016190939356,
+      "meanRGB": [
+        0.3433173253395836,
+        0.22241315444081344,
+        0.1196539014856488
+      ],
+      "tilePeriodCorrelationX": 0.05779713118340413,
+      "tilePeriodCorrelationY": 0.03585448017088672,
+      "gradientRMS": 0.03403569640427726,
+      "laplacianRMS": 0.0721862065065946,
+      "maxMeanRowGradient": 0.042567116206202994,
+      "medianMeanRowGradient": 0.024760547164759554
+    },
+    "interpretation": "Actual scene-linear sampler output over8x8tiles. One full source tile=128px=5.7483m. Period correlation identifies coherent source repetition. Gradient/Laplacian RMS are detail-retention evidence, not proof of all image quality or physical reflectance."
+  },
+  "candidateToBaselineRatios": {
+    "meanLuminance": 0.9981016728373936,
+    "stdLuminance": 0.9768820947055898,
+    "gradientRMS": 1.0228768706903826,
+    "laplacianRMS": 1.0529427491525902
+  },
+  "finalNativePeakRSSMB": 1287.56640625,
+  "allGL0": true,
+  "allShader0": true
+}

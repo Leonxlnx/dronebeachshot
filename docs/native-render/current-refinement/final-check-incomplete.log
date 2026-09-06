@@ -1,0 +1,38 @@
+LAST_LIGHT_BAY_INCOMPLETE
+- Missing artifacts/gallery/manifest.json
+- Missing artifacts/gallery/contact-sheet.jpg
+- Missing artifacts/before-after.jpg
+- Missing artifacts/final-video/last-light-bay-1440p60.mp4
+- Missing artifacts/final-video/last-light-bay-1080p60.mp4
+- Missing artifacts/final-video/ffprobe.json
+- Missing artifacts/final-video/full-review.md
+- Missing artifacts/offline-check.json
+- 86400 verified active seconds not met: {"status":"blocked-incomplete","verifiedSeconds":22289.281999999996,"requiredSeconds":86400,"openInterval":null,"cycles":0}
+- Incomplete gate file GATES.md
+- Incomplete gate file gates/architecture.md
+- Incomplete gate file gates/atmosphere-light.md
+- Incomplete gate file gates/beach-wet-sand.md
+- Incomplete gate file gates/branch-atmosphere.md
+- Incomplete gate file gates/branch-film.md
+- Incomplete gate file gates/branch-land.md
+- Incomplete gate file gates/branch-runtime.md
+- Incomplete gate file gates/branch-shore.md
+- Incomplete gate file gates/breaking-waves.md
+- Incomplete gate file gates/deterministic-stills.md
+- Incomplete gate file gates/deterministic-video.md
+- Incomplete gate file gates/drone-camera.md
+- Incomplete gate file gates/final-verification.md
+- Incomplete gate file gates/geology-rocks.md
+- Incomplete gate file gates/hostile-review.md
+- Incomplete gate file gates/interaction-loading.md
+- Incomplete gate file gates/lod-performance.md
+- Incomplete gate file gates/ocean.md
+- Incomplete gate file gates/sky-sunset.md
+- Incomplete gate file gates/technical-review.md
+- Incomplete gate file gates/terrain-coastline.md
+- Incomplete gate file gates/trees-canopy.md
+- Incomplete gate file gates/understory-floor.md
+- Incomplete gate file gates/wind.md
+- Fewer than 8 verified material refinement cycles
+- artifacts/technical-review.json has unresolved blockers
+- artifacts/hostile-review.json has unresolved blockers

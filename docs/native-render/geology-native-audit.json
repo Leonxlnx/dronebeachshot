@@ -1,0 +1,46 @@
+{
+  "three": "185",
+  "method": "Isolated production terrain and actual rock/ground PBR maps, fixed neutral sun and sky fill, no vegetation, ocean, atmosphere or shadows; compares geology only",
+  "candidate": {
+    "bedrockCount": 212,
+    "talusCount": 110,
+    "clusters": 62,
+    "instances": 322,
+    "triangles": 14168,
+    "instancesIntersectingOrBelowTerrain": 322,
+    "minimumDeepestPenetrationMetres": 1.7375399079730967,
+    "largestVertexHeightAboveLocalTerrainMetres": 26.66517011527378
+  },
+  "original": {
+    "instances": 1450,
+    "triangles": 2349000,
+    "instancesIntersectingOrBelowTerrain": 1450,
+    "minimumDeepestPenetrationMetres": 0.9369819709669258,
+    "largestVertexHeightAboveLocalTerrainMetres": 34.43671061639077,
+    "penetrationMethod": "32 sampled vertices per instance"
+  },
+  "shaderErrors": [],
+  "coastalField": {
+    "resolution": 1024,
+    "texelMeters": [
+      1.171875,
+      1.513671875
+    ],
+    "textureBytes": 16777216,
+    "instancesVisited": 322,
+    "instancesRasterized": 109,
+    "trianglesVisited": 4796,
+    "trianglesRasterized": 2345,
+    "degenerateTriangles": 0,
+    "rockSamples": 3095,
+    "blockingSamples": 1677,
+    "buildMilliseconds": 6401.133711999999,
+    "terrainMilliseconds": 5949.9932910000025,
+    "rasterMilliseconds": 70.45573799999693,
+    "distanceMilliseconds": 133.22525299999688,
+    "shelter": "directional-advection-diffusion",
+    "shelterMilliseconds": 247.07783400000335,
+    "distanceMethod": "anisotropic-8-neighbor-chamfer"
+  },
+  "glError": 0
+}

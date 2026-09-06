@@ -1,0 +1,73 @@
+{
+  "file": "/workspace/scratch/2b912ce37941/native-render/syringa-coverage-upgrade/delivery/syringa-tree-near.glb",
+  "recommendedDestination": "public/assets/models/syringa-tree-near.glb",
+  "role": "near only; existing hero and medium unchanged pending scene-range evidence",
+  "SHA256": "cb794443092f8b4b7b257c4d86f42e6f2b0ec91a2f95d2d3f34043f0a3b49b07",
+  "bytes": 38586500,
+  "triangles": 689139,
+  "geometryBytes": 30720266,
+  "embeddedTextureBytes": 7861165,
+  "sourceUnits": "metres, source geometry identity scale and ground root[0,0,0]",
+  "productionScale": 3.0723712638923715,
+  "productionScaleExpression": "14/4.556740965694189",
+  "sourceBounds": [
+    [
+      -1.3089934587478638,
+      -0.02410384640097618,
+      -1.3826267719268799
+    ],
+    [
+      1.6077065467834473,
+      4.532637119293213,
+      2.9098503589630127
+    ]
+  ],
+  "sourceDimensions": [
+    2.916700005531311,
+    4.556740965694189,
+    4.292477130889893
+  ],
+  "boundsExactlyOriginal": true,
+  "allImageBytesUnchanged": true,
+  "allVertexAttributeValuesFromOriginal": true,
+  "allOriginalLeafComponentsPreserved": 30250,
+  "fullOriginalTrunkTriangles": 28293,
+  "unusedVertices": 0,
+  "nearCoverageComparisons": [
+    {
+      "lod": "near",
+      "elevation": 0,
+      "originalArea": 6803.96875,
+      "previousNearArea": 5480.78125,
+      "candidateArea": 6620.484375,
+      "candidateCoverageOfOriginal": 0.9730327428385088,
+      "previousCoverageOfOriginal": 0.8055271050443904
+    },
+    {
+      "lod": "near",
+      "elevation": 70,
+      "originalArea": 5163.890625,
+      "previousNearArea": 4054.265625,
+      "candidateArea": 5014.390625,
+      "candidateCoverageOfOriginal": 0.9710489607823558,
+      "previousCoverageOfOriginal": 0.7851184154389405
+    }
+  ],
+  "nativeEvidence": "../large-final and ../final-specimens",
+  "sourcePage": "https://polyhaven.com/a/tree_small_02",
+  "license": "CC0-1.0",
+  "author": "Rico Cilliers / Poly Haven",
+  "licensePage": "https://polyhaven.com/license",
+  "notes": [
+    "No leaf enlargement, painting or generated canopy geometry.",
+    "Index-only local simplification then actual vertex compaction and index remapping.",
+    "Branch UV1 is renumbered UV0 after unused UV removal; material texture references are correspondingly remapped. UV values and visible texture shape are unchanged.",
+    "Browser and consumer-GPU performance unverified. Near geometry is heavier; integrate only into the existing short near range."
+  ],
+  "boundsChangeFromPreviousNear": {
+    "minimumXSource": -0.007693648338317871,
+    "minimumXAtProductionScale": -0.02363774406914112,
+    "allOtherWholeTreeBoundsUnchanged": true,
+    "reason": "Restored original minimum-X leaf tip absent from prior reduced near"
+  }
+}

@@ -1,0 +1,14 @@
+--- a/src/render/ground-materials.ts
++++ b/src/render/ground-materials.ts
+@@ -52,7 +52,10 @@
+  vec3 surfaceARM=mix(triSample(uSoilARM,gp*.5,gn),triSample(uRockARM,gp*.32,gn),cliff);
+  surfaceARM=mix(surfaceARM,triSample(uMossARM,gp/3.,gn),moss*.76);surfaceARM=mix(surfaceARM,texture2D(uSandARM,gp.xz*.28).rgb,sediment);`)
+   .replace('#include <roughnessmap_fragment>',`#include <roughnessmap_fragment>
+- roughnessFactor=clamp(surfaceARM.g,.42,.98);roughnessFactor=mix(roughnessFactor,.20,wet*sediment);`)
++ roughnessFactor=clamp(surfaceARM.g,.42,.98);// A reflective water film exists on exposed wet sand. Submerged sediment
++ // keeps its granular roughness; the separate ocean owns the air/water interface.
++ float exposedFilm=wet*sediment*smoothstep(-.25,.10,gp.y);
++ roughnessFactor=mix(roughnessFactor,.20,exposedFilm);`)
+   .replace('#include <normal_fragment_maps>',`#include <normal_fragment_maps>
+  vec3 detail=mix(triDetail(uSoilN,gp*.5,gn),triDetail(uRockN,gp*.32,gn),cliff);detail=mix(detail,triDetail(uMossN,gp/3.,gn),moss*.76);
+  vec3 sandNormal=texture2D(uSandN,gp.xz*.28).xyz*2.-1.;detail=mix(detail,vec3(sandNormal.x,0.,sandNormal.y),sediment);

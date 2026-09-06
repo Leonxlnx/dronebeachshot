@@ -1,0 +1,1 @@
+Only mountain-wide completed before shared filesystem ENOSPC interrupted headland PNG encoding. The partial PNG was removed. Full rerun of the remaining three views is in shoulder-ocean-retry; do not treat this as a successful four-view batch.

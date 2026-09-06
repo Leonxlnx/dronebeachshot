@@ -1,0 +1,96 @@
+{
+  "method": "CPU scalar transcription of added smooth group/raft foam functions; exact source equality checks for unchanged production geometry/phase/film blocks; no rock mask in continuity probe",
+  "continuity": [
+    {
+      "epsilon": 0.001,
+      "maxGroupDelta": 0.00011207329070089811,
+      "maxFoamDelta": 0.0026136351928459645
+    },
+    {
+      "epsilon": 0.0005,
+      "maxGroupDelta": 0.00005603676866494656,
+      "maxFoamDelta": 0.001305538009647944
+    },
+    {
+      "epsilon": 0.0001,
+      "maxGroupDelta": 0.00001120737341386846,
+      "maxFoamDelta": 0.0002609015354697597
+    },
+    {
+      "epsilon": 0.00005,
+      "maxGroupDelta": 0.000005603687935507029,
+      "maxFoamDelta": 0.00013043784702315708
+    }
+  ],
+  "variation": [
+    {
+      "time": 0,
+      "before": {
+        "mean": 0.7797886589586084,
+        "std": 6.469737506366177e-15,
+        "fractionAbovePoint12": 1,
+        "longestContinuousArcMeters": 1001
+      },
+      "after": {
+        "mean": 0.28308109788992347,
+        "std": 0.2906229740562304,
+        "fractionAbovePoint12": 0.6093906093906094,
+        "longestContinuousArcMeters": 112
+      }
+    },
+    {
+      "time": 5,
+      "before": {
+        "mean": 0.7797886589586084,
+        "std": 6.439777327789409e-15,
+        "fractionAbovePoint12": 1,
+        "longestContinuousArcMeters": 1001
+      },
+      "after": {
+        "mean": 0.26750681669408544,
+        "std": 0.26510282981890715,
+        "fractionAbovePoint12": 0.6493506493506493,
+        "longestContinuousArcMeters": 109
+      }
+    },
+    {
+      "time": 12.8,
+      "before": {
+        "mean": 0.7797886589586084,
+        "std": 6.318898123765406e-15,
+        "fractionAbovePoint12": 1,
+        "longestContinuousArcMeters": 1001
+      },
+      "after": {
+        "mean": 0.25730814157025567,
+        "std": 0.2809009930875945,
+        "fractionAbovePoint12": 0.5404595404595405,
+        "longestContinuousArcMeters": 116
+      }
+    },
+    {
+      "time": 20,
+      "before": {
+        "mean": 0.7797886589586084,
+        "std": 6.323767024086065e-15,
+        "fractionAbovePoint12": 1,
+        "longestContinuousArcMeters": 1001
+      },
+      "after": {
+        "mean": 0.29337161175995186,
+        "std": 0.3030737734541384,
+        "fractionAbovePoint12": 0.5974025974025974,
+        "longestContinuousArcMeters": 111
+      }
+    }
+  ],
+  "statelessSeekEquality": true,
+  "preservation": {
+    "sharedWaterFunctions": true,
+    "swashGeometry": true,
+    "vertexShader": true,
+    "filmCoverageBlock": true,
+    "geometryConstruction": true
+  },
+  "coastalSourceSHA256": "b5fce5054daed96aa790f6dffe206e529f119a4bf0391b2af1ff6b6032cf1f6d"
+}

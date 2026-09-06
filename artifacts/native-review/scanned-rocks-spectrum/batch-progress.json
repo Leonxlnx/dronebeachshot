@@ -1,0 +1,66 @@
+{
+  "completed": [
+    {
+      "camera": "headland",
+      "time": 14,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/frames/scanned-rocks-spectrum/headland-mode-0-1280.png",
+      "render": {
+        "frame": 29,
+        "calls": 654,
+        "triangles": 37166530,
+        "points": 656,
+        "lines": 0
+      },
+      "programs": 73,
+      "glError": 0
+    },
+    {
+      "camera": "beach-transition",
+      "time": 10,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/frames/scanned-rocks-spectrum/beach-transition-mode-0-1280.png",
+      "render": {
+        "frame": 58,
+        "calls": 674,
+        "triangles": 54370442,
+        "points": 656,
+        "lines": 0
+      },
+      "programs": 73,
+      "glError": 0
+    },
+    {
+      "camera": "wet-sand",
+      "time": 11.5,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/frames/scanned-rocks-spectrum/wet-sand-mode-0-1280.png",
+      "render": {
+        "frame": 87,
+        "calls": 693,
+        "triangles": 41014938,
+        "points": 656,
+        "lines": 0
+      },
+      "programs": 73,
+      "glError": 0
+    },
+    {
+      "camera": "flight-5",
+      "time": 5,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/frames/scanned-rocks-spectrum/flight-5-mode-0-1280.png",
+      "render": {
+        "frame": 116,
+        "calls": 801,
+        "triangles": 77080584,
+        "points": 656,
+        "lines": 0
+      },
+      "programs": 73,
+      "glError": 0
+    }
+  ],
+  "requested": [
+    "headland",
+    "beach-transition",
+    "wet-sand",
+    "flight-5"
+  ]
+}

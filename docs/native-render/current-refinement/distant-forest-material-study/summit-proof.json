@@ -1,0 +1,23 @@
+{
+  "vertices": 817600,
+  "maxHeight": 409.2877502441406,
+  "maxPoint": [
+    -5028,
+    409.2877502441406,
+    -636.8800048828125
+  ],
+  "verticesAbove410": 0,
+  "changedVertices": 11857,
+  "underwaterVertices": 264990,
+  "underwaterChanged": 0,
+  "collarVertices": 25440,
+  "collarChanged": 0,
+  "verticesAtOrBelow360": 805630,
+  "below360Changed": 0,
+  "minimumUpperRemapDerivative": 0.028287314693692747,
+  "flatClip": false,
+  "coreUntouched": true,
+  "afterOceanFade": true,
+  "heightBufferSHA256": "a619010ebf585ab48b4f61e141f1607d087596bc711b3bfd40a9593fbd734e31",
+  "terrainSHA256": "218359fff6fbbd800cdf33698469facf174700fd2330ac318fa9a21aab4ad79b"
+}

@@ -1,0 +1,70 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> last-light-bay@0.1.0 check:world
+> node --experimental-strip-types --loader ./scripts/control/ts-resolve.mjs scripts/control/check-world.mjs
+
+(node:20) ExperimentalWarning: `--experimental-loader` may be removed in the future; instead use `register()`:
+--import 'data:text/javascript,import { register } from "node:module"; import { pathToFileURL } from "node:url"; register("./scripts/control/ts-resolve.mjs", pathToFileURL("./"));'
+(Use `node --trace-warnings ...` to show where the warning was created)
+{
+  "fieldSha256": "8f4da69fd7dab90f98959f3ef4aa174e0e532f01f0015f8b7abfc3e8372c37e7",
+  "scope": "CPU geometry construction only; no GPU/scene visual verification",
+  "trees": 14000,
+  "families": {
+    "0": 9707,
+    "1": 3909,
+    "2": 384
+  },
+  "geometryCount": 79,
+  "vertexCount": 961848,
+  "instances": 22765,
+  "forestFloor": {
+    "rootTrees": 150,
+    "roots": 600,
+    "litter": 4131,
+    "seedlings": 1156
+  },
+  "forestStructure": {
+    "seed": 607193,
+    "shrubs": 420,
+    "snags": 24,
+    "leafSurfaces": 37175,
+    "drawCalls": 14,
+    "instancedTriangles": 440304,
+    "sourceTriangles": 5538,
+    "routeRejected": 0,
+    "spacingRejected": 48,
+    "shrubAttempts": 13275,
+    "snagAttempts": 1295,
+    "placementSignature": "436bf645",
+    "buildMilliseconds": 688.0745759999991,
+    "maxShrubHeight": 2.0766950443969607,
+    "maxSnagHeight": 9.133306572877647
+  },
+  "spray": {
+    "emitters": 39,
+    "droplets": 624
+  },
+  "coastalField": {
+    "resolution": 1024,
+    "texelMeters": [
+      1.171875,
+      1.513671875
+    ],
+    "textureBytes": 16777216,
+    "instancesVisited": 322,
+    "instancesRasterized": 109,
+    "trianglesVisited": 4796,
+    "trianglesRasterized": 2345,
+    "degenerateTriangles": 0,
+    "rockSamples": 3095,
+    "blockingSamples": 1677,
+    "buildMilliseconds": 4737.964323,
+    "terrainMilliseconds": 4270.328681999999,
+    "rasterMilliseconds": 65.35491300000012,
+    "distanceMilliseconds": 176.3726489999999,
+    "shelter": "directional-advection-diffusion",
+    "shelterMilliseconds": 225.3328219999994,
+    "distanceMethod": "anisotropic-8-neighbor-chamfer"
+  }
+}

@@ -1,0 +1,1591 @@
+{
+  "status": "blocked-incomplete",
+  "minimumSeconds": 86400,
+  "intervals": [
+    {
+      "start": "2026-09-05T01:19:49.480Z",
+      "category": "implementation",
+      "description": "Runtime architecture, terrain interfaces and first full 3D scene implementation",
+      "proofs": [
+        {
+          "at": "2026-09-05T01:27:17.757Z",
+          "files": [
+            {
+              "path": "src/world/terrain.ts",
+              "sha256": "a29db97ffa8efd2513945b539caf242c0bf1cc177423324d9614bafae6c86b40"
+            },
+            {
+              "path": "src/world/ocean.ts",
+              "sha256": "1b79393002e11d8ef73f95ed455062ce1d538f5137d7c548073f9968e7927d75"
+            },
+            {
+              "path": "src/world/math.ts",
+              "sha256": "61edffe89915d2b0eac91ac178ec067bc7964d2b1900aaa8c984f8a1723a5210"
+            },
+            {
+              "path": "src/render/materials.ts",
+              "sha256": "0d21c4ba08b71d74874c1b304c03e469ce329a10d7e49dc45b3e0e1a13a57e24"
+            }
+          ]
+        },
+        {
+          "at": "2026-09-05T01:32:30.718Z",
+          "files": [
+            {
+              "path": "src/main.ts",
+              "sha256": "4ba13b3e7b281ee615a7dd4730af758ce95d5d2e635165e1ec39a2483339d60d"
+            },
+            {
+              "path": "src/camera/cinematic.ts",
+              "sha256": "8827d0c6f776b807b703c334335c6a1a8a48d336d196f111eee552fe4ae73ee8"
+            },
+            {
+              "path": "src/world/vegetation.ts",
+              "sha256": "90ccf53418b407eef23112e0479524b0b477026c8105dc78a03a7508153afc4a"
+            },
+            {
+              "path": "scripts/control/final-check.mjs",
+              "sha256": "c63eaeae04b95276bacd41b099a86b09e1bb051c84d051bed764fa439c1b344b"
+            }
+          ]
+        }
+      ],
+      "end": "2026-09-05T01:32:53.784Z",
+      "seconds": 784.304,
+      "evidence": [
+        {
+          "path": "src/main.ts",
+          "sha256": "4ba13b3e7b281ee615a7dd4730af758ce95d5d2e635165e1ec39a2483339d60d"
+        },
+        {
+          "path": "src/world/vegetation.ts",
+          "sha256": "90ccf53418b407eef23112e0479524b0b477026c8105dc78a03a7508153afc4a"
+        },
+        {
+          "path": "src/world/ocean.ts",
+          "sha256": "6ce288b02f6c357805fa5d5cfbcbbe4654bb2ea496ed46c4d917d09f999feac1"
+        },
+        {
+          "path": "src/camera/cinematic.ts",
+          "sha256": "8827d0c6f776b807b703c334335c6a1a8a48d336d196f111eee552fe4ae73ee8"
+        }
+      ]
+    },
+    {
+      "start": "2026-09-05T01:33:12.459Z",
+      "category": "visual-review",
+      "description": "Baseline browser shader debugging and full-scene inspection",
+      "proofs": [],
+      "end": "2026-09-05T01:34:06.913Z",
+      "seconds": 54.454,
+      "evidence": [
+        {
+          "path": "artifacts/browser-blocker.json",
+          "sha256": "0aa5c0764bdb77b6723ab775a69c568d4d8ba62fe228e4cf1c4fbd24e3e4f45a"
+        }
+      ]
+    },
+    {
+      "start": "2026-09-05T01:34:06.987Z",
+      "category": "technical-review",
+      "description": "Validate integrated assets, camera clearance, production source and repair deterministic runtime defects",
+      "proofs": [
+        {
+          "at": "2026-09-05T01:40:17.577Z",
+          "files": [
+            {
+              "path": "src/world/ocean.ts",
+              "sha256": "fc6dc281c46b3251ab57cd7c279c85329c8facdb3d04adc9ac5ed34799ef30e8"
+            },
+            {
+              "path": "src/render/engine.ts",
+              "sha256": "8d39c7a203f22decde0f301e381a9153c2a31541d66ae7f632542fb75aa5b2c6"
+            },
+            {
+              "path": "src/camera/cinematic.ts",
+              "sha256": "8fb5c4c9f710745873d486f2abfe8ad660126c8d04f1a3b13aeeb7ce78092489"
+            },
+            {
+              "path": "src/world/ecology.ts",
+              "sha256": "60122a0701b39de516037b743b102f05456b5076fdb50108e65763fba8c545a4"
+            }
+          ]
+        },
+        {
+          "at": "2026-09-05T01:42:44.871Z",
+          "files": [
+            {
+              "path": "src/render/diagnostics.ts",
+              "sha256": "95c13ee0ff54eef9272c9c9a072baca36b37aeb1292263a0f1293b724d16ca9f"
+            },
+            {
+              "path": "src/camera/cinematic.test.ts",
+              "sha256": "9268def9a1047e44c0e5611e58880ddf0ebc65eb5451ea1910db8175468e59f5"
+            }
+          ]
+        },
+        {
+          "at": "2026-09-05T01:48:23.706Z",
+          "files": [
+            {
+              "path": "src/render/diagnostics.ts",
+              "sha256": "a29e8d5b55adfc628be6d8cd2915524bda5e8051e88c1ea6fe174f386f567bfb"
+            },
+            {
+              "path": "src/world/ocean.ts",
+              "sha256": "6c18d7b4a0cbfc7f2208977fc651e775d4b9db34d4eba7ee6451eeba87d4c854"
+            },
+            {
+              "path": "scripts/capture.mjs",
+              "sha256": "b0b7ca1b12c610857880deb829ca196545b9e487284c6dc8e82e6bb20b8f7be7"
+            },
+            {
+              "path": "artifacts/technical-review.json",
+              "sha256": "4b428ecd8e875349800a4eb70ead66e31eadbed4210120e4d06fe166843ada67"
+            }
+          ]
+        }
+      ],
+      "end": "2026-09-05T01:49:45.098Z",
+      "seconds": 938.111,
+      "evidence": [
+        {
+          "path": "src/world/vegetation.ts",
+          "sha256": "19b59afcd1753e55a681959dcd855200c56fec37f7eacc0f27c035894d5ba0c3"
+        },
+        {
+          "path": "src/world/ocean.ts",
+          "sha256": "6c18d7b4a0cbfc7f2208977fc651e775d4b9db34d4eba7ee6451eeba87d4c854"
+        },
+        {
+          "path": "src/camera/cinematic.test.ts",
+          "sha256": "9268def9a1047e44c0e5611e58880ddf0ebc65eb5451ea1910db8175468e59f5"
+        },
+        {
+          "path": "artifacts/technical-review.json",
+          "sha256": "4b428ecd8e875349800a4eb70ead66e31eadbed4210120e4d06fe166843ada67"
+        }
+      ]
+    },
+    {
+      "start": "2026-09-05T02:30:05.014Z",
+      "category": "implementation",
+      "description": "Resume: smooth per-tree LOD, ecological diversity and coherent rock impacts; gates lod-performance trees-canopy breaking-waves",
+      "proofs": [
+        {
+          "at": "2026-09-05T02:38:19.378Z",
+          "files": [
+            {
+              "path": "src/world/lod.ts",
+              "sha256": "57921b1ab624e1627d854b50e3569b1ead14b250d76b8daf78d3b649544bf63b"
+            },
+            {
+              "path": "src/render/vegetation-material.ts",
+              "sha256": "63a74b15d718e99bf6d11bc58295e64b3adeee010bf4c343a65c6bbf66909fef"
+            },
+            {
+              "path": "src/world/coastal.ts",
+              "sha256": "b5fce5054daed96aa790f6dffe206e529f119a4bf0391b2af1ff6b6032cf1f6d"
+            },
+            {
+              "path": "src/render/materials.ts",
+              "sha256": "4157af722192fb3b83394e0f67ca6f00455dc5ffcdff060da96e8a1f6b55743f"
+            }
+          ]
+        },
+        {
+          "at": "2026-09-05T02:44:12.726Z",
+          "files": [
+            {
+              "path": "src/world/ocean.ts",
+              "sha256": "cbe9bd89a7094aa2e3609652b61658a89560ae6d58a8d55cbaa543d3d37833b0"
+            },
+            {
+              "path": "src/world/weather.ts",
+              "sha256": "05696db85b4dca54be5ebfce1c2f9f02e4428b8cfad3bb1dca628fc2ce188dd9"
+            },
+            {
+              "path": "src/world/atmosphere.ts",
+              "sha256": "c0245a2c97696979599d5c51f635e60906868e49956f75780e6339333fb27a1d"
+            },
+            {
+              "path": "src/render/sky-lighting.ts",
+              "sha256": "fad4592397dee58182b7d481d4651c481a7675c0cad114c93d6c222dd6f86696"
+            },
+            {
+              "path": "src/render/diagnostics.ts",
+              "sha256": "89feec9f93089435d9abc5f090f57a2aeecc9ed17de9c800f88f445b702c8620"
+            }
+          ]
+        },
+        {
+          "at": "2026-09-05T02:50:23.632Z",
+          "files": [
+            {
+              "path": "src/world/coastal-field.ts",
+              "sha256": "dc329786c00d20b1a96939645eb269b1edcb97f3f1a08afc33be80dcddeb3f1e"
+            },
+            {
+              "path": "src/world/forest-floor.ts",
+              "sha256": "15b9b6e321988975be8ae789cef70a5ed5a82db1a9c132710f5110880f5b22a3"
+            },
+            {
+              "path": "src/world/clouds.ts",
+              "sha256": "90b2fc9da4b4b79d941a72bb50dc6c411155679f5a354cdd76656f150f190c7d"
+            },
+            {
+              "path": "src/world/atmosphere.ts",
+              "sha256": "daafb1472f5d1af57182695dbef344e8bae4b1dffef732b06a0f35aeb42c94c8"
+            },
+            {
+              "path": "src/main.ts",
+              "sha256": "4fea3ff405facd1b6e30d909880c5201eafd2b20c262a7a1145c45b4e5c28854"
+            }
+          ]
+        }
+      ],
+      "end": "2026-09-05T02:55:56.731Z",
+      "seconds": 1551.717,
+      "evidence": [
+        {
+          "path": "src/world/spray.ts",
+          "sha256": "bd69677289e88970355e2411dc796de01537ade94ff1e4d06c6f8e09c2b835a5"
+        },
+        {
+          "path": "src/world/vegetation.ts",
+          "sha256": "529eb2040af04596dbd42b24ffc5ea83a77830501080447216782df5d5832e77"
+        },
+        {
+          "path": "src/world/forest-floor.ts",
+          "sha256": "15b9b6e321988975be8ae789cef70a5ed5a82db1a9c132710f5110880f5b22a3"
+        },
+        {
+          "path": "artifacts/world-cpu-check.json",
+          "sha256": "e49074fab9b9ed030d64811d3db4741fdac0370d2108213cf058bbee076dadd8"
+        },
+        {
+          "path": "artifacts/verification-output.txt",
+          "sha256": "9580f143c60a33c2558b6081081d9dc31920f82a03f58a5c00744880b1d479ee"
+        },
+        {
+          "path": "artifacts/technical-review.json",
+          "sha256": "1f82b695b72d3fc626a9dde1228507a06db43a6c0d9ecd128deac277c8b208b2"
+        }
+      ]
+    },
+    {
+      "start": "2026-09-05T03:02:44.683Z",
+      "category": "implementation",
+      "description": "Reference realism continuation: near-field asset fidelity, exact water/terrain contact, grounded biome and surface shading; visual gates remain pending",
+      "proofs": [
+        {
+          "at": "2026-09-05T03:10:41.602Z",
+          "files": [
+            {
+              "path": "src/world/terrain-surface.ts",
+              "sha256": "08989240f07f3c730ce1cad0322c375887daaa73c91601d8e67b5e98017b2322"
+            },
+            {
+              "path": "src/world/ocean.ts",
+              "sha256": "f31f6392988a959978ac902c9a5c2096e495382d2e446c686487b38722c7e6a6"
+            },
+            {
+              "path": "src/render/refraction.ts",
+              "sha256": "8a813931f13313ede3ef0d45cca987f53f7d4653a5f089ad314f7ae10b658af2"
+            },
+            {
+              "path": "src/world/atmosphere.ts",
+              "sha256": "b02050025955e38bb8b6777e65af4612399577615d2ac54b4cca51e98047f59a"
+            }
+          ]
+        },
+        {
+          "at": "2026-09-05T03:27:40.402Z",
+          "files": [
+            {
+              "path": "src/world/vegetation.ts",
+              "sha256": "0459838911369e06f32eea56ffc0cf85cf349c626c38222f6b25589c859fbadd"
+            },
+            {
+              "path": "src/render/vegetation-material.ts",
+              "sha256": "e7fc86cbb106ff1f70434f1fba05297fa2bb841c674e6d546f3b38aff1ef4281"
+            },
+            {
+              "path": "src/render/ground-materials.ts",
+              "sha256": "6147044ada4fa10aa5c517cd639561ecdcda9839c491c67c74817eb25a9d01f7"
+            },
+            {
+              "path": "src/world/habitat.ts",
+              "sha256": "123ce62ae51f53822c1d101b99f290428332c9727c042a54d3c0f0ee34880b3c"
+            },
+            {
+              "path": "public/assets/models/island-tree-near.glb",
+              "sha256": "c81e6ece28b7646aa59f2c2c68142619b2790d0db62c5d829278fec92e4373d7"
+            },
+            {
+              "path": "public/assets/models/syringa-tree-near.glb",
+              "sha256": "28cd16b21b8d422566e3d4c76f0f94e5d9938b9624dd96ee791864e159ac9761"
+            }
+          ]
+        },
+        {
+          "at": "2026-09-05T03:32:53.481Z",
+          "files": [
+            {
+              "path": "src/world/rock-shelter.ts",
+              "sha256": "eecfa12f9690254f17afad32bdbb8e0d7c448be6565325b25199fbbf896e8223"
+            },
+            {
+              "path": "src/world/coastal-field.ts",
+              "sha256": "16874f8f526f22a16b5a6b517cfd726aa2de76a3b0ee2a6476ead466acf87a2e"
+            },
+            {
+              "path": "src/world/ecology.ts",
+              "sha256": "f3f279d03b827bbd3f9191880ba29f123524f9bc9f988661a554f18ae7e11f29"
+            },
+            {
+              "path": "src/world/plants.ts",
+              "sha256": "85c6de17f9fbfd9382cad9b2fecdbb3d45ba680ed5694f7ab0500f7d16fd3513"
+            },
+            {
+              "path": "src/world/forest-floor.ts",
+              "sha256": "007d698f778dfedabb86a98b41092b885117e7b793cab78abff6a0e5a272dde4"
+            },
+            {
+              "path": "src/world/habitat.ts",
+              "sha256": "2da51191e5baf6f6998e78272ad8cba14b732133dd5b7d12fd6a963b3b1ab387"
+            },
+            {
+              "path": "src/world/vegetation.ts",
+              "sha256": "df41576546a7a36ec4efc048c2ada4b37458d89bf14eb83249f507c58e55602c"
+            }
+          ]
+        },
+        {
+          "at": "2026-09-05T03:40:36.588Z",
+          "files": [
+            {
+              "path": "src/world/forest-structure.ts",
+              "sha256": "4872c3d5dd05020a9c92f0f256ad05f201bf3cf576cf60c1080ab70076124244"
+            },
+            {
+              "path": "src/render/materials.ts",
+              "sha256": "24694202443318f0ff076e03853d4e222b2f95e318e107e0349cbec7097e1a6a"
+            },
+            {
+              "path": "src/main.ts",
+              "sha256": "57a60d139835d3c3a3160d399779ef5fa41a152c9c0ab0f40d28ed2ae81aa30f"
+            },
+            {
+              "path": "src/world/coastal-worker.ts",
+              "sha256": "54717181e60c8d5d46e84efa6265bf1b19fab833d5c6ccf5ee6072c08995548d"
+            },
+            {
+              "path": "src/world/coastal-loader.ts",
+              "sha256": "3d8e9103f9ed8322202fa627e0083f5f9d9b5d6ffe181aabcd9e4589dccbf944"
+            },
+            {
+              "path": "scripts/control/check-worker.mjs",
+              "sha256": "15ee1e1c56a87e81f4c6fe51364dc23cc2aee6970da92ce3a6149d58f8f1384e"
+            }
+          ]
+        }
+      ],
+      "end": "2026-09-05T03:50:00.828Z",
+      "seconds": 2836.145,
+      "evidence": [
+        {
+          "path": "src/render/vegetation-material.ts",
+          "sha256": "9648ac365dc7c64ab76186998f2011adb8cf059734a43840100315e5aff2a58a"
+        },
+        {
+          "path": "src/render/ground-materials.ts",
+          "sha256": "0c433c15c1389cd0c79ced5235a0ba269cf199b613b1e0f48847aee410e49273"
+        },
+        {
+          "path": "src/world/forest-structure.ts",
+          "sha256": "4872c3d5dd05020a9c92f0f256ad05f201bf3cf576cf60c1080ab70076124244"
+        },
+        {
+          "path": "src/world/coastal-worker.ts",
+          "sha256": "54717181e60c8d5d46e84efa6265bf1b19fab833d5c6ccf5ee6072c08995548d"
+        },
+        {
+          "path": "src/world/terrain-surface.ts",
+          "sha256": "08989240f07f3c730ce1cad0322c375887daaa73c91601d8e67b5e98017b2322"
+        },
+        {
+          "path": "artifacts/verification-output.txt",
+          "sha256": "eb2c7e5647b2b84b19ad22eb77b9e2eb13ad495806cb7484260e2c73e0e8548c"
+        },
+        {
+          "path": "artifacts/worker-cpu-check.json",
+          "sha256": "8b163af82e27d617392cfa64ac0ab9498b044f9d20fa0b3bd2dfb74705a33a08"
+        },
+        {
+          "path": "artifacts/technical-review.json",
+          "sha256": "7f8411dc9628037f07e333e8c0e90f0f5ec74838f9daf278c473461d599896bf"
+        },
+        {
+          "path": "artifacts/browser-blocker.json",
+          "sha256": "b59bb50159b1450063421160c98a675a454351b21ff78fa3298fb2a263a88ec2"
+        }
+      ]
+    },
+    {
+      "start": "2026-09-05T04:16:41.086Z",
+      "category": "implementation",
+      "description": "Prepare native renderer of unchanged production Three.js modules; no browser or performance acceptance claimed",
+      "proofs": [],
+      "end": "2026-09-05T04:18:38.267Z",
+      "seconds": 117.181,
+      "evidence": [
+        {
+          "path": "/workspace/scratch/2b912ce37941/native-render/render-scene.mjs",
+          "sha256": "4f7242c650099c553ed9ffc069aba469d633b9571dcdb6a9f8890280bce9b48b"
+        },
+        {
+          "path": "/workspace/scratch/2b912ce37941/native-render/native-asset-adapter.mjs",
+          "sha256": "55193877fcbef1fccbbabf8d2125809215bb4c51cab9fc5fbf9273695301840d"
+        },
+        {
+          "path": "/workspace/scratch/2b912ce37941/native-render/native-asset-audit.json",
+          "sha256": "8422412536200f7d05902292a13aaab6dd14e60418834b314fd9244634825237"
+        }
+      ]
+    },
+    {
+      "start": "2026-09-05T04:20:18.854Z",
+      "category": "debugging",
+      "description": "Native ANGLE WebGL2 context succeeds; diagnose Three render-target interoperability without changing scene",
+      "proofs": [],
+      "end": "2026-09-05T04:23:51.326Z",
+      "seconds": 212.472,
+      "evidence": [
+        {
+          "path": "/workspace/scratch/2b912ce37941/native-render/native-gl-compat.mjs",
+          "sha256": "974c3be5c1017e887c7cff2bc42ca8c604b4b9fcda6ed9029c12ab21b3371fb4"
+        },
+        {
+          "path": "/workspace/scratch/2b912ce37941/native-render/native-gl-compat-result.json",
+          "sha256": "13facf9f779b36033619ee0d08c824c6e2b89b81f352c61a80e8633257bac3da"
+        },
+        {
+          "path": "docs/native-render/README.md",
+          "sha256": "d5a14062658becac091e7222d918c11cf477d79bf22a1a05df4d02d18a8f2960"
+        }
+      ]
+    },
+    {
+      "start": "2026-09-05T04:27:47.626Z",
+      "category": "shaders",
+      "description": "Fix actual ANGLE ocean GLSL compile failure: active is a reserved GLSL identifier; retain wave equation",
+      "proofs": [],
+      "end": "2026-09-05T04:27:51.772Z",
+      "seconds": 4.146,
+      "evidence": [
+        {
+          "path": "src/world/ocean.ts",
+          "sha256": "6e04950e4e774c7735762ae792dd594eeacd16e0b4a03a0616b3bd32840d7a68"
+        },
+        {
+          "path": "artifacts/graphics-recovery/ocean-reserved-word-before.json",
+          "sha256": "80cf95e19e5a93e77a608d41161f089ad4fef69a5373fa266e270e5c1085b078"
+        }
+      ]
+    },
+    {
+      "start": "2026-09-05T04:29:28.088Z",
+      "category": "visual-review",
+      "description": "First actual native-rendered production scene frame; inspect baseline against supplied real-world-quality references",
+      "proofs": [],
+      "end": "2026-09-05T04:34:51.497Z",
+      "seconds": 323.409,
+      "evidence": [
+        {
+          "path": "/workspace/scratch/2b912ce37941/native-render/baseline-realism-review.md",
+          "sha256": "f0fdc10b4bfa813c81a69cefac2f77359b5e4d32ab0602f1e67edb464cc758c8"
+        },
+        {
+          "path": "/workspace/scratch/2b912ce37941/native-render/isolated-tree-lods.png",
+          "sha256": "29f48232b71be27af1ed7548bb18f9d3fec9e1b58668a13dc9c25d47936bf20d"
+        },
+        {
+          "path": "/workspace/scratch/2b912ce37941/native-render/frames/baseline/batch-progress.json",
+          "sha256": "ceef84ffa68c3188e162268d9f25bf2ce0da45c1586514f43282cad6efd3c966"
+        }
+      ]
+    },
+    {
+      "start": "2026-09-05T04:34:51.723Z",
+      "category": "shaders",
+      "description": "Visual correction cycle1: broken cloud coverage, washed-out sunset, weak directional lighting",
+      "proofs": [],
+      "end": "2026-09-05T04:34:53.958Z",
+      "seconds": 2.235,
+      "evidence": [
+        {
+          "path": "src/world/clouds.ts",
+          "sha256": "168e8ebf2445eed3aa6a771abf668a6a1e12aabec6a0424f76227a97cd4910cf"
+        },
+        {
+          "path": "src/world/atmosphere.ts",
+          "sha256": "74170a77468fb1a6523b3e342bb22350732dd92890a9399339d4bb0683c86ce1"
+        },
+        {
+          "path": "src/main.ts",
+          "sha256": "3a90aac0ee7af8c10f58f8af41ea3e6e319b16319a0c798a3e5ca3559d8136fa"
+        }
+      ]
+    },
+    {
+      "start": "2026-09-05T04:41:22.870Z",
+      "category": "environment",
+      "description": "Visual correction cycle2: restore ecological canopy coverage on mountain slopes while retaining bare steep cliffs and route clearance",
+      "proofs": [],
+      "end": "2026-09-05T04:41:25.137Z",
+      "seconds": 2.267,
+      "evidence": [
+        {
+          "path": "src/world/ecology.ts",
+          "sha256": "260c053012a699cbab40ebedadde3af9c6b35e3deefa69abd457f94636a8657c"
+        }
+      ]
+    },
+    {
+      "start": "2026-09-05T04:46:07.798Z",
+      "category": "visual-review",
+      "description": "Review canopy density cycle2: wide frame and close view still show sparse leaf coverage; investigate source filtering and cloud banding",
+      "proofs": [],
+      "end": "2026-09-05T04:48:45.279Z",
+      "seconds": 157.481,
+      "evidence": [
+        {
+          "path": "/workspace/scratch/2b912ce37941/native-render/noise-probe.mjs",
+          "sha256": "c5f344123b88ace61ce35ab1c79853732d10cb49a92aa7f4cf50069d0ce6b88e"
+        },
+        {
+          "path": "/workspace/scratch/2b912ce37941/native-render/noise-sine.png",
+          "sha256": "d85789eba5f173734ead74010ba95bf6fce2ccaff11ddd91371c4b0a2d30d5fb"
+        },
+        {
+          "path": "/workspace/scratch/2b912ce37941/native-render/frames/cycle-02/canopy-close-mode-0-960.png",
+          "sha256": "97843c9a7d4c3b3924f34a8bcb1d3caa6b3462122046a2b6b8b52cd3d8aa4777"
+        }
+      ]
+    },
+    {
+      "start": "2026-09-05T04:48:45.380Z",
+      "category": "environment",
+      "description": "Visual correction cycle3: integrate continuous distant coastal terrain with exact central border vertices",
+      "proofs": [],
+      "end": "2026-09-05T04:48:46.426Z",
+      "seconds": 1.046,
+      "evidence": [
+        {
+          "path": "src/world/terrain.ts",
+          "sha256": "313a2775771e75554a16d785866c395d3733057d796924eb191a2c6e86ed2a12"
+        },
+        {
+          "path": "docs/native-render/terrain-extension-check.json",
+          "sha256": "8761ad13448e4ca0a541c6305d971f670da3e15aafaa451fde8032f13018ebcf"
+        }
+      ]
+    },
+    {
+      "start": "2026-09-05T04:52:25.774Z",
+      "category": "optimization",
+      "description": "Observed 188M multi-pass triangles at canopy-close: pack only contributing roots at every LOD, preserving shader coverage and instance order",
+      "proofs": [],
+      "end": "2026-09-05T04:52:28.266Z",
+      "seconds": 2.492,
+      "evidence": [
+        {
+          "path": "src/world/vegetation.ts",
+          "sha256": "c8090980cf953faf3827095ba59e3fcf8b0891ee9f8d8c360e138fc8e8269b1c"
+        }
+      ]
+    },
+    {
+      "start": "2026-09-05T04:59:05.236Z",
+      "category": "materials",
+      "description": "Visual correction cycle4: integrate validated filtered-alpha leaf coverage with matching depth, soften erroneous near-boundary continuation walls",
+      "proofs": [],
+      "end": "2026-09-05T04:59:07.686Z",
+      "seconds": 2.45,
+      "evidence": [
+        {
+          "path": "src/render/vegetation-material.ts",
+          "sha256": "67766873177aeab10012c5e3d4d0530578b250bf0592b3336ef86db60ff3a291"
+        },
+        {
+          "path": "src/world/terrain.ts",
+          "sha256": "2ac5b25fcd8cba2098bf02182d920c99fbcd3fea5e5dda181d02ed056e26e6f7"
+        },
+        {
+          "path": "docs/native-render/leaf-coverage-hashed-audit.json",
+          "sha256": "253ea038da06d34b7e3cb443b1b3e4dc4a91dabf648222048100ef79aa1bf49a"
+        }
+      ]
+    },
+    {
+      "start": "2026-09-05T05:10:23.562Z",
+      "category": "implementation",
+      "description": "Integrate tested sky and water shaders and improve mountain camera framing",
+      "proofs": [],
+      "end": "2026-09-05T05:10:24.961Z",
+      "seconds": 1.399,
+      "evidence": [
+        {
+          "path": "src/world/clouds.ts",
+          "sha256": "2d9ef05ceb56fb65ff9983771d214d233a98955170b30172140837bec15b749f"
+        },
+        {
+          "path": "src/world/atmosphere.ts",
+          "sha256": "1f4faa2b4e3bca61798964d1a41b470eabafbfbbd89598b66a981a613638fd4f"
+        },
+        {
+          "path": "src/world/ocean.ts",
+          "sha256": "9964ab0a5c7b0904406652ca64faf7b8e96b7babda8de5ec7837213db57a4c02"
+        },
+        {
+          "path": "src/camera/cinematic.ts",
+          "sha256": "28c11c22398627090fe9a9f73108b831cf2211de7a9f737c1a40d868df68c1bc"
+        }
+      ]
+    },
+    {
+      "start": "2026-09-05T05:10:47.802Z",
+      "category": "technical-review",
+      "description": "Review rendering passes and recover production build verification",
+      "proofs": [],
+      "end": "2026-09-05T05:13:05.993Z",
+      "seconds": 138.191,
+      "evidence": [
+        {
+          "path": "src/world/atmosphere.ts",
+          "sha256": "1f4faa2b4e3bca61798964d1a41b470eabafbfbbd89598b66a981a613638fd4f"
+        },
+        {
+          "path": "src/world/ocean.ts",
+          "sha256": "9964ab0a5c7b0904406652ca64faf7b8e96b7babda8de5ec7837213db57a4c02"
+        },
+        {
+          "path": "src/render/refraction.ts",
+          "sha256": "020f0ba923c99cd2c93a84dc5fbe245009d45961d593b7bcff004f85adb5838c"
+        }
+      ]
+    },
+    {
+      "start": "2026-09-05T05:14:08.425Z",
+      "category": "optimization",
+      "description": "Cache distant sky lighting at deterministic time steps",
+      "proofs": [],
+      "end": "2026-09-05T05:15:05.298Z",
+      "seconds": 56.873,
+      "evidence": [
+        {
+          "path": "src/world/atmosphere.ts",
+          "sha256": "726f775d7e69f95a63c8e7fb476f280723b0d4052fe0306e3abf155c98090f29"
+        },
+        {
+          "path": "src/render/sky-lighting.ts",
+          "sha256": "0156a6c93b1dae40cafd3d6baeecef7ba655379ffe0c2dd29a75b66ac14abcc2"
+        }
+      ]
+    },
+    {
+      "start": "2026-09-05T05:17:32.051Z",
+      "category": "shaders",
+      "description": "Improve shallow film edge and filter shoreline foam by pixel footprint",
+      "proofs": [],
+      "end": "2026-09-05T05:17:32.754Z",
+      "seconds": 0.703,
+      "evidence": [
+        {
+          "path": "src/world/ocean.ts",
+          "sha256": "26a4af4a04e001e24adc0bf8bd2c3d533bb26af3320c223012f9853af0a27ed0"
+        },
+        {
+          "path": "src/world/atmosphere.ts",
+          "sha256": "726f775d7e69f95a63c8e7fb476f280723b0d4052fe0306e3abf155c98090f29"
+        }
+      ]
+    },
+    {
+      "start": "2026-09-05T05:21:45.948Z",
+      "category": "debugging",
+      "description": "Reconcile tree clearance test with measured source model heights",
+      "proofs": [],
+      "end": "2026-09-05T05:21:46.971Z",
+      "seconds": 1.023,
+      "evidence": [
+        {
+          "path": "src/camera/cinematic.test.ts",
+          "sha256": "9cdf1625050feb1071bfce7ea1b5d260b4d0996c4742c3ad6e846789aff8fe97"
+        }
+      ]
+    },
+    {
+      "start": "2026-09-05T05:24:04.883Z",
+      "category": "optimization",
+      "description": "Exclude above-water forest color from refraction while preserving its shadows",
+      "proofs": [],
+      "end": "2026-09-05T05:24:06.604Z",
+      "seconds": 1.721,
+      "evidence": [
+        {
+          "path": "src/render/refraction.ts",
+          "sha256": "5f2c679519696dfb11d216bfe6543d1aff66f6f20c357dfcec245af903c5c4b1"
+        },
+        {
+          "path": "src/world/vegetation.ts",
+          "sha256": "4f038a63b75c213c9855e1029e2826335a8f18f1f0ad161203da2c013faf563c"
+        }
+      ]
+    },
+    {
+      "start": "2026-09-05T05:26:13.010Z",
+      "category": "environment",
+      "description": "Integrate embedded fracture geology and dry cliff materials",
+      "proofs": [],
+      "end": "2026-09-05T05:26:14.575Z",
+      "seconds": 1.565,
+      "evidence": [
+        {
+          "path": "src/world/terrain.ts",
+          "sha256": "6bad7cdec6b6bcad4627ae2bcca7cfd19f699b1b4266307cdbf126c3b85df511"
+        },
+        {
+          "path": "src/render/ground-materials.ts",
+          "sha256": "e246e38ec6003dcbc014cd84c9962b59fc2e19f7068394788398393da7177561"
+        }
+      ]
+    },
+    {
+      "start": "2026-09-05T05:31:07.232Z",
+      "category": "environment",
+      "description": "Refine distant ridge geometry and review native visual iteration evidence",
+      "proofs": [
+        {
+          "at": "2026-09-05T05:31:08.965Z",
+          "files": [
+            {
+              "path": "src/world/terrain.ts",
+              "sha256": "9a3a0b81ea8edf36980d02c6a9d02310b17861ee10aea51998a8ed116cb636a8"
+            },
+            {
+              "path": "src/render/refraction.ts",
+              "sha256": "43945801b50936f78fd6bd715bc8db183391a8ad47556a8a5ac5c7ab08ef0eb0"
+            }
+          ]
+        },
+        {
+          "at": "2026-09-05T05:35:06.737Z",
+          "files": [
+            {
+              "path": "docs/native-render/cycles-02-07-review.md",
+              "sha256": "0f5083969d7931db7668f78b29b5fea340f0f186985a2c332bee902b8ebdc206"
+            },
+            {
+              "path": "docs/native-render/README.md",
+              "sha256": "761d311b375cd4d169842f0bf30ce7b1544e8bad9fa9b460b91b4a9aff89f707"
+            }
+          ]
+        }
+      ],
+      "end": "2026-09-05T05:36:29.129Z",
+      "seconds": 321.897,
+      "evidence": [
+        {
+          "path": "src/world/terrain.ts",
+          "sha256": "5147adbf2b88fe1424ba8d1b84fbdff0b45b03768ea3605ac31420cfd8d4d8df"
+        },
+        {
+          "path": "src/render/refraction.ts",
+          "sha256": "43945801b50936f78fd6bd715bc8db183391a8ad47556a8a5ac5c7ab08ef0eb0"
+        },
+        {
+          "path": "docs/native-render/cycles-02-07-review.md",
+          "sha256": "0f5083969d7931db7668f78b29b5fea340f0f186985a2c332bee902b8ebdc206"
+        }
+      ]
+    },
+    {
+      "start": "2026-09-05T05:45:12.963Z",
+      "category": "materials",
+      "description": "Integrate alpha-correct foliage color filtering and preserve source coverage",
+      "proofs": [],
+      "end": "2026-09-05T05:45:13.926Z",
+      "seconds": 0.963,
+      "evidence": [
+        {
+          "path": "src/render/alpha-weighted-color.ts",
+          "sha256": "41b75a27e6a9eb52d94b968a8511880ac3a49ec84a7d0d538056998405ff825c"
+        },
+        {
+          "path": "src/render/vegetation-material.ts",
+          "sha256": "7d1786f4bc820f2188864a1c5a66c31981d10b0c5cee90c99db2382c8e561f25"
+        }
+      ]
+    },
+    {
+      "start": "2026-09-05T05:47:22.527Z",
+      "category": "asset-integration",
+      "description": "Integrate corrected source-tree albedo and normal impostors for far canopy",
+      "proofs": [
+        {
+          "at": "2026-09-05T05:48:50.710Z",
+          "files": [
+            {
+              "path": "src/world/vegetation.ts",
+              "sha256": "b55860658be7ce6d348faf6bf70fb7b21cbe4b29977ff91ca2cc5b65ceef8695"
+            },
+            {
+              "path": "src/world/tree-impostor.ts",
+              "sha256": "12dfc6a0bc889a33f22f5e0e3ce1f7e1cade3ff85070837c43df0bc116e794f8"
+            },
+            {
+              "path": "src/world/tree-impostor-data.ts",
+              "sha256": "6a7371f655b6a32902e2d036f15d1630c2be5b186ac786824b45005b29a6e0e2"
+            },
+            {
+              "path": "public/assets/manifest.json",
+              "sha256": "91f18270553f58becae7fd5d640fdc3977bb16dadb8c4795afe04a603a7c6c18"
+            }
+          ]
+        }
+      ],
+      "end": "2026-09-05T05:50:27.354Z",
+      "seconds": 184.827,
+      "evidence": [
+        {
+          "path": "src/world/tree-impostor.ts",
+          "sha256": "12dfc6a0bc889a33f22f5e0e3ce1f7e1cade3ff85070837c43df0bc116e794f8"
+        },
+        {
+          "path": "src/world/vegetation.ts",
+          "sha256": "b55860658be7ce6d348faf6bf70fb7b21cbe4b29977ff91ca2cc5b65ceef8695"
+        },
+        {
+          "path": "src/render/alpha-weighted-color.ts",
+          "sha256": "03b1362561468ca7c50214cce65fb6a074640a9e2fe712bb7f6b28fbdb1d14a0"
+        },
+        {
+          "path": "public/assets/manifest.json",
+          "sha256": "91f18270553f58becae7fd5d640fdc3977bb16dadb8c4795afe04a603a7c6c18"
+        }
+      ]
+    },
+    {
+      "start": "2026-09-05T05:56:56.626Z",
+      "category": "visual-review",
+      "description": "Review integrated far foliage and inspect current world before ridge integration",
+      "proofs": [
+        {
+          "at": "2026-09-05T05:59:10.714Z",
+          "files": [
+            {
+              "path": "src/world/math.ts",
+              "sha256": "378e4a8e23acb963eb3c17b0bd794d5591659ec1c2564b786be8315980fafedf"
+            },
+            {
+              "path": "src/world/tree-impostor.ts",
+              "sha256": "57e1e733264ce9be1a5c00e9d10c70ec707876a6c8da9aced98c481afc9d51ae"
+            }
+          ]
+        },
+        {
+          "at": "2026-09-05T06:04:39.024Z",
+          "files": [
+            {
+              "path": "src/render/vegetation-material.ts",
+              "sha256": "f82d8504728e987146741d5d315fea34604a66005a279a59d5b69c869d82923d"
+            }
+          ]
+        },
+        {
+          "at": "2026-09-05T06:10:10.796Z",
+          "files": [
+            {
+              "path": "src/world/math.ts",
+              "sha256": "218fb0c13f64bea6d4ff3bf3bd53f9a7bb79f7f6c73d808cbd1df3950854c3e0"
+            },
+            {
+              "path": "src/world/ocean.ts",
+              "sha256": "8964bd6eae2973db4befa97ffc9b650b8f260acad78996657dfbee8386458c6f"
+            },
+            {
+              "path": "src/main.ts",
+              "sha256": "d76ece315e2a963a1366bf4a18de1570b7dad3eb9168632a4b943ebc7c64a95c"
+            }
+          ]
+        },
+        {
+          "at": "2026-09-05T06:14:03.631Z",
+          "files": [
+            {
+              "path": "src/world/math.ts",
+              "sha256": "218fb0c13f64bea6d4ff3bf3bd53f9a7bb79f7f6c73d808cbd1df3950854c3e0"
+            },
+            {
+              "path": "src/world/ocean.ts",
+              "sha256": "8964bd6eae2973db4befa97ffc9b650b8f260acad78996657dfbee8386458c6f"
+            },
+            {
+              "path": "src/main.ts",
+              "sha256": "d76ece315e2a963a1366bf4a18de1570b7dad3eb9168632a4b943ebc7c64a95c"
+            }
+          ]
+        },
+        {
+          "at": "2026-09-05T06:23:43.158Z",
+          "files": [
+            {
+              "path": "src/camera/cinematic.ts",
+              "sha256": "a30fd5b691fb722d35f3506d8a23903d30122f80dde542c89a709c29fa47a388"
+            }
+          ]
+        },
+        {
+          "at": "2026-09-05T06:34:10.952Z",
+          "files": [
+            {
+              "path": "src/world/ocean.ts",
+              "sha256": "cd163caaeb8a24b1ec94f737a0f6541e2f0a63e9ab59f5b65d480943b5bdf970"
+            },
+            {
+              "path": "src/world/atmosphere.ts",
+              "sha256": "b6b16f6b2fe7d49ef11ac60499576929df43f965f7721d2c7174e446500c5c17"
+            },
+            {
+              "path": "src/camera/cinematic.ts",
+              "sha256": "a30fd5b691fb722d35f3506d8a23903d30122f80dde542c89a709c29fa47a388"
+            }
+          ]
+        }
+      ],
+      "end": "2026-09-05T06:35:54.758Z",
+      "seconds": 2338.132,
+      "evidence": [
+        {
+          "path": "src/world/math.ts",
+          "sha256": "218fb0c13f64bea6d4ff3bf3bd53f9a7bb79f7f6c73d808cbd1df3950854c3e0"
+        },
+        {
+          "path": "src/camera/cinematic.ts",
+          "sha256": "a30fd5b691fb722d35f3506d8a23903d30122f80dde542c89a709c29fa47a388"
+        },
+        {
+          "path": "src/world/tree-impostor.ts",
+          "sha256": "57e1e733264ce9be1a5c00e9d10c70ec707876a6c8da9aced98c481afc9d51ae"
+        },
+        {
+          "path": "src/world/ocean.ts",
+          "sha256": "cd163caaeb8a24b1ec94f737a0f6541e2f0a63e9ab59f5b65d480943b5bdf970"
+        },
+        {
+          "path": "src/render/vegetation-material.ts",
+          "sha256": "0b03359c21bee0e5fbaed7607b69b411b9f92f2bdfeac6744c25c48c5c7cb108"
+        },
+        {
+          "path": "docs/native-render/foliage-ridge-surf-review.md",
+          "sha256": "e076e28331ac9a1528c7e15459cd1c76975ed755ee3988bb3682bcd631504894"
+        }
+      ]
+    },
+    {
+      "start": "2026-09-05T06:39:40.518Z",
+      "category": "asset-integration",
+      "description": "Integrate original photogrammetry near rocks with identical worker geometry and continue sampling quality review",
+      "proofs": [
+        {
+          "at": "2026-09-05T06:52:36.275Z",
+          "files": [
+            {
+              "path": "src/world/detailed-rocks.ts",
+              "sha256": "e4e28ecd56edbc6117a0453b6fcc560445d7a15e0c5ae0835a8689583112c592"
+            },
+            {
+              "path": "src/world/photogrammetry-rocks.ts",
+              "sha256": "037f0e78a02fca7e916b2f99d970a69d88345d02473af213ecb8aeb6c2c3382c"
+            },
+            {
+              "path": "src/world/rock-geometry.ts",
+              "sha256": "5a57d35751edf0d1c5177ec2e7261535c1165748a5b75a4c1047f0e302d7161b"
+            },
+            {
+              "path": "src/world/coastal-worker.ts",
+              "sha256": "1afc9da3556a2cbc3009dd41ec1b1defee9e4c9b3b84ece432b8ee6078c26381"
+            },
+            {
+              "path": "src/main.ts",
+              "sha256": "c8bed9c08a9df7806efd2f1af8b7e045639a84617319f37e2288a8ba367c6d53"
+            },
+            {
+              "path": "artifacts/world-cpu-check.json",
+              "sha256": "5c11fe52443cfb8420b5711812e0e420d19a21ac3c9315730edad27b8eff585e"
+            },
+            {
+              "path": "artifacts/worker-cpu-check.json",
+              "sha256": "5cc03d0c1d7127cf033d9ede5362c486f446b08adb1a27817d86f00d2c3f76c9"
+            }
+          ]
+        }
+      ],
+      "end": "2026-09-05T06:52:36.275Z",
+      "seconds": 775.757,
+      "evidence": [
+        {
+          "path": "src/world/detailed-rocks.ts",
+          "sha256": "e4e28ecd56edbc6117a0453b6fcc560445d7a15e0c5ae0835a8689583112c592"
+        },
+        {
+          "path": "src/world/photogrammetry-rocks.ts",
+          "sha256": "037f0e78a02fca7e916b2f99d970a69d88345d02473af213ecb8aeb6c2c3382c"
+        },
+        {
+          "path": "src/world/rock-geometry.ts",
+          "sha256": "5a57d35751edf0d1c5177ec2e7261535c1165748a5b75a4c1047f0e302d7161b"
+        },
+        {
+          "path": "src/world/coastal-worker.ts",
+          "sha256": "1afc9da3556a2cbc3009dd41ec1b1defee9e4c9b3b84ece432b8ee6078c26381"
+        },
+        {
+          "path": "src/main.ts",
+          "sha256": "c8bed9c08a9df7806efd2f1af8b7e045639a84617319f37e2288a8ba367c6d53"
+        },
+        {
+          "path": "artifacts/world-cpu-check.json",
+          "sha256": "5c11fe52443cfb8420b5711812e0e420d19a21ac3c9315730edad27b8eff585e"
+        },
+        {
+          "path": "artifacts/worker-cpu-check.json",
+          "sha256": "5cc03d0c1d7127cf033d9ede5362c486f446b08adb1a27817d86f00d2c3f76c9"
+        }
+      ],
+      "accountingNote": "Conservatively closed at the last timestamped implementation proof. Subsequent screenshot delivery, attachment troubleshooting and checkpoint work are excluded."
+    },
+    {
+      "start": "2026-09-05T07:10:40.023Z",
+      "category": "implementation",
+      "description": "Refine exposed geology, relief and beach materials from current rendered defects",
+      "proofs": [
+        {
+          "at": "2026-09-05T07:22:01.116Z",
+          "files": [
+            {
+              "path": "src/render/ground-materials.ts",
+              "sha256": "a23a6b2a59fb9d782553d25179630ddbc51631a569495b48ddecad09195fa235"
+            },
+            {
+              "path": "src/world/assets.ts",
+              "sha256": "0a25ac3e72555bdabbdcaa3d6427df56f42b3803a7bc9dc129d2759a33f173a3"
+            },
+            {
+              "path": "src/world/plants.ts",
+              "sha256": "a893cdc079bf8710e079e2a6646b490ddbbaa95982bf9db9a1f45d6cbdebf023"
+            },
+            {
+              "path": "src/world/atmosphere.ts",
+              "sha256": "18ed6276e4c28de5a99783a2435abf49b4337f3335db668cc3cff59ddf002bc5"
+            },
+            {
+              "path": "src/render/aerial-perspective.ts",
+              "sha256": "392e21dde27cbeaf8086904366e486f669ac4ec0c73fe12b4711df9205e8bc5e"
+            },
+            {
+              "path": "src/world/ocean.ts",
+              "sha256": "2d2b941ca081f1cea89f31dc9ac5743b3d4834d3acfaf006341a6bfd6de2fa86"
+            }
+          ]
+        },
+        {
+          "at": "2026-09-05T07:39:37.427Z",
+          "files": [
+            {
+              "path": "src/world/math.ts",
+              "sha256": "fea9ca1ffb2581113be9fcb128076f503ee116a33327969d4b18b894e850ded8"
+            },
+            {
+              "path": "src/camera/cinematic.ts",
+              "sha256": "216e2498e5767195428ebd2660a03bffff95f92eb64bb5f57c64a17e96d24dd8"
+            },
+            {
+              "path": "src/world/assets.ts",
+              "sha256": "5157f71ec58de5dce7e36717a0c4a9d2ae9df7797287a0f0823060ebe183fc7a"
+            },
+            {
+              "path": "src/render/ground-materials.ts",
+              "sha256": "a2f4f97aaf00363929a3bb445a98b3a5a150d738c387a112d5e606951a356dab"
+            },
+            {
+              "path": "public/assets/manifest.json",
+              "sha256": "1e33a3fe11fb0382aee52d1aebbb7e9ff8a03e4a085548408b57e5330ce02b14"
+            }
+          ]
+        },
+        {
+          "at": "2026-09-05T07:55:56.417Z",
+          "files": [
+            {
+              "path": "src/world/math.ts",
+              "sha256": "fea9ca1ffb2581113be9fcb128076f503ee116a33327969d4b18b894e850ded8"
+            },
+            {
+              "path": "src/world/plants.ts",
+              "sha256": "944ac0c56aa7a17fe4551f2bd0efad44bb55325e167a9f6b6d4eb8e568989142"
+            },
+            {
+              "path": "src/camera/cinematic.ts",
+              "sha256": "a8ecd3f39b22659c1dbdce986328fa5c76547c21cb1b54e9c0ce27d19bbe46d1"
+            },
+            {
+              "path": "src/render/ground-materials.ts",
+              "sha256": "4f1d547d737341e08d4d2cd995203186bb067866342609be9c38dc26b57deb52"
+            },
+            {
+              "path": "docs/native-render/height-beach-geology-review.md",
+              "sha256": "fe8862bcd9c8f25e9e7de41c35f7960bd92d0022c3789e22faec639d708260b1"
+            },
+            {
+              "path": "artifacts/world-cpu-check.json",
+              "sha256": "ca65ae39d9bf27bbf39f59eb46b4b45fa32861015dd6b5dec2da0fafc8922437"
+            },
+            {
+              "path": "artifacts/worker-cpu-check.json",
+              "sha256": "101de51688b07d4aac39bfc9aeef396c29032e6dfa2a592086552dca60bcd747"
+            }
+          ]
+        }
+      ],
+      "end": "2026-09-05T07:55:57.064Z",
+      "seconds": 2717.041,
+      "evidence": [
+        {
+          "path": "src/world/math.ts",
+          "sha256": "fea9ca1ffb2581113be9fcb128076f503ee116a33327969d4b18b894e850ded8"
+        },
+        {
+          "path": "src/world/plants.ts",
+          "sha256": "944ac0c56aa7a17fe4551f2bd0efad44bb55325e167a9f6b6d4eb8e568989142"
+        },
+        {
+          "path": "src/camera/cinematic.ts",
+          "sha256": "a8ecd3f39b22659c1dbdce986328fa5c76547c21cb1b54e9c0ce27d19bbe46d1"
+        },
+        {
+          "path": "src/render/ground-materials.ts",
+          "sha256": "4f1d547d737341e08d4d2cd995203186bb067866342609be9c38dc26b57deb52"
+        },
+        {
+          "path": "docs/native-render/height-beach-geology-review.md",
+          "sha256": "fe8862bcd9c8f25e9e7de41c35f7960bd92d0022c3789e22faec639d708260b1"
+        },
+        {
+          "path": "artifacts/world-cpu-check.json",
+          "sha256": "ca65ae39d9bf27bbf39f59eb46b4b45fa32861015dd6b5dec2da0fafc8922437"
+        },
+        {
+          "path": "artifacts/worker-cpu-check.json",
+          "sha256": "101de51688b07d4aac39bfc9aeef396c29032e6dfa2a592086552dca60bcd747"
+        }
+      ]
+    },
+    {
+      "start": "2026-09-05T07:58:35.705Z",
+      "category": "camera",
+      "description": "Refine earlier descent timing while maintaining425m start and continuous shoreline flight; inspect remaining cliff and distant-range defects",
+      "proofs": [
+        {
+          "at": "2026-09-05T08:08:07.470Z",
+          "files": [
+            {
+              "path": "src/world/vegetation.ts",
+              "sha256": "c71681e771c9a8cd8905ea66d23d00cb55696f38b53f831658c37bc2e28544e3"
+            },
+            {
+              "path": "/workspace/scratch/2b912ce37941/native-render/distant-forest-study/landscape-sampler.ts",
+              "sha256": "abd3986753b70d7a4d38e54280c0ac50a96dd2ab476508fc37cbb4ede502e311"
+            },
+            {
+              "path": "/workspace/scratch/2b912ce37941/native-render/distant-forest-study/distant-forest.ts",
+              "sha256": "f33e7a9515689f9630c947138e43d12f91f8c8966b23f4231a0060d89f8d149c"
+            },
+            {
+              "path": "/workspace/scratch/2b912ce37941/native-render/distant-forest-study/cpu-audit.json",
+              "sha256": "8737996dda70fddd19d8c338d6a45b5752548313a30b6811cb31285cc48712f3"
+            },
+            {
+              "path": "/workspace/scratch/2b912ce37941/native-render/camera-timing-study/camera-fit.json",
+              "sha256": "13a837587676de5b31a41d024cc0353c32b1a327e2a319737985bd2a0c13d109"
+            }
+          ]
+        },
+        {
+          "at": "2026-09-05T08:31:45.926Z",
+          "files": [
+            {
+              "path": "src/world/distant-forest.ts",
+              "sha256": "f33e7a9515689f9630c947138e43d12f91f8c8966b23f4231a0060d89f8d149c"
+            },
+            {
+              "path": "src/world/landscape-sampler.ts",
+              "sha256": "abd3986753b70d7a4d38e54280c0ac50a96dd2ab476508fc37cbb4ede502e311"
+            },
+            {
+              "path": "src/world/tree-impostor-data.ts",
+              "sha256": "bdd6f275f338429d72b04db484b72ac4b98ff80fe748d9a6355f18ca8e234e2b"
+            },
+            {
+              "path": "src/world/terrain.ts",
+              "sha256": "16519e8832d61ff078e7c38d1f048ab94b2e534767f5b7be7f68b11bc8d3ff1b"
+            }
+          ]
+        },
+        {
+          "at": "2026-09-05T08:34:42.274Z",
+          "files": [
+            {
+              "path": "/workspace/scratch/2b912ce37941/native-render/volume-cloud-study/cloud-noise.ts",
+              "sha256": "93a5bf73fbba3b93f7df701139334c0e9b52c2bf23cc4407b84d4518f1a3ff76"
+            },
+            {
+              "path": "/workspace/scratch/2b912ce37941/native-render/volume-cloud-study/volume.png",
+              "sha256": "135544dea7b1bfe58130da620ed779f86a8b33bbea91ab7143a17f209dc25e07"
+            },
+            {
+              "path": "src/world/tree-impostor-data.ts",
+              "sha256": "bdd6f275f338429d72b04db484b72ac4b98ff80fe748d9a6355f18ca8e234e2b"
+            }
+          ]
+        }
+      ],
+      "end": "2026-09-05T08:39:07.593Z",
+      "seconds": 2431.888,
+      "evidence": [
+        {
+          "path": "src/camera/cinematic.ts",
+          "sha256": "370a8c1801a5c87bac0f929c3b7766216e5ebe13a7f12af17d23c4ee65add2e4"
+        },
+        {
+          "path": "src/world/tree-impostor-data.ts",
+          "sha256": "bdd6f275f338429d72b04db484b72ac4b98ff80fe748d9a6355f18ca8e234e2b"
+        },
+        {
+          "path": "src/world/distant-forest.ts",
+          "sha256": "f33e7a9515689f9630c947138e43d12f91f8c8966b23f4231a0060d89f8d149c"
+        },
+        {
+          "path": "src/world/terrain.ts",
+          "sha256": "16519e8832d61ff078e7c38d1f048ab94b2e534767f5b7be7f68b11bc8d3ff1b"
+        },
+        {
+          "path": "/workspace/scratch/2b912ce37941/native-render/volume-cloud-study/cloud-noise.ts",
+          "sha256": "93a5bf73fbba3b93f7df701139334c0e9b52c2bf23cc4407b84d4518f1a3ff76"
+        },
+        {
+          "path": "/workspace/scratch/2b912ce37941/native-render/volume-cloud-study/volume-integrated.png",
+          "sha256": "4ad81a8e87deedf7900b59f1e5db6bd10db20a0bcbaa2b0130d2e21f47147185"
+        }
+      ]
+    },
+    {
+      "start": "2026-09-05T08:39:07.708Z",
+      "category": "shaders",
+      "description": "Inspect spatial cloud density and ray integration; diagnose visible coastal surface defects; integrate only reviewed environment corrections",
+      "proofs": [
+        {
+          "at": "2026-09-05T09:08:37.882Z",
+          "files": [
+            {
+              "path": "src/world/cloud-noise.ts",
+              "sha256": "2d66cf14bb8425b2f5f83d4206fb0fbc26599e5de924be867550f5ebad08e9bc"
+            },
+            {
+              "path": "src/world/atmosphere.ts",
+              "sha256": "5818292a00c7aa88c10a32a9dfe67c36411e8b97d0e62d5bdb9c35e0661b25ca"
+            },
+            {
+              "path": "src/world/bathymetry.ts",
+              "sha256": "97a497855d952483a27a6860545c67b8f49b4db9301582adbe029f4784ee2c84"
+            },
+            {
+              "path": "src/world/ocean.ts",
+              "sha256": "1ad2f931d36e39d744ec1413724cb8f2c632aa82d4f2c0553d78869c2c129e25"
+            },
+            {
+              "path": "docs/native-render/remote-forest-cloud-water-review.md",
+              "sha256": "e199ae98453ed2fcf3edf00a60dc7fd1df2134a8a4234b191a81b3bdb5e480c3"
+            }
+          ]
+        }
+      ],
+      "end": "2026-09-05T09:11:23.406Z",
+      "seconds": 1935.698,
+      "evidence": [
+        {
+          "path": "src/world/cloud-noise.ts",
+          "sha256": "2d66cf14bb8425b2f5f83d4206fb0fbc26599e5de924be867550f5ebad08e9bc"
+        },
+        {
+          "path": "src/world/atmosphere.ts",
+          "sha256": "5818292a00c7aa88c10a32a9dfe67c36411e8b97d0e62d5bdb9c35e0661b25ca"
+        },
+        {
+          "path": "src/world/bathymetry.ts",
+          "sha256": "97a497855d952483a27a6860545c67b8f49b4db9301582adbe029f4784ee2c84"
+        },
+        {
+          "path": "src/world/ocean.ts",
+          "sha256": "1ad2f931d36e39d744ec1413724cb8f2c632aa82d4f2c0553d78869c2c129e25"
+        },
+        {
+          "path": "docs/native-render/remote-forest-cloud-water-review.md",
+          "sha256": "84921d0210fe32cd7a421d0bed79d60bbcbc0be71d765f81da84494548bc09d9"
+        }
+      ]
+    },
+    {
+      "start": "2026-09-05T09:14:33.336Z",
+      "category": "materials",
+      "description": "Review source-derived far-canopy self-shadow and geological terrain-cut studies; integrate only demonstrated improvements",
+      "proofs": [
+        {
+          "at": "2026-09-05T09:33:09.577Z",
+          "files": [
+            {
+              "path": "src/render/source-sun-visibility.ts",
+              "sha256": "f3bd1b3f78863c8f9aeba0359fd8a3c0fe4ff9de1bd267cbef1bf1785cc41f2a"
+            },
+            {
+              "path": "src/world/vegetation.ts",
+              "sha256": "89d86a2248d4e291eb2eb586c03af16805f114017b50dd3e13a1e64cac90f068"
+            },
+            {
+              "path": "src/main.ts",
+              "sha256": "e7be85914225a1e5007713026ece023856b971e0a51142b949f3fe7f136f1925"
+            },
+            {
+              "path": "/workspace/scratch/2b912ce37941/native-render/frames/source-visibility-world/flight-0-mode-0-960.png",
+              "sha256": "266462f66d7a9312bf72b2dff8368aac18a7eabc36dbb35528e7e217ec186270"
+            },
+            {
+              "path": "/workspace/scratch/2b912ce37941/native-render/frames/source-visibility-world/wet-sand-mode-0-960.png",
+              "sha256": "541bde1c519e46552ba8fa0f72b4c8157ab885552ed7205c4a6da83bcc7a3945"
+            }
+          ]
+        },
+        {
+          "at": "2026-09-05T09:50:58.115Z",
+          "files": [
+            {
+              "path": "src/world/atmosphere.ts",
+              "sha256": "4934c79309fae733fcd487ac1a4a99393a5dd1b03b640ec13cdda305d929d202"
+            },
+            {
+              "path": "src/world/clouds.ts",
+              "sha256": "536f5a28e67ce43562dd0b63b4332c54f65130216b0cd3cd32efdec518284af2"
+            },
+            {
+              "path": "src/world/cloud-noise.ts",
+              "sha256": "692236e12f93aa03fa7155eccfb42cafc1987695dda406d4156efeb8018aa40c"
+            },
+            {
+              "path": "src/camera/cinematic.ts",
+              "sha256": "1729a9a1c5505bd1dfe074db21e5f558c8b81634e47029863e1af58b36bb171b"
+            },
+            {
+              "path": "src/camera/cinematic.test.ts",
+              "sha256": "079c47a66e62f39d01b18ff1ce39b2c791b4c69f1fe2a33f6431de4f45672e49"
+            },
+            {
+              "path": "docs/native-render/current-refinement/cloud-sampling/REVIEW.md",
+              "sha256": "a00d03ad4598787268493ef886b0fc7ade70d0db0e8b24c0d9e4705bd92e3dcf"
+            }
+          ]
+        }
+      ],
+      "end": "2026-09-05T09:57:55.886Z",
+      "seconds": 2602.55,
+      "evidence": [
+        {
+          "path": "src/render/source-sun-visibility.ts",
+          "sha256": "f3bd1b3f78863c8f9aeba0359fd8a3c0fe4ff9de1bd267cbef1bf1785cc41f2a"
+        },
+        {
+          "path": "src/world/vegetation.ts",
+          "sha256": "2abc0299792455bc56a1cf09c0bd96b9d85aa202a48cb7ed7d2945b007766c01"
+        },
+        {
+          "path": "src/main.ts",
+          "sha256": "e7be85914225a1e5007713026ece023856b971e0a51142b949f3fe7f136f1925"
+        },
+        {
+          "path": "src/world/cloud-noise.ts",
+          "sha256": "692236e12f93aa03fa7155eccfb42cafc1987695dda406d4156efeb8018aa40c"
+        },
+        {
+          "path": "src/world/clouds.ts",
+          "sha256": "536f5a28e67ce43562dd0b63b4332c54f65130216b0cd3cd32efdec518284af2"
+        },
+        {
+          "path": "src/world/atmosphere.ts",
+          "sha256": "4934c79309fae733fcd487ac1a4a99393a5dd1b03b640ec13cdda305d929d202"
+        },
+        {
+          "path": "src/world/ocean.ts",
+          "sha256": "8a8c03b399e4ff812407f36ad4f35f1a5e40217b98c2174d57b40f169867ffb4"
+        },
+        {
+          "path": "src/camera/cinematic.ts",
+          "sha256": "1729a9a1c5505bd1dfe074db21e5f558c8b81634e47029863e1af58b36bb171b"
+        },
+        {
+          "path": "src/camera/cinematic.test.ts",
+          "sha256": "079c47a66e62f39d01b18ff1ce39b2c791b4c69f1fe2a33f6431de4f45672e49"
+        },
+        {
+          "path": "docs/native-render/remote-forest-cloud-water-review.md",
+          "sha256": "dccc4b70693f60b5e53351dd99d68a48bcfce7ee207e7f278a283aa26d7d6d39"
+        }
+      ]
+    },
+    {
+      "start": "2026-09-05T09:57:56.019Z",
+      "category": "optimization",
+      "description": "Verify independent camera and shadow instance submissions against unchanged full-scene images; integrate reviewed stone and swash corrections and inspect current framing",
+      "proofs": [
+        {
+          "at": "2026-09-05T10:27:44.966Z",
+          "files": [
+            {
+              "path": "src/render/instance-frustum-packing.ts",
+              "sha256": "1755cef4f6446c91579944cd57fdcbbb584e014b1ec2e1807038ca35128164a0"
+            },
+            {
+              "path": "src/render/ground-materials.ts",
+              "sha256": "a75866430215fc745a8aafa79f458f3a6915b149f7393d59a2395f95a269df7f"
+            },
+            {
+              "path": "src/main.ts",
+              "sha256": "73a826ad5848ff63d3ed947ce2129073c2765f41466da4d0e95ef5b6e157783f"
+            },
+            {
+              "path": "docs/native-render/current-refinement/ROOT_REVIEW.md",
+              "sha256": "7b3aec123b9185da6313116a7a0860112744fa744363cc924656832e6ced7238"
+            },
+            {
+              "path": "artifacts/worker-cpu-check.json",
+              "sha256": "aeab71a966a26bf24c1de9d39ba439cbda1c6c8e53836e80822502950238bb94"
+            }
+          ]
+        }
+      ],
+      "end": "2026-09-05T10:27:45.163Z",
+      "seconds": 1789.144,
+      "evidence": [
+        {
+          "path": "src/render/instance-frustum-packing.ts",
+          "sha256": "1755cef4f6446c91579944cd57fdcbbb584e014b1ec2e1807038ca35128164a0"
+        },
+        {
+          "path": "src/render/ground-materials.ts",
+          "sha256": "a75866430215fc745a8aafa79f458f3a6915b149f7393d59a2395f95a269df7f"
+        },
+        {
+          "path": "src/world/ocean.ts",
+          "sha256": "8a8c03b399e4ff812407f36ad4f35f1a5e40217b98c2174d57b40f169867ffb4"
+        },
+        {
+          "path": "src/main.ts",
+          "sha256": "73a826ad5848ff63d3ed947ce2129073c2765f41466da4d0e95ef5b6e157783f"
+        },
+        {
+          "path": "docs/native-render/current-refinement/ROOT_REVIEW.md",
+          "sha256": "7b3aec123b9185da6313116a7a0860112744fa744363cc924656832e6ced7238"
+        },
+        {
+          "path": "docs/native-render/current-refinement/integrated-refinement-1920/flight-10.5-mode-0-1920.png",
+          "sha256": "916e6e67e5447d59c0da2f33ec7dfc9649e8e63bc8e76107e1a08fd8e5ad9405"
+        },
+        {
+          "path": "artifacts/worker-cpu-check.json",
+          "sha256": "aeab71a966a26bf24c1de9d39ba439cbda1c6c8e53836e80822502950238bb94"
+        }
+      ]
+    }
+  ],
+  "cycles": [],
+  "blocker": "Art quality remains below references. Managed browser WebGL unavailable. Final browser/mobile/offline/performance,24h/eightcycles,4Kgallery/films andmain/publication conditions remain unmet.",
+  "resumeFrom": "Continue actual native visual refinements, then acquire permitted browser GPU validation for final film/mobile/performance. Preserve 24h and all final gates. Public Sites only after finished acceptance.",
+  "excludedIntervals": [
+    {
+      "start": "2026-09-05T04:03:38.808Z",
+      "category": "debugging",
+      "description": "Graphics recovery and actual scene visual verification requested; preserve acceptance and final public publication conditions",
+      "proofs": [],
+      "end": "2026-09-05T04:15:43.374172+00:00",
+      "reason": "Conservatively excluded in full: graphics recovery interval included native dependency install/download. Diagnostic work preserved but no mixed time credited.",
+      "creditedSeconds": 0
+    }
+  ],
+  "open": null,
+  "nativeVisualCycles": [
+    {
+      "iteration": "01",
+      "evidence": "artifacts/native-review/cycle-01",
+      "scope": "native production-module diagnosis only; not a completed browser acceptance cycle",
+      "acceptedAsFinal": false
+    },
+    {
+      "iteration": "02",
+      "evidence": "artifacts/native-review/cycle-02",
+      "scope": "native production-module diagnosis only; not a completed browser acceptance cycle",
+      "acceptedAsFinal": false
+    },
+    {
+      "iteration": "03",
+      "evidence": "artifacts/native-review/cycle-03",
+      "scope": "native production-module diagnosis only; not a completed browser acceptance cycle",
+      "acceptedAsFinal": false
+    },
+    {
+      "iteration": "04",
+      "evidence": "artifacts/native-review/cycle-04",
+      "scope": "native production-module diagnosis only; not a completed browser acceptance cycle",
+      "acceptedAsFinal": false
+    },
+    {
+      "iteration": "05",
+      "evidence": "artifacts/native-review/cycle-05",
+      "scope": "native production-module diagnosis only; not a completed browser acceptance cycle",
+      "acceptedAsFinal": false
+    },
+    {
+      "iteration": "06",
+      "evidence": "artifacts/native-review/cycle-06",
+      "scope": "native production-module diagnosis only; not a completed browser acceptance cycle",
+      "acceptedAsFinal": false
+    },
+    {
+      "iteration": "07",
+      "evidence": "artifacts/native-review/cycle-07",
+      "scope": "native production-module diagnosis only; not a completed browser acceptance cycle",
+      "acceptedAsFinal": false
+    }
+  ],
+  "nativeRenderRecovery": {
+    "status": "working",
+    "method": "ANGLE / surfaceless Mesa EGL / llvmpipe / actual production Three modules",
+    "browserGraphics": "unavailable,16x16 context also fails",
+    "consumerPerformanceVerified": false
+  },
+  "latestNativeReview": {
+    "path": "docs/native-render/current-refinement/ROOT_REVIEW.md",
+    "accepted": false,
+    "browserCycles": 0,
+    "note": "Actual three1920px native views reviewed. Source canopy visibility, refined cloud sampling,42deg camera framing, stable separate shadow/camera buffers, stone repetition correction and swash front fade accepted as narrow fixes. Macro geology, ecological structure, water/sky/sand art and final browser gates remain open."
+  }
+}

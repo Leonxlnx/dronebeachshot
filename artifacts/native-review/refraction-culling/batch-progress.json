@@ -1,0 +1,36 @@
+{
+  "completed": [
+    {
+      "camera": "wet-sand",
+      "time": 11.5,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/frames/refraction-culling/wet-sand-mode-0-960.png",
+      "render": {
+        "frame": 28,
+        "calls": 1079,
+        "triangles": 59128653,
+        "points": 928,
+        "lines": 0
+      },
+      "programs": 76,
+      "glError": 0
+    },
+    {
+      "camera": "flight-0",
+      "time": 0,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/frames/refraction-culling/flight-0-mode-0-960.png",
+      "render": {
+        "frame": 56,
+        "calls": 1212,
+        "triangles": 46822967,
+        "points": 928,
+        "lines": 0
+      },
+      "programs": 76,
+      "glError": 0
+    }
+  ],
+  "requested": [
+    "wet-sand",
+    "flight-0"
+  ]
+}

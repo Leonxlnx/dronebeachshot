@@ -1,0 +1,66 @@
+{
+  "completed": [
+    {
+      "camera": "flight-0",
+      "time": 0,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/frames/shoulder-flight/flight-0-mode-0-960.png",
+      "render": {
+        "frame": 29,
+        "calls": 741,
+        "triangles": 41359115,
+        "points": 736,
+        "lines": 0
+      },
+      "programs": 70,
+      "glError": 0
+    },
+    {
+      "camera": "flight-5",
+      "time": 5,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/frames/shoulder-flight/flight-5-mode-0-960.png",
+      "render": {
+        "frame": 58,
+        "calls": 786,
+        "triangles": 75653130,
+        "points": 736,
+        "lines": 0
+      },
+      "programs": 70,
+      "glError": 0
+    },
+    {
+      "camera": "flight-9",
+      "time": 9,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/frames/shoulder-flight/flight-9-mode-0-960.png",
+      "render": {
+        "frame": 87,
+        "calls": 635,
+        "triangles": 55748969,
+        "points": 736,
+        "lines": 0
+      },
+      "programs": 70,
+      "glError": 0
+    },
+    {
+      "camera": "flight-11.5",
+      "time": 11.5,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/frames/shoulder-flight/flight-11.5-mode-0-960.png",
+      "render": {
+        "frame": 116,
+        "calls": 703,
+        "triangles": 39649865,
+        "points": 736,
+        "lines": 0
+      },
+      "programs": 70,
+      "glError": 0
+    }
+  ],
+  "requested": [
+    "flight-0",
+    "flight-5",
+    "flight-9",
+    "flight-11.5"
+  ]
+}

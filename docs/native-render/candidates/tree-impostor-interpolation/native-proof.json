@@ -1,0 +1,462 @@
+{
+  "shaderErrors": [],
+  "normalMip": [
+    {
+      "name": "before",
+      "encodedNormalRGBA": [
+        168,
+        248,
+        128,
+        64
+      ],
+      "angularErrorDegrees": 71.422673606383
+    },
+    {
+      "name": "after",
+      "encodedNormalRGBA": [
+        255,
+        128,
+        128,
+        64
+      ],
+      "angularErrorDegrees": 0.31775544206983286
+    }
+  ],
+  "comparisons": [
+    {
+      "family": "island",
+      "boundary": "azimuth",
+      "variant": "near",
+      "zoom": "full",
+      "meanAbsoluteRGBByte": 2.99275390625,
+      "changedPixelsAbove8": 6148
+    },
+    {
+      "family": "island",
+      "boundary": "azimuth",
+      "variant": "before",
+      "zoom": "full",
+      "meanAbsoluteRGBByte": 5.255970052083334,
+      "changedPixelsAbove8": 11928
+    },
+    {
+      "family": "island",
+      "boundary": "azimuth",
+      "variant": "after",
+      "zoom": "full",
+      "meanAbsoluteRGBByte": 0.05162760416666667,
+      "changedPixelsAbove8": 79
+    },
+    {
+      "family": "island",
+      "boundary": "elevation",
+      "variant": "near",
+      "zoom": "full",
+      "meanAbsoluteRGBByte": 2.4133072916666665,
+      "changedPixelsAbove8": 5226
+    },
+    {
+      "family": "island",
+      "boundary": "elevation",
+      "variant": "before",
+      "zoom": "full",
+      "meanAbsoluteRGBByte": 4.709140625,
+      "changedPixelsAbove8": 11380
+    },
+    {
+      "family": "island",
+      "boundary": "elevation",
+      "variant": "after",
+      "zoom": "full",
+      "meanAbsoluteRGBByte": 0.039521484375,
+      "changedPixelsAbove8": 54
+    },
+    {
+      "family": "island",
+      "boundary": "wrap",
+      "variant": "near",
+      "zoom": "full",
+      "meanAbsoluteRGBByte": 2.8615950520833335,
+      "changedPixelsAbove8": 6104
+    },
+    {
+      "family": "island",
+      "boundary": "wrap",
+      "variant": "before",
+      "zoom": "full",
+      "meanAbsoluteRGBByte": 0.02912109375,
+      "changedPixelsAbove8": 53
+    },
+    {
+      "family": "island",
+      "boundary": "wrap",
+      "variant": "after",
+      "zoom": "full",
+      "meanAbsoluteRGBByte": 0.031012369791666668,
+      "changedPixelsAbove8": 54
+    },
+    {
+      "family": "island",
+      "boundary": "azimuth",
+      "variant": "near",
+      "zoom": "far-16px",
+      "meanAbsoluteRGBByte": 0.024762369791666666,
+      "changedPixelsAbove8": 46
+    },
+    {
+      "family": "island",
+      "boundary": "azimuth",
+      "variant": "before",
+      "zoom": "far-16px",
+      "meanAbsoluteRGBByte": 0.04136393229166667,
+      "changedPixelsAbove8": 115
+    },
+    {
+      "family": "island",
+      "boundary": "azimuth",
+      "variant": "after",
+      "zoom": "far-16px",
+      "meanAbsoluteRGBByte": 0.0015071614583333332,
+      "changedPixelsAbove8": 3
+    },
+    {
+      "family": "island",
+      "boundary": "elevation",
+      "variant": "near",
+      "zoom": "far-16px",
+      "meanAbsoluteRGBByte": 0.016572265625,
+      "changedPixelsAbove8": 35
+    },
+    {
+      "family": "island",
+      "boundary": "elevation",
+      "variant": "before",
+      "zoom": "far-16px",
+      "meanAbsoluteRGBByte": 0.028912760416666666,
+      "changedPixelsAbove8": 101
+    },
+    {
+      "family": "island",
+      "boundary": "elevation",
+      "variant": "after",
+      "zoom": "far-16px",
+      "meanAbsoluteRGBByte": 0.0010384114583333332,
+      "changedPixelsAbove8": 2
+    },
+    {
+      "family": "syringa",
+      "boundary": "azimuth",
+      "variant": "near",
+      "zoom": "full",
+      "meanAbsoluteRGBByte": 2.2340787760416667,
+      "changedPixelsAbove8": 4862
+    },
+    {
+      "family": "syringa",
+      "boundary": "azimuth",
+      "variant": "before",
+      "zoom": "full",
+      "meanAbsoluteRGBByte": 4.011080729166666,
+      "changedPixelsAbove8": 9448
+    },
+    {
+      "family": "syringa",
+      "boundary": "azimuth",
+      "variant": "after",
+      "zoom": "full",
+      "meanAbsoluteRGBByte": 0.05349609375,
+      "changedPixelsAbove8": 103
+    },
+    {
+      "family": "syringa",
+      "boundary": "elevation",
+      "variant": "near",
+      "zoom": "full",
+      "meanAbsoluteRGBByte": 1.7682552083333334,
+      "changedPixelsAbove8": 3769
+    },
+    {
+      "family": "syringa",
+      "boundary": "elevation",
+      "variant": "before",
+      "zoom": "full",
+      "meanAbsoluteRGBByte": 3.0140397135416666,
+      "changedPixelsAbove8": 7711
+    },
+    {
+      "family": "syringa",
+      "boundary": "elevation",
+      "variant": "after",
+      "zoom": "full",
+      "meanAbsoluteRGBByte": 0.025104166666666667,
+      "changedPixelsAbove8": 36
+    },
+    {
+      "family": "syringa",
+      "boundary": "wrap",
+      "variant": "near",
+      "zoom": "full",
+      "meanAbsoluteRGBByte": 2.0629915364583336,
+      "changedPixelsAbove8": 4741
+    },
+    {
+      "family": "syringa",
+      "boundary": "wrap",
+      "variant": "before",
+      "zoom": "full",
+      "meanAbsoluteRGBByte": 0.014977213541666666,
+      "changedPixelsAbove8": 36
+    },
+    {
+      "family": "syringa",
+      "boundary": "wrap",
+      "variant": "after",
+      "zoom": "full",
+      "meanAbsoluteRGBByte": 0.021588541666666666,
+      "changedPixelsAbove8": 48
+    },
+    {
+      "family": "syringa",
+      "boundary": "azimuth",
+      "variant": "near",
+      "zoom": "far-16px",
+      "meanAbsoluteRGBByte": 0.018671875,
+      "changedPixelsAbove8": 45
+    },
+    {
+      "family": "syringa",
+      "boundary": "azimuth",
+      "variant": "before",
+      "zoom": "far-16px",
+      "meanAbsoluteRGBByte": 0.0243359375,
+      "changedPixelsAbove8": 77
+    },
+    {
+      "family": "syringa",
+      "boundary": "azimuth",
+      "variant": "after",
+      "zoom": "far-16px",
+      "meanAbsoluteRGBByte": 0.000022786458333333334,
+      "changedPixelsAbove8": 0
+    },
+    {
+      "family": "syringa",
+      "boundary": "elevation",
+      "variant": "near",
+      "zoom": "far-16px",
+      "meanAbsoluteRGBByte": 0.019296875,
+      "changedPixelsAbove8": 35
+    },
+    {
+      "family": "syringa",
+      "boundary": "elevation",
+      "variant": "before",
+      "zoom": "far-16px",
+      "meanAbsoluteRGBByte": 0.015735677083333333,
+      "changedPixelsAbove8": 55
+    },
+    {
+      "family": "syringa",
+      "boundary": "elevation",
+      "variant": "after",
+      "zoom": "far-16px",
+      "meanAbsoluteRGBByte": 0.00005208333333333334,
+      "changedPixelsAbove8": 0
+    }
+  ],
+  "depth": [
+    {
+      "family": "island",
+      "variant": "before",
+      "azimuth": 22.4,
+      "elevation": 35,
+      "differentMaskPixels": 0,
+      "count": 8879
+    },
+    {
+      "family": "island",
+      "variant": "before",
+      "azimuth": 22.6,
+      "elevation": 35,
+      "differentMaskPixels": 0,
+      "count": 8887
+    },
+    {
+      "family": "island",
+      "variant": "before",
+      "azimuth": 0,
+      "elevation": 17.4,
+      "differentMaskPixels": 0,
+      "count": 8624
+    },
+    {
+      "family": "island",
+      "variant": "before",
+      "azimuth": 0,
+      "elevation": 17.6,
+      "differentMaskPixels": 0,
+      "count": 8867
+    },
+    {
+      "family": "island",
+      "variant": "before",
+      "azimuth": 359.9,
+      "elevation": 35,
+      "differentMaskPixels": 0,
+      "count": 8847
+    },
+    {
+      "family": "island",
+      "variant": "before",
+      "azimuth": 0.1,
+      "elevation": 35,
+      "differentMaskPixels": 0,
+      "count": 8841
+    },
+    {
+      "family": "island",
+      "variant": "after",
+      "azimuth": 22.4,
+      "elevation": 35,
+      "differentMaskPixels": 0,
+      "count": 8749
+    },
+    {
+      "family": "island",
+      "variant": "after",
+      "azimuth": 22.6,
+      "elevation": 35,
+      "differentMaskPixels": 0,
+      "count": 8743
+    },
+    {
+      "family": "island",
+      "variant": "after",
+      "azimuth": 0,
+      "elevation": 17.4,
+      "differentMaskPixels": 0,
+      "count": 8777
+    },
+    {
+      "family": "island",
+      "variant": "after",
+      "azimuth": 0,
+      "elevation": 17.6,
+      "differentMaskPixels": 0,
+      "count": 8779
+    },
+    {
+      "family": "island",
+      "variant": "after",
+      "azimuth": 359.9,
+      "elevation": 35,
+      "differentMaskPixels": 0,
+      "count": 8843
+    },
+    {
+      "family": "island",
+      "variant": "after",
+      "azimuth": 0.1,
+      "elevation": 35,
+      "differentMaskPixels": 0,
+      "count": 8836
+    },
+    {
+      "family": "syringa",
+      "variant": "before",
+      "azimuth": 22.4,
+      "elevation": 35,
+      "differentMaskPixels": 0,
+      "count": 6344
+    },
+    {
+      "family": "syringa",
+      "variant": "before",
+      "azimuth": 22.6,
+      "elevation": 35,
+      "differentMaskPixels": 0,
+      "count": 6967
+    },
+    {
+      "family": "syringa",
+      "variant": "before",
+      "azimuth": 0,
+      "elevation": 17.4,
+      "differentMaskPixels": 0,
+      "count": 5898
+    },
+    {
+      "family": "syringa",
+      "variant": "before",
+      "azimuth": 0,
+      "elevation": 17.6,
+      "differentMaskPixels": 0,
+      "count": 6337
+    },
+    {
+      "family": "syringa",
+      "variant": "before",
+      "azimuth": 359.9,
+      "elevation": 35,
+      "differentMaskPixels": 0,
+      "count": 6362
+    },
+    {
+      "family": "syringa",
+      "variant": "before",
+      "azimuth": 0.1,
+      "elevation": 35,
+      "differentMaskPixels": 0,
+      "count": 6366
+    },
+    {
+      "family": "syringa",
+      "variant": "after",
+      "azimuth": 22.4,
+      "elevation": 35,
+      "differentMaskPixels": 0,
+      "count": 6182
+    },
+    {
+      "family": "syringa",
+      "variant": "after",
+      "azimuth": 22.6,
+      "elevation": 35,
+      "differentMaskPixels": 0,
+      "count": 6178
+    },
+    {
+      "family": "syringa",
+      "variant": "after",
+      "azimuth": 0,
+      "elevation": 17.4,
+      "differentMaskPixels": 0,
+      "count": 6058
+    },
+    {
+      "family": "syringa",
+      "variant": "after",
+      "azimuth": 0,
+      "elevation": 17.6,
+      "differentMaskPixels": 0,
+      "count": 6060
+    },
+    {
+      "family": "syringa",
+      "variant": "after",
+      "azimuth": 359.9,
+      "elevation": 35,
+      "differentMaskPixels": 0,
+      "count": 6363
+    },
+    {
+      "family": "syringa",
+      "variant": "after",
+      "azimuth": 0.1,
+      "elevation": 35,
+      "differentMaskPixels": 0,
+      "count": 6363
+    }
+  ],
+  "glError": 0
+}

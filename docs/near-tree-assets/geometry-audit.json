@@ -1,0 +1,148 @@
+[
+  {
+    "id": "island",
+    "source": "/workspace/scratch/2b912ce37941/asset-candidates/island_tree_02/island_tree_02_1k.gltf",
+    "upgrade": "/workspace/scratch/2b912ce37941/hero-tree-upgrade/optimized/island-tree-near.glb",
+    "sha256": "c81e6ece28b7646aa59f2c2c68142619b2790d0db62c5d829278fec92e4373d7",
+    "bytes": 13299192,
+    "nodeTransformsIdentity": true,
+    "requiredExtensions": [
+      "EXT_texture_webp",
+      "KHR_texture_transform"
+    ],
+    "primitives": [
+      {
+        "material": "island_tree_02",
+        "sourceTriangles": 27298,
+        "upgradeTriangles": 27298,
+        "sourceVertexCount": 15219,
+        "upgradeVertexCount": 15219,
+        "semanticsChecked": [
+          "NORMAL",
+          "POSITION",
+          "TEXCOORD_0"
+        ],
+        "sourceSemanticMapping": {
+          "NORMAL": "NORMAL",
+          "POSITION": "POSITION",
+          "TEXCOORD_0": "TEXCOORD_0"
+        },
+        "allOutputVertexAttributesAreExactSourceRows": true,
+        "originalTrunkTrianglePositionsExact": true
+      },
+      {
+        "material": "island_tree_02_leaves",
+        "sourceTriangles": 714744,
+        "upgradeTriangles": 173906,
+        "sourceVertexCount": 625401,
+        "upgradeVertexCount": 225750,
+        "semanticsChecked": [
+          "NORMAL",
+          "POSITION",
+          "TEXCOORD_0"
+        ],
+        "sourceSemanticMapping": {
+          "NORMAL": "NORMAL",
+          "POSITION": "POSITION",
+          "TEXCOORD_0": "TEXCOORD_0"
+        },
+        "allOutputVertexAttributesAreExactSourceRows": true,
+        "sourceComponents": 29781,
+        "preservedComponents": 29781,
+        "allSourceComponentsRetained": true
+      },
+      {
+        "material": "island_tree_02_branches",
+        "sourceTriangles": 330171,
+        "upgradeTriangles": 37413,
+        "sourceVertexCount": 233874,
+        "upgradeVertexCount": 32271,
+        "semanticsChecked": [
+          "NORMAL",
+          "POSITION",
+          "TEXCOORD_0"
+        ],
+        "sourceSemanticMapping": {
+          "NORMAL": "NORMAL",
+          "POSITION": "POSITION",
+          "TEXCOORD_0": "TEXCOORD_0"
+        },
+        "allOutputVertexAttributesAreExactSourceRows": true
+      }
+    ],
+    "triangles": 238617
+  },
+  {
+    "id": "syringa",
+    "source": "/workspace/scratch/2b912ce37941/third-tree-assets/source/tree_small_02_1k.gltf",
+    "upgrade": "/workspace/scratch/2b912ce37941/hero-tree-upgrade/optimized/syringa-tree-near.glb",
+    "sha256": "28cd16b21b8d422566e3d4c76f0f94e5d9938b9624dd96ee791864e159ac9761",
+    "bytes": 14096532,
+    "nodeTransformsIdentity": true,
+    "requiredExtensions": [
+      "EXT_texture_webp",
+      "KHR_texture_transform"
+    ],
+    "primitives": [
+      {
+        "material": "tree_small_02_branches",
+        "sourceTriangles": 94814,
+        "upgradeTriangles": 14446,
+        "sourceVertexCount": 62772,
+        "upgradeVertexCount": 13043,
+        "semanticsChecked": [
+          "NORMAL",
+          "POSITION",
+          "TEXCOORD_0"
+        ],
+        "sourceSemanticMapping": {
+          "NORMAL": "NORMAL",
+          "POSITION": "POSITION",
+          "TEXCOORD_0": "TEXCOORD_1"
+        },
+        "allOutputVertexAttributesAreExactSourceRows": true
+      },
+      {
+        "material": "tree_small_02_leaves",
+        "sourceTriangles": 1939380,
+        "upgradeTriangles": 202906,
+        "sourceVertexCount": 1698569,
+        "upgradeVertexCount": 253658,
+        "semanticsChecked": [
+          "NORMAL",
+          "POSITION",
+          "TEXCOORD_0"
+        ],
+        "sourceSemanticMapping": {
+          "NORMAL": "NORMAL",
+          "POSITION": "POSITION",
+          "TEXCOORD_0": "TEXCOORD_0"
+        },
+        "allOutputVertexAttributesAreExactSourceRows": true,
+        "sourceComponents": 30250,
+        "preservedComponents": 30250,
+        "allSourceComponentsRetained": true
+      },
+      {
+        "material": "tree_small_02_trunk",
+        "sourceTriangles": 28293,
+        "upgradeTriangles": 28293,
+        "sourceVertexCount": 15937,
+        "upgradeVertexCount": 15937,
+        "semanticsChecked": [
+          "NORMAL",
+          "POSITION",
+          "TEXCOORD_0"
+        ],
+        "sourceSemanticMapping": {
+          "NORMAL": "NORMAL",
+          "POSITION": "POSITION",
+          "TEXCOORD_0": "TEXCOORD_0"
+        },
+        "allOutputVertexAttributesAreExactSourceRows": true,
+        "originalTrunkTrianglePositionsExact": true
+      }
+    ],
+    "triangles": 245645
+  }
+]

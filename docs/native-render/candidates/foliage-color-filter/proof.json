@@ -1,0 +1,169 @@
+{
+  "shaderErrors": [],
+  "tiny": [
+    {
+      "name": "before",
+      "linearRGBA": [
+        161,
+        203,
+        99,
+        64
+      ]
+    },
+    {
+      "name": "after",
+      "linearRGBA": [
+        9,
+        54,
+        3,
+        64
+      ]
+    }
+  ],
+  "actual": [
+    {
+      "family": "island",
+      "kind": "near",
+      "corrected": false,
+      "file": "/workspace/scratch/2b912ce37941/native-render/tree-impostors/color-filter-proof/island-near-before.png"
+    },
+    {
+      "family": "island",
+      "kind": "near",
+      "corrected": true,
+      "file": "/workspace/scratch/2b912ce37941/native-render/tree-impostors/color-filter-proof/island-near-after.png"
+    },
+    {
+      "family": "island",
+      "kind": "atlas",
+      "corrected": false,
+      "file": "/workspace/scratch/2b912ce37941/native-render/tree-impostors/color-filter-proof/island-atlas-before.png"
+    },
+    {
+      "family": "island",
+      "kind": "atlas",
+      "corrected": true,
+      "file": "/workspace/scratch/2b912ce37941/native-render/tree-impostors/color-filter-proof/island-atlas-after.png"
+    },
+    {
+      "family": "syringa",
+      "kind": "near",
+      "corrected": false,
+      "file": "/workspace/scratch/2b912ce37941/native-render/tree-impostors/color-filter-proof/syringa-near-before.png"
+    },
+    {
+      "family": "syringa",
+      "kind": "near",
+      "corrected": true,
+      "file": "/workspace/scratch/2b912ce37941/native-render/tree-impostors/color-filter-proof/syringa-near-after.png"
+    },
+    {
+      "family": "syringa",
+      "kind": "atlas",
+      "corrected": false,
+      "file": "/workspace/scratch/2b912ce37941/native-render/tree-impostors/color-filter-proof/syringa-atlas-before.png"
+    },
+    {
+      "family": "syringa",
+      "kind": "atlas",
+      "corrected": true,
+      "file": "/workspace/scratch/2b912ce37941/native-render/tree-impostors/color-filter-proof/syringa-atlas-after.png"
+    }
+  ],
+  "depth": [
+    {
+      "family": "island",
+      "kind": "near",
+      "corrected": false,
+      "maskDifferentPixels": 0,
+      "colorCount": 12360,
+      "depthCount": 12360
+    },
+    {
+      "family": "island",
+      "kind": "near",
+      "corrected": true,
+      "maskDifferentPixels": 0,
+      "colorCount": 12360,
+      "depthCount": 12360
+    },
+    {
+      "family": "island",
+      "kind": "atlas",
+      "corrected": false,
+      "maskDifferentPixels": 0,
+      "colorCount": 14864,
+      "depthCount": 14864
+    },
+    {
+      "family": "island",
+      "kind": "atlas",
+      "corrected": true,
+      "maskDifferentPixels": 0,
+      "colorCount": 14864,
+      "depthCount": 14864
+    },
+    {
+      "family": "syringa",
+      "kind": "near",
+      "corrected": false,
+      "maskDifferentPixels": 0,
+      "colorCount": 9230,
+      "depthCount": 9230
+    },
+    {
+      "family": "syringa",
+      "kind": "near",
+      "corrected": true,
+      "maskDifferentPixels": 0,
+      "colorCount": 9230,
+      "depthCount": 9230
+    },
+    {
+      "family": "syringa",
+      "kind": "atlas",
+      "corrected": false,
+      "maskDifferentPixels": 0,
+      "colorCount": 11148,
+      "depthCount": 11148
+    },
+    {
+      "family": "syringa",
+      "kind": "atlas",
+      "corrected": true,
+      "maskDifferentPixels": 0,
+      "colorCount": 11148,
+      "depthCount": 11148
+    }
+  ],
+  "tinyExpectedLinearRGBA": [
+    9,
+    53,
+    3,
+    64
+  ],
+  "alphaBytesChanged": 0,
+  "beforeAfterAlphaMask": [
+    {
+      "family": "island",
+      "kind": "near",
+      "differentPixels": 0
+    },
+    {
+      "family": "island",
+      "kind": "atlas",
+      "differentPixels": 0
+    },
+    {
+      "family": "syringa",
+      "kind": "near",
+      "differentPixels": 0
+    },
+    {
+      "family": "syringa",
+      "kind": "atlas",
+      "differentPixels": 0
+    }
+  ],
+  "glError": 0
+}

@@ -1,0 +1,22 @@
+{
+  "scope": "Scratch-only candidates/evidence; no Site edits",
+  "recommendedPatches": [
+    "atmosphere-environment-color.patch",
+    "ground-exposed-wetfilm.patch"
+  ],
+  "rejectedPatch": "refraction-skyguard.patch",
+  "review": "REVIEW.md",
+  "contactSheets": [
+    "contact-sheet.png",
+    "wetfilm-contact-sheet.png"
+  ],
+  "hashes": {
+    "atmosphere-environment-color.patch": "894282c03ffe49d10a14a2a2afbf82705531c8b2da0f0a9f51352a6503ddc129",
+    "ground-exposed-wetfilm.patch": "33b41162880a73dbd7e47e4771f6e27d7ad0e6e354e954a92b7dcedc39e2c6cd",
+    "REVIEW.md": "7855da0726b7fb4d2926a22d4603f1d3e74c54904cfce97ac6dab7cb04f8f58e",
+    "contact-sheet.png": "dfbbd5511640d60f62ea91a00270ec76684f7005ecafab3d965460ae590cd5d8",
+    "wetfilm-contact-sheet.png": "1dd72317f4c36871e9fa78950870ed76c38a9f9d0eadca963cf779b559c775ee",
+    "comparison.json": "fdf721ca645f908e290b93f97225cd6c25d6d93af64598a302be7c1a97b9e8a1",
+    "wetfilm-comparison.json": "5b2138b1187bacc5ecc86f78991e01ed6daffab96fd41f734953b5c0c4cc973d"
+  }
+}

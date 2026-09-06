@@ -1,0 +1,21 @@
+{
+  "completed": [
+    {
+      "camera": "flight-0",
+      "time": 0,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/frames/swash-domain-continuity/flight-0-mode-0-960.png",
+      "render": {
+        "frame": 29,
+        "calls": 147,
+        "triangles": 10238595,
+        "points": 720,
+        "lines": 0
+      },
+      "programs": 22,
+      "glError": 0
+    }
+  ],
+  "requested": [
+    "flight-0"
+  ]
+}

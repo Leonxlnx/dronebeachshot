@@ -1,0 +1,39 @@
+{
+  "asset": "sand_03",
+  "creator": {
+    "Charlotte Baglioni": "All"
+  },
+  "sourcePage": "https://polyhaven.com/a/sand_03",
+  "license": "CC0-1.0",
+  "downloadedAt": "2026-09-05T07:15:55.912229+00:00",
+  "physicalDimensions": [
+    2000,
+    2000
+  ],
+  "files": [
+    {
+      "key": "Diffuse",
+      "filename": "sand_03_diff_2k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/sand_03/sand_03_diff_2k.jpg",
+      "bytes": 3353581,
+      "sha256": "538453033d28a64c671b89389a6ee904184af18d365adb5a15d5ea9e1eb5705b",
+      "officialMd5": "7732acef12dc23c8f7eda65f5cea0ab6"
+    },
+    {
+      "key": "nor_gl",
+      "filename": "sand_03_nor_gl_2k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/sand_03/sand_03_nor_gl_2k.jpg",
+      "bytes": 3654915,
+      "sha256": "ce870ef363010e0b96faa47f3fac47982cdbb40e3a59c0fe23fa64f587f54c7f",
+      "officialMd5": "c87f87cc0cdf6c88fdc227b119f8a77b"
+    },
+    {
+      "key": "arm",
+      "filename": "sand_03_arm_2k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/sand_03/sand_03_arm_2k.jpg",
+      "bytes": 2454594,
+      "sha256": "ceb075a91634f980a3956ebe4edfc3d748e3211ed19bf843612021662b32ee2f",
+      "officialMd5": "d2b68b22804d0f38ec6ef50fcc3aa40e"
+    }
+  ]
+}

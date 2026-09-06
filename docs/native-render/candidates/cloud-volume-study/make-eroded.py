@@ -1,0 +1,11 @@
+from pathlib import Path
+p=Path('cloud-volume-study')
+s=(p/'clouds-puffs-runtime.ts').read_text()
+s=s.replace('vec2 cell=floor(p.xz/2700.);float shape=0.;', 'vec3 unwarped=p;\n vec3 warp=vec3(n3(p*.0021+5.1),n3(p*.0024+19.7),n3(p*.0021+41.3))-.5;\n p+=warp*280.;\n vec2 cell=floor(p.xz/2700.);float shape=0.;')
+s=s.replace('n3(p*.0054)*.68+n3(p*.0137)*.24+n3(p*.032)*.08)*.48', 'n3(p*.0084)*.58+n3(p*.0217)*.30+n3(p*.054)*.12)*.85')
+s=s.replace('smoothstep(.035,.27,shape-erosion)', 'smoothstep(.005,.13,shape-erosion)')
+(p/'clouds-eroded-runtime.ts').write_text(s)
+a=(p/'atmosphere-puffs-runtime.ts').read_text().replace("'./clouds-puffs-runtime.ts'","'./clouds-eroded-runtime.ts'")
+a=a.replace('vec3 ambient=vec3(.075,.105,.16)*heightFill;', 'vec3 ambient=vec3(.16,.20,.26)*heightFill;')
+a=a.replace('float alpha=1.-exp(-d*stepLen*cloudExtinction);', 'lit=mix(lit,vec3(.56,.24,.085),1.-exp(-dist*.000026));\n  float alpha=1.-exp(-d*stepLen*cloudExtinction);')
+(p/'atmosphere-eroded-runtime.ts').write_text(a)

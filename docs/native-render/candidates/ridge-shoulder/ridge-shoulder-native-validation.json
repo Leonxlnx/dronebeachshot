@@ -1,0 +1,62 @@
+{
+  "method": "Native Three r185 render of exact production 48 × 200 m core tiles and 2 m triangle grid; identical neutral clay material/light in both images; no vegetation, ocean, outcrops or distant continuation",
+  "shaderErrors": [],
+  "variants": {
+    "before": {
+      "peak": {
+        "x": -126,
+        "z": 350,
+        "y": 313
+      }
+    },
+    "candidate": {
+      "peak": {
+        "x": -120,
+        "z": 354,
+        "y": 313
+      }
+    }
+  },
+  "views": [
+    [
+      "mountain-wide",
+      [
+        -465,
+        300,
+        -220
+      ],
+      [
+        -35,
+        105,
+        160
+      ]
+    ],
+    [
+      "ridge-chain",
+      [
+        405,
+        320,
+        -300
+      ],
+      [
+        -100,
+        138,
+        270
+      ]
+    ],
+    [
+      "branching-mass",
+      [
+        -430,
+        590,
+        160
+      ],
+      [
+        20,
+        60,
+        290
+      ]
+    ]
+  ],
+  "glError": 0
+}

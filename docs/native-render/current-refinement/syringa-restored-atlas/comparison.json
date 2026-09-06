@@ -1,0 +1,41 @@
+{
+  "previousSource": "28cd16b21b8d422566e3d4c76f0f94e5d9938b9624dd96ee791864e159ac9761",
+  "newSource": "cb794443092f8b4b7b257c4d86f42e6f2b0ec91a2f95d2d3f34043f0a3b49b07",
+  "views": 24,
+  "averageCoverageRatio": 1.181900500420116,
+  "minRatio": 1.1570104276668332,
+  "maxRatio": 1.196305138990054,
+  "albedoAndNormalAlphaEqual": true,
+  "shaderErrors": [],
+  "glError": 0,
+  "newBounds": {
+    "min": [
+      -4.021713733673096,
+      -0.07405596226453781,
+      -4.247942924499512
+    ],
+    "max": [
+      4.939471244812012,
+      13.925944328308105,
+      8.940140724182129
+    ]
+  },
+  "newCenter": [
+    0.458878755569458,
+    6.925944183021784,
+    2.3460988998413086
+  ],
+  "newHalfSize": 11.67022233680592,
+  "files": [
+    {
+      "name": "syringa-albedo.png",
+      "bytes": 664818,
+      "sha256": "69045d0cbeebac3c0e15d4345142a99c9298076a75b15013e8cc6c906b1e2004"
+    },
+    {
+      "name": "syringa-normal.png",
+      "bytes": 796819,
+      "sha256": "370dce1764a6ed7aa00afbfb023290a86e0388ca97bbe4e6de0ffc038f73ecb1"
+    }
+  ]
+}

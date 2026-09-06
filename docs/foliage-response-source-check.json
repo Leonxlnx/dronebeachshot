@@ -1,0 +1,37 @@
+{
+  "kind": "CPU source-hook composition only; no GPU compilation or visual validation",
+  "three": "185",
+  "checks": [
+    "color: setup precedes normal and position",
+    "color: exactly one deformation call",
+    "color: exactly one displacement application",
+    "color: shared family height object",
+    "color: stock alpha test retained",
+    "color: coverage retained",
+    "depth: setup precedes normal and position",
+    "depth: exactly one deformation call",
+    "depth: exactly one displacement application",
+    "depth: shared family height object",
+    "depth: stock alpha test retained",
+    "depth: coverage retained",
+    "color: corrected normal precedes default normal transform",
+    "color: wrapper follows physical declarations",
+    "color: cloud wrapper still expanded light loop",
+    "color: diagnostic override retained",
+    "color: capture scaling retained",
+    "depth: lighting not injected",
+    "same color/depth position setup",
+    "same color/depth wind implementation",
+    "color: all referenced official chunks resolve",
+    "depth: all referenced official chunks resolve"
+  ],
+  "sourceSha256": {
+    "src/render/vegetation-material.ts": "9648ac365dc7c64ab76186998f2011adb8cf059734a43840100315e5aff2a58a",
+    "src/world/weather.ts": "d38c3292ed627e63178815e8232325e7a9f3b9480bbc9115813ea5f06915da33",
+    "src/render/sky-lighting.ts": "fda9a4093974293733c45b8657b9909d05c463245fb5be1decd8fad1c3eb19a0",
+    "src/render/diagnostics.ts": "fa897ab752278cea94e03d0966d90e1d4d1a4c9e9f7a9410cde3e582a2e9294a",
+    "node_modules/three/package.json": "1d5c438acdc1fe5a52fb8ede2e417afd91fec91d22275c40f7b739591b24e4df",
+    "node_modules/three/src/renderers/shaders/ShaderChunk/lights_physical_pars_fragment.glsl.js": "93c6fbb624f9adbc0ac6ea0b01180a980ed11eeed7686bcade07b631270e8a9b"
+  },
+  "proposalSha256": "92c78bf5b1a7ee6b1e40dfed7ed4765f8c758f041b261ff0f9a69018d271f97a"
+}

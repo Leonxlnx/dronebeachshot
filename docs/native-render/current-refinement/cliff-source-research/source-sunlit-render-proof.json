@@ -1,0 +1,48 @@
+{
+  "method": "Original Coastal Cliff01 2K source, rigid 180 degree Y rotation (uniform scale 1), original turf/rock geometry, UV and PBR unchanged. Isolated native ANGLE/Mesa Three render with production snapshot atmosphere/light; no terrain, water, vegetation, cap, or retouching. Not browser QA.",
+  "sourceSHA256": "588b11777e0068274672cd5f5636873db9f794e513f0d9bca62ec11daec68bfb",
+  "width": 960,
+  "height": 540,
+  "renderer": "ANGLE (Mesa, llvmpipe (LLVM 20.1.2 256 bits), OpenGL ES 3.2 Mesa 25.2.8-0ubuntu0.24.04.2)",
+  "peakRSSMB": 601.62109375,
+  "rows": [
+    {
+      "name": "source-sunlit-wide",
+      "position": [
+        -4,
+        18,
+        -87
+      ],
+      "target": [
+        -1,
+        4.5,
+        0
+      ],
+      "fov": 39,
+      "time": 14,
+      "rssMB": 569.69921875,
+      "glError": 0,
+      "shaderErrors": [],
+      "triangles": 924609
+    },
+    {
+      "name": "source-sunlit-detail",
+      "position": [
+        -15,
+        9.5,
+        -20
+      ],
+      "target": [
+        -8,
+        4.5,
+        0
+      ],
+      "fov": 52,
+      "time": 14,
+      "rssMB": 600.61328125,
+      "glError": 0,
+      "shaderErrors": [],
+      "triangles": 924609
+    }
+  ]
+}

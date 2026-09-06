@@ -1,0 +1,23 @@
+--- a/binding/egl_context_wrapper.cc
++++ b/binding/egl_context_wrapper.cc
+@@ -153,6 +153,8 @@
+ #if defined(__APPLE__) && defined(EGL_PLATFORM_ANGLE_TYPE_METAL_ANGLE)
+   platform_types.push_back(EGL_PLATFORM_ANGLE_TYPE_METAL_ANGLE);
+ #endif
++  platform_types.push_back(EGL_PLATFORM_ANGLE_TYPE_OPENGL_ANGLE);
++  platform_types.push_back(EGL_PLATFORM_ANGLE_TYPE_OPENGLES_ANGLE);
+   platform_types.push_back(EGL_PLATFORM_ANGLE_TYPE_DEFAULT_ANGLE);
+ #if defined(__arm__) && defined(EGL_PLATFORM_ANGLE_TYPE_OPENGLES_ANGLE)
+   // Most NVIDIA drivers will not work properly with
+@@ -168,6 +170,11 @@
+     std::vector<EGLAttrib> display_attributes;
+     display_attributes.push_back(EGL_PLATFORM_ANGLE_TYPE_ANGLE);
+     display_attributes.push_back(platform_type);
++    if (platform_type == EGL_PLATFORM_ANGLE_TYPE_OPENGL_ANGLE ||
++        platform_type == EGL_PLATFORM_ANGLE_TYPE_OPENGLES_ANGLE) {
++      display_attributes.push_back(EGL_PLATFORM_ANGLE_NATIVE_PLATFORM_TYPE_ANGLE);
++      display_attributes.push_back(EGL_PLATFORM_SURFACELESS_MESA);
++    }
+     display_attributes.push_back(EGL_NONE);
+ 
+     EGLDisplay candidate = eglGetPlatformDisplay(

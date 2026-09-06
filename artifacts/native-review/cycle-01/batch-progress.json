@@ -1,0 +1,51 @@
+{
+  "completed": [
+    {
+      "camera": "mountain-wide",
+      "time": 2,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/frames/cycle-01/mountain-wide-mode-0-960.png",
+      "render": {
+        "frame": 28,
+        "calls": 2032,
+        "triangles": 43684084,
+        "points": 928,
+        "lines": 0
+      },
+      "programs": 72,
+      "glError": 0
+    },
+    {
+      "camera": "sunset-reflection",
+      "time": 17,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/frames/cycle-01/sunset-reflection-mode-0-960.png",
+      "render": {
+        "frame": 56,
+        "calls": 843,
+        "triangles": 30254034,
+        "points": 928,
+        "lines": 0
+      },
+      "programs": 74,
+      "glError": 0
+    },
+    {
+      "camera": "wet-sand",
+      "time": 11.5,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/frames/cycle-01/wet-sand-mode-0-960.png",
+      "render": {
+        "frame": 84,
+        "calls": 1306,
+        "triangles": 64077153,
+        "points": 928,
+        "lines": 0
+      },
+      "programs": 76,
+      "glError": 0
+    }
+  ],
+  "requested": [
+    "mountain-wide",
+    "sunset-reflection",
+    "wet-sand"
+  ]
+}

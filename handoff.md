@@ -24,3 +24,5 @@ The main peak target is 425 m; camera/terrain/tree clearance and continuous ~20-
 
 ## Authorization
 The user's latest request explicitly asks to push this unfinished handoff to GitHub main now because credits are almost exhausted. That supersedes the older rule postponing the final main push until completion, only for this recovery snapshot. Do not spend another long visual iteration on the handoff itself.
+
+Before running the recovered snapshot, execute `python3 recovery/restore-assets.py` to restore the losslessly archived public assets.

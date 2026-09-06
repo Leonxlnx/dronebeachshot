@@ -1,0 +1,1929 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> last-light-bay@0.1.0 verify:build
+> npm run lint && npm run test && npm run check:assets && npm run check:world && npm run build
+
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> last-light-bay@0.1.0 lint
+> node scripts/control/source-check.mjs
+
+SOURCE_CHECK_PASS: 49 files; no hotlinks or unseeded randomness
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> last-light-bay@0.1.0 test
+> node --experimental-strip-types --test src/world/math.test.ts src/camera/cinematic.test.ts src/world/lod.test.ts src/world/coastal.test.ts src/world/coastal-field.test.ts src/world/terrain-surface.test.ts src/world/rock-shelter.test.ts
+
+✔ route starts above highest surveyed summit and finishes seaward (192.387707ms)
+✔ flight has finite positions, no terrain clipping, C1 velocity at every phase boundary (22.715137ms)
+✔ conservative tree envelopes keep the flight corridor clear (1406.661132ms)
+✔ all 16 evaluation cameras are distinct and above terrain (1.831192ms)
+✔ coastal atlas preserves transformed rock surfaces and waterline distance (2744.195839ms)
+✔ a shallow crest travels inland and along the shoreline normal (1.042629ms)
+✔ swash velocity agrees with displacement in both advance and retreat (6.069412ms)
+✔ sand retains moisture behind a retreating wave, without wetting unreached sand (13.579567ms)
+✔ LOD coverage conserves opacity at every distance (36.938253ms)
+✔ cell culling never hides a contributing tree LOD (45.811089ms)
+✔ LOD weights and first derivative meet continuously at threshold boundaries (0.361582ms)
+✔ determinism and seed separation (3.834266ms)
+✔ coastline continuous, seabed continues, terrain never NaN (415.576467ms)
+✔ summit scale and asymmetric bay (0.275862ms)
+✔ rock lee is downstream, bounded, recovers and follows wave direction (35.670471ms)
+✔ water contact height agrees with actual rendered terrain triangles (205.44617ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 16
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3154.109971
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> last-light-bay@0.1.0 check:assets
+> python3 scripts/control/check-assets.py
+
+ASSET_CHECK_PASS: 36 vendored files; checksums, CC0 sources, embedded GLB resources and leaf alpha verified
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> last-light-bay@0.1.0 check:world
+> node --experimental-strip-types --loader ./scripts/control/ts-resolve.mjs scripts/control/check-world.mjs
+
+(node:145) ExperimentalWarning: `--experimental-loader` may be removed in the future; instead use `register()`:
+--import 'data:text/javascript,import { register } from "node:module"; import { pathToFileURL } from "node:url"; register("./scripts/control/ts-resolve.mjs", pathToFileURL("./"));'
+(Use `node --trace-warnings ...` to show where the warning was created)
+{
+  "photogrammetryRocks": {
+    "family": "rock_moss_set_01",
+    "selected": 48,
+    "fullTriangles": 499838,
+    "mediumTriangles": 499838,
+    "uniformScaleMin": 1.449426534387243,
+    "uniformScaleMax": 4.8,
+    "minimumPenetration": 1.2219893048191925,
+    "maximumProtrusion": 8.869206650310247,
+    "allHorizontalBoundsInsidePrevious": true,
+    "allTopsAtOrBelowPrevious": true,
+    "details": [
+      {
+        "originalMesh": "fractured-bedrock-4",
+        "originalIndex": 5,
+        "variant": 0,
+        "uniformScale": 4.8,
+        "center": [
+          -109.6791763305664,
+          98.20751830800187,
+          160.1872100830078
+        ],
+        "minimumPenetration": 15.185811189474336,
+        "maximumProtrusion": 7.535484180334322,
+        "oldBounds": {
+          "min": [
+            -122.65105830239779,
+            57.58929252624512,
+            145.51140931940873
+          ],
+          "max": [
+            -96.70729435873503,
+            107.28510777509882,
+            174.8630108466069
+          ]
+        },
+        "newBounds": {
+          "min": [
+            -119.61510869170091,
+            89.15492884090492,
+            153.99931629753274
+          ],
+          "max": [
+            -99.7432439694319,
+            107.26010777509882,
+            166.37510386848288
+          ]
+        }
+      },
+      {
+        "originalMesh": "fractured-bedrock-3",
+        "originalIndex": 4,
+        "variant": 1,
+        "uniformScale": 4.8,
+        "center": [
+          -95.63484032511343,
+          86.2580485756579,
+          157.08237839653623
+        ],
+        "minimumPenetration": 17.329116914088715,
+        "maximumProtrusion": 2.038696580579284,
+        "oldBounds": {
+          "min": [
+            -109.10247859944263,
+            48.487796783447266,
+            143.05685286050345
+          ],
+          "max": [
+            -82.16720205078423,
+            94.87196667648664,
+            171.10790393256897
+          ]
+        },
+        "newBounds": {
+          "min": [
+            -103.92006257612316,
+            77.66913047482916,
+            148.80600823341211
+          ],
+          "max": [
+            -87.3496180741037,
+            94.84696667648663,
+            165.35874855966034
+          ]
+        }
+      },
+      {
+        "originalMesh": "fractured-bedrock-3",
+        "originalIndex": 16,
+        "variant": 2,
+        "uniformScale": 4.8,
+        "center": [
+          -85.83590938195974,
+          332.1891869584408,
+          258.63578587270996
+        ],
+        "minimumPenetration": 5.466466789342917,
+        "maximumProtrusion": 5.665847224675019,
+        "oldBounds": {
+          "min": [
+            -97.02963343200383,
+            276.60252571105957,
+            246.10662136354063
+          ],
+          "max": [
+            -74.64218533191564,
+            338.4322352570101,
+            271.1649503818793
+          ]
+        },
+        "newBounds": {
+          "min": [
+            -92.77129650070725,
+            326.6162322181504,
+            251.51861797365663
+          ],
+          "max": [
+            -78.90052226321222,
+            337.7621416987312,
+            265.75295377176326
+          ]
+        }
+      },
+      {
+        "originalMesh": "fractured-bedrock-5",
+        "originalIndex": 5,
+        "variant": 4,
+        "uniformScale": 4.8,
+        "center": [
+          -123.30125612149135,
+          118.36463137446212,
+          166.20504295470562
+        ],
+        "minimumPenetration": 14.010761736680323,
+        "maximumProtrusion": 5.296275954367928,
+        "oldBounds": {
+          "min": [
+            -137.06336608032194,
+            71.01672744750977,
+            149.89624078139332
+          ],
+          "max": [
+            -109.53914616266076,
+            126.95638146186752,
+            182.51384512801795
+          ]
+        },
+        "newBounds": {
+          "min": [
+            -132.07148657178573,
+            109.79788128705673,
+            160.6405576288937
+          ],
+          "max": [
+            -114.53102567119699,
+            126.93138146186752,
+            171.76952828051753
+          ]
+        }
+      },
+      {
+        "originalMesh": "fractured-bedrock-2",
+        "originalIndex": 4,
+        "variant": 5,
+        "uniformScale": 4.8,
+        "center": [
+          -81.17691802978516,
+          86.9110510505456,
+          155.39389038085938
+        ],
+        "minimumPenetration": 15.132073745247723,
+        "maximumProtrusion": 3.747201737842076,
+        "oldBounds": {
+          "min": [
+            -95.66192695001794,
+            50.20877647399902,
+            137.8757218838466
+          ],
+          "max": [
+            -66.69190910955237,
+            94.6959284260754,
+            172.91205887787214
+          ]
+        },
+        "newBounds": {
+          "min": [
+            -87.88221382809441,
+            79.1511736750158,
+            148.63378807199808
+          ],
+          "max": [
+            -74.4716222314759,
+            94.67092842607539,
+            162.15399268972067
+          ]
+        }
+      },
+      {
+        "originalMesh": "fractured-bedrock-4",
+        "originalIndex": 16,
+        "variant": 0,
+        "uniformScale": 4.8,
+        "center": [
+          -96.97196197509766,
+          330.35972481155545,
+          261.4833679199219
+        ],
+        "minimumPenetration": 7.513997075843122,
+        "maximumProtrusion": 7.555847794926422,
+        "oldBounds": {
+          "min": [
+            -110.5311264657642,
+            262.31731033325195,
+            244.69264492071778
+          ],
+          "max": [
+            -83.41279748443111,
+            339.37487355581015,
+            278.27409091912597
+          ]
+        },
+        "newBounds": {
+          "min": [
+            -106.94070030754568,
+            322.1664107412083,
+            253.075292955387
+          ],
+          "max": [
+            -87.00322364264963,
+            338.5530388819026,
+            269.89144288445675
+          ]
+        }
+      },
+      {
+        "originalMesh": "fractured-bedrock-3",
+        "originalIndex": 12,
+        "variant": 1,
+        "uniformScale": 4.8,
+        "center": [
+          -83.76236609564654,
+          219.57934951562882,
+          202.86360736073757
+        ],
+        "minimumPenetration": 14.482790657273966,
+        "maximumProtrusion": 4.548869672363281,
+        "oldBounds": {
+          "min": [
+            -93.53971476196074,
+            179.09770011901855,
+            187.5247750624942
+          ],
+          "max": [
+            -73.98501742933234,
+            228.7381493963718,
+            218.20243965898095
+          ]
+        },
+        "newBounds": {
+          "min": [
+            -91.07736949484942,
+            210.44554963488585,
+            195.2487541190621
+          ],
+          "max": [
+            -76.44736269644366,
+            228.7131493963718,
+            210.47846060241304
+          ]
+        }
+      },
+      {
+        "originalMesh": "fractured-bedrock-0",
+        "originalIndex": 14,
+        "variant": 2,
+        "uniformScale": 4.8,
+        "center": [
+          -74.35883353521056,
+          205.10132069655012,
+          198.93577102415549
+        ],
+        "minimumPenetration": 8.341819477049484,
+        "maximumProtrusion": 7.363998687695982,
+        "oldBounds": {
+          "min": [
+            -86.51517442286959,
+            138.23551177978516,
+            184.83173122390124
+          ],
+          "max": [
+            -62.20249264755154,
+            210.803639339264,
+            213.03981082440973
+          ]
+        },
+        "newBounds": {
+          "min": [
+            -80.70637100009385,
+            199.42400205383623,
+            192.73729688806284
+          ],
+          "max": [
+            -68.01129607032728,
+            210.778639339264,
+            205.13424516024813
+          ]
+        }
+      },
+      {
+        "originalMesh": "fractured-bedrock-5",
+        "originalIndex": 15,
+        "variant": 4,
+        "uniformScale": 4.8,
+        "center": [
+          -107.65472299335104,
+          333.4224147556111,
+          266.8280923912065
+        ],
+        "minimumPenetration": 9.417200025581678,
+        "maximumProtrusion": 4.416742666118807,
+        "oldBounds": {
+          "min": [
+            -122.02514068320977,
+            281.0412540435791,
+            249.91294796992793
+          ],
+          "max": [
+            -93.28430530349232,
+            339.6214515581893,
+            283.7432368124851
+          ]
+        },
+        "newBounds": {
+          "min": [
+            -116.39218979936072,
+            327.2483779530329,
+            259.47615620361574
+          ],
+          "max": [
+            -98.91725618734137,
+            339.5964515581893,
+            274.18002857879725
+          ]
+        }
+      },
+      {
+        "originalMesh": "fractured-bedrock-4",
+        "originalIndex": 11,
+        "variant": 5,
+        "uniformScale": 4.8,
+        "center": [
+          -95.57492065429688,
+          216.5854851097427,
+          200.49557495117188
+        ],
+        "minimumPenetration": 10.025365108890213,
+        "maximumProtrusion": 3.230377261074409,
+        "oldBounds": {
+          "min": [
+            -103.94755287776914,
+            175.15132904052734,
+            190.3113140350874
+          ],
+          "max": [
+            -87.20228843082461,
+            224.1363913998266,
+            210.67983586725634
+          ]
+        },
+        "newBounds": {
+          "min": [
+            -101.36057470586667,
+            209.0595788196588,
+            193.9114666486629
+          ],
+          "max": [
+            -89.78926660272708,
+            224.1113913998266,
+            207.07968325368086
+          ]
+        }
+      },
+      {
+        "originalMesh": "fractured-bedrock-1",
+        "originalIndex": 75,
+        "variant": 0,
+        "uniformScale": 3.6455904620856496,
+        "center": [
+          277.11376953125,
+          -2.6694081104419203,
+          -103.56993865966797
+        ],
+        "minimumPenetration": 4.37313460162224,
+        "maximumProtrusion": 1.08700441775818,
+        "oldBounds": {
+          "min": [
+            270.6826569767351,
+            -7.287352561950684,
+            -110.85362865542132
+          ],
+          "max": [
+            283.5448820857649,
+            0.5277351065261087,
+            -96.28624866391462
+          ]
+        },
+        "newBounds": {
+          "min": [
+            271.8705655883647,
+            -5.841551327409949,
+            -110.41660725567611
+          ],
+          "max": [
+            282.3569734741353,
+            0.5027351065261088,
+            -96.72327006365983
+          ]
+        }
+      },
+      {
+        "originalMesh": "fractured-bedrock-2",
+        "originalIndex": 80,
+        "variant": 1,
+        "uniformScale": 2.1583989063914886,
+        "center": [
+          278.8607482910156,
+          -1.5854547511714243,
+          -104.75074005126953
+        ],
+        "minimumPenetration": 2.0087691304714417,
+        "maximumProtrusion": 0.7316878406796372,
+        "oldBounds": {
+          "min": [
+            274.51563279290536,
+            -5.225912809371948,
+            -109.01573830624415
+          ],
+          "max": [
+            283.2058637891259,
+            0.1488159097459345,
+            -100.48574179629492
+          ]
+        },
+        "newBounds": {
+          "min": [
+            274.776339722792,
+            -3.2947254120887832,
+            -108.27487229381327
+          ],
+          "max": [
+            282.94515685923926,
+            0.1238159097459346,
+            -101.22660780872579
+          ]
+        }
+      },
+      {
+        "originalMesh": "fractured-bedrock-5",
+        "originalIndex": 11,
+        "variant": 2,
+        "uniformScale": 4.8,
+        "center": [
+          -107.08378582121799,
+          225.466188057231,
+          202.16500436801178
+        ],
+        "minimumPenetration": 12.066224836038856,
+        "maximumProtrusion": 5.0274750303713915,
+        "oldBounds": {
+          "min": [
+            -116.56972535918247,
+            183.93113327026367,
+            190.92383891390983
+          ],
+          "max": [
+            -97.5978462832535,
+            231.74427399426145,
+            213.40616982211372
+          ]
+        },
+        "newBounds": {
+          "min": [
+            -112.84549194130506,
+            219.21310212020055,
+            197.18701113307242
+          ],
+          "max": [
+            -101.32207970113092,
+            231.71927399426144,
+            207.14299760295114
+          ]
+        }
+      },
+      {
+        "originalMesh": "fractured-bedrock-2",
+        "originalIndex": 65,
+        "variant": 4,
+        "uniformScale": 3.6874950145749157,
+        "center": [
+          -188.33193969726562,
+          -0.9812321123763175,
+          10.404023170471191
+        ],
+        "minimumPenetration": 3.1734997741172553,
+        "maximumProtrusion": 1.2829208285483862,
+        "oldBounds": {
+          "min": [
+            -195.24198390762186,
+            -5.899805545806885,
+            3.5599425075816953
+          ],
+          "max": [
+            -181.4218954869094,
+            1.4917197919166085,
+            17.248103833360688
+          ]
+        },
+        "newBounds": {
+          "min": [
+            -194.8273812550005,
+            -3.429184016669243,
+            4.229943407773994
+          ],
+          "max": [
+            -181.83649813953076,
+            1.4667197919166082,
+            16.57810293316839
+          ]
+        }
+      },
+      {
+        "originalMesh": "fractured-bedrock-0",
+        "originalIndex": 6,
+        "variant": 5,
+        "uniformScale": 4.8,
+        "center": [
+          -132.46532872515724,
+          80.85409604585524,
+          147.6861364016882
+        ],
+        "minimumPenetration": 15.34238988033259,
+        "maximumProtrusion": 3.1598099801678643,
+        "oldBounds": {
+          "min": [
+            -143.95972646227682,
+            33.4350471496582,
+            131.95051269026465
+          ],
+          "max": [
+            -120.97093098803768,
+            89.36522068360591,
+            163.42176011311176
+          ]
+        },
+        "newBounds": {
+          "min": [
+            -139.74904204692314,
+            72.36797140810457,
+            141.38422250167824
+          ],
+          "max": [
+            -125.18161540339135,
+            89.34022068360592,
+            153.98805030169817
+          ]
+        }
+      },
+      {
+        "originalMesh": "fractured-bedrock-2",
+        "originalIndex": 10,
+        "variant": 0,
+        "uniformScale": 4.503169667790315,
+        "center": [
+          -71.84728240966797,
+          210.81881741286176,
+          205.48236083984375
+        ],
+        "minimumPenetration": 15.892266012904201,
+        "maximumProtrusion": 3.172232045774024,
+        "oldBounds": {
+          "min": [
+            -81.37483972023156,
+            174.42916870117188,
+            190.41586648080772
+          ],
+          "max": [
+            -62.31972509910437,
+            219.9653454170002,
+            220.54885519887978
+          ]
+        },
+        "newBounds": {
+          "min": [
+            -80.80318628159775,
+            201.69728940872332,
+            197.7885298165911
+          ],
+          "max": [
+            -62.89137853773819,
+            219.9403454170002,
+            213.1761918630964
+          ]
+        }
+      },
+      {
+        "originalMesh": "fractured-bedrock-3",
+        "originalIndex": 65,
+        "variant": 1,
+        "uniformScale": 1.9234411713068642,
+        "center": [
+          -187.77371877679457,
+          -0.7539849380365349,
+          8.691449871188013
+        ],
+        "minimumPenetration": 1.8326264114223245,
+        "maximumProtrusion": 0.6116007572841061,
+        "oldBounds": {
+          "min": [
+            -192.299942463279,
+            -4.225848197937012,
+            4.45227464061648
+          ],
+          "max": [
+            -183.24749509031017,
+            0.7513986089127087,
+            12.930625101759546
+          ]
+        },
+        "newBounds": {
+          "min": [
+            -191.47615558605256,
+            -2.2343684849857786,
+            4.706625154450772
+          ],
+          "max": [
+            -184.07128196753658,
+            0.7263986089127089,
+            12.676274587925253
+          ]
+        }
+      },
+      {
+        "originalMesh": "fractured-bedrock-0",
+        "originalIndex": 7,
+        "variant": 2,
+        "uniformScale": 4.8,
+        "center": [
+          -75.7709689325433,
+          72.7841512063264,
+          150.2230515048039
+        ],
+        "minimumPenetration": 13.063963472545396,
+        "maximumProtrusion": 4.435736309728782,
+        "oldBounds": {
+          "min": [
+            -85.27603929109677,
+            45.34248352050781,
+            136.39283166043316
+          ],
+          "max": [
+            -66.26589857398983,
+            78.99736646946167,
+            164.05327134917462
+          ]
+        },
+        "newBounds": {
+          "min": [
+            -81.46161586944487,
+            66.59593594319114,
+            145.17561783917654
+          ],
+          "max": [
+            -70.08032199564173,
+            78.97236646946166,
+            155.27048517043124
+          ]
+        }
+      },
+      {
+        "originalMesh": "fractured-bedrock-4",
+        "originalIndex": 63,
+        "variant": 4,
+        "uniformScale": 3.721063655023343,
+        "center": [
+          -191.1456756591797,
+          -1.0610984895480406,
+          13.35188102722168
+        ],
+        "minimumPenetration": 3.5045620602024186,
+        "maximumProtrusion": 0.9884736636023499,
+        "oldBounds": {
+          "min": [
+            -198.1302841673139,
+            -4.551470398902893,
+            6.472578023302447
+          ],
+          "max": [
+            -184.16106715104547,
+            1.4727494781072892,
+            20.231184031140913
+          ]
+        },
+        "newBounds": {
+          "min": [
+            -197.71120765682585,
+            -3.56994645720337,
+            7.790885753749927
+          ],
+          "max": [
+            -184.58014366153353,
+            1.4477494781072888,
+            18.912876300693434
+          ]
+        }
+      },
+      {
+        "originalMesh": "fractured-bedrock-1",
+        "originalIndex": 23,
+        "variant": 5,
+        "uniformScale": 4.8,
+        "center": [
+          -69.31454467773438,
+          366.89125889197175,
+          292.9017028808594
+        ],
+        "minimumPenetration": 10.488356258993917,
+        "maximumProtrusion": 2.856216664162389,
+        "oldBounds": {
+          "min": [
+            -82.61355771458199,
+            335.2476921081543,
+            279.6349639007752
+          ],
+          "max": [
+            -56.01553164088676,
+            375.1361023743325,
+            306.1684418609436
+          ]
+        },
+        "newBounds": {
+          "min": [
+            -78.01470046391468,
+            358.671415409611,
+            285.32389969026343
+          ],
+          "max": [
+            -60.61438889155407,
+            375.1111023743325,
+            300.4795060714553
+          ]
+        }
+      },
+      {
+        "originalMesh": "fractured-bedrock-0",
+        "originalIndex": 71,
+        "variant": 0,
+        "uniformScale": 4.054045645899552,
+        "center": [
+          286.23634209890304,
+          -2.477434137458941,
+          -103.3628832150581
+        ],
+        "minimumPenetration": 5.2205353235927525,
+        "maximumProtrusion": 0.7640972545152835,
+        "oldBounds": {
+          "min": [
+            277.516748641334,
+            -6.794951915740967,
+            -112.19935209983527
+          ],
+          "max": [
+            294.955935556472,
+            1.1759505554509815,
+            -94.52641433028094
+          ]
+        },
+        "newBounds": {
+          "min": [
+            278.65731399122325,
+            -6.105818830368863,
+            -111.66916396674864
+          ],
+          "max": [
+            293.8153702065828,
+            1.1509505554509811,
+            -95.05660246336757
+          ]
+        }
+      },
+      {
+        "originalMesh": "fractured-bedrock-0",
+        "originalIndex": 57,
+        "variant": 1,
+        "uniformScale": 3.6895195327662758,
+        "center": [
+          -189.65106104213874,
+          -1.2190728943064773,
+          5.233606737709904
+        ],
+        "minimumPenetration": 3.2450013397293858,
+        "maximumProtrusion": 1.4125391530885385,
+        "oldBounds": {
+          "min": [
+            -196.55915103838072,
+            -9.398024320602417,
+            -1.53764765097959
+          ],
+          "max": [
+            -182.74297104589675,
+            1.756547450068183,
+            12.004861126399398
+          ]
+        },
+        "newBounds": {
+          "min": [
+            -196.1446656386062,
+            -4.169693238681138,
+            -0.2167711065208433
+          ],
+          "max": [
+            -183.15745644567127,
+            1.7315474500681831,
+            10.683984581940651
+          ]
+        }
+      },
+      {
+        "originalMesh": "fractured-bedrock-0",
+        "originalIndex": 72,
+        "variant": 2,
+        "uniformScale": 1.449426534387243,
+        "center": [
+          289.4592792201048,
+          -1.7845292053320818,
+          -130.46085368901674
+        ],
+        "minimumPenetration": 1.2219893048191925,
+        "maximumProtrusion": 0.3793299540149324,
+        "oldBounds": {
+          "min": [
+            287.2930172606203,
+            -3.864407777786255,
+            -132.3198403309819
+          ],
+          "max": [
+            291.6255411795893,
+            -0.8006576488751875,
+            -128.60186704705163
+          ]
+        },
+        "newBounds": {
+          "min": [
+            287.7062798112505,
+            -2.743400761788976,
+            -132.20830113246396
+          ],
+          "max": [
+            291.2122786289591,
+            -0.8256576488751876,
+            -128.71340624556953
+          ]
+        }
+      },
+      {
+        "originalMesh": "fractured-bedrock-5",
+        "originalIndex": 12,
+        "variant": 4,
+        "uniformScale": 4.8,
+        "center": [
+          -63.79046810726851,
+          207.8635904725147,
+          205.80681271005233
+        ],
+        "minimumPenetration": 8.944673576921161,
+        "maximumProtrusion": 7.002362340049956,
+        "oldBounds": {
+          "min": [
+            -74.8193702389971,
+            140.54810333251953,
+            191.6721331610864
+          ],
+          "max": [
+            -52.761565975539924,
+            213.93029351933046,
+            219.94149225901822
+          ]
+        },
+        "newBounds": {
+          "min": [
+            -71.94414145592897,
+            201.82188742569892,
+            199.85205995186533
+          ],
+          "max": [
+            -55.63679475860805,
+            213.90529351933046,
+            211.76156546823933
+          ]
+        }
+      },
+      {
+        "originalMesh": "fractured-bedrock-1",
+        "originalIndex": 6,
+        "variant": 5,
+        "uniformScale": 4.8,
+        "center": [
+          -67.1785659790039,
+          73.68088835459449,
+          150.8649139404297
+        ],
+        "minimumPenetration": 14.67221789724384,
+        "maximumProtrusion": 3.9556575601874187,
+        "oldBounds": {
+          "min": [
+            -82.01172761730993,
+            36.02609825134277,
+            134.35230967710004
+          ],
+          "max": [
+            -52.34540434069788,
+            81.98173186975805,
+            167.37751820375934
+          ]
+        },
+        "newBounds": {
+          "min": [
+            -73.94338496102165,
+            65.40504483943093,
+            144.50104699067765
+          ],
+          "max": [
+            -60.41374699698616,
+            81.95673186975804,
+            157.22878089018172
+          ]
+        }
+      },
+      {
+        "originalMesh": "fractured-bedrock-0",
+        "originalIndex": 18,
+        "variant": 0,
+        "uniformScale": 4.8,
+        "center": [
+          -117.41270349139866,
+          328.0559067649059,
+          269.6238244966702
+        ],
+        "minimumPenetration": 16.834646282856568,
+        "maximumProtrusion": 6.907818422320304,
+        "oldBounds": {
+          "min": [
+            -128.87653379360444,
+            275.7747344970703,
+            257.7578038772499
+          ],
+          "max": [
+            -105.94887318919288,
+            334.668064927022,
+            281.4898451160905
+          ]
+        },
+        "newBounds": {
+          "min": [
+            -127.1546913504945,
+            321.4687486027898,
+            261.2119952367457
+          ],
+          "max": [
+            -107.67071563230282,
+            334.643064927022,
+            278.0356537565947
+          ]
+        }
+      },
+      {
+        "originalMesh": "fractured-bedrock-2",
+        "originalIndex": 13,
+        "variant": 1,
+        "uniformScale": 4.8,
+        "center": [
+          -53.790470123291016,
+          271.9265526916292,
+          244.937255859375
+        ],
+        "minimumPenetration": 15.906363692835043,
+        "maximumProtrusion": 2.6100079856382195,
+        "oldBounds": {
+          "min": [
+            -67.18410943800762,
+            235.6535816192627,
+            231.68107714429783
+          ],
+          "max": [
+            -40.39683080857441,
+            282.1708356046531,
+            258.19343457445217
+          ]
+        },
+        "newBounds": {
+          "min": [
+            -64.32111624455774,
+            261.7072697786052,
+            237.524496916473
+          ],
+          "max": [
+            -43.25982400202428,
+            282.14583560465314,
+            252.350014802277
+          ]
+        }
+      },
+      {
+        "originalMesh": "fractured-bedrock-1",
+        "originalIndex": 5,
+        "variant": 2,
+        "uniformScale": 4.8,
+        "center": [
+          -144.63165283203125,
+          91.86007853199676,
+          150.6624298095703
+        ],
+        "minimumPenetration": 9.27286495038392,
+        "maximumProtrusion": 5.819210919047691,
+        "oldBounds": {
+          "min": [
+            -155.81691676717057,
+            41.8676815032959,
+            140.58529718410443
+          ],
+          "max": [
+            -133.44638889689193,
+            97.91884191888789,
+            160.7395624350362
+          ]
+        },
+        "newBounds": {
+          "min": [
+            -150.48545246724998,
+            85.82631514510564,
+            144.55413811769154
+          ],
+          "max": [
+            -138.77785319681252,
+            97.89384191888789,
+            156.7707215014491
+          ]
+        }
+      },
+      {
+        "originalMesh": "fractured-bedrock-3",
+        "originalIndex": 77,
+        "variant": 4,
+        "uniformScale": 2.230039167548145,
+        "center": [
+          280.3835222751535,
+          -0.7315045830373179,
+          -89.90444890072767
+        ],
+        "minimumPenetration": 2.0042261382568416,
+        "maximumProtrusion": 0.6924574993234957,
+        "oldBounds": {
+          "min": [
+            276.25764485196447,
+            -4.029512643814087,
+            -94.11610050316166
+          ],
+          "max": [
+            284.5093996983426,
+            0.7871149610934367,
+            -85.69279729829368
+          ]
+        },
+        "newBounds": {
+          "min": [
+            276.8484909974977,
+            -2.225124127168072,
+            -93.86340140701562
+          ],
+          "max": [
+            283.91855355280927,
+            0.7621149610934365,
+            -85.94549639443973
+          ]
+        }
+      },
+      {
+        "originalMesh": "fractured-bedrock-4",
+        "originalIndex": 76,
+        "variant": 5,
+        "uniformScale": 3.7500268006827056,
+        "center": [
+          287.9203796386719,
+          -0.9515322177849845,
+          -96.080078125
+        ],
+        "minimumPenetration": 3.43610568622395,
+        "maximumProtrusion": 1.300285209110423,
+        "oldBounds": {
+          "min": [
+            281.27049615184933,
+            -5.6916725635528564,
+            -102.56938569105893
+          ],
+          "max": [
+            294.5702631254944,
+            1.6631988427837427,
+            -89.59077055894107
+          ]
+        },
+        "newBounds": {
+          "min": [
+            282.60783154170093,
+            -3.541263278353712,
+            -102.18002723709539
+          ],
+          "max": [
+            293.2329277356428,
+            1.6381988427837428,
+            -89.98012901290461
+          ]
+        }
+      },
+      {
+        "originalMesh": "fractured-bedrock-0",
+        "originalIndex": 13,
+        "variant": 0,
+        "uniformScale": 4.672973785330602,
+        "center": [
+          -118.90410255948449,
+          219.67858923227402,
+          198.34350148025044
+        ],
+        "minimumPenetration": 13.645879929686231,
+        "maximumProtrusion": 8.869206650310247,
+        "oldBounds": {
+          "min": [
+            -128.49605059568879,
+            179.959810256958,
+            181.70623225866476
+          ],
+          "max": [
+            -109.31215452328019,
+            227.47854357849815,
+            214.98077070183612
+          ]
+        },
+        "newBounds": {
+          "min": [
+            -127.92053371351653,
+            211.9036348860499,
+            192.24385516698288
+          ],
+          "max": [
+            -109.88767140545244,
+            227.45354357849814,
+            204.443147793518
+          ]
+        }
+      },
+      {
+        "originalMesh": "fractured-bedrock-1",
+        "originalIndex": 76,
+        "variant": 1,
+        "uniformScale": 1.83931885169379,
+        "center": [
+          294.5498352050781,
+          -1.7609079059046278,
+          -133.5629119873047
+        ],
+        "minimumPenetration": 1.8605064830727271,
+        "maximumProtrusion": 0.48169505005641033,
+        "oldBounds": {
+          "min": [
+            290.592087373823,
+            -4.407203674316406,
+            -137.66269257624072
+          ],
+          "max": [
+            298.50758303633324,
+            -0.2640182156163746,
+            -129.46313139836866
+          ]
+        },
+        "newBounds": {
+          "min": [
+            290.8926197865768,
+            -3.2327975961928805,
+            -137.41670574090455
+          ],
+          "max": [
+            298.20705062357945,
+            -0.28901821561637475,
+            -129.70911823370483
+          ]
+        }
+      },
+      {
+        "originalMesh": "fractured-bedrock-5",
+        "originalIndex": 6,
+        "variant": 2,
+        "uniformScale": 4.8,
+        "center": [
+          -64.92545995570089,
+          72.1300653172327,
+          150.31596978095848
+        ],
+        "minimumPenetration": 12.64239318452384,
+        "maximumProtrusion": 5.425006030005946,
+        "oldBounds": {
+          "min": [
+            -75.50618168734249,
+            42.00908660888672,
+            135.88064834963978
+          ],
+          "max": [
+            -54.344738224059284,
+            78.42885317839637,
+            164.75129121227718
+          ]
+        },
+        "newBounds": {
+          "min": [
+            -70.80672382230132,
+            65.85627745606905,
+            145.12400869880184
+          ],
+          "max": [
+            -59.044196089100446,
+            78.40385317839636,
+            155.50793086311512
+          ]
+        }
+      },
+      {
+        "originalMesh": "fractured-bedrock-5",
+        "originalIndex": 73,
+        "variant": 4,
+        "uniformScale": 3.5903530451253447,
+        "center": [
+          282.52059353773143,
+          -0.7254756051784361,
+          -88.5787856466402
+        ],
+        "minimumPenetration": 2.962008189113889,
+        "maximumProtrusion": 1.38211974517339,
+        "oldBounds": {
+          "min": [
+            276.36704518432055,
+            -7.604665279388428,
+            -95.33494037417574
+          ],
+          "max": [
+            288.67414189114226,
+            1.7283273607246485,
+            -81.82263091910465
+          ]
+        },
+        "newBounds": {
+          "min": [
+            276.7362580855252,
+            -3.1542785710815213,
+            -92.45332236736003
+          ],
+          "max": [
+            288.30492898993765,
+            1.703327360724649,
+            -84.70424892592037
+          ]
+        }
+      },
+      {
+        "originalMesh": "fractured-bedrock-2",
+        "originalIndex": 81,
+        "variant": 5,
+        "uniformScale": 3.3040399846864634,
+        "center": [
+          293.8314514160156,
+          -2.3094243930958616,
+          -137.54774475097656
+        ],
+        "minimumPenetration": 3.043480208117086,
+        "maximumProtrusion": 1.1869170438594203,
+        "oldBounds": {
+          "min": [
+            287.57027127181766,
+            -7.430129528045654,
+            -143.7095705478122
+          ],
+          "max": [
+            300.0926315602136,
+            0.20158409334544558,
+            -131.38591895414092
+          ]
+        },
+        "newBounds": {
+          "min": [
+            287.94594208046954,
+            -4.795432879537168,
+            -143.19097957165832
+          ],
+          "max": [
+            299.7169607515617,
+            0.17658409334544567,
+            -131.9045099302948
+          ]
+        }
+      },
+      {
+        "originalMesh": "fractured-bedrock-1",
+        "originalIndex": 61,
+        "variant": 0,
+        "uniformScale": 4.574986417844822,
+        "center": [
+          -200.17752075195312,
+          -1.0510362128305484,
+          15.041604995727539
+        ],
+        "minimumPenetration": 5.0375537958248575,
+        "maximumProtrusion": 1.7394638078283702,
+        "oldBounds": {
+          "min": [
+            -207.76611889475973,
+            -7.752011060714722,
+            6.2834293723831465
+          ],
+          "max": [
+            -192.58892260914652,
+            2.7149584497073533,
+            23.79978061907193
+          ]
+        },
+        "newBounds": {
+          "min": [
+            -206.0365146147246,
+            -4.79203087536845,
+            6.8089199097838105
+          ],
+          "max": [
+            -194.31852688918164,
+            2.6899584497073534,
+            23.274290081671268
+          ]
+        }
+      },
+      {
+        "originalMesh": "fractured-bedrock-5",
+        "originalIndex": 74,
+        "variant": 1,
+        "uniformScale": 3.5234357285902393,
+        "center": [
+          295.62173964877366,
+          -2.830638615816908,
+          -138.16579260287898
+        ],
+        "minimumPenetration": 3.879531609866053,
+        "maximumProtrusion": 0.6083327131383616,
+        "oldBounds": {
+          "min": [
+            287.9172937445264,
+            -7.071417570114136,
+            -145.29046691919018
+          ],
+          "max": [
+            303.3261855530209,
+            0.017932644703236633,
+            -131.04111828656778
+          ]
+        },
+        "newBounds": {
+          "min": [
+            289.70482382118183,
+            -5.6542098763370525,
+            -144.86298646021152
+          ],
+          "max": [
+            301.5386554763655,
+            -0.007067355296763722,
+            -131.46859874554644
+          ]
+        }
+      },
+      {
+        "originalMesh": "fractured-bedrock-4",
+        "originalIndex": 12,
+        "variant": 2,
+        "uniformScale": 4.8,
+        "center": [
+          -51.76891326904297,
+          204.28966791028847,
+          207.8825225830078
+        ],
+        "minimumPenetration": 8.857156565104702,
+        "maximumProtrusion": 7.090349625034719,
+        "oldBounds": {
+          "min": [
+            -62.467757678780714,
+            151.2458953857422,
+            197.29195153114912
+          ],
+          "max": [
+            -41.07006885930522,
+            211.12950031437867,
+            218.4730936348665
+          ]
+        },
+        "newBounds": {
+          "min": [
+            -58.03905159476482,
+            197.5209964522324,
+            200.63327821245207
+          ],
+          "max": [
+            -45.498774943321116,
+            211.05833936834455,
+            215.13176695356356
+          ]
+        }
+      },
+      {
+        "originalMesh": "fractured-bedrock-4",
+        "originalIndex": 6,
+        "variant": 4,
+        "uniformScale": 4.8,
+        "center": [
+          -54.2072868347168,
+          82.44729739624879,
+          154.36143493652344
+        ],
+        "minimumPenetration": 13.97699952205916,
+        "maximumProtrusion": 7.370135261276303,
+        "oldBounds": {
+          "min": [
+            -65.49578784022731,
+            57.28731822967529,
+            139.13041495358868
+          ],
+          "max": [
+            -42.918785829206286,
+            88.61371942783103,
+            169.5924549194582
+          ]
+        },
+        "newBounds": {
+          "min": [
+            -62.20472593323177,
+            77.11756242512965,
+            148.47900405156838
+          ],
+          "max": [
+            -46.20984773620182,
+            87.77703236736792,
+            160.2438658214785
+          ]
+        }
+      },
+      {
+        "originalMesh": "fractured-bedrock-0",
+        "originalIndex": 25,
+        "variant": 5,
+        "uniformScale": 4.8,
+        "center": [
+          -61.80159007207271,
+          372.2706879340687,
+          304.3453052238833
+        ],
+        "minimumPenetration": 9.677736976239999,
+        "maximumProtrusion": 5.927909245131389,
+        "oldBounds": {
+          "min": [
+            -78.97378257083074,
+            340.8813419342041,
+            287.7168765925654
+          ],
+          "max": [
+            -44.62939757331469,
+            379.8229307498707,
+            320.97373385520115
+          ]
+        },
+        "newBounds": {
+          "min": [
+            -69.87537963254361,
+            364.74344511826666,
+            296.1984901677152
+          ],
+          "max": [
+            -53.727800511601814,
+            379.7979307498707,
+            312.49212028005144
+          ]
+        }
+      },
+      {
+        "originalMesh": "fractured-bedrock-1",
+        "originalIndex": 14,
+        "variant": 0,
+        "uniformScale": 4.8,
+        "center": [
+          -128.3733673095703,
+          329.9329128581356,
+          271.99639892578125
+        ],
+        "minimumPenetration": 11.005245418408549,
+        "maximumProtrusion": 7.119344523263123,
+        "oldBounds": {
+          "min": [
+            -141.7571266533438,
+            271.01501846313477,
+            254.4587478058477
+          ],
+          "max": [
+            -114.98960796579684,
+            338.56899153538643,
+            289.5340500457148
+          ]
+        },
+        "newBounds": {
+          "min": [
+            -137.98873768772805,
+            321.3218341808847,
+            264.1342195763739
+          ],
+          "max": [
+            -118.75799693141258,
+            338.54399153538645,
+            279.8585782751886
+          ]
+        }
+      },
+      {
+        "originalMesh": "fractured-bedrock-2",
+        "originalIndex": 66,
+        "variant": 1,
+        "uniformScale": 1.708767647272524,
+        "center": [
+          -194.8612060546875,
+          -1.2320073795400721,
+          -6.708152770996094
+        ],
+        "minimumPenetration": 1.5709484236096012,
+        "maximumProtrusion": 0.5997964183710447,
+        "oldBounds": {
+          "min": [
+            -198.67878343969892,
+            -4.186793088912964,
+            -10.58668239269771
+          ],
+          "max": [
+            -191.04362866967608,
+            0.12033535179205046,
+            -2.829623149294477
+          ]
+        },
+        "newBounds": {
+          "min": [
+            -198.38465014537272,
+            -2.5593501108721948,
+            -10.353970615395612
+          ],
+          "max": [
+            -191.33776196400228,
+            0.09533535179205055,
+            -3.062334926596575
+          ]
+        }
+      },
+      {
+        "originalMesh": "fractured-bedrock-4",
+        "originalIndex": 77,
+        "variant": 2,
+        "uniformScale": 1.6555708733090766,
+        "center": [
+          306.16278076171875,
+          -0.6249177075633252,
+          -131.73382568359375
+        ],
+        "minimumPenetration": 1.4773414589660594,
+        "maximumProtrusion": 0.3299749895537285,
+        "oldBounds": {
+          "min": [
+            303.81882001682277,
+            -1.94827139377594,
+            -133.77875738878774
+          ],
+          "max": [
+            308.50674150661473,
+            0.46836387210137786,
+            -129.68889397839976
+          ]
+        },
+        "newBounds": {
+          "min": [
+            304.2044688069386,
+            -1.6931992872280284,
+            -133.6560614864761
+          ],
+          "max": [
+            308.1210927164989,
+            0.44336387210137806,
+            -129.8115898807114
+          ]
+        }
+      },
+      {
+        "originalMesh": "fractured-bedrock-1",
+        "originalIndex": 15,
+        "variant": 4,
+        "uniformScale": 4.8,
+        "center": [
+          -47.34011459350586,
+          274.86019256271345,
+          254.83692932128906
+        ],
+        "minimumPenetration": 12.281347105120915,
+        "maximumProtrusion": 6.359610219519766,
+        "oldBounds": {
+          "min": [
+            -58.72024415414052,
+            239.56474685668945,
+            243.3020938867396
+          ],
+          "max": [
+            -35.9599850328712,
+            281.86206228070796,
+            266.3717647558385
+          ]
+        },
+        "newBounds": {
+          "min": [
+            -54.28387467207481,
+            267.8833228447189,
+            245.98693099592313
+          ],
+          "max": [
+            -40.39635451493691,
+            281.837062280708,
+            263.686927646655
+          ]
+        }
+      },
+      {
+        "originalMesh": "fractured-bedrock-4",
+        "originalIndex": 64,
+        "variant": 5,
+        "uniformScale": 4.693168038349202,
+        "center": [
+          -189.8382110595703,
+          -2.6220621660656978,
+          -14.171050071716309
+        ],
+        "minimumPenetration": 3.9680730845787022,
+        "maximumProtrusion": 1.997801924224218,
+        "oldBounds": {
+          "min": [
+            -197.5189588570892,
+            -11.412088871002197,
+            -21.083228247649586
+          ],
+          "max": [
+            -182.15746326205144,
+            1.0057033230255001,
+            -7.258871895783031
+          ]
+        },
+        "newBounds": {
+          "min": [
+            -197.05811398923805,
+            -6.224827655156895,
+            -20.138221677211668
+          ],
+          "max": [
+            -182.61830812990257,
+            0.9807033230255002,
+            -8.20387846622095
+          ]
+        }
+      },
+      {
+        "originalMesh": "fractured-bedrock-3",
+        "originalIndex": 78,
+        "variant": 0,
+        "uniformScale": 1.7511075386622077,
+        "center": [
+          301.8918574406464,
+          -1.780377969789873,
+          -145.47102556456394
+        ],
+        "minimumPenetration": 2.0202633731138175,
+        "maximumProtrusion": 0.568651727477004,
+        "oldBounds": {
+          "min": [
+            298.7443330611272,
+            -4.890087127685547,
+            -148.9081174767989
+          ],
+          "max": [
+            305.03938182016566,
+            -0.22625003331172877,
+            -142.03393365232895
+          ]
+        },
+        "newBounds": {
+          "min": [
+            299.47166490814976,
+            -3.309505906268017,
+            -148.70189196206482
+          ],
+          "max": [
+            304.312049973143,
+            -0.2512500333117287,
+            -142.24015916706307
+          ]
+        }
+      },
+      {
+        "originalMesh": "fractured-bedrock-2",
+        "originalIndex": 3,
+        "variant": 1,
+        "uniformScale": 4.8,
+        "center": [
+          -157.0859375,
+          86.57704996393626,
+          152.50428771972656
+        ],
+        "minimumPenetration": 15.813545085714694,
+        "maximumProtrusion": 3.012799648203213,
+        "oldBounds": {
+          "min": [
+            -168.2096155104509,
+            48.5774040222168,
+            140.92213167897242
+          ],
+          "max": [
+            -145.9622594895491,
+            95.6656612905449,
+            164.0864437604807
+          ]
+        },
+        "newBounds": {
+          "min": [
+            -165.16924321436014,
+            77.51343863732762,
+            144.94455718073854
+          ],
+          "max": [
+            -149.00263178563986,
+            95.6406612905449,
+            160.06401825871458
+          ]
+        }
+      },
+      {
+        "originalMesh": "fractured-bedrock-3",
+        "originalIndex": 13,
+        "variant": 2,
+        "uniformScale": 4.8,
+        "center": [
+          -40.76132752109143,
+          192.3132341313089,
+          212.83334155433732
+        ],
+        "minimumPenetration": 7.357065596613268,
+        "maximumProtrusion": 1.9079788898251024,
+        "oldBounds": {
+          "min": [
+            -53.66280345591264,
+            141.71141815185547,
+            194.98112035416352
+          ],
+          "max": [
+            -27.859851586270224,
+            198.48626090031166,
+            230.68556275451112
+          ]
+        },
+        "newBounds": {
+          "min": [
+            -47.27654103641795,
+            186.16520736230612,
+            205.70000334226242
+          ],
+          "max": [
+            -34.24611400576491,
+            198.46126090031166,
+            219.96667976641223
+          ]
+        }
+      }
+    ],
+    "upgraded": 48,
+    "retainedPrimitiveInstances": 451
+  },
+  "fieldSha256": "1a0a8e16e9c6b1339be7f1a2bfc9ef972c8dc1ee0a0a6b79f8db1a269439b6c3",
+  "scope": "CPU geometry construction only; no GPU/scene visual verification",
+  "trees": 14000,
+  "families": {
+    "0": 9177,
+    "1": 4684,
+    "2": 139
+  },
+  "geometryCount": 84,
+  "vertexCount": 1383645,
+  "instances": 51465,
+  "forestFloor": {
+    "rootTrees": 150,
+    "roots": 600,
+    "litter": 3682,
+    "seedlings": 873
+  },
+  "forestStructure": {
+    "seed": 607193,
+    "shrubs": 268,
+    "snags": 24,
+    "leafSurfaces": 23475,
+    "drawCalls": 14,
+    "instancedTriangles": 282660,
+    "sourceTriangles": 5538,
+    "routeRejected": 0,
+    "spacingRejected": 46,
+    "shrubAttempts": 30000,
+    "snagAttempts": 1740,
+    "placementSignature": "46bd1b62",
+    "buildMilliseconds": 349.18638199999987,
+    "maxShrubHeight": 2.1181964351542826,
+    "maxSnagHeight": 9.1795644109924
+  },
+  "spray": {
+    "emitters": 45,
+    "droplets": 720
+  },
+  "coastalField": {
+    "resolution": 1024,
+    "texelMeters": [
+      1.171875,
+      1.513671875
+    ],
+    "textureBytes": 16777216,
+    "instancesVisited": 499,
+    "instancesRasterized": 126,
+    "trianglesVisited": 217858,
+    "trianglesRasterized": 3152,
+    "degenerateTriangles": 0,
+    "rockSamples": 3429,
+    "blockingSamples": 1909,
+    "buildMilliseconds": 3175.0505300000004,
+    "terrainMilliseconds": 2758.152932,
+    "rasterMilliseconds": 144.18753800000013,
+    "distanceMilliseconds": 110.45015499999954,
+    "shelter": "directional-advection-diffusion",
+    "shelterMilliseconds": 161.1896200000001,
+    "distanceMethod": "anisotropic-8-neighbor-chamfer"
+  }
+}
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> last-light-bay@0.1.0 build
+> tsc --noEmit && vite build
+
+vite v8.2.2 building client environment for production...
+transforming...
+✓ 50 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                           1.71 kB │ gzip:   0.81 kB
+dist/assets/coastal-worker-BwKPesre.js  183.00 kB
+dist/assets/index-BdA2pqZR.css            2.91 kB │ gzip:   1.20 kB
+dist/assets/index-3Ws8sLQr.js           765.70 kB │ gzip: 210.52 kB
+
+✓ built in 808ms
+[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.

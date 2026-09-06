@@ -1,0 +1,24 @@
+[
+  {
+    "camera": "wet-sand",
+    "differentChannels": 0,
+    "totalChannels": 1555200,
+    "maxAbsoluteDifference": 0,
+    "meanAbsoluteDifference": 0,
+    "trianglesBefore": 70832169,
+    "trianglesAfter": 59128653,
+    "callsBefore": 1280,
+    "callsAfter": 1079
+  },
+  {
+    "camera": "flight-0",
+    "differentChannels": 0,
+    "totalChannels": 1555200,
+    "maxAbsoluteDifference": 0,
+    "meanAbsoluteDifference": 0,
+    "trianglesBefore": 56918415,
+    "trianglesAfter": 46822967,
+    "callsBefore": 1564,
+    "callsAfter": 1212
+  }
+]

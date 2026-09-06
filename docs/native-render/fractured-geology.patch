@@ -1,0 +1,152 @@
+--- a/src/world/terrain.ts
++++ b/src/world/terrain.ts
+@@ -1,5 +1,6 @@
+ import {renderedTerrainHeight} from './terrain-surface';
+ import * as THREE from 'three';
++import {ConvexGeometry} from 'three/addons/geometries/ConvexGeometry.js';
+ import {terrainHeight,terrainSlope,shoreDistance,shoreZ,noise,fbm,rng} from './math';
+ import {type Textures} from '../render/materials';
+ import {createGroundMaterial,createRockMaterial} from '../render/ground-materials';
+@@ -132,4 +133,83 @@
+ 
+ export function createTerrain(t:Textures){const group=new THREE.Group();group.name='land';const material=createGroundMaterial(t);const tileSize=200,segments=100;for(let tz=-4;tz<4;tz++)for(let tx=-3;tx<3;tx++){const g=new THREE.PlaneGeometry(tileSize,tileSize,segments,segments);g.rotateX(-Math.PI/2);g.translate(tx*tileSize+100,0,tz*tileSize+100);const p=g.attributes.position;const colors=new Float32Array(p.count*3);for(let i=0;i<p.count;i++){const x=p.getX(i),z=p.getZ(i),h=terrainHeight(x,z);p.setY(i,h);const c=.84+noise(x*.06,z*.06)*.16;colors.set([c,c,c],i*3)}g.setAttribute('color',new THREE.BufferAttribute(colors,3));g.computeVertexNormals();const mesh=new THREE.Mesh(g,material);mesh.receiveShadow=true;mesh.castShadow=true;mesh.name=`terrain-${tx}-${tz}`;group.add(mesh)}
+ group.add(createCoastalContinuation(t));return group;}
+-export function createRocks(t:Textures){const root=new THREE.Group();root.name='geology';const random=rng(978),dummy=new THREE.Object3D();const mat=createRockMaterial(t);for(let variant=0;variant<5;variant++){const g=new THREE.IcosahedronGeometry(1,8);const p=g.attributes.position;for(let i=0;i<p.count;i++){const x=p.getX(i),y=p.getY(i),z=p.getZ(i);const fac=.93+.09*fbm(x*3+variant*10,z*3+y*2),round=(v:number)=>Math.sign(v)*Math.pow(Math.abs(v),.78);const joint=.04*Math.exp(-Math.pow((y+.12+z*.19)*15,2));p.setXYZ(i,round(x)*(fac-joint),round(y)*fac*(.91+.045*Math.sin(x*8)),round(z)*(fac-joint))}g.computeVertexNormals();const mesh=new THREE.InstancedMesh(g,mat,290);let count=0;for(let j=0;j<10000&&count<290;j++){const x=(random()-.5)*1000,z=(random()-.5)*900+100,d=shoreDistance(x,z),h=renderedTerrainHeight(x,z),slope=terrainSlope(x,z);const nearHead=Math.abs(x)>180;if(d<-45||d>110&&slope<.8||d<20&&!nearHead&&random()>.08)continue;const scale=d<20?1+Math.pow(random(),2)*6:3+Math.pow(random(),2)*10;dummy.position.set(x,h-scale*.24,z);dummy.scale.set(scale*(.8+random()*.5),scale*(.7+random()*.9),scale);dummy.rotation.set(random()*.35,random()*Math.PI*2,random()*.3);dummy.updateMatrix();mesh.setMatrixAt(count,dummy.matrix);mesh.setColorAt(count,new THREE.Color().setHSL(.09,.06,.55+random()*.21));count++}mesh.count=count;mesh.castShadow=true;mesh.receiveShadow=true;mesh.computeBoundingSphere();root.add(mesh)}return root;}
++function fracturedRockGeometry(variant:number) {
++ const random=rng(3701+variant*191),points:THREE.Vector3[]=[];
++ // Unequal bevels and two oblique joint planes form real planar fracture faces.
++ // Flat normals belong to those faces; the original rock normal/ARM maps supply
++ // smaller grain. No displaced spheres or painted cracks form the silhouette.
++ const outline=[[-.68,-1],[.56,-1],[.97,-.62],[1,.51],[.59,1],[-.65,.92],[-1,.42],[-.94,-.61]];
++ const leanX=(random()-.5)*.32,leanZ=(random()-.5)*.24;
++ for(let ring=0;ring<3;ring++)for(const [ox,oz] of outline){
++  const y=ring===0?-1:ring===1?-.08:.81;
++  const width=ring===0?1.08:ring===1?1:.73+random()*.11;
++  const x=ox*width+leanX*(y+1),z=oz*width+leanZ*(y+1);
++  const joint=ring===2?x*.21-z*.13:ring===1?-x*.07+z*.05:0;
++  points.push(new THREE.Vector3(x,y+joint,z));
++ }
++ const geometry=new ConvexGeometry(points);
++ geometry.computeBoundingBox();geometry.computeBoundingSphere();return geometry;
++}
++export function createRocks(t:Textures){
++ const root=new THREE.Group();root.name='geology';
++ const random=rng(978),dummy=new THREE.Object3D(),color=new THREE.Color();
++ const material=createRockMaterial(t);
++ const matrices:Array<THREE.Matrix4[]>=Array.from({length:6},()=>[]);
++ const colors:Array<THREE.Color[]>=Array.from({length:6},()=>[]);
++ let bedrockCount=0,talusCount=0,clusters=0;
++ function place(variant:number,x:number,z:number,sx:number,sy:number,sz:number,yaw:number,embed:number){
++  const h=renderedTerrainHeight(x,z);
++  dummy.position.set(x,h-sy*embed,z);dummy.rotation.set(0,yaw,0);
++  dummy.scale.set(sx,sy,sz);dummy.updateMatrix();
++  matrices[variant].push(dummy.matrix.clone());
++  // Keep the scanned albedo; the previous .55–.76 instance multiplier made every
++  // exposed face much darker than the adjacent terrain's identical rock map.
++  const value=.88+random()*.1;color.setRGB(value*.99,value,value);
++  colors[variant].push(color.clone());
++ }
++ // Outcrop strips follow the actual downslope face. Spacing limits geological
++ // patches; adjacent slabs share a strike and form a jointed bedrock exposure.
++ for(let gz=-5;gz<=11;gz++)for(let gx=-9;gx<=9;gx++){
++  const x=gx*52+(random()-.5)*20,z=gz*52+(random()-.5)*20;
++  const d=shoreDistance(x,z),h=renderedTerrainHeight(x,z);
++  if(d<35||h<38||terrainSlope(x,z)<1.05||noise(x*.008+13.1,z*.008-4.7)<.43)continue;
++  const dx=(renderedTerrainHeight(x+5,z)-renderedTerrainHeight(x-5,z))*.1;
++  const dz=(renderedTerrainHeight(x,z+5)-renderedTerrainHeight(x,z-5))*.1;
++  const length=Math.hypot(dx,dz);if(length<.8)continue;
++  const nx=-dx/length,nz=-dz/length,tx=nz,tz=-nx;
++  const yaw=Math.atan2(nx,nz)+(noise(x*.003,z*.003)-.5)*.24;
++  const slabs=3+Math.floor(random()*3),width=5.5+random()*4.5;
++  const height=17+random()*18;clusters++;
++  for(let j=0;j<slabs;j++){
++   const along=(j-(slabs-1)*.5)*width*1.48;
++   const px=x+tx*along+nx*(random()-.5)*4,pz=z+tz*along+nz*(random()-.5)*4;
++   if(shoreDistance(px,pz)<28||terrainSlope(px,pz)<.85)continue;
++   const sy=height*(.82+random()*.32),sx=width*(.86+random()*.26),sz=7+random()*8;
++   place((gx+gz+j+120)%6,px,pz,sx,sy,sz,yaw+(random()-.5)*.1,.82);bedrockCount++;
++  }
++ }
++ // Talus is a small set of fractured blocks at coastal headlands. The open
++ // central beach stays clear, and no independent boulders pepper inland slopes.
++ for(let side=-1;side<=1;side+=2)for(let a=0;a<13;a++){
++  const x=side*(185+a*24+(random()-.5)*14),edge=shoreZ(x);
++  const derivative=-.0047*x+.156*Math.cos(x*.013)+.16*Math.cos(x*.032);
++  const normalLength=Math.sqrt(1+derivative*derivative),nx=-derivative/normalLength,nz=1/normalLength;
++  const d=-10+random()*21,centerX=x+nx*d,centerZ=edge+nz*d;
++  const blocks=3+Math.floor(random()*4);
++  for(let j=0;j<blocks;j++){
++   const px=centerX+(random()-.5)*23,pz=centerZ+(random()-.5)*23;
++   const sd=shoreDistance(px,pz);if(sd<-32||sd>28||Math.abs(px)<178)continue;
++   const scale=1.5+Math.pow(random(),1.7)*5.5;
++   place((a+j)%6,px,pz,scale*(.8+random()*.4),scale*(.6+random()*.35),scale,random()*Math.PI*2,.62);talusCount++;
++  }
++ }
++ for(let variant=0;variant<6;variant++){
++  if(!matrices[variant].length)continue;
++  const mesh=new THREE.InstancedMesh(fracturedRockGeometry(variant),material,matrices[variant].length);
++  mesh.name=`fractured-bedrock-${variant}`;
++  matrices[variant].forEach((matrix,index)=>{mesh.setMatrixAt(index,matrix);mesh.setColorAt(index,colors[variant][index])});
++  mesh.castShadow=true;mesh.receiveShadow=true;mesh.computeBoundingSphere();root.add(mesh);
++ }
++ root.userData.geology={bedrockCount,talusCount,clusters};
++ return root;
++}
+--- a/src/render/ground-materials.ts
++++ b/src/render/ground-materials.ts
+@@ -4,6 +4,16 @@
+ import {coastalGLSL} from '../world/coastal';
+ import {habitatGLSL,habitatUniform} from '../world/habitat';
+ const projection=`
++// A dry, exposed fracture reveals lighter mineral grain. Preserve the scan's
++// variation and leave low coastal/weathered rock unchanged; this is albedo,
++// so the material still responds to the same sunlight, sky fill and shadows.
++vec3 bedrockAlbedo(vec3 stone,vec3 p,vec3 n){
++ float fresh=smoothstep(15.,65.,p.y)*(1.-smoothstep(.72,.96,abs(n.y)));
++ float gray=dot(stone,vec3(.2126,.7152,.0722));
++ vec3 mineral=min(mix(stone,vec3(gray),.42)*2.15,vec3(.65));
++ return mix(stone,mineral,fresh);
++}
++
+ vec3 triWeights(vec3 n){vec3 w=pow(abs(n),vec3(4.));return w/max(dot(w,vec3(1.)),.0001);}
+ vec3 triSample(sampler2D tex,vec3 p,vec3 n){vec3 w=triWeights(n);return texture2D(tex,p.yz).rgb*w.x+texture2D(tex,p.xz).rgb*w.y+texture2D(tex,p.xy).rgb*w.z;}
+ vec3 triDetail(sampler2D tex,vec3 p,vec3 n){vec3 w=triWeights(n),a=texture2D(tex,p.yz).xyz*2.-1.,b=texture2D(tex,p.xz).xyz*2.-1.,c=texture2D(tex,p.xy).xyz*2.-1.;return vec3(0.,a.x,a.y)*w.x+vec3(b.x,0.,b.y)*w.y+vec3(c.x,c.y,0.)*w.z;}
+@@ -30,11 +40,11 @@
+  ${noiseGLSL}${shorelineGLSL}${coastalGLSL}${habitatGLSL}${projection}`)
+   .replace('#include <map_fragment>',`#include <map_fragment>
+  vec3 gp=vGroundWorld,gn=normalize(vGroundNormal);float d=shoreDist(gp.xz);
+- float slope=1.-gn.y,cliff=smoothstep(.22,.66,slope),sediment=1.-smoothstep(22.,53.,d);
++ float slope=1.-gn.y,cliff=smoothstep(.13,.43,slope),sediment=1.-smoothstep(22.,53.,d);
+  vec4 habitat=habitatAt(gp.xz);float moisture=clamp(habitat.g+habitat.a*.15,0.,1.);
+  float patches=smoothstep(.43,.69,fbm(gp.xz*.19)+noise(gp.xz*.68)*.18);
+  float moss=patches*moisture*(.55+.45*habitat.a)*smoothstep(.32,.88,gn.y)*(1.-sediment);
+- vec3 stone=triSample(uRock,gp*.32,gn),soil=triSample(uSoil,gp*.5,gn),living=triSample(uMoss,gp/3.,gn),sand=texture2D(uSand,gp.xz*.28).rgb;
++ vec3 stone=bedrockAlbedo(triSample(uRock,gp*.32,gn),gp,gn),soil=triSample(uSoil,gp*.5,gn),living=triSample(uMoss,gp/3.,gn),sand=texture2D(uSand,gp.xz*.28).rgb;
+  vec3 ground=mix(soil,stone,cliff);ground=mix(ground,living,moss*.76);ground=mix(ground,sand,sediment);
+  float macro=.91+.18*fbm(gp.xz*.027),wet=sandWetness(gp.x,d,uTime);
+  // Darkening is bounded. Shaded ground must remain readable under sky fill.
+@@ -54,7 +64,7 @@
+   .replace('#include <opaque_fragment>',`#include <opaque_fragment>
+  if(uDebug==9.)gl_FragColor.rgb=vec3(clamp(d/100.,0.,1.));if(uDebug==12.)gl_FragColor.rgb=mix(vec3(.06,.12,.4),vec3(.3,.9,.18),habitat.a);`);
+  };
+- material.customProgramCacheKey=()=> 'soil-rock-moss-sediment-v3';return material;
++ material.customProgramCacheKey=()=> 'soil-rock-moss-sediment-v4-bedrock';return material;
+ }
+ export function createRockMaterial(t:Textures){
+  const material=new THREE.MeshStandardMaterial({color:0xffffff,roughness:.86});
+@@ -65,7 +75,7 @@
+   .replace('#include <map_fragment>',`#include <map_fragment>
+  vec3 gp=vGroundWorld,gn=normalize(vGroundNormal);float d=shoreDist(gp.xz);float splash=1.-smoothstep(.3,1.9,gp.y);float shoreWet=sandWetness(gp.x,d,uTime);float wet=splash*shoreWet;
+  float moss=smoothstep(.35,.9,gn.y)*smoothstep(9.,35.,d)*(1.-smoothstep(60.,140.,gp.y))*smoothstep(.48,.68,fbm(gp.xz*.32));
+- vec3 stone=triSample(uRock,gp*.32,gn),living=triSample(uMoss,gp/3.,gn);float grain=.94+.12*noise(gp.xz*.045);
++ vec3 stone=bedrockAlbedo(triSample(uRock,gp*.32,gn),gp,gn),living=triSample(uMoss,gp/3.,gn);float grain=.94+.12*noise(gp.xz*.045);
+  diffuseColor.rgb*=mix(stone,living,moss*.82)*grain*mix(1.,.64,wet);
+  vec3 rockARM=mix(triSample(uRockARM,gp*.32,gn),triSample(uMossARM,gp/3.,gn),moss*.82);`)
+   .replace('#include <roughnessmap_fragment>',`#include <roughnessmap_fragment>
+@@ -74,5 +84,5 @@
+  vec3 detail=mix(triDetail(uRockN,gp*.32,gn),triDetail(uMossN,gp/3.,gn),moss*.82);normal=normalize(mat3(viewMatrix)*normalize(gn+(detail-gn*dot(gn,detail))*.45));`)
+   .replace('#include <aomap_fragment>','#include <aomap_fragment>\nreflectedLight.indirectDiffuse*=mix(.72,1.,rockARM.r);');
+  };
+- material.customProgramCacheKey=()=> 'world-rock-wet-moss-v2';return material;
++ material.customProgramCacheKey=()=> 'world-rock-wet-moss-v3-fracture';return material;
+ }

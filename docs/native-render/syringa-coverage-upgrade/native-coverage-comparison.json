@@ -1,0 +1,102 @@
+{
+  "smallCrown": [
+    {
+      "lod": "near",
+      "elevation": 0,
+      "originalArea": 6803.96875,
+      "previousNearArea": 5480.78125,
+      "candidateArea": 6620.484375,
+      "candidateCoverageOfOriginal": 0.9730327428385088,
+      "previousCoverageOfOriginal": 0.8055271050443904
+    },
+    {
+      "lod": "near",
+      "elevation": 70,
+      "originalArea": 5163.890625,
+      "previousNearArea": 4054.265625,
+      "candidateArea": 5014.390625,
+      "candidateCoverageOfOriginal": 0.9710489607823558,
+      "previousCoverageOfOriginal": 0.7851184154389405
+    },
+    {
+      "lod": "hero",
+      "elevation": 0,
+      "originalArea": 6803.96875,
+      "previousNearArea": 5480.78125,
+      "candidateArea": 6172.984375,
+      "candidateCoverageOfOriginal": 0.9072623055477731,
+      "previousCoverageOfOriginal": 0.8055271050443904
+    },
+    {
+      "lod": "hero",
+      "elevation": 70,
+      "originalArea": 5163.890625,
+      "previousNearArea": 4054.265625,
+      "candidateArea": 4646.96875,
+      "candidateCoverageOfOriginal": 0.8998968195613167,
+      "previousCoverageOfOriginal": 0.7851184154389405
+    },
+    {
+      "lod": "medium",
+      "elevation": 0,
+      "originalArea": 6803.96875,
+      "previousNearArea": 5480.78125,
+      "candidateArea": 5529.421875,
+      "candidateCoverageOfOriginal": 0.8126759657736523,
+      "previousCoverageOfOriginal": 0.8055271050443904
+    },
+    {
+      "lod": "medium",
+      "elevation": 70,
+      "originalArea": 5163.890625,
+      "previousNearArea": 4054.265625,
+      "candidateArea": 4129.78125,
+      "candidateCoverageOfOriginal": 0.7997422001942576,
+      "previousCoverageOfOriginal": 0.7851184154389405
+    }
+  ],
+  "largeCrown": [
+    {
+      "family": "syringa-current",
+      "elevation": 0,
+      "area": 87211.75,
+      "coverageOfOriginal": 0.8231989050664276
+    },
+    {
+      "family": "syringa-current",
+      "elevation": 70,
+      "area": 63992,
+      "coverageOfOriginal": 0.8075999608769865
+    },
+    {
+      "family": "syringa-delivery-near",
+      "elevation": 0,
+      "area": 103451,
+      "coverageOfOriginal": 0.9764825258984827
+    },
+    {
+      "family": "syringa-delivery-near",
+      "elevation": 70,
+      "area": 77268.75,
+      "coverageOfOriginal": 0.9751568864391432
+    },
+    {
+      "family": "syringa-original",
+      "elevation": 0,
+      "area": 105942.5,
+      "coverageOfOriginal": 1.0
+    },
+    {
+      "family": "syringa-original",
+      "elevation": 70,
+      "area": 79237.25,
+      "coverageOfOriginal": 1.0
+    }
+  ],
+  "smallMethod": "largest projected crown128px;8x linear spatial sampling; source cutoff0.45; identical production material shader and source framing",
+  "largeMethod": "512px crown;768px square image;2x linear spatial sampling; production alphaHash; identical source framing",
+  "smallShaderErrors": [],
+  "smallGLError": 0,
+  "largeShaderErrors": [],
+  "largeGLError": 0
+}

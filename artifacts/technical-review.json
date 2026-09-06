@@ -1,0 +1,174 @@
+{
+  "scope": "Static source, assets and CPU geometry/camera checks; no GPU scene was rendered",
+  "rootVerified": true,
+  "findings": [
+    {
+      "id": "T1",
+      "priority": "P1",
+      "problem": "Opaque leaf textures despite MASK material",
+      "fixed": true,
+      "evidence": "scripts/control/check-assets.py verifies actual RGBA alpha 0..255 in every masked GLB base-color image"
+    },
+    {
+      "id": "T2",
+      "priority": "P1",
+      "problem": "LOD root drift from per-model bounds centering",
+      "fixed": true,
+      "evidence": "src/world/vegetation.ts retains common source origin and fixed scale across LODs"
+    },
+    {
+      "id": "T3",
+      "priority": "P1",
+      "problem": "Terrain-driven camera velocity spikes",
+      "fixed": true,
+      "evidence": "src/camera/cinematic.test.ts validates finite positions, clear terrain and C1 continuity at every phase key; C2 splines implemented"
+    },
+    {
+      "id": "T4",
+      "priority": "P1",
+      "problem": "Directional light disagreed with disk/reflection",
+      "fixed": true,
+      "evidence": "sun.position = sun.target.position + sunDirection*1000 in src/world/atmosphere.ts"
+    },
+    {
+      "id": "T5",
+      "priority": "P1",
+      "problem": "Ocean mesh height mismatch at ring boundary",
+      "fixed": true,
+      "evidence": "both surfaces converge to zero displacement beyond 840m from near-grid center; all seam vertices lie beyond that distance"
+    },
+    {
+      "id": "T6",
+      "priority": "P1",
+      "problem": "Swash hidden below sand",
+      "fixed": false,
+      "evidence": "CPU raycasts prove the water ribbon follows the exact 2m terrain triangles at +.028m; shared ocean/ribbon grid, camera near .4 and polygon offset mitigate overlap. Actual pixel-depth contact still needs GPU inspection."
+    },
+    {
+      "id": "T7",
+      "priority": "P1",
+      "problem": "Infinite coastline clipped water where no terrain existed",
+      "fixed": true,
+      "evidence": "coastalDistance bounds land mask to |x|<600 and fades to deep ocean at modeled edges"
+    },
+    {
+      "id": "T8",
+      "priority": "P1",
+      "problem": "Capture ready flag could survive shader failure or context loss",
+      "fixed": true,
+      "evidence": "engine shader error collector and first-draw gate; failure resets document and public capture readiness"
+    },
+    {
+      "id": "T9",
+      "priority": "P1",
+      "problem": "No actual graphics initialization or visual quality verification available",
+      "fixed": false,
+      "evidence": "Latest canonical browser restart reached the correct Last Light Bay DOM; both primary and low-resource WebGL2 context creation still failed. See artifacts/browser-blocker.json latestAttempt."
+    },
+    {
+      "id": "T10",
+      "priority": "P1",
+      "problem": "Family 1 reused a narrowed broadleaf asset",
+      "fixed": true,
+      "evidence": "Nine embedded GLBs map three independent families and four broadleaf LODs. 24 production assets pass checksums, CC0 provenance and actual alpha checks. Scene quality remains unverified."
+    },
+    {
+      "id": "T11",
+      "priority": "P1",
+      "problem": "LOD visual continuity remains unreviewed",
+      "fixed": false,
+      "evidence": "Per-tree complementary dither and conservative overlapping cell selection replace abrupt swaps. Three CPU LOD tests pass. Live silhouette, shadow and mip transitions still need visual review."
+    },
+    {
+      "id": "T12",
+      "priority": "P1",
+      "problem": "Full hero ecology remains incomplete and unreviewed",
+      "fixed": false,
+      "evidence": "Actual habitat-driven 8500 tree placements, 600 roots, 4590 litter instances, 1225 seedlings, 420 shrubs, 24 snags, ground scans, fallen wood and exact terrain contacts are implemented. Meaningful live-tree crown variants and all final ecology appearance remain unaccepted."
+    },
+    {
+      "id": "T13",
+      "priority": "P1",
+      "problem": "All new custom shaders require actual GPU compilation and visual checks",
+      "fixed": false,
+      "evidence": "TypeScript/source composition reviewed; no permitted scene render. No performance claim."
+    },
+    {
+      "id": "T14",
+      "priority": "P2",
+      "problem": "Rock depth atlas has approximately 1.17\u00d71.51m samples and no lee shelter",
+      "fixed": false,
+      "evidence": "Atlas still has 1.17 by 1.51m rock samples, with 190 actual nearshore rock instances. A now contains directional advected/diffused lee-wave attenuation. Subpixel impacts and recovery appearance require GPU scrutiny."
+    },
+    {
+      "id": "T15",
+      "priority": "P1",
+      "problem": "Shallow waves traveled away from shore",
+      "fixed": true,
+      "evidence": "Shared coastal.ts phase uses negative time; crest direction, runup derivative and delayed wetness tests pass."
+    },
+    {
+      "id": "T16",
+      "priority": "P1",
+      "problem": "Wind, sky and reflected illumination disagreed",
+      "fixed": true,
+      "evidence": "One world wind, world-axis static tree tilt and a shared transported regional gust field. Branch bending and corrected normals feed matching color/depth shaders. Sky/environment and cloud illumination share the sun. Appearance remains T13."
+    },
+    {
+      "id": "T17",
+      "priority": "P2",
+      "problem": "Diagnostic output was tone mapped/fogged and page cache restoration disposed the scene",
+      "fixed": true,
+      "evidence": "Conditional output transforms; world-space normals; real shadow mask; persisted pagehide pauses without disposal and pageshow resumes. Browser interaction validation remains pending."
+    },
+    {
+      "id": "T18",
+      "priority": "P1",
+      "problem": "Plants floated above or sank through rendered terrain",
+      "fixed": true,
+      "evidence": "ecology, plants, forest-floor, snags and rock bases now use renderedTerrainHeight; independent raycast test confirms the triangle interpolation. CPU contact fix only, appearance not accepted."
+    },
+    {
+      "id": "T19",
+      "priority": "P2",
+      "problem": "Near source leaves became oversized during global simplification",
+      "fixed": false,
+      "evidence": "Additional 238617/245645-triangle near GLBs retain every original-size leaf component and source trunk. Island near silhouette ~98% source coverage; syringa near still 19\u201324% below source coverage. Asset-only CPU diagnostics are not reference acceptance."
+    },
+    {
+      "id": "T20",
+      "priority": "P2",
+      "problem": "Opaque refraction capture applied fog twice and clipped HDR in the byte fallback",
+      "fixed": true,
+      "evidence": "Opaque capture temporarily disables Exp2 fog and applies shared .25 capture scale with x4 decode on byte target. Source composition checked; GPU color inspection remains T13."
+    },
+    {
+      "id": "T21",
+      "priority": "P2",
+      "problem": "Terrain/rock atlas blocked the main thread during construction",
+      "fixed": true,
+      "evidence": "A dedicated built worker generates the identical seeded atlas while texture loads run. artifacts/worker-cpu-check.json must verify exact SHA-256 equality; browser transfer remains unverified."
+    },
+    {
+      "id": "T22",
+      "priority": "P2",
+      "problem": "Ground material has no spare fragment sampler at WebGL2 minimum",
+      "fixed": false,
+      "evidence": "Static full HDR+PCF material count is 16 (12 ground maps, habitat, cloud, environment, sun shadow). Any new ground texture needs packing or a new material split; GPU compile/performance still pending."
+    },
+    {
+      "id": "T23",
+      "priority": "P2",
+      "problem": "Palm bark and fronds share a mixed material",
+      "fixed": false,
+      "evidence": "Palm leaf flutter and thin-leaf transmission are disabled until a trustworthy tissue mask exists. Broadleaf leaf materials receive these responses."
+    }
+  ],
+  "automaticFailures": [
+    "Runtime visual acceptance unavailable",
+    "Fewer than eight evidenced visual cycles",
+    "Final gallery and film not captured",
+    "LOD appearance and performance unverified",
+    "Final reference-realism assessment unavailable"
+  ]
+}

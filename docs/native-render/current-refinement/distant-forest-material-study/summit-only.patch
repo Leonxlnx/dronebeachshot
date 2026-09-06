@@ -1,0 +1,18 @@
+--- a/src/world/terrain.ts
++++ b/src/world/terrain.ts
+@@ -112,7 +112,14 @@
+  const fadeStart=6350+noise(x*.00065,z*.00065)*350;
+  const edgeFade=continuationSmooth(fadeStart,7900,ringDistance);
+  // Every final perimeter vertex lies at -85 m. The rectangle never silhouettes.
+- return joined+(-85-joined)*edgeFade;
++ const height=joined+(-85-joined)*edgeFade;
++ // Keep the authored 425 m summit highest. Compress only upper distant relief,
++ // after the ocean fade, so all submerged geometry remains exactly unchanged.
++ // tanh joins height=360 with matching first and second derivatives and has
++ // strictly positive slope; it approaches 410 m without a flat clipping plane.
++ if(height<=360)return height;
++ const lowerCrest=360+50*Math.tanh((height-360)/50);
++ return height+(lowerCrest-height)*continuationSmooth(180,900,distance);
+ }
+ function createCoastalContinuation(t:Textures) {
+  const perimeter:Array<[number,number]>=[];

@@ -1,0 +1,36 @@
+{
+  "completed": [
+    {
+      "camera": "mountain-wide",
+      "time": 2,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/frames/distant-refine/mountain-wide-mode-0-960.png",
+      "render": {
+        "frame": 28,
+        "calls": 1402,
+        "triangles": 38728447,
+        "points": 624,
+        "lines": 0
+      },
+      "programs": 72,
+      "glError": 0
+    },
+    {
+      "camera": "wet-sand",
+      "time": 11.5,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/frames/distant-refine/wet-sand-mode-0-960.png",
+      "render": {
+        "frame": 56,
+        "calls": 1082,
+        "triangles": 54476157,
+        "points": 624,
+        "lines": 0
+      },
+      "programs": 76,
+      "glError": 0
+    }
+  ],
+  "requested": [
+    "mountain-wide",
+    "wet-sand"
+  ]
+}

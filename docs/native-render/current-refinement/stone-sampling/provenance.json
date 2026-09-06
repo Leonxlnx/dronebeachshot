@@ -1,0 +1,83 @@
+{
+  "source": [
+    {
+      "name": "Marble Cliff 03",
+      "creator": "Amal Kumar",
+      "sourcePage": "https://polyhaven.com/a/marble_cliff_03",
+      "sourceDownload": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/marble_cliff_03/marble_cliff_03_diff_2k.jpg",
+      "license": "CC0-1.0",
+      "attribution": "Optional; retained in docs/ASSET_LICENSES.md",
+      "downloadDate": "2026-09-05",
+      "modifications": "Matching source2K diffuse, OpenGL normal and ARM converted to quality95 WebP. World triplanar tile5.7483m; runtime gently neutralizes fresh exposed fractures, preserving original fine cracks.",
+      "path": "public/assets/textures/marble_cliff_03_diff_2k.webp",
+      "bytes": 1475290,
+      "sha256": "e1967f1ad5de34c328c1eb7ea9927de44b05235a75734959af47a2c60d23ced3",
+      "dimensions": [
+        2048,
+        2048
+      ]
+    },
+    {
+      "name": "Marble Cliff 03",
+      "creator": "Amal Kumar",
+      "sourcePage": "https://polyhaven.com/a/marble_cliff_03",
+      "sourceDownload": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/marble_cliff_03/marble_cliff_03_nor_gl_2k.jpg",
+      "license": "CC0-1.0",
+      "attribution": "Optional; retained in docs/ASSET_LICENSES.md",
+      "downloadDate": "2026-09-05",
+      "modifications": "Matching source2K diffuse, OpenGL normal and ARM converted to quality95 WebP. World triplanar tile5.7483m; runtime gently neutralizes fresh exposed fractures, preserving original fine cracks.",
+      "path": "public/assets/textures/marble_cliff_03_nor_gl_2k.webp",
+      "bytes": 1086742,
+      "sha256": "425bec3f1a4f29e1bc965ee7eaf888d085f838147d0432d7c3ee15a4ee128ccc",
+      "dimensions": [
+        2048,
+        2048
+      ]
+    },
+    {
+      "name": "Marble Cliff 03",
+      "creator": "Amal Kumar",
+      "sourcePage": "https://polyhaven.com/a/marble_cliff_03",
+      "sourceDownload": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/marble_cliff_03/marble_cliff_03_arm_2k.jpg",
+      "license": "CC0-1.0",
+      "attribution": "Optional; retained in docs/ASSET_LICENSES.md",
+      "downloadDate": "2026-09-05",
+      "modifications": "Matching source2K diffuse, OpenGL normal and ARM converted to quality95 WebP. World triplanar tile5.7483m; runtime gently neutralizes fresh exposed fractures, preserving original fine cracks.",
+      "path": "public/assets/textures/marble_cliff_03_arm_2k.webp",
+      "bytes": 708852,
+      "sha256": "fed4947d4f0570e3e035c5973db816047f2009b33a14c4e1b9c5a7463913bc9f",
+      "dimensions": [
+        2048,
+        2048
+      ]
+    }
+  ],
+  "sourceChecks": [
+    {
+      "path": "public/assets/textures/marble_cliff_03_diff_2k.webp",
+      "sha256": "e1967f1ad5de34c328c1eb7ea9927de44b05235a75734959af47a2c60d23ced3",
+      "matchesManifest": true,
+      "bytes": 1475290
+    },
+    {
+      "path": "public/assets/textures/marble_cliff_03_nor_gl_2k.webp",
+      "sha256": "425bec3f1a4f29e1bc965ee7eaf888d085f838147d0432d7c3ee15a4ee128ccc",
+      "matchesManifest": true,
+      "bytes": 1086742
+    },
+    {
+      "path": "public/assets/textures/marble_cliff_03_arm_2k.webp",
+      "sha256": "fed4947d4f0570e3e035c5973db816047f2009b33a14c4e1b9c5a7463913bc9f",
+      "matchesManifest": true,
+      "bytes": 708852
+    }
+  ],
+  "worldTileMetres": 5.7483,
+  "artisticChange": "Only spatial phase selection and rock texture anisotropy change. No new assets, no texture-byte changes, no added global recolor, no geometry changes. Existing exposed-rock color calibration retained identically.",
+  "sourceCodeSha256": {
+    "groundMaterials": "4f1d547d737341e08d4d2cd995203186bb067866342609be9c38dc26b57deb52",
+    "assets": "5157f71ec58de5dce7e36717a0c4a9d2ae9df7797287a0f0823060ebe183fc7a"
+  },
+  "candidateSampling": "Three translated, unrotated source samples per triangular cell, sharpened barycentric weights power6. Same phase/weights/UV gradients for albedo, normal and ARM. Original triplanar axis conventions unchanged.",
+  "filtering": "Rock-only anisotropy1 avoids observed native ANGLE/Mesa flat-mip rows at phase boundaries. Other texture anisotropy remains4. This changes grazing-angle filtering quality; not validated across browser/mobile GPUs."
+}

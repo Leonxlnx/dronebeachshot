@@ -1,0 +1,100 @@
+{
+  "status": "source-inspected-placement-not-validated",
+  "recommendedSource": "coastal_cliff_01",
+  "scope": "One lower cliff band; not a replacement for tall reference mountain faces.",
+  "report": "SOURCE-COMPARISON.md",
+  "actualTopology": {
+    "sourceGltf": "coastal_cliff_01_2k/coastal_cliff_01_2k.gltf",
+    "vertices": 238686,
+    "weldedVerticesAt1eMinus5": 232192,
+    "actualTriangles": 461824,
+    "apiPolycount": 865917,
+    "boundsMeters": {
+      "min": [
+        -45.055580139160156,
+        -0.6500276327133179,
+        -6.205799579620361
+      ],
+      "max": [
+        46.924373626708984,
+        9.675503730773926,
+        4.760909080505371
+      ],
+      "size": [
+        91.97994995117188,
+        10.325531005859375,
+        10.96670913696289
+      ]
+    },
+    "boundaryEdges": 2558,
+    "nonManifoldEdges": 0,
+    "degenerateTriangles": 0,
+    "minimumTriangleArea": 1.281295953958761e-05,
+    "connectedComponents": 1,
+    "largestConnectedComponentVertices": [
+      232192
+    ],
+    "normalLengthRange": [
+      0.9999158382415771,
+      1.0000810623168945
+    ],
+    "areaWeightedMeanNormal": [
+      -0.0347079299390316,
+      0.3126671612262726,
+      0.9492284655570984
+    ],
+    "uvBounds": [
+      [
+        0.0016474708681926131,
+        0.012683510780334473
+      ],
+      [
+        0.9983196258544922,
+        0.9983544945716858
+      ]
+    ],
+    "originalMaterial": {
+      "doubleSided": true,
+      "name": "coastal_cliff_01",
+      "normalTexture": {
+        "index": 0
+      },
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 1
+        },
+        "metallicFactor": 0,
+        "metallicRoughnessTexture": {
+          "index": 2
+        }
+      }
+    },
+    "sourceNode": {
+      "mesh": 0,
+      "name": "coastal_cliff_01"
+    },
+    "geometryBinaryBytes": 13179840,
+    "geometryBinarySHA256": "6833dfaf75e0d039e64bc09ad642c4be3361739f20048af32ad50fd8e6471a65",
+    "topologyScope": "Counts measured from actual downloaded glTF geometry; positional seam welding at 0.00001 m for connectivity only. Original geometry is unchanged. Mesh is open when boundaryEdges > 0."
+  },
+  "packageSizesBytes": {
+    "coastal_cliff_01": {
+      "1k": 15376631,
+      "2k": 20884923
+    },
+    "coastal_cliff_04": {
+      "1k": 46482337,
+      "2k": 54095351
+    }
+  },
+  "source": "coastal_cliff_01_2k.glb",
+  "proof": "source-sunlit-render-proof.json",
+  "sha256": {
+    "coastal_cliff_01_2k.glb": "588b11777e0068274672cd5f5636873db9f794e513f0d9bca62ec11daec68bfb",
+    "coastal-cliff-source-inspection.json": "837e8532cd07121631d13efb023c036dae79f37e286cc56d452f22622bae13d3",
+    "coastal-cliff-provenance.json": "788f7da8f6e4e69262f0a3a7099d6974ff1334a897d8b7152f8e969756446b6d",
+    "SOURCE-COMPARISON.md": "b91a31c4ea87f00b516d86e84bfa3170b0a1c16843b1fe161cdf322dec92b9eb",
+    "source-sunlit-wide.png": "a2f317fe0f6a61d8a4179f4c2e314563c1ccdffb648c78c333aefd009a1256a5",
+    "source-sunlit-detail.png": "93dcedac14b558da4c372296d8352c300a34420ec1000e4c09118f38fe7699d7"
+  }
+}

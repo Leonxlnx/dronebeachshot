@@ -1,0 +1,137 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> last-light-bay@0.1.0 verify:build
+> npm run lint && npm run test && npm run check:assets && npm run check:world && npm run build
+
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> last-light-bay@0.1.0 lint
+> node scripts/control/source-check.mjs
+
+SOURCE_CHECK_PASS: 42 files; no hotlinks or unseeded randomness
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> last-light-bay@0.1.0 test
+> node --experimental-strip-types --test src/world/math.test.ts src/camera/cinematic.test.ts src/world/lod.test.ts src/world/coastal.test.ts src/world/coastal-field.test.ts src/world/terrain-surface.test.ts src/world/rock-shelter.test.ts
+
+✔ route starts above highest surveyed summit and finishes seaward (241.308919ms)
+✔ flight has finite positions, no terrain clipping, C1 velocity at every phase boundary (62.839301ms)
+✔ conservative tree envelopes keep the flight corridor clear (1605.974606ms)
+✔ all 16 evaluation cameras are distinct and above terrain (0.847173ms)
+✔ coastal atlas preserves transformed rock surfaces and waterline distance (3940.5972ms)
+✔ a shallow crest travels inland and along the shoreline normal (1.757297ms)
+✔ swash velocity agrees with displacement in both advance and retreat (1.112007ms)
+✔ sand retains moisture behind a retreating wave, without wetting unreached sand (26.854209ms)
+✔ LOD coverage conserves opacity at every distance (44.909249ms)
+✔ cell culling never hides a contributing tree LOD (113.369967ms)
+✔ LOD weights and first derivative meet continuously at threshold boundaries (0.483336ms)
+✔ determinism and seed separation (2.554778ms)
+✔ coastline continuous, seabed continues, terrain never NaN (1214.352944ms)
+✔ summit scale and asymmetric bay (0.511105ms)
+✔ rock lee is downstream, bounded, recovers and follows wave direction (102.9629ms)
+✔ water contact height agrees with actual rendered terrain triangles (778.426591ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 16
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4370.844879
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> last-light-bay@0.1.0 check:assets
+> python3 scripts/control/check-assets.py
+
+ASSET_CHECK_PASS: 28 vendored files; checksums, CC0 sources, embedded GLB resources and leaf alpha verified
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> last-light-bay@0.1.0 check:world
+> node --experimental-strip-types --loader ./scripts/control/ts-resolve.mjs scripts/control/check-world.mjs
+
+(node:144) ExperimentalWarning: `--experimental-loader` may be removed in the future; instead use `register()`:
+--import 'data:text/javascript,import { register } from "node:module"; import { pathToFileURL } from "node:url"; register("./scripts/control/ts-resolve.mjs", pathToFileURL("./"));'
+(Use `node --trace-warnings ...` to show where the warning was created)
+{
+  "fieldSha256": "9235003705d1ddd2b92ca8aecf153dc1234c0420d2d25f98d5dc1c2f36e671f2",
+  "scope": "CPU geometry construction only; no GPU/scene visual verification",
+  "trees": 14000,
+  "families": {
+    "0": 9303,
+    "1": 4531,
+    "2": 166
+  },
+  "geometryCount": 79,
+  "vertexCount": 1353960,
+  "instances": 22850,
+  "forestFloor": {
+    "rootTrees": 150,
+    "roots": 600,
+    "litter": 4205,
+    "seedlings": 1149
+  },
+  "forestStructure": {
+    "seed": 607193,
+    "shrubs": 420,
+    "snags": 24,
+    "leafSurfaces": 36300,
+    "drawCalls": 14,
+    "instancedTriangles": 430224,
+    "sourceTriangles": 5538,
+    "routeRejected": 0,
+    "spacingRejected": 63,
+    "shrubAttempts": 24584,
+    "snagAttempts": 1234,
+    "placementSignature": "3bc0a932",
+    "buildMilliseconds": 688.3627130000023,
+    "maxShrubHeight": 2.1181964351542826,
+    "maxSnagHeight": 9.1795644109924
+  },
+  "spray": {
+    "emitters": 46,
+    "droplets": 736
+  },
+  "coastalField": {
+    "resolution": 1024,
+    "texelMeters": [
+      1.171875,
+      1.513671875
+    ],
+    "textureBytes": 16777216,
+    "instancesVisited": 340,
+    "instancesRasterized": 118,
+    "trianglesVisited": 5192,
+    "trianglesRasterized": 2471,
+    "degenerateTriangles": 0,
+    "rockSamples": 3586,
+    "blockingSamples": 1963,
+    "buildMilliseconds": 3981.7712200000005,
+    "terrainMilliseconds": 3389.5376780000006,
+    "rasterMilliseconds": 70.28481999999985,
+    "distanceMilliseconds": 357.3163539999996,
+    "shelter": "directional-advection-diffusion",
+    "shelterMilliseconds": 164.0465690000001,
+    "distanceMethod": "anisotropic-8-neighbor-chamfer"
+  }
+}
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> last-light-bay@0.1.0 build
+> tsc --noEmit && vite build
+
+vite v8.2.2 building client environment for production...
+transforming...
+✓ 44 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                           1.71 kB │ gzip:   0.81 kB
+dist/assets/coastal-worker-DBYrcQzQ.js  171.34 kB
+dist/assets/index-BdA2pqZR.css            2.91 kB │ gzip:   1.20 kB
+dist/assets/index-8YnU7fNK.js           742.79 kB │ gzip: 202.01 kB
+
+✓ built in 839ms
+[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.

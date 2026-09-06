@@ -1,0 +1,452 @@
+{
+  "family": 1,
+  "name": "syringa-tree-near",
+  "sourceFile": "/workspace/sites/last-light-bay/public/assets/models/syringa-tree-near.glb",
+  "sourceSHA256": "cb794443092f8b4b7b257c4d86f42e6f2b0ec91a2f95d2d3f34043f0a3b49b07",
+  "sourceTriangles": 689139,
+  "scale": 3.0723712638923715,
+  "center": [
+    0.458878755569458,
+    6.925944183021784,
+    2.3460988998413086
+  ],
+  "halfSize": 11.67022233680592,
+  "bounds": {
+    "min": [
+      -4.021713733673096,
+      -0.07405596226453781,
+      -4.247942924499512
+    ],
+    "max": [
+      4.939471244812012,
+      13.925944328308105,
+      8.940140724182129
+    ]
+  },
+  "columns": 8,
+  "rows": 3,
+  "cellPixels": 256,
+  "supersampleLinearFactor": 4,
+  "nativeSamples": 4,
+  "normalSpace": "root local, after source node transforms and uniform asset scaling; visible-face shading normals include source normal maps",
+  "albedoColorSpace": "sRGB, converted after linear-light RGBA block integration; original masked source RGB alpha-weighted in linear space before mip filtering, unpremultiplied in map_fragment; source alpha unchanged",
+  "alpha": "fractional source silhouette coverage; no threshold, dilation, or artificial canopy fill applied",
+  "atlasOrigin": "PNG top-left; row0 elevation0; columns azimuth0 through315",
+  "colorFile": "/workspace/scratch/2b912ce37941/native-render/syringa-restored-atlas/syringa-albedo.png",
+  "normalFile": "/workspace/scratch/2b912ce37941/native-render/syringa-restored-atlas/syringa-normal.png",
+  "views": [
+    {
+      "column": 0,
+      "row": 0,
+      "azimuthDegrees": 0,
+      "elevationDegrees": 0,
+      "cameraPosition": [
+        0.458878755569458,
+        6.925944183021784,
+        122.34609889984131
+      ],
+      "cameraTarget": [
+        0.458878755569458,
+        6.925944183021784,
+        2.3460988998413086
+      ],
+      "leafAndWoodCoverageSquareMeters": 32.92557397739478
+    },
+    {
+      "column": 1,
+      "row": 0,
+      "azimuthDegrees": 45,
+      "elevationDegrees": 0,
+      "cameraPosition": [
+        85.31169249795515,
+        6.925944183021784,
+        87.19891264222701
+      ],
+      "cameraTarget": [
+        0.458878755569458,
+        6.925944183021784,
+        2.3460988998413086
+      ],
+      "leafAndWoodCoverageSquareMeters": 39.63278456448265
+    },
+    {
+      "column": 2,
+      "row": 0,
+      "azimuthDegrees": 90,
+      "elevationDegrees": 0,
+      "cameraPosition": [
+        120.45887875556946,
+        6.925944183021784,
+        2.346098899841316
+      ],
+      "cameraTarget": [
+        0.458878755569458,
+        6.925944183021784,
+        2.3460988998413086
+      ],
+      "leafAndWoodCoverageSquareMeters": 40.811132114871036
+    },
+    {
+      "column": 3,
+      "row": 0,
+      "azimuthDegrees": 135,
+      "elevationDegrees": 0,
+      "cameraPosition": [
+        85.31169249795516,
+        6.925944183021784,
+        -82.50671484254438
+      ],
+      "cameraTarget": [
+        0.458878755569458,
+        6.925944183021784,
+        2.3460988998413086
+      ],
+      "leafAndWoodCoverageSquareMeters": 36.48183012802238
+    },
+    {
+      "column": 4,
+      "row": 0,
+      "azimuthDegrees": 180,
+      "elevationDegrees": 0,
+      "cameraPosition": [
+        0.4588787555694727,
+        6.925944183021784,
+        -117.65390110015869
+      ],
+      "cameraTarget": [
+        0.458878755569458,
+        6.925944183021784,
+        2.3460988998413086
+      ],
+      "leafAndWoodCoverageSquareMeters": 32.95260020389866
+    },
+    {
+      "column": 5,
+      "row": 0,
+      "azimuthDegrees": 225,
+      "elevationDegrees": 0,
+      "cameraPosition": [
+        -84.39393498681623,
+        6.925944183021784,
+        -82.50671484254441
+      ],
+      "cameraTarget": [
+        0.458878755569458,
+        6.925944183021784,
+        2.3460988998413086
+      ],
+      "leafAndWoodCoverageSquareMeters": 39.583422226319136
+    },
+    {
+      "column": 6,
+      "row": 0,
+      "azimuthDegrees": 270,
+      "elevationDegrees": 0,
+      "cameraPosition": [
+        -119.54112124443054,
+        6.925944183021784,
+        2.3460988998412864
+      ],
+      "cameraTarget": [
+        0.458878755569458,
+        6.925944183021784,
+        2.3460988998413086
+      ],
+      "leafAndWoodCoverageSquareMeters": 40.853129220557214
+    },
+    {
+      "column": 7,
+      "row": 0,
+      "azimuthDegrees": 315,
+      "elevationDegrees": 0,
+      "cameraPosition": [
+        -84.39393498681626,
+        6.925944183021784,
+        87.19891264222699
+      ],
+      "cameraTarget": [
+        0.458878755569458,
+        6.925944183021784,
+        2.3460988998413086
+      ],
+      "leafAndWoodCoverageSquareMeters": 36.49910939127
+    },
+    {
+      "column": 0,
+      "row": 1,
+      "azimuthDegrees": 0,
+      "elevationDegrees": 35,
+      "cameraPosition": [
+        0.458878755569458,
+        75.7551165451473,
+        100.64434421452033
+      ],
+      "cameraTarget": [
+        0.458878755569458,
+        6.925944183021784,
+        2.3460988998413086
+      ],
+      "leafAndWoodCoverageSquareMeters": 35.74279883017125
+    },
+    {
+      "column": 1,
+      "row": 1,
+      "azimuthDegrees": 45,
+      "elevationDegrees": 35,
+      "cameraPosition": [
+        69.96623459631775,
+        75.7551165451473,
+        71.85345474058961
+      ],
+      "cameraTarget": [
+        0.458878755569458,
+        6.925944183021784,
+        2.3460988998413086
+      ],
+      "leafAndWoodCoverageSquareMeters": 40.36583403036889
+    },
+    {
+      "column": 2,
+      "row": 1,
+      "azimuthDegrees": 90,
+      "elevationDegrees": 35,
+      "cameraPosition": [
+        98.75712407024848,
+        75.7551165451473,
+        2.346098899841315
+      ],
+      "cameraTarget": [
+        0.458878755569458,
+        6.925944183021784,
+        2.3460988998413086
+      ],
+      "leafAndWoodCoverageSquareMeters": 42.68899542123067
+    },
+    {
+      "column": 3,
+      "row": 1,
+      "azimuthDegrees": 135,
+      "elevationDegrees": 35,
+      "cameraPosition": [
+        69.96623459631776,
+        75.7551165451473,
+        -67.16125694090698
+      ],
+      "cameraTarget": [
+        0.458878755569458,
+        6.925944183021784,
+        2.3460988998413086
+      ],
+      "leafAndWoodCoverageSquareMeters": 40.08162570272759
+    },
+    {
+      "column": 4,
+      "row": 1,
+      "azimuthDegrees": 180,
+      "elevationDegrees": 35,
+      "cameraPosition": [
+        0.45887875556947005,
+        75.7551165451473,
+        -95.95214641483771
+      ],
+      "cameraTarget": [
+        0.458878755569458,
+        6.925944183021784,
+        2.3460988998413086
+      ],
+      "leafAndWoodCoverageSquareMeters": 39.632014423991556
+    },
+    {
+      "column": 5,
+      "row": 1,
+      "azimuthDegrees": 225,
+      "elevationDegrees": 35,
+      "cameraPosition": [
+        -69.04847708517883,
+        75.7551165451473,
+        -67.16125694090701
+      ],
+      "cameraTarget": [
+        0.458878755569458,
+        6.925944183021784,
+        2.3460988998413086
+      ],
+      "leafAndWoodCoverageSquareMeters": 42.16791591985587
+    },
+    {
+      "column": 6,
+      "row": 1,
+      "azimuthDegrees": 270,
+      "elevationDegrees": 35,
+      "cameraPosition": [
+        -97.83936655910956,
+        75.7551165451473,
+        2.3460988998412904
+      ],
+      "cameraTarget": [
+        0.458878755569458,
+        6.925944183021784,
+        2.3460988998413086
+      ],
+      "leafAndWoodCoverageSquareMeters": 41.928685426839486
+    },
+    {
+      "column": 7,
+      "row": 1,
+      "azimuthDegrees": 315,
+      "elevationDegrees": 35,
+      "cameraPosition": [
+        -69.04847708517886,
+        75.7551165451473,
+        71.8534547405896
+      ],
+      "cameraTarget": [
+        0.458878755569458,
+        6.925944183021784,
+        2.3460988998413086
+      ],
+      "leafAndWoodCoverageSquareMeters": 36.63859650360623
+    },
+    {
+      "column": 0,
+      "row": 2,
+      "azimuthDegrees": 0,
+      "elevationDegrees": 70,
+      "cameraPosition": [
+        0.458878755569458,
+        119.68905867733078,
+        43.38851609892157
+      ],
+      "cameraTarget": [
+        0.458878755569458,
+        6.925944183021784,
+        2.3460988998413086
+      ],
+      "leafAndWoodCoverageSquareMeters": 42.92720313507662
+    },
+    {
+      "column": 1,
+      "row": 2,
+      "azimuthDegrees": 45,
+      "elevationDegrees": 70,
+      "cameraPosition": [
+        29.480250273326494,
+        119.68905867733078,
+        31.367470417598348
+      ],
+      "cameraTarget": [
+        0.458878755569458,
+        6.925944183021784,
+        2.3460988998413086
+      ],
+      "leafAndWoodCoverageSquareMeters": 44.04089963236113
+    },
+    {
+      "column": 2,
+      "row": 2,
+      "azimuthDegrees": 90,
+      "elevationDegrees": 70,
+      "cameraPosition": [
+        41.50129595464972,
+        119.68905867733078,
+        2.3460988998413113
+      ],
+      "cameraTarget": [
+        0.458878755569458,
+        6.925944183021784,
+        2.3460988998413086
+      ],
+      "leafAndWoodCoverageSquareMeters": 44.31578070294033
+    },
+    {
+      "column": 3,
+      "row": 2,
+      "azimuthDegrees": 135,
+      "elevationDegrees": 70,
+      "cameraPosition": [
+        29.480250273326497,
+        119.68905867733078,
+        -26.675272617915727
+      ],
+      "cameraTarget": [
+        0.458878755569458,
+        6.925944183021784,
+        2.3460988998413086
+      ],
+      "leafAndWoodCoverageSquareMeters": 44.04167995989657
+    },
+    {
+      "column": 4,
+      "row": 2,
+      "azimuthDegrees": 180,
+      "elevationDegrees": 70,
+      "cameraPosition": [
+        0.45887875556946306,
+        119.68905867733078,
+        -38.69631829923895
+      ],
+      "cameraTarget": [
+        0.458878755569458,
+        6.925944183021784,
+        2.3460988998413086
+      ],
+      "leafAndWoodCoverageSquareMeters": 44.06114128786989
+    },
+    {
+      "column": 5,
+      "row": 2,
+      "azimuthDegrees": 225,
+      "elevationDegrees": 70,
+      "cameraPosition": [
+        -28.562492762187578,
+        119.68905867733078,
+        -26.675272617915738
+      ],
+      "cameraTarget": [
+        0.458878755569458,
+        6.925944183021784,
+        2.3460988998413086
+      ],
+      "leafAndWoodCoverageSquareMeters": 45.64405912269974
+    },
+    {
+      "column": 6,
+      "row": 2,
+      "azimuthDegrees": 270,
+      "elevationDegrees": 70,
+      "cameraPosition": [
+        -40.583538443510804,
+        119.68905867733078,
+        2.346098899841301
+      ],
+      "cameraTarget": [
+        0.458878755569458,
+        6.925944183021784,
+        2.3460988998413086
+      ],
+      "leafAndWoodCoverageSquareMeters": 44.59130559467109
+    },
+    {
+      "column": 7,
+      "row": 2,
+      "azimuthDegrees": 315,
+      "elevationDegrees": 70,
+      "cameraPosition": [
+        -28.56249276218759,
+        119.68905867733078,
+        31.36747041759834
+      ],
+      "cameraTarget": [
+        0.458878755569458,
+        6.925944183021784,
+        2.3460988998413086
+      ],
+      "leafAndWoodCoverageSquareMeters": 42.38594310045465
+    }
+  ],
+  "provenance": {
+    "license": "CC0-1.0",
+    "sourcePage": "https://polyhaven.com/a/tree_small_02",
+    "creators": "Rico Cilliers"
+  }
+}

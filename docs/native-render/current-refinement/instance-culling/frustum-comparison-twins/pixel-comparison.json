@@ -1,0 +1,50 @@
+[
+  {
+    "camera": "flight-0",
+    "meanAbs": 0.0,
+    "max": 0,
+    "changedPixels": 0,
+    "trianglesBefore": 77262103,
+    "trianglesAfter": 56483740,
+    "callsBefore": 754,
+    "callsAfter": 676,
+    "packing": {
+      "sun": {
+        "tested": 18244,
+        "kept": 13457,
+        "culled": 4787,
+        "meshes": 446
+      },
+      "main": {
+        "tested": 18244,
+        "kept": 695,
+        "culled": 17549,
+        "meshes": 446
+      }
+    }
+  },
+  {
+    "camera": "wet-sand",
+    "meanAbs": 0.0,
+    "max": 0,
+    "changedPixels": 0,
+    "trianglesBefore": 46294441,
+    "trianglesAfter": 40387017,
+    "callsBefore": 921,
+    "callsAfter": 903,
+    "packing": {
+      "sun": {
+        "tested": 17470,
+        "kept": 13009,
+        "culled": 4461,
+        "meshes": 434
+      },
+      "main": {
+        "tested": 17470,
+        "kept": 3038,
+        "culled": 14432,
+        "meshes": 434
+      }
+    }
+  }
+]

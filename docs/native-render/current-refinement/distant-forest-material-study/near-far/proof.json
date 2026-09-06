@@ -1,0 +1,50 @@
+{
+  "method": "Six identical Island Tree02 root transforms and colors, actual near GLB versus current far atlas; same production sun, sky environment, cloud lighting and aerial perspective. Shadows disabled in both to isolate material representation. Near source bypasses only LOD selection. Frozen modules, 4x linear HalfFloat MSAA and official OutputPass.",
+  "width": 480,
+  "height": 288,
+  "sourceTrianglesPerTree": 238617,
+  "instanceColorLinearRGB": [
+    0.90096,
+    0.9079999999999999,
+    0.8920000000000001
+  ],
+  "origin": [
+    -1400,
+    210,
+    -1400
+  ],
+  "camera": [
+    -126,
+    451.52177579465,
+    350
+  ],
+  "sourceSHA256": "c81e6ece28b7646aa59f2c2c68142619b2790d0db62c5d829278fec92e4373d7",
+  "atlasSHA256": "fa511d86ca9659007e0c4cc0d17d9344cda5b7c8c2868c524eb70a6f942d7eac",
+  "shaderErrors": [],
+  "result": [
+    {
+      "name": "near-source",
+      "file": "/workspace/scratch/2b912ce37941/native-render/distant-forest-material-study/near-far/near-source.png",
+      "linearRGBSum": [
+        221.48495483398438,
+        141.46766662597656,
+        73.90364074707031
+      ],
+      "nonblackPixels": 1540,
+      "glError": 0,
+      "triangles": 1437693
+    },
+    {
+      "name": "far-atlas",
+      "file": "/workspace/scratch/2b912ce37941/native-render/distant-forest-material-study/near-far/far-atlas.png",
+      "linearRGBSum": [
+        263.5786437988281,
+        170.3115997314453,
+        79.39302062988281
+      ],
+      "nonblackPixels": 1946,
+      "glError": 0,
+      "triangles": 1437706
+    }
+  ]
+}

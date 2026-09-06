@@ -1,0 +1,36 @@
+{
+  "completed": [
+    {
+      "camera": "flight-0",
+      "time": 0,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/frames/frustum-comparison-before/flight-0-mode-0-960.png",
+      "render": {
+        "frame": 29,
+        "calls": 754,
+        "triangles": 77262103,
+        "points": 720,
+        "lines": 0
+      },
+      "programs": 73,
+      "glError": 0
+    },
+    {
+      "camera": "wet-sand",
+      "time": 11.5,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/frames/frustum-comparison-before/wet-sand-mode-0-960.png",
+      "render": {
+        "frame": 58,
+        "calls": 921,
+        "triangles": 46294441,
+        "points": 720,
+        "lines": 0
+      },
+      "programs": 73,
+      "glError": 0
+    }
+  ],
+  "requested": [
+    "flight-0",
+    "wet-sand"
+  ]
+}

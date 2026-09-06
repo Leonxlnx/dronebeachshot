@@ -1,0 +1,36 @@
+{
+  "status": "REJECTED_FOR_INTEGRATION",
+  "scope": "One bounded scratch candidate, two native full-scene views; no Site edits.",
+  "frames": [
+    {
+      "path": "/workspace/scratch/2b912ce37941/native-render/distant-ridge-study/frames/wet-sand-mode-0-960.png",
+      "sha256": "dc261452f35fbfd15e78c1faa85688c9eb9210bb93f2db88a465703d9edfef2a",
+      "viewed": true,
+      "finding": "Skyline is less dominated by isolated cones, but broad white terraced bands across the far slopes are visibly unacceptable.",
+      "shaderErrors": [],
+      "glError": 0,
+      "terrainSHA256": "93265ec14314dfcbd1b9a99ffc041fe3786ef21b754ad2366a8be5f0c3340997"
+    },
+    {
+      "path": "/workspace/scratch/2b912ce37941/native-render/distant-ridge-study/frames/flight-0-mode-0-960.png",
+      "sha256": "b8b6541f04afb0e40844983dd026eec48b115cf7a10d5807bd350365c1badd49",
+      "viewed": true,
+      "finding": "Opening view still contains obvious smooth bare sidewalls and a fine-grain texture transition at their bases. It does not demonstrate a credible distant forest or sufficiently rugged coastal relief.",
+      "shaderErrors": [],
+      "glError": 0,
+      "terrainSHA256": "93265ec14314dfcbd1b9a99ffc041fe3786ef21b754ad2366a8be5f0c3340997"
+    }
+  ],
+  "processExit": {
+    "code": 0,
+    "lastPhase": "saved",
+    "at": "2026-09-05T07:50:22.714Z"
+  },
+  "seamAudit": "All recorded CPU core, collar, perimeter and underwater checks pass; see seam-proof.json. This is not visual acceptance.",
+  "suspectedCause": "Inference only: 20-80 m cuts and fractures are insufficiently supported by distant radial mesh intervals of 16/32/48 m; interpolated mesh normals and sharp material classification may amplify terracing.",
+  "possibleFollowup": "Retain current evidence. Investigate geometry support relative to radial spacing and continuous-height finite-difference normals before another tightly scoped comparison. No followup candidate has been made.",
+  "limitations": [
+    "Native ANGLE/Mesa Three.js rendering is real scene execution, but is not browser QA or consumer device performance evidence.",
+    "No photorealism or AAA-quality claim is supported."
+  ]
+}

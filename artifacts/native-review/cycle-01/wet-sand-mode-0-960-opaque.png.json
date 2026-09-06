@@ -1,0 +1,5 @@
+{
+  "method": "Capture correction: preserve original rendered RGB, discard native framebuffer alpha to match production alpha:false canvas. No rerender, not another camera or visual cycle.",
+  "source": "wet-sand-mode-0-960.png",
+  "sourceSHA256": "143166a83e1123920f1602ca0fea9edab8d3282daecf7d1a5d04c083f4811a9d"
+}

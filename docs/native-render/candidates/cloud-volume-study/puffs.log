@@ -1,0 +1,35 @@
+(node:9) ExperimentalWarning: `--experimental-loader` may be removed in the future; instead use `register()`:
+--import 'data:text/javascript,import { register } from "node:module"; import { pathToFileURL } from "node:url"; register("/workspace/sites/last-light-bay/scripts/control/ts-resolve.mjs", pathToFileURL("./"));'
+(Use `node --trace-warnings ...` to show where the warning was created)
+THREE.WebGLRenderer: KHR_parallel_shader_compile extension not supported.
+(node:9) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/2b912ce37941/native-render/cloud-volume-study/atmosphere-puffs-runtime.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/2b912ce37941/native-render/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+{
+  "method": "Native ANGLE production createAtmosphere; sky-only investigation, not browser QA",
+  "module": "/workspace/scratch/2b912ce37941/native-render/cloud-volume-study/atmosphere-puffs-runtime.ts",
+  "moduleSHA256": "6014cbae86998c59b7805554097f3a2faf2d386d59f94e36820eab215354c639",
+  "cloudModuleFile": "/workspace/scratch/2b912ce37941/native-render/cloud-volume-study/clouds-puffs-runtime.ts",
+  "cloudModuleSHA256": "33d0f64d4a84a1371b707199c8d9b1cd26f2904800975babf19547746137496d",
+  "width": 960,
+  "height": 540,
+  "time": 17,
+  "camera": {
+    "position": [
+      10,
+      4,
+      -28
+    ],
+    "target": [
+      -365,
+      80,
+      -940
+    ],
+    "fov": 54
+  },
+  "shaderErrors": [],
+  "glError": 0,
+  "renderMilliseconds": 12762,
+  "renderer": "ANGLE (Mesa, llvmpipe (LLVM 20.1.2 256 bits), OpenGL ES 3.2 Mesa 25.2.8-0ubuntu0.24.04.2)"
+}

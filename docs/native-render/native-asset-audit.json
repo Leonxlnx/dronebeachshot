@@ -1,0 +1,1770 @@
+{
+  "threeRevision": "185",
+  "standaloneTextures": 14,
+  "metrics": {
+    "standaloneTextures": 14,
+    "gltfImages": 72,
+    "gltfs": 9,
+    "rgbaBytes": 436077568
+  },
+  "models": [
+    {
+      "file": "island-tree-far.glb",
+      "meshCount": 3,
+      "positions": 2439,
+      "materials": [
+        {
+          "name": "island_tree_02",
+          "type": "MeshStandardMaterial",
+          "alphaTest": 0,
+          "maps": [
+            {
+              "slot": "map",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "srgb",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            },
+            {
+              "slot": "roughnessMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            },
+            {
+              "slot": "metalnessMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            },
+            {
+              "slot": "normalMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "name": "island_tree_02_leaves",
+          "type": "MeshStandardMaterial",
+          "alphaTest": 0.45,
+          "maps": [
+            {
+              "slot": "map",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "srgb",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            },
+            {
+              "slot": "roughnessMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            },
+            {
+              "slot": "metalnessMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            },
+            {
+              "slot": "normalMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "name": "island_tree_02_branches",
+          "type": "MeshPhysicalMaterial",
+          "alphaTest": 0,
+          "maps": [
+            {
+              "slot": "map",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "srgb",
+              "offset": [
+                0,
+                -2.4000000953674316
+              ],
+              "repeat": [
+                15,
+                3.4000000953674316
+              ]
+            },
+            {
+              "slot": "roughnessMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                -2.4000000953674316
+              ],
+              "repeat": [
+                15,
+                3.4000000953674316
+              ]
+            },
+            {
+              "slot": "metalnessMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                -2.4000000953674316
+              ],
+              "repeat": [
+                15,
+                3.4000000953674316
+              ]
+            },
+            {
+              "slot": "normalMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                -2.4000000953674316
+              ],
+              "repeat": [
+                15,
+                3.4000000953674316
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "island-tree-hero.glb",
+      "meshCount": 3,
+      "positions": 73978,
+      "materials": [
+        {
+          "name": "island_tree_02",
+          "type": "MeshStandardMaterial",
+          "alphaTest": 0,
+          "maps": [
+            {
+              "slot": "map",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "srgb",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            },
+            {
+              "slot": "roughnessMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            },
+            {
+              "slot": "metalnessMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            },
+            {
+              "slot": "normalMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "name": "island_tree_02_leaves",
+          "type": "MeshStandardMaterial",
+          "alphaTest": 0.45,
+          "maps": [
+            {
+              "slot": "map",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "srgb",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            },
+            {
+              "slot": "roughnessMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            },
+            {
+              "slot": "metalnessMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            },
+            {
+              "slot": "normalMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "name": "island_tree_02_branches",
+          "type": "MeshPhysicalMaterial",
+          "alphaTest": 0,
+          "maps": [
+            {
+              "slot": "map",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "srgb",
+              "offset": [
+                0,
+                -2.4000000953674316
+              ],
+              "repeat": [
+                15,
+                3.4000000953674316
+              ]
+            },
+            {
+              "slot": "roughnessMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                -2.4000000953674316
+              ],
+              "repeat": [
+                15,
+                3.4000000953674316
+              ]
+            },
+            {
+              "slot": "metalnessMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                -2.4000000953674316
+              ],
+              "repeat": [
+                15,
+                3.4000000953674316
+              ]
+            },
+            {
+              "slot": "normalMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                -2.4000000953674316
+              ],
+              "repeat": [
+                15,
+                3.4000000953674316
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "island-tree-medium.glb",
+      "meshCount": 3,
+      "positions": 14982,
+      "materials": [
+        {
+          "name": "island_tree_02",
+          "type": "MeshStandardMaterial",
+          "alphaTest": 0,
+          "maps": [
+            {
+              "slot": "map",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "srgb",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            },
+            {
+              "slot": "roughnessMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            },
+            {
+              "slot": "metalnessMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            },
+            {
+              "slot": "normalMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "name": "island_tree_02_leaves",
+          "type": "MeshStandardMaterial",
+          "alphaTest": 0.45,
+          "maps": [
+            {
+              "slot": "map",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "srgb",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            },
+            {
+              "slot": "roughnessMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            },
+            {
+              "slot": "metalnessMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            },
+            {
+              "slot": "normalMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "name": "island_tree_02_branches",
+          "type": "MeshPhysicalMaterial",
+          "alphaTest": 0,
+          "maps": [
+            {
+              "slot": "map",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "srgb",
+              "offset": [
+                0,
+                -2.4000000953674316
+              ],
+              "repeat": [
+                15,
+                3.4000000953674316
+              ]
+            },
+            {
+              "slot": "roughnessMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                -2.4000000953674316
+              ],
+              "repeat": [
+                15,
+                3.4000000953674316
+              ]
+            },
+            {
+              "slot": "metalnessMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                -2.4000000953674316
+              ],
+              "repeat": [
+                15,
+                3.4000000953674316
+              ]
+            },
+            {
+              "slot": "normalMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                -2.4000000953674316
+              ],
+              "repeat": [
+                15,
+                3.4000000953674316
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "island-tree-near.glb",
+      "meshCount": 3,
+      "positions": 273240,
+      "materials": [
+        {
+          "name": "island_tree_02",
+          "type": "MeshStandardMaterial",
+          "alphaTest": 0,
+          "maps": [
+            {
+              "slot": "map",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "srgb",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            },
+            {
+              "slot": "roughnessMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            },
+            {
+              "slot": "metalnessMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            },
+            {
+              "slot": "normalMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "name": "island_tree_02_leaves",
+          "type": "MeshStandardMaterial",
+          "alphaTest": 0.45,
+          "maps": [
+            {
+              "slot": "map",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "srgb",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            },
+            {
+              "slot": "roughnessMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            },
+            {
+              "slot": "metalnessMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            },
+            {
+              "slot": "normalMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "name": "island_tree_02_branches",
+          "type": "MeshPhysicalMaterial",
+          "alphaTest": 0,
+          "maps": [
+            {
+              "slot": "map",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "srgb",
+              "offset": [
+                0,
+                -2.4000000953674316
+              ],
+              "repeat": [
+                15,
+                3.4000000953674316
+              ]
+            },
+            {
+              "slot": "roughnessMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                -2.4000000953674316
+              ],
+              "repeat": [
+                15,
+                3.4000000953674316
+              ]
+            },
+            {
+              "slot": "metalnessMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                -2.4000000953674316
+              ],
+              "repeat": [
+                15,
+                3.4000000953674316
+              ]
+            },
+            {
+              "slot": "normalMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                -2.4000000953674316
+              ],
+              "repeat": [
+                15,
+                3.4000000953674316
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "palm-tree.glb",
+      "meshCount": 1,
+      "positions": 743,
+      "materials": [
+        {
+          "name": "Palm bark and fronds",
+          "type": "MeshStandardMaterial",
+          "alphaTest": 0.45,
+          "maps": [
+            {
+              "slot": "map",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "srgb",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            },
+            {
+              "slot": "normalMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "syringa-tree-far.glb",
+      "meshCount": 3,
+      "positions": 1672,
+      "materials": [
+        {
+          "name": "tree_small_02_branches",
+          "type": "MeshStandardMaterial",
+          "alphaTest": 0,
+          "maps": [
+            {
+              "slot": "map",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "srgb",
+              "offset": [
+                0,
+                0.40000009536743164
+              ],
+              "repeat": [
+                3,
+                0.5999999046325684
+              ]
+            },
+            {
+              "slot": "roughnessMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                0.40000009536743164
+              ],
+              "repeat": [
+                3,
+                0.5999999046325684
+              ]
+            },
+            {
+              "slot": "metalnessMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                0.40000009536743164
+              ],
+              "repeat": [
+                3,
+                0.5999999046325684
+              ]
+            },
+            {
+              "slot": "normalMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                0.40000009536743164
+              ],
+              "repeat": [
+                3,
+                0.5999999046325684
+              ]
+            }
+          ]
+        },
+        {
+          "name": "tree_small_02_trunk",
+          "type": "MeshStandardMaterial",
+          "alphaTest": 0,
+          "maps": [
+            {
+              "slot": "map",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "srgb",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            },
+            {
+              "slot": "roughnessMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            },
+            {
+              "slot": "metalnessMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            },
+            {
+              "slot": "normalMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "name": "tree_small_02_canopy_bake",
+          "type": "MeshStandardMaterial",
+          "alphaTest": 0.45,
+          "maps": [
+            {
+              "slot": "map",
+              "size": [
+                1008,
+                1008
+              ],
+              "colorSpace": "srgb",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "syringa-tree-hero.glb",
+      "meshCount": 3,
+      "positions": 32991,
+      "materials": [
+        {
+          "name": "tree_small_02_branches",
+          "type": "MeshStandardMaterial",
+          "alphaTest": 0,
+          "maps": [
+            {
+              "slot": "map",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "srgb",
+              "offset": [
+                0,
+                0.40000009536743164
+              ],
+              "repeat": [
+                3,
+                0.5999999046325684
+              ]
+            },
+            {
+              "slot": "roughnessMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                0.40000009536743164
+              ],
+              "repeat": [
+                3,
+                0.5999999046325684
+              ]
+            },
+            {
+              "slot": "metalnessMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                0.40000009536743164
+              ],
+              "repeat": [
+                3,
+                0.5999999046325684
+              ]
+            },
+            {
+              "slot": "normalMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                0.40000009536743164
+              ],
+              "repeat": [
+                3,
+                0.5999999046325684
+              ]
+            }
+          ]
+        },
+        {
+          "name": "tree_small_02_leaves",
+          "type": "MeshStandardMaterial",
+          "alphaTest": 0.45,
+          "maps": [
+            {
+              "slot": "map",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "srgb",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            },
+            {
+              "slot": "roughnessMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            },
+            {
+              "slot": "metalnessMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            },
+            {
+              "slot": "normalMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "name": "tree_small_02_trunk",
+          "type": "MeshStandardMaterial",
+          "alphaTest": 0,
+          "maps": [
+            {
+              "slot": "map",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "srgb",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            },
+            {
+              "slot": "roughnessMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            },
+            {
+              "slot": "metalnessMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            },
+            {
+              "slot": "normalMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "syringa-tree-medium.glb",
+      "meshCount": 3,
+      "positions": 9646,
+      "materials": [
+        {
+          "name": "tree_small_02_branches",
+          "type": "MeshStandardMaterial",
+          "alphaTest": 0,
+          "maps": [
+            {
+              "slot": "map",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "srgb",
+              "offset": [
+                0,
+                0.40000009536743164
+              ],
+              "repeat": [
+                3,
+                0.5999999046325684
+              ]
+            },
+            {
+              "slot": "roughnessMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                0.40000009536743164
+              ],
+              "repeat": [
+                3,
+                0.5999999046325684
+              ]
+            },
+            {
+              "slot": "metalnessMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                0.40000009536743164
+              ],
+              "repeat": [
+                3,
+                0.5999999046325684
+              ]
+            },
+            {
+              "slot": "normalMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                0.40000009536743164
+              ],
+              "repeat": [
+                3,
+                0.5999999046325684
+              ]
+            }
+          ]
+        },
+        {
+          "name": "tree_small_02_leaves",
+          "type": "MeshStandardMaterial",
+          "alphaTest": 0.45,
+          "maps": [
+            {
+              "slot": "map",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "srgb",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            },
+            {
+              "slot": "roughnessMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            },
+            {
+              "slot": "metalnessMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            },
+            {
+              "slot": "normalMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "name": "tree_small_02_trunk",
+          "type": "MeshStandardMaterial",
+          "alphaTest": 0,
+          "maps": [
+            {
+              "slot": "map",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "srgb",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            },
+            {
+              "slot": "roughnessMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            },
+            {
+              "slot": "metalnessMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            },
+            {
+              "slot": "normalMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "syringa-tree-near.glb",
+      "meshCount": 3,
+      "positions": 282638,
+      "materials": [
+        {
+          "name": "tree_small_02_branches",
+          "type": "MeshStandardMaterial",
+          "alphaTest": 0,
+          "maps": [
+            {
+              "slot": "map",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "srgb",
+              "offset": [
+                0,
+                0.40000009536743164
+              ],
+              "repeat": [
+                3,
+                0.5999999046325684
+              ]
+            },
+            {
+              "slot": "roughnessMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                0.40000009536743164
+              ],
+              "repeat": [
+                3,
+                0.5999999046325684
+              ]
+            },
+            {
+              "slot": "metalnessMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                0.40000009536743164
+              ],
+              "repeat": [
+                3,
+                0.5999999046325684
+              ]
+            },
+            {
+              "slot": "normalMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                0.40000009536743164
+              ],
+              "repeat": [
+                3,
+                0.5999999046325684
+              ]
+            }
+          ]
+        },
+        {
+          "name": "tree_small_02_leaves",
+          "type": "MeshStandardMaterial",
+          "alphaTest": 0.45,
+          "maps": [
+            {
+              "slot": "map",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "srgb",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            },
+            {
+              "slot": "roughnessMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            },
+            {
+              "slot": "metalnessMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            },
+            {
+              "slot": "normalMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "name": "tree_small_02_trunk",
+          "type": "MeshStandardMaterial",
+          "alphaTest": 0,
+          "maps": [
+            {
+              "slot": "map",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "srgb",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            },
+            {
+              "slot": "roughnessMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            },
+            {
+              "slot": "metalnessMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            },
+            {
+              "slot": "normalMap",
+              "size": [
+                1024,
+                1024
+              ],
+              "colorSpace": "",
+              "offset": [
+                0,
+                0
+              ],
+              "repeat": [
+                1,
+                1
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

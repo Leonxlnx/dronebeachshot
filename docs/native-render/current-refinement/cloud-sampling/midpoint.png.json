@@ -1,0 +1,27 @@
+{
+  "method": "Native ANGLE production createAtmosphere; sky-only investigation, not browser QA",
+  "module": "/workspace/scratch/2b912ce37941/native-render/cloud-sampling-study/atmosphere-midpoint.ts",
+  "moduleSHA256": "0377a334636b2aa7f41cbc3fe2d5cedf34bbd55bea5b3b7e911e079ea21d368c",
+  "cloudModuleFile": "/workspace/scratch/2b912ce37941/native-render/cloud-sampling-study/clouds-midpoint.ts",
+  "cloudModuleSHA256": "d57438c32a485ce34dabf30b5c8475d9b1e67729cac17d934b26937009d7e8ba",
+  "width": 960,
+  "height": 540,
+  "time": 17,
+  "camera": {
+    "position": [
+      10,
+      4,
+      -28
+    ],
+    "target": [
+      -365,
+      80,
+      -940
+    ],
+    "fov": 54
+  },
+  "shaderErrors": [],
+  "glError": 0,
+  "renderMilliseconds": 1530,
+  "renderer": "ANGLE (Mesa, llvmpipe (LLVM 20.1.2 256 bits), OpenGL ES 3.2 Mesa 25.2.8-0ubuntu0.24.04.2)"
+}

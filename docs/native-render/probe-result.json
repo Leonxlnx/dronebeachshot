@@ -1,0 +1,41 @@
+{
+  "method": "native ANGLE WebGL2, no browser process",
+  "package": "node-gles-webgl2@0.4.0",
+  "at": "2026-09-05T04:19:01.636Z",
+  "version": "OpenGL ES 3.0 (ANGLE 2.1.28447 git hash: aa5f0107c9db)",
+  "renderer": "ANGLE (Mesa, llvmpipe (LLVM 20.1.2 256 bits), OpenGL ES 3.2 Mesa 25.2.8-0ubuntu0.24.04.2)",
+  "vendor": "Google Inc. (Mesa)",
+  "extensions": [
+    "ANGLE_instanced_arrays",
+    "EXT_blend_minmax",
+    "EXT_color_buffer_float",
+    "WEBGL_color_buffer_float",
+    "EXT_color_buffer_half_float",
+    "EXT_frag_depth",
+    "EXT_float_blend",
+    "EXT_sRGB",
+    "EXT_texture_filter_anisotropic",
+    "EXT_texture_mirror_clamp_to_edge",
+    "OES_element_index_uint",
+    "OES_standard_derivatives",
+    "OES_texture_float",
+    "OES_texture_float_linear",
+    "OES_texture_half_float",
+    "OES_texture_half_float_linear",
+    "OES_vertex_array_object",
+    "WEBGL_debug_renderer_info",
+    "WEBGL_depth_texture",
+    "WEBGL_compressed_texture_s3tc",
+    "WEBGL_compressed_texture_s3tc_srgb",
+    "WEBGL_draw_buffers",
+    "WEBGL_lose_context"
+  ],
+  "pixel": [
+    51,
+    102,
+    153,
+    255
+  ],
+  "error": 0,
+  "success": true
+}

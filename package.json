@@ -1,0 +1,25 @@
+{
+  "name": "last-light-bay",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0 --port 4173",
+    "build": "tsc --noEmit && vite build",
+    "lint": "node scripts/control/source-check.mjs",
+    "test": "node --experimental-strip-types --test src/world/math.test.ts src/camera/cinematic.test.ts src/world/lod.test.ts src/world/coastal.test.ts src/world/coastal-field.test.ts src/world/terrain-surface.test.ts src/world/rock-shelter.test.ts",
+    "verify:build": "npm run lint && npm run test && npm run check:assets && npm run check:world && npm run build",
+    "verify": "npm run verify:build && node scripts/control/final-check.mjs",
+    "check:assets": "python3 scripts/control/check-assets.py",
+    "check:world": "node --experimental-strip-types --loader ./scripts/control/ts-resolve.mjs scripts/control/check-world.mjs"
+  },
+  "dependencies": {
+    "three": "0.185.1"
+  },
+  "devDependencies": {
+    "@types/three": "0.183.1",
+    "typescript": "5.9.3",
+    "vite": "8.2.2",
+    "playwright": "1.63.0"
+  }
+}

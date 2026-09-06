@@ -1,0 +1,367 @@
+{
+  "method": "Read-only reconstruction of published atlas RGB from retained native linear RGBA readback. Decode at runtime should occur once; alpha-weighted means are linear.",
+  "families": [
+    {
+      "family": "island",
+      "albedoNormalAlphaEqual": true,
+      "atlasSHA256": "fa511d86ca9659007e0c4cc0d17d9344cda5b7c8c2868c524eb70a6f942d7eac",
+      "alphaWeightedLinearRGB": [
+        0.12424408673503202,
+        0.1293052164452445,
+        0.04369919069712306
+      ],
+      "alphaAreaPixels": 139207.93725490198,
+      "rawLinearReconstruction": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "differentChannels": 0,
+          "maximumByteDifference": 0,
+          "coveredPixels": 7577
+        },
+        {
+          "azimuth": 45,
+          "elevation": 0,
+          "differentChannels": 0,
+          "maximumByteDifference": 0,
+          "coveredPixels": 7618
+        },
+        {
+          "azimuth": 90,
+          "elevation": 0,
+          "differentChannels": 0,
+          "maximumByteDifference": 0,
+          "coveredPixels": 7794
+        },
+        {
+          "azimuth": 135,
+          "elevation": 0,
+          "differentChannels": 0,
+          "maximumByteDifference": 0,
+          "coveredPixels": 7711
+        },
+        {
+          "azimuth": 180,
+          "elevation": 0,
+          "differentChannels": 0,
+          "maximumByteDifference": 0,
+          "coveredPixels": 7578
+        },
+        {
+          "azimuth": 225,
+          "elevation": 0,
+          "differentChannels": 0,
+          "maximumByteDifference": 0,
+          "coveredPixels": 7626
+        },
+        {
+          "azimuth": 270,
+          "elevation": 0,
+          "differentChannels": 0,
+          "maximumByteDifference": 0,
+          "coveredPixels": 7804
+        },
+        {
+          "azimuth": 315,
+          "elevation": 0,
+          "differentChannels": 0,
+          "maximumByteDifference": 0,
+          "coveredPixels": 7725
+        },
+        {
+          "azimuth": 0,
+          "elevation": 35,
+          "differentChannels": 0,
+          "maximumByteDifference": 0,
+          "coveredPixels": 8424
+        },
+        {
+          "azimuth": 45,
+          "elevation": 35,
+          "differentChannels": 0,
+          "maximumByteDifference": 0,
+          "coveredPixels": 8613
+        },
+        {
+          "azimuth": 90,
+          "elevation": 35,
+          "differentChannels": 0,
+          "maximumByteDifference": 0,
+          "coveredPixels": 9410
+        },
+        {
+          "azimuth": 135,
+          "elevation": 35,
+          "differentChannels": 0,
+          "maximumByteDifference": 0,
+          "coveredPixels": 9754
+        },
+        {
+          "azimuth": 180,
+          "elevation": 35,
+          "differentChannels": 0,
+          "maximumByteDifference": 0,
+          "coveredPixels": 9738
+        },
+        {
+          "azimuth": 225,
+          "elevation": 35,
+          "differentChannels": 0,
+          "maximumByteDifference": 0,
+          "coveredPixels": 10102
+        },
+        {
+          "azimuth": 270,
+          "elevation": 35,
+          "differentChannels": 0,
+          "maximumByteDifference": 0,
+          "coveredPixels": 9801
+        },
+        {
+          "azimuth": 315,
+          "elevation": 35,
+          "differentChannels": 0,
+          "maximumByteDifference": 0,
+          "coveredPixels": 9048
+        },
+        {
+          "azimuth": 0,
+          "elevation": 70,
+          "differentChannels": 0,
+          "maximumByteDifference": 0,
+          "coveredPixels": 10325
+        },
+        {
+          "azimuth": 45,
+          "elevation": 70,
+          "differentChannels": 0,
+          "maximumByteDifference": 0,
+          "coveredPixels": 10404
+        },
+        {
+          "azimuth": 90,
+          "elevation": 70,
+          "differentChannels": 0,
+          "maximumByteDifference": 0,
+          "coveredPixels": 10653
+        },
+        {
+          "azimuth": 135,
+          "elevation": 70,
+          "differentChannels": 0,
+          "maximumByteDifference": 0,
+          "coveredPixels": 10909
+        },
+        {
+          "azimuth": 180,
+          "elevation": 70,
+          "differentChannels": 0,
+          "maximumByteDifference": 0,
+          "coveredPixels": 10884
+        },
+        {
+          "azimuth": 225,
+          "elevation": 70,
+          "differentChannels": 0,
+          "maximumByteDifference": 0,
+          "coveredPixels": 10532
+        },
+        {
+          "azimuth": 270,
+          "elevation": 70,
+          "differentChannels": 0,
+          "maximumByteDifference": 0,
+          "coveredPixels": 10575
+        },
+        {
+          "azimuth": 315,
+          "elevation": 70,
+          "differentChannels": 0,
+          "maximumByteDifference": 0,
+          "coveredPixels": 10480
+        }
+      ]
+    },
+    {
+      "family": "syringa",
+      "albedoNormalAlphaEqual": true,
+      "atlasSHA256": "69045d0cbeebac3c0e15d4345142a99c9298076a75b15013e8cc6c906b1e2004",
+      "alphaWeightedLinearRGB": [
+        0.1189835806177727,
+        0.16487050450116947,
+        0.058813854282747276
+      ],
+      "alphaAreaPixels": 116821.55294117647,
+      "rawLinearReconstruction": [
+        {
+          "azimuth": 0,
+          "elevation": 0,
+          "differentChannels": 0,
+          "maximumByteDifference": 0,
+          "coveredPixels": 5957
+        },
+        {
+          "azimuth": 45,
+          "elevation": 0,
+          "differentChannels": 0,
+          "maximumByteDifference": 0,
+          "coveredPixels": 8164
+        },
+        {
+          "azimuth": 90,
+          "elevation": 0,
+          "differentChannels": 0,
+          "maximumByteDifference": 0,
+          "coveredPixels": 8690
+        },
+        {
+          "azimuth": 135,
+          "elevation": 0,
+          "differentChannels": 0,
+          "maximumByteDifference": 0,
+          "coveredPixels": 7022
+        },
+        {
+          "azimuth": 180,
+          "elevation": 0,
+          "differentChannels": 0,
+          "maximumByteDifference": 0,
+          "coveredPixels": 5957
+        },
+        {
+          "azimuth": 225,
+          "elevation": 0,
+          "differentChannels": 0,
+          "maximumByteDifference": 0,
+          "coveredPixels": 8159
+        },
+        {
+          "azimuth": 270,
+          "elevation": 0,
+          "differentChannels": 0,
+          "maximumByteDifference": 0,
+          "coveredPixels": 8677
+        },
+        {
+          "azimuth": 315,
+          "elevation": 0,
+          "differentChannels": 0,
+          "maximumByteDifference": 0,
+          "coveredPixels": 7021
+        },
+        {
+          "azimuth": 0,
+          "elevation": 35,
+          "differentChannels": 0,
+          "maximumByteDifference": 0,
+          "coveredPixels": 6674
+        },
+        {
+          "azimuth": 45,
+          "elevation": 35,
+          "differentChannels": 0,
+          "maximumByteDifference": 0,
+          "coveredPixels": 8020
+        },
+        {
+          "azimuth": 90,
+          "elevation": 35,
+          "differentChannels": 0,
+          "maximumByteDifference": 0,
+          "coveredPixels": 8725
+        },
+        {
+          "azimuth": 135,
+          "elevation": 35,
+          "differentChannels": 0,
+          "maximumByteDifference": 0,
+          "coveredPixels": 7750
+        },
+        {
+          "azimuth": 180,
+          "elevation": 35,
+          "differentChannels": 0,
+          "maximumByteDifference": 0,
+          "coveredPixels": 7490
+        },
+        {
+          "azimuth": 225,
+          "elevation": 35,
+          "differentChannels": 0,
+          "maximumByteDifference": 0,
+          "coveredPixels": 8755
+        },
+        {
+          "azimuth": 270,
+          "elevation": 35,
+          "differentChannels": 0,
+          "maximumByteDifference": 0,
+          "coveredPixels": 8340
+        },
+        {
+          "azimuth": 315,
+          "elevation": 35,
+          "differentChannels": 0,
+          "maximumByteDifference": 0,
+          "coveredPixels": 6701
+        },
+        {
+          "azimuth": 0,
+          "elevation": 70,
+          "differentChannels": 0,
+          "maximumByteDifference": 0,
+          "coveredPixels": 7731
+        },
+        {
+          "azimuth": 45,
+          "elevation": 70,
+          "differentChannels": 0,
+          "maximumByteDifference": 0,
+          "coveredPixels": 8173
+        },
+        {
+          "azimuth": 90,
+          "elevation": 70,
+          "differentChannels": 0,
+          "maximumByteDifference": 0,
+          "coveredPixels": 8309
+        },
+        {
+          "azimuth": 135,
+          "elevation": 70,
+          "differentChannels": 0,
+          "maximumByteDifference": 0,
+          "coveredPixels": 8196
+        },
+        {
+          "azimuth": 180,
+          "elevation": 70,
+          "differentChannels": 0,
+          "maximumByteDifference": 0,
+          "coveredPixels": 8247
+        },
+        {
+          "azimuth": 225,
+          "elevation": 70,
+          "differentChannels": 0,
+          "maximumByteDifference": 0,
+          "coveredPixels": 8537
+        },
+        {
+          "azimuth": 270,
+          "elevation": 70,
+          "differentChannels": 0,
+          "maximumByteDifference": 0,
+          "coveredPixels": 8295
+        },
+        {
+          "azimuth": 315,
+          "elevation": 70,
+          "differentChannels": 0,
+          "maximumByteDifference": 0,
+          "coveredPixels": 7677
+        }
+      ]
+    }
+  ]
+}

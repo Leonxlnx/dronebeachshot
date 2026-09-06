@@ -1,0 +1,12 @@
+{
+  "description": "Original procedural 3D scalar density controls. CPU construction only.",
+  "bytes": 1048576,
+  "dimensions": [
+    64,
+    64,
+    64
+  ],
+  "sha256": "3dade6520df6df657936d7577274f4a200d0e5aedc7bd48d451f098361c56cdc",
+  "deterministic": true,
+  "constructionMilliseconds": 563.381497
+}

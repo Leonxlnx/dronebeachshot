@@ -1,0 +1,61 @@
+--- a/src/world/ocean.ts
++++ b/src/world/ocean.ts
+@@ -79,6 +79,15 @@
+   }
+   return sum;
+  }
++ // A slowly advecting interference envelope represents coherent wave groups.
++ // It modulates breaking/foam energy only: coastPhase, runup, displaced water,
++ // CPU wetness/spray, swash mesh and the thinning-film edge stay authoritative.
++ float breakingGroup(vec2 p,float distanceToShore,float time){
++  float groupTravel=distanceToShore-3.2*time;
++  return clamp(.50+.24*sin(p.x*.035+groupTravel*.071)
++    +.17*sin(p.x*.082-groupTravel*.043+1.8)
++    +.09*sin(p.x*.017+groupTravel*.119+4.2),0.,1.);
++ }
+  void main(){
+  vec2 p=vWorld.xz;
+  // Evaluate before any nonuniform discard; values are world meters per pixel.
+@@ -102,7 +111,15 @@
+  float glint=pow(max(dot(N,H),0.),520.)*.76+pow(max(dot(N,H),0.),65.)*.085;
+  float sunlight=atmosphericSunlight(vWorld),sunPath=glint*max(dot(N,uSun),.08)*sunlight;col+=vec3(13.,8.,3.2)*sunPath;
+  float travel=coastPhase(p,t),breakBand=pow(.5+.5*sin(travel),14.),breakerActivity=smoothstep(3.,9.,-d)*(1.-smoothstep(24.,42.,-d));
+- float crest=breakBand*breakerActivity*mix(1.,.35,coast.a),residue=(.5+.5*sin(travel-1.1))*breakerActivity*.30;
++ float group=breakingGroup(p,d,t);
++ float waveEnergy=smoothstep(.30,.68,group)*mix(1.,.20,coast.a);
++ // Local shoaling and genuine rock shelter gate where a coherent crest breaks.
++ float breakingRatio=(.65+.80*waveEnergy)/max(depth,.25);
++ float depthBreaking=smoothstep(.28,.64,breakingRatio);
++ float crest=breakBand*breakerActivity*waveEnergy*(.35+.65*depthBreaking);
++ // Positive phase lag leaves residue seaward, behind the incoming crest.
++ float previousEnergy=smoothstep(.30,.68,breakingGroup(p,d,t-1.1))*mix(1.,.20,coast.a);
++ float residue=pow(.5+.5*sin(travel+1.1),3.)*breakerActivity*.24*previousEnergy;
+  // Swash displacement advects the foam in the coast-normal direction. The
+  // derivative changes sign during retreat, so the same field flows back out.
+  vec2 flow=(p-coastNormal(p.x)*reach)*1.6;flow+=vec2(sin(p.y*.3),sin(p.x*.24))*.23;
+@@ -110,15 +127,22 @@
+  float cells=filteredFoamNoise(flow,foamFootprint)
+   +mix(.5,noise(flow*3.875),1.-smoothstep(.35,1.25,foamFootprint*3.875))*.17;
+  float lace=smoothstep(.43,.65,cells);
+- float foam=(crest*.92+residue)*lace;
++ // Metre-scale rafts stay resolved in aerial views after subpixel bubbles average
++ // away. They share the original swash flow, so foam connects and drains with it.
++ float raftNoise=filteredFoamNoise(flow*.0625,foamFootprint*.0625);
++ float rafts=smoothstep(.34,.57,raftNoise);
++ float foam=crest*(.18+.82*rafts)*(.30+.70*lace)
++  +residue*rafts*(.45+.55*lace);
+  float swashEdge=1.-smoothstep(.0,.75,abs(d-filmReach+.28));
+  float washArea=smoothstep(-6.,-.5,d)*(1.-smoothstep(reach-2.,reach,d));
+- foam+=swashEdge*(.08+.58*lace)+washArea*lace*.22;
++ float swashEnergy=smoothstep(.24,.66,breakingGroup(p,0.,t-.7))*mix(1.,.35,coast.a);
++ foam+=swashEdge*(.015+.56*lace)*rafts*(.20+.80*swashEnergy)
++  +washArea*lace*rafts*.20*(.30+.70*swashEnergy);
+  // Rock foam is attached to the rasterized waterline of actual scene geometry.
+  float rockEdge=(1.-smoothstep(.3,3.8,max(coast.g,0.)))*step(-.5,coast.g);
+  vec2 obstacleGradient=vec2(coastalFieldSample(p+vec2(1.,0.)).g-coastalFieldSample(p-vec2(1.,0.)).g,coastalFieldSample(p+vec2(0.,1.)).g-coastalFieldSample(p-vec2(0.,1.)).g);
+  float facing=max(dot(obstacleGradient/max(length(obstacleGradient),.001),-coastNormal(p.x)),0.);
+- float impact=pow(.5+.5*sin(travel),5.)*facing;
++ float impact=pow(.5+.5*sin(travel),5.)*facing*(.25+.75*waveEnergy);
+  foam+=rockEdge*(.28+impact*.9)*(.5+lace*.5);foam=clamp(foam,0.,.98);
+  vec3 foamColor=vec3(.68,.72,.665)*(1.+max(dot(uSun,N),0.)*.35*sunlight);col=mix(col,foamColor,foam);
+  // A thinning swash front mixes coverage with the real opaque coast beneath it.

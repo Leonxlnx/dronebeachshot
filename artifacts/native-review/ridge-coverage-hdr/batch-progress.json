@@ -1,0 +1,51 @@
+{
+  "completed": [
+    {
+      "camera": "mountain-wide",
+      "time": 2,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/frames/ridge-coverage-hdr/mountain-wide-mode-0-960.png",
+      "render": {
+        "frame": 29,
+        "calls": 674,
+        "triangles": 18088912,
+        "points": 784,
+        "lines": 0
+      },
+      "programs": 66,
+      "glError": 0
+    },
+    {
+      "camera": "headland",
+      "time": 14,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/frames/ridge-coverage-hdr/headland-mode-0-960.png",
+      "render": {
+        "frame": 58,
+        "calls": 644,
+        "triangles": 36162385,
+        "points": 784,
+        "lines": 0
+      },
+      "programs": 70,
+      "glError": 0
+    },
+    {
+      "camera": "canopy-close",
+      "time": 5,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/frames/ridge-coverage-hdr/canopy-close-mode-0-960.png",
+      "render": {
+        "frame": 87,
+        "calls": 768,
+        "triangles": 69163138,
+        "points": 784,
+        "lines": 0
+      },
+      "programs": 70,
+      "glError": 0
+    }
+  ],
+  "requested": [
+    "mountain-wide",
+    "headland",
+    "canopy-close"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "status": "REJECTED_FOR_COMPLETE_INTEGRATION",
+  "recommendation": "Preserve diagnosis and candidate evidence; do not merge the full morphology patch as a visual pass. It solves part of the broad normal/albedo terrace defect but loses too much rugged shape and retains fine bright stripes under full lighting.",
+  "frames": [
+    {
+      "path": "/workspace/scratch/2b912ce37941/native-render/distant-ridge-resolved-study/frames/wet-sand-mode-0-960.png",
+      "sha256": "ec76eec9233b59c8e1065351b97390c2bf2092392fce87eaa3428bd399e50e93",
+      "viewed": true,
+      "finding": "The broad terrace pattern is reduced, but narrow bright slope stripes remain in full lighting. The skyline is lower and smoother and the distant land remains visibly bare. This does not meet the rugged coastal range goal.",
+      "shaderErrors": [],
+      "glError": 0,
+      "terrainSHA256": "051d98a77a1516ed2ada31ea93e2477b27d6b16e38435e1ff92f3dcee3e225eb"
+    },
+    {
+      "path": "/workspace/scratch/2b912ce37941/native-render/distant-ridge-resolved-study/frames/flight-0-mode-0-960.png",
+      "sha256": "f6e8b662bb1f786440fc10d2f0905a2e31f5573f9d99ab880027a8b0f6f1bd4a",
+      "viewed": true,
+      "finding": "The flanks remain broad smooth walls, with several bright bands on the sunward side. The shape is not sufficiently rugged and lacks distant vegetation structure.",
+      "shaderErrors": [],
+      "glError": 0,
+      "terrainSHA256": "051d98a77a1516ed2ada31ea93e2477b27d6b16e38435e1ff92f3dcee3e225eb"
+    }
+  ],
+  "processExit": {
+    "code": 0,
+    "lastPhase": "saved",
+    "at": "2026-09-05T08:13:31.371Z"
+  },
+  "diagnosis": "The previous broad strips are present before lighting in geometric normals, unlit albedo and rock classification; their wetness is zero and roughness 0.875-0.941. Those particular strips are geometric/material-classification artifacts. The remaining narrower bright full-lighting bands were not reproduced in the final isolated albedo/normal diagnostic; terrain self-shadowing is a possible next investigation, not a proved cause.",
+  "continuity": "All core/perimeter/collar/outer-water checks pass. Additional underwater transition audit: 3,981 positions, no rendered-height difference or shoreline crossing.",
+  "constructionCostNote": "Native full batch elapsed about 105 seconds between finishing texture load and coastal-field readiness; this includes terrain construction and detailed-rock setup. Central-difference normals add CPU work. This interval is not an isolated terrain benchmark and not consumer device performance evidence.",
+  "productionState": "No Site source or hosting changes were made. Root owns the next distant-forest experiment.",
+  "limitations": [
+    "Native real Three.js/ANGLE/Mesa execution is not browser QA.",
+    "No photorealism or AAA quality claim is supported."
+  ],
+  "shadowFollowup": "Completed isolated controls rule out near shadow-map reception and cloud sunlight modulation for the sampled upper-flank stripes: all 17,441 pixels remain byte-identical in both controls. See shadow-isolated/review.json. No shadow cutoff patch is recommended."
+}

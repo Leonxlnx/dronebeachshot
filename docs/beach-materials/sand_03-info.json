@@ -1,0 +1,51 @@
+{
+  "name": "Sand 03",
+  "categories": [
+    "floor",
+    "sand"
+  ],
+  "type": 1,
+  "tags": [
+    "sand",
+    "sandy",
+    "beach",
+    "seaside",
+    "gritty",
+    "shore",
+    "costal",
+    "sandy beach",
+    "coastline",
+    "granular",
+    "coast"
+  ],
+  "authors": {
+    "Charlotte Baglioni": "All"
+  },
+  "max_resolution": [
+    8192,
+    8192
+  ],
+  "dimensions": [
+    2000,
+    2000
+  ],
+  "date_published": 1715644800,
+  "staging": null,
+  "sponsors": [
+    "26820710"
+  ],
+  "files_hash": "3c41202150d351ba3800440cfe57512bd4919681",
+  "description": "Free 8K sand texture with compacted, gritty grains, subtle ripple creases and worn, muted brown tones - coarse, sandy shore surface detail.",
+  "category_id": "2bed9a9d-8f5f-5f1f-815c-e33cfa63bf69",
+  "category": "Ground & Terrain/Sand/Beach & Coastal Sand",
+  "attributes": {
+    "surface_use": "ground",
+    "origin": "natural",
+    "setting": "outdoor",
+    "condition": [
+      "clean"
+    ]
+  },
+  "download_count": 29558,
+  "thumbnail_url": "https://cdn.polyhaven.com/asset_img/thumbs/sand_03.png?width=256&height=256"
+}

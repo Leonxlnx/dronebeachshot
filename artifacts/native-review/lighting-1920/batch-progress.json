@@ -1,0 +1,21 @@
+{
+  "completed": [
+    {
+      "camera": "headland",
+      "time": 14,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/frames/lighting-1920/headland-mode-0-1920.png",
+      "render": {
+        "frame": 29,
+        "calls": 639,
+        "triangles": 35739076,
+        "points": 736,
+        "lines": 0
+      },
+      "programs": 70,
+      "glError": 0
+    }
+  ],
+  "requested": [
+    "headland"
+  ]
+}

@@ -1,0 +1,189 @@
+{
+  "candidateOverrides": {
+    "fog": null,
+    "terrain": null,
+    "atmosphere": "/workspace/scratch/2b912ce37941/native-render/volume-cloud-study/atmosphere-volume-runtime.ts"
+  },
+  "method": "Native ANGLE execution of production Three.js modules, software graphics; not browser QA or consumer FPS",
+  "camera": "flight-0",
+  "time": 0,
+  "width": 960,
+  "height": 540,
+  "debugMode": 0,
+  "nativeSamples": 4,
+  "nativeCoverage": true,
+  "nativeOutput": "linear-half-float-MSAA + official OutputPass ACES/sRGB",
+  "renderer": "ANGLE (Mesa, llvmpipe (LLVM 20.1.2 256 bits), OpenGL ES 3.2 Mesa 25.2.8-0ubuntu0.24.04.2)",
+  "version": "OpenGL ES 3.0 (ANGLE 2.1.28447 git hash: aa5f0107c9db)",
+  "trees": 14000,
+  "cells": 245,
+  "render": {
+    "frame": 29,
+    "calls": 853,
+    "triangles": 77885374,
+    "points": 720,
+    "lines": 0
+  },
+  "memory": {
+    "geometries": 419,
+    "textures": 91
+  },
+  "programs": 73,
+  "assetMetrics": {
+    "standaloneTextures": 18,
+    "gltfImages": 59,
+    "gltfs": 8,
+    "rgbaBytes": 520093696,
+    "loadedFiles": {
+      "/workspace/sites/last-light-bay/public/assets/textures/palm_bark_diff_1k.webp": {
+        "bytes": 176792,
+        "sha256": "3a9486460e7a643edc706ea7812a29da4b402e9267327cba0978f2bcd2e83f8f"
+      },
+      "/workspace/sites/last-light-bay/public/assets/textures/marble_cliff_03_arm_2k.webp": {
+        "bytes": 708852,
+        "sha256": "fed4947d4f0570e3e035c5973db816047f2009b33a14c4e1b9c5a7463913bc9f"
+      },
+      "/workspace/sites/last-light-bay/public/assets/textures/palm_bark_nor_gl_1k.webp": {
+        "bytes": 534084,
+        "sha256": "70f0d74a1a1856b06898115d3df081044f9c87484983e895cd2240ad28833927"
+      },
+      "/workspace/sites/last-light-bay/public/assets/textures/sand_03_arm_2k.webp": {
+        "bytes": 683038,
+        "sha256": "8cecb65d928fd0b2598e5d024a71aa65bdae756e9f293a58cfb5dccfed173c41"
+      },
+      "/workspace/sites/last-light-bay/public/assets/textures/marble_cliff_03_nor_gl_2k.webp": {
+        "bytes": 1086742,
+        "sha256": "425bec3f1a4f29e1bc965ee7eaf888d085f838147d0432d7c3ee15a4ee128ccc"
+      },
+      "/workspace/sites/last-light-bay/public/assets/textures/marble_cliff_03_diff_2k.webp": {
+        "bytes": 1475290,
+        "sha256": "e1967f1ad5de34c328c1eb7ea9927de44b05235a75734959af47a2c60d23ced3"
+      },
+      "/workspace/sites/last-light-bay/public/assets/textures/forest_ground_05_diff_2k.webp": {
+        "bytes": 1193836,
+        "sha256": "d4cc33ba4a495a931122cda9976d9e0758a79021d5f66ca3bb8afefafd908634"
+      },
+      "/workspace/sites/last-light-bay/public/assets/textures/sand_03_nor_gl_2k.webp": {
+        "bytes": 1676214,
+        "sha256": "fbd85ea3821bff1681aa34d7d23feaac10666a875dbc25b950a66fc4079d81c6"
+      },
+      "/workspace/sites/last-light-bay/public/assets/textures/sand_03_diff_2k.webp": {
+        "bytes": 1747168,
+        "sha256": "190dcce01f0d7a5c66d3d3c06a987f117c3501c3d54c962f29148fe248c17fa5"
+      },
+      "/workspace/sites/last-light-bay/public/assets/textures/forest_leaves_02_diff_2k.webp": {
+        "bytes": 2483370,
+        "sha256": "d4fdb0fc221f6141a0a0f160eaa5dd00aecad103e11a2b6a690e18863e45c109"
+      },
+      "/workspace/sites/last-light-bay/public/assets/textures/forest_ground_05_arm_2k.webp": {
+        "bytes": 4059720,
+        "sha256": "a53ccffa1f4502fdcf1cba0a23543d3bbe73d7c3e419c7568c31073130e18c6a"
+      },
+      "/workspace/sites/last-light-bay/public/assets/textures/forest_leaves_02_arm_2k.webp": {
+        "bytes": 5133636,
+        "sha256": "3e4f7a3e4bde60276561d904468750e50c2c46d1be2a7e2b2866d0121265670a"
+      },
+      "/workspace/sites/last-light-bay/public/assets/textures/forest_ground_05_nor_gl_2k.webp": {
+        "bytes": 8457132,
+        "sha256": "5f9e07b047de75b7475a45c57669dc338a99a92854989ae3eb243f3b78acc54c"
+      },
+      "/workspace/sites/last-light-bay/public/assets/textures/forest_leaves_02_nor_gl_2k.webp": {
+        "bytes": 10375944,
+        "sha256": "33c631f816a1d351f87ce7e299f824c4ede95ab8b64b3b7d2689d572d74c446b"
+      },
+      "/workspace/sites/last-light-bay/public/assets/rocks/rock_moss_set_01_2k.glb": {
+        "bytes": 3256512,
+        "sha256": "864ece45cf6cafeb7fab5ab65704b1810622ba411da2026ebad847a0a08eab2f"
+      },
+      "/workspace/sites/last-light-bay/public/assets/impostors/island-albedo.png": {
+        "bytes": 798481,
+        "sha256": "fa511d86ca9659007e0c4cc0d17d9344cda5b7c8c2868c524eb70a6f942d7eac"
+      },
+      "/workspace/sites/last-light-bay/public/assets/impostors/syringa-albedo.png": {
+        "bytes": 664818,
+        "sha256": "69045d0cbeebac3c0e15d4345142a99c9298076a75b15013e8cc6c906b1e2004"
+      },
+      "/workspace/sites/last-light-bay/public/assets/impostors/syringa-normal.png": {
+        "bytes": 796819,
+        "sha256": "370dce1764a6ed7aa00afbfb023290a86e0388ca97bbe4e6de0ffc038f73ecb1"
+      },
+      "/workspace/sites/last-light-bay/public/assets/impostors/island-normal.png": {
+        "bytes": 933462,
+        "sha256": "a6cd5cbb19f2647d6980a8eaeee9839d0622e81ba847033e321693fe1d4afd7a"
+      },
+      "/workspace/sites/last-light-bay/public/assets/models/island-tree-near.glb": {
+        "bytes": 13299192,
+        "sha256": "c81e6ece28b7646aa59f2c2c68142619b2790d0db62c5d829278fec92e4373d7"
+      },
+      "/workspace/sites/last-light-bay/public/assets/models/island-tree-hero.glb": {
+        "bytes": 3950040,
+        "sha256": "8d892e4a572bb30804aecc3a88adb57e92b852220ccf8f59068f400cf6713a5b"
+      },
+      "/workspace/sites/last-light-bay/public/assets/models/island-tree-medium.glb": {
+        "bytes": 1739460,
+        "sha256": "2c210426ac4e761261b6c4dfc8c250fedd72ca1787de918abc965d4d3f32be64"
+      },
+      "/workspace/sites/last-light-bay/public/assets/models/syringa-tree-near.glb": {
+        "bytes": 38586500,
+        "sha256": "cb794443092f8b4b7b257c4d86f42e6f2b0ec91a2f95d2d3f34043f0a3b49b07"
+      },
+      "/workspace/sites/last-light-bay/public/assets/models/syringa-tree-hero.glb": {
+        "bytes": 3114880,
+        "sha256": "df11a6b9f0a2bf51b8ffd5bb12e4a18a864b47d767177cd53ad263996d8a5f2f"
+      },
+      "/workspace/sites/last-light-bay/public/assets/models/syringa-tree-medium.glb": {
+        "bytes": 2254268,
+        "sha256": "c4ef49e31bf9fb6565ccfdfa7dfa05b84ca6a9054401f2362c81c6f2538770de"
+      },
+      "/workspace/sites/last-light-bay/public/assets/models/palm-tree.glb": {
+        "bytes": 490580,
+        "sha256": "5e3f42cc9bd4a52d1e4249184fc8cba7bf87acf91b1403711115acaa7f2ca0f6"
+      }
+    }
+  },
+  "shaderErrors": [],
+  "glError": 0,
+  "at": "2026-09-05T08:53:37.296Z",
+  "sourceHashes": {
+    "world/assets.ts": "5157f71ec58de5dce7e36717a0c4a9d2ae9df7797287a0f0823060ebe183fc7a",
+    "world/atmosphere.ts": "18ed6276e4c28de5a99783a2435abf49b4337f3335db668cc3cff59ddf002bc5",
+    "world/clouds.ts": "2d9ef05ceb56fb65ff9983771d214d233a98955170b30172140837bec15b749f",
+    "world/coastal-field.ts": "16874f8f526f22a16b5a6b517cfd726aa2de76a3b0ee2a6476ead466acf87a2e",
+    "world/coastal-loader.ts": "3d8e9103f9ed8322202fa627e0083f5f9d9b5d6ffe181aabcd9e4589dccbf944",
+    "world/coastal-worker.ts": "1afc9da3556a2cbc3009dd41ec1b1defee9e4c9b3b84ece432b8ee6078c26381",
+    "world/coastal.ts": "b5fce5054daed96aa790f6dffe206e529f119a4bf0391b2af1ff6b6032cf1f6d",
+    "world/detailed-rocks.ts": "e4e28ecd56edbc6117a0453b6fcc560445d7a15e0c5ae0835a8689583112c592",
+    "world/distant-forest.ts": "f33e7a9515689f9630c947138e43d12f91f8c8966b23f4231a0060d89f8d149c",
+    "world/ecology.ts": "260c053012a699cbab40ebedadde3af9c6b35e3deefa69abd457f94636a8657c",
+    "world/forest-floor.ts": "007d698f778dfedabb86a98b41092b885117e7b793cab78abff6a0e5a272dde4",
+    "world/forest-structure.ts": "4872c3d5dd05020a9c92f0f256ad05f201bf3cf576cf60c1080ab70076124244",
+    "world/habitat.ts": "2da51191e5baf6f6998e78272ad8cba14b732133dd5b7d12fd6a963b3b1ab387",
+    "world/landscape-sampler.ts": "abd3986753b70d7a4d38e54280c0ac50a96dd2ab476508fc37cbb4ede502e311",
+    "world/lod.ts": "432d693723a429950e460fdfe1975827aa9284e7d2464b2de8a2c599d4c6062f",
+    "world/math.ts": "fea9ca1ffb2581113be9fcb128076f503ee116a33327969d4b18b894e850ded8",
+    "world/ocean.ts": "ebe5ced568a6b46e8ac5b6cead03bcce3683a1377009b5b06cfbe264e9478ba2",
+    "world/photogrammetry-rocks.ts": "037f0e78a02fca7e916b2f99d970a69d88345d02473af213ecb8aeb6c2c3382c",
+    "world/plants.ts": "944ac0c56aa7a17fe4551f2bd0efad44bb55325e167a9f6b6d4eb8e568989142",
+    "world/rock-geometry.ts": "5a57d35751edf0d1c5177ec2e7261535c1165748a5b75a4c1047f0e302d7161b",
+    "world/rock-shelter.ts": "eecfa12f9690254f17afad32bdbb8e0d7c448be6565325b25199fbbf896e8223",
+    "world/spray.ts": "bd69677289e88970355e2411dc796de01537ade94ff1e4d06c6f8e09c2b835a5",
+    "world/terrain-surface.ts": "08989240f07f3c730ce1cad0322c375887daaa73c91601d8e67b5e98017b2322",
+    "world/terrain.ts": "d4784c6cc5a6c7080ca8dec04868e0d9cb2aeedea7be2dc4c81a7ad4de6e3e1f",
+    "world/tree-impostor-data.ts": "bdd6f275f338429d72b04db484b72ac4b98ff80fe748d9a6355f18ca8e234e2b",
+    "world/tree-impostor.ts": "57e1e733264ce9be1a5c00e9d10c70ec707876a6c8da9aced98c481afc9d51ae",
+    "world/vegetation.ts": "d7d68c4093cfa2f1230aa9ccc95301465981997ac8b4f4b253aa9b53d9898161",
+    "world/weather.ts": "d38c3292ed627e63178815e8232325e7a9f3b9480bbc9115813ea5f06915da33",
+    "render/aerial-perspective.ts": "392e21dde27cbeaf8086904366e486f669ac4ec0c73fe12b4711df9205e8bc5e",
+    "render/alpha-weighted-color.ts": "03b1362561468ca7c50214cce65fb6a074640a9e2fe712bb7f6b28fbdb1d14a0",
+    "render/diagnostics.ts": "fa897ab752278cea94e03d0966d90e1d4d1a4c9e9f7a9410cde3e582a2e9294a",
+    "render/engine.ts": "f98d1ffade51d2982f929bd00eabb76c4f9212529147edea81a47e7362072a7a",
+    "render/ground-materials.ts": "4f1d547d737341e08d4d2cd995203186bb067866342609be9c38dc26b57deb52",
+    "render/materials.ts": "24694202443318f0ff076e03853d4e222b2f95e318e107e0349cbec7097e1a6a",
+    "render/refraction.ts": "43945801b50936f78fd6bd715bc8db183391a8ad47556a8a5ac5c7ab08ef0eb0",
+    "render/sky-lighting.ts": "0156a6c93b1dae40cafd3d6baeecef7ba655379ffe0c2dd29a75b66ac14abcc2",
+    "render/vegetation-material.ts": "0b03359c21bee0e5fbaed7607b69b411b9f92f2bdfeac6744c25c48c5c7cb108",
+    "camera/cinematic.ts": "370a8c1801a5c87bac0f929c3b7766216e5ebe13a7f12af17d23c4ee65add2e4"
+  },
+  "batchIndex": 0,
+  "batchCount": 2
+}

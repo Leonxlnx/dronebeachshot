@@ -1,0 +1,123 @@
+{
+  "method": "Actual native ANGLE/Mesa software render of unchanged 520x520m baseline terrain crop,2m grid. Both use identical current source textures, camera, geometry, normals and lighting. Before uses original sampler/anisotropy4. Original-aniso1 changes only rock-map anisotropy to1. Candidate uses the same anisotropy1 plus three deterministic triangular-lattice source translations; albedo/normal/ARM remain registered at unchanged5.7483m physical scale. The filter change prevents observed native ANGLE/Mesa flat-mip rows at phase boundaries; source texels are unchanged. Vegetation,ocean and distant terrain omitted. Not browser/fullscene QA.",
+  "width": 768,
+  "height": 432,
+  "renderer": "ANGLE (Mesa, llvmpipe (LLVM 20.1.2 256 bits), OpenGL ES 3.2 Mesa 25.2.8-0ubuntu0.24.04.2)",
+  "maxRSSMB": 1287.56640625,
+  "rows": [
+    {
+      "name": "stone-context",
+      "position": [
+        172,
+        126,
+        -151
+      ],
+      "target": [
+        317,
+        99,
+        29
+      ],
+      "variant": "before",
+      "time": 14,
+      "triangles": 271361,
+      "shaderErrors": [],
+      "glError": 0,
+      "rssMB": 1201.81640625
+    },
+    {
+      "name": "stone-context",
+      "position": [
+        172,
+        126,
+        -151
+      ],
+      "target": [
+        317,
+        99,
+        29
+      ],
+      "variant": "original-aniso1",
+      "time": 14,
+      "triangles": 271361,
+      "shaderErrors": [],
+      "glError": 0,
+      "rssMB": 1275.31640625
+    },
+    {
+      "name": "stone-context",
+      "position": [
+        172,
+        126,
+        -151
+      ],
+      "target": [
+        317,
+        99,
+        29
+      ],
+      "variant": "candidate",
+      "time": 14,
+      "triangles": 271361,
+      "shaderErrors": [],
+      "glError": 0,
+      "rssMB": 1254.2890625
+    },
+    {
+      "name": "stone-detail",
+      "position": [
+        218,
+        92,
+        -66
+      ],
+      "target": [
+        309,
+        103,
+        21
+      ],
+      "variant": "before",
+      "time": 14,
+      "triangles": 271361,
+      "shaderErrors": [],
+      "glError": 0,
+      "rssMB": 1254.2890625
+    },
+    {
+      "name": "stone-detail",
+      "position": [
+        218,
+        92,
+        -66
+      ],
+      "target": [
+        309,
+        103,
+        21
+      ],
+      "variant": "original-aniso1",
+      "time": 14,
+      "triangles": 271361,
+      "shaderErrors": [],
+      "glError": 0,
+      "rssMB": 1254.2890625
+    },
+    {
+      "name": "stone-detail",
+      "position": [
+        218,
+        92,
+        -66
+      ],
+      "target": [
+        309,
+        103,
+        21
+      ],
+      "variant": "candidate",
+      "time": 14,
+      "triangles": 271361,
+      "shaderErrors": [],
+      "glError": 0,
+      "rssMB": 1254.2890625
+    }
+  ]
+}

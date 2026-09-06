@@ -1,0 +1,24 @@
+{
+  "license": "CC0-1.0",
+  "licensePage": "https://polyhaven.com/license",
+  "legalCode": "https://creativecommons.org/publicdomain/zero/1.0/legalcode",
+  "sources": [
+    {
+      "asset": "Island Tree 02",
+      "creators": [
+        "Rico Cilliers",
+        "Rob Tuytel"
+      ],
+      "page": "https://polyhaven.com/a/island_tree_02"
+    },
+    {
+      "asset": "Tree Small 02 / wild syringa",
+      "creators": [
+        "Rico Cilliers"
+      ],
+      "page": "https://polyhaven.com/a/tree_small_02"
+    }
+  ],
+  "verifiedOn": "2026-09-05",
+  "notes": "Only original CC0 model geometry and texture maps are incorporated. The comparison PNGs are newly rendered from those models; no publisher preview image or website text is included."
+}

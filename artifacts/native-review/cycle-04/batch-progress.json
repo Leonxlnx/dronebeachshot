@@ -1,0 +1,51 @@
+{
+  "completed": [
+    {
+      "camera": "mountain-wide",
+      "time": 2,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/frames/cycle-04/mountain-wide-mode-0-960.png",
+      "render": {
+        "frame": 28,
+        "calls": 2017,
+        "triangles": 55834837,
+        "points": 928,
+        "lines": 0
+      },
+      "programs": 72,
+      "glError": 0
+    },
+    {
+      "camera": "canopy-close",
+      "time": 5,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/frames/cycle-04/canopy-close-mode-0-960.png",
+      "render": {
+        "frame": 56,
+        "calls": 1337,
+        "triangles": 98083894,
+        "points": 928,
+        "lines": 0
+      },
+      "programs": 76,
+      "glError": 0
+    },
+    {
+      "camera": "flight-0",
+      "time": 0,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/frames/cycle-04/flight-0-mode-0-960.png",
+      "render": {
+        "frame": 84,
+        "calls": 1260,
+        "triangles": 47012771,
+        "points": 928,
+        "lines": 0
+      },
+      "programs": 76,
+      "glError": 0
+    }
+  ],
+  "requested": [
+    "mountain-wide",
+    "canopy-close",
+    "flight-0"
+  ]
+}

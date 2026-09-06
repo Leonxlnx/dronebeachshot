@@ -1,0 +1,60 @@
+{
+  "asset": "coastal_cliff_01",
+  "resolution": "2k",
+  "source": "https://polyhaven.com/a/coastal_cliff_01",
+  "license": "CC0-1.0",
+  "licenseSource": "https://polyhaven.com/license",
+  "authors": {
+    "Rob Tuytel": "Photography, processing",
+    "Rico Cilliers": "cleanup"
+  },
+  "downloadedAt": "2026-09-05T08:46:59.915385+00:00",
+  "files": [
+    {
+      "relative": "coastal_cliff_01_2k.gltf",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/2k/coastal_cliff_01/coastal_cliff_01_2k.gltf",
+      "bytes": 2825,
+      "officialMd5": "b740b84cdc6d7acb5274361b594f5e3a",
+      "md5Matched": true,
+      "sha256": "8e82762ae04616a4c383cf9b91ee42d01852c07445c7b66fcc199fc635024d47"
+    },
+    {
+      "relative": "coastal_cliff_01.bin",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/8k/coastal_cliff_01/coastal_cliff_01.bin",
+      "bytes": 13179840,
+      "officialMd5": "d9f1e368b18c018e158d06ab9d924646",
+      "md5Matched": true,
+      "sha256": "6833dfaf75e0d039e64bc09ad642c4be3361739f20048af32ad50fd8e6471a65"
+    },
+    {
+      "relative": "textures/coastal_cliff_01_nor_gl_2k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/coastal_cliff_01/coastal_cliff_01_nor_gl_2k.jpg",
+      "bytes": 3054804,
+      "officialMd5": "54f0fed4e2ee6893c8c114c4ec1bf66a",
+      "md5Matched": true,
+      "sha256": "fea5db5ea6e3ae3f8dcaeb759b8a2395685c92f460e2f30c8edaef7216b1c027"
+    },
+    {
+      "relative": "textures/coastal_cliff_01_diff_2k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/coastal_cliff_01/coastal_cliff_01_diff_2k.jpg",
+      "bytes": 2465846,
+      "officialMd5": "9e1adf2e9f996d85c40f7dde57a97de8",
+      "md5Matched": true,
+      "sha256": "ff7b68ec580561f0c5abeb3b269d746428f69260fc353e637a3cc69953a736b6"
+    },
+    {
+      "relative": "textures/coastal_cliff_01_arm_2k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/coastal_cliff_01/coastal_cliff_01_arm_2k.jpg",
+      "bytes": 2181608,
+      "officialMd5": "b4c23c612a9c38fa794d05a67857a645",
+      "md5Matched": true,
+      "sha256": "1627b66d30b7a4b557856daa77a0d6f3d62bd722f3d79fa7a0b82fa9f03e0bd3"
+    }
+  ],
+  "packedGlb": {
+    "path": "coastal_cliff_01_2k.glb",
+    "bytes": 20883908,
+    "sha256": "588b11777e0068274672cd5f5636873db9f794e513f0d9bca62ec11daec68bfb",
+    "changes": "Container-only packaging. Original geometry, normals, UV, PBR and JPEG bytes preserved."
+  }
+}

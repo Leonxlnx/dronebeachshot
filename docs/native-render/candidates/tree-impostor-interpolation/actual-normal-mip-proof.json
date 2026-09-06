@@ -1,0 +1,229 @@
+{
+  "method": "Native textureLod mip6 for actual corrected normal atlases; CPU expectation alpha-weights original 64x64 source blocks before normal decoding",
+  "shaderErrors": [],
+  "glError": 0,
+  "rows": [
+    {
+      "family": "island",
+      "mipLevel": 6,
+      "cell": {
+        "x": 1,
+        "y": 9,
+        "coverage": 0.22524222579656902,
+        "expected": [
+          -0.043022095619537425,
+          -0.21001019662156897,
+          0.9767521776804355
+        ],
+        "unweightedAngle": 84.79630755375814
+      },
+      "readback": [
+        {
+          "name": "before",
+          "encodedRGBA": [
+            128,
+            249,
+            167,
+            59
+          ],
+          "angleFromCoveredSourceDegrees": 84.14006414953388
+        },
+        {
+          "name": "after",
+          "encodedRGBA": [
+            130,
+            108,
+            253,
+            59
+          ],
+          "angleFromCoveredSourceDegrees": 4.879932229081412
+        }
+      ]
+    },
+    {
+      "family": "island",
+      "mipLevel": 6,
+      "cell": {
+        "x": 29,
+        "y": 9,
+        "coverage": 0.28962162990196083,
+        "expected": [
+          -0.7061896826613504,
+          -0.14096516914831167,
+          0.6938479323235379
+        ],
+        "unweightedAngle": 76.9760834945621
+      },
+      "readback": [
+        {
+          "name": "before",
+          "encodedRGBA": [
+            99,
+            247,
+            162,
+            76
+          ],
+          "angleFromCoveredSourceDegrees": 77.68376859300731
+        },
+        {
+          "name": "after",
+          "encodedRGBA": [
+            43,
+            113,
+            222,
+            76
+          ],
+          "angleFromCoveredSourceDegrees": 3.9972437141685146
+        }
+      ]
+    },
+    {
+      "family": "island",
+      "mipLevel": 6,
+      "cell": {
+        "x": 6,
+        "y": 9,
+        "coverage": 0.26641007965686353,
+        "expected": [
+          0.687996272313756,
+          -0.11435446968440995,
+          0.7166478804444854
+        ],
+        "unweightedAngle": 76.73670621136397
+      },
+      "readback": [
+        {
+          "name": "before",
+          "encodedRGBA": [
+            161,
+            246,
+            160,
+            70
+          ],
+          "angleFromCoveredSourceDegrees": 75.08169861831378
+        },
+        {
+          "name": "after",
+          "encodedRGBA": [
+            215,
+            118,
+            220,
+            70
+          ],
+          "angleFromCoveredSourceDegrees": 2.337610244852451
+        }
+      ]
+    },
+    {
+      "family": "syringa",
+      "mipLevel": 6,
+      "cell": {
+        "x": 1,
+        "y": 10,
+        "coverage": 0.2877182904411767,
+        "expected": [
+          0.020235143847557487,
+          -0.08613037130887088,
+          0.996078359413387
+        ],
+        "unweightedAngle": 57.89466448665168
+      },
+      "readback": [
+        {
+          "name": "before",
+          "encodedRGBA": [
+            133,
+            229,
+            204,
+            75
+          ],
+          "angleFromCoveredSourceDegrees": 57.91865870536571
+        },
+        {
+          "name": "after",
+          "encodedRGBA": [
+            138,
+            121,
+            254,
+            75
+          ],
+          "angleFromCoveredSourceDegrees": 4.098919947045565
+        }
+      ]
+    },
+    {
+      "family": "syringa",
+      "mipLevel": 6,
+      "cell": {
+        "x": 18,
+        "y": 10,
+        "coverage": 0.2884870940563733,
+        "expected": [
+          -0.03871105501103139,
+          0.0030837425552299705,
+          -0.9992456878825077
+        ],
+        "unweightedAngle": 54.57378090413728
+      },
+      "readback": [
+        {
+          "name": "before",
+          "encodedRGBA": [
+            128,
+            234,
+            58,
+            76
+          ],
+          "angleFromCoveredSourceDegrees": 56.73436346701579
+        },
+        {
+          "name": "after",
+          "encodedRGBA": [
+            128,
+            136,
+            0,
+            76
+          ],
+          "angleFromCoveredSourceDegrees": 4.380699391624052
+        }
+      ]
+    },
+    {
+      "family": "syringa",
+      "mipLevel": 6,
+      "cell": {
+        "x": 10,
+        "y": 5,
+        "coverage": 0.20182100183823531,
+        "expected": [
+          0.88010769242926,
+          0.47248612630908116,
+          -0.04655437865853158
+        ],
+        "unweightedAngle": 47.15821539297164
+      },
+      "readback": [
+        {
+          "name": "before",
+          "encodedRGBA": [
+            161,
+            250,
+            128,
+            53
+          ],
+          "angleFromCoveredSourceDegrees": 46.55002975208734
+        },
+        {
+          "name": "after",
+          "encodedRGBA": [
+            238,
+            190,
+            130,
+            53
+          ],
+          "angleFromCoveredSourceDegrees": 4.0012203586376796
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "recommendedForRootReview": true,
+  "acceptedForProduction": false,
+  "reason": "Removes demonstrated coherent source repetition while preserving measured source detail; root must assess filtering/performance tradeoff in full scene.",
+  "review": "/workspace/scratch/2b912ce37941/native-render/stone-repeat-study/REVIEW.md",
+  "patch": "/workspace/scratch/2b912ce37941/native-render/stone-repeat-study/stochastic-stone-review.patch",
+  "images": {
+    "context": {
+      "before": "/workspace/scratch/2b912ce37941/native-render/stone-repeat-study/final-stone-context-before.png",
+      "original-aniso1": "/workspace/scratch/2b912ce37941/native-render/stone-repeat-study/final-stone-context-original-aniso1.png",
+      "candidate": "/workspace/scratch/2b912ce37941/native-render/stone-repeat-study/final-stone-context-candidate.png"
+    },
+    "detail": {
+      "before": "/workspace/scratch/2b912ce37941/native-render/stone-repeat-study/final-stone-detail-before.png",
+      "original-aniso1": "/workspace/scratch/2b912ce37941/native-render/stone-repeat-study/final-stone-detail-original-aniso1.png",
+      "candidate": "/workspace/scratch/2b912ce37941/native-render/stone-repeat-study/final-stone-detail-candidate.png"
+    }
+  },
+  "measurements": "/workspace/scratch/2b912ce37941/native-render/stone-repeat-study/final-measurement-summary.json",
+  "proof": "/workspace/scratch/2b912ce37941/native-render/stone-repeat-study/final-proof.json",
+  "provenance": "/workspace/scratch/2b912ce37941/native-render/stone-repeat-study/provenance.json",
+  "productionModified": false,
+  "filteringTradeoff": "Rock-only anisotropy1 avoids observed native flat-mip rows; grazing-angle browser quality unverified.",
+  "shaderCost": "3 vs2 taps per rock projection;27 vs18 rock-map taps across3 maps and3 projections."
+}

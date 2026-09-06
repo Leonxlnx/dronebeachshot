@@ -1,0 +1,357 @@
+{
+  "method": "Adaptive source-index simplification compared with current and original Poly Haven geometry, authored RGBA alpha restored from source PNG, production alphaHash versus original cutoff-only; old Island/Syringa exact prior dimensions; new Jacaranda original meters. Standard crown128px in256px image; large crown512px in768px image; Float32 linear premultiplied RGBA exact box integration; no A2C, no MSAA, same absolute time 0; ACES1.08+sRGB only after integration",
+  "sources": [
+    {
+      "family": "syringa-current",
+      "sourceFile": "/workspace/sites/last-light-bay/public/assets/models/syringa-tree-near.glb",
+      "SHA256": "28cd16b21b8d422566e3d4c76f0f94e5d9938b9624dd96ee791864e159ac9761",
+      "scale": 3.0723712638923715,
+      "rawBounds": {
+        "min": [
+          -1.301299810409546,
+          -0.02410384640097618,
+          -1.3826267719268799
+        ],
+        "max": [
+          1.6077065467834473,
+          4.532637119293213,
+          2.9098503589630127
+        ]
+      },
+      "rawDimensions": [
+        2.909006357192993,
+        4.556740965694189,
+        4.292477130889893
+      ],
+      "parts": [
+        {
+          "leaf": false,
+          "triangles": 14446,
+          "sourceCutoff": 0
+        },
+        {
+          "leaf": true,
+          "triangles": 202906,
+          "sourceCutoff": 0.45
+        },
+        {
+          "leaf": false,
+          "triangles": 28293,
+          "sourceCutoff": 0
+        }
+      ]
+    },
+    {
+      "family": "syringa-delivery-near",
+      "sourceFile": "/workspace/scratch/2b912ce37941/native-render/syringa-coverage-upgrade/syringa-tree-delivery-near.glb",
+      "SHA256": "cb794443092f8b4b7b257c4d86f42e6f2b0ec91a2f95d2d3f34043f0a3b49b07",
+      "scale": 3.0723712638923715,
+      "rawBounds": {
+        "min": [
+          -1.3089934587478638,
+          -0.02410384640097618,
+          -1.3826267719268799
+        ],
+        "max": [
+          1.6077065467834473,
+          4.532637119293213,
+          2.9098503589630127
+        ]
+      },
+      "rawDimensions": [
+        2.916700005531311,
+        4.556740965694189,
+        4.292477130889893
+      ],
+      "parts": [
+        {
+          "leaf": false,
+          "triangles": 14746,
+          "sourceCutoff": 0
+        },
+        {
+          "leaf": true,
+          "triangles": 646100,
+          "sourceCutoff": 0.45
+        },
+        {
+          "leaf": false,
+          "triangles": 28293,
+          "sourceCutoff": 0
+        }
+      ]
+    },
+    {
+      "family": "syringa-original",
+      "sourceFile": "/workspace/scratch/2b912ce37941/native-render/dense-tree-study/syringa-original.glb",
+      "SHA256": "5a200417b7cd6e6c77e92d3f4841320776f099067405d469f36395d77bce7b16",
+      "scale": 3.0723712638923715,
+      "rawBounds": {
+        "min": [
+          -1.3089934587478638,
+          -0.02410384640097618,
+          -1.3826267719268799
+        ],
+        "max": [
+          1.6077065467834473,
+          4.532637119293213,
+          2.9098503589630127
+        ]
+      },
+      "rawDimensions": [
+        2.916700005531311,
+        4.556740965694189,
+        4.292477130889893
+      ],
+      "parts": [
+        {
+          "leaf": false,
+          "triangles": 94814,
+          "sourceCutoff": 0
+        },
+        {
+          "leaf": true,
+          "triangles": 1939380,
+          "sourceCutoff": 0.45
+        },
+        {
+          "leaf": false,
+          "triangles": 28293,
+          "sourceCutoff": 0
+        }
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "family": "syringa-current",
+      "elevation": 0,
+      "kind": "hash",
+      "factor": 2,
+      "cameraPosition": [
+        0.4706975221633911,
+        6.925944183021784,
+        122.34609889984131
+      ],
+      "cameraTarget": [
+        0.4706975221633911,
+        6.925944183021784,
+        2.3460988998413086
+      ],
+      "halfSpan": 7.080803632736206,
+      "crownVertexBounds": {
+        "minX": -4.468773722648621,
+        "maxX": 4.468773722648621,
+        "minY": -2.4410713650286198,
+        "maxY": 7.000000145286322
+      },
+      "pixelScale": 54.23113249810777,
+      "projectedCrownMaxPixels": 512,
+      "area": 87211.75,
+      "partial": 44943,
+      "nonzero": 108695,
+      "solid": 63752,
+      "nonfinite": 0,
+      "rawLinearRGBA": "syringa-current-0-hash-2x.linear-rgba-f32",
+      "image": "syringa-current-0-hash-2x.png",
+      "mask": "syringa-current-0-hash-2x-coverage.png",
+      "glError": 0,
+      "framebufferStatus": 36053,
+      "milliseconds": 2240
+    },
+    {
+      "family": "syringa-current",
+      "elevation": 70,
+      "kind": "hash",
+      "factor": 2,
+      "cameraPosition": [
+        0.4706975221633911,
+        119.68905867733078,
+        43.38851609892157
+      ],
+      "cameraTarget": [
+        0.4706975221633911,
+        6.925944183021784,
+        2.3460988998413086
+      ],
+      "halfSpan": 9.354653491955622,
+      "crownVertexBounds": {
+        "minX": -4.468773722648621,
+        "maxX": 4.468773722648621,
+        "minY": -5.180702923736292,
+        "maxY": 7.292168398871203
+      },
+      "pixelScale": 41.049088598547705,
+      "projectedCrownMaxPixels": 512,
+      "area": 63992,
+      "partial": 41266,
+      "nonzero": 83695,
+      "solid": 42429,
+      "nonfinite": 0,
+      "rawLinearRGBA": "syringa-current-70-hash-2x.linear-rgba-f32",
+      "image": "syringa-current-70-hash-2x.png",
+      "mask": "syringa-current-70-hash-2x-coverage.png",
+      "glError": 0,
+      "framebufferStatus": 36053,
+      "milliseconds": 3357
+    },
+    {
+      "family": "syringa-delivery-near",
+      "elevation": 0,
+      "kind": "hash",
+      "factor": 2,
+      "cameraPosition": [
+        0.4706975221633911,
+        6.925944183021784,
+        122.34609889984131
+      ],
+      "cameraTarget": [
+        0.4706975221633911,
+        6.925944183021784,
+        2.3460988998413086
+      ],
+      "halfSpan": 7.080803632736206,
+      "crownVertexBounds": {
+        "minX": -4.492411255836487,
+        "maxX": 4.468773722648621,
+        "minY": -2.4453619457781315,
+        "maxY": 7.000000145286322
+      },
+      "pixelScale": 54.23113249810777,
+      "projectedCrownMaxPixels": 512,
+      "area": 103451,
+      "partial": 33989,
+      "nonzero": 119228,
+      "solid": 85239,
+      "nonfinite": 0,
+      "rawLinearRGBA": "syringa-delivery-near-0-hash-2x.linear-rgba-f32",
+      "image": "syringa-delivery-near-0-hash-2x.png",
+      "mask": "syringa-delivery-near-0-hash-2x-coverage.png",
+      "glError": 0,
+      "framebufferStatus": 36053,
+      "milliseconds": 7527
+    },
+    {
+      "family": "syringa-delivery-near",
+      "elevation": 70,
+      "kind": "hash",
+      "factor": 2,
+      "cameraPosition": [
+        0.4706975221633911,
+        119.68905867733078,
+        43.38851609892157
+      ],
+      "cameraTarget": [
+        0.4706975221633911,
+        6.925944183021784,
+        2.3460988998413086
+      ],
+      "halfSpan": 9.354653491955622,
+      "crownVertexBounds": {
+        "minX": -4.492411255836487,
+        "maxX": 4.468773722648621,
+        "minY": -5.180702923736292,
+        "maxY": 7.315376455364095
+      },
+      "pixelScale": 41.049088598547705,
+      "projectedCrownMaxPixels": 512,
+      "area": 77268.75,
+      "partial": 32997,
+      "nonzero": 92416,
+      "solid": 59419,
+      "nonfinite": 0,
+      "rawLinearRGBA": "syringa-delivery-near-70-hash-2x.linear-rgba-f32",
+      "image": "syringa-delivery-near-70-hash-2x.png",
+      "mask": "syringa-delivery-near-70-hash-2x-coverage.png",
+      "glError": 0,
+      "framebufferStatus": 36053,
+      "milliseconds": 3918
+    },
+    {
+      "family": "syringa-original",
+      "elevation": 0,
+      "kind": "hash",
+      "factor": 2,
+      "cameraPosition": [
+        0.4706975221633911,
+        6.925944183021784,
+        122.34609889984131
+      ],
+      "cameraTarget": [
+        0.4706975221633911,
+        6.925944183021784,
+        2.3460988998413086
+      ],
+      "halfSpan": 7.080803632736206,
+      "crownVertexBounds": {
+        "minX": -4.492411255836487,
+        "maxX": 4.468773722648621,
+        "minY": -2.4453619457781315,
+        "maxY": 7.000000145286322
+      },
+      "pixelScale": 54.23113249810777,
+      "projectedCrownMaxPixels": 512,
+      "area": 105942.5,
+      "partial": 32194,
+      "nonzero": 120829,
+      "solid": 88635,
+      "nonfinite": 0,
+      "rawLinearRGBA": "syringa-original-0-hash-2x.linear-rgba-f32",
+      "image": "syringa-original-0-hash-2x.png",
+      "mask": "syringa-original-0-hash-2x-coverage.png",
+      "glError": 0,
+      "framebufferStatus": 36053,
+      "milliseconds": 5083
+    },
+    {
+      "family": "syringa-original",
+      "elevation": 70,
+      "kind": "hash",
+      "factor": 2,
+      "cameraPosition": [
+        0.4706975221633911,
+        119.68905867733078,
+        43.38851609892157
+      ],
+      "cameraTarget": [
+        0.4706975221633911,
+        6.925944183021784,
+        2.3460988998413086
+      ],
+      "halfSpan": 9.354653491955622,
+      "crownVertexBounds": {
+        "minX": -4.492411255836487,
+        "maxX": 4.468773722648621,
+        "minY": -5.1810936206321765,
+        "maxY": 7.315376455364095
+      },
+      "pixelScale": 41.049088598547705,
+      "projectedCrownMaxPixels": 512,
+      "area": 79237.25,
+      "partial": 31118,
+      "nonzero": 93482,
+      "solid": 62364,
+      "nonfinite": 0,
+      "rawLinearRGBA": "syringa-original-70-hash-2x.linear-rgba-f32",
+      "image": "syringa-original-70-hash-2x.png",
+      "mask": "syringa-original-70-hash-2x-coverage.png",
+      "glError": 0,
+      "framebufferStatus": 36053,
+      "milliseconds": 3978
+    }
+  ],
+  "shaderErrors": [],
+  "renderer": "ANGLE (Mesa, llvmpipe (LLVM 20.1.2 256 bits), OpenGL ES 3.2 Mesa 25.2.8-0ubuntu0.24.04.2)",
+  "extensions": {
+    "floatColor": true
+  },
+  "lighting": {
+    "direct": 4.4,
+    "color": 16765345,
+    "hemi": 0.65,
+    "shadow": false
+  },
+  "vegetationSourceSHA256": "0b03359c21bee0e5fbaed7607b69b411b9f92f2bdfeac6744c25c48c5c7cb108",
+  "comparisons": [],
+  "glError": 0
+}

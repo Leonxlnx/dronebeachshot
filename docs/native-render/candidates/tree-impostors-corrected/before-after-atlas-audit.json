@@ -1,0 +1,66 @@
+[
+  {
+    "family": "island",
+    "kind": "albedo",
+    "alphaDifferent": 0,
+    "rgbDifferent": 555390,
+    "alphaWeightedBefore": [
+      0.4328371900583311,
+      0.4435094522554436,
+      0.2946392780822396
+    ],
+    "alphaWeightedAfter": [
+      0.38430672073689626,
+      0.3924201137418127,
+      0.21551380061796085
+    ]
+  },
+  {
+    "family": "island",
+    "kind": "normal",
+    "alphaDifferent": 0,
+    "rgbDifferent": 0,
+    "alphaWeightedBefore": [
+      0.4995099680841823,
+      0.7290381577184211,
+      0.4892968123587219
+    ],
+    "alphaWeightedAfter": [
+      0.4995099680841823,
+      0.7290381577184211,
+      0.4892968123587219
+    ]
+  },
+  {
+    "family": "syringa",
+    "kind": "albedo",
+    "alphaDifferent": 0,
+    "rgbDifferent": 489158,
+    "alphaWeightedBefore": [
+      0.5269333897487714,
+      0.5640631714435563,
+      0.4335175908135492
+    ],
+    "alphaWeightedAfter": [
+      0.3908863766773349,
+      0.44221894987733973,
+      0.2721171084832791
+    ]
+  },
+  {
+    "family": "syringa",
+    "kind": "normal",
+    "alphaDifferent": 0,
+    "rgbDifferent": 0,
+    "alphaWeightedBefore": [
+      0.5027473830585305,
+      0.7566905572984115,
+      0.49420564835476916
+    ],
+    "alphaWeightedAfter": [
+      0.5027473830585305,
+      0.7566905572984115,
+      0.49420564835476916
+    ]
+  }
+]

@@ -1,0 +1,22 @@
+{
+  "accepted": false,
+  "reason": "Continuous taller relief achieved, but smooth curtain-like face and dark sinuous toe remain artificial.",
+  "review": "/workspace/scratch/2b912ce37941/native-render/east-buttress-study/REVIEW.md",
+  "candidate": "/workspace/scratch/2b912ce37941/native-render/east-buttress-study/buttress-height.ts",
+  "audit": "/workspace/scratch/2b912ce37941/native-render/east-buttress-study/audit.json",
+  "changedGrid": "/workspace/scratch/2b912ce37941/native-render/east-buttress-study/changed-grid.json",
+  "renderProof": "/workspace/scratch/2b912ce37941/native-render/east-buttress-study/render-proof.json",
+  "images": {
+    "context": {
+      "before": "/workspace/scratch/2b912ce37941/native-render/east-buttress-study/buttress-context-before.png",
+      "candidate": "/workspace/scratch/2b912ce37941/native-render/east-buttress-study/buttress-context-candidate.png"
+    },
+    "detail": {
+      "before": "/workspace/scratch/2b912ce37941/native-render/east-buttress-study/buttress-detail-before.png",
+      "candidate": "/workspace/scratch/2b912ce37941/native-render/east-buttress-study/buttress-detail-candidate.png"
+    }
+  },
+  "sourceMeshAdded": false,
+  "productionModified": false,
+  "maxRSSMB": 1097.05859375
+}

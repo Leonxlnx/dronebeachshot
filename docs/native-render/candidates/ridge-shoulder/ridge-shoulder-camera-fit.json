@@ -1,0 +1,279 @@
+{
+  "elevenSecondProof": {
+    "endTime": 11.0,
+    "endHeight": 5.10416704692267,
+    "endVerticalVelocity": -0.6817548341471549,
+    "limitingTime": 9.116666666666667,
+    "requiredHeight": 50.27831206438893,
+    "maximumReachableHeightWith25Acceleration": 50.72494420678868,
+    "shortfallMetres": -0.4466321423997499,
+    "infeasible": false
+  },
+  "trials": [
+    {
+      "endTime": 11.0,
+      "feasible": false,
+      "status": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)"
+    },
+    {
+      "endTime": 11.25,
+      "feasible": true,
+      "status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)"
+    },
+    {
+      "endTime": 11.5,
+      "feasible": true,
+      "status": "Optimization terminated successfully. (HiGHS Status 7: Optimal)"
+    }
+  ],
+  "candidate": {
+    "endTime": 11.5,
+    "optimizerSuccess": true,
+    "optimizerMessage": "Optimization terminated successfully",
+    "constraintViolation": 2.1316282072803006e-14,
+    "degree": 5,
+    "knots": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.4,
+      0.8,
+      1.2000000000000002,
+      1.6,
+      2.0,
+      2.4,
+      2.8000000000000003,
+      3.2,
+      3.6,
+      4.0,
+      4.4,
+      4.800000000000001,
+      5.200000000000001,
+      5.6000000000000005,
+      6.000000000000001,
+      6.4,
+      6.800000000000001,
+      7.200000000000001,
+      7.6000000000000005,
+      8.0,
+      8.4,
+      8.8,
+      9.200000000000001,
+      9.600000000000001,
+      10.000000000000002,
+      10.4,
+      10.8,
+      11.200000000000001,
+      11.5,
+      11.5,
+      11.5,
+      11.5,
+      11.5,
+      11.5
+    ],
+    "coefficients": [
+      48.94781433056285,
+      50.09867808506034,
+      52.342713419051194,
+      55.553777462980115,
+      59.593515327206546,
+      64.38171933566757,
+      69.03556480235085,
+      73.64279986844224,
+      78.32610572063247,
+      82.93661092551866,
+      87.37495744895365,
+      91.53293500948573,
+      95.29166912028776,
+      98.62940493105812,
+      101.14437877220367,
+      102.5733758082195,
+      102.67995636310661,
+      101.32111273234007,
+      98.465732457306,
+      94.14928309110915,
+      88.44332219439684,
+      81.25151855174119,
+      72.16350858141523,
+      61.38175757182609,
+      49.414191965289035,
+      36.66515255455101,
+      24.17147656407743,
+      13.475808061130312,
+      5.488134594315676,
+      1.2977487504762946,
+      0.13321257177266296,
+      0.0,
+      0.0,
+      -0.0
+    ],
+    "minTerrainClearance": 4.895214576153755,
+    "minTreeBoxClearance": 3.200000000000017,
+    "minRockBoxClearance": 27.2096651255346,
+    "denseDerivativeSamples": 6901,
+    "minVerticalVelocity": -54.950020291937136,
+    "maxVerticalVelocity": -0.2637946541242502,
+    "maxAbsoluteVerticalAcceleration": 24.031736555165537,
+    "maxAbsoluteVerticalJerk": 35.8709147807981,
+    "jerkRMS": 8.85547555328506,
+    "startHeight": 391.94781433056284,
+    "representativeHeights": [
+      {
+        "time": 0.0,
+        "old": 343.0,
+        "candidate": 391.94781433056284,
+        "terrain": 311.5539855957031
+      },
+      {
+        "time": 1.0,
+        "old": 315.922975079697,
+        "candidate": 377.88583927773925,
+        "terrain": 301.72647291070234
+      },
+      {
+        "time": 2.0,
+        "old": 286.0,
+        "candidate": 359.65955462646616,
+        "terrain": 285.7142028808594
+      },
+      {
+        "time": 3.0,
+        "old": 250.856074760909,
+        "candidate": 335.9835708879635,
+        "terrain": 257.83200486405747
+      },
+      {
+        "time": 4.0,
+        "old": 210.0,
+        "candidate": 305.1832528051191,
+        "terrain": 236.28793334960938
+      },
+      {
+        "time": 5.0,
+        "old": 164.152725876667,
+        "candidate": 265.86110989042777,
+        "terrain": 214.44634468670796
+      },
+      {
+        "time": 6.0,
+        "old": 117.0,
+        "candidate": 217.9475334047042,
+        "terrain": 159.41374969482422
+      },
+      {
+        "time": 7.0,
+        "old": 73.11480322368034,
+        "candidate": 164.23127072385716,
+        "terrain": 84.25733509160129
+      },
+      {
+        "time": 8.0,
+        "old": 37.62012243436816,
+        "candidate": 109.36274126558351,
+        "terrain": 27.368840690314435
+      },
+      {
+        "time": 9.0,
+        "old": 15.0,
+        "candidate": 58.00708679406842,
+        "terrain": 4.415537357330322
+      },
+      {
+        "time": 10.0,
+        "old": 6.674788709998745,
+        "candidate": 20.82725185028617,
+        "terrain": 0.638615047341845
+      },
+      {
+        "time": 11.0,
+        "old": 5.1041670469226705,
+        "candidate": 5.802972672935914,
+        "terrain": 0.05985785846411696
+      },
+      {
+        "time": 12.0,
+        "old": 4.8,
+        "candidate": 4.8,
+        "terrain": -0.4505012631416321
+      },
+      {
+        "time": 13.0,
+        "old": 4.769275753339113,
+        "candidate": 4.769275753339113,
+        "terrain": -2.5831006491990482
+      },
+      {
+        "time": 14.0,
+        "old": 4.860438444771459,
+        "candidate": 4.860438444771459,
+        "terrain": -3.3603518856697234
+      },
+      {
+        "time": 15.0,
+        "old": 5.0,
+        "candidate": 5.0,
+        "terrain": -4.596904993057251
+      },
+      {
+        "time": 16.0,
+        "old": 5.102479244156252,
+        "candidate": 5.102479244156252,
+        "terrain": -8.194836136579719
+      },
+      {
+        "time": 17.0,
+        "old": 5.364193402099977,
+        "candidate": 5.364193402099977,
+        "terrain": -16.528590467449266
+      },
+      {
+        "time": 18.0,
+        "old": 5.8,
+        "candidate": 5.8,
+        "terrain": -24.456153869628906
+      },
+      {
+        "time": 19.0,
+        "old": 6.216668588677597,
+        "candidate": 6.216668588677597,
+        "terrain": -28.959510555232562
+      },
+      {
+        "time": 20.0,
+        "old": 6.6,
+        "candidate": 6.6,
+        "terrain": -33.51087188720703
+      }
+    ]
+  },
+  "continuousDerivativeExtrema": {
+    "method": "Exact polynomial stationary points and interval endpoints over the union of natural-cubic and quintic spline knots; includes both sides of derivative discontinuities",
+    "velocity": {
+      "minimum": -54.950020293401394,
+      "minimumTime": 7.375070811132718,
+      "maximum": -0.2637946541242513,
+      "maximumTime": 11.499999999999998,
+      "maximumAbsolute": 54.950020293401394,
+      "maximumAbsoluteTime": 7.375070811132718
+    },
+    "acceleration": {
+      "minimum": -9.020892564967118,
+      "minimumTime": 4.571655926500762,
+      "maximum": 24.031741207891425,
+      "maximumTime": 10.230538381461606,
+      "maximumAbsolute": 24.031741207891425,
+      "maximumAbsoluteTime": 10.230538381461606
+    },
+    "jerk": {
+      "minimum": -35.870937640739555,
+      "minimumTime": 11.444516744611253,
+      "maximum": 19.61807550026362,
+      "maximumTime": 8.999999999999998,
+      "maximumAbsolute": 35.870937640739555,
+      "maximumAbsoluteTime": 11.444516744611253
+    }
+  }
+}

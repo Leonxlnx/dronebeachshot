@@ -1,0 +1,39 @@
+{
+  "perimeterVertices": 2800,
+  "seamHeightMaxError": 0,
+  "coreHeightMaxError": 0,
+  "collarSamples": 11200,
+  "collarMaxError": 0,
+  "outerOceanPerimeterMaxError": 0,
+  "regionalWaterSamples": 1621,
+  "regionalWaterMaxDifference": 0,
+  "sampledBounds": {
+    "minimum": -85.00000000000001,
+    "maximum": 498.66214699370676,
+    "maxSlope": 5.80978698087843,
+    "oldMaxSlope": 5.384768112880665,
+    "maxSlopePoint": [
+      2280,
+      -840,
+      402.147694168851
+    ]
+  },
+  "nonfinite": 0,
+  "landSamples": 2593,
+  "mean32mSecondDifference": {
+    "before": 11.360250537565598,
+    "after": 33.31972460556355
+  },
+  "hashes": {
+    "src/world/math.ts": "fea9ca1ffb2581113be9fcb128076f503ee116a33327969d4b18b894e850ded8",
+    "src/world/terrain.ts": "dcacd337d37495dee9669e645748dd6d579dee3ecab1690046e9e985710849f4",
+    "src/render/ground-materials.ts": "a2f4f97aaf00363929a3bb445a98b3a5a150d738c387a112d5e606951a356dab",
+    "src/world/assets.ts": "5157f71ec58de5dce7e36717a0c4a9d2ae9df7797287a0f0823060ebe183fc7a"
+  },
+  "postAuditChanges": {
+    "description": "Ground/material and camera synchronization only; height-only candidate snapshot unchanged",
+    "finalCandidateSHA256": "93265ec14314dfcbd1b9a99ffc041fe3786ef21b754ad2366a8be5f0c3340997",
+    "materialSHA256": "4f1d547d737341e08d4d2cd995203186bb067866342609be9c38dc26b57deb52",
+    "cameraSHA256": "a8ecd3f39b22659c1dbdce986328fa5c76547c21cb1b54e9c0ce27d19bbe46d1"
+  }
+}

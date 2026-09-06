@@ -1,0 +1,19 @@
+{
+  "centralTiles": 48,
+  "extensionVertices": 425600,
+  "extensionTriangles": 845600,
+  "radialRings": 152,
+  "boundaryVertices": 2800,
+  "matchedCoreBoundaryVertices": 2800,
+  "uniqueCoreBoundaryVertices": 2800,
+  "maximumBoundaryHeightErrorMeters": 0,
+  "allCoordinatesFinite": true,
+  "downwardOrDegenerateProjectedTriangles": 0,
+  "outerPerimeterHeightRangeMeters": [
+    -85,
+    -85
+  ],
+  "shaderReplacementFound": true,
+  "buildAndCheckMilliseconds": 7628,
+  "visualStatus": "Unrendered candidate; requires root native visual comparison; not browser QA."
+}

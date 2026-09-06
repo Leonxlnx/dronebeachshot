@@ -1,0 +1,15 @@
+{
+  "scope": "64 deterministic directional micro-normal components, not FFT displacement",
+  "sourceOutsideRippleSumIdentical": true,
+  "components": 64,
+  "unfilteredSlopeRMS": 0.138564,
+  "coastPhaseGeometryRunupWetnessPreserved": true,
+  "rootReviewed": [
+    "aerial-before-mode-0.png",
+    "aerial-after-mode-0.png",
+    "low-before-mode-0.png",
+    "low-after-mode-0.png"
+  ],
+  "finding": "Aerial regular checker/glitter rows become irregular connected highlights. Low view retains moving wave shape and foam. Cyan/pale reflection and cloud quality remain unresolved.",
+  "consumerPerformance": "unverified"
+}

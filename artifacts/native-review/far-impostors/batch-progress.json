@@ -1,0 +1,66 @@
+{
+  "completed": [
+    {
+      "camera": "mountain-wide",
+      "time": 2,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/frames/far-impostors/mountain-wide-mode-0-960.png",
+      "render": {
+        "frame": 28,
+        "calls": 667,
+        "triangles": 16042383,
+        "points": 624,
+        "lines": 0
+      },
+      "programs": 65,
+      "glError": 0
+    },
+    {
+      "camera": "flight-0",
+      "time": 0,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/frames/far-impostors/flight-0-mode-0-960.png",
+      "render": {
+        "frame": 56,
+        "calls": 716,
+        "triangles": 27646704,
+        "points": 624,
+        "lines": 0
+      },
+      "programs": 69,
+      "glError": 0
+    },
+    {
+      "camera": "headland",
+      "time": 14,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/frames/far-impostors/headland-mode-0-960.png",
+      "render": {
+        "frame": 84,
+        "calls": 649,
+        "triangles": 37826762,
+        "points": 624,
+        "lines": 0
+      },
+      "programs": 69,
+      "glError": 0
+    },
+    {
+      "camera": "canopy-close",
+      "time": 5,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/frames/far-impostors/canopy-close-mode-0-960.png",
+      "render": {
+        "frame": 112,
+        "calls": 759,
+        "triangles": 61889127,
+        "points": 624,
+        "lines": 0
+      },
+      "programs": 69,
+      "glError": 0
+    }
+  ],
+  "requested": [
+    "mountain-wide",
+    "flight-0",
+    "headland",
+    "canopy-close"
+  ]
+}

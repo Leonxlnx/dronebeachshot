@@ -1,0 +1,292 @@
+[
+  {
+    "file": "LICENSE.md",
+    "bytes": 611,
+    "sha256": "2bd253b0a729d6d8c919b0bf8f7c6e8ebac99f1d6b7b437186a7f3f5e2a0dee7"
+  },
+  {
+    "file": "README.md",
+    "bytes": 5464,
+    "sha256": "c35e5b48503df7c89563a660086edfd1ece04bb64ede9ab3bd5e1135170aa03e"
+  },
+  {
+    "file": "geometry-audit.json",
+    "bytes": 4474,
+    "sha256": "7f2b2eaa36ba58439039a7d1995d7c3c1de76a560db0df134ee8baf80eab5575"
+  },
+  {
+    "file": "intermediate/round1-visual-verification.json",
+    "bytes": 111899,
+    "sha256": "d014b3b20b75bcdeb385bf5d5bd13d1fe02b5f323693780d4d3ef5b277e5d460"
+  },
+  {
+    "file": "intermediate/syringa-near-round1.glb",
+    "bytes": 14398916,
+    "sha256": "b773df6fd5220bacc6d7b71bf268c7fe583f6e941184eb3ebb3700c82702659d"
+  },
+  {
+    "file": "island-source-components.json",
+    "bytes": 201,
+    "sha256": "5ceb343e3064eff60075763d5efdec2f9140bcff95d529e1c0e25c060032544b"
+  },
+  {
+    "file": "license-reference.json",
+    "bytes": 743,
+    "sha256": "b34dbcdba98968a8e6e4f281d56059e66d72f555043ff0c78d051f6a6866715c"
+  },
+  {
+    "file": "optimized/island-tree-near.glb",
+    "bytes": 13299192,
+    "sha256": "c81e6ece28b7646aa59f2c2c68142619b2790d0db62c5d829278fec92e4373d7"
+  },
+  {
+    "file": "optimized/syringa-tree-near.glb",
+    "bytes": 14096532,
+    "sha256": "28cd16b21b8d422566e3d4c76f0f94e5d9938b9624dd96ee791864e159ac9761"
+  },
+  {
+    "file": "preparation-stats.json",
+    "bytes": 3018,
+    "sha256": "91788e0628c09559a64e154ff5df1fba9e3087ce16033a253a8f6d8968d3e291"
+  },
+  {
+    "file": "qa/island-close-comparison.png",
+    "bytes": 7602673,
+    "sha256": "8282efd6da7b33e084ab06a6ccd1e1499087a56491975b81e9a7cca8e019f0e1"
+  },
+  {
+    "file": "qa/island-current-close-front.png",
+    "bytes": 1353015,
+    "sha256": "e39b8e2660061c0a2468f4eb3df6e8f19606158faa435363df2bcf87e9ebca4f"
+  },
+  {
+    "file": "qa/island-current-close-threequarter.png",
+    "bytes": 1344756,
+    "sha256": "0966b06c21d6eba8661ceb537ef9271d464b6936472fd9f38bdc6fa4a31b395d"
+  },
+  {
+    "file": "qa/island-current-front.png",
+    "bytes": 191801,
+    "sha256": "cc05a6b88c5111d159ff097b52ce4357bdaf62ed7b2438a94d6ac0aa813f0755"
+  },
+  {
+    "file": "qa/island-current-side.png",
+    "bytes": 187395,
+    "sha256": "158fc00e717248606413320228ca4e4221e52aadd21ee5ec47c61b2d49c400e6"
+  },
+  {
+    "file": "qa/island-current-threequarter.png",
+    "bytes": 185092,
+    "sha256": "83ed8fdbf167ed094435c06b1b2896d291bd4ae6f0fa31e0472147673bf095ab"
+  },
+  {
+    "file": "qa/island-source-close-front.png",
+    "bytes": 1179893,
+    "sha256": "127ebe9b3a369be3e45d43bff2fae0ae3535e73304d012ca3ff70895066fff48"
+  },
+  {
+    "file": "qa/island-source-close-threequarter.png",
+    "bytes": 1489435,
+    "sha256": "f1ab34c0913616631077dc623d7535bc9f5a202fc4c6bdc9c1a8654097d3fa9d"
+  },
+  {
+    "file": "qa/island-source-front.png",
+    "bytes": 211891,
+    "sha256": "d5795e7d7d3ee10fb7ae653961385027e6bb343b09a025d32d1cfcf871113aed"
+  },
+  {
+    "file": "qa/island-source-side.png",
+    "bytes": 211521,
+    "sha256": "e251635d8fe74aa83e73f2a956abc1ab85f0681b773cd2c289d40945ee7407cc"
+  },
+  {
+    "file": "qa/island-source-threequarter.png",
+    "bytes": 202823,
+    "sha256": "167a2e04bccd2a1fdfcbe7ff71f6b9ca4e5aba429a7de9ed9a307ae01d335802"
+  },
+  {
+    "file": "qa/island-upgrade-close-front.png",
+    "bytes": 1469240,
+    "sha256": "24606242558a374d5fa357c4e82f999039d19c4afa1a6537153903fc930db6ae"
+  },
+  {
+    "file": "qa/island-upgrade-close-threequarter.png",
+    "bytes": 1455031,
+    "sha256": "db6afb8fde573b8caf823d4e6ccd997926a8c5fd0e8f06e59afd522b557de957"
+  },
+  {
+    "file": "qa/island-upgrade-front.png",
+    "bytes": 209106,
+    "sha256": "318bb1f6b573dafd6b6e39642bf63cbec4967426d96bda7ab05bf81abca5e6fd"
+  },
+  {
+    "file": "qa/island-upgrade-side.png",
+    "bytes": 208122,
+    "sha256": "18ba2c13c433ef217135a0d7e6d84be9820dcb3e6ad21a32de70206f7c9dc2de"
+  },
+  {
+    "file": "qa/island-upgrade-threequarter.png",
+    "bytes": 200134,
+    "sha256": "87df610c88ca7dea2a9c012bb1026cc8f2d7ccdddba707dc805e3b6bd496fd0c"
+  },
+  {
+    "file": "qa/island-whole-tree-comparison.png",
+    "bytes": 1577868,
+    "sha256": "09b92be89e3729a21756b6dd6c1cd9a92917b1129fb129cb7679bc21cfdc7e6f"
+  },
+  {
+    "file": "qa/syringa-close-comparison.png",
+    "bytes": 6951134,
+    "sha256": "edb3a27ce315d3729b9abd89406ee06ccedfa9f1aaf3529fb8d033d363450c18"
+  },
+  {
+    "file": "qa/syringa-current-close-front.png",
+    "bytes": 1227754,
+    "sha256": "89423dcc33fcf4a6cdb5500b614b564c15d6159e6b43e02e380389d3990ae941"
+  },
+  {
+    "file": "qa/syringa-current-close-threequarter.png",
+    "bytes": 1065591,
+    "sha256": "6b9bfc7ed6f6e125db9ee69176a80bb3c48a6c2f7e57093819587e989ea13419"
+  },
+  {
+    "file": "qa/syringa-current-front.png",
+    "bytes": 117711,
+    "sha256": "fee3b8fe3a472d9fd2a0f015801062c5f7bbc397608e485a0f2a49219911f357"
+  },
+  {
+    "file": "qa/syringa-current-side.png",
+    "bytes": 157654,
+    "sha256": "fc8e63f520bf8304461b8ff0f13223fe22f0b36d682953ca76e7a704852cb5f1"
+  },
+  {
+    "file": "qa/syringa-current-threequarter.png",
+    "bytes": 138585,
+    "sha256": "e9781803698a6b080bc8f63bd37e3aa7e93f246528d772570061e42a63f04260"
+  },
+  {
+    "file": "qa/syringa-source-close-front.png",
+    "bytes": 1479554,
+    "sha256": "d45e988b83e7ea8338e2af62d240b0228f35867867e0873fb49fc3c3a4176faa"
+  },
+  {
+    "file": "qa/syringa-source-close-threequarter.png",
+    "bytes": 1365071,
+    "sha256": "27c6141642867066abe24971200715cba8dae3aa42cd8cfb37d3f2432949384b"
+  },
+  {
+    "file": "qa/syringa-source-front.png",
+    "bytes": 137101,
+    "sha256": "2c70dff7c4dca31cd714de5834b8352b84956c89c8e3b690a1e4c659fd1e1572"
+  },
+  {
+    "file": "qa/syringa-source-side.png",
+    "bytes": 206248,
+    "sha256": "821e9a8549d7a706fada994b728788384b21dab121d2011c40913455211b3ce4"
+  },
+  {
+    "file": "qa/syringa-source-threequarter.png",
+    "bytes": 174783,
+    "sha256": "80de92a83331dfd9307e7c976b878227cb45872baafd26a64c69c3c78e2c7ce1"
+  },
+  {
+    "file": "qa/syringa-upgrade-close-front.png",
+    "bytes": 852153,
+    "sha256": "53858a7876bbb01748f14233a0a384c38aba03c7faa0fba50f4038c7cd0a3d20"
+  },
+  {
+    "file": "qa/syringa-upgrade-close-threequarter.png",
+    "bytes": 1269573,
+    "sha256": "24908f647150c3f7a038c54a4f3e7b663b30e6f517049ec87287c3ca5d8ab83b"
+  },
+  {
+    "file": "qa/syringa-upgrade-front.png",
+    "bytes": 127863,
+    "sha256": "61966f03491e737322be9387ced4f396618f00e05ac99ea6a33a0938124aab5a"
+  },
+  {
+    "file": "qa/syringa-upgrade-side.png",
+    "bytes": 182140,
+    "sha256": "2fac0e8f7d614aa2b1c045c67a3143c4ecb6b4e61e2389db356837e520616a73"
+  },
+  {
+    "file": "qa/syringa-upgrade-threequarter.png",
+    "bytes": 155366,
+    "sha256": "843138c4bc5ea9a2989bd057cb73494930e36d4e7b64717d9c2841d9297822b6"
+  },
+  {
+    "file": "qa/syringa-whole-tree-comparison.png",
+    "bytes": 1222597,
+    "sha256": "facf43e12bcdbfe74defa881616e211f5c5bc5ddef5ffda519c08a0a2fa50381"
+  },
+  {
+    "file": "source-manifest.json",
+    "bytes": 11898,
+    "sha256": "901c334fd0a1cd3cb5020257c775b59af4e934648a089e10ea5cf1e41427f9c0"
+  },
+  {
+    "file": "syringa-source-components.json",
+    "bytes": 1633,
+    "sha256": "81a6290f0ff4de119c35a8a752b06dbf7b222ea040f6d751ac79d0a941a0f309"
+  },
+  {
+    "file": "syringa-triangle-allocation.json",
+    "bytes": 12035,
+    "sha256": "d13a0cf51a97cd7d62b4729deed7f8cf900549f017a06a76d8554cff666bf4ca"
+  },
+  {
+    "file": "tooling/allocate_syringa.mjs",
+    "bytes": 4164,
+    "sha256": "b86b0fc17928230b5a024edb7214b623550258c1b0b886af38b0c64991639bc1"
+  },
+  {
+    "file": "tooling/analyze_source.mjs",
+    "bytes": 2597,
+    "sha256": "273d5733be2629dc8c1b55659415d2d0ae4f1ef0ff53b6cf5bdc99baf87fe482"
+  },
+  {
+    "file": "tooling/audit.py",
+    "bytes": 4388,
+    "sha256": "25e225c8081c24b25c08b567e3bb4aad7bb800b19cb8bffd0bac54d53de2a6a5"
+  },
+  {
+    "file": "tooling/compare.py",
+    "bytes": 2966,
+    "sha256": "707539866a7355ad05609873d6a5adac61e50c98fed51a8c992a6e561ebc74c0"
+  },
+  {
+    "file": "tooling/debug_audit.py",
+    "bytes": 876,
+    "sha256": "bde1e882e44a96725a40d6393a5fe4fa6b357d38e30a21f99f4d0d4bc97219fd"
+  },
+  {
+    "file": "tooling/package.json",
+    "bytes": 241,
+    "sha256": "b94b31791f4748cde1002189211ca6d7c3b21b2377b01368308fee93434c9b1b"
+  },
+  {
+    "file": "tooling/prepare.mjs",
+    "bytes": 6614,
+    "sha256": "0b1a80e9cdee15f53a174b2a756b6c083ffa3e68e18c1f5c3ef1efcd351a175a"
+  },
+  {
+    "file": "tooling/raster.py",
+    "bytes": 7702,
+    "sha256": "7dd897e9bf556dbc080ce9d94b3725147dba8a8d3d3a7a192f92cac7b393bdfc"
+  },
+  {
+    "file": "tooling/rebuild.sh",
+    "bytes": 166,
+    "sha256": "24dab35bc5fe8d301ff5da3530ed1a4719076fdcc735b7b803e5c604289afc9b"
+  },
+  {
+    "file": "tooling/requirements.txt",
+    "bytes": 42,
+    "sha256": "5fb631b25736634c28e700d6ca824fac23c1fef86ae3319d1a7b78ecd9eac76e"
+  },
+  {
+    "file": "visual-verification.json",
+    "bytes": 111897,
+    "sha256": "a8703871aab886ba34c0ec651522b4f19d1ff5e5169a9af824db6f580d193692"
+  }
+]

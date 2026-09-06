@@ -1,0 +1,32 @@
+{
+  "sixtyFrameStats": {
+    "cubeUpdates": 2,
+    "shadowUpdates": 4
+  },
+  "randomSeekPixelEquality": true,
+  "method": "Native ANGLE production createAtmosphere; sky-only investigation, not browser QA",
+  "module": "/workspace/sites/last-light-bay/src/world/atmosphere.ts",
+  "moduleSHA256": "726f775d7e69f95a63c8e7fb476f280723b0d4052fe0306e3abf155c98090f29",
+  "cloudModuleFile": "/workspace/sites/last-light-bay/src/world/clouds.ts",
+  "cloudModuleSHA256": "2d9ef05ceb56fb65ff9983771d214d233a98955170b30172140837bec15b749f",
+  "width": 480,
+  "height": 270,
+  "time": 17,
+  "camera": {
+    "position": [
+      10,
+      4,
+      -28
+    ],
+    "target": [
+      -365,
+      80,
+      -940
+    ],
+    "fov": 54
+  },
+  "shaderErrors": [],
+  "glError": 0,
+  "renderMilliseconds": 7066,
+  "renderer": "ANGLE (Mesa, llvmpipe (LLVM 20.1.2 256 bits), OpenGL ES 3.2 Mesa 25.2.8-0ubuntu0.24.04.2)"
+}

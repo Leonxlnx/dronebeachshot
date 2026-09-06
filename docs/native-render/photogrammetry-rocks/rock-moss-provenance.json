@@ -1,0 +1,60 @@
+{
+  "asset": "rock_moss_set_01",
+  "resolution": "2k",
+  "source": "https://polyhaven.com/a/rock_moss_set_01",
+  "license": "CC0-1.0",
+  "licenseSource": "https://polyhaven.com/license",
+  "licenseDeed": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "authors": {
+    "Kless Gyzen": "All"
+  },
+  "downloadedAt": "2026-09-05T06:25:48.851025+00:00",
+  "files": [
+    {
+      "path": "/workspace/scratch/2b912ce37941/native-render/hero-rock-source/rock_moss_set_01_2k/rock_moss_set_01_2k.gltf",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/2k/rock_moss_set_01/rock_moss_set_01_2k.gltf",
+      "bytes": 9987,
+      "sha256": "794beaf2f4dc0ab155114f286049dc912a8f3287520965ca8bf6bb0d821ae3e2",
+      "officialMd5": "c45cebb55c848a11233126f691557ca0",
+      "officialSizeMatched": true
+    },
+    {
+      "path": "/workspace/scratch/2b912ce37941/native-render/hero-rock-source/rock_moss_set_01_2k/rock_moss_set_01.bin",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/8k/rock_moss_set_01/rock_moss_set_01.bin",
+      "bytes": 1466380,
+      "sha256": "de8360e6175879aaf02c171911069cf5f1852547f9ca7f10e440085dbcc3315e",
+      "officialMd5": "207a51c9f56d34732e9814bbf9cc07b1",
+      "officialSizeMatched": true
+    },
+    {
+      "path": "/workspace/scratch/2b912ce37941/native-render/hero-rock-source/rock_moss_set_01_2k/textures/rock_moss_set_01_diff_2k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/rock_moss_set_01/rock_moss_set_01_diff_2k.jpg",
+      "bytes": 649415,
+      "sha256": "bdee6da8baba67bd7e85e414e669cd46aab9afaf755114fb5163f0e68775c3d6",
+      "officialMd5": "d3e1292c9e34bd6b4a236698a1b41290",
+      "officialSizeMatched": true
+    },
+    {
+      "path": "/workspace/scratch/2b912ce37941/native-render/hero-rock-source/rock_moss_set_01_2k/textures/rock_moss_set_01_nor_gl_2k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/rock_moss_set_01/rock_moss_set_01_nor_gl_2k.jpg",
+      "bytes": 840957,
+      "sha256": "f11c238a203eebd5e82da3a50468040a78d25fd2e46783c4ad79b1022b144c0d",
+      "officialMd5": "88be6d9cf2927a09182e2bfccc9b8b56",
+      "officialSizeMatched": true
+    },
+    {
+      "path": "/workspace/scratch/2b912ce37941/native-render/hero-rock-source/rock_moss_set_01_2k/textures/rock_moss_set_01_rough_2k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/rock_moss_set_01/rock_moss_set_01_rough_2k.jpg",
+      "bytes": 293827,
+      "sha256": "a05a8bd9f2563cf55b738484b894671df7b2391aa02d66451366c5ad38077cd2",
+      "officialMd5": "f7b3045b503fbde038598f8586ac25ef",
+      "officialSizeMatched": true
+    }
+  ],
+  "packedGlb": {
+    "path": "/workspace/scratch/2b912ce37941/native-render/hero-rock-source/rock_moss_set_01_2k.glb",
+    "bytes": 3256512,
+    "sha256": "864ece45cf6cafeb7fab5ab65704b1810622ba411da2026ebad847a0a08eab2f",
+    "changes": "Container-only glTF to GLB packaging. Original geometry, normals, UVs, materials and compressed JPEG image bytes preserved exactly. No resampling or decimation."
+  }
+}

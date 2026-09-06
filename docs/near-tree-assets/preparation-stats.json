@@ -1,0 +1,106 @@
+[
+  {
+    "id": "syringa",
+    "source": "https://polyhaven.com/a/tree_small_02",
+    "root": [
+      0,
+      0,
+      0
+    ],
+    "scale": [
+      1,
+      1,
+      1
+    ],
+    "leafComponentScale": 1,
+    "primitives": [
+      {
+        "material": "tree_small_02_branches",
+        "sourceTriangles": 94814,
+        "triangles": 14446,
+        "error": 0.000809607096016407,
+        "method": "Source vertices and attributes, no Prune flag. Detailed main trunk kept separately unchanged."
+      },
+      {
+        "material": "tree_small_02_leaves",
+        "sourceTriangles": 1939380,
+        "triangles": 202906,
+        "sourceComponents": 30250,
+        "preservedComponents": 30250,
+        "componentScale": 1,
+        "maxLocalSimplificationError": 0.24231044948101044,
+        "componentTriangleDistribution": {
+          "28→2": 662,
+          "137→12": 662,
+          "69→8": 2437,
+          "19→4": 4874,
+          "15→4": 11895,
+          "50→16": 465,
+          "170→8": 5701,
+          "153→24": 465,
+          "58→24": 841,
+          "135→8": 1310,
+          "58→22": 469,
+          "159→4": 469
+        },
+        "method": "Independent source component reduction. Every source leaf component retained; original positions, normals, UVs only. No Prune during leaf simplification."
+      },
+      {
+        "material": "tree_small_02_trunk",
+        "sourceTriangles": 28293,
+        "triangles": 28293,
+        "method": "Original trunk triangles and all vertex attributes retained."
+      }
+    ],
+    "triangles": 245645,
+    "file": "optimized/syringa-tree-near.glb",
+    "bytes": 14096532
+  },
+  {
+    "id": "island",
+    "source": "https://polyhaven.com/a/island_tree_02",
+    "root": [
+      0,
+      0,
+      0
+    ],
+    "scale": [
+      1,
+      1,
+      1
+    ],
+    "leafComponentScale": 1,
+    "primitives": [
+      {
+        "material": "island_tree_02",
+        "sourceTriangles": 27298,
+        "triangles": 27298,
+        "method": "Original trunk triangles and all vertex attributes retained."
+      },
+      {
+        "material": "island_tree_02_leaves",
+        "sourceTriangles": 714744,
+        "triangles": 173906,
+        "sourceComponents": 29781,
+        "preservedComponents": 29781,
+        "componentScale": 1,
+        "maxLocalSimplificationError": 0.1357327103614807,
+        "componentTriangleDistribution": {
+          "24→6": 25001,
+          "24→5": 4780
+        },
+        "method": "Independent source component reduction. Every source leaf component retained; original positions, normals, UVs only. No Prune during leaf simplification."
+      },
+      {
+        "material": "island_tree_02_branches",
+        "sourceTriangles": 330171,
+        "triangles": 37413,
+        "error": 0.0007324014441110194,
+        "method": "Source vertices and attributes, no Prune flag. Detailed main trunk kept separately unchanged."
+      }
+    ],
+    "triangles": 238617,
+    "file": "optimized/island-tree-near.glb",
+    "bytes": 13299192
+  }
+]

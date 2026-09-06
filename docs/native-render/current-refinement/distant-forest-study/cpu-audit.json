@@ -1,0 +1,10 @@
+{
+  "centroidsChecked": 11895,
+  "maxHeightError": 7.958078640513122e-13,
+  "trees": 135001,
+  "cells": 995,
+  "triangles": 270002,
+  "rejectedSteep": 2005,
+  "grounding": "exact rendered annulus triangles",
+  "seed": 902174
+}

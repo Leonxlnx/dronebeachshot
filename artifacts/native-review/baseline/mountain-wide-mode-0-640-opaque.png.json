@@ -1,0 +1,5 @@
+{
+  "method": "Capture correction: preserve original rendered RGB, discard native framebuffer alpha to match production alpha:false canvas. No rerender, not another camera or visual cycle.",
+  "source": "mountain-wide-mode-0-640.png",
+  "sourceSHA256": "eed10effc734cb58eeba6d260c9092934b87733a63f44d2402f4a2df95089c7c"
+}

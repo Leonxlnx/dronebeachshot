@@ -1,0 +1,239 @@
+{
+  "method": "Exact near+hero GLTF triangles with production object.matrixWorld, family scaling and instance scale/yaw/lean; minimum point-to-triangle distance. Transparent margins of masked leaf cards remain included conservatively. Static geometry: use 1 m horizontal wind allowance plus near-camera margin; current root production placements and terrain. Same-height candidate targets translated with the camera to preserve direction.",
+  "placements": 14000,
+  "nearbyInstances": 131,
+  "results": [
+    {
+      "name": "beach-transition",
+      "originalPosition": [
+        -55,
+        7,
+        113
+      ],
+      "originalTarget": [
+        -15,
+        3,
+        87
+      ],
+      "terrainClearance": 4.709035158157349,
+      "originalNearestTriangle": {
+        "distance": 3.7901501972703566,
+        "atLeast": false,
+        "hit": {
+          "root": [
+            -68.35870243376121,
+            1.8249199656009965,
+            106.9624768383801
+          ],
+          "family": 0,
+          "model": "island-tree-near.glb",
+          "part": "mesh001_1",
+          "material": "island_tree_02_leaves",
+          "masked": true,
+          "point": [
+            -58.62645243047977,
+            8.10002175015649,
+            113.06350934197836
+          ]
+        },
+        "trianglesTested": 1522
+      },
+      "candidates": [
+        {
+          "position": [
+            -55,
+            7,
+            111
+          ],
+          "target": [
+            -15,
+            3,
+            85
+          ],
+          "horizontalMove": 2,
+          "terrainClearance": 5.214054644107819,
+          "nearest": {
+            "distance": 3.383720380563095,
+            "atLeast": false,
+            "hit": {
+              "root": [
+                -66.69128345092759,
+                2.957936024662423,
+                111.37757681310177
+              ],
+              "family": 0,
+              "model": "island-tree-hero.glb",
+              "part": "mesh001_1",
+              "material": "island_tree_02_leaves",
+              "masked": true,
+              "point": [
+                -55.97589920989824,
+                10.222656822745321,
+                110.66583335179722
+              ]
+            },
+            "trianglesTested": 21
+          },
+          "firstMetreForward": {
+            "distance": 3,
+            "atLeast": true,
+            "hit": null,
+            "trianglesTested": 0
+          }
+        },
+        {
+          "position": [
+            -55,
+            7,
+            115
+          ],
+          "target": [
+            -15,
+            3,
+            89
+          ],
+          "horizontalMove": 2,
+          "terrainClearance": 4.037126183509827,
+          "nearest": {
+            "distance": 4,
+            "atLeast": true,
+            "hit": null,
+            "trianglesTested": 0
+          },
+          "firstMetreForward": {
+            "distance": 3,
+            "atLeast": true,
+            "hit": null,
+            "trianglesTested": 0
+          }
+        },
+        {
+          "position": [
+            -53,
+            7,
+            113
+          ],
+          "target": [
+            -13,
+            3,
+            87
+          ],
+          "horizontalMove": 2,
+          "terrainClearance": 4.9225993156433105,
+          "nearest": {
+            "distance": 4,
+            "atLeast": true,
+            "hit": null,
+            "trianglesTested": 0
+          },
+          "firstMetreForward": {
+            "distance": 3,
+            "atLeast": true,
+            "hit": null,
+            "trianglesTested": 0
+          }
+        }
+      ]
+    },
+    {
+      "name": "sand-detail",
+      "originalPosition": [
+        30,
+        2.4,
+        125.54321882298294
+      ],
+      "originalTarget": [
+        10,
+        0.2,
+        106.89344251451692
+      ],
+      "terrainClearance": 1.4613475099668953,
+      "originalNearestTriangle": {
+        "distance": 12,
+        "atLeast": true,
+        "hit": null,
+        "trianglesTested": 0
+      },
+      "candidates": [
+        {
+          "position": [
+            28,
+            2.4,
+            125.54321882298294
+          ],
+          "target": [
+            8,
+            0.2,
+            106.89344251451692
+          ],
+          "horizontalMove": 2,
+          "terrainClearance": 1.453349874782552,
+          "nearest": {
+            "distance": 4,
+            "atLeast": true,
+            "hit": null,
+            "trianglesTested": 0
+          },
+          "firstMetreForward": {
+            "distance": 3,
+            "atLeast": true,
+            "hit": null,
+            "trianglesTested": 0
+          }
+        },
+        {
+          "position": [
+            30,
+            2.4,
+            123.54321882298294
+          ],
+          "target": [
+            10,
+            0.2,
+            104.89344251451692
+          ],
+          "horizontalMove": 2,
+          "terrainClearance": 1.5749979189954773,
+          "nearest": {
+            "distance": 4,
+            "atLeast": true,
+            "hit": null,
+            "trianglesTested": 0
+          },
+          "firstMetreForward": {
+            "distance": 3,
+            "atLeast": true,
+            "hit": null,
+            "trianglesTested": 0
+          }
+        },
+        {
+          "position": [
+            30,
+            2.4,
+            127.54321882298294
+          ],
+          "target": [
+            10,
+            0.2,
+            108.89344251451692
+          ],
+          "horizontalMove": 2,
+          "terrainClearance": 1.3617060532851604,
+          "nearest": {
+            "distance": 4,
+            "atLeast": true,
+            "hit": null,
+            "trianglesTested": 0
+          },
+          "firstMetreForward": {
+            "distance": 3,
+            "atLeast": true,
+            "hit": null,
+            "trianglesTested": 0
+          }
+        }
+      ]
+    }
+  ]
+}

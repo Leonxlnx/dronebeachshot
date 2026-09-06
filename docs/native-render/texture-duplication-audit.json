@@ -1,0 +1,6694 @@
+{
+  "method": "Read-only GLB image bufferView byte hashing (SHA256), sharp metadata dimensions; no visual similarity matching, no image transcoding, no GPU allocation measurement",
+  "assumptions": [
+    "RGBA8/SRGB8_ALPHA8 image upload, 4 bytes per texel; exact full mip level sum per dimensions",
+    "Texture allocation grouped by original GLB/image Source and production sampler, color-space, anisotropy state; KHR UV transforms retained separately",
+    "Estimate assumes all nine GLB image sets have been uploaded; per-frame LOD visibility may leave some source textures unuploaded",
+    "Excludes render targets, shadows, geometry, driver padding, decoder/browser overhead and browser-decoder pixel-format differences",
+    "Dedup identity is encoded payload SHA256 plus decode semantics; browser WebGL hardware/process memory was not measured"
+  ],
+  "totals": {
+    "models": 9,
+    "imageOccurrences": 72,
+    "uniqueImagePayloads": 39,
+    "avoidableImageOccurrences": 33,
+    "totalModelFileBytes": 42297380,
+    "embeddedImageBytes": 14321823,
+    "uniqueEmbeddedImageBytes": 8827751,
+    "duplicateEmbeddedImageBytes": 5494072,
+    "gltfDecodedRGBA8Bytes": 301859840,
+    "uniqueGltfDecodedRGBA8Bytes": 163447808,
+    "avoidableGltfDecodedRGBA8Bytes": 138412032,
+    "standaloneDecodedRGBA8Bytes": 134217728,
+    "totalDecodedRGBA8Bytes": 436077568,
+    "currentGpuAllocationCount": 72,
+    "deduplicatedGpuAllocationCount": 39,
+    "currentGltfRGBA8MipVRAMEstimateBytes": 402479380,
+    "deduplicatedGltfRGBA8MipVRAMEstimateBytes": 217930048,
+    "standaloneRGBA8MipVRAMEstimateBytes": 178956952,
+    "avoidableGltfRGBA8MipVRAMEstimateBytes": 184549332,
+    "allLoadedTextureRGBA8MipVRAMEstimateBytes": 581436332,
+    "allLoadedTextureDeduplicatedRGBA8MipVRAMEstimateBytes": 396887000
+  },
+  "families": [
+    {
+      "family": "island",
+      "models": 4,
+      "imageOccurrences": 36,
+      "uniqueImages": 18,
+      "encodedBytes": 5719168,
+      "uniqueEncodedBytes": 3289556,
+      "decodedRGBA8Bytes": 150994944,
+      "uniqueDecodedRGBA8Bytes": 75497472,
+      "rgba8MipBytes": 201326544,
+      "uniqueRGBA8MipBytes": 100663272
+    },
+    {
+      "family": "palm",
+      "models": 1,
+      "imageOccurrences": 2,
+      "uniqueImages": 2,
+      "encodedBytes": 458914,
+      "uniqueEncodedBytes": 458914,
+      "decodedRGBA8Bytes": 8388608,
+      "uniqueDecodedRGBA8Bytes": 8388608,
+      "rgba8MipBytes": 11184808,
+      "uniqueRGBA8MipBytes": 11184808
+    },
+    {
+      "family": "syringa",
+      "models": 4,
+      "imageOccurrences": 34,
+      "uniqueImages": 19,
+      "encodedBytes": 8143741,
+      "uniqueEncodedBytes": 5079281,
+      "decodedRGBA8Bytes": 142476288,
+      "uniqueDecodedRGBA8Bytes": 79561728,
+      "rgba8MipBytes": 189968028,
+      "uniqueRGBA8MipBytes": 106081968
+    }
+  ],
+  "duplicateGroups": [
+    {
+      "sha256": "18570bf56895b52ea8171463c41300b00b9e16ae8c7d163c59ff20fbab48fe66",
+      "encodedBytes": 358506,
+      "width": 1024,
+      "height": 1024,
+      "channels": 3,
+      "hasAlpha": false,
+      "mimeType": "image/webp",
+      "rgba8Bytes": 4194304,
+      "rgba8FullMipBytes": 5592404,
+      "occurrences": [
+        {
+          "file": "island-tree-far.glb",
+          "imageIndex": 0,
+          "name": "island_tree_02_nor_gl",
+          "bufferView": 0
+        },
+        {
+          "file": "island-tree-hero.glb",
+          "imageIndex": 0,
+          "name": "island_tree_02_nor_gl",
+          "bufferView": 0
+        },
+        {
+          "file": "island-tree-medium.glb",
+          "imageIndex": 0,
+          "name": "island_tree_02_nor_gl",
+          "bufferView": 0
+        }
+      ],
+      "copies": 3,
+      "avoidableCopies": 2,
+      "duplicateEncodedBytes": 717012,
+      "duplicateRGBA8Bytes": 8388608,
+      "duplicateRGBA8FullMipBytes": 11184808
+    },
+    {
+      "sha256": "639cdaac63d17d2092d5b6ce2be5d6219b1bcf16a9f8a011f921d1f6213ab465",
+      "encodedBytes": 199346,
+      "width": 1024,
+      "height": 1024,
+      "channels": 3,
+      "hasAlpha": false,
+      "mimeType": "image/webp",
+      "rgba8Bytes": 4194304,
+      "rgba8FullMipBytes": 5592404,
+      "occurrences": [
+        {
+          "file": "island-tree-far.glb",
+          "imageIndex": 1,
+          "name": "island_tree_02_diff",
+          "bufferView": 1
+        },
+        {
+          "file": "island-tree-hero.glb",
+          "imageIndex": 1,
+          "name": "island_tree_02_diff",
+          "bufferView": 1
+        },
+        {
+          "file": "island-tree-medium.glb",
+          "imageIndex": 1,
+          "name": "island_tree_02_diff",
+          "bufferView": 1
+        }
+      ],
+      "copies": 3,
+      "avoidableCopies": 2,
+      "duplicateEncodedBytes": 398692,
+      "duplicateRGBA8Bytes": 8388608,
+      "duplicateRGBA8FullMipBytes": 11184808
+    },
+    {
+      "sha256": "254ce628002f4d3b6dc9bea208e67d215e7ae3d84539fbac4a6cbede69da4139",
+      "encodedBytes": 111706,
+      "width": 1024,
+      "height": 1024,
+      "channels": 3,
+      "hasAlpha": false,
+      "mimeType": "image/webp",
+      "rgba8Bytes": 4194304,
+      "rgba8FullMipBytes": 5592404,
+      "occurrences": [
+        {
+          "file": "island-tree-far.glb",
+          "imageIndex": 2,
+          "name": "island_tree_02_rough",
+          "bufferView": 2
+        },
+        {
+          "file": "island-tree-hero.glb",
+          "imageIndex": 2,
+          "name": "island_tree_02_rough",
+          "bufferView": 2
+        },
+        {
+          "file": "island-tree-medium.glb",
+          "imageIndex": 2,
+          "name": "island_tree_02_rough",
+          "bufferView": 2
+        }
+      ],
+      "copies": 3,
+      "avoidableCopies": 2,
+      "duplicateEncodedBytes": 223412,
+      "duplicateRGBA8Bytes": 8388608,
+      "duplicateRGBA8FullMipBytes": 11184808
+    },
+    {
+      "sha256": "b0480d616cdd9fc6619c7b14e0ca65c73a755558721c6d9727b3ba213b615309",
+      "encodedBytes": 52896,
+      "width": 1024,
+      "height": 1024,
+      "channels": 3,
+      "hasAlpha": false,
+      "mimeType": "image/webp",
+      "rgba8Bytes": 4194304,
+      "rgba8FullMipBytes": 5592404,
+      "occurrences": [
+        {
+          "file": "island-tree-far.glb",
+          "imageIndex": 3,
+          "name": "island_tree_02_leaves_nor_gl",
+          "bufferView": 3
+        },
+        {
+          "file": "island-tree-hero.glb",
+          "imageIndex": 3,
+          "name": "island_tree_02_leaves_nor_gl",
+          "bufferView": 3
+        },
+        {
+          "file": "island-tree-medium.glb",
+          "imageIndex": 3,
+          "name": "island_tree_02_leaves_nor_gl",
+          "bufferView": 3
+        }
+      ],
+      "copies": 3,
+      "avoidableCopies": 2,
+      "duplicateEncodedBytes": 105792,
+      "duplicateRGBA8Bytes": 8388608,
+      "duplicateRGBA8FullMipBytes": 11184808
+    },
+    {
+      "sha256": "10b204e50c04c4147d1bf82df4bed728031f71f825a8e29f92b220461653e38e",
+      "encodedBytes": 55458,
+      "width": 1024,
+      "height": 1024,
+      "channels": 4,
+      "hasAlpha": true,
+      "mimeType": "image/webp",
+      "rgba8Bytes": 4194304,
+      "rgba8FullMipBytes": 5592404,
+      "occurrences": [
+        {
+          "file": "island-tree-far.glb",
+          "imageIndex": 4,
+          "name": "island_tree_02_leaves_diff-island_tree_02_leaves_alpha",
+          "bufferView": 4
+        },
+        {
+          "file": "island-tree-hero.glb",
+          "imageIndex": 4,
+          "name": "island_tree_02_leaves_diff-island_tree_02_leaves_alpha",
+          "bufferView": 4
+        },
+        {
+          "file": "island-tree-medium.glb",
+          "imageIndex": 4,
+          "name": "island_tree_02_leaves_diff-island_tree_02_leaves_alpha",
+          "bufferView": 4
+        }
+      ],
+      "copies": 3,
+      "avoidableCopies": 2,
+      "duplicateEncodedBytes": 110916,
+      "duplicateRGBA8Bytes": 8388608,
+      "duplicateRGBA8FullMipBytes": 11184808
+    },
+    {
+      "sha256": "6c63ba056c2706efc15dbf840a900e0ab3e3abfe16d554601aea1a514abd886b",
+      "encodedBytes": 82018,
+      "width": 1024,
+      "height": 1024,
+      "channels": 3,
+      "hasAlpha": false,
+      "mimeType": "image/webp",
+      "rgba8Bytes": 4194304,
+      "rgba8FullMipBytes": 5592404,
+      "occurrences": [
+        {
+          "file": "island-tree-far.glb",
+          "imageIndex": 5,
+          "name": "island_tree_02_leaves_rough",
+          "bufferView": 5
+        },
+        {
+          "file": "island-tree-hero.glb",
+          "imageIndex": 5,
+          "name": "island_tree_02_leaves_rough",
+          "bufferView": 5
+        },
+        {
+          "file": "island-tree-medium.glb",
+          "imageIndex": 5,
+          "name": "island_tree_02_leaves_rough",
+          "bufferView": 5
+        }
+      ],
+      "copies": 3,
+      "avoidableCopies": 2,
+      "duplicateEncodedBytes": 164036,
+      "duplicateRGBA8Bytes": 8388608,
+      "duplicateRGBA8FullMipBytes": 11184808
+    },
+    {
+      "sha256": "b88ccc7f9b187086bda5549def16769e98195e1b27e564e4660c561a7bc3c24c",
+      "encodedBytes": 183204,
+      "width": 1024,
+      "height": 1024,
+      "channels": 3,
+      "hasAlpha": false,
+      "mimeType": "image/webp",
+      "rgba8Bytes": 4194304,
+      "rgba8FullMipBytes": 5592404,
+      "occurrences": [
+        {
+          "file": "island-tree-far.glb",
+          "imageIndex": 6,
+          "name": "island_tree_02_branches_nor_gl",
+          "bufferView": 6
+        },
+        {
+          "file": "island-tree-hero.glb",
+          "imageIndex": 6,
+          "name": "island_tree_02_branches_nor_gl",
+          "bufferView": 6
+        },
+        {
+          "file": "island-tree-medium.glb",
+          "imageIndex": 6,
+          "name": "island_tree_02_branches_nor_gl",
+          "bufferView": 6
+        }
+      ],
+      "copies": 3,
+      "avoidableCopies": 2,
+      "duplicateEncodedBytes": 366408,
+      "duplicateRGBA8Bytes": 8388608,
+      "duplicateRGBA8FullMipBytes": 11184808
+    },
+    {
+      "sha256": "22b5afcffeadd73242b12ac71d1605481f70295f3fa3dded90965b3c65a5a2f4",
+      "encodedBytes": 110660,
+      "width": 1024,
+      "height": 1024,
+      "channels": 3,
+      "hasAlpha": false,
+      "mimeType": "image/webp",
+      "rgba8Bytes": 4194304,
+      "rgba8FullMipBytes": 5592404,
+      "occurrences": [
+        {
+          "file": "island-tree-far.glb",
+          "imageIndex": 7,
+          "name": "island_tree_02_branches_diff",
+          "bufferView": 7
+        },
+        {
+          "file": "island-tree-hero.glb",
+          "imageIndex": 7,
+          "name": "island_tree_02_branches_diff",
+          "bufferView": 7
+        },
+        {
+          "file": "island-tree-medium.glb",
+          "imageIndex": 7,
+          "name": "island_tree_02_branches_diff",
+          "bufferView": 7
+        }
+      ],
+      "copies": 3,
+      "avoidableCopies": 2,
+      "duplicateEncodedBytes": 221320,
+      "duplicateRGBA8Bytes": 8388608,
+      "duplicateRGBA8FullMipBytes": 11184808
+    },
+    {
+      "sha256": "442ea4c23550d441f881f076671054af6069f97430adac33fa9cc70704bd7c91",
+      "encodedBytes": 61012,
+      "width": 1024,
+      "height": 1024,
+      "channels": 3,
+      "hasAlpha": false,
+      "mimeType": "image/webp",
+      "rgba8Bytes": 4194304,
+      "rgba8FullMipBytes": 5592404,
+      "occurrences": [
+        {
+          "file": "island-tree-far.glb",
+          "imageIndex": 8,
+          "name": "island_tree_02_branches_rough",
+          "bufferView": 8
+        },
+        {
+          "file": "island-tree-hero.glb",
+          "imageIndex": 8,
+          "name": "island_tree_02_branches_rough",
+          "bufferView": 8
+        },
+        {
+          "file": "island-tree-medium.glb",
+          "imageIndex": 8,
+          "name": "island_tree_02_branches_rough",
+          "bufferView": 8
+        }
+      ],
+      "copies": 3,
+      "avoidableCopies": 2,
+      "duplicateEncodedBytes": 122024,
+      "duplicateRGBA8Bytes": 8388608,
+      "duplicateRGBA8FullMipBytes": 11184808
+    },
+    {
+      "sha256": "2a6b76251ed5fdda3d489f35cab1a7f952d967d1bb7dde90085292d924b67677",
+      "encodedBytes": 141648,
+      "width": 1024,
+      "height": 1024,
+      "channels": 3,
+      "hasAlpha": false,
+      "mimeType": "image/webp",
+      "rgba8Bytes": 4194304,
+      "rgba8FullMipBytes": 5592404,
+      "occurrences": [
+        {
+          "file": "syringa-tree-far.glb",
+          "imageIndex": 0,
+          "name": "tree_small_02_branch_nor_gl",
+          "bufferView": 0
+        },
+        {
+          "file": "syringa-tree-hero.glb",
+          "imageIndex": 0,
+          "name": "tree_small_02_branch_nor_gl",
+          "bufferView": 0
+        },
+        {
+          "file": "syringa-tree-medium.glb",
+          "imageIndex": 0,
+          "name": "tree_small_02_branch_nor_gl",
+          "bufferView": 0
+        }
+      ],
+      "copies": 3,
+      "avoidableCopies": 2,
+      "duplicateEncodedBytes": 283296,
+      "duplicateRGBA8Bytes": 8388608,
+      "duplicateRGBA8FullMipBytes": 11184808
+    },
+    {
+      "sha256": "1cb0f1bc4c4152172ad8c3e0832e2365efd52cd5b220b63a847e12deb7aabdaf",
+      "encodedBytes": 96950,
+      "width": 1024,
+      "height": 1024,
+      "channels": 3,
+      "hasAlpha": false,
+      "mimeType": "image/webp",
+      "rgba8Bytes": 4194304,
+      "rgba8FullMipBytes": 5592404,
+      "occurrences": [
+        {
+          "file": "syringa-tree-far.glb",
+          "imageIndex": 1,
+          "name": "tree_small_02_branch_diff",
+          "bufferView": 1
+        },
+        {
+          "file": "syringa-tree-hero.glb",
+          "imageIndex": 1,
+          "name": "tree_small_02_branch_diff",
+          "bufferView": 1
+        },
+        {
+          "file": "syringa-tree-medium.glb",
+          "imageIndex": 1,
+          "name": "tree_small_02_branch_diff",
+          "bufferView": 1
+        }
+      ],
+      "copies": 3,
+      "avoidableCopies": 2,
+      "duplicateEncodedBytes": 193900,
+      "duplicateRGBA8Bytes": 8388608,
+      "duplicateRGBA8FullMipBytes": 11184808
+    },
+    {
+      "sha256": "d143a4a67b595b1eb5daf62abce397e3a67c87849262e920e545749668667b07",
+      "encodedBytes": 56302,
+      "width": 1024,
+      "height": 1024,
+      "channels": 3,
+      "hasAlpha": false,
+      "mimeType": "image/webp",
+      "rgba8Bytes": 4194304,
+      "rgba8FullMipBytes": 5592404,
+      "occurrences": [
+        {
+          "file": "syringa-tree-far.glb",
+          "imageIndex": 2,
+          "name": "tree_small_02_branch_rough",
+          "bufferView": 2
+        },
+        {
+          "file": "syringa-tree-hero.glb",
+          "imageIndex": 2,
+          "name": "tree_small_02_branch_rough",
+          "bufferView": 2
+        },
+        {
+          "file": "syringa-tree-medium.glb",
+          "imageIndex": 2,
+          "name": "tree_small_02_branch_rough",
+          "bufferView": 2
+        }
+      ],
+      "copies": 3,
+      "avoidableCopies": 2,
+      "duplicateEncodedBytes": 112604,
+      "duplicateRGBA8Bytes": 8388608,
+      "duplicateRGBA8FullMipBytes": 11184808
+    },
+    {
+      "sha256": "6163f0bc6f3f77f7a7a43d2faa0961921dd57a3eb141e8c6db83b941844558b4",
+      "encodedBytes": 432402,
+      "width": 1024,
+      "height": 1024,
+      "channels": 3,
+      "hasAlpha": false,
+      "mimeType": "image/webp",
+      "rgba8Bytes": 4194304,
+      "rgba8FullMipBytes": 5592404,
+      "occurrences": [
+        {
+          "file": "syringa-tree-far.glb",
+          "imageIndex": 3,
+          "name": "tree_small_02_nor_gl",
+          "bufferView": 3
+        },
+        {
+          "file": "syringa-tree-hero.glb",
+          "imageIndex": 6,
+          "name": "tree_small_02_nor_gl",
+          "bufferView": 6
+        },
+        {
+          "file": "syringa-tree-medium.glb",
+          "imageIndex": 6,
+          "name": "tree_small_02_nor_gl",
+          "bufferView": 6
+        }
+      ],
+      "copies": 3,
+      "avoidableCopies": 2,
+      "duplicateEncodedBytes": 864804,
+      "duplicateRGBA8Bytes": 8388608,
+      "duplicateRGBA8FullMipBytes": 11184808
+    },
+    {
+      "sha256": "e3ce3c32ba2da9030ef40c2b63e24593b2bbbcedcff5d5c4594b9c44ad945c6a",
+      "encodedBytes": 293964,
+      "width": 1024,
+      "height": 1024,
+      "channels": 3,
+      "hasAlpha": false,
+      "mimeType": "image/webp",
+      "rgba8Bytes": 4194304,
+      "rgba8FullMipBytes": 5592404,
+      "occurrences": [
+        {
+          "file": "syringa-tree-far.glb",
+          "imageIndex": 4,
+          "name": "tree_small_02_diff",
+          "bufferView": 4
+        },
+        {
+          "file": "syringa-tree-hero.glb",
+          "imageIndex": 7,
+          "name": "tree_small_02_diff",
+          "bufferView": 7
+        },
+        {
+          "file": "syringa-tree-medium.glb",
+          "imageIndex": 7,
+          "name": "tree_small_02_diff",
+          "bufferView": 7
+        }
+      ],
+      "copies": 3,
+      "avoidableCopies": 2,
+      "duplicateEncodedBytes": 587928,
+      "duplicateRGBA8Bytes": 8388608,
+      "duplicateRGBA8FullMipBytes": 11184808
+    },
+    {
+      "sha256": "2f1dbbd7fe58f93d7a67efb227482e88fdd6997bc9820e732d2812de834d98cd",
+      "encodedBytes": 138838,
+      "width": 1024,
+      "height": 1024,
+      "channels": 3,
+      "hasAlpha": false,
+      "mimeType": "image/webp",
+      "rgba8Bytes": 4194304,
+      "rgba8FullMipBytes": 5592404,
+      "occurrences": [
+        {
+          "file": "syringa-tree-far.glb",
+          "imageIndex": 5,
+          "name": "tree_small_02_rough",
+          "bufferView": 5
+        },
+        {
+          "file": "syringa-tree-hero.glb",
+          "imageIndex": 8,
+          "name": "tree_small_02_rough",
+          "bufferView": 8
+        },
+        {
+          "file": "syringa-tree-medium.glb",
+          "imageIndex": 8,
+          "name": "tree_small_02_rough",
+          "bufferView": 8
+        }
+      ],
+      "copies": 3,
+      "avoidableCopies": 2,
+      "duplicateEncodedBytes": 277676,
+      "duplicateRGBA8Bytes": 8388608,
+      "duplicateRGBA8FullMipBytes": 11184808
+    },
+    {
+      "sha256": "cbee32643c721a7e2fad18ddc6e77df552f6ade5d27f281afa1b04ac312d6df0",
+      "encodedBytes": 142670,
+      "width": 1024,
+      "height": 1024,
+      "channels": 3,
+      "hasAlpha": false,
+      "mimeType": "image/webp",
+      "rgba8Bytes": 4194304,
+      "rgba8FullMipBytes": 5592404,
+      "occurrences": [
+        {
+          "file": "syringa-tree-hero.glb",
+          "imageIndex": 3,
+          "name": "tree_small_02_leaves_nor_gl",
+          "bufferView": 3
+        },
+        {
+          "file": "syringa-tree-medium.glb",
+          "imageIndex": 3,
+          "name": "tree_small_02_leaves_nor_gl",
+          "bufferView": 3
+        }
+      ],
+      "copies": 2,
+      "avoidableCopies": 1,
+      "duplicateEncodedBytes": 142670,
+      "duplicateRGBA8Bytes": 4194304,
+      "duplicateRGBA8FullMipBytes": 5592404
+    },
+    {
+      "sha256": "5adfadc05725ef8419ee1c92d12fe643d22c29a52c1b996055eff809adfac664",
+      "encodedBytes": 491980,
+      "width": 1024,
+      "height": 1024,
+      "channels": 4,
+      "hasAlpha": true,
+      "mimeType": "image/webp",
+      "rgba8Bytes": 4194304,
+      "rgba8FullMipBytes": 5592404,
+      "occurrences": [
+        {
+          "file": "syringa-tree-hero.glb",
+          "imageIndex": 4,
+          "name": "tree_small_02_leaves_diff-tree_small_02_leaves_alpha",
+          "bufferView": 4
+        },
+        {
+          "file": "syringa-tree-medium.glb",
+          "imageIndex": 4,
+          "name": "tree_small_02_leaves_diff-tree_small_02_leaves_alpha",
+          "bufferView": 4
+        }
+      ],
+      "copies": 2,
+      "avoidableCopies": 1,
+      "duplicateEncodedBytes": 491980,
+      "duplicateRGBA8Bytes": 4194304,
+      "duplicateRGBA8FullMipBytes": 5592404
+    },
+    {
+      "sha256": "ed0ff857fae45719d1dd7d8b8ba7bdf19d37b1ac73710d935b99f6820655688f",
+      "encodedBytes": 109602,
+      "width": 1024,
+      "height": 1024,
+      "channels": 3,
+      "hasAlpha": false,
+      "mimeType": "image/webp",
+      "rgba8Bytes": 4194304,
+      "rgba8FullMipBytes": 5592404,
+      "occurrences": [
+        {
+          "file": "syringa-tree-hero.glb",
+          "imageIndex": 5,
+          "name": "tree_small_02_leaves_rough",
+          "bufferView": 5
+        },
+        {
+          "file": "syringa-tree-medium.glb",
+          "imageIndex": 5,
+          "name": "tree_small_02_leaves_rough",
+          "bufferView": 5
+        }
+      ],
+      "copies": 2,
+      "avoidableCopies": 1,
+      "duplicateEncodedBytes": 109602,
+      "duplicateRGBA8Bytes": 4194304,
+      "duplicateRGBA8FullMipBytes": 5592404
+    }
+  ],
+  "uniqueGroups": [
+    {
+      "sha256": "ca41c027079a0c217328ce6cc760b2705cae645f7b719923d1664a31734e872c",
+      "encodedBytes": 476714,
+      "width": 1024,
+      "height": 1024,
+      "channels": 3,
+      "hasAlpha": false,
+      "mimeType": "image/webp",
+      "rgba8Bytes": 4194304,
+      "rgba8FullMipBytes": 5592404,
+      "occurrences": [
+        {
+          "file": "island-tree-near.glb",
+          "imageIndex": 0,
+          "name": "island_tree_02_nor_gl",
+          "bufferView": 0
+        }
+      ],
+      "copies": 1,
+      "avoidableCopies": 0,
+      "duplicateEncodedBytes": 0,
+      "duplicateRGBA8Bytes": 0,
+      "duplicateRGBA8FullMipBytes": 0
+    },
+    {
+      "sha256": "7e9b0277618c8c8633344de76e745892aa686467fbfd7bb2765695cbc0314057",
+      "encodedBytes": 304600,
+      "width": 1024,
+      "height": 1024,
+      "channels": 3,
+      "hasAlpha": false,
+      "mimeType": "image/webp",
+      "rgba8Bytes": 4194304,
+      "rgba8FullMipBytes": 5592404,
+      "occurrences": [
+        {
+          "file": "island-tree-near.glb",
+          "imageIndex": 1,
+          "name": "island_tree_02_diff",
+          "bufferView": 1
+        }
+      ],
+      "copies": 1,
+      "avoidableCopies": 0,
+      "duplicateEncodedBytes": 0,
+      "duplicateRGBA8Bytes": 0,
+      "duplicateRGBA8FullMipBytes": 0
+    },
+    {
+      "sha256": "0021dbc000e83cb450a5e6b675d5458d937a15ec9dfa2b465a95abeb778de262",
+      "encodedBytes": 187298,
+      "width": 1024,
+      "height": 1024,
+      "channels": 3,
+      "hasAlpha": false,
+      "mimeType": "image/webp",
+      "rgba8Bytes": 4194304,
+      "rgba8FullMipBytes": 5592404,
+      "occurrences": [
+        {
+          "file": "island-tree-near.glb",
+          "imageIndex": 2,
+          "name": "island_tree_02_rough",
+          "bufferView": 2
+        }
+      ],
+      "copies": 1,
+      "avoidableCopies": 0,
+      "duplicateEncodedBytes": 0,
+      "duplicateRGBA8Bytes": 0,
+      "duplicateRGBA8FullMipBytes": 0
+    },
+    {
+      "sha256": "b90ddc7851f53c229db7ee278d179c82d7adccfe95bb26a1073ef22a8a79621e",
+      "encodedBytes": 90060,
+      "width": 1024,
+      "height": 1024,
+      "channels": 3,
+      "hasAlpha": false,
+      "mimeType": "image/webp",
+      "rgba8Bytes": 4194304,
+      "rgba8FullMipBytes": 5592404,
+      "occurrences": [
+        {
+          "file": "island-tree-near.glb",
+          "imageIndex": 3,
+          "name": "island_tree_02_leaves_nor_gl",
+          "bufferView": 3
+        }
+      ],
+      "copies": 1,
+      "avoidableCopies": 0,
+      "duplicateEncodedBytes": 0,
+      "duplicateRGBA8Bytes": 0,
+      "duplicateRGBA8FullMipBytes": 0
+    },
+    {
+      "sha256": "bbbb477a69e04a39a0caf2c821435902d6b28952cb907c4d3ac38053ffffec59",
+      "encodedBytes": 331894,
+      "width": 1024,
+      "height": 1024,
+      "channels": 4,
+      "hasAlpha": true,
+      "mimeType": "image/webp",
+      "rgba8Bytes": 4194304,
+      "rgba8FullMipBytes": 5592404,
+      "occurrences": [
+        {
+          "file": "island-tree-near.glb",
+          "imageIndex": 4,
+          "name": "island_tree_02_leaves_diff-island_tree_02_leaves_alpha",
+          "bufferView": 4
+        }
+      ],
+      "copies": 1,
+      "avoidableCopies": 0,
+      "duplicateEncodedBytes": 0,
+      "duplicateRGBA8Bytes": 0,
+      "duplicateRGBA8FullMipBytes": 0
+    },
+    {
+      "sha256": "e23fbed6faee29e710e7dd331c0b7c17987e868fee750a89d5286c8ee953a589",
+      "encodedBytes": 130986,
+      "width": 1024,
+      "height": 1024,
+      "channels": 3,
+      "hasAlpha": false,
+      "mimeType": "image/webp",
+      "rgba8Bytes": 4194304,
+      "rgba8FullMipBytes": 5592404,
+      "occurrences": [
+        {
+          "file": "island-tree-near.glb",
+          "imageIndex": 5,
+          "name": "island_tree_02_leaves_rough",
+          "bufferView": 5
+        }
+      ],
+      "copies": 1,
+      "avoidableCopies": 0,
+      "duplicateEncodedBytes": 0,
+      "duplicateRGBA8Bytes": 0,
+      "duplicateRGBA8FullMipBytes": 0
+    },
+    {
+      "sha256": "d5310282f35705880a7cebf64c0851d6c2f48f39ee8eb726b53cac0081daa781",
+      "encodedBytes": 270078,
+      "width": 1024,
+      "height": 1024,
+      "channels": 3,
+      "hasAlpha": false,
+      "mimeType": "image/webp",
+      "rgba8Bytes": 4194304,
+      "rgba8FullMipBytes": 5592404,
+      "occurrences": [
+        {
+          "file": "island-tree-near.glb",
+          "imageIndex": 6,
+          "name": "island_tree_02_branches_nor_gl",
+          "bufferView": 6
+        }
+      ],
+      "copies": 1,
+      "avoidableCopies": 0,
+      "duplicateEncodedBytes": 0,
+      "duplicateRGBA8Bytes": 0,
+      "duplicateRGBA8FullMipBytes": 0
+    },
+    {
+      "sha256": "6658d3ac141d09fb7bde42959ea35bcea23511d00f0784555fe18317f9e92094",
+      "encodedBytes": 172280,
+      "width": 1024,
+      "height": 1024,
+      "channels": 3,
+      "hasAlpha": false,
+      "mimeType": "image/webp",
+      "rgba8Bytes": 4194304,
+      "rgba8FullMipBytes": 5592404,
+      "occurrences": [
+        {
+          "file": "island-tree-near.glb",
+          "imageIndex": 7,
+          "name": "island_tree_02_branches_diff",
+          "bufferView": 7
+        }
+      ],
+      "copies": 1,
+      "avoidableCopies": 0,
+      "duplicateEncodedBytes": 0,
+      "duplicateRGBA8Bytes": 0,
+      "duplicateRGBA8FullMipBytes": 0
+    },
+    {
+      "sha256": "1c039d465e56370facb3915e7eaa9078566a2e1740b63e0a9b5e077aa8ea8516",
+      "encodedBytes": 110840,
+      "width": 1024,
+      "height": 1024,
+      "channels": 3,
+      "hasAlpha": false,
+      "mimeType": "image/webp",
+      "rgba8Bytes": 4194304,
+      "rgba8FullMipBytes": 5592404,
+      "occurrences": [
+        {
+          "file": "island-tree-near.glb",
+          "imageIndex": 8,
+          "name": "island_tree_02_branches_rough",
+          "bufferView": 8
+        }
+      ],
+      "copies": 1,
+      "avoidableCopies": 0,
+      "duplicateEncodedBytes": 0,
+      "duplicateRGBA8Bytes": 0,
+      "duplicateRGBA8FullMipBytes": 0
+    },
+    {
+      "sha256": "52cc1c22c0c67a8260ec6504d43a5a41392e79dd256659f01da740134a729621",
+      "encodedBytes": 243362,
+      "width": 1024,
+      "height": 1024,
+      "channels": 4,
+      "hasAlpha": true,
+      "mimeType": "image/webp",
+      "rgba8Bytes": 4194304,
+      "rgba8FullMipBytes": 5592404,
+      "occurrences": [
+        {
+          "file": "palm-tree.glb",
+          "imageIndex": 0,
+          "name": "Palm diffuse alpha",
+          "bufferView": 0
+        }
+      ],
+      "copies": 1,
+      "avoidableCopies": 0,
+      "duplicateEncodedBytes": 0,
+      "duplicateRGBA8Bytes": 0,
+      "duplicateRGBA8FullMipBytes": 0
+    },
+    {
+      "sha256": "d0a60a6d7f7ee51b84d65d3a4f007af0924541083847b0ed783fc254ac181314",
+      "encodedBytes": 215552,
+      "width": 1024,
+      "height": 1024,
+      "channels": 4,
+      "hasAlpha": true,
+      "mimeType": "image/webp",
+      "rgba8Bytes": 4194304,
+      "rgba8FullMipBytes": 5592404,
+      "occurrences": [
+        {
+          "file": "palm-tree.glb",
+          "imageIndex": 1,
+          "name": "Palm normal",
+          "bufferView": 1
+        }
+      ],
+      "copies": 1,
+      "avoidableCopies": 0,
+      "duplicateEncodedBytes": 0,
+      "duplicateRGBA8Bytes": 0,
+      "duplicateRGBA8FullMipBytes": 0
+    },
+    {
+      "sha256": "ff5eb8708a45257df10a85739946d07833e4add3878b7749f57e53f331a3ce8b",
+      "encodedBytes": 819555,
+      "width": 1008,
+      "height": 1008,
+      "channels": 4,
+      "hasAlpha": true,
+      "mimeType": "image/png",
+      "rgba8Bytes": 4064256,
+      "rgba8FullMipBytes": 5418696,
+      "occurrences": [
+        {
+          "file": "syringa-tree-far.glb",
+          "imageIndex": 6,
+          "name": "Source canopy albedo bake",
+          "bufferView": 6
+        }
+      ],
+      "copies": 1,
+      "avoidableCopies": 0,
+      "duplicateEncodedBytes": 0,
+      "duplicateRGBA8Bytes": 0,
+      "duplicateRGBA8FullMipBytes": 0
+    },
+    {
+      "sha256": "15af4047e8c55441351a61b7dd22fee1ccf58ae6b62fa6184bfb75bdd48898df",
+      "encodedBytes": 183736,
+      "width": 1024,
+      "height": 1024,
+      "channels": 3,
+      "hasAlpha": false,
+      "mimeType": "image/webp",
+      "rgba8Bytes": 4194304,
+      "rgba8FullMipBytes": 5592404,
+      "occurrences": [
+        {
+          "file": "syringa-tree-near.glb",
+          "imageIndex": 0,
+          "name": "tree_small_02_branch_nor_gl",
+          "bufferView": 0
+        }
+      ],
+      "copies": 1,
+      "avoidableCopies": 0,
+      "duplicateEncodedBytes": 0,
+      "duplicateRGBA8Bytes": 0,
+      "duplicateRGBA8FullMipBytes": 0
+    },
+    {
+      "sha256": "01db043457f060746d81c47186769e0b8ca5b01551de990f03445b78bba305b5",
+      "encodedBytes": 128996,
+      "width": 1024,
+      "height": 1024,
+      "channels": 3,
+      "hasAlpha": false,
+      "mimeType": "image/webp",
+      "rgba8Bytes": 4194304,
+      "rgba8FullMipBytes": 5592404,
+      "occurrences": [
+        {
+          "file": "syringa-tree-near.glb",
+          "imageIndex": 1,
+          "name": "tree_small_02_branch_diff",
+          "bufferView": 1
+        }
+      ],
+      "copies": 1,
+      "avoidableCopies": 0,
+      "duplicateEncodedBytes": 0,
+      "duplicateRGBA8Bytes": 0,
+      "duplicateRGBA8FullMipBytes": 0
+    },
+    {
+      "sha256": "0682cfcf3afeb3e31f6168df4bdaeaa1477b429ff1f0985f5b7a5f79566ff318",
+      "encodedBytes": 85676,
+      "width": 1024,
+      "height": 1024,
+      "channels": 3,
+      "hasAlpha": false,
+      "mimeType": "image/webp",
+      "rgba8Bytes": 4194304,
+      "rgba8FullMipBytes": 5592404,
+      "occurrences": [
+        {
+          "file": "syringa-tree-near.glb",
+          "imageIndex": 2,
+          "name": "tree_small_02_branch_rough",
+          "bufferView": 2
+        }
+      ],
+      "copies": 1,
+      "avoidableCopies": 0,
+      "duplicateEncodedBytes": 0,
+      "duplicateRGBA8Bytes": 0,
+      "duplicateRGBA8FullMipBytes": 0
+    },
+    {
+      "sha256": "1c9ea87ec31a0d733f7a0c5f6cc3c1941a5ffa7b83d5015e4d7ddcc8a51d96e3",
+      "encodedBytes": 196994,
+      "width": 1024,
+      "height": 1024,
+      "channels": 3,
+      "hasAlpha": false,
+      "mimeType": "image/webp",
+      "rgba8Bytes": 4194304,
+      "rgba8FullMipBytes": 5592404,
+      "occurrences": [
+        {
+          "file": "syringa-tree-near.glb",
+          "imageIndex": 3,
+          "name": "tree_small_02_leaves_nor_gl",
+          "bufferView": 3
+        }
+      ],
+      "copies": 1,
+      "avoidableCopies": 0,
+      "duplicateEncodedBytes": 0,
+      "duplicateRGBA8Bytes": 0,
+      "duplicateRGBA8FullMipBytes": 0
+    },
+    {
+      "sha256": "4329d559ade92a46bc5219761e784b1946ab689c1b3ccecb1b158cd914e6c530",
+      "encodedBytes": 491270,
+      "width": 1024,
+      "height": 1024,
+      "channels": 4,
+      "hasAlpha": true,
+      "mimeType": "image/webp",
+      "rgba8Bytes": 4194304,
+      "rgba8FullMipBytes": 5592404,
+      "occurrences": [
+        {
+          "file": "syringa-tree-near.glb",
+          "imageIndex": 4,
+          "name": "tree_small_02_leaves_diff-tree_small_02_leaves_alpha",
+          "bufferView": 4
+        }
+      ],
+      "copies": 1,
+      "avoidableCopies": 0,
+      "duplicateEncodedBytes": 0,
+      "duplicateRGBA8Bytes": 0,
+      "duplicateRGBA8FullMipBytes": 0
+    },
+    {
+      "sha256": "4959e1c9abf34d7e99426188855ed6c06a06cd46162305dce9e73e0df52e65e8",
+      "encodedBytes": 180404,
+      "width": 1024,
+      "height": 1024,
+      "channels": 3,
+      "hasAlpha": false,
+      "mimeType": "image/webp",
+      "rgba8Bytes": 4194304,
+      "rgba8FullMipBytes": 5592404,
+      "occurrences": [
+        {
+          "file": "syringa-tree-near.glb",
+          "imageIndex": 5,
+          "name": "tree_small_02_leaves_rough",
+          "bufferView": 5
+        }
+      ],
+      "copies": 1,
+      "avoidableCopies": 0,
+      "duplicateEncodedBytes": 0,
+      "duplicateRGBA8Bytes": 0,
+      "duplicateRGBA8FullMipBytes": 0
+    },
+    {
+      "sha256": "f67bca24fcddccd0866ff593f32a982d6cfb76d828758000d4edaf26377bfb73",
+      "encodedBytes": 508234,
+      "width": 1024,
+      "height": 1024,
+      "channels": 3,
+      "hasAlpha": false,
+      "mimeType": "image/webp",
+      "rgba8Bytes": 4194304,
+      "rgba8FullMipBytes": 5592404,
+      "occurrences": [
+        {
+          "file": "syringa-tree-near.glb",
+          "imageIndex": 6,
+          "name": "tree_small_02_nor_gl",
+          "bufferView": 6
+        }
+      ],
+      "copies": 1,
+      "avoidableCopies": 0,
+      "duplicateEncodedBytes": 0,
+      "duplicateRGBA8Bytes": 0,
+      "duplicateRGBA8FullMipBytes": 0
+    },
+    {
+      "sha256": "c0d57a8bb8996cb193dc75dde5e49f5bacd08585a28506e44714e95cfa695e07",
+      "encodedBytes": 373788,
+      "width": 1024,
+      "height": 1024,
+      "channels": 3,
+      "hasAlpha": false,
+      "mimeType": "image/webp",
+      "rgba8Bytes": 4194304,
+      "rgba8FullMipBytes": 5592404,
+      "occurrences": [
+        {
+          "file": "syringa-tree-near.glb",
+          "imageIndex": 7,
+          "name": "tree_small_02_diff",
+          "bufferView": 7
+        }
+      ],
+      "copies": 1,
+      "avoidableCopies": 0,
+      "duplicateEncodedBytes": 0,
+      "duplicateRGBA8Bytes": 0,
+      "duplicateRGBA8FullMipBytes": 0
+    },
+    {
+      "sha256": "d417dc38b35ce7428a0cea9dc4a47425387fd626d5a9985523f181f8ac0bc3b1",
+      "encodedBytes": 206272,
+      "width": 1024,
+      "height": 1024,
+      "channels": 3,
+      "hasAlpha": false,
+      "mimeType": "image/webp",
+      "rgba8Bytes": 4194304,
+      "rgba8FullMipBytes": 5592404,
+      "occurrences": [
+        {
+          "file": "syringa-tree-near.glb",
+          "imageIndex": 8,
+          "name": "tree_small_02_rough",
+          "bufferView": 8
+        }
+      ],
+      "copies": 1,
+      "avoidableCopies": 0,
+      "duplicateEncodedBytes": 0,
+      "duplicateRGBA8Bytes": 0,
+      "duplicateRGBA8FullMipBytes": 0
+    }
+  ],
+  "models": [
+    {
+      "file": "island-tree-far.glb",
+      "fileBytes": 1304260,
+      "fileSha256": "ac2213e39b8bfee6d5fe5d46d99486de24cf60efa93905d9c9f2b4c92ad2dc4a",
+      "images": [
+        {
+          "file": "island-tree-far.glb",
+          "imageIndex": 0,
+          "name": "island_tree_02_nor_gl",
+          "bufferView": 0,
+          "sha256": "18570bf56895b52ea8171463c41300b00b9e16ae8c7d163c59ff20fbab48fe66",
+          "encodedBytes": 358506,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "island-tree-far.glb",
+          "imageIndex": 1,
+          "name": "island_tree_02_diff",
+          "bufferView": 1,
+          "sha256": "639cdaac63d17d2092d5b6ce2be5d6219b1bcf16a9f8a011f921d1f6213ab465",
+          "encodedBytes": 199346,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "island-tree-far.glb",
+          "imageIndex": 2,
+          "name": "island_tree_02_rough",
+          "bufferView": 2,
+          "sha256": "254ce628002f4d3b6dc9bea208e67d215e7ae3d84539fbac4a6cbede69da4139",
+          "encodedBytes": 111706,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "island-tree-far.glb",
+          "imageIndex": 3,
+          "name": "island_tree_02_leaves_nor_gl",
+          "bufferView": 3,
+          "sha256": "b0480d616cdd9fc6619c7b14e0ca65c73a755558721c6d9727b3ba213b615309",
+          "encodedBytes": 52896,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "island-tree-far.glb",
+          "imageIndex": 4,
+          "name": "island_tree_02_leaves_diff-island_tree_02_leaves_alpha",
+          "bufferView": 4,
+          "sha256": "10b204e50c04c4147d1bf82df4bed728031f71f825a8e29f92b220461653e38e",
+          "encodedBytes": 55458,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "island-tree-far.glb",
+          "imageIndex": 5,
+          "name": "island_tree_02_leaves_rough",
+          "bufferView": 5,
+          "sha256": "6c63ba056c2706efc15dbf840a900e0ab3e3abfe16d554601aea1a514abd886b",
+          "encodedBytes": 82018,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "island-tree-far.glb",
+          "imageIndex": 6,
+          "name": "island_tree_02_branches_nor_gl",
+          "bufferView": 6,
+          "sha256": "b88ccc7f9b187086bda5549def16769e98195e1b27e564e4660c561a7bc3c24c",
+          "encodedBytes": 183204,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "island-tree-far.glb",
+          "imageIndex": 7,
+          "name": "island_tree_02_branches_diff",
+          "bufferView": 7,
+          "sha256": "22b5afcffeadd73242b12ac71d1605481f70295f3fa3dded90965b3c65a5a2f4",
+          "encodedBytes": 110660,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "island-tree-far.glb",
+          "imageIndex": 8,
+          "name": "island_tree_02_branches_rough",
+          "bufferView": 8,
+          "sha256": "442ea4c23550d441f881f076671054af6069f97430adac33fa9cc70704bd7c91",
+          "encodedBytes": 61012,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        }
+      ],
+      "gpuStates": [
+        {
+          "file": "island-tree-far.glb",
+          "textureIndex": 0,
+          "imageIndex": 1,
+          "sha256": "639cdaac63d17d2092d5b6ce2be5d6219b1bcf16a9f8a011f921d1f6213ab465",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 4,
+            "colorSpace": "srgb",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "baseColorTexture"
+          ]
+        },
+        {
+          "file": "island-tree-far.glb",
+          "textureIndex": 1,
+          "imageIndex": 0,
+          "sha256": "18570bf56895b52ea8171463c41300b00b9e16ae8c7d163c59ff20fbab48fe66",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 1,
+            "colorSpace": "",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "normalTexture"
+          ]
+        },
+        {
+          "file": "island-tree-far.glb",
+          "textureIndex": 2,
+          "imageIndex": 2,
+          "sha256": "254ce628002f4d3b6dc9bea208e67d215e7ae3d84539fbac4a6cbede69da4139",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 1,
+            "colorSpace": "",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "metallicRoughnessTexture"
+          ]
+        },
+        {
+          "file": "island-tree-far.glb",
+          "textureIndex": 3,
+          "imageIndex": 4,
+          "sha256": "10b204e50c04c4147d1bf82df4bed728031f71f825a8e29f92b220461653e38e",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 4,
+            "colorSpace": "srgb",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "baseColorTexture"
+          ]
+        },
+        {
+          "file": "island-tree-far.glb",
+          "textureIndex": 4,
+          "imageIndex": 3,
+          "sha256": "b0480d616cdd9fc6619c7b14e0ca65c73a755558721c6d9727b3ba213b615309",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 1,
+            "colorSpace": "",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "normalTexture"
+          ]
+        },
+        {
+          "file": "island-tree-far.glb",
+          "textureIndex": 5,
+          "imageIndex": 5,
+          "sha256": "6c63ba056c2706efc15dbf840a900e0ab3e3abfe16d554601aea1a514abd886b",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 1,
+            "colorSpace": "",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "metallicRoughnessTexture"
+          ]
+        },
+        {
+          "file": "island-tree-far.glb",
+          "textureIndex": 6,
+          "imageIndex": 7,
+          "sha256": "22b5afcffeadd73242b12ac71d1605481f70295f3fa3dded90965b3c65a5a2f4",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 4,
+            "colorSpace": "srgb",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "baseColorTexture"
+          ]
+        },
+        {
+          "file": "island-tree-far.glb",
+          "textureIndex": 7,
+          "imageIndex": 6,
+          "sha256": "b88ccc7f9b187086bda5549def16769e98195e1b27e564e4660c561a7bc3c24c",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 1,
+            "colorSpace": "",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "normalTexture"
+          ]
+        },
+        {
+          "file": "island-tree-far.glb",
+          "textureIndex": 8,
+          "imageIndex": 8,
+          "sha256": "442ea4c23550d441f881f076671054af6069f97430adac33fa9cc70704bd7c91",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 1,
+            "colorSpace": "",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "metallicRoughnessTexture"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "island-tree-hero.glb",
+      "fileBytes": 3950040,
+      "fileSha256": "8d892e4a572bb30804aecc3a88adb57e92b852220ccf8f59068f400cf6713a5b",
+      "images": [
+        {
+          "file": "island-tree-hero.glb",
+          "imageIndex": 0,
+          "name": "island_tree_02_nor_gl",
+          "bufferView": 0,
+          "sha256": "18570bf56895b52ea8171463c41300b00b9e16ae8c7d163c59ff20fbab48fe66",
+          "encodedBytes": 358506,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "island-tree-hero.glb",
+          "imageIndex": 1,
+          "name": "island_tree_02_diff",
+          "bufferView": 1,
+          "sha256": "639cdaac63d17d2092d5b6ce2be5d6219b1bcf16a9f8a011f921d1f6213ab465",
+          "encodedBytes": 199346,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "island-tree-hero.glb",
+          "imageIndex": 2,
+          "name": "island_tree_02_rough",
+          "bufferView": 2,
+          "sha256": "254ce628002f4d3b6dc9bea208e67d215e7ae3d84539fbac4a6cbede69da4139",
+          "encodedBytes": 111706,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "island-tree-hero.glb",
+          "imageIndex": 3,
+          "name": "island_tree_02_leaves_nor_gl",
+          "bufferView": 3,
+          "sha256": "b0480d616cdd9fc6619c7b14e0ca65c73a755558721c6d9727b3ba213b615309",
+          "encodedBytes": 52896,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "island-tree-hero.glb",
+          "imageIndex": 4,
+          "name": "island_tree_02_leaves_diff-island_tree_02_leaves_alpha",
+          "bufferView": 4,
+          "sha256": "10b204e50c04c4147d1bf82df4bed728031f71f825a8e29f92b220461653e38e",
+          "encodedBytes": 55458,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "island-tree-hero.glb",
+          "imageIndex": 5,
+          "name": "island_tree_02_leaves_rough",
+          "bufferView": 5,
+          "sha256": "6c63ba056c2706efc15dbf840a900e0ab3e3abfe16d554601aea1a514abd886b",
+          "encodedBytes": 82018,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "island-tree-hero.glb",
+          "imageIndex": 6,
+          "name": "island_tree_02_branches_nor_gl",
+          "bufferView": 6,
+          "sha256": "b88ccc7f9b187086bda5549def16769e98195e1b27e564e4660c561a7bc3c24c",
+          "encodedBytes": 183204,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "island-tree-hero.glb",
+          "imageIndex": 7,
+          "name": "island_tree_02_branches_diff",
+          "bufferView": 7,
+          "sha256": "22b5afcffeadd73242b12ac71d1605481f70295f3fa3dded90965b3c65a5a2f4",
+          "encodedBytes": 110660,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "island-tree-hero.glb",
+          "imageIndex": 8,
+          "name": "island_tree_02_branches_rough",
+          "bufferView": 8,
+          "sha256": "442ea4c23550d441f881f076671054af6069f97430adac33fa9cc70704bd7c91",
+          "encodedBytes": 61012,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        }
+      ],
+      "gpuStates": [
+        {
+          "file": "island-tree-hero.glb",
+          "textureIndex": 0,
+          "imageIndex": 1,
+          "sha256": "639cdaac63d17d2092d5b6ce2be5d6219b1bcf16a9f8a011f921d1f6213ab465",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 4,
+            "colorSpace": "srgb",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "baseColorTexture"
+          ]
+        },
+        {
+          "file": "island-tree-hero.glb",
+          "textureIndex": 1,
+          "imageIndex": 0,
+          "sha256": "18570bf56895b52ea8171463c41300b00b9e16ae8c7d163c59ff20fbab48fe66",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 1,
+            "colorSpace": "",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "normalTexture"
+          ]
+        },
+        {
+          "file": "island-tree-hero.glb",
+          "textureIndex": 2,
+          "imageIndex": 2,
+          "sha256": "254ce628002f4d3b6dc9bea208e67d215e7ae3d84539fbac4a6cbede69da4139",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 1,
+            "colorSpace": "",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "metallicRoughnessTexture"
+          ]
+        },
+        {
+          "file": "island-tree-hero.glb",
+          "textureIndex": 3,
+          "imageIndex": 4,
+          "sha256": "10b204e50c04c4147d1bf82df4bed728031f71f825a8e29f92b220461653e38e",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 4,
+            "colorSpace": "srgb",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "baseColorTexture"
+          ]
+        },
+        {
+          "file": "island-tree-hero.glb",
+          "textureIndex": 4,
+          "imageIndex": 3,
+          "sha256": "b0480d616cdd9fc6619c7b14e0ca65c73a755558721c6d9727b3ba213b615309",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 1,
+            "colorSpace": "",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "normalTexture"
+          ]
+        },
+        {
+          "file": "island-tree-hero.glb",
+          "textureIndex": 5,
+          "imageIndex": 5,
+          "sha256": "6c63ba056c2706efc15dbf840a900e0ab3e3abfe16d554601aea1a514abd886b",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 1,
+            "colorSpace": "",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "metallicRoughnessTexture"
+          ]
+        },
+        {
+          "file": "island-tree-hero.glb",
+          "textureIndex": 6,
+          "imageIndex": 7,
+          "sha256": "22b5afcffeadd73242b12ac71d1605481f70295f3fa3dded90965b3c65a5a2f4",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 4,
+            "colorSpace": "srgb",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "baseColorTexture"
+          ]
+        },
+        {
+          "file": "island-tree-hero.glb",
+          "textureIndex": 7,
+          "imageIndex": 6,
+          "sha256": "b88ccc7f9b187086bda5549def16769e98195e1b27e564e4660c561a7bc3c24c",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 1,
+            "colorSpace": "",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "normalTexture"
+          ]
+        },
+        {
+          "file": "island-tree-hero.glb",
+          "textureIndex": 8,
+          "imageIndex": 8,
+          "sha256": "442ea4c23550d441f881f076671054af6069f97430adac33fa9cc70704bd7c91",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 1,
+            "colorSpace": "",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "metallicRoughnessTexture"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "island-tree-medium.glb",
+      "fileBytes": 1739460,
+      "fileSha256": "2c210426ac4e761261b6c4dfc8c250fedd72ca1787de918abc965d4d3f32be64",
+      "images": [
+        {
+          "file": "island-tree-medium.glb",
+          "imageIndex": 0,
+          "name": "island_tree_02_nor_gl",
+          "bufferView": 0,
+          "sha256": "18570bf56895b52ea8171463c41300b00b9e16ae8c7d163c59ff20fbab48fe66",
+          "encodedBytes": 358506,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "island-tree-medium.glb",
+          "imageIndex": 1,
+          "name": "island_tree_02_diff",
+          "bufferView": 1,
+          "sha256": "639cdaac63d17d2092d5b6ce2be5d6219b1bcf16a9f8a011f921d1f6213ab465",
+          "encodedBytes": 199346,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "island-tree-medium.glb",
+          "imageIndex": 2,
+          "name": "island_tree_02_rough",
+          "bufferView": 2,
+          "sha256": "254ce628002f4d3b6dc9bea208e67d215e7ae3d84539fbac4a6cbede69da4139",
+          "encodedBytes": 111706,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "island-tree-medium.glb",
+          "imageIndex": 3,
+          "name": "island_tree_02_leaves_nor_gl",
+          "bufferView": 3,
+          "sha256": "b0480d616cdd9fc6619c7b14e0ca65c73a755558721c6d9727b3ba213b615309",
+          "encodedBytes": 52896,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "island-tree-medium.glb",
+          "imageIndex": 4,
+          "name": "island_tree_02_leaves_diff-island_tree_02_leaves_alpha",
+          "bufferView": 4,
+          "sha256": "10b204e50c04c4147d1bf82df4bed728031f71f825a8e29f92b220461653e38e",
+          "encodedBytes": 55458,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "island-tree-medium.glb",
+          "imageIndex": 5,
+          "name": "island_tree_02_leaves_rough",
+          "bufferView": 5,
+          "sha256": "6c63ba056c2706efc15dbf840a900e0ab3e3abfe16d554601aea1a514abd886b",
+          "encodedBytes": 82018,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "island-tree-medium.glb",
+          "imageIndex": 6,
+          "name": "island_tree_02_branches_nor_gl",
+          "bufferView": 6,
+          "sha256": "b88ccc7f9b187086bda5549def16769e98195e1b27e564e4660c561a7bc3c24c",
+          "encodedBytes": 183204,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "island-tree-medium.glb",
+          "imageIndex": 7,
+          "name": "island_tree_02_branches_diff",
+          "bufferView": 7,
+          "sha256": "22b5afcffeadd73242b12ac71d1605481f70295f3fa3dded90965b3c65a5a2f4",
+          "encodedBytes": 110660,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "island-tree-medium.glb",
+          "imageIndex": 8,
+          "name": "island_tree_02_branches_rough",
+          "bufferView": 8,
+          "sha256": "442ea4c23550d441f881f076671054af6069f97430adac33fa9cc70704bd7c91",
+          "encodedBytes": 61012,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        }
+      ],
+      "gpuStates": [
+        {
+          "file": "island-tree-medium.glb",
+          "textureIndex": 0,
+          "imageIndex": 1,
+          "sha256": "639cdaac63d17d2092d5b6ce2be5d6219b1bcf16a9f8a011f921d1f6213ab465",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 4,
+            "colorSpace": "srgb",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "baseColorTexture"
+          ]
+        },
+        {
+          "file": "island-tree-medium.glb",
+          "textureIndex": 1,
+          "imageIndex": 0,
+          "sha256": "18570bf56895b52ea8171463c41300b00b9e16ae8c7d163c59ff20fbab48fe66",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 1,
+            "colorSpace": "",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "normalTexture"
+          ]
+        },
+        {
+          "file": "island-tree-medium.glb",
+          "textureIndex": 2,
+          "imageIndex": 2,
+          "sha256": "254ce628002f4d3b6dc9bea208e67d215e7ae3d84539fbac4a6cbede69da4139",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 1,
+            "colorSpace": "",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "metallicRoughnessTexture"
+          ]
+        },
+        {
+          "file": "island-tree-medium.glb",
+          "textureIndex": 3,
+          "imageIndex": 4,
+          "sha256": "10b204e50c04c4147d1bf82df4bed728031f71f825a8e29f92b220461653e38e",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 4,
+            "colorSpace": "srgb",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "baseColorTexture"
+          ]
+        },
+        {
+          "file": "island-tree-medium.glb",
+          "textureIndex": 4,
+          "imageIndex": 3,
+          "sha256": "b0480d616cdd9fc6619c7b14e0ca65c73a755558721c6d9727b3ba213b615309",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 1,
+            "colorSpace": "",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "normalTexture"
+          ]
+        },
+        {
+          "file": "island-tree-medium.glb",
+          "textureIndex": 5,
+          "imageIndex": 5,
+          "sha256": "6c63ba056c2706efc15dbf840a900e0ab3e3abfe16d554601aea1a514abd886b",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 1,
+            "colorSpace": "",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "metallicRoughnessTexture"
+          ]
+        },
+        {
+          "file": "island-tree-medium.glb",
+          "textureIndex": 6,
+          "imageIndex": 7,
+          "sha256": "22b5afcffeadd73242b12ac71d1605481f70295f3fa3dded90965b3c65a5a2f4",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 4,
+            "colorSpace": "srgb",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "baseColorTexture"
+          ]
+        },
+        {
+          "file": "island-tree-medium.glb",
+          "textureIndex": 7,
+          "imageIndex": 6,
+          "sha256": "b88ccc7f9b187086bda5549def16769e98195e1b27e564e4660c561a7bc3c24c",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 1,
+            "colorSpace": "",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "normalTexture"
+          ]
+        },
+        {
+          "file": "island-tree-medium.glb",
+          "textureIndex": 8,
+          "imageIndex": 8,
+          "sha256": "442ea4c23550d441f881f076671054af6069f97430adac33fa9cc70704bd7c91",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 1,
+            "colorSpace": "",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "metallicRoughnessTexture"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "island-tree-near.glb",
+      "fileBytes": 13299192,
+      "fileSha256": "c81e6ece28b7646aa59f2c2c68142619b2790d0db62c5d829278fec92e4373d7",
+      "images": [
+        {
+          "file": "island-tree-near.glb",
+          "imageIndex": 0,
+          "name": "island_tree_02_nor_gl",
+          "bufferView": 0,
+          "sha256": "ca41c027079a0c217328ce6cc760b2705cae645f7b719923d1664a31734e872c",
+          "encodedBytes": 476714,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "island-tree-near.glb",
+          "imageIndex": 1,
+          "name": "island_tree_02_diff",
+          "bufferView": 1,
+          "sha256": "7e9b0277618c8c8633344de76e745892aa686467fbfd7bb2765695cbc0314057",
+          "encodedBytes": 304600,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "island-tree-near.glb",
+          "imageIndex": 2,
+          "name": "island_tree_02_rough",
+          "bufferView": 2,
+          "sha256": "0021dbc000e83cb450a5e6b675d5458d937a15ec9dfa2b465a95abeb778de262",
+          "encodedBytes": 187298,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "island-tree-near.glb",
+          "imageIndex": 3,
+          "name": "island_tree_02_leaves_nor_gl",
+          "bufferView": 3,
+          "sha256": "b90ddc7851f53c229db7ee278d179c82d7adccfe95bb26a1073ef22a8a79621e",
+          "encodedBytes": 90060,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "island-tree-near.glb",
+          "imageIndex": 4,
+          "name": "island_tree_02_leaves_diff-island_tree_02_leaves_alpha",
+          "bufferView": 4,
+          "sha256": "bbbb477a69e04a39a0caf2c821435902d6b28952cb907c4d3ac38053ffffec59",
+          "encodedBytes": 331894,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "island-tree-near.glb",
+          "imageIndex": 5,
+          "name": "island_tree_02_leaves_rough",
+          "bufferView": 5,
+          "sha256": "e23fbed6faee29e710e7dd331c0b7c17987e868fee750a89d5286c8ee953a589",
+          "encodedBytes": 130986,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "island-tree-near.glb",
+          "imageIndex": 6,
+          "name": "island_tree_02_branches_nor_gl",
+          "bufferView": 6,
+          "sha256": "d5310282f35705880a7cebf64c0851d6c2f48f39ee8eb726b53cac0081daa781",
+          "encodedBytes": 270078,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "island-tree-near.glb",
+          "imageIndex": 7,
+          "name": "island_tree_02_branches_diff",
+          "bufferView": 7,
+          "sha256": "6658d3ac141d09fb7bde42959ea35bcea23511d00f0784555fe18317f9e92094",
+          "encodedBytes": 172280,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "island-tree-near.glb",
+          "imageIndex": 8,
+          "name": "island_tree_02_branches_rough",
+          "bufferView": 8,
+          "sha256": "1c039d465e56370facb3915e7eaa9078566a2e1740b63e0a9b5e077aa8ea8516",
+          "encodedBytes": 110840,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        }
+      ],
+      "gpuStates": [
+        {
+          "file": "island-tree-near.glb",
+          "textureIndex": 0,
+          "imageIndex": 1,
+          "sha256": "7e9b0277618c8c8633344de76e745892aa686467fbfd7bb2765695cbc0314057",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 4,
+            "colorSpace": "srgb",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "baseColorTexture"
+          ]
+        },
+        {
+          "file": "island-tree-near.glb",
+          "textureIndex": 1,
+          "imageIndex": 0,
+          "sha256": "ca41c027079a0c217328ce6cc760b2705cae645f7b719923d1664a31734e872c",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 1,
+            "colorSpace": "",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "normalTexture"
+          ]
+        },
+        {
+          "file": "island-tree-near.glb",
+          "textureIndex": 2,
+          "imageIndex": 2,
+          "sha256": "0021dbc000e83cb450a5e6b675d5458d937a15ec9dfa2b465a95abeb778de262",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 1,
+            "colorSpace": "",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "metallicRoughnessTexture"
+          ]
+        },
+        {
+          "file": "island-tree-near.glb",
+          "textureIndex": 3,
+          "imageIndex": 4,
+          "sha256": "bbbb477a69e04a39a0caf2c821435902d6b28952cb907c4d3ac38053ffffec59",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 4,
+            "colorSpace": "srgb",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "baseColorTexture"
+          ]
+        },
+        {
+          "file": "island-tree-near.glb",
+          "textureIndex": 4,
+          "imageIndex": 3,
+          "sha256": "b90ddc7851f53c229db7ee278d179c82d7adccfe95bb26a1073ef22a8a79621e",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 1,
+            "colorSpace": "",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "normalTexture"
+          ]
+        },
+        {
+          "file": "island-tree-near.glb",
+          "textureIndex": 5,
+          "imageIndex": 5,
+          "sha256": "e23fbed6faee29e710e7dd331c0b7c17987e868fee750a89d5286c8ee953a589",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 1,
+            "colorSpace": "",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "metallicRoughnessTexture"
+          ]
+        },
+        {
+          "file": "island-tree-near.glb",
+          "textureIndex": 6,
+          "imageIndex": 7,
+          "sha256": "6658d3ac141d09fb7bde42959ea35bcea23511d00f0784555fe18317f9e92094",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 4,
+            "colorSpace": "srgb",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "baseColorTexture"
+          ]
+        },
+        {
+          "file": "island-tree-near.glb",
+          "textureIndex": 7,
+          "imageIndex": 6,
+          "sha256": "d5310282f35705880a7cebf64c0851d6c2f48f39ee8eb726b53cac0081daa781",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 1,
+            "colorSpace": "",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "normalTexture"
+          ]
+        },
+        {
+          "file": "island-tree-near.glb",
+          "textureIndex": 8,
+          "imageIndex": 8,
+          "sha256": "1c039d465e56370facb3915e7eaa9078566a2e1740b63e0a9b5e077aa8ea8516",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 1,
+            "colorSpace": "",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "metallicRoughnessTexture"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "palm-tree.glb",
+      "fileBytes": 490580,
+      "fileSha256": "5e3f42cc9bd4a52d1e4249184fc8cba7bf87acf91b1403711115acaa7f2ca0f6",
+      "images": [
+        {
+          "file": "palm-tree.glb",
+          "imageIndex": 0,
+          "name": "Palm diffuse alpha",
+          "bufferView": 0,
+          "sha256": "52cc1c22c0c67a8260ec6504d43a5a41392e79dd256659f01da740134a729621",
+          "encodedBytes": 243362,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "palm-tree.glb",
+          "imageIndex": 1,
+          "name": "Palm normal",
+          "bufferView": 1,
+          "sha256": "d0a60a6d7f7ee51b84d65d3a4f007af0924541083847b0ed783fc254ac181314",
+          "encodedBytes": 215552,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        }
+      ],
+      "gpuStates": [
+        {
+          "file": "palm-tree.glb",
+          "textureIndex": 0,
+          "imageIndex": 0,
+          "sha256": "52cc1c22c0c67a8260ec6504d43a5a41392e79dd256659f01da740134a729621",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 4,
+            "colorSpace": "srgb",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "baseColorTexture"
+          ]
+        },
+        {
+          "file": "palm-tree.glb",
+          "textureIndex": 1,
+          "imageIndex": 1,
+          "sha256": "d0a60a6d7f7ee51b84d65d3a4f007af0924541083847b0ed783fc254ac181314",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 1,
+            "colorSpace": "",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "normalTexture"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "syringa-tree-far.glb",
+      "fileBytes": 2048168,
+      "fileSha256": "e0ed4e55345c21765804531340a285c2d10dddcb21f2a690fbb77cbfbd659523",
+      "images": [
+        {
+          "file": "syringa-tree-far.glb",
+          "imageIndex": 0,
+          "name": "tree_small_02_branch_nor_gl",
+          "bufferView": 0,
+          "sha256": "2a6b76251ed5fdda3d489f35cab1a7f952d967d1bb7dde90085292d924b67677",
+          "encodedBytes": 141648,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "syringa-tree-far.glb",
+          "imageIndex": 1,
+          "name": "tree_small_02_branch_diff",
+          "bufferView": 1,
+          "sha256": "1cb0f1bc4c4152172ad8c3e0832e2365efd52cd5b220b63a847e12deb7aabdaf",
+          "encodedBytes": 96950,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "syringa-tree-far.glb",
+          "imageIndex": 2,
+          "name": "tree_small_02_branch_rough",
+          "bufferView": 2,
+          "sha256": "d143a4a67b595b1eb5daf62abce397e3a67c87849262e920e545749668667b07",
+          "encodedBytes": 56302,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "syringa-tree-far.glb",
+          "imageIndex": 3,
+          "name": "tree_small_02_nor_gl",
+          "bufferView": 3,
+          "sha256": "6163f0bc6f3f77f7a7a43d2faa0961921dd57a3eb141e8c6db83b941844558b4",
+          "encodedBytes": 432402,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "syringa-tree-far.glb",
+          "imageIndex": 4,
+          "name": "tree_small_02_diff",
+          "bufferView": 4,
+          "sha256": "e3ce3c32ba2da9030ef40c2b63e24593b2bbbcedcff5d5c4594b9c44ad945c6a",
+          "encodedBytes": 293964,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "syringa-tree-far.glb",
+          "imageIndex": 5,
+          "name": "tree_small_02_rough",
+          "bufferView": 5,
+          "sha256": "2f1dbbd7fe58f93d7a67efb227482e88fdd6997bc9820e732d2812de834d98cd",
+          "encodedBytes": 138838,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "syringa-tree-far.glb",
+          "imageIndex": 6,
+          "name": "Source canopy albedo bake",
+          "bufferView": 6,
+          "sha256": "ff5eb8708a45257df10a85739946d07833e4add3878b7749f57e53f331a3ce8b",
+          "encodedBytes": 819555,
+          "width": 1008,
+          "height": 1008,
+          "rgba8Bytes": 4064256,
+          "rgba8FullMipBytes": 5418696
+        }
+      ],
+      "gpuStates": [
+        {
+          "file": "syringa-tree-far.glb",
+          "textureIndex": 0,
+          "imageIndex": 1,
+          "sha256": "1cb0f1bc4c4152172ad8c3e0832e2365efd52cd5b220b63a847e12deb7aabdaf",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 4,
+            "colorSpace": "srgb",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "baseColorTexture"
+          ]
+        },
+        {
+          "file": "syringa-tree-far.glb",
+          "textureIndex": 1,
+          "imageIndex": 0,
+          "sha256": "2a6b76251ed5fdda3d489f35cab1a7f952d967d1bb7dde90085292d924b67677",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 1,
+            "colorSpace": "",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "normalTexture"
+          ]
+        },
+        {
+          "file": "syringa-tree-far.glb",
+          "textureIndex": 2,
+          "imageIndex": 2,
+          "sha256": "d143a4a67b595b1eb5daf62abce397e3a67c87849262e920e545749668667b07",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 1,
+            "colorSpace": "",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "metallicRoughnessTexture"
+          ]
+        },
+        {
+          "file": "syringa-tree-far.glb",
+          "textureIndex": 3,
+          "imageIndex": 4,
+          "sha256": "e3ce3c32ba2da9030ef40c2b63e24593b2bbbcedcff5d5c4594b9c44ad945c6a",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 4,
+            "colorSpace": "srgb",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "baseColorTexture"
+          ]
+        },
+        {
+          "file": "syringa-tree-far.glb",
+          "textureIndex": 4,
+          "imageIndex": 3,
+          "sha256": "6163f0bc6f3f77f7a7a43d2faa0961921dd57a3eb141e8c6db83b941844558b4",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 1,
+            "colorSpace": "",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "normalTexture"
+          ]
+        },
+        {
+          "file": "syringa-tree-far.glb",
+          "textureIndex": 5,
+          "imageIndex": 5,
+          "sha256": "2f1dbbd7fe58f93d7a67efb227482e88fdd6997bc9820e732d2812de834d98cd",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 1,
+            "colorSpace": "",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "metallicRoughnessTexture"
+          ]
+        },
+        {
+          "file": "syringa-tree-far.glb",
+          "textureIndex": 6,
+          "imageIndex": 6,
+          "sha256": "ff5eb8708a45257df10a85739946d07833e4add3878b7749f57e53f331a3ce8b",
+          "gpuBytes": 5418696,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 4,
+            "colorSpace": "srgb",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "baseColorTexture"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "syringa-tree-hero.glb",
+      "fileBytes": 3114880,
+      "fileSha256": "df11a6b9f0a2bf51b8ffd5bb12e4a18a864b47d767177cd53ad263996d8a5f2f",
+      "images": [
+        {
+          "file": "syringa-tree-hero.glb",
+          "imageIndex": 0,
+          "name": "tree_small_02_branch_nor_gl",
+          "bufferView": 0,
+          "sha256": "2a6b76251ed5fdda3d489f35cab1a7f952d967d1bb7dde90085292d924b67677",
+          "encodedBytes": 141648,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "syringa-tree-hero.glb",
+          "imageIndex": 1,
+          "name": "tree_small_02_branch_diff",
+          "bufferView": 1,
+          "sha256": "1cb0f1bc4c4152172ad8c3e0832e2365efd52cd5b220b63a847e12deb7aabdaf",
+          "encodedBytes": 96950,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "syringa-tree-hero.glb",
+          "imageIndex": 2,
+          "name": "tree_small_02_branch_rough",
+          "bufferView": 2,
+          "sha256": "d143a4a67b595b1eb5daf62abce397e3a67c87849262e920e545749668667b07",
+          "encodedBytes": 56302,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "syringa-tree-hero.glb",
+          "imageIndex": 3,
+          "name": "tree_small_02_leaves_nor_gl",
+          "bufferView": 3,
+          "sha256": "cbee32643c721a7e2fad18ddc6e77df552f6ade5d27f281afa1b04ac312d6df0",
+          "encodedBytes": 142670,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "syringa-tree-hero.glb",
+          "imageIndex": 4,
+          "name": "tree_small_02_leaves_diff-tree_small_02_leaves_alpha",
+          "bufferView": 4,
+          "sha256": "5adfadc05725ef8419ee1c92d12fe643d22c29a52c1b996055eff809adfac664",
+          "encodedBytes": 491980,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "syringa-tree-hero.glb",
+          "imageIndex": 5,
+          "name": "tree_small_02_leaves_rough",
+          "bufferView": 5,
+          "sha256": "ed0ff857fae45719d1dd7d8b8ba7bdf19d37b1ac73710d935b99f6820655688f",
+          "encodedBytes": 109602,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "syringa-tree-hero.glb",
+          "imageIndex": 6,
+          "name": "tree_small_02_nor_gl",
+          "bufferView": 6,
+          "sha256": "6163f0bc6f3f77f7a7a43d2faa0961921dd57a3eb141e8c6db83b941844558b4",
+          "encodedBytes": 432402,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "syringa-tree-hero.glb",
+          "imageIndex": 7,
+          "name": "tree_small_02_diff",
+          "bufferView": 7,
+          "sha256": "e3ce3c32ba2da9030ef40c2b63e24593b2bbbcedcff5d5c4594b9c44ad945c6a",
+          "encodedBytes": 293964,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "syringa-tree-hero.glb",
+          "imageIndex": 8,
+          "name": "tree_small_02_rough",
+          "bufferView": 8,
+          "sha256": "2f1dbbd7fe58f93d7a67efb227482e88fdd6997bc9820e732d2812de834d98cd",
+          "encodedBytes": 138838,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        }
+      ],
+      "gpuStates": [
+        {
+          "file": "syringa-tree-hero.glb",
+          "textureIndex": 0,
+          "imageIndex": 1,
+          "sha256": "1cb0f1bc4c4152172ad8c3e0832e2365efd52cd5b220b63a847e12deb7aabdaf",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 4,
+            "colorSpace": "srgb",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "baseColorTexture"
+          ]
+        },
+        {
+          "file": "syringa-tree-hero.glb",
+          "textureIndex": 1,
+          "imageIndex": 0,
+          "sha256": "2a6b76251ed5fdda3d489f35cab1a7f952d967d1bb7dde90085292d924b67677",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 1,
+            "colorSpace": "",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "normalTexture"
+          ]
+        },
+        {
+          "file": "syringa-tree-hero.glb",
+          "textureIndex": 2,
+          "imageIndex": 2,
+          "sha256": "d143a4a67b595b1eb5daf62abce397e3a67c87849262e920e545749668667b07",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 1,
+            "colorSpace": "",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "metallicRoughnessTexture"
+          ]
+        },
+        {
+          "file": "syringa-tree-hero.glb",
+          "textureIndex": 3,
+          "imageIndex": 4,
+          "sha256": "5adfadc05725ef8419ee1c92d12fe643d22c29a52c1b996055eff809adfac664",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 4,
+            "colorSpace": "srgb",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "baseColorTexture"
+          ]
+        },
+        {
+          "file": "syringa-tree-hero.glb",
+          "textureIndex": 4,
+          "imageIndex": 3,
+          "sha256": "cbee32643c721a7e2fad18ddc6e77df552f6ade5d27f281afa1b04ac312d6df0",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 1,
+            "colorSpace": "",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "normalTexture"
+          ]
+        },
+        {
+          "file": "syringa-tree-hero.glb",
+          "textureIndex": 5,
+          "imageIndex": 5,
+          "sha256": "ed0ff857fae45719d1dd7d8b8ba7bdf19d37b1ac73710d935b99f6820655688f",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 1,
+            "colorSpace": "",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "metallicRoughnessTexture"
+          ]
+        },
+        {
+          "file": "syringa-tree-hero.glb",
+          "textureIndex": 6,
+          "imageIndex": 7,
+          "sha256": "e3ce3c32ba2da9030ef40c2b63e24593b2bbbcedcff5d5c4594b9c44ad945c6a",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 4,
+            "colorSpace": "srgb",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "baseColorTexture"
+          ]
+        },
+        {
+          "file": "syringa-tree-hero.glb",
+          "textureIndex": 7,
+          "imageIndex": 6,
+          "sha256": "6163f0bc6f3f77f7a7a43d2faa0961921dd57a3eb141e8c6db83b941844558b4",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 1,
+            "colorSpace": "",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "normalTexture"
+          ]
+        },
+        {
+          "file": "syringa-tree-hero.glb",
+          "textureIndex": 8,
+          "imageIndex": 8,
+          "sha256": "2f1dbbd7fe58f93d7a67efb227482e88fdd6997bc9820e732d2812de834d98cd",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 1,
+            "colorSpace": "",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "metallicRoughnessTexture"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "syringa-tree-medium.glb",
+      "fileBytes": 2254268,
+      "fileSha256": "c4ef49e31bf9fb6565ccfdfa7dfa05b84ca6a9054401f2362c81c6f2538770de",
+      "images": [
+        {
+          "file": "syringa-tree-medium.glb",
+          "imageIndex": 0,
+          "name": "tree_small_02_branch_nor_gl",
+          "bufferView": 0,
+          "sha256": "2a6b76251ed5fdda3d489f35cab1a7f952d967d1bb7dde90085292d924b67677",
+          "encodedBytes": 141648,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "syringa-tree-medium.glb",
+          "imageIndex": 1,
+          "name": "tree_small_02_branch_diff",
+          "bufferView": 1,
+          "sha256": "1cb0f1bc4c4152172ad8c3e0832e2365efd52cd5b220b63a847e12deb7aabdaf",
+          "encodedBytes": 96950,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "syringa-tree-medium.glb",
+          "imageIndex": 2,
+          "name": "tree_small_02_branch_rough",
+          "bufferView": 2,
+          "sha256": "d143a4a67b595b1eb5daf62abce397e3a67c87849262e920e545749668667b07",
+          "encodedBytes": 56302,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "syringa-tree-medium.glb",
+          "imageIndex": 3,
+          "name": "tree_small_02_leaves_nor_gl",
+          "bufferView": 3,
+          "sha256": "cbee32643c721a7e2fad18ddc6e77df552f6ade5d27f281afa1b04ac312d6df0",
+          "encodedBytes": 142670,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "syringa-tree-medium.glb",
+          "imageIndex": 4,
+          "name": "tree_small_02_leaves_diff-tree_small_02_leaves_alpha",
+          "bufferView": 4,
+          "sha256": "5adfadc05725ef8419ee1c92d12fe643d22c29a52c1b996055eff809adfac664",
+          "encodedBytes": 491980,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "syringa-tree-medium.glb",
+          "imageIndex": 5,
+          "name": "tree_small_02_leaves_rough",
+          "bufferView": 5,
+          "sha256": "ed0ff857fae45719d1dd7d8b8ba7bdf19d37b1ac73710d935b99f6820655688f",
+          "encodedBytes": 109602,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "syringa-tree-medium.glb",
+          "imageIndex": 6,
+          "name": "tree_small_02_nor_gl",
+          "bufferView": 6,
+          "sha256": "6163f0bc6f3f77f7a7a43d2faa0961921dd57a3eb141e8c6db83b941844558b4",
+          "encodedBytes": 432402,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "syringa-tree-medium.glb",
+          "imageIndex": 7,
+          "name": "tree_small_02_diff",
+          "bufferView": 7,
+          "sha256": "e3ce3c32ba2da9030ef40c2b63e24593b2bbbcedcff5d5c4594b9c44ad945c6a",
+          "encodedBytes": 293964,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "syringa-tree-medium.glb",
+          "imageIndex": 8,
+          "name": "tree_small_02_rough",
+          "bufferView": 8,
+          "sha256": "2f1dbbd7fe58f93d7a67efb227482e88fdd6997bc9820e732d2812de834d98cd",
+          "encodedBytes": 138838,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        }
+      ],
+      "gpuStates": [
+        {
+          "file": "syringa-tree-medium.glb",
+          "textureIndex": 0,
+          "imageIndex": 1,
+          "sha256": "1cb0f1bc4c4152172ad8c3e0832e2365efd52cd5b220b63a847e12deb7aabdaf",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 4,
+            "colorSpace": "srgb",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "baseColorTexture"
+          ]
+        },
+        {
+          "file": "syringa-tree-medium.glb",
+          "textureIndex": 1,
+          "imageIndex": 0,
+          "sha256": "2a6b76251ed5fdda3d489f35cab1a7f952d967d1bb7dde90085292d924b67677",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 1,
+            "colorSpace": "",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "normalTexture"
+          ]
+        },
+        {
+          "file": "syringa-tree-medium.glb",
+          "textureIndex": 2,
+          "imageIndex": 2,
+          "sha256": "d143a4a67b595b1eb5daf62abce397e3a67c87849262e920e545749668667b07",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 1,
+            "colorSpace": "",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "metallicRoughnessTexture"
+          ]
+        },
+        {
+          "file": "syringa-tree-medium.glb",
+          "textureIndex": 3,
+          "imageIndex": 4,
+          "sha256": "5adfadc05725ef8419ee1c92d12fe643d22c29a52c1b996055eff809adfac664",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 4,
+            "colorSpace": "srgb",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "baseColorTexture"
+          ]
+        },
+        {
+          "file": "syringa-tree-medium.glb",
+          "textureIndex": 4,
+          "imageIndex": 3,
+          "sha256": "cbee32643c721a7e2fad18ddc6e77df552f6ade5d27f281afa1b04ac312d6df0",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 1,
+            "colorSpace": "",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "normalTexture"
+          ]
+        },
+        {
+          "file": "syringa-tree-medium.glb",
+          "textureIndex": 5,
+          "imageIndex": 5,
+          "sha256": "ed0ff857fae45719d1dd7d8b8ba7bdf19d37b1ac73710d935b99f6820655688f",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 1,
+            "colorSpace": "",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "metallicRoughnessTexture"
+          ]
+        },
+        {
+          "file": "syringa-tree-medium.glb",
+          "textureIndex": 6,
+          "imageIndex": 7,
+          "sha256": "e3ce3c32ba2da9030ef40c2b63e24593b2bbbcedcff5d5c4594b9c44ad945c6a",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 4,
+            "colorSpace": "srgb",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "baseColorTexture"
+          ]
+        },
+        {
+          "file": "syringa-tree-medium.glb",
+          "textureIndex": 7,
+          "imageIndex": 6,
+          "sha256": "6163f0bc6f3f77f7a7a43d2faa0961921dd57a3eb141e8c6db83b941844558b4",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 1,
+            "colorSpace": "",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "normalTexture"
+          ]
+        },
+        {
+          "file": "syringa-tree-medium.glb",
+          "textureIndex": 8,
+          "imageIndex": 8,
+          "sha256": "2f1dbbd7fe58f93d7a67efb227482e88fdd6997bc9820e732d2812de834d98cd",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 1,
+            "colorSpace": "",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "metallicRoughnessTexture"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "syringa-tree-near.glb",
+      "fileBytes": 14096532,
+      "fileSha256": "28cd16b21b8d422566e3d4c76f0f94e5d9938b9624dd96ee791864e159ac9761",
+      "images": [
+        {
+          "file": "syringa-tree-near.glb",
+          "imageIndex": 0,
+          "name": "tree_small_02_branch_nor_gl",
+          "bufferView": 0,
+          "sha256": "15af4047e8c55441351a61b7dd22fee1ccf58ae6b62fa6184bfb75bdd48898df",
+          "encodedBytes": 183736,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "syringa-tree-near.glb",
+          "imageIndex": 1,
+          "name": "tree_small_02_branch_diff",
+          "bufferView": 1,
+          "sha256": "01db043457f060746d81c47186769e0b8ca5b01551de990f03445b78bba305b5",
+          "encodedBytes": 128996,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "syringa-tree-near.glb",
+          "imageIndex": 2,
+          "name": "tree_small_02_branch_rough",
+          "bufferView": 2,
+          "sha256": "0682cfcf3afeb3e31f6168df4bdaeaa1477b429ff1f0985f5b7a5f79566ff318",
+          "encodedBytes": 85676,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "syringa-tree-near.glb",
+          "imageIndex": 3,
+          "name": "tree_small_02_leaves_nor_gl",
+          "bufferView": 3,
+          "sha256": "1c9ea87ec31a0d733f7a0c5f6cc3c1941a5ffa7b83d5015e4d7ddcc8a51d96e3",
+          "encodedBytes": 196994,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "syringa-tree-near.glb",
+          "imageIndex": 4,
+          "name": "tree_small_02_leaves_diff-tree_small_02_leaves_alpha",
+          "bufferView": 4,
+          "sha256": "4329d559ade92a46bc5219761e784b1946ab689c1b3ccecb1b158cd914e6c530",
+          "encodedBytes": 491270,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "syringa-tree-near.glb",
+          "imageIndex": 5,
+          "name": "tree_small_02_leaves_rough",
+          "bufferView": 5,
+          "sha256": "4959e1c9abf34d7e99426188855ed6c06a06cd46162305dce9e73e0df52e65e8",
+          "encodedBytes": 180404,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "syringa-tree-near.glb",
+          "imageIndex": 6,
+          "name": "tree_small_02_nor_gl",
+          "bufferView": 6,
+          "sha256": "f67bca24fcddccd0866ff593f32a982d6cfb76d828758000d4edaf26377bfb73",
+          "encodedBytes": 508234,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "syringa-tree-near.glb",
+          "imageIndex": 7,
+          "name": "tree_small_02_diff",
+          "bufferView": 7,
+          "sha256": "c0d57a8bb8996cb193dc75dde5e49f5bacd08585a28506e44714e95cfa695e07",
+          "encodedBytes": 373788,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        },
+        {
+          "file": "syringa-tree-near.glb",
+          "imageIndex": 8,
+          "name": "tree_small_02_rough",
+          "bufferView": 8,
+          "sha256": "d417dc38b35ce7428a0cea9dc4a47425387fd626d5a9985523f181f8ac0bc3b1",
+          "encodedBytes": 206272,
+          "width": 1024,
+          "height": 1024,
+          "rgba8Bytes": 4194304,
+          "rgba8FullMipBytes": 5592404
+        }
+      ],
+      "gpuStates": [
+        {
+          "file": "syringa-tree-near.glb",
+          "textureIndex": 0,
+          "imageIndex": 1,
+          "sha256": "01db043457f060746d81c47186769e0b8ca5b01551de990f03445b78bba305b5",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 4,
+            "colorSpace": "srgb",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "baseColorTexture"
+          ]
+        },
+        {
+          "file": "syringa-tree-near.glb",
+          "textureIndex": 1,
+          "imageIndex": 0,
+          "sha256": "15af4047e8c55441351a61b7dd22fee1ccf58ae6b62fa6184bfb75bdd48898df",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 1,
+            "colorSpace": "",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "normalTexture"
+          ]
+        },
+        {
+          "file": "syringa-tree-near.glb",
+          "textureIndex": 2,
+          "imageIndex": 2,
+          "sha256": "0682cfcf3afeb3e31f6168df4bdaeaa1477b429ff1f0985f5b7a5f79566ff318",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 1,
+            "colorSpace": "",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "metallicRoughnessTexture"
+          ]
+        },
+        {
+          "file": "syringa-tree-near.glb",
+          "textureIndex": 3,
+          "imageIndex": 4,
+          "sha256": "4329d559ade92a46bc5219761e784b1946ab689c1b3ccecb1b158cd914e6c530",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 4,
+            "colorSpace": "srgb",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "baseColorTexture"
+          ]
+        },
+        {
+          "file": "syringa-tree-near.glb",
+          "textureIndex": 4,
+          "imageIndex": 3,
+          "sha256": "1c9ea87ec31a0d733f7a0c5f6cc3c1941a5ffa7b83d5015e4d7ddcc8a51d96e3",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 1,
+            "colorSpace": "",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "normalTexture"
+          ]
+        },
+        {
+          "file": "syringa-tree-near.glb",
+          "textureIndex": 5,
+          "imageIndex": 5,
+          "sha256": "4959e1c9abf34d7e99426188855ed6c06a06cd46162305dce9e73e0df52e65e8",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 1,
+            "colorSpace": "",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "metallicRoughnessTexture"
+          ]
+        },
+        {
+          "file": "syringa-tree-near.glb",
+          "textureIndex": 6,
+          "imageIndex": 7,
+          "sha256": "c0d57a8bb8996cb193dc75dde5e49f5bacd08585a28506e44714e95cfa695e07",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 4,
+            "colorSpace": "srgb",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "baseColorTexture"
+          ]
+        },
+        {
+          "file": "syringa-tree-near.glb",
+          "textureIndex": 7,
+          "imageIndex": 6,
+          "sha256": "f67bca24fcddccd0866ff593f32a982d6cfb76d828758000d4edaf26377bfb73",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 1,
+            "colorSpace": "",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "normalTexture"
+          ]
+        },
+        {
+          "file": "syringa-tree-near.glb",
+          "textureIndex": 8,
+          "imageIndex": 8,
+          "sha256": "d417dc38b35ce7428a0cea9dc4a47425387fd626d5a9985523f181f8ac0bc3b1",
+          "gpuBytes": 5592404,
+          "state": {
+            "wrapS": 10497,
+            "wrapT": 10497,
+            "magFilter": 9729,
+            "minFilter": 9987,
+            "anisotropy": 1,
+            "colorSpace": "",
+            "flipY": false,
+            "premultiplyAlpha": false,
+            "type": "UnsignedByteType",
+            "format": "RGBAFormat",
+            "generateMipmaps": true
+          },
+          "roles": [
+            "metallicRoughnessTexture"
+          ]
+        }
+      ]
+    }
+  ],
+  "standalones": [
+    {
+      "name": "seaside_rock_diff_1k.webp",
+      "encodedBytes": 319098,
+      "sha256": "3a4179bc1d586bee98e5613a491c7bb28b27ef153cdcd338e990150158a3b11a",
+      "width": 1024,
+      "height": 1024,
+      "rgba8Bytes": 4194304,
+      "rgba8FullMipBytes": 5592404
+    },
+    {
+      "name": "seaside_rock_nor_gl_1k.webp",
+      "encodedBytes": 450138,
+      "sha256": "169e8a42a985e7f6f745eea02c9d234164bedcfc969fe4a687f9c8b7067bfaa7",
+      "width": 1024,
+      "height": 1024,
+      "rgba8Bytes": 4194304,
+      "rgba8FullMipBytes": 5592404
+    },
+    {
+      "name": "seaside_rock_arm_1k.webp",
+      "encodedBytes": 114332,
+      "sha256": "1463055dfaf523a08b85978c387c31fc1cf6b8484162546119f0c6b0b34d2fe2",
+      "width": 1024,
+      "height": 1024,
+      "rgba8Bytes": 4194304,
+      "rgba8FullMipBytes": 5592404
+    },
+    {
+      "name": "coast_sand_04_diff_1k.webp",
+      "encodedBytes": 356474,
+      "sha256": "7eb7bd8dc8396c56abc1d75eeaf1d8a2f766505cf7c989529a86c4f1e5b0cc49",
+      "width": 1024,
+      "height": 1024,
+      "rgba8Bytes": 4194304,
+      "rgba8FullMipBytes": 5592404
+    },
+    {
+      "name": "coast_sand_04_nor_gl_1k.webp",
+      "encodedBytes": 525074,
+      "sha256": "28d767a4d9febfbea240b292ba11c814391919e2f9874e1cf76e89db31dcd0a8",
+      "width": 1024,
+      "height": 1024,
+      "rgba8Bytes": 4194304,
+      "rgba8FullMipBytes": 5592404
+    },
+    {
+      "name": "coast_sand_04_arm_1k.webp",
+      "encodedBytes": 275234,
+      "sha256": "69da95f3d8a8c8ea0964f511301178d2a344498d6a5690306c64cac830430abd",
+      "width": 1024,
+      "height": 1024,
+      "rgba8Bytes": 4194304,
+      "rgba8FullMipBytes": 5592404
+    },
+    {
+      "name": "palm_bark_diff_1k.webp",
+      "encodedBytes": 176792,
+      "sha256": "3a9486460e7a643edc706ea7812a29da4b402e9267327cba0978f2bcd2e83f8f",
+      "width": 1024,
+      "height": 1024,
+      "rgba8Bytes": 4194304,
+      "rgba8FullMipBytes": 5592404
+    },
+    {
+      "name": "palm_bark_nor_gl_1k.webp",
+      "encodedBytes": 534084,
+      "sha256": "70f0d74a1a1856b06898115d3df081044f9c87484983e895cd2240ad28833927",
+      "width": 1024,
+      "height": 1024,
+      "rgba8Bytes": 4194304,
+      "rgba8FullMipBytes": 5592404
+    },
+    {
+      "name": "forest_ground_05_diff_2k.webp",
+      "encodedBytes": 1193836,
+      "sha256": "d4cc33ba4a495a931122cda9976d9e0758a79021d5f66ca3bb8afefafd908634",
+      "width": 2048,
+      "height": 2048,
+      "rgba8Bytes": 16777216,
+      "rgba8FullMipBytes": 22369620
+    },
+    {
+      "name": "forest_ground_05_nor_gl_2k.webp",
+      "encodedBytes": 8457132,
+      "sha256": "5f9e07b047de75b7475a45c57669dc338a99a92854989ae3eb243f3b78acc54c",
+      "width": 2048,
+      "height": 2048,
+      "rgba8Bytes": 16777216,
+      "rgba8FullMipBytes": 22369620
+    },
+    {
+      "name": "forest_ground_05_arm_2k.webp",
+      "encodedBytes": 4059720,
+      "sha256": "a53ccffa1f4502fdcf1cba0a23543d3bbe73d7c3e419c7568c31073130e18c6a",
+      "width": 2048,
+      "height": 2048,
+      "rgba8Bytes": 16777216,
+      "rgba8FullMipBytes": 22369620
+    },
+    {
+      "name": "forest_leaves_02_diff_2k.webp",
+      "encodedBytes": 2483370,
+      "sha256": "d4fdb0fc221f6141a0a0f160eaa5dd00aecad103e11a2b6a690e18863e45c109",
+      "width": 2048,
+      "height": 2048,
+      "rgba8Bytes": 16777216,
+      "rgba8FullMipBytes": 22369620
+    },
+    {
+      "name": "forest_leaves_02_nor_gl_2k.webp",
+      "encodedBytes": 10375944,
+      "sha256": "33c631f816a1d351f87ce7e299f824c4ede95ab8b64b3b7d2689d572d74c446b",
+      "width": 2048,
+      "height": 2048,
+      "rgba8Bytes": 16777216,
+      "rgba8FullMipBytes": 22369620
+    },
+    {
+      "name": "forest_leaves_02_arm_2k.webp",
+      "encodedBytes": 5133636,
+      "sha256": "3e4f7a3e4bde60276561d904468750e50c2c46d1be2a7e2b2866d0121265670a",
+      "width": 2048,
+      "height": 2048,
+      "rgba8Bytes": 16777216,
+      "rgba8FullMipBytes": 22369620
+    }
+  ],
+  "geometryAudit": {
+    "method": "Official r185 GLTFLoader + native image adapter; each cloned primitive transformed by actual object.matrixWorld then exact production scale as createVegetation does; no asset/source edits or rendering",
+    "models": [
+      {
+        "file": "island-tree-near.glb",
+        "family": "island",
+        "lod": "near",
+        "productionScale": 5.294117647058823,
+        "rawUnion": {
+          "min": [
+            -2.052337884902954,
+            -0.017011718824505806,
+            -1.1138885021209717
+          ],
+          "max": [
+            2.155407428741455,
+            3.3892130851745605,
+            2.956543207168579
+          ],
+          "size": [
+            4.207745313644409,
+            3.4062248039990664,
+            4.070431709289551
+          ]
+        },
+        "worldUnion": {
+          "min": [
+            -2.052337884902954,
+            -0.017011718824505806,
+            -1.1138885021209717
+          ],
+          "max": [
+            2.155407428741455,
+            3.3892130851745605,
+            2.956543207168579
+          ],
+          "size": [
+            4.207745313644409,
+            3.4062248039990664,
+            4.070431709289551
+          ]
+        },
+        "productionUnion": {
+          "min": [
+            -10.865318298339844,
+            -0.09006203711032867,
+            -5.897056579589844
+          ],
+          "max": [
+            11.410980224609375,
+            17.94289207458496,
+            15.652287483215332
+          ],
+          "size": [
+            22.27629852294922,
+            18.03295411169529,
+            21.549344062805176
+          ]
+        },
+        "parts": [
+          {
+            "name": "mesh001",
+            "material": "island_tree_02",
+            "alphaTest": 0,
+            "vertices": 15219,
+            "triangles": 27298,
+            "raw": {
+              "min": [
+                -1.1161692142486572,
+                -0.017011718824505806,
+                -0.45452672243118286
+              ],
+              "max": [
+                1.2416797876358032,
+                2.5996620655059814,
+                2.26574444770813
+              ],
+              "size": [
+                2.3578490018844604,
+                2.6166737843304873,
+                2.7202711701393127
+              ]
+            },
+            "afterMatrixWorld": {
+              "min": [
+                -1.1161692142486572,
+                -0.017011718824505806,
+                -0.45452672243118286
+              ],
+              "max": [
+                1.2416797876358032,
+                2.5996620655059814,
+                2.26574444770813
+              ],
+              "size": [
+                2.3578490018844604,
+                2.6166737843304873,
+                2.7202711701393127
+              ]
+            },
+            "afterProductionScale": {
+              "min": [
+                -5.909131050109863,
+                -0.09006203711032867,
+                -2.406317949295044
+              ],
+              "max": [
+                6.573598861694336,
+                13.762916564941406,
+                11.9951171875
+              ],
+              "size": [
+                12.4827299118042,
+                13.852978602051735,
+                14.401435136795044
+              ]
+            },
+            "matrixWorld": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1
+            ]
+          },
+          {
+            "name": "mesh001_1",
+            "material": "island_tree_02_leaves",
+            "alphaTest": 0.45,
+            "vertices": 225750,
+            "triangles": 173906,
+            "raw": {
+              "min": [
+                -1.8560643196105957,
+                1.247679591178894,
+                -1.1138885021209717
+              ],
+              "max": [
+                2.0120034217834473,
+                3.3892130851745605,
+                2.956543207168579
+              ],
+              "size": [
+                3.868067741394043,
+                2.1415334939956665,
+                4.070431709289551
+              ]
+            },
+            "afterMatrixWorld": {
+              "min": [
+                -1.8560643196105957,
+                1.247679591178894,
+                -1.1138885021209717
+              ],
+              "max": [
+                2.0120034217834473,
+                3.3892130851745605,
+                2.956543207168579
+              ],
+              "size": [
+                3.868067741394043,
+                2.1415334939956665,
+                4.070431709289551
+              ]
+            },
+            "afterProductionScale": {
+              "min": [
+                -9.82622241973877,
+                6.605362415313721,
+                -5.897056579589844
+              ],
+              "max": [
+                10.651782989501953,
+                17.94289207458496,
+                15.652287483215332
+              ],
+              "size": [
+                20.478005409240723,
+                11.33752965927124,
+                21.549344062805176
+              ]
+            },
+            "matrixWorld": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1
+            ]
+          },
+          {
+            "name": "mesh001_2",
+            "material": "island_tree_02_branches",
+            "alphaTest": 0,
+            "vertices": 32271,
+            "triangles": 37413,
+            "raw": {
+              "min": [
+                -2.052337884902954,
+                1.2993440628051758,
+                -1.0120930671691895
+              ],
+              "max": [
+                2.155407428741455,
+                3.3480706214904785,
+                2.9034361839294434
+              ],
+              "size": [
+                4.207745313644409,
+                2.0487265586853027,
+                3.915529251098633
+              ]
+            },
+            "afterMatrixWorld": {
+              "min": [
+                -2.052337884902954,
+                1.2993440628051758,
+                -1.0120930671691895
+              ],
+              "max": [
+                2.155407428741455,
+                3.3480706214904785,
+                2.9034361839294434
+              ],
+              "size": [
+                4.207745313644409,
+                2.0487265586853027,
+                3.915529251098633
+              ]
+            },
+            "afterProductionScale": {
+              "min": [
+                -10.865318298339844,
+                6.878880500793457,
+                -5.358139991760254
+              ],
+              "max": [
+                11.410980224609375,
+                17.725080490112305,
+                15.371132850646973
+              ],
+              "size": [
+                22.27629852294922,
+                10.846199989318848,
+                20.729272842407227
+              ]
+            },
+            "matrixWorld": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1
+            ]
+          }
+        ],
+        "sizeRatioToNear": [
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "file": "island-tree-hero.glb",
+        "family": "island",
+        "lod": "hero",
+        "productionScale": 5.294117647058823,
+        "rawUnion": {
+          "min": [
+            -1.9902251958847046,
+            -0.017011718824505806,
+            -1.1185122728347778
+          ],
+          "max": [
+            2.0611910820007324,
+            3.392202854156494,
+            2.9635751247406006
+          ],
+          "size": [
+            4.051416277885437,
+            3.409214572981,
+            4.082087397575378
+          ]
+        },
+        "worldUnion": {
+          "min": [
+            -1.9902251958847046,
+            -0.017011718824505806,
+            -1.1185122728347778
+          ],
+          "max": [
+            2.0611910820007324,
+            3.392202854156494,
+            2.9635751247406006
+          ],
+          "size": [
+            4.051416277885437,
+            3.409214572981,
+            4.082087397575378
+          ]
+        },
+        "productionUnion": {
+          "min": [
+            -10.536486625671387,
+            -0.09006203711032867,
+            -5.921535491943359
+          ],
+          "max": [
+            10.912188529968262,
+            17.958721160888672,
+            15.689515113830566
+          ],
+          "size": [
+            21.44867515563965,
+            18.048783197999,
+            21.611050605773926
+          ]
+        },
+        "parts": [
+          {
+            "name": "mesh001",
+            "material": "island_tree_02",
+            "alphaTest": 0,
+            "vertices": 1834,
+            "triangles": 2795,
+            "raw": {
+              "min": [
+                -1.1161692142486572,
+                -0.017011718824505806,
+                -0.45452672243118286
+              ],
+              "max": [
+                1.2400846481323242,
+                2.5955650806427,
+                2.2639734745025635
+              ],
+              "size": [
+                2.3562538623809814,
+                2.612576799467206,
+                2.7185001969337463
+              ]
+            },
+            "afterMatrixWorld": {
+              "min": [
+                -1.1161692142486572,
+                -0.017011718824505806,
+                -0.45452672243118286
+              ],
+              "max": [
+                1.2400846481323242,
+                2.5955650806427,
+                2.2639734745025635
+              ],
+              "size": [
+                2.3562538623809814,
+                2.612576799467206,
+                2.7185001969337463
+              ]
+            },
+            "afterProductionScale": {
+              "min": [
+                -5.909131050109863,
+                -0.09006203711032867,
+                -2.406317949295044
+              ],
+              "max": [
+                6.565154075622559,
+                13.741227149963379,
+                11.98574161529541
+              ],
+              "size": [
+                12.474285125732422,
+                13.831289187073708,
+                14.392059564590454
+              ]
+            },
+            "matrixWorld": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1
+            ]
+          },
+          {
+            "name": "mesh001_1",
+            "material": "island_tree_02_leaves",
+            "alphaTest": 0.45,
+            "vertices": 66680,
+            "triangles": 26000,
+            "raw": {
+              "min": [
+                -1.8570555448532104,
+                1.2453314065933228,
+                -1.1185122728347778
+              ],
+              "max": [
+                1.9758583307266235,
+                3.392202854156494,
+                2.9635751247406006
+              ],
+              "size": [
+                3.832913875579834,
+                2.1468714475631714,
+                4.082087397575378
+              ]
+            },
+            "afterMatrixWorld": {
+              "min": [
+                -1.8570555448532104,
+                1.2453314065933228,
+                -1.1185122728347778
+              ],
+              "max": [
+                1.9758583307266235,
+                3.392202854156494,
+                2.9635751247406006
+              ],
+              "size": [
+                3.832913875579834,
+                2.1468714475631714,
+                4.082087397575378
+              ]
+            },
+            "afterProductionScale": {
+              "min": [
+                -9.831470489501953,
+                6.592930793762207,
+                -5.921535491943359
+              ],
+              "max": [
+                10.460426330566406,
+                17.958721160888672,
+                15.689515113830566
+              ],
+              "size": [
+                20.29189682006836,
+                11.365790367126465,
+                21.611050605773926
+              ]
+            },
+            "matrixWorld": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1
+            ]
+          },
+          {
+            "name": "mesh001_2",
+            "material": "island_tree_02_branches",
+            "alphaTest": 0,
+            "vertices": 5464,
+            "triangles": 5623,
+            "raw": {
+              "min": [
+                -1.9902251958847046,
+                1.3202844858169556,
+                -0.8885391354560852
+              ],
+              "max": [
+                2.0611910820007324,
+                3.339240789413452,
+                2.8109703063964844
+              ],
+              "size": [
+                4.051416277885437,
+                2.0189563035964966,
+                3.6995094418525696
+              ]
+            },
+            "afterMatrixWorld": {
+              "min": [
+                -1.9902251958847046,
+                1.3202844858169556,
+                -0.8885391354560852
+              ],
+              "max": [
+                2.0611910820007324,
+                3.339240789413452,
+                2.8109703063964844
+              ],
+              "size": [
+                4.051416277885437,
+                2.0189563035964966,
+                3.6995094418525696
+              ]
+            },
+            "afterProductionScale": {
+              "min": [
+                -10.536486625671387,
+                6.989741325378418,
+                -4.704030513763428
+              ],
+              "max": [
+                10.912188529968262,
+                17.678333282470703,
+                14.881607055664062
+              ],
+              "size": [
+                21.44867515563965,
+                10.688591957092285,
+                19.58563756942749
+              ]
+            },
+            "matrixWorld": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1
+            ]
+          }
+        ],
+        "sizeRatioToNear": [
+          0.9628473569584756,
+          1.0008777866458078,
+          1.0028634998257444
+        ]
+      },
+      {
+        "file": "island-tree-medium.glb",
+        "family": "island",
+        "lod": "medium",
+        "productionScale": 5.294117647058823,
+        "rawUnion": {
+          "min": [
+            -1.8782585859298706,
+            -0.009399943053722382,
+            -1.1397640705108643
+          ],
+          "max": [
+            1.9643964767456055,
+            3.4115962982177734,
+            2.960134506225586
+          ],
+          "size": [
+            3.842655062675476,
+            3.420996241271496,
+            4.09989857673645
+          ]
+        },
+        "worldUnion": {
+          "min": [
+            -1.8782585859298706,
+            -0.009399943053722382,
+            -1.1397640705108643
+          ],
+          "max": [
+            1.9643964767456055,
+            3.4115962982177734,
+            2.960134506225586
+          ],
+          "size": [
+            3.842655062675476,
+            3.420996241271496,
+            4.09989857673645
+          ]
+        },
+        "productionUnion": {
+          "min": [
+            -9.943721771240234,
+            -0.04976440593600273,
+            -6.034045219421387
+          ],
+          "max": [
+            10.39974594116211,
+            18.061391830444336,
+            15.671299934387207
+          ],
+          "size": [
+            20.343467712402344,
+            18.11115623638034,
+            21.705345153808594
+          ]
+        },
+        "parts": [
+          {
+            "name": "mesh001",
+            "material": "island_tree_02",
+            "alphaTest": 0,
+            "vertices": 465,
+            "triangles": 645,
+            "raw": {
+              "min": [
+                -1.1161692142486572,
+                -0.009399943053722382,
+                -0.4439053237438202
+              ],
+              "max": [
+                1.2400846481323242,
+                2.5985612869262695,
+                2.2639734745025635
+              ],
+              "size": [
+                2.3562538623809814,
+                2.607961229979992,
+                2.7078787982463837
+              ]
+            },
+            "afterMatrixWorld": {
+              "min": [
+                -1.1161692142486572,
+                -0.009399943053722382,
+                -0.4439053237438202
+              ],
+              "max": [
+                1.2400846481323242,
+                2.5985612869262695,
+                2.2639734745025635
+              ],
+              "size": [
+                2.3562538623809814,
+                2.607961229979992,
+                2.7078787982463837
+              ]
+            },
+            "afterProductionScale": {
+              "min": [
+                -5.909131050109863,
+                -0.04976440593600273,
+                -2.3500869274139404
+              ],
+              "max": [
+                6.565154075622559,
+                13.757089614868164,
+                11.98574161529541
+              ],
+              "size": [
+                12.474285125732422,
+                13.806854020804167,
+                14.33582854270935
+              ]
+            },
+            "matrixWorld": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1
+            ]
+          },
+          {
+            "name": "mesh001_1",
+            "material": "island_tree_02_leaves",
+            "alphaTest": 0.45,
+            "vertices": 13218,
+            "triangles": 4500,
+            "raw": {
+              "min": [
+                -1.8782585859298706,
+                1.2499619722366333,
+                -1.1397640705108643
+              ],
+              "max": [
+                1.9643964767456055,
+                3.4115962982177734,
+                2.960134506225586
+              ],
+              "size": [
+                3.842655062675476,
+                2.16163432598114,
+                4.09989857673645
+              ]
+            },
+            "afterMatrixWorld": {
+              "min": [
+                -1.8782585859298706,
+                1.2499619722366333,
+                -1.1397640705108643
+              ],
+              "max": [
+                1.9643964767456055,
+                3.4115962982177734,
+                2.960134506225586
+              ],
+              "size": [
+                3.842655062675476,
+                2.16163432598114,
+                4.09989857673645
+              ]
+            },
+            "afterProductionScale": {
+              "min": [
+                -9.943721771240234,
+                6.617445945739746,
+                -6.034045219421387
+              ],
+              "max": [
+                10.39974594116211,
+                18.061391830444336,
+                15.671299934387207
+              ],
+              "size": [
+                20.343467712402344,
+                11.44394588470459,
+                21.705345153808594
+              ]
+            },
+            "matrixWorld": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1
+            ]
+          },
+          {
+            "name": "mesh001_2",
+            "material": "island_tree_02_branches",
+            "alphaTest": 0,
+            "vertices": 1299,
+            "triangles": 1491,
+            "raw": {
+              "min": [
+                -1.703477382659912,
+                1.4752633571624756,
+                -0.8112474679946899
+              ],
+              "max": [
+                1.797281265258789,
+                3.043586015701294,
+                2.5261659622192383
+              ],
+              "size": [
+                3.500758647918701,
+                1.5683226585388184,
+                3.3374134302139282
+              ]
+            },
+            "afterMatrixWorld": {
+              "min": [
+                -1.703477382659912,
+                1.4752633571624756,
+                -0.8112474679946899
+              ],
+              "max": [
+                1.797281265258789,
+                3.043586015701294,
+                2.5261659622192383
+              ],
+              "size": [
+                3.500758647918701,
+                1.5683226585388184,
+                3.3374134302139282
+              ]
+            },
+            "afterProductionScale": {
+              "min": [
+                -9.018409729003906,
+                7.81021785736084,
+                -4.294839382171631
+              ],
+              "max": [
+                9.515018463134766,
+                16.113101959228516,
+                13.373819351196289
+              ],
+              "size": [
+                18.533428192138672,
+                8.302884101867676,
+                17.66865873336792
+              ]
+            },
+            "matrixWorld": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1
+            ]
+          }
+        ],
+        "sizeRatioToNear": [
+          0.9132337534193279,
+          1.0043366230624593,
+          1.0072392500926597
+        ]
+      },
+      {
+        "file": "island-tree-far.glb",
+        "family": "island",
+        "lod": "far",
+        "productionScale": 5.294117647058823,
+        "rawUnion": {
+          "min": [
+            -1.962824821472168,
+            -0.009255977347493172,
+            -1.195715308189392
+          ],
+          "max": [
+            1.996899127960205,
+            3.4246745109558105,
+            2.899756908416748
+          ],
+          "size": [
+            3.959723949432373,
+            3.4339304883033037,
+            4.09547221660614
+          ]
+        },
+        "worldUnion": {
+          "min": [
+            -1.962824821472168,
+            -0.009255977347493172,
+            -1.195715308189392
+          ],
+          "max": [
+            1.996899127960205,
+            3.4246745109558105,
+            2.899756908416748
+          ],
+          "size": [
+            3.959723949432373,
+            3.4339304883033037,
+            4.09547221660614
+          ]
+        },
+        "productionUnion": {
+          "min": [
+            -10.391425132751465,
+            -0.049002233892679214,
+            -6.330257415771484
+          ],
+          "max": [
+            10.571819305419922,
+            18.130630493164062,
+            15.351654052734375
+          ],
+          "size": [
+            20.963244438171387,
+            18.17963272705674,
+            21.68191146850586
+          ]
+        },
+        "parts": [
+          {
+            "name": "mesh001",
+            "material": "island_tree_02",
+            "alphaTest": 0,
+            "vertices": 115,
+            "triangles": 140,
+            "raw": {
+              "min": [
+                -1.1161692142486572,
+                -0.009255977347493172,
+                -0.4439053237438202
+              ],
+              "max": [
+                1.2150157690048218,
+                2.531614065170288,
+                1.6726855039596558
+              ],
+              "size": [
+                2.331184983253479,
+                2.5408700425177813,
+                2.116590827703476
+              ]
+            },
+            "afterMatrixWorld": {
+              "min": [
+                -1.1161692142486572,
+                -0.009255977347493172,
+                -0.4439053237438202
+              ],
+              "max": [
+                1.2150157690048218,
+                2.531614065170288,
+                1.6726855039596558
+              ],
+              "size": [
+                2.331184983253479,
+                2.5408700425177813,
+                2.116590827703476
+              ]
+            },
+            "afterProductionScale": {
+              "min": [
+                -5.909131050109863,
+                -0.049002233892679214,
+                -2.3500869274139404
+              ],
+              "max": [
+                6.432436466217041,
+                13.40266227722168,
+                8.855393409729004
+              ],
+              "size": [
+                12.341567516326904,
+                13.451664511114359,
+                11.205480337142944
+              ]
+            },
+            "matrixWorld": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1
+            ]
+          },
+          {
+            "name": "mesh001_1",
+            "material": "island_tree_02_leaves",
+            "alphaTest": 0.45,
+            "vertices": 2100,
+            "triangles": 700,
+            "raw": {
+              "min": [
+                -1.962824821472168,
+                1.1991181373596191,
+                -1.195715308189392
+              ],
+              "max": [
+                1.996899127960205,
+                3.4246745109558105,
+                2.899756908416748
+              ],
+              "size": [
+                3.959723949432373,
+                2.2255563735961914,
+                4.09547221660614
+              ]
+            },
+            "afterMatrixWorld": {
+              "min": [
+                -1.962824821472168,
+                1.1991181373596191,
+                -1.195715308189392
+              ],
+              "max": [
+                1.996899127960205,
+                3.4246745109558105,
+                2.899756908416748
+              ],
+              "size": [
+                3.959723949432373,
+                2.2255563735961914,
+                4.09547221660614
+              ]
+            },
+            "afterProductionScale": {
+              "min": [
+                -10.391425132751465,
+                6.348272323608398,
+                -6.330257415771484
+              ],
+              "max": [
+                10.571819305419922,
+                18.130630493164062,
+                15.351654052734375
+              ],
+              "size": [
+                20.963244438171387,
+                11.782358169555664,
+                21.68191146850586
+              ]
+            },
+            "matrixWorld": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1
+            ]
+          },
+          {
+            "name": "mesh001_2",
+            "material": "island_tree_02_branches",
+            "alphaTest": 0,
+            "vertices": 224,
+            "triangles": 163,
+            "raw": {
+              "min": [
+                -1.6624616384506226,
+                1.6945276260375977,
+                -0.37895235419273376
+              ],
+              "max": [
+                1.4691383838653564,
+                3.043586015701294,
+                2.3012900352478027
+              ],
+              "size": [
+                3.131600022315979,
+                1.3490583896636963,
+                2.6802423894405365
+              ]
+            },
+            "afterMatrixWorld": {
+              "min": [
+                -1.6624616384506226,
+                1.6945276260375977,
+                -0.37895235419273376
+              ],
+              "max": [
+                1.4691383838653564,
+                3.043586015701294,
+                2.3012900352478027
+              ],
+              "size": [
+                3.131600022315979,
+                1.3490583896636963,
+                2.6802423894405365
+              ]
+            },
+            "afterProductionScale": {
+              "min": [
+                -8.801267623901367,
+                8.971028327941895,
+                -2.006218433380127
+              ],
+              "max": [
+                7.777791500091553,
+                16.113101959228516,
+                12.183300018310547
+              ],
+              "size": [
+                16.57905912399292,
+                7.142073631286621,
+                14.189518451690674
+              ]
+            },
+            "matrixWorld": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1
+            ]
+          }
+        ],
+        "sizeRatioToNear": [
+          0.9410560024851026,
+          1.00813392051313,
+          1.0061518070023068
+        ]
+      },
+      {
+        "file": "syringa-tree-near.glb",
+        "family": "syringa",
+        "lod": "near",
+        "productionScale": 3.0723712638923715,
+        "rawUnion": {
+          "min": [
+            -1.301299810409546,
+            -0.02410384640097618,
+            -1.3826267719268799
+          ],
+          "max": [
+            1.6077065467834473,
+            4.532637119293213,
+            2.9098503589630127
+          ],
+          "size": [
+            2.909006357192993,
+            4.556740965694189,
+            4.292477130889893
+          ]
+        },
+        "worldUnion": {
+          "min": [
+            -1.301299810409546,
+            -0.02410384640097618,
+            -1.3826267719268799
+          ],
+          "max": [
+            1.6077065467834473,
+            4.532637119293213,
+            2.9098503589630127
+          ],
+          "size": [
+            2.909006357192993,
+            4.556740965694189,
+            4.292477130889893
+          ]
+        },
+        "productionUnion": {
+          "min": [
+            -3.9980762004852295,
+            -0.07405596226453781,
+            -4.247942924499512
+          ],
+          "max": [
+            4.939471244812012,
+            13.925944328308105,
+            8.940140724182129
+          ],
+          "size": [
+            8.937547445297241,
+            14.000000290572643,
+            13.18808364868164
+          ]
+        },
+        "parts": [
+          {
+            "name": "BezierCurve002",
+            "material": "tree_small_02_branches",
+            "alphaTest": 0,
+            "vertices": 13043,
+            "triangles": 14446,
+            "raw": {
+              "min": [
+                -1.095399022102356,
+                1.6751073598861694,
+                -1.222615122795105
+              ],
+              "max": [
+                1.3608454465866089,
+                4.34970760345459,
+                2.737298011779785
+              ],
+              "size": [
+                2.456244468688965,
+                2.6746002435684204,
+                3.95991313457489
+              ]
+            },
+            "afterMatrixWorld": {
+              "min": [
+                -1.095399022102356,
+                1.6751073598861694,
+                -1.222615122795105
+              ],
+              "max": [
+                1.3608454465866089,
+                4.34970760345459,
+                2.737298011779785
+              ],
+              "size": [
+                2.456244468688965,
+                2.6746002435684204,
+                3.95991313457489
+              ]
+            },
+            "afterProductionScale": {
+              "min": [
+                -3.3654725551605225,
+                5.146551609039307,
+                -3.7563276290893555
+              ],
+              "max": [
+                4.181022644042969,
+                13.363916397094727,
+                8.409996032714844
+              ],
+              "size": [
+                7.546495199203491,
+                8.21736478805542,
+                12.1663236618042
+              ]
+            },
+            "matrixWorld": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1
+            ]
+          },
+          {
+            "name": "BezierCurve002_1",
+            "material": "tree_small_02_leaves",
+            "alphaTest": 0.45,
+            "vertices": 253658,
+            "triangles": 202906,
+            "raw": {
+              "min": [
+                -1.301299810409546,
+                1.4597431421279907,
+                -1.3826267719268799
+              ],
+              "max": [
+                1.6077065467834473,
+                4.532637119293213,
+                2.9098503589630127
+              ],
+              "size": [
+                2.909006357192993,
+                3.072893977165222,
+                4.292477130889893
+              ]
+            },
+            "afterMatrixWorld": {
+              "min": [
+                -1.301299810409546,
+                1.4597431421279907,
+                -1.3826267719268799
+              ],
+              "max": [
+                1.6077065467834473,
+                4.532637119293213,
+                2.9098503589630127
+              ],
+              "size": [
+                2.909006357192993,
+                3.072893977165222,
+                4.292477130889893
+              ]
+            },
+            "afterProductionScale": {
+              "min": [
+                -3.9980762004852295,
+                4.484872817993164,
+                -4.247942924499512
+              ],
+              "max": [
+                4.939471244812012,
+                13.925944328308105,
+                8.940140724182129
+              ],
+              "size": [
+                8.937547445297241,
+                9.441071510314941,
+                13.18808364868164
+              ]
+            },
+            "matrixWorld": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1
+            ]
+          },
+          {
+            "name": "BezierCurve002_2",
+            "material": "tree_small_02_trunk",
+            "alphaTest": 0,
+            "vertices": 15937,
+            "triangles": 28293,
+            "raw": {
+              "min": [
+                -0.7654515504837036,
+                -0.02410384640097618,
+                -0.39323970675468445
+              ],
+              "max": [
+                0.9303282499313354,
+                3.6645729541778564,
+                1.9231672286987305
+              ],
+              "size": [
+                1.695779800415039,
+                3.6886768005788326,
+                2.316406935453415
+              ]
+            },
+            "afterMatrixWorld": {
+              "min": [
+                -0.7654515504837036,
+                -0.02410384640097618,
+                -0.39323970675468445
+              ],
+              "max": [
+                0.9303282499313354,
+                3.6645729541778564,
+                1.9231672286987305
+              ],
+              "size": [
+                1.695779800415039,
+                3.6886768005788326,
+                2.316406935453415
+              ]
+            },
+            "afterProductionScale": {
+              "min": [
+                -2.3517513275146484,
+                -0.07405596226453781,
+                -1.2081784009933472
+              ],
+              "max": [
+                2.858313798904419,
+                11.258928298950195,
+                5.908683776855469
+              ],
+              "size": [
+                5.210065126419067,
+                11.332984261214733,
+                7.116862177848816
+              ]
+            },
+            "matrixWorld": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1
+            ]
+          }
+        ],
+        "sizeRatioToNear": [
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "file": "syringa-tree-hero.glb",
+        "family": "syringa",
+        "lod": "hero",
+        "productionScale": 3.0723712638923715,
+        "rawUnion": {
+          "min": [
+            -1.3501791954040527,
+            -0.02410384640097618,
+            -1.3796262741088867
+          ],
+          "max": [
+            1.6377999782562256,
+            4.551375865936279,
+            2.8086466789245605
+          ],
+          "size": [
+            2.9879791736602783,
+            4.5754797123372555,
+            4.188272953033447
+          ]
+        },
+        "worldUnion": {
+          "min": [
+            -1.3501791954040527,
+            -0.02410384640097618,
+            -1.3796262741088867
+          ],
+          "max": [
+            1.6377999782562256,
+            4.551375865936279,
+            2.8086466789245605
+          ],
+          "size": [
+            2.9879791736602783,
+            4.5754797123372555,
+            4.188272953033447
+          ]
+        },
+        "productionUnion": {
+          "min": [
+            -4.148251533508301,
+            -0.07405596226453781,
+            -4.238724231719971
+          ],
+          "max": [
+            5.0319294929504395,
+            13.983516693115234,
+            8.629205703735352
+          ],
+          "size": [
+            9.18018102645874,
+            14.057572655379772,
+            12.867929935455322
+          ]
+        },
+        "parts": [
+          {
+            "name": "BezierCurve002",
+            "material": "tree_small_02_branches",
+            "alphaTest": 0,
+            "vertices": 2462,
+            "triangles": 2116,
+            "raw": {
+              "min": [
+                -0.8039038181304932,
+                1.6758993864059448,
+                -1.0024418830871582
+              ],
+              "max": [
+                1.174271583557129,
+                4.316212177276611,
+                2.4448840618133545
+              ],
+              "size": [
+                1.978175401687622,
+                2.6403127908706665,
+                3.4473259449005127
+              ]
+            },
+            "afterMatrixWorld": {
+              "min": [
+                -0.8039038181304932,
+                1.6758993864059448,
+                -1.0024418830871582
+              ],
+              "max": [
+                1.174271583557129,
+                4.316212177276611,
+                2.4448840618133545
+              ],
+              "size": [
+                1.978175401687622,
+                2.6403127908706665,
+                3.4473259449005127
+              ]
+            },
+            "afterProductionScale": {
+              "min": [
+                -2.46989107131958,
+                5.148984909057617,
+                -3.079873561859131
+              ],
+              "max": [
+                3.6077983379364014,
+                13.261006355285645,
+                7.51159143447876
+              ],
+              "size": [
+                6.0776894092559814,
+                8.112021446228027,
+                10.59146499633789
+              ]
+            },
+            "matrixWorld": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1
+            ]
+          },
+          {
+            "name": "BezierCurve002_1",
+            "material": "tree_small_02_leaves",
+            "alphaTest": 0.45,
+            "vertices": 29304,
+            "triangles": 21000,
+            "raw": {
+              "min": [
+                -1.3501791954040527,
+                1.4456026554107666,
+                -1.3796262741088867
+              ],
+              "max": [
+                1.6377999782562256,
+                4.551375865936279,
+                2.8086466789245605
+              ],
+              "size": [
+                2.9879791736602783,
+                3.1057732105255127,
+                4.188272953033447
+              ]
+            },
+            "afterMatrixWorld": {
+              "min": [
+                -1.3501791954040527,
+                1.4456026554107666,
+                -1.3796262741088867
+              ],
+              "max": [
+                1.6377999782562256,
+                4.551375865936279,
+                2.8086466789245605
+              ],
+              "size": [
+                2.9879791736602783,
+                3.1057732105255127,
+                4.188272953033447
+              ]
+            },
+            "afterProductionScale": {
+              "min": [
+                -4.148251533508301,
+                4.441428184509277,
+                -4.238724231719971
+              ],
+              "max": [
+                5.0319294929504395,
+                13.983516693115234,
+                8.629205703735352
+              ],
+              "size": [
+                9.18018102645874,
+                9.542088508605957,
+                12.867929935455322
+              ]
+            },
+            "matrixWorld": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1
+            ]
+          },
+          {
+            "name": "BezierCurve002_2",
+            "material": "tree_small_02_trunk",
+            "alphaTest": 0,
+            "vertices": 1225,
+            "triangles": 1797,
+            "raw": {
+              "min": [
+                -0.7432189583778381,
+                -0.02410384640097618,
+                -0.39103877544403076
+              ],
+              "max": [
+                0.9274511933326721,
+                3.652723550796509,
+                1.9181606769561768
+              ],
+              "size": [
+                1.6706701517105103,
+                3.676827397197485,
+                2.3091994524002075
+              ]
+            },
+            "afterMatrixWorld": {
+              "min": [
+                -0.7432189583778381,
+                -0.02410384640097618,
+                -0.39103877544403076
+              ],
+              "max": [
+                0.9274511933326721,
+                3.652723550796509,
+                1.9181606769561768
+              ],
+              "size": [
+                1.6706701517105103,
+                3.676827397197485,
+                2.3091994524002075
+              ]
+            },
+            "afterProductionScale": {
+              "min": [
+                -2.28344464302063,
+                -0.07405596226453781,
+                -1.201416254043579
+              ],
+              "max": [
+                2.8494744300842285,
+                11.222522735595703,
+                5.893301963806152
+              ],
+              "size": [
+                5.132919073104858,
+                11.296578697860241,
+                7.0947182178497314
+              ]
+            },
+            "matrixWorld": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1
+            ]
+          }
+        ],
+        "sizeRatioToNear": [
+          1.0271476691616521,
+          1.004112311686586,
+          0.9757240155768709
+        ]
+      },
+      {
+        "file": "syringa-tree-medium.glb",
+        "family": "syringa",
+        "lod": "medium",
+        "productionScale": 3.0723712638923715,
+        "rawUnion": {
+          "min": [
+            -1.4242302179336548,
+            -0.02410384640097618,
+            -1.39174222946167
+          ],
+          "max": [
+            1.650462031364441,
+            4.653629779815674,
+            2.8749499320983887
+          ],
+          "size": [
+            3.0746922492980957,
+            4.67773362621665,
+            4.266692161560059
+          ]
+        },
+        "worldUnion": {
+          "min": [
+            -1.4242302179336548,
+            -0.02410384640097618,
+            -1.39174222946167
+          ],
+          "max": [
+            1.650462031364441,
+            4.653629779815674,
+            2.8749499320983887
+          ],
+          "size": [
+            3.0746922492980957,
+            4.67773362621665,
+            4.266692161560059
+          ]
+        },
+        "productionUnion": {
+          "min": [
+            -4.375763893127441,
+            -0.07405596226453781,
+            -4.275949001312256
+          ],
+          "max": [
+            5.070832252502441,
+            14.297677993774414,
+            8.832913398742676
+          ],
+          "size": [
+            9.446596145629883,
+            14.371733956038952,
+            13.108862400054932
+          ]
+        },
+        "parts": [
+          {
+            "name": "BezierCurve002",
+            "material": "tree_small_02_branches",
+            "alphaTest": 0,
+            "vertices": 931,
+            "triangles": 598,
+            "raw": {
+              "min": [
+                -0.7693644165992737,
+                1.677388072013855,
+                -0.7237160205841064
+              ],
+              "max": [
+                0.9943585991859436,
+                4.316212177276611,
+                2.270714044570923
+              ],
+              "size": [
+                1.7637230157852173,
+                2.6388241052627563,
+                2.9944300651550293
+              ]
+            },
+            "afterMatrixWorld": {
+              "min": [
+                -0.7693644165992737,
+                1.677388072013855,
+                -0.7237160205841064
+              ],
+              "max": [
+                0.9943585991859436,
+                4.316212177276611,
+                2.270714044570923
+              ],
+              "size": [
+                1.7637230157852173,
+                2.6388241052627563,
+                2.9944300651550293
+              ]
+            },
+            "afterProductionScale": {
+              "min": [
+                -2.3637731075286865,
+                5.153558731079102,
+                -2.223524332046509
+              ],
+              "max": [
+                3.0550386905670166,
+                13.261006355285645,
+                6.976476669311523
+              ],
+              "size": [
+                5.418811798095703,
+                8.107447624206543,
+                9.200001001358032
+              ]
+            },
+            "matrixWorld": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1
+            ]
+          },
+          {
+            "name": "BezierCurve002_1",
+            "material": "tree_small_02_leaves",
+            "alphaTest": 0.45,
+            "vertices": 8082,
+            "triangles": 4500,
+            "raw": {
+              "min": [
+                -1.4242302179336548,
+                1.4216245412826538,
+                -1.39174222946167
+              ],
+              "max": [
+                1.650462031364441,
+                4.653629779815674,
+                2.8749499320983887
+              ],
+              "size": [
+                3.0746922492980957,
+                3.23200523853302,
+                4.266692161560059
+              ]
+            },
+            "afterMatrixWorld": {
+              "min": [
+                -1.4242302179336548,
+                1.4216245412826538,
+                -1.39174222946167
+              ],
+              "max": [
+                1.650462031364441,
+                4.653629779815674,
+                2.8749499320983887
+              ],
+              "size": [
+                3.0746922492980957,
+                3.23200523853302,
+                4.266692161560059
+              ]
+            },
+            "afterProductionScale": {
+              "min": [
+                -4.375763893127441,
+                4.367758274078369,
+                -4.275949001312256
+              ],
+              "max": [
+                5.070832252502441,
+                14.297677993774414,
+                8.832913398742676
+              ],
+              "size": [
+                9.446596145629883,
+                9.929919719696045,
+                13.108862400054932
+              ]
+            },
+            "matrixWorld": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1
+            ]
+          },
+          {
+            "name": "BezierCurve002_2",
+            "material": "tree_small_02_trunk",
+            "alphaTest": 0,
+            "vertices": 633,
+            "triangles": 889,
+            "raw": {
+              "min": [
+                -0.7432189583778381,
+                -0.02410384640097618,
+                -0.37907156348228455
+              ],
+              "max": [
+                0.7787206172943115,
+                3.652723550796509,
+                1.9051004648208618
+              ],
+              "size": [
+                1.5219395756721497,
+                3.676827397197485,
+                2.2841720283031464
+              ]
+            },
+            "afterMatrixWorld": {
+              "min": [
+                -0.7432189583778381,
+                -0.02410384640097618,
+                -0.37907156348228455
+              ],
+              "max": [
+                0.7787206172943115,
+                3.652723550796509,
+                1.9051004648208618
+              ],
+              "size": [
+                1.5219395756721497,
+                3.676827397197485,
+                2.2841720283031464
+              ]
+            },
+            "afterProductionScale": {
+              "min": [
+                -2.28344464302063,
+                -0.07405596226453781,
+                -1.1646485328674316
+              ],
+              "max": [
+                2.3925187587738037,
+                11.222522735595703,
+                5.853176116943359
+              ],
+              "size": [
+                4.675963401794434,
+                11.296578697860241,
+                7.017824649810791
+              ]
+            },
+            "matrixWorld": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1
+            ]
+          }
+        ],
+        "sizeRatioToNear": [
+          1.0569561955836657,
+          1.0265524041250647,
+          0.993992967383504
+        ]
+      },
+      {
+        "file": "syringa-tree-far.glb",
+        "family": "syringa",
+        "lod": "far",
+        "productionScale": 3.0723712638923715,
+        "rawUnion": {
+          "min": [
+            -1.3404085636138916,
+            -0.02410384640097618,
+            -1.4137036800384521
+          ],
+          "max": [
+            1.6346921920776367,
+            4.537552356719971,
+            2.928701639175415
+          ],
+          "size": [
+            2.9751007556915283,
+            4.561656203120947,
+            4.342405319213867
+          ]
+        },
+        "worldUnion": {
+          "min": [
+            -1.3404085636138916,
+            -0.02410384640097618,
+            -1.4137036800384521
+          ],
+          "max": [
+            1.6346921920776367,
+            4.537552356719971,
+            2.928701639175415
+          ],
+          "size": [
+            2.9751007556915283,
+            4.561656203120947,
+            4.342405319213867
+          ]
+        },
+        "productionUnion": {
+          "min": [
+            -4.118232727050781,
+            -0.07405596226453781,
+            -4.3434224128723145
+          ],
+          "max": [
+            5.02238130569458,
+            13.941045761108398,
+            8.998058319091797
+          ],
+          "size": [
+            9.140614032745361,
+            14.015101723372936,
+            13.341480731964111
+          ]
+        },
+        "parts": [
+          {
+            "name": "BezierCurve002",
+            "material": "tree_small_02_branches",
+            "alphaTest": 0,
+            "vertices": 164,
+            "triangles": 101,
+            "raw": {
+              "min": [
+                -0.517314076423645,
+                1.781920313835144,
+                -0.5226027965545654
+              ],
+              "max": [
+                0.8787906765937805,
+                3.8968071937561035,
+                2.270714044570923
+              ],
+              "size": [
+                1.3961047530174255,
+                2.1148868799209595,
+                2.7933168411254883
+              ]
+            },
+            "afterMatrixWorld": {
+              "min": [
+                -0.517314076423645,
+                1.781920313835144,
+                -0.5226027965545654
+              ],
+              "max": [
+                0.8787906765937805,
+                3.8968071937561035,
+                2.270714044570923
+              ],
+              "size": [
+                1.3961047530174255,
+                2.1148868799209595,
+                2.7933168411254883
+              ]
+            },
+            "afterProductionScale": {
+              "min": [
+                -1.5893808603286743,
+                5.4747209548950195,
+                -1.605629801750183
+              ],
+              "max": [
+                2.6999711990356445,
+                11.97243881225586,
+                6.976476669311523
+              ],
+              "size": [
+                4.289352059364319,
+                6.49771785736084,
+                8.582106471061707
+              ]
+            },
+            "matrixWorld": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1
+            ]
+          },
+          {
+            "name": "BezierCurve002_1",
+            "material": "tree_small_02_trunk",
+            "alphaTest": 0,
+            "vertices": 116,
+            "triangles": 177,
+            "raw": {
+              "min": [
+                -0.629109263420105,
+                -0.02410384640097618,
+                -0.09110632538795471
+              ],
+              "max": [
+                0.28597527742385864,
+                3.4604861736297607,
+                1.9051004648208618
+              ],
+              "size": [
+                0.9150845408439636,
+                3.484590020030737,
+                1.9962067902088165
+              ]
+            },
+            "afterMatrixWorld": {
+              "min": [
+                -0.629109263420105,
+                -0.02410384640097618,
+                -0.09110632538795471
+              ],
+              "max": [
+                0.28597527742385864,
+                3.4604861736297607,
+                1.9051004648208618
+              ],
+              "size": [
+                0.9150845408439636,
+                3.484590020030737,
+                1.9962067902088165
+              ]
+            },
+            "afterProductionScale": {
+              "min": [
+                -1.9328572750091553,
+                -0.07405596226453781,
+                -0.27991244196891785
+              ],
+              "max": [
+                0.8786222338676453,
+                10.631897926330566,
+                5.853176116943359
+              ],
+              "size": [
+                2.8114795088768005,
+                10.705953888595104,
+                6.133088558912277
+              ]
+            },
+            "matrixWorld": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1
+            ]
+          },
+          {
+            "name": "BezierCurve002_2",
+            "material": "tree_small_02_canopy_bake",
+            "alphaTest": 0.45,
+            "vertices": 1392,
+            "triangles": 696,
+            "raw": {
+              "min": [
+                -1.3404085636138916,
+                1.4268691539764404,
+                -1.4137036800384521
+              ],
+              "max": [
+                1.6346921920776367,
+                4.537552356719971,
+                2.928701639175415
+              ],
+              "size": [
+                2.9751007556915283,
+                3.1106832027435303,
+                4.342405319213867
+              ]
+            },
+            "afterMatrixWorld": {
+              "min": [
+                -1.3404085636138916,
+                1.4268691539764404,
+                -1.4137036800384521
+              ],
+              "max": [
+                1.6346921920776367,
+                4.537552356719971,
+                2.928701639175415
+              ],
+              "size": [
+                2.9751007556915283,
+                3.1106832027435303,
+                4.342405319213867
+              ]
+            },
+            "afterProductionScale": {
+              "min": [
+                -4.118232727050781,
+                4.383871555328369,
+                -4.3434224128723145
+              ],
+              "max": [
+                5.02238130569458,
+                13.941045761108398,
+                8.998058319091797
+              ],
+              "size": [
+                9.140614032745361,
+                9.55717420578003,
+                13.341480731964111
+              ]
+            },
+            "matrixWorld": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1
+            ]
+          }
+        ],
+        "sizeRatioToNear": [
+          1.0227206164432694,
+          1.0010786737490613,
+          1.0116314915319637
+        ]
+      },
+      {
+        "file": "palm-tree.glb",
+        "family": "palm",
+        "lod": "single",
+        "productionScale": 1.910222700460169,
+        "rawUnion": {
+          "min": [
+            -2.067574977874756,
+            0,
+            -2.1811726093292236
+          ],
+          "max": [
+            2.8939149379730225,
+            10.99348258972168,
+            2.760434865951538
+          ],
+          "size": [
+            4.961489915847778,
+            10.99348258972168,
+            4.941607475280762
+          ]
+        },
+        "worldUnion": {
+          "min": [
+            -2.067574977874756,
+            0,
+            -2.1811726093292236
+          ],
+          "max": [
+            2.8939149379730225,
+            10.99348258972168,
+            2.760434865951538
+          ],
+          "size": [
+            4.961489915847778,
+            10.99348258972168,
+            4.941607475280762
+          ]
+        },
+        "productionUnion": {
+          "min": [
+            -3.949528694152832,
+            0,
+            -4.166525363922119
+          ],
+          "max": [
+            5.528021812438965,
+            21,
+            5.273045539855957
+          ],
+          "size": [
+            9.477550506591797,
+            21,
+            9.439570903778076
+          ]
+        },
+        "parts": [
+          {
+            "name": "Palm_Tree_v2_1",
+            "material": "Palm bark and fronds",
+            "alphaTest": 0.45,
+            "vertices": 743,
+            "triangles": 1032,
+            "raw": {
+              "min": [
+                -2.067574977874756,
+                0,
+                -2.1811726093292236
+              ],
+              "max": [
+                2.8939149379730225,
+                10.99348258972168,
+                2.760434865951538
+              ],
+              "size": [
+                4.961489915847778,
+                10.99348258972168,
+                4.941607475280762
+              ]
+            },
+            "afterMatrixWorld": {
+              "min": [
+                -2.067574977874756,
+                0,
+                -2.1811726093292236
+              ],
+              "max": [
+                2.8939149379730225,
+                10.99348258972168,
+                2.760434865951538
+              ],
+              "size": [
+                4.961489915847778,
+                10.99348258972168,
+                4.941607475280762
+              ]
+            },
+            "afterProductionScale": {
+              "min": [
+                -3.949528694152832,
+                0,
+                -4.166525363922119
+              ],
+              "max": [
+                5.528021812438965,
+                21,
+                5.273045539855957
+              ],
+              "size": [
+                9.477550506591797,
+                21,
+                9.439570903778076
+              ]
+            },
+            "matrixWorld": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              1
+            ]
+          }
+        ],
+        "sizeRatioToNear": [
+          1,
+          1,
+          1
+        ]
+      }
+    ],
+    "placementSummary": [
+      {
+        "family": "island",
+        "count": 5908,
+        "scaleRange": [
+          0.45041302788304166,
+          1.1999577002227306
+        ],
+        "rootHeightRange": [
+          1.258475497232788,
+          285.08613742435045
+        ],
+        "instanceHeightRange": [
+          8.122277463124622,
+          21.638782144091913
+        ],
+        "meanInstanceHeight": 16.213394510588678
+      },
+      {
+        "family": "syringa",
+        "count": 2352,
+        "scaleRange": [
+          0.45063811091240497,
+          1.199622605741024
+        ],
+        "rootHeightRange": [
+          1.4935435097827308,
+          274.88663086926607
+        ],
+        "instanceHeightRange": [
+          6.308933683716776,
+          16.79471682895185
+        ],
+        "meanInstanceHeight": 12.350713521112517
+      },
+      {
+        "family": "palm",
+        "count": 240,
+        "scaleRange": [
+          0.5864755498245358,
+          1.2384981560148298
+        ],
+        "rootHeightRange": [
+          1.3696747184836706,
+          29.732993264651515
+        ],
+        "instanceHeightRange": [
+          12.315986546315251,
+          26.008461276311426
+        ],
+        "meanInstanceHeight": 21.02820710599074
+      }
+    ],
+    "lodRanges": [
+      24,
+      48,
+      80,
+      135,
+      245,
+      325
+    ],
+    "cameras": [
+      {
+        "name": "mountain-wide",
+        "position": [
+          -465,
+          300,
+          -220
+        ],
+        "perFamily": [
+          {
+            "family": "island",
+            "placementCount": 5908,
+            "cellCount": 112,
+            "activeCellLevels": [
+              0,
+              0,
+              10,
+              112
+            ],
+            "activePlacementLevels": [
+              0,
+              0,
+              523,
+              5908
+            ],
+            "nearRootsInsidePackRange": 0,
+            "minDistance": 276.7260070855318,
+            "maxDistance": 1436.4162923709464
+          },
+          {
+            "family": "syringa",
+            "placementCount": 2352,
+            "cellCount": 111,
+            "activeCellLevels": [
+              0,
+              0,
+              10,
+              111
+            ],
+            "activePlacementLevels": [
+              0,
+              0,
+              189,
+              2352
+            ],
+            "nearRootsInsidePackRange": 0,
+            "minDistance": 276.59930408338766,
+            "maxDistance": 1429.6538298415296
+          },
+          {
+            "family": "palm",
+            "placementCount": 240,
+            "cellCount": 25,
+            "activeCellLevels": [
+              25,
+              0,
+              0,
+              0
+            ],
+            "activePlacementLevels": [
+              240,
+              0,
+              0,
+              0
+            ],
+            "nearRootsInsidePackRange": 0,
+            "minDistance": 275.93771959568295,
+            "maxDistance": 1024.6350877559366
+          }
+        ]
+      },
+      {
+        "name": "descent-reveal",
+        "position": [
+          -100,
+          95,
+          152
+        ],
+        "perFamily": [
+          {
+            "family": "island",
+            "placementCount": 5908,
+            "cellCount": 112,
+            "activeCellLevels": [
+              4,
+              11,
+              39,
+              105
+            ],
+            "activePlacementLevels": [
+              131,
+              374,
+              1734,
+              5706
+            ],
+            "nearRootsInsidePackRange": 4,
+            "minDistance": 43.078305694417665,
+            "maxDistance": 893.632465635065
+          },
+          {
+            "family": "syringa",
+            "placementCount": 2352,
+            "cellCount": 111,
+            "activeCellLevels": [
+              4,
+              8,
+              34,
+              105
+            ],
+            "activePlacementLevels": [
+              60,
+              154,
+              669,
+              2259
+            ],
+            "nearRootsInsidePackRange": 0,
+            "minDistance": 49.277817326147805,
+            "maxDistance": 887.3242188269909
+          },
+          {
+            "family": "palm",
+            "placementCount": 240,
+            "cellCount": 25,
+            "activeCellLevels": [
+              25,
+              0,
+              0,
+              0
+            ],
+            "activePlacementLevels": [
+              240,
+              0,
+              0,
+              0
+            ],
+            "nearRootsInsidePackRange": 0,
+            "minDistance": 75.85373735461857,
+            "maxDistance": 755.3665356582283
+          }
+        ]
+      },
+      {
+        "name": "canopy-close",
+        "position": [
+          -105,
+          203.24458855396503,
+          270
+        ],
+        "perFamily": [
+          {
+            "family": "island",
+            "placementCount": 5908,
+            "cellCount": 112,
+            "activeCellLevels": [
+              3,
+              11,
+              39,
+              108
+            ],
+            "activePlacementLevels": [
+              44,
+              382,
+              1885,
+              5836
+            ],
+            "nearRootsInsidePackRange": 1,
+            "minDistance": 39.78831910376903,
+            "maxDistance": 878.1498151763483
+          },
+          {
+            "family": "syringa",
+            "placementCount": 2352,
+            "cellCount": 111,
+            "activeCellLevels": [
+              3,
+              9,
+              37,
+              107
+            ],
+            "activePlacementLevels": [
+              43,
+              160,
+              759,
+              2295
+            ],
+            "nearRootsInsidePackRange": 5,
+            "minDistance": 33.81051380339195,
+            "maxDistance": 883.3106939263255
+          },
+          {
+            "family": "palm",
+            "placementCount": 240,
+            "cellCount": 25,
+            "activeCellLevels": [
+              25,
+              0,
+              0,
+              0
+            ],
+            "activePlacementLevels": [
+              240,
+              0,
+              0,
+              0
+            ],
+            "nearRootsInsidePackRange": 0,
+            "minDistance": 216.75938414986894,
+            "maxDistance": 847.9143692513029
+          }
+        ]
+      }
+    ]
+  }
+}

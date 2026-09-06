@@ -1,0 +1,25 @@
+{
+  "method": "16x16 DOM-observed canvas creation at http://terminal.local:4173/docs/diagnostics/graphics.html",
+  "secureContext": false,
+  "webGPUApi": false,
+  "contexts": [
+    {
+      "type": "webgl2",
+      "powerPreference": "default",
+      "created": false,
+      "error": "Could not create a WebGL context, VENDOR = 0xffff, DEVICE = 0xffff, GL_VENDOR = Disabled, GL_RENDERER = Disabled, Sandboxed = yes, Optimus = no, AMD switchable = no, Reset notification strategy = 0x0000, ErrorMessage = BindToCurrentSequence failed: ."
+    },
+    {
+      "type": "webgl2",
+      "powerPreference": "low-power",
+      "created": false,
+      "error": "Could not create a WebGL context, VENDOR = 0xffff, DEVICE = 0xffff, GL_VENDOR = Disabled, GL_RENDERER = Disabled, Sandboxed = yes, Optimus = no, AMD switchable = no, Reset notification strategy = 0x0000, ErrorMessage = BindToCurrentSequence failed: ."
+    },
+    {
+      "type": "webgl",
+      "powerPreference": "default",
+      "created": false,
+      "error": "Could not create a WebGL context, VENDOR = 0xffff, DEVICE = 0xffff, GL_VENDOR = Disabled, GL_RENDERER = Disabled, Sandboxed = yes, Optimus = no, AMD switchable = no, Reset notification strategy = 0x0000, ErrorMessage = BindToCurrentSequence failed: ."
+    }
+  ]
+}

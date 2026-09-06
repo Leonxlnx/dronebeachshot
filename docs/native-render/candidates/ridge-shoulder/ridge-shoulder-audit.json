@@ -1,0 +1,361 @@
+{
+  "shoreSamples": 14615,
+  "shoreMaxDifference": 0,
+  "atlasSamples": 1000,
+  "atlasMaxDifference": 0,
+  "terrainTriangleRaySamples": 100,
+  "triangleMaxError": 1.1368683772161603e-13,
+  "route": {
+    "samples": 1201,
+    "minTerrainClearance": 4.895214576153755,
+    "minActualTreeBoxClearance": 3.19999999999996,
+    "minRockBoxClearance": 27.2096651255346,
+    "maxSpeed": 88.21484193562753,
+    "postRejoinMaxPositionDifference": 0
+  },
+  "evaluation": [
+    {
+      "name": "mountain-wide",
+      "position": [
+        -465,
+        300,
+        -220
+      ],
+      "oldPosition": [
+        -465,
+        300,
+        -220
+      ],
+      "terrain": 33.58114433288574,
+      "terrainClearance": 266.41885566711426,
+      "crownTop": 61.557808275792425,
+      "crownClearance": 238.4421917242076,
+      "rockTop": null,
+      "rockClearance": null
+    },
+    {
+      "name": "canopy-high",
+      "position": [
+        -165,
+        333.64674377441406,
+        340
+      ],
+      "oldPosition": [
+        -165,
+        333.57981841795265,
+        340
+      ],
+      "terrain": 278.64674377441406,
+      "terrainClearance": 55,
+      "crownTop": 316.47711689659764,
+      "crownClearance": 17.169626877816427,
+      "rockTop": null,
+      "rockClearance": null
+    },
+    {
+      "name": "canopy-close",
+      "position": [
+        -105,
+        281.8135269165039,
+        270
+      ],
+      "oldPosition": [
+        -105,
+        259.9197585183996,
+        270
+      ],
+      "terrain": 237.0135269165039,
+      "terrainClearance": 44.80000000000001,
+      "crownTop": 278.591182754256,
+      "crownClearance": 3.222344162247907,
+      "rockTop": null,
+      "rockClearance": null
+    },
+    {
+      "name": "forest-opening",
+      "position": [
+        -84,
+        128.93751525878906,
+        170
+      ],
+      "oldPosition": [
+        -84,
+        91.43751593134012,
+        170
+      ],
+      "terrain": 83.43751525878906,
+      "terrainClearance": 45.5,
+      "crownTop": 125.65333868562846,
+      "crownClearance": 3.2841765731606074,
+      "rockTop": 80.17300555205475,
+      "rockClearance": 48.764509706734316
+    },
+    {
+      "name": "descent-reveal",
+      "position": [
+        -100,
+        98.5,
+        152
+      ],
+      "oldPosition": [
+        -100,
+        95,
+        152
+      ],
+      "terrain": 54.528846740722656,
+      "terrainClearance": 43.971153259277344,
+      "crownTop": 95.20155665538903,
+      "crownClearance": 3.2984433446109733,
+      "rockTop": 72.96797066221689,
+      "rockClearance": 25.532029337783115
+    },
+    {
+      "name": "beach-transition",
+      "position": [
+        -55,
+        7,
+        113
+      ],
+      "oldPosition": [
+        -55,
+        7,
+        113
+      ],
+      "terrain": 2.2909648418426514,
+      "terrainClearance": 4.709035158157349,
+      "crownTop": 25.17379220832856,
+      "crownClearance": -18.17379220832856,
+      "rockTop": null,
+      "rockClearance": null
+    },
+    {
+      "name": "sand-detail",
+      "position": [
+        30,
+        2.4,
+        125.54321882298294
+      ],
+      "oldPosition": [
+        30,
+        2.4,
+        125.54321882298294
+      ],
+      "terrain": 0.9386524900331046,
+      "terrainClearance": 1.4613475099668953,
+      "crownTop": null,
+      "crownClearance": null,
+      "rockTop": null,
+      "rockClearance": null
+    },
+    {
+      "name": "wet-sand",
+      "position": [
+        8,
+        1.1,
+        102
+      ],
+      "oldPosition": [
+        8,
+        1.1,
+        102
+      ],
+      "terrain": -0.03414425253868103,
+      "terrainClearance": 1.1341442525386811,
+      "crownTop": null,
+      "crownClearance": null,
+      "rockTop": null,
+      "rockClearance": null
+    },
+    {
+      "name": "low-wave",
+      "position": [
+        55,
+        1.8,
+        60
+      ],
+      "oldPosition": [
+        55,
+        1.8,
+        60
+      ],
+      "terrain": -4.351791620254517,
+      "terrainClearance": 6.151791620254516,
+      "crownTop": null,
+      "crownClearance": null,
+      "rockTop": null,
+      "rockClearance": null
+    },
+    {
+      "name": "breaking-wave-side",
+      "position": [
+        -45,
+        3.2,
+        63
+      ],
+      "oldPosition": [
+        -45,
+        3.2,
+        63
+      ],
+      "terrain": -1.7631171345710754,
+      "terrainClearance": 4.963117134571076,
+      "crownTop": null,
+      "crownClearance": null,
+      "rockTop": null,
+      "rockClearance": null
+    },
+    {
+      "name": "shallow-water",
+      "position": [
+        90,
+        24,
+        20
+      ],
+      "oldPosition": [
+        90,
+        24,
+        20
+      ],
+      "terrain": -5.991976737976074,
+      "terrainClearance": 29.991976737976074,
+      "crownTop": null,
+      "crownClearance": null,
+      "rockTop": null,
+      "rockClearance": null
+    },
+    {
+      "name": "headland",
+      "position": [
+        260,
+        35,
+        -120
+      ],
+      "oldPosition": [
+        260,
+        35,
+        -120
+      ],
+      "terrain": -3.361006736755371,
+      "terrainClearance": 38.36100673675537,
+      "crownTop": null,
+      "crownClearance": null,
+      "rockTop": null,
+      "rockClearance": null
+    },
+    {
+      "name": "sunset-reflection",
+      "position": [
+        10,
+        4,
+        -28
+      ],
+      "oldPosition": [
+        10,
+        4,
+        -28
+      ],
+      "terrain": -12.190265655517578,
+      "terrainClearance": 16.190265655517578,
+      "crownTop": null,
+      "crownClearance": null,
+      "rockTop": null,
+      "rockClearance": null
+    },
+    {
+      "name": "shoreline-flight",
+      "position": [
+        -150,
+        8,
+        30
+      ],
+      "oldPosition": [
+        -150,
+        8,
+        30
+      ],
+      "terrain": -0.8908000588417053,
+      "terrainClearance": 8.890800058841705,
+      "crownTop": null,
+      "crownClearance": null,
+      "rockTop": null,
+      "rockClearance": null
+    },
+    {
+      "name": "final-wide",
+      "position": [
+        -290,
+        140,
+        -295
+      ],
+      "oldPosition": [
+        -290,
+        140,
+        -295
+      ],
+      "terrain": -13.02907943725586,
+      "terrainClearance": 153.02907943725586,
+      "crownTop": null,
+      "crownClearance": null,
+      "rockTop": null,
+      "rockClearance": null
+    },
+    {
+      "name": "mobile-proof",
+      "position": [
+        -390,
+        230,
+        -195
+      ],
+      "oldPosition": [
+        -390,
+        230,
+        -195
+      ],
+      "terrain": 1.0519656538963318,
+      "terrainClearance": 228.94803434610367,
+      "crownTop": 19.35748644462702,
+      "crownClearance": 210.64251355537297,
+      "rockTop": null,
+      "rockClearance": null
+    }
+  ],
+  "placements": {
+    "old": 14000,
+    "candidate": 14000,
+    "unchangedXZ": 13901,
+    "oldRootMismatchMean": 0,
+    "oldRootMismatchMax": 0
+  },
+  "candidateCoastalField": {
+    "resolution": 1024,
+    "texelMeters": [
+      1.171875,
+      1.513671875
+    ],
+    "textureBytes": 16777216,
+    "instancesVisited": 340,
+    "instancesRasterized": 118,
+    "trianglesVisited": 5192,
+    "trianglesRasterized": 2471,
+    "degenerateTriangles": 0,
+    "rockSamples": 3586,
+    "blockingSamples": 1963,
+    "buildMilliseconds": 8335.869870999999,
+    "terrainMilliseconds": 7841.1979249999995,
+    "rasterMilliseconds": 64.51201500000025,
+    "distanceMilliseconds": 145.52828200000113,
+    "shelter": "directional-advection-diffusion",
+    "shelterMilliseconds": 284.05531300000075,
+    "distanceMethod": "anisotropic-8-neighbor-chamfer"
+  },
+  "originalSummitAnchor": {
+    "x": -126,
+    "z": 350,
+    "height": 311.5539931717858
+  },
+  "actualGridSummit": {
+    "x": -120,
+    "z": 354,
+    "y": 313
+  }
+}

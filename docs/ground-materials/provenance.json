@@ -1,0 +1,349 @@
+{
+  "schema": "last-light-bay-material-provenance-v1",
+  "prepared_utc": "2026-09-05T03:13:08.113251+00:00",
+  "license": {
+    "name": "Creative Commons CC0 1.0 Universal",
+    "spdx": "CC0-1.0",
+    "source_url": "https://polyhaven.com/license",
+    "legal_url": "https://creativecommons.org/publicdomain/zero/1.0/"
+  },
+  "tools": {
+    "python": "3.12.13",
+    "pillow": "12.3.0",
+    "numpy": "2.3.5"
+  },
+  "scope": "Two source material sets only. No Site edits and no scene/render verification.",
+  "materials": [
+    {
+      "asset_id": "forest_ground_05",
+      "source_name": "Forest Ground 05",
+      "role": "forest_floor",
+      "description": "Brown forest soil",
+      "authors": {
+        "Charlotte Baglioni": "All"
+      },
+      "source_page": "https://polyhaven.com/a/forest_ground_05",
+      "api_info_url": "https://api.polyhaven.com/info/forest_ground_05",
+      "api_files_url": "https://api.polyhaven.com/files/forest_ground_05",
+      "license": "CC0-1.0",
+      "api_dimensions_mm": [
+        2000,
+        2000
+      ],
+      "recommended_world_tile_size_m": 2.0,
+      "api_records": [
+        {
+          "file": "sources/forest_ground_05/info.json",
+          "sha256": "2cd4a0b4f16eab2816e65c61d05810958d6e126ef4e141ff61b2748dae04521c"
+        },
+        {
+          "file": "sources/forest_ground_05/files.json",
+          "sha256": "bd3693bff92ea1728559504be3f5eeabd777eda4a7f5f1b1fcc73bfa820fbaba"
+        }
+      ],
+      "files": [
+        {
+          "map": "Diffuse",
+          "output_file": "textures/forest_ground_05_diff_2k.webp",
+          "output_sha256": "d4cc33ba4a495a931122cda9976d9e0758a79021d5f66ca3bb8afefafd908634",
+          "output_bytes": 1193836,
+          "dimensions": [
+            2048,
+            2048
+          ],
+          "output_bit_depth": 8,
+          "channels": "RGB",
+          "meaningful_alpha_preserved": false,
+          "color_space": "sRGB",
+          "normal_convention": null,
+          "source": {
+            "asset": "forest_ground_05",
+            "channel": "Diffuse",
+            "path": "sources/forest_ground_05/forest_ground_05_diff_2k.png",
+            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/forest_ground_05/forest_ground_05_diff_2k.png",
+            "api_md5": "2d80251d15738b4456622860daa0bd17",
+            "sha256": "b07e2944c368570366ad32a8e3a0edfd4fa448e796189a5eff5dd019d300f808",
+            "bytes": 21732010,
+            "png_bit_depth": 16,
+            "metadata_gamma": 0.45455,
+            "metadata_oiio_color_space": "sRGB"
+          },
+          "encoding": {
+            "container": "WebP",
+            "lossless": false,
+            "quality": 94,
+            "method": 6
+          },
+          "verification": {
+            "decoded_rms_error_8bit": 1.9607066592331963,
+            "decoded_max_error_8bit": 34,
+            "lossless_data_exact": false
+          },
+          "modifications": [
+            "Decode the official 2K PNG without resizing, cropping, recoloring, or spatial filtering.",
+            "Strip source EXIF/OIIO/gamma/display metadata; retain raw RGB sample values.",
+            "Quantize source 16-bit RGB PNG to 8-bit RGB through Pillow decoding for WebP storage.",
+            "Encode WebP at quality 94, method 6; attach an sRGB ICC profile without changing color values."
+          ]
+        },
+        {
+          "map": "nor_gl",
+          "output_file": "textures/forest_ground_05_nor_gl_2k.webp",
+          "output_sha256": "5f9e07b047de75b7475a45c57669dc338a99a92854989ae3eb243f3b78acc54c",
+          "output_bytes": 8457132,
+          "dimensions": [
+            2048,
+            2048
+          ],
+          "output_bit_depth": 8,
+          "channels": "RGB",
+          "meaningful_alpha_preserved": false,
+          "color_space": "linear data / NoColorSpace",
+          "normal_convention": "OpenGL +Y",
+          "source": {
+            "asset": "forest_ground_05",
+            "channel": "nor_gl",
+            "path": "sources/forest_ground_05/forest_ground_05_nor_gl_2k.png",
+            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/forest_ground_05/forest_ground_05_nor_gl_2k.png",
+            "api_md5": "f167f14855ce1716b55f618b024ed86d",
+            "sha256": "281204542c97335ca15d03a92d2279f9389917adf818d41828d4c43ffc358bf8",
+            "bytes": 23440100,
+            "png_bit_depth": 16,
+            "metadata_gamma": 0.45455,
+            "metadata_oiio_color_space": "sRGB"
+          },
+          "encoding": {
+            "container": "WebP",
+            "lossless": true,
+            "quality": 100,
+            "method": 6
+          },
+          "verification": {
+            "decoded_rms_error_8bit": 0.0,
+            "decoded_max_error_8bit": 0,
+            "lossless_data_exact": true
+          },
+          "modifications": [
+            "Decode the official 2K PNG without resizing, cropping, recoloring, or spatial filtering.",
+            "Strip source EXIF/OIIO/gamma/display metadata; retain raw RGB sample values.",
+            "Quantize source 16-bit RGB PNG to 8-bit RGB through Pillow decoding for WebP storage.",
+            "Encode lossless WebP, method 6; verify decoded bytes match the 8-bit source decode exactly.",
+            "Keep the official OpenGL +Y normal convention; no green-channel flip and no gamma transform."
+          ]
+        },
+        {
+          "map": "arm",
+          "output_file": "textures/forest_ground_05_arm_2k.webp",
+          "output_sha256": "a53ccffa1f4502fdcf1cba0a23543d3bbe73d7c3e419c7568c31073130e18c6a",
+          "output_bytes": 4059720,
+          "dimensions": [
+            2048,
+            2048
+          ],
+          "output_bit_depth": 8,
+          "channels": "RGB",
+          "meaningful_alpha_preserved": false,
+          "color_space": "linear data / NoColorSpace",
+          "normal_convention": null,
+          "source": {
+            "asset": "forest_ground_05",
+            "channel": "arm",
+            "path": "sources/forest_ground_05/forest_ground_05_arm_2k.png",
+            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/forest_ground_05/forest_ground_05_arm_2k.png",
+            "api_md5": "bda07ab79c8e63cbb5e58d18a1e455b4",
+            "sha256": "c58eb8d4ec7040569249d2a5a206675f78e9e90b143fc112e8bba0065c8af039",
+            "bytes": 16893688,
+            "png_bit_depth": 16,
+            "metadata_gamma": 0.45455,
+            "metadata_oiio_color_space": "Gamma2.2"
+          },
+          "encoding": {
+            "container": "WebP",
+            "lossless": true,
+            "quality": 100,
+            "method": 6
+          },
+          "verification": {
+            "decoded_rms_error_8bit": 0.0,
+            "decoded_max_error_8bit": 0,
+            "lossless_data_exact": true
+          },
+          "modifications": [
+            "Decode the official 2K PNG without resizing, cropping, recoloring, or spatial filtering.",
+            "Strip source EXIF/OIIO/gamma/display metadata; retain raw RGB sample values.",
+            "Quantize source 16-bit RGB PNG to 8-bit RGB through Pillow decoding for WebP storage.",
+            "Encode lossless WebP, method 6; verify decoded bytes match the 8-bit source decode exactly.",
+            "Keep official ARM packing: R=ambient occlusion, G=roughness, B=metalness; no gamma transform or repacking."
+          ]
+        }
+      ]
+    },
+    {
+      "asset_id": "forest_leaves_02",
+      "source_name": "Forest Leaves 02",
+      "role": "moss",
+      "description": "Moss patches and leaf litter",
+      "authors": {
+        "Rob Tuytel": "All"
+      },
+      "source_page": "https://polyhaven.com/a/forest_leaves_02",
+      "api_info_url": "https://api.polyhaven.com/info/forest_leaves_02",
+      "api_files_url": "https://api.polyhaven.com/files/forest_leaves_02",
+      "license": "CC0-1.0",
+      "api_dimensions_mm": [
+        3000.9725093841553,
+        3000.9801387786865
+      ],
+      "recommended_world_tile_size_m": 3.001,
+      "api_records": [
+        {
+          "file": "sources/forest_leaves_02/info.json",
+          "sha256": "cc64aad4f2fe59c3a5a86a468c7ade9a9979f4412d950c0d3088958a10605461"
+        },
+        {
+          "file": "sources/forest_leaves_02/files.json",
+          "sha256": "699ecdd756c337c63ea2fbe5fa6362623d0d9a9c1ddb7151cf53c71a37f8927f"
+        }
+      ],
+      "files": [
+        {
+          "map": "Diffuse",
+          "output_file": "textures/forest_leaves_02_diff_2k.webp",
+          "output_sha256": "d4fdb0fc221f6141a0a0f160eaa5dd00aecad103e11a2b6a690e18863e45c109",
+          "output_bytes": 2483370,
+          "dimensions": [
+            2048,
+            2048
+          ],
+          "output_bit_depth": 8,
+          "channels": "RGB",
+          "meaningful_alpha_preserved": false,
+          "color_space": "sRGB",
+          "normal_convention": null,
+          "source": {
+            "asset": "forest_leaves_02",
+            "channel": "Diffuse",
+            "path": "sources/forest_leaves_02/forest_leaves_02_diffuse_2k.png",
+            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/forest_leaves_02/forest_leaves_02_diffuse_2k.png",
+            "api_md5": "142798abe47028a0c7c8ed35ae53140d",
+            "sha256": "5f572a23d6e4a7c7ea132272945f7dabb301101641083f9f490e89b1f65be4e7",
+            "bytes": 9748582,
+            "png_bit_depth": 8,
+            "metadata_gamma": null,
+            "metadata_oiio_color_space": null
+          },
+          "encoding": {
+            "container": "WebP",
+            "lossless": false,
+            "quality": 94,
+            "method": 6
+          },
+          "verification": {
+            "decoded_rms_error_8bit": 4.303307452243441,
+            "decoded_max_error_8bit": 69,
+            "lossless_data_exact": false
+          },
+          "modifications": [
+            "Decode the official 2K PNG without resizing, cropping, recoloring, or spatial filtering.",
+            "Strip source EXIF/OIIO/gamma/display metadata; retain raw RGB sample values.",
+            "Encode WebP at quality 94, method 6; attach an sRGB ICC profile without changing color values."
+          ]
+        },
+        {
+          "map": "nor_gl",
+          "output_file": "textures/forest_leaves_02_nor_gl_2k.webp",
+          "output_sha256": "33c631f816a1d351f87ce7e299f824c4ede95ab8b64b3b7d2689d572d74c446b",
+          "output_bytes": 10375944,
+          "dimensions": [
+            2048,
+            2048
+          ],
+          "output_bit_depth": 8,
+          "channels": "RGB",
+          "meaningful_alpha_preserved": false,
+          "color_space": "linear data / NoColorSpace",
+          "normal_convention": "OpenGL +Y",
+          "source": {
+            "asset": "forest_leaves_02",
+            "channel": "nor_gl",
+            "path": "sources/forest_leaves_02/forest_leaves_02_nor_gl_2k.png",
+            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/forest_leaves_02/forest_leaves_02_nor_gl_2k.png",
+            "api_md5": "cce2a8fd9454483a17f65b3cfc832725",
+            "sha256": "b352e89611239796aa307afd3d34a83aca77b8e2a98244e3458ec3fa5b635af2",
+            "bytes": 10708761,
+            "png_bit_depth": 8,
+            "metadata_gamma": null,
+            "metadata_oiio_color_space": null
+          },
+          "encoding": {
+            "container": "WebP",
+            "lossless": true,
+            "quality": 100,
+            "method": 6
+          },
+          "verification": {
+            "decoded_rms_error_8bit": 0.0,
+            "decoded_max_error_8bit": 0,
+            "lossless_data_exact": true
+          },
+          "modifications": [
+            "Decode the official 2K PNG without resizing, cropping, recoloring, or spatial filtering.",
+            "Strip source EXIF/OIIO/gamma/display metadata; retain raw RGB sample values.",
+            "Encode lossless WebP, method 6; verify decoded bytes match the 8-bit source decode exactly.",
+            "Keep the official OpenGL +Y normal convention; no green-channel flip and no gamma transform."
+          ]
+        },
+        {
+          "map": "arm",
+          "output_file": "textures/forest_leaves_02_arm_2k.webp",
+          "output_sha256": "3e4f7a3e4bde60276561d904468750e50c2c46d1be2a7e2b2866d0121265670a",
+          "output_bytes": 5133636,
+          "dimensions": [
+            2048,
+            2048
+          ],
+          "output_bit_depth": 8,
+          "channels": "RGB",
+          "meaningful_alpha_preserved": false,
+          "color_space": "linear data / NoColorSpace",
+          "normal_convention": null,
+          "source": {
+            "asset": "forest_leaves_02",
+            "channel": "arm",
+            "path": "sources/forest_leaves_02/forest_leaves_02_arm_2k.png",
+            "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/forest_leaves_02/forest_leaves_02_arm_2k.png",
+            "api_md5": "ce01b23560c9fca6e62fec5f8ecd1bae",
+            "sha256": "d8106fc2d56ceb1bbffdfa00772364aed678b51c1621cae7d554f6230151635f",
+            "bytes": 6912984,
+            "png_bit_depth": 8,
+            "metadata_gamma": 0.45455,
+            "metadata_oiio_color_space": "GammaCorrected2.2"
+          },
+          "encoding": {
+            "container": "WebP",
+            "lossless": true,
+            "quality": 100,
+            "method": 6
+          },
+          "verification": {
+            "decoded_rms_error_8bit": 0.0,
+            "decoded_max_error_8bit": 0,
+            "lossless_data_exact": true
+          },
+          "modifications": [
+            "Decode the official 2K PNG without resizing, cropping, recoloring, or spatial filtering.",
+            "Strip source EXIF/OIIO/gamma/display metadata; retain raw RGB sample values.",
+            "Encode lossless WebP, method 6; verify decoded bytes match the 8-bit source decode exactly.",
+            "Keep official ARM packing: R=ambient occlusion, G=roughness, B=metalness; no gamma transform or repacking."
+          ]
+        }
+      ]
+    }
+  ],
+  "contact_sheet": {
+    "file": "ground-material-contact-sheet.png",
+    "sha256": "c9c9f8ccb3ccfcc7307e521dc8a65a181e8f499efd9e96c88656199b2a83bd2b",
+    "creation": "512px previews assembled from delivered maps; roughness extracted from ARM.G; no scene render."
+  },
+  "total_texture_bytes": 31703638
+}

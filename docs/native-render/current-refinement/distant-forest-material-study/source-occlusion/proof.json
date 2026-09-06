@@ -1,0 +1,82 @@
+{
+  "method": "Fixed view azimuth 0/elevation 0 and fixed relative source sun only. Source cutout self-shadow visibility is integrated in linear light and applied only to direct sunlight of the matching far specimen. RGB, normals, environment and sky light are unchanged. No production patch or multi-direction bake.",
+  "visibility": {
+    "sourceCoverage": 5201.34375,
+    "weightedVisibility": 1353.5340112000704,
+    "mean": 0.26022775579869534,
+    "format": "RG8 visibility-times-coverage / coverage",
+    "bytes": 131072,
+    "mipBytes": 174763,
+    "rows": "bottom-first, flipY false"
+  },
+  "sunDirectionLocal": [
+    -0.37965372389340435,
+    0.10490431844423015,
+    -0.9191616473208737
+  ],
+  "shadow": {
+    "size": 1024,
+    "width": 50,
+    "normalBias": 0.025,
+    "bias": -0.00002
+  },
+  "width": 384,
+  "height": 384,
+  "sourceTrianglesPerTree": 238617,
+  "instanceColorLinearRGB": [
+    1,
+    1,
+    1
+  ],
+  "origin": [
+    0,
+    0,
+    0
+  ],
+  "camera": [
+    0.2728309631347656,
+    8.926415018737316,
+    124.87761545181274
+  ],
+  "sourceSHA256": "c81e6ece28b7646aa59f2c2c68142619b2790d0db62c5d829278fec92e4373d7",
+  "atlasSHA256": "fa511d86ca9659007e0c4cc0d17d9344cda5b7c8c2868c524eb70a6f942d7eac",
+  "shaderErrors": [],
+  "result": [
+    {
+      "name": "near-source",
+      "file": "/workspace/scratch/2b912ce37941/native-render/distant-forest-material-study/source-occlusion/near-source.png",
+      "linearRGBSum": [
+        371.34175205230713,
+        344.6137752532959,
+        168.3188774585724
+      ],
+      "nonblackPixels": 14182,
+      "glError": 0,
+      "triangles": 960459
+    },
+    {
+      "name": "far-before",
+      "file": "/workspace/scratch/2b912ce37941/native-render/distant-forest-material-study/source-occlusion/far-before.png",
+      "linearRGBSum": [
+        949.1586284637451,
+        739.9998569488525,
+        259.96305656433105
+      ],
+      "nonblackPixels": 13268,
+      "glError": 0,
+      "triangles": 960462
+    },
+    {
+      "name": "far-source-occlusion",
+      "file": "/workspace/scratch/2b912ce37941/native-render/distant-forest-material-study/source-occlusion/far-source-occlusion.png",
+      "linearRGBSum": [
+        426.7835350036621,
+        402.54456329345703,
+        158.53966236114502
+      ],
+      "nonblackPixels": 13268,
+      "glError": 0,
+      "triangles": 960465
+    }
+  ]
+}

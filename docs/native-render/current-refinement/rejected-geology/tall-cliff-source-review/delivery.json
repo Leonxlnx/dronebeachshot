@@ -1,0 +1,11 @@
+{
+  "review": "/workspace/scratch/2b912ce37941/native-render/tall-cliff-source-review/REVIEW.md",
+  "shortlist": "/workspace/scratch/2b912ce37941/native-render/tall-cliff-source-review/shortlist.json",
+  "bestLead": "Fort Rock Landscape",
+  "confirmedReadySource": false,
+  "reason": "Only new tall-form preview lead has unpublished mesh counts/dimensions and documented baked-light issues. Poly Haven alternatives remain short open shells.",
+  "preview": "/workspace/scratch/2b912ce37941/native-render/tall-cliff-source-review/fort-rock-preview.png",
+  "largeGeometryDownloaded": false,
+  "nativeRendered": false,
+  "productionModified": false
+}

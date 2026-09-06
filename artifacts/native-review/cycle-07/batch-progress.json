@@ -1,0 +1,66 @@
+{
+  "completed": [
+    {
+      "camera": "mountain-wide",
+      "time": 2,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/frames/cycle-07/mountain-wide-mode-0-960.png",
+      "render": {
+        "frame": 28,
+        "calls": 1402,
+        "triangles": 36376447,
+        "points": 624,
+        "lines": 0
+      },
+      "programs": 72,
+      "glError": 0
+    },
+    {
+      "camera": "flight-0",
+      "time": 0,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/frames/cycle-07/flight-0-mode-0-960.png",
+      "render": {
+        "frame": 56,
+        "calls": 1215,
+        "triangles": 39818471,
+        "points": 624,
+        "lines": 0
+      },
+      "programs": 76,
+      "glError": 0
+    },
+    {
+      "camera": "wet-sand",
+      "time": 11.5,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/frames/cycle-07/wet-sand-mode-0-960.png",
+      "render": {
+        "frame": 84,
+        "calls": 1082,
+        "triangles": 52124157,
+        "points": 624,
+        "lines": 0
+      },
+      "programs": 76,
+      "glError": 0
+    },
+    {
+      "camera": "headland",
+      "time": 14,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/frames/cycle-07/headland-mode-0-960.png",
+      "render": {
+        "frame": 112,
+        "calls": 1149,
+        "triangles": 50986708,
+        "points": 624,
+        "lines": 0
+      },
+      "programs": 76,
+      "glError": 0
+    }
+  ],
+  "requested": [
+    "mountain-wide",
+    "flight-0",
+    "wet-sand",
+    "headland"
+  ]
+}

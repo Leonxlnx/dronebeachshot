@@ -1,0 +1,16 @@
+<!doctype html><meta charset="utf-8"><title>Last Light Bay graphics diagnostic</title>
+<style>body{background:#101a21;color:#e0ecef;font:16px system-ui;margin:40px}pre{white-space:pre-wrap;line-height:1.6}canvas{width:128px;height:128px}</style>
+<h1>Graphics initialization</h1><p>This checks the browser before loading any scene assets.</p><pre id="result">Checking…</pre>
+<script type="module">
+const results={secureContext:isSecureContext,webGPUApi:!!navigator.gpu,contexts:[]};
+for(const options of [{type:'webgl2',powerPreference:'default'},{type:'webgl2',powerPreference:'low-power'},{type:'webgl',powerPreference:'default'}]){
+ const canvas=document.createElement('canvas');canvas.width=canvas.height=16;document.body.append(canvas);let error='';
+ canvas.addEventListener('webglcontextcreationerror',event=>error=event.statusMessage);
+ const gl=canvas.getContext(options.type,{alpha:false,antialias:false,depth:true,stencil:false,preserveDrawingBuffer:true,failIfMajorPerformanceCaveat:false,powerPreference:options.powerPreference});
+ const row={...options,created:!!gl,error};
+ if(gl){gl.clearColor(.12,.5,.6,1);gl.clear(gl.COLOR_BUFFER_BIT);const pixels=new Uint8Array(4);gl.readPixels(0,0,1,1,gl.RGBA,gl.UNSIGNED_BYTE,pixels);const debug=gl.getExtension('WEBGL_debug_renderer_info');Object.assign(row,{pixel:[...pixels],renderer:debug?gl.getParameter(debug.UNMASKED_RENDERER_WEBGL):gl.getParameter(gl.RENDERER),version:gl.getParameter(gl.VERSION)});results.contexts.push(row);break}
+ results.contexts.push(row);
+}
+if(navigator.gpu){try{results.webGPUAdapter=!!await navigator.gpu.requestAdapter()}catch(error){results.webGPUError=String(error)}}
+document.getElementById('result').textContent=JSON.stringify(results,null,2);
+</script>

@@ -1,0 +1,59 @@
+(node:10) ExperimentalWarning: `--experimental-loader` may be removed in the future; instead use `register()`:
+--import 'data:text/javascript,import { register } from "node:module"; import { pathToFileURL } from "node:url"; register("/workspace/sites/last-light-bay/scripts/control/ts-resolve.mjs", pathToFileURL("./"));'
+(Use `node --trace-warnings ...` to show where the warning was created)
+Loading actual terrain / rocks
+(node:10) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///workspace/scratch/2b912ce37941/native-render/ocean-spectrum-study/ocean-before-runtime.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /workspace/scratch/2b912ce37941/native-render/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+THREE.UniformsUtils: Textures of render targets cannot be cloned via cloneUniforms() or mergeUniforms().
+THREE.UniformsUtils: Textures of render targets cannot be cloned via cloneUniforms() or mergeUniforms().
+THREE.UniformsUtils: Textures of render targets cannot be cloned via cloneUniforms() or mergeUniforms().
+THREE.UniformsUtils: Textures of render targets cannot be cloned via cloneUniforms() or mergeUniforms().
+THREE.UniformsUtils: Textures of render targets cannot be cloned via cloneUniforms() or mergeUniforms().
+THREE.UniformsUtils: Textures of render targets cannot be cloned via cloneUniforms() or mergeUniforms().
+THREE.UniformsUtils: Textures of render targets cannot be cloned via cloneUniforms() or mergeUniforms().
+THREE.UniformsUtils: Textures of render targets cannot be cloned via cloneUniforms() or mergeUniforms().
+Render aerial before 0
+Render aerial after 0
+Render low before 0
+Render low after 0
+{
+  "method": "Native actual terrain, rocks, coastal field, atmosphere, refraction and ocean; vegetation omitted to isolate water; unchanged geometry and fixed paired time/camera",
+  "shaderErrors": [],
+  "glError": 0,
+  "rows": [
+    {
+      "camera": "aerial",
+      "time": 9,
+      "variant": "before",
+      "mode": 0,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/ocean-spectrum-study/aerial-before-mode-0.png",
+      "cumulativeRendererTriangles": 8249670
+    },
+    {
+      "camera": "aerial",
+      "time": 9,
+      "variant": "after",
+      "mode": 0,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/ocean-spectrum-study/aerial-after-mode-0.png",
+      "cumulativeRendererTriangles": 14048790
+    },
+    {
+      "camera": "low",
+      "time": 12.8,
+      "variant": "before",
+      "mode": 0,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/ocean-spectrum-study/low-before-mode-0.png",
+      "cumulativeRendererTriangles": 22178460
+    },
+    {
+      "camera": "low",
+      "time": 12.8,
+      "variant": "after",
+      "mode": 0,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/ocean-spectrum-study/low-after-mode-0.png",
+      "cumulativeRendererTriangles": 27857580
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "accepted": false,
+  "reason": "Albedo mismatch reduced, but projecting shelf/bridge silhouette and terrain posts remain. Stop this source; no integration recommended.",
+  "scope": "Native ANGLE/Mesa llvmpipe cropped terrain comparison, 768x432, exact 425 m snapshot heightfield and ground material. BOTH variants show the same bounded 12 m cut and intact Coastal Cliff01 source at uniform scale 1, with identical geometry, UV, normals, roughness, camera, lighting and atmosphere. BEFORE uses original source albedo. AFTER applies the documented scene-linear albedo calibration with upward/green protection masks; original source JPEG bytes are unchanged. Vegetation, ocean and distant terrain omitted. This is software-rendered geometry evidence, not browser or full-scene QA.",
+  "review": "/workspace/scratch/2b912ce37941/native-render/coastal-albedo-study/REVIEW.md",
+  "images": {
+    "context": {
+      "before": "/workspace/scratch/2b912ce37941/native-render/coastal-albedo-study/cut-context-before.png",
+      "candidate": "/workspace/scratch/2b912ce37941/native-render/coastal-albedo-study/cut-context-candidate.png"
+    },
+    "detail": {
+      "before": "/workspace/scratch/2b912ce37941/native-render/coastal-albedo-study/cut-detail-before.png",
+      "candidate": "/workspace/scratch/2b912ce37941/native-render/coastal-albedo-study/cut-detail-candidate.png"
+    }
+  },
+  "calibration": {
+    "luminanceGain": 5.712952270701682,
+    "chromaRatios": [
+      0.9320781624006814,
+      1.0002277112136666,
+      1.3849160195782124
+    ],
+    "rgbGain": [
+      5.324918054358424,
+      5.7142531739968625,
+      7.911959118780484
+    ],
+    "shoulderStart": 0.55,
+    "albedoLimit": 0.65,
+    "sourcePixelCount": 42697,
+    "targetPixelCount": 66670,
+    "protectedRegions": "Blend falls from full at world geometric normal y<=.57 to zero at y>=.85; source green/red>1.03 fades to zero correction at1.20.",
+    "artisticModification": "Source RGB is artistically brightened and white-balanced to actual neighboring terrain albedo. Original geometry, UV, normal and roughness maps remain unchanged; all original JPEG bytes are preserved."
+  },
+  "renderProof": "/workspace/scratch/2b912ce37941/native-render/coastal-albedo-study/render-proof.json",
+  "maxRSSMB": 1370.94921875,
+  "productionModified": false
+}

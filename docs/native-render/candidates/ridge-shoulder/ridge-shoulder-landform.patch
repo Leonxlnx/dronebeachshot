@@ -1,0 +1,100 @@
+--- a/src/world/math.ts
++++ b/src/world/math.ts
+@@ -13,12 +13,14 @@
+ // distance to a low shoulder, not a radial peak radius. Heights are relief above
+ // the unchanged coastal platform; the principal summit is calibrated below.
+ const ridgeSpines:readonly (readonly RidgeNode[])[]=[
+- [[-535,510,170,132],[-415,448,207,110],[-292,412,218,106],[-203,386,257,91],[-126,350,301,92],[-58,397,240,100],[25,436,213,112],[130,420,248,99],[265,393,236,109],[410,416,224,123],[552,489,171,143]],
++ [[-535,510,170,132],[-415,448,207,110],[-292,412,218,106],[-203,386,257,115],[-157,366,296,125],[-126,350,301,128],[-101,329,294,125],[-58,397,240,112],[25,436,213,112],[130,420,248,99],[265,393,236,109],[410,416,224,123],[552,489,171,143]],
+  [[-292,412,218,106],[-292,317,201,86],[-329,224,163,83],[-342,119,116,74],[-355,11,78,68],[-369,-107,39,56],[-388,-221,8,48]],
+- [[-126,350,301,92],[-143,286,239,77],[-141,224,166,77],[-172,164,97,75],[-201,103,41,69],[-205,61,8,53]],
++ [[-126,350,301,128],[-139,317,281,117],[-143,286,249,103],[-141,224,166,77],[-172,164,97,75],[-201,103,41,69],[-205,61,8,53]],
+  [[-415,448,207,110],[-451,338,183,96],[-421,235,169,90],[-423,111,115,77],[-434,-51,68,70],[-461,-221,37,56],[-480,-382,7,46]],
+  [[130,420,248,99],[183,330,211,84],[228,254,182,77],[273,174,143,75],[333,90,113,71],[363,-26,67,61],[383,-154,24,50],[387,-205,6,40]],
+- [[410,416,224,123],[464,309,190,100],[483,198,141,92],[510,55,87,77],[531,-106,46,65],[556,-287,8,51]]
++ [[410,416,224,123],[464,309,190,100],[483,198,141,92],[510,55,87,77],[531,-106,46,65],[556,-287,8,51]],
++ [[-126,350,301,128],[-83,310,258,107],[-48,259,175,104],[-44,204,68,89]],
++ [[-203,386,257,115],[-235,318,219,105],[-239,252,161,102],[-214,199,101,91],[-184,143,30,70]]
+ ];
+ type ChannelNode=readonly [x:number,z:number,depth:number,width:number];
+ const drainageChannels:readonly (readonly ChannelNode[])[]=[
+@@ -31,8 +33,8 @@
+  return paths.flatMap(path=>path.slice(1).map((b,i)=>{
+   const a=path[i],dx=b[0]-a[0],dz=b[1]-a[1];
+   const middleX=(a[0]+b[0])*.5,coastSlope=-.0047*middleX+.156*Math.cos(middleX*.013)+.16*Math.cos(middleX*.032);
+-  const inlandLength=Math.hypot(coastSlope,1),margin=Math.max(a[3],b[3])*3.3;
+-  return {x:a[0],z:a[1],dx,dz,minX:Math.min(a[0],b[0])-margin,maxX:Math.max(a[0],b[0])+margin,minZ:Math.min(a[1],b[1])-margin,maxZ:Math.max(a[1],b[1])+margin,saddle:.08+hash(a[0],a[1])*.13,inlandX:-coastSlope/inlandLength,inlandZ:1/inlandLength,inverseLengthSquared:1/(dx*dx+dz*dz),height:a[2],heightDelta:b[2]-a[2],width:a[3],widthDelta:b[3]-a[3]};
++  const inlandLength=Math.hypot(coastSlope,1),margin=Math.max(a[3],b[3])*6.0;
++  return {x:a[0],z:a[1],dx,dz,minX:Math.min(a[0],b[0])-margin,maxX:Math.max(a[0],b[0])+margin,minZ:Math.min(a[1],b[1])-margin,maxZ:Math.max(a[1],b[1])+margin,saddle:.035+hash(a[0],a[1])*.10,inlandX:-coastSlope/inlandLength,inlandZ:1/inlandLength,inverseLengthSquared:1/(dx*dx+dz*dz),height:a[2],heightDelta:b[2]-a[2],width:a[3],widthDelta:b[3]-a[3]};
+  }));
+ }
+ const ridgeSegments=compileLandformSegments(ridgeSpines);
+@@ -46,19 +48,19 @@
+  if(nx*r.inlandX+nz*r.inlandZ>0){nx=-nx;nz=-nz}
+  for(let side=0;side<(i%3===0?2:1);side++){
+   const t=.25+hash(r.x+side*17,r.z)*.5,qx=r.x+r.dx*t,qz=r.z+r.dz*t;
+-  const width=(r.width+r.widthDelta*t)*1.2,crest=r.height+r.heightDelta*t;
++  const width=(r.width+r.widthDelta*t)*1.85,crest=r.height+r.heightDelta*t;
+   const sign=side===0?1:-1,skew=(hash(r.z,r.x)-.5)*.38;
+   const vx=nx*sign+r.dx/length*skew,vz=nz*sign+r.dz/length*skew;
+-  faceDrainage.push([[qx+vx*width*.055,qz+vz*width*.055,3,3.5],
+-   [qx+vx*width*.48,qz+vz*width*.48,Math.min(38,crest*.19),7+hash(qx,qz)*3],
+-   [qx+vx*width*1.23,qz+vz*width*1.23,5,15]]);
++  faceDrainage.push([[qx+vx*width*.1,qz+vz*width*.1,2,6],
++   [qx+vx*width*.48,qz+vz*width*.48,Math.min(31,crest*.13),10+hash(qx,qz)*6],
++   [qx+vx*width*1.23,qz+vz*width*1.23,4,22]]);
+  }
+ }
+ const channelSegments=compileLandformSegments([...drainageChannels,...faceDrainage]);
+ function connectedRelief(x:number,z:number){
+  // All perturbations have tens-of-metres support, resolved by the real 2 m grid.
+  // Anisotropy follows each ridge rather than a repeating world-space sine.
+- const rockWarp=(noise(x*.014+2.9,z*.013-7.1)-.5)*11;
++ const rockWarp=(noise(x*.014+2.9,z*.013-7.1)-.5)*32;
+  let mountain=0;
+  for(const segment of ridgeSegments){
+   if(x<segment.minX||x>segment.maxX||z<segment.minZ||z>segment.maxZ)continue;
+@@ -66,11 +68,11 @@
+   const qx=segment.x+segment.dx*t,qz=segment.z+segment.dz*t;
+   const dx=x-qx,dz=z-qz,distance=Math.hypot(dx,dz);
+   const side=(dx*segment.inlandX+dz*segment.inlandZ)/Math.max(distance,1);
+-  const width=(segment.width+segment.widthDelta*t)*1.2*(1+.16*side);
+-  const roughDistance=Math.max(0,distance+rockWarp*smooth(0,35,distance));
++  const width=(segment.width+segment.widthDelta*t)*1.85*(1+.13*side);
++  const roughDistance=Math.max(0,distance+rockWarp*smooth(0,50,distance));
+   const radius=roughDistance/width;
+-  if(radius>2.1)continue;
+-  const profile=Math.exp(-2*Math.pow(radius,1.35));
++  if(radius>2.8)continue;
++  const profile=.74*Math.exp(-2.1*radius*radius)+.26*Math.exp(-.95*radius*radius);
+   const saddle=1-segment.saddle*Math.pow(Math.sin(Math.PI*t),2);
+   mountain=Math.max(mountain,(segment.height+segment.heightDelta*t)*saddle*profile);
+  }
+@@ -90,16 +92,20 @@
+  // Nested fracture scales break broad faces and divide crests at 15–70 m
+  // wavelengths. Their amplitude is terrain relief, not a material normal trick.
+  const fold=noise(x*.011+5.7,z*.009-2.3);
+- const fracture=18*noise(x*.031+fold*1.9,z*.026-fold*.6)
+-  +11*noise(x*.077+1.4,z*.051+fold)
+-  +5*noise(x*.151-3.1,z*.119);
+- const summitGuard=smooth(0,18,Math.hypot(x+126,z-350));
+- return mountain-channelCut-fracture*exposure*summitGuard;
++ const fracture=14*noise(x*.031+fold*1.9,z*.026-fold*.6)
++  +8*noise(x*.077+1.4,z*.051+fold)
++  +3*noise(x*.151-3.1,z*.119);
++ return mountain-channelCut-fracture*exposure;
+ }
+ function coastalPlatform(x:number,z:number,d:number){return .045*d+.12*noise(x*.28,z*.28)*smooth(0,12,d)}
+ function fineGround(x:number,z:number,d:number){return smooth(35,90,d)*(noise(x*.3,z*.3)-.5)*1.6}
+-const summitX=-126,summitZ=350,summitDistance=shoreDistance(summitX,summitZ);
+-const ridgeReliefScale=(313-coastalPlatform(summitX,summitZ,summitDistance)-fineGround(summitX,summitZ,summitDistance))/connectedRelief(summitX,summitZ);
++// Calibrate the actual 2 m summit crest, not a single protected vertex. This
++// prevents the old point-only erosion exemption from creating a needle.
++let ridgeReliefScale=Infinity;
++for(let z=318;z<=384;z+=2)for(let x=-172;x<=-86;x+=2){
++ const d=shoreDistance(x,z),relief=connectedRelief(x,z);
++ ridgeReliefScale=Math.min(ridgeReliefScale,(313-coastalPlatform(x,z,d)-fineGround(x,z,d))/relief);
++}
+ export function terrainHeight(x:number,z:number){
+  const d=shoreDistance(x,z);
+  if(d<0)return Math.max(-85,d*.10)+noise(x*.02,z*.02)*Math.min(-d*.01,.9);

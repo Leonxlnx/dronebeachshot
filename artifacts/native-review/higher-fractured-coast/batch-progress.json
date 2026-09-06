@@ -1,0 +1,66 @@
+{
+  "completed": [
+    {
+      "camera": "headland",
+      "time": 14,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/frames/higher-fractured-coast/headland-mode-0-960.png",
+      "render": {
+        "frame": 29,
+        "calls": 656,
+        "triangles": 45043124,
+        "points": 704,
+        "lines": 0
+      },
+      "programs": 73,
+      "glError": 0
+    },
+    {
+      "camera": "flight-0",
+      "time": 0,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/frames/higher-fractured-coast/flight-0-mode-0-960.png",
+      "render": {
+        "frame": 58,
+        "calls": 806,
+        "triangles": 79206661,
+        "points": 704,
+        "lines": 0
+      },
+      "programs": 73,
+      "glError": 0
+    },
+    {
+      "camera": "flight-5",
+      "time": 5,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/frames/higher-fractured-coast/flight-5-mode-0-960.png",
+      "render": {
+        "frame": 87,
+        "calls": 776,
+        "triangles": 82053885,
+        "points": 704,
+        "lines": 0
+      },
+      "programs": 73,
+      "glError": 0
+    },
+    {
+      "camera": "flight-9",
+      "time": 9,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/frames/higher-fractured-coast/flight-9-mode-0-960.png",
+      "render": {
+        "frame": 116,
+        "calls": 638,
+        "triangles": 48772749,
+        "points": 704,
+        "lines": 0
+      },
+      "programs": 73,
+      "glError": 0
+    }
+  ],
+  "requested": [
+    "headland",
+    "flight-0",
+    "flight-5",
+    "flight-9"
+  ]
+}

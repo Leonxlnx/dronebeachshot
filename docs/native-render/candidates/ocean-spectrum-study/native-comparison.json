@@ -1,0 +1,39 @@
+{
+  "method": "Native actual terrain, rocks, coastal field, atmosphere, refraction and ocean; vegetation omitted to isolate water; unchanged geometry and fixed paired time/camera",
+  "shaderErrors": [],
+  "glError": 0,
+  "rows": [
+    {
+      "camera": "aerial",
+      "time": 9,
+      "variant": "before",
+      "mode": 0,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/ocean-spectrum-study/aerial-before-mode-0.png",
+      "cumulativeRendererTriangles": 8249670
+    },
+    {
+      "camera": "aerial",
+      "time": 9,
+      "variant": "after",
+      "mode": 0,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/ocean-spectrum-study/aerial-after-mode-0.png",
+      "cumulativeRendererTriangles": 14048790
+    },
+    {
+      "camera": "low",
+      "time": 12.8,
+      "variant": "before",
+      "mode": 0,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/ocean-spectrum-study/low-before-mode-0.png",
+      "cumulativeRendererTriangles": 22178460
+    },
+    {
+      "camera": "low",
+      "time": 12.8,
+      "variant": "after",
+      "mode": 0,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/ocean-spectrum-study/low-after-mode-0.png",
+      "cumulativeRendererTriangles": 27857580
+    }
+  ]
+}

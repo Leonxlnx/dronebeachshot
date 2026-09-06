@@ -1,0 +1,43 @@
+(node:8) ExperimentalWarning: `--experimental-loader` may be removed in the future; instead use `register()`:
+--import 'data:text/javascript,import { register } from "node:module"; import { pathToFileURL } from "node:url"; register("/workspace/sites/last-light-bay/scripts/control/ts-resolve.mjs", pathToFileURL("./"));'
+(Use `node --trace-warnings ...` to show where the warning was created)
+2026-09-05T07:47:04.053Z renderer ANGLE (Mesa, llvmpipe (LLVM 20.1.2 256 bits), OpenGL ES 3.2 Mesa 25.2.8-0ubuntu0.24.04.2) OpenGL ES 3.0 (ANGLE 2.1.28447 git hash: aa5f0107c9db)
+2026-09-05T07:47:04.219Z 2.8571428571428568 Loading coastal materials
+2026-09-05T07:47:04.464Z 5.7142857142857135 Loading coastal materials
+2026-09-05T07:47:04.648Z 8.571428571428571 Loading coastal materials
+2026-09-05T07:47:04.728Z 11.428571428571427 Loading coastal materials
+2026-09-05T07:47:04.752Z 14.285714285714286 Loading coastal materials
+2026-09-05T07:47:05.089Z 17.142857142857142 Loading coastal materials
+2026-09-05T07:47:05.312Z 20 Loading coastal materials
+2026-09-05T07:47:05.360Z 22.857142857142854 Loading coastal materials
+2026-09-05T07:47:05.706Z 25.714285714285715 Loading coastal materials
+2026-09-05T07:47:06.516Z 28.571428571428573 Loading coastal materials
+2026-09-05T07:47:06.545Z 31.428571428571427 Loading coastal materials
+2026-09-05T07:47:06.580Z 34.285714285714285 Loading coastal materials
+2026-09-05T07:47:06.712Z 37.142857142857146 Loading coastal materials
+2026-09-05T07:47:07.467Z 40 Loading coastal materials
+2026-09-05T07:48:02.451Z coastal field ready
+THREE.UniformsUtils: Textures of render targets cannot be cloned via cloneUniforms() or mergeUniforms().
+THREE.UniformsUtils: Textures of render targets cannot be cloned via cloneUniforms() or mergeUniforms().
+THREE.UniformsUtils: Textures of render targets cannot be cloned via cloneUniforms() or mergeUniforms().
+THREE.UniformsUtils: Textures of render targets cannot be cloned via cloneUniforms() or mergeUniforms().
+THREE.UniformsUtils: Textures of render targets cannot be cloned via cloneUniforms() or mergeUniforms().
+THREE.UniformsUtils: Textures of render targets cannot be cloned via cloneUniforms() or mergeUniforms().
+2026-09-05T07:48:19.523Z 44 Preparing forest detail
+2026-09-05T07:48:20.602Z 47 Preparing forest detail
+2026-09-05T07:48:21.359Z 50 Preparing forest detail
+2026-09-05T07:48:22.796Z 56 Preparing forest detail
+2026-09-05T07:48:23.366Z 59 Preparing forest detail
+2026-09-05T07:48:23.869Z 62 Preparing forest detail
+2026-09-05T07:48:24.100Z 68 Preparing forest detail
+2026-09-05T07:48:30.673Z batch camera 1 of 2 wet-sand
+2026-09-05T07:48:30.720Z atmosphere render begin
+2026-09-05T07:48:32.689Z scene compile begin
+THREE.WebGLRenderer: KHR_parallel_shader_compile extension not supported.
+2026-09-05T07:48:37.340Z scene render begin
+2026-09-05T07:49:29.744Z saved /workspace/scratch/2b912ce37941/native-render/distant-ridge-study/frames/wet-sand-mode-0-960.png { frame: 29, calls: 675, triangles: 46219530, points: 704, lines: 0 }
+2026-09-05T07:49:29.747Z batch camera 2 of 2 flight-0
+2026-09-05T07:49:29.773Z atmosphere render begin
+2026-09-05T07:49:31.477Z scene compile begin
+2026-09-05T07:49:31.700Z scene render begin
+2026-09-05T07:50:22.197Z saved /workspace/scratch/2b912ce37941/native-render/distant-ridge-study/frames/flight-0-mode-0-960.png { frame: 58, calls: 741, triangles: 77878142, points: 704, lines: 0 }

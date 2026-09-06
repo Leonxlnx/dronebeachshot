@@ -1,0 +1,119 @@
+{
+  "method": "Native default-framebuffer sRGB ACES, actual near/far GLBs versus candidate; same controlled light and source-root transforms",
+  "rows": [
+    {
+      "family": "island",
+      "variant": "near",
+      "elevation": 35,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/tree-impostors/island-near-elevation-35.png",
+      "triangles": 238617
+    },
+    {
+      "family": "island",
+      "variant": "far",
+      "elevation": 35,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/tree-impostors/island-far-elevation-35.png",
+      "triangles": 1003
+    },
+    {
+      "family": "island",
+      "variant": "impostor",
+      "elevation": 35,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/tree-impostors/island-impostor-elevation-35.png",
+      "triangles": 2
+    },
+    {
+      "family": "island",
+      "variant": "near",
+      "elevation": 70,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/tree-impostors/island-near-elevation-70.png",
+      "triangles": 238617
+    },
+    {
+      "family": "island",
+      "variant": "far",
+      "elevation": 70,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/tree-impostors/island-far-elevation-70.png",
+      "triangles": 1003
+    },
+    {
+      "family": "island",
+      "variant": "impostor",
+      "elevation": 70,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/tree-impostors/island-impostor-elevation-70.png",
+      "triangles": 2
+    },
+    {
+      "family": "island",
+      "variant": "far",
+      "kind": "441-tree-patch",
+      "filename": "/workspace/scratch/2b912ce37941/native-render/tree-impostors/island-patch-far.png",
+      "triangles": 442323
+    },
+    {
+      "family": "island",
+      "variant": "impostor",
+      "kind": "441-tree-patch",
+      "filename": "/workspace/scratch/2b912ce37941/native-render/tree-impostors/island-patch-impostor.png",
+      "triangles": 882
+    },
+    {
+      "family": "syringa",
+      "variant": "near",
+      "elevation": 35,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/tree-impostors/syringa-near-elevation-35.png",
+      "triangles": 245645
+    },
+    {
+      "family": "syringa",
+      "variant": "far",
+      "elevation": 35,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/tree-impostors/syringa-far-elevation-35.png",
+      "triangles": 974
+    },
+    {
+      "family": "syringa",
+      "variant": "impostor",
+      "elevation": 35,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/tree-impostors/syringa-impostor-elevation-35.png",
+      "triangles": 2
+    },
+    {
+      "family": "syringa",
+      "variant": "near",
+      "elevation": 70,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/tree-impostors/syringa-near-elevation-70.png",
+      "triangles": 245645
+    },
+    {
+      "family": "syringa",
+      "variant": "far",
+      "elevation": 70,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/tree-impostors/syringa-far-elevation-70.png",
+      "triangles": 974
+    },
+    {
+      "family": "syringa",
+      "variant": "impostor",
+      "elevation": 70,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/tree-impostors/syringa-impostor-elevation-70.png",
+      "triangles": 2
+    },
+    {
+      "family": "syringa",
+      "variant": "far",
+      "kind": "441-tree-patch",
+      "filename": "/workspace/scratch/2b912ce37941/native-render/tree-impostors/syringa-patch-far.png",
+      "triangles": 429534
+    },
+    {
+      "family": "syringa",
+      "variant": "impostor",
+      "kind": "441-tree-patch",
+      "filename": "/workspace/scratch/2b912ce37941/native-render/tree-impostors/syringa-patch-impostor.png",
+      "triangles": 882
+    }
+  ],
+  "shaderErrors": [],
+  "glError": 0
+}

@@ -1,0 +1,36 @@
+{
+  "completed": [
+    {
+      "camera": "flight-0",
+      "time": 0,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/frames/ocean-refraction-control/refraction-on-flight-0-mode-0-960.png",
+      "render": {
+        "frame": 29,
+        "calls": 147,
+        "triangles": 10237847,
+        "points": 720,
+        "lines": 0
+      },
+      "programs": 22,
+      "glError": 0
+    },
+    {
+      "camera": "flight-0",
+      "time": 0,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/frames/ocean-refraction-control/refraction-off-flight-0-mode-0-960.png",
+      "render": {
+        "frame": 32,
+        "calls": 147,
+        "triangles": 10237847,
+        "points": 720,
+        "lines": 0
+      },
+      "programs": 22,
+      "glError": 0
+    }
+  ],
+  "requested": [
+    "flight-0",
+    "flight-0"
+  ]
+}

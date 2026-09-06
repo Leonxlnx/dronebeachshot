@@ -1,0 +1,51 @@
+{
+  "completed": [
+    {
+      "camera": "headland",
+      "time": 14,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/frames/shoulder-ocean-retry/headland-mode-0-960.png",
+      "render": {
+        "frame": 29,
+        "calls": 639,
+        "triangles": 35831601,
+        "points": 736,
+        "lines": 0
+      },
+      "programs": 70,
+      "glError": 0
+    },
+    {
+      "camera": "breaking-wave-side",
+      "time": 12.8,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/frames/shoulder-ocean-retry/breaking-wave-side-mode-0-960.png",
+      "render": {
+        "frame": 58,
+        "calls": 671,
+        "triangles": 29193545,
+        "points": 736,
+        "lines": 0
+      },
+      "programs": 70,
+      "glError": 0
+    },
+    {
+      "camera": "wet-sand",
+      "time": 11.5,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/frames/shoulder-ocean-retry/wet-sand-mode-0-960.png",
+      "render": {
+        "frame": 87,
+        "calls": 660,
+        "triangles": 36720109,
+        "points": 736,
+        "lines": 0
+      },
+      "programs": 70,
+      "glError": 0
+    }
+  ],
+  "requested": [
+    "headland",
+    "breaking-wave-side",
+    "wet-sand"
+  ]
+}

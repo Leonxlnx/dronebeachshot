@@ -1,0 +1,29 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> last-light-bay@0.1.0 test
+> node --experimental-strip-types --test src/world/math.test.ts src/camera/cinematic.test.ts src/world/lod.test.ts src/world/coastal.test.ts src/world/coastal-field.test.ts src/world/terrain-surface.test.ts src/world/rock-shelter.test.ts
+
+✔ route starts above highest surveyed summit and finishes seaward (355.342973ms)
+✔ flight has finite positions, no terrain clipping, C1 velocity at every phase boundary (57.165589ms)
+✔ conservative tree envelopes keep the flight corridor clear (1857.945456ms)
+✔ all 16 evaluation cameras are distinct and above terrain (0.737598ms)
+✔ coastal atlas preserves transformed rock surfaces and waterline distance (5820.440167ms)
+✔ a shallow crest travels inland and along the shoreline normal (2.851734ms)
+✔ swash velocity agrees with displacement in both advance and retreat (1.030163ms)
+✔ sand retains moisture behind a retreating wave, without wetting unreached sand (11.737457ms)
+✔ LOD coverage conserves opacity at every distance (65.948982ms)
+✔ cell culling never hides a contributing tree LOD (111.280826ms)
+✔ LOD weights and first derivative meet continuously at threshold boundaries (4.526924ms)
+✔ determinism and seed separation (35.014148ms)
+✔ coastline continuous, seabed continues, terrain never NaN (760.477696ms)
+✔ summit scale and asymmetric bay (0.5126ms)
+✔ rock lee is downstream, bounded, recovers and follows wave direction (211.604784ms)
+✔ water contact height agrees with actual rendered terrain triangles (729.819304ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 16
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 7010.697092

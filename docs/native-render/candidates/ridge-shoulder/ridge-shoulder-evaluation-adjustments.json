@@ -1,0 +1,17 @@
+[
+  {
+    "name": "canopy-high",
+    "oldRelativeHeight": 55,
+    "candidateRelativeHeight": 55.0
+  },
+  {
+    "name": "canopy-close",
+    "oldRelativeHeight": 23,
+    "candidateRelativeHeight": 44.8
+  },
+  {
+    "name": "forest-opening",
+    "oldRelativeHeight": 8,
+    "candidateRelativeHeight": 45.5
+  }
+]

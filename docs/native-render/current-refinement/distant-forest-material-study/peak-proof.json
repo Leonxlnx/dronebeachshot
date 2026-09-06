@@ -1,0 +1,28 @@
+{
+  "method": "Exhaustive maximum of actual annulus Float32 vertex heights; linear triangles cannot exceed their highest vertex.",
+  "vertices": 817600,
+  "maxHeight": 483.4335021972656,
+  "maxPoint": [
+    -5028,
+    483.4335021972656,
+    -636.8800048828125
+  ],
+  "verticesAbove425": 1747,
+  "exceeds425": true,
+  "excessAbove425": 58.433502197265625,
+  "startCamera": {
+    "position": {
+      "x": -126,
+      "y": 451.5217757946498,
+      "z": 350
+    },
+    "target": {
+      "x": -121.324883388095,
+      "y": 420.5217757946498,
+      "z": 250.10934335652263
+    },
+    "fov": 54,
+    "bank": 0.0017258813264846538
+  },
+  "terrainSHA256": "16519e8832d61ff078e7c38d1f048ab94b2e534767f5b7be7f68b11bc8d3ff1b"
+}

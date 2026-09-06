@@ -1,0 +1,53 @@
+(node:7) ExperimentalWarning: `--experimental-loader` may be removed in the future; instead use `register()`:
+--import 'data:text/javascript,import { register } from "node:module"; import { pathToFileURL } from "node:url"; register("/workspace/sites/last-light-bay/scripts/control/ts-resolve.mjs", pathToFileURL("./"));'
+(Use `node --trace-warnings ...` to show where the warning was created)
+2026-09-05T07:38:38.512Z renderer ANGLE (Mesa, llvmpipe (LLVM 20.1.2 256 bits), OpenGL ES 3.2 Mesa 25.2.8-0ubuntu0.24.04.2) OpenGL ES 3.0 (ANGLE 2.1.28447 git hash: aa5f0107c9db)
+2026-09-05T07:38:38.981Z 2.8571428571428568 Loading coastal materials
+2026-09-05T07:38:39.016Z 5.7142857142857135 Loading coastal materials
+2026-09-05T07:38:39.466Z 8.571428571428571 Loading coastal materials
+2026-09-05T07:38:39.531Z 11.428571428571427 Loading coastal materials
+2026-09-05T07:38:39.545Z 14.285714285714286 Loading coastal materials
+2026-09-05T07:38:39.654Z 17.142857142857142 Loading coastal materials
+2026-09-05T07:38:40.053Z 20 Loading coastal materials
+2026-09-05T07:38:40.125Z 22.857142857142854 Loading coastal materials
+2026-09-05T07:38:40.212Z 25.714285714285715 Loading coastal materials
+2026-09-05T07:38:40.708Z 28.571428571428573 Loading coastal materials
+2026-09-05T07:38:40.892Z 31.428571428571427 Loading coastal materials
+2026-09-05T07:38:41.056Z 34.285714285714285 Loading coastal materials
+2026-09-05T07:38:41.108Z 37.142857142857146 Loading coastal materials
+2026-09-05T07:38:41.380Z 40 Loading coastal materials
+2026-09-05T07:39:14.495Z coastal field ready
+THREE.UniformsUtils: Textures of render targets cannot be cloned via cloneUniforms() or mergeUniforms().
+THREE.UniformsUtils: Textures of render targets cannot be cloned via cloneUniforms() or mergeUniforms().
+THREE.UniformsUtils: Textures of render targets cannot be cloned via cloneUniforms() or mergeUniforms().
+THREE.UniformsUtils: Textures of render targets cannot be cloned via cloneUniforms() or mergeUniforms().
+THREE.UniformsUtils: Textures of render targets cannot be cloned via cloneUniforms() or mergeUniforms().
+THREE.UniformsUtils: Textures of render targets cannot be cloned via cloneUniforms() or mergeUniforms().
+2026-09-05T07:39:34.145Z 44 Preparing forest detail
+2026-09-05T07:39:34.898Z 47 Preparing forest detail
+2026-09-05T07:39:35.605Z 50 Preparing forest detail
+2026-09-05T07:39:37.046Z 56 Preparing forest detail
+2026-09-05T07:39:39.285Z 59 Preparing forest detail
+2026-09-05T07:39:40.675Z 62 Preparing forest detail
+2026-09-05T07:39:41.169Z 68 Preparing forest detail
+2026-09-05T07:39:51.472Z batch camera 1 of 4 headland
+2026-09-05T07:39:51.617Z atmosphere render begin
+2026-09-05T07:39:54.019Z scene compile begin
+THREE.WebGLRenderer: KHR_parallel_shader_compile extension not supported.
+2026-09-05T07:39:58.664Z scene render begin
+2026-09-05T07:41:13.831Z saved /workspace/scratch/2b912ce37941/native-render/frames/higher-fractured-coast/headland-mode-0-960.png { frame: 29, calls: 656, triangles: 45043124, points: 704, lines: 0 }
+2026-09-05T07:41:13.838Z batch camera 2 of 4 flight-0
+2026-09-05T07:41:13.871Z atmosphere render begin
+2026-09-05T07:41:16.757Z scene compile begin
+2026-09-05T07:41:17.117Z scene render begin
+2026-09-05T07:43:06.954Z saved /workspace/scratch/2b912ce37941/native-render/frames/higher-fractured-coast/flight-0-mode-0-960.png { frame: 58, calls: 806, triangles: 79206661, points: 704, lines: 0 }
+2026-09-05T07:43:06.964Z batch camera 3 of 4 flight-5
+2026-09-05T07:43:07.011Z atmosphere render begin
+2026-09-05T07:43:09.676Z scene compile begin
+2026-09-05T07:43:10.413Z scene render begin
+2026-09-05T07:44:37.188Z saved /workspace/scratch/2b912ce37941/native-render/frames/higher-fractured-coast/flight-5-mode-0-960.png { frame: 87, calls: 776, triangles: 82053885, points: 704, lines: 0 }
+2026-09-05T07:44:37.190Z batch camera 4 of 4 flight-9
+2026-09-05T07:44:37.261Z atmosphere render begin
+2026-09-05T07:44:38.987Z scene compile begin
+2026-09-05T07:44:39.848Z scene render begin
+2026-09-05T07:45:33.799Z saved /workspace/scratch/2b912ce37941/native-render/frames/higher-fractured-coast/flight-9-mode-0-960.png { frame: 116, calls: 638, triangles: 48772749, points: 704, lines: 0 }

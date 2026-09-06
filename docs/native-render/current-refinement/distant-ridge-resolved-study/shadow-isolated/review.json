@@ -1,0 +1,23 @@
+{
+  "status": "NEAR_SHADOW_CUTOFF_NOT_SUPPORTED_AS_STRIPE_FIX",
+  "review": "All three images were visually inspected. Fine bright far-flank stripes persist with near-map reception disabled and with cloud sunlight modulation disabled. The upper-flank comparison does not support either shadow source as their cause. Do not remove legitimate shadows to conceal the geometric/light response.",
+  "pixelComparison": {
+    "nearShadowOff": {
+      "allImageChangedPixels": 775,
+      "upperFlankPixels": 17441,
+      "upperFlankChangedPixels": 0,
+      "upperFlankMaxRGBDifference8bit": 0,
+      "upperFlankMeanAbsRGBDifference8bit": 0.0
+    },
+    "cloudShadowOff": {
+      "allImageChangedPixels": 963,
+      "upperFlankPixels": 17441,
+      "upperFlankChangedPixels": 0,
+      "upperFlankMaxRGBDifference8bit": 0,
+      "upperFlankMeanAbsRGBDifference8bit": 0.0
+    }
+  },
+  "roi": "x=270..539, y=170..269 in the fixed 720x400 crop; actual annulus geometry mask from normal diagnostic.",
+  "sourceNote": "Fast terrain height buffers are byte-identical to the prior candidate; see early-return-proof.json.",
+  "nextHypothesis": "The residual feature may be slope-normal/direct/specular response of the procedural relief; that is not established by these shadow controls. No shadow policy patch was produced."
+}

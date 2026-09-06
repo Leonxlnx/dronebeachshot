@@ -1,0 +1,85 @@
+{
+  "threeRevision": "185",
+  "renderer": "ANGLE (Mesa, llvmpipe (LLVM 20.1.2 256 bits), OpenGL ES 3.2 Mesa 25.2.8-0ubuntu0.24.04.2)",
+  "samples": {
+    "red-target": [
+      255,
+      0,
+      0,
+      255
+    ],
+    "green-default": [
+      0,
+      255,
+      0,
+      255
+    ],
+    "blue-target-after-other-target": [
+      0,
+      0,
+      255,
+      255
+    ],
+    "yellow-half-float-target": [
+      15360,
+      15360,
+      0,
+      15360
+    ],
+    "half-float-cubemap-face-0": [
+      13312,
+      14336,
+      15360,
+      15360
+    ],
+    "half-float-cubemap-face-1": [
+      13312,
+      14336,
+      15360,
+      15360
+    ],
+    "half-float-cubemap-face-2": [
+      13312,
+      14336,
+      15360,
+      15360
+    ],
+    "half-float-cubemap-face-3": [
+      13312,
+      14336,
+      15360,
+      15360
+    ],
+    "half-float-cubemap-face-4": [
+      13312,
+      14336,
+      15360,
+      15360
+    ],
+    "half-float-cubemap-face-5": [
+      13312,
+      14336,
+      15360,
+      15360
+    ],
+    "half-float-pmrem": [
+      13312,
+      14336,
+      15360,
+      15360
+    ],
+    "boolean-uniform-true": [
+      255,
+      0,
+      255,
+      255
+    ],
+    "boolean-uniform-false": [
+      0,
+      255,
+      255,
+      255
+    ]
+  },
+  "success": true
+}

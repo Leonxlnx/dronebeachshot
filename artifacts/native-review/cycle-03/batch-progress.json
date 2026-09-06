@@ -1,0 +1,36 @@
+{
+  "completed": [
+    {
+      "camera": "mountain-wide",
+      "time": 2,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/frames/cycle-03/mountain-wide-mode-0-960.png",
+      "render": {
+        "frame": 28,
+        "calls": 2053,
+        "triangles": 64316358,
+        "points": 928,
+        "lines": 0
+      },
+      "programs": 72,
+      "glError": 0
+    },
+    {
+      "camera": "flight-0",
+      "time": 0,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/frames/cycle-03/flight-0-mode-0-960.png",
+      "render": {
+        "frame": 56,
+        "calls": 1305,
+        "triangles": 73865704,
+        "points": 928,
+        "lines": 0
+      },
+      "programs": 76,
+      "glError": 0
+    }
+  ],
+  "requested": [
+    "mountain-wide",
+    "flight-0"
+  ]
+}

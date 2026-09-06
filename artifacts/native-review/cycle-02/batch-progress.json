@@ -1,0 +1,36 @@
+{
+  "completed": [
+    {
+      "camera": "mountain-wide",
+      "time": 2,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/frames/cycle-02/mountain-wide-mode-0-960.png",
+      "render": {
+        "frame": 28,
+        "calls": 2060,
+        "triangles": 61971558,
+        "points": 928,
+        "lines": 0
+      },
+      "programs": 72,
+      "glError": 0
+    },
+    {
+      "camera": "canopy-close",
+      "time": 5,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/frames/cycle-02/canopy-close-mode-0-960.png",
+      "render": {
+        "frame": 56,
+        "calls": 1473,
+        "triangles": 188688681,
+        "points": 928,
+        "lines": 0
+      },
+      "programs": 76,
+      "glError": 0
+    }
+  ],
+  "requested": [
+    "mountain-wide",
+    "canopy-close"
+  ]
+}

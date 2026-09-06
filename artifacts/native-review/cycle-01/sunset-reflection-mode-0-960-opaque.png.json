@@ -1,0 +1,5 @@
+{
+  "method": "Capture correction: preserve original rendered RGB, discard native framebuffer alpha to match production alpha:false canvas. No rerender, not another camera or visual cycle.",
+  "source": "sunset-reflection-mode-0-960.png",
+  "sourceSHA256": "36470a1a10e5d1f20347011b61676c8b43017751d7272bc1e428fb8d591e2a0f"
+}

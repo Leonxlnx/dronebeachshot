@@ -1,0 +1,51 @@
+import {renderedTerrainHeight} from '../world/terrain-surface.ts';
+import * as THREE from 'three';
+import {terrainHeight,shoreZ,clamp,smooth} from '../world/math.ts';
+export const DURATION=20;
+const V=(x:number,y:number,z:number)=>new THREE.Vector3(x,y,z);
+// C2-continuous natural cubic splines in physical time avoid velocity jumps at phase boundaries.
+export const flightKeys=[
+ {t:0,p:V(-126,343,350)}, {t:2,p:V(-122,286,310)}, {t:4,p:V(-104,210,268)},
+ {t:6,p:V(-75,117,208)}, {t:7.5,p:V(-90,54,149)}, {t:9,p:V(-125,15,96)},
+ {t:10.5,p:V(-90,5.6,73)}, {t:12,p:V(-25,4.8,86)}, {t:13.5,p:V(62,4.8,69)},
+ {t:15,p:V(112,5.0,21)}, {t:16.5,p:V(85,5.2,-42)}, {t:18,p:V(22,5.8,-150)}, {t:20,p:V(-46,6.6,-280)}
+];
+function spline(values:number[]){const n=values.length,second=Array(n).fill(0),u=Array(n).fill(0);for(let i=1;i<n-1;i++){const before=flightKeys[i].t-flightKeys[i-1].t,after=flightKeys[i+1].t-flightKeys[i].t,sig=before/(before+after),p=sig*second[i-1]+2;second[i]=(sig-1)/p;const change=(values[i+1]-values[i])/after-(values[i]-values[i-1])/before;u[i]=(6*change/(before+after)-sig*u[i-1])/p}for(let i=n-2;i>=0;i--)second[i]=second[i]*second[i+1]+u[i];return (t:number)=>{let i=0;while(i<n-2&&t>flightKeys[i+1].t)i++;const h=flightKeys[i+1].t-flightKeys[i].t,b=(t-flightKeys[i].t)/h,a=1-b;return a*values[i]+b*values[i+1]+((a*a*a-a)*second[i]+(b*b*b-b)*second[i+1])*h*h/6}}
+const sx=spline(flightKeys.map(k=>k.p.x)),sy=spline(flightKeys.map(k=>k.p.y)),sz=spline(flightKeys.map(k=>k.p.z));
+// C2 height correction for the connected ridge terrain; X/Z, gaze and the
+// exact beach/sea path remain driven by the authored cinematic curve. These
+// quintic coefficients fit the 1,201 terrain/tree/rock-bound clearance samples.
+const ridgeHeightKnots=[0.0,0.0,0.0,0.0,0.0,0.0,0.4,0.8,1.2000000000000002,1.6,2.0,2.4,2.8000000000000003,3.2,3.6,4.0,4.4,4.800000000000001,5.200000000000001,5.6000000000000005,6.000000000000001,6.4,6.800000000000001,7.200000000000001,7.6000000000000005,8.0,8.4,8.8,9.200000000000001,9.600000000000001,10.000000000000002,10.4,10.8,11.200000000000001,11.5,11.5,11.5,11.5,11.5,11.5];
+const ridgeHeightCoefficients=[48.94781433056285,50.09867808506034,52.342713419051194,55.553777462980115,59.593515327206546,64.38171933566757,69.03556480235085,73.64279986844224,78.32610572063247,82.93661092551866,87.37495744895365,91.53293500948573,95.29166912028776,98.62940493105812,101.14437877220367,102.5733758082195,102.67995636310661,101.32111273234007,98.465732457306,94.14928309110915,88.44332219439684,81.25151855174119,72.16350858141523,61.38175757182609,49.414191965289035,36.66515255455101,24.17147656407743,13.475808061130312,5.488134594315676,1.2977487504762946,0.13321257177266296,0.0,0.0,-0.0];
+function ridgeHeightOffset(time:number){
+ if(time>=11.5)return 0;
+ const degree=5;let span=degree;
+ while(span<ridgeHeightCoefficients.length-1&&time>=ridgeHeightKnots[span+1])span++;
+ const d=Array.from({length:degree+1},(_,j)=>ridgeHeightCoefficients[span-degree+j]);
+ for(let r=1;r<=degree;r++)for(let j=degree;j>=r;j--){
+  const left=ridgeHeightKnots[span-degree+j],right=ridgeHeightKnots[span+j-r+1];
+  const a=(time-left)/(right-left);d[j]=(1-a)*d[j-1]+a*d[j];
+ }
+ return d[degree];
+}
+export function pathPosition(time:number){const t=clamp(time,0,20);return V(sx(t),sy(t)+ridgeHeightOffset(t),sz(t))}
+export function sampleCamera(time:number){const t=clamp(time,0,20),position=pathPosition(t),forward=pathPosition(Math.min(t+.3,20)).sub(pathPosition(Math.max(0,t-.3)));forward.y=0;forward.normalize();const target=position.clone().add(forward.multiplyScalar(100));target.y=position.y-(76*(1-smooth(5,10.5,t))+1.0);const sunset=position.clone().add(V(-380,105,-920));target.lerp(sunset,smooth(14.8,19.8,t));const previous=pathPosition(Math.max(0,t-.2)),next=pathPosition(Math.min(20,t+.2));const bank=clamp((next.x-2*position.x+previous.x)*.007,-.015,.015)*(1-smooth(15,20,t));return {position,target,fov:54,bank};}
+export function applyCinematic(camera:THREE.PerspectiveCamera,time:number){const s=sampleCamera(time);camera.position.copy(s.position);camera.up.set(Math.sin(s.bank),Math.cos(s.bank),0);camera.lookAt(s.target);camera.fov=s.fov;camera.updateProjectionMatrix();}
+export const evaluationCameras:Record<string,{position:THREE.Vector3,target:THREE.Vector3,time:number}>={
+'mountain-wide':{position:V(-465,300,-220),target:V(-35,105,160),time:2},
+'canopy-high':{position:V(-165,renderedTerrainHeight(-165,340)+55,340),target:V(-65,145,180),time:3},
+'canopy-close':{position:V(-105,renderedTerrainHeight(-105,270)+44.8,270),target:V(-45,terrainHeight(-45,220)+10,220),time:5},
+'forest-opening':{position:V(-84,renderedTerrainHeight(-84,170)+45.5,170),target:V(-98,20,95),time:7},
+'descent-reveal':{position:V(-100,98.5,152),target:V(-30,5,-35),time:8},
+'beach-transition':{position:V(-55,7,113),target:V(-15,3,87),time:10},
+'sand-detail':{position:V(30,2.4,shoreZ(30)+19),target:V(10,.2,shoreZ(10)+4),time:11},
+'wet-sand':{position:V(8,1.1,102),target:V(-50,.5,65),time:11.5},
+'low-wave':{position:V(55,1.8,60),target:V(-30,.2,27),time:12},
+'breaking-wave-side':{position:V(-45,3.2,63),target:V(30,.4,75),time:12.8},
+'shallow-water':{position:V(90,24,20),target:V(20,0,55),time:13},
+'headland':{position:V(260,35,-120),target:V(335,60,10),time:14},
+'sunset-reflection':{position:V(10,4,-28),target:V(-365,80,-940),time:17},
+'shoreline-flight':{position:V(-150,8,30),target:V(130,2,30),time:11},
+'final-wide':{position:V(-290,140,-295),target:V(5,62,70),time:20},
+'mobile-proof':{position:V(-390,230,-195),target:V(10,100,150),time:4}};
+export function cameraDiagnostics(){let minClearance=Infinity,maxSpeed=0,last=sampleCamera(0).position;const samples=[];for(let i=0;i<=1200;i++){const t=i/60,s=sampleCamera(t);const clear=s.position.y-renderedTerrainHeight(s.position.x,s.position.z);minClearance=Math.min(minClearance,clear);const speed=i?s.position.distanceTo(last)*60:0;maxSpeed=Math.max(maxSpeed,speed);if(i%30===0)samples.push({t,position:s.position.toArray(),look:s.target.toArray(),clearance:clear,speed});last=s.position}return {minClearance,maxSpeed,samples};}

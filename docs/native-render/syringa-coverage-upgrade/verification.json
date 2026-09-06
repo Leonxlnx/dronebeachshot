@@ -1,0 +1,350 @@
+[
+  {
+    "lod": "near",
+    "file": "/workspace/scratch/2b912ce37941/native-render/syringa-coverage-upgrade/syringa-tree-delivery-near.glb",
+    "bytes": 38586500,
+    "SHA256": "cb794443092f8b4b7b257c4d86f42e6f2b0ec91a2f95d2d3f34043f0a3b49b07",
+    "parts": [
+      {
+        "material": "tree_small_02_branches",
+        "triangles": 14746,
+        "vertices": 13545,
+        "referencedVertices": 13545,
+        "unusedVertices": 0,
+        "attributeBytes": 433440,
+        "indexBytes": 88476,
+        "sourceSemanticMapping": {
+          "NORMAL": "NORMAL",
+          "POSITION": "POSITION",
+          "TEXCOORD_0": "TEXCOORD_1"
+        },
+        "allVerticesAndAttributesFromOriginal": true,
+        "finite": true,
+        "validIndices": true,
+        "bounds": [
+          [
+            -1.095399022102356,
+            1.6240153312683105,
+            -1.2641923427581787
+          ],
+          [
+            1.4185543060302734,
+            4.369115829467773,
+            2.7931995391845703
+          ]
+        ],
+        "boundsExactlyOriginal": false,
+        "degenerateTriangles": 0
+      },
+      {
+        "material": "tree_small_02_leaves",
+        "triangles": 646100,
+        "vertices": 680169,
+        "referencedVertices": 680169,
+        "unusedVertices": 0,
+        "attributeBytes": 21765408,
+        "indexBytes": 7753200,
+        "sourceSemanticMapping": {
+          "NORMAL": "NORMAL",
+          "POSITION": "POSITION",
+          "TEXCOORD_0": "TEXCOORD_0"
+        },
+        "allVerticesAndAttributesFromOriginal": true,
+        "finite": true,
+        "validIndices": true,
+        "bounds": [
+          [
+            -1.3089934587478638,
+            1.4583466053009033,
+            -1.3826267719268799
+          ],
+          [
+            1.6077065467834473,
+            4.532637119293213,
+            2.9098503589630127
+          ]
+        ],
+        "boundsExactlyOriginal": true,
+        "degenerateTriangles": 0
+      },
+      {
+        "material": "tree_small_02_trunk",
+        "triangles": 28293,
+        "vertices": 15937,
+        "referencedVertices": 15937,
+        "unusedVertices": 0,
+        "attributeBytes": 509984,
+        "indexBytes": 169758,
+        "sourceSemanticMapping": {
+          "NORMAL": "NORMAL",
+          "POSITION": "POSITION",
+          "TEXCOORD_0": "TEXCOORD_0"
+        },
+        "allVerticesAndAttributesFromOriginal": true,
+        "finite": true,
+        "validIndices": true,
+        "bounds": [
+          [
+            -0.7654515504837036,
+            -0.02410384640097618,
+            -0.39323970675468445
+          ],
+          [
+            0.9303282499313354,
+            3.6645729541778564,
+            1.9231672286987305
+          ]
+        ],
+        "boundsExactlyOriginal": true,
+        "degenerateTriangles": 0
+      }
+    ],
+    "allImageBytesUnchanged": true,
+    "wholeTreeBounds": [
+      [
+        -1.3089934587478638,
+        -0.02410384640097618,
+        -1.3826267719268799
+      ],
+      [
+        1.6077065467834473,
+        4.532637119293213,
+        2.9098503589630127
+      ]
+    ],
+    "wholeTreeBoundsExactlyOriginal": true,
+    "triangles": 689139
+  },
+  {
+    "lod": "hero",
+    "file": "/workspace/scratch/2b912ce37941/native-render/syringa-coverage-upgrade/syringa-tree-delivery-hero.glb",
+    "bytes": 28644932,
+    "SHA256": "b6d15290f5ae394dcd51e52f150ce9fb969f4500c55c586f4b516b43efe76663",
+    "parts": [
+      {
+        "material": "tree_small_02_branches",
+        "triangles": 4524,
+        "vertices": 5427,
+        "referencedVertices": 5427,
+        "unusedVertices": 0,
+        "attributeBytes": 173664,
+        "indexBytes": 27144,
+        "sourceSemanticMapping": {
+          "NORMAL": "NORMAL",
+          "POSITION": "POSITION",
+          "TEXCOORD_0": "TEXCOORD_1"
+        },
+        "allVerticesAndAttributesFromOriginal": true,
+        "finite": true,
+        "validIndices": true,
+        "bounds": [
+          [
+            -1.095399022102356,
+            1.6240153312683105,
+            -1.2641923427581787
+          ],
+          [
+            1.4185543060302734,
+            4.37286901473999,
+            2.67238450050354
+          ]
+        ],
+        "boundsExactlyOriginal": false,
+        "degenerateTriangles": 2
+      },
+      {
+        "material": "tree_small_02_leaves",
+        "triangles": 432381,
+        "vertices": 473748,
+        "referencedVertices": 473748,
+        "unusedVertices": 0,
+        "attributeBytes": 15159936,
+        "indexBytes": 5188572,
+        "sourceSemanticMapping": {
+          "NORMAL": "NORMAL",
+          "POSITION": "POSITION",
+          "TEXCOORD_0": "TEXCOORD_0"
+        },
+        "allVerticesAndAttributesFromOriginal": true,
+        "finite": true,
+        "validIndices": true,
+        "bounds": [
+          [
+            -1.3089934587478638,
+            1.4583466053009033,
+            -1.3826267719268799
+          ],
+          [
+            1.6077065467834473,
+            4.532637119293213,
+            2.9098503589630127
+          ]
+        ],
+        "boundsExactlyOriginal": true,
+        "degenerateTriangles": 0
+      },
+      {
+        "material": "tree_small_02_trunk",
+        "triangles": 8989,
+        "vertices": 5483,
+        "referencedVertices": 5483,
+        "unusedVertices": 0,
+        "attributeBytes": 175456,
+        "indexBytes": 53934,
+        "sourceSemanticMapping": {
+          "NORMAL": "NORMAL",
+          "POSITION": "POSITION",
+          "TEXCOORD_0": "TEXCOORD_0"
+        },
+        "allVerticesAndAttributesFromOriginal": true,
+        "finite": true,
+        "validIndices": true,
+        "bounds": [
+          [
+            -0.7654515504837036,
+            -0.02410384640097618,
+            -0.39323970675468445
+          ],
+          [
+            0.9303282499313354,
+            3.6645729541778564,
+            1.9231672286987305
+          ]
+        ],
+        "boundsExactlyOriginal": true,
+        "degenerateTriangles": 0
+      }
+    ],
+    "allImageBytesUnchanged": true,
+    "wholeTreeBounds": [
+      [
+        -1.3089934587478638,
+        -0.02410384640097618,
+        -1.3826267719268799
+      ],
+      [
+        1.6077065467834473,
+        4.532637119293213,
+        2.9098503589630127
+      ]
+    ],
+    "wholeTreeBoundsExactlyOriginal": true,
+    "triangles": 445894
+  },
+  {
+    "lod": "medium",
+    "file": "/workspace/scratch/2b912ce37941/native-render/syringa-coverage-upgrade/syringa-tree-delivery-medium.glb",
+    "bytes": 24139692,
+    "SHA256": "abd395a68594716db473e9acc3f44e4ff48035c416aab0b20a6e282e393582df",
+    "parts": [
+      {
+        "material": "tree_small_02_branches",
+        "triangles": 1419,
+        "vertices": 1957,
+        "referencedVertices": 1957,
+        "unusedVertices": 0,
+        "attributeBytes": 62624,
+        "indexBytes": 8514,
+        "sourceSemanticMapping": {
+          "NORMAL": "NORMAL",
+          "POSITION": "POSITION",
+          "TEXCOORD_0": "TEXCOORD_1"
+        },
+        "allVerticesAndAttributesFromOriginal": true,
+        "finite": true,
+        "validIndices": true,
+        "bounds": [
+          [
+            -0.8039038181304932,
+            1.677388072013855,
+            -1.2641923427581787
+          ],
+          [
+            1.3112549781799316,
+            4.316212177276611,
+            2.363694429397583
+          ]
+        ],
+        "boundsExactlyOriginal": false,
+        "degenerateTriangles": 2
+      },
+      {
+        "material": "tree_small_02_leaves",
+        "triangles": 339864,
+        "vertices": 377131,
+        "referencedVertices": 377131,
+        "unusedVertices": 0,
+        "attributeBytes": 12068192,
+        "indexBytes": 4078368,
+        "sourceSemanticMapping": {
+          "NORMAL": "NORMAL",
+          "POSITION": "POSITION",
+          "TEXCOORD_0": "TEXCOORD_0"
+        },
+        "allVerticesAndAttributesFromOriginal": true,
+        "finite": true,
+        "validIndices": true,
+        "bounds": [
+          [
+            -1.3089934587478638,
+            1.4583466053009033,
+            -1.3826267719268799
+          ],
+          [
+            1.6077065467834473,
+            4.532637119293213,
+            2.9098503589630127
+          ]
+        ],
+        "boundsExactlyOriginal": true,
+        "degenerateTriangles": 0
+      },
+      {
+        "material": "tree_small_02_trunk",
+        "triangles": 1987,
+        "vertices": 1370,
+        "referencedVertices": 1370,
+        "unusedVertices": 0,
+        "attributeBytes": 43840,
+        "indexBytes": 11922,
+        "sourceSemanticMapping": {
+          "NORMAL": "NORMAL",
+          "POSITION": "POSITION",
+          "TEXCOORD_0": "TEXCOORD_0"
+        },
+        "allVerticesAndAttributesFromOriginal": true,
+        "finite": true,
+        "validIndices": true,
+        "bounds": [
+          [
+            -0.7654515504837036,
+            -0.02410384640097618,
+            -0.39323970675468445
+          ],
+          [
+            0.9303282499313354,
+            3.6645729541778564,
+            1.9231672286987305
+          ]
+        ],
+        "boundsExactlyOriginal": true,
+        "degenerateTriangles": 0
+      }
+    ],
+    "allImageBytesUnchanged": true,
+    "wholeTreeBounds": [
+      [
+        -1.3089934587478638,
+        -0.02410384640097618,
+        -1.3826267719268799
+      ],
+      [
+        1.6077065467834473,
+        4.532637119293213,
+        2.9098503589630127
+      ]
+    ],
+    "wholeTreeBoundsExactlyOriginal": true,
+    "triangles": 343270
+  }
+]

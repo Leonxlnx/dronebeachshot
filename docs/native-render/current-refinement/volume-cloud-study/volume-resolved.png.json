@@ -1,0 +1,27 @@
+{
+  "method": "Native ANGLE production createAtmosphere; sky-only investigation, not browser QA",
+  "module": "/workspace/scratch/2b912ce37941/native-render/volume-cloud-study/atmosphere-volume-runtime.ts",
+  "moduleSHA256": "d8ba674c2b100c0dd37320939d6bcf899b2412148ba83d7c3c543f3675e48a63",
+  "cloudModuleFile": "/workspace/scratch/2b912ce37941/native-render/volume-cloud-study/clouds-volume-runtime.ts",
+  "cloudModuleSHA256": "b195badd3974ab41b1ce044e7930c23ac0d0e6f8fcf4f0f2a3bc2f1a2d6baa78",
+  "width": 720,
+  "height": 405,
+  "time": 17,
+  "camera": {
+    "position": [
+      10,
+      4,
+      -28
+    ],
+    "target": [
+      -365,
+      80,
+      -940
+    ],
+    "fov": 54
+  },
+  "shaderErrors": [],
+  "glError": 0,
+  "renderMilliseconds": 2652,
+  "renderer": "ANGLE (Mesa, llvmpipe (LLVM 20.1.2 256 bits), OpenGL ES 3.2 Mesa 25.2.8-0ubuntu0.24.04.2)"
+}

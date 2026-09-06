@@ -1,0 +1,23 @@
+{
+  "status": "blocked-incomplete",
+  "verifiedActiveSeconds": 22289.282,
+  "requiredActiveSeconds": 86400,
+  "unitTestsPassed": 17,
+  "visualCycles": 0,
+  "nativeDiagnosticIterations": 7,
+  "latestNativeReview": {
+    "path": "docs/native-render/current-refinement/ROOT_REVIEW.md",
+    "accepted": false,
+    "browserCycles": 0,
+    "note": "Actual three1920px native views reviewed. Source canopy visibility, refined cloud sampling,42deg camera framing, stable separate shadow/camera buffers, stone repetition correction and swash front fade accepted as narrow fixes. Macro geology, ecological structure, water/sky/sand art and final browser gates remain open."
+  },
+  "finalStills": 0,
+  "finalFilms": 0,
+  "mainCommit": null,
+  "published": false,
+  "assets": 38,
+  "worldFieldSha256": "1a0a8e16e9c6b1339be7f1a2bfc9ef972c8dc1ee0a0a6b79f8db1a269439b6c3",
+  "workerEqualsWorld": true,
+  "scope": "Incomplete real3D development checkpoint. Native art review, CPU checks and build are available; browser/mobile/FPS/final film and final visual acceptance remain unmet.",
+  "workerBundle": "coastal-worker-B6IjHlN_.js"
+}

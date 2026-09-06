@@ -1,0 +1,128 @@
+{
+  "completed": [
+    {
+      "camera": "headland",
+      "variant": "baseline",
+      "time": 14,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/lighting-study/headland-baseline-mode-0-768.png",
+      "render": {
+        "frame": 28,
+        "calls": 638,
+        "triangles": 35831600,
+        "points": 736,
+        "lines": 0
+      },
+      "programs": 69,
+      "glError": 0
+    },
+    {
+      "camera": "headland",
+      "variant": "bias-only",
+      "time": 14,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/lighting-study/headland-bias-only-mode-0-768.png",
+      "render": {
+        "frame": 30,
+        "calls": 638,
+        "triangles": 35831600,
+        "points": 736,
+        "lines": 0
+      },
+      "programs": 69,
+      "glError": 0
+    },
+    {
+      "camera": "headland",
+      "variant": "balance",
+      "time": 14,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/lighting-study/headland-balance-mode-0-768.png",
+      "render": {
+        "frame": 32,
+        "calls": 638,
+        "triangles": 35831600,
+        "points": 736,
+        "lines": 0
+      },
+      "programs": 69,
+      "glError": 0
+    },
+    {
+      "camera": "headland",
+      "variant": "balance-neutral",
+      "time": 14,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/lighting-study/headland-balance-neutral-mode-0-768.png",
+      "render": {
+        "frame": 34,
+        "calls": 638,
+        "triangles": 35831600,
+        "points": 736,
+        "lines": 0
+      },
+      "programs": 69,
+      "glError": 0
+    },
+    {
+      "camera": "mountain-wide",
+      "variant": "baseline",
+      "time": 2,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/lighting-study/mountain-wide-baseline-mode-0-768.png",
+      "render": {
+        "frame": 62,
+        "calls": 679,
+        "triangles": 18626694,
+        "points": 736,
+        "lines": 0
+      },
+      "programs": 69,
+      "glError": 0
+    },
+    {
+      "camera": "mountain-wide",
+      "variant": "bias-only",
+      "time": 2,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/lighting-study/mountain-wide-bias-only-mode-0-768.png",
+      "render": {
+        "frame": 64,
+        "calls": 679,
+        "triangles": 18626694,
+        "points": 736,
+        "lines": 0
+      },
+      "programs": 69,
+      "glError": 0
+    },
+    {
+      "camera": "mountain-wide",
+      "variant": "balance",
+      "time": 2,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/lighting-study/mountain-wide-balance-mode-0-768.png",
+      "render": {
+        "frame": 66,
+        "calls": 679,
+        "triangles": 18626694,
+        "points": 736,
+        "lines": 0
+      },
+      "programs": 69,
+      "glError": 0
+    },
+    {
+      "camera": "mountain-wide",
+      "variant": "balance-neutral",
+      "time": 2,
+      "filename": "/workspace/scratch/2b912ce37941/native-render/lighting-study/mountain-wide-balance-neutral-mode-0-768.png",
+      "render": {
+        "frame": 68,
+        "calls": 679,
+        "triangles": 18626694,
+        "points": 736,
+        "lines": 0
+      },
+      "programs": 69,
+      "glError": 0
+    }
+  ],
+  "requested": [
+    "headland",
+    "mountain-wide"
+  ]
+}
