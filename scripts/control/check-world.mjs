@@ -20,6 +20,6 @@ root.traverse(object=>{if(object.geometry&&!geometries.has(object.geometry)){con
 assert.equal(trees.length,14000);assert.ok(spray.userData.emitters>20);assert.ok(floor.userData.counts.rootTrees>20);assert.ok(floor.userData.counts.seedlings>500);
 const families=trees.reduce((all,p)=>(all[p.family]=(all[p.family]||0)+1,all),{});
 const fieldSha256=crypto.createHash('sha256').update(Buffer.from(field.texture.image.data.buffer)).digest('hex');
-const result={photogrammetryRocks:rocks.userData.photogrammetryRocks,fieldSha256,scope:'CPU geometry construction only; no GPU/scene visual verification',trees:trees.length,families,geometryCount:geometries.size,vertexCount,instances,forestFloor:floor.userData.counts,forestStructure:structure.stats,spray:spray.userData,coastalField:field.diagnostics};
-fs.writeFileSync('artifacts/world-cpu-check.json',JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify(result,null,2));
+const result={offshoreRocks:rocks.userData.offshoreRocks,photogrammetryRocks:rocks.userData.photogrammetryRocks,fieldSha256,scope:'CPU geometry construction only; no GPU/scene visual verification',trees:trees.length,families,geometryCount:geometries.size,vertexCount,instances,forestFloor:floor.userData.counts,forestStructure:structure.stats,spray:spray.userData,coastalField:field.diagnostics};
+fs.writeFileSync('artifacts/world-cpu-check.json',JSON.stringify(result,null,2)+'\n');console.log('WORLD_CPU_PASS '+JSON.stringify({trees:result.trees,instances:result.instances,geometries:result.geometryCount,offshoreRocks:result.offshoreRocks.instances,fieldSha256:result.fieldSha256}));
 geometries.forEach(g=>g.dispose());materials.forEach(m=>m.dispose());Object.values(textures).forEach(t=>t.dispose());field.texture.dispose();

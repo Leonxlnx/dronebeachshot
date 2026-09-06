@@ -2,6 +2,12 @@
 
 **Read this first. This is an unfinished recovery snapshot, not a completed game/film.**
 
+**2026-09-06 continuation:** Read `docs/continuation/REVIEW.md` first for the new
+source changes and evidence. The original Sites project now returns NOT_FOUND
+through its owning connector; its later source could not be recovered. The
+available GitHub snapshot was improved independently with that limitation
+recorded. The historical recovery authorization below is not a new final sign-off.
+
 ## Read in this order
 1. `docs/handoff/USER_PROMPTS.md`: visible user follow-ups and current handoff authorization.
 2. `docs/references/last-light-bay-24h-prompt.md`: full original 24-hour build prompt.

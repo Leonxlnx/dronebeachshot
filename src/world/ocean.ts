@@ -243,7 +243,14 @@ uniform float uTime,uDebug,uSurfaceMode,uSkyDecodeScale;uniform vec3 uSun;unifor
  material.fragmentShader=diagnosticOutputShader(material.fragmentShader);
  const root=new THREE.Group();root.name='ocean-and-swash';
  const near=new THREE.PlaneGeometry(1800,1800,900,900);near.rotateX(-Math.PI/2);near.translate(0,0,-350);const mesh=new THREE.Mesh(near,material);root.add(mesh);
- function surfaceMaterial(mode:number){const m=material.clone();Object.assign(m.uniforms,refractionUniforms);m.uniforms.uTime=worldTime;m.uniforms.uDebug=debugMode;m.uniforms.uReflectedSky=reflectedSky;m.uniforms.uCloudShadow=cloudShadow;m.uniforms.uCoastalField.value=field.texture;m.uniforms.uTerrainHeights.value=terrainHeights;m.uniforms.uSurfaceMode.value=mode;return m}
+ function surfaceMaterial(mode:number){
+  // These surfaces share the same world uniforms, including live render targets.
+  // ShaderMaterial.clone() drops render-target textures and duplicates atlas
+  // Sources. Keep bindings shared; only the surface mode belongs to the mesh.
+  return new THREE.ShaderMaterial({vertexShader:material.vertexShader,fragmentShader:material.fragmentShader,
+   polygonOffset:material.polygonOffset,polygonOffsetFactor:material.polygonOffsetFactor,polygonOffsetUnits:material.polygonOffsetUnits,
+   uniforms:{...material.uniforms,uSurfaceMode:{value:mode}}});
+ }
  const swash=new THREE.Mesh(swashGeometry(),surfaceMaterial(2));swash.name='sand-following-swash';root.add(swash);
  const far=new THREE.PlaneGeometry(26000,26000,80,80);far.rotateX(-Math.PI/2);far.translate(0,0,-4000);const distant=new THREE.Mesh(far,surfaceMaterial(1));distant.renderOrder=-1;root.add(distant);
  return {group:root,material};

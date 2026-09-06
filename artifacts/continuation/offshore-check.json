@@ -1,0 +1,11 @@
+{
+  "scope": "CPU geometry, dense path clearance and actual rasterized wave shelter; not visual acceptance",
+  "instances": 37,
+  "minClearance": 33.02271907490596,
+  "minPenetration": 0.21591892595382323,
+  "minProtrusion": 0.9844662216363892,
+  "leeOutsideRock": 8387,
+  "submergedSamples": 206,
+  "blockingSamples": 271,
+  "sourceSha256": "581b4f5b375b1eb2bed91178120d31811d09001904f43ee5f78e0168b61f6e42"
+}

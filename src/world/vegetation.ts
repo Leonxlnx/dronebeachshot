@@ -1,3 +1,4 @@
+import {EmbeddedImagePool} from '../render/embedded-image-pool';
 import {createInstanceFrustumPacker} from '../render/instance-frustum-packing';
 import {loadSourceVisibilityTexture} from '../render/source-sun-visibility';
 import {createDistantForest} from './distant-forest';
@@ -15,7 +16,7 @@ import {prepareTreeMaterial,lodCamera,setVegetationQuality} from '../render/vege
 type Part={geometry:THREE.BufferGeometry,material:THREE.MeshStandardMaterial,depth:THREE.MeshDepthMaterial};
 type Cell={bounds:THREE.Sphere,lods:THREE.Group[],family:number,placements:Placement[]};
 export async function createVegetation(progress:(p:number,label:string)=>void,terrain?:THREE.Group){
- const loader=new GLTFLoader();
+ const loader=new GLTFLoader(),imagePool=new EmbeddedImagePool();
  const paths=['island-tree-near.glb','island-tree-hero.glb','island-tree-medium.glb','island-tree-far.glb','syringa-tree-near.glb','syringa-tree-hero.glb','syringa-tree-medium.glb','syringa-tree-far.glb','palm-tree.glb'];
  const textureLoader=new THREE.TextureLoader();
  const farTextures=await Promise.all(['island','syringa'].map(async family=>{
@@ -32,7 +33,7 @@ const treeHeights = [{value:1}, {value:1}, {value:1}];
  for(let index=0;index<paths.length;index++){
   // Actual source-tree view atlases supply far LOD; skip loading obsolete cards.
   if(index===3||index===7){parts.push([]);continue;}
-  const gltf=await loader.loadAsync('/assets/models/'+paths[index]);gltf.scene.updateMatrixWorld(true);
+  const gltf=await loader.loadAsync('/assets/models/'+paths[index]);gltf.scene.updateMatrixWorld(true);await imagePool.share(gltf.scene,gltf.parser);
   const scale=index===8?21/10.99348258972168:index>=4?14/4.556740965694189:18/3.4;
   const primitives:Part[]=[];
 const familyIndex = index === 8 ? 2 : index >= 4 ? 1 : 0;
@@ -63,6 +64,7 @@ if (isHeightSource) {
 }
   parts.push(primitives);progress(44+index*3,'Preparing forest detail');
  }
+ imagePool.clear();
  const placements=treePlacements();updateHabitatCanopy(placements);const bins=new Map<string,Placement[]>();
  for(const plant of placements){const key=[Math.floor(plant.x/100),Math.floor(plant.z/100),plant.family].join(',');const list=bins.get(key)||[];list.push(plant);bins.set(key,list)}
  const instanceFrustumPacker=createInstanceFrustumPacker();
@@ -127,5 +129,5 @@ if (isHeightSource) {
    }
   }
  }
- return {prepareMain:instanceFrustumPacker.prepareMain,prepareSunShadow:instanceFrustumPacker.prepareSunShadow,disposeVisibility:instanceFrustumPacker.dispose,group,placements,farTextures,distantCount:distant?.userData.stats.trees??0,distantStats:distant?.userData.stats??null,update,setTier:(value:QualityTier)=>{tier=value;setVegetationQuality(value)},count:placements.length,cells:cells.length};
+ return {imageSharing:imagePool.stats,prepareMain:instanceFrustumPacker.prepareMain,prepareSunShadow:instanceFrustumPacker.prepareSunShadow,disposeVisibility:instanceFrustumPacker.dispose,group,placements,farTextures,distantCount:distant?.userData.stats.trees??0,distantStats:distant?.userData.stats??null,update,setTier:(value:QualityTier)=>{tier=value;setVegetationQuality(value)},count:placements.length,cells:cells.length};
 }

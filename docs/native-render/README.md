@@ -54,3 +54,21 @@ errors. `render-scene-batch.mjs` is the current multi-camera harness. It reads
 real production sources and records their hashes. The first real compile found
 and fixed a reserved GLSL identifier in the ocean shader. The actual images
 remain far below reference quality; see `cycles-02-07-review.md`.
+
+## 2026-09-06 continuation
+
+`render-scene-batch.mjs` now resolves its own repository root, adapts local raw
+atlas fetches, supplies the terrain to ocean/vegetation construction, and calls
+the production shadow/main foliage packing phases. These were harness defects;
+old harness images cannot establish the current production scene composition.
+
+Set `BAY_OUTPUT_DIR` to choose the evidence directory and `BAY_NATIVE_SAMPLES=4`
+for explicit offscreen MSAA with the official Three.js OutputPass. The optional
+`BAY_REVIEW_CAMERAS` JSON file accepts diagnostic camera names with finite
+`position`, `target` triples and a `time` in 0–20. Reserved production evaluation
+names cannot be overridden. Actual pose and override status are recorded with
+each image; extra diagnostic views do not count as final-gallery cameras.
+
+The checked-in `artifacts/continuation/` comparison is 960×540 and is explicitly
+not the required 4K browser gallery. Source hashes accompany each frame. See
+`../continuation/REVIEW.md` for interpretation and unresolved visual defects.

@@ -3,6 +3,7 @@ import * as THREE from 'three';
 // Technical filtering correction only: the alpha byte and covered surface colors
 // stay unchanged. RGB enters texture filtering premultiplied in linear light.
 const derivedMaps = new WeakMap<THREE.Texture, THREE.DataTexture>();
+const derivedSources = new WeakMap<THREE.Texture['source'], Map<string, THREE.DataTexture['source']>>();
 const decodeSRGB = (v:number) => v <= .04045 ? v / 12.92 : ((v + .055) / 1.055) ** 2.4;
 const encodeSRGB = (v:number) => v <= .0031308 ? v * 12.92 : 1.055 * v ** (1 / 2.4) - .055;
 export function alphaWeightRGBA(data:ArrayLike<number>, width:number, height:number,
@@ -36,6 +37,10 @@ export function alphaWeightedColorTexture(source:THREE.Texture):THREE.DataTextur
  if(source.premultiplyAlpha) throw new Error('Input must contain straight-alpha source color');
  const image=source.image as {data?:ArrayLike<number>;width:number;height:number};
  const width=image.width,height=image.height;
+ const key=source.colorSpace+':'+source.flipY;
+ const sourceVariants=derivedSources.get(source.source)??new Map<string,THREE.DataTexture['source']>();
+ let derivedSource=sourceVariants.get(key);
+ if(!derivedSource){
  let rgba:ArrayLike<number>;
  if(image.data) {
   if(source.type!==THREE.UnsignedByteType || source.format!==THREE.RGBAFormat)
@@ -48,11 +53,13 @@ export function alphaWeightedColorTexture(source:THREE.Texture):THREE.DataTextur
   context.drawImage(source.image as CanvasImageSource,0,0);
   rgba=context.getImageData(0,0,width,height).data;
  }
- const data=alphaWeightRGBA(rgba,width,height,source.colorSpace,source.flipY);
- const result=new THREE.DataTexture(data,width,height,THREE.RGBAFormat,THREE.UnsignedByteType);
+  const data=alphaWeightRGBA(rgba,width,height,source.colorSpace,source.flipY);
+  derivedSource=new THREE.Source({data,width,height});sourceVariants.set(key,derivedSource);derivedSources.set(source.source,sourceVariants);
+ }
+ const result=new THREE.DataTexture(null,width,height,THREE.RGBAFormat,THREE.UnsignedByteType);
  THREE.Texture.prototype.copy.call(result,source);
  // Texture.copy shares Source; detach it before installing derived pixels.
- result.source=new THREE.Source({data,width,height});
+ result.source=derivedSource;
  result.mipmaps=[]; result.generateMipmaps=source.generateMipmaps;
  result.flipY=false; result.premultiplyAlpha=false;
  result.userData={...source.userData,alphaWeightedLinearRGB:true};

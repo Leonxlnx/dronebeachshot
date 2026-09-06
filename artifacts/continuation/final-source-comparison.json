@@ -1,0 +1,18 @@
+{
+  "scope": "Native final-source verification and pixel equality after far-depth sky draw change; no FPS inference",
+  "sourceHashCheck": "all production world/render/camera sources match final diagnostic metadata",
+  "comparisons": [
+    {
+      "view": "wet-sand",
+      "meanAbsoluteByteDifference": 0.0,
+      "maxByteDifference": 0,
+      "unchangedPixelPercent": 100.0
+    },
+    {
+      "view": "mountain-wide",
+      "meanAbsoluteByteDifference": 0.0,
+      "maxByteDifference": 0,
+      "unchangedPixelPercent": 100.0
+    }
+  ]
+}

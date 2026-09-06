@@ -1,0 +1,51 @@
+{
+  "completed": [
+    {
+      "camera": "headland",
+      "time": 14,
+      "filename": "/workspace/scratch/370812df87f3/dronebeachshot/artifacts/continuation/before/headland-mode-0-960.png",
+      "render": {
+        "frame": 29,
+        "calls": 965,
+        "triangles": 37679840,
+        "points": 720,
+        "lines": 0
+      },
+      "programs": 73,
+      "glError": 0
+    },
+    {
+      "camera": "wet-sand",
+      "time": 11.5,
+      "filename": "/workspace/scratch/370812df87f3/dronebeachshot/artifacts/continuation/before/wet-sand-mode-0-960.png",
+      "render": {
+        "frame": 58,
+        "calls": 903,
+        "triangles": 40387017,
+        "points": 720,
+        "lines": 0
+      },
+      "programs": 73,
+      "glError": 0
+    },
+    {
+      "camera": "mountain-wide",
+      "time": 2,
+      "filename": "/workspace/scratch/370812df87f3/dronebeachshot/artifacts/continuation/before/mountain-wide-mode-0-960.png",
+      "render": {
+        "frame": 87,
+        "calls": 1016,
+        "triangles": 22079029,
+        "points": 720,
+        "lines": 0
+      },
+      "programs": 73,
+      "glError": 0
+    }
+  ],
+  "requested": [
+    "headland",
+    "wet-sand",
+    "mountain-wide"
+  ]
+}

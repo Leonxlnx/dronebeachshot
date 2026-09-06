@@ -1515,6 +1515,113 @@
           "sha256": "aeab71a966a26bf24c1de9d39ba439cbda1c6c8e53836e80822502950238bb94"
         }
       ]
+    },
+    {
+      "start": "2026-09-06T08:04:48.483Z",
+      "category": "technical-review",
+      "description": "Audit recovered world and runtime; restore verification and close concrete defects",
+      "proofs": [
+        {
+          "at": "2026-09-06T08:10:03.662Z",
+          "files": [
+            {
+              "path": "src/main.ts",
+              "sha256": "7a0d3d452a776d65e1cd70f9fa2eac17307a662f846373b4bd74eee56cb1a73d"
+            },
+            {
+              "path": "src/app/capture-state.ts",
+              "sha256": "284134b84abcb92e69793b080e1c0b8a7c5347be225f008e4c9377a358a109ae"
+            },
+            {
+              "path": "docs/native-render/render-scene-batch.mjs",
+              "sha256": "e6c66eb0afef8c83a51b7e4821439e02a41edfb8c9b34f0cb3ab2a500ad2b3a3"
+            }
+          ]
+        },
+        {
+          "at": "2026-09-06T08:16:00.457Z",
+          "files": [
+            {
+              "path": "src/world/offshore-rocks.ts",
+              "sha256": "bdfc649fa0c277edaff49a8b767e65bd16c37c377ad040bd7cdff819bee4f3b3"
+            },
+            {
+              "path": "scripts/control/check-offshore.mjs",
+              "sha256": "a4d301f384f9f08d99b913591304478d7783355dac89b4e831d22dd1ff56d304"
+            },
+            {
+              "path": "artifacts/continuation/offshore-check.json",
+              "sha256": "afa937344831430f6b926092dfc9d3761f3903abfd51e32603cfa167100993e6"
+            }
+          ]
+        },
+        {
+          "at": "2026-09-06T08:21:23.986Z",
+          "files": [
+            {
+              "path": "src/render/embedded-image-pool.ts",
+              "sha256": "91c53f4184cf8cd86cf287fc54069fb9755c21cb1b15d4c4a2f91f7c301823ee"
+            },
+            {
+              "path": "src/world/clouds.ts",
+              "sha256": "5f0cc22b1fdeb794f9e64b7c45742fe9b820dac91a36e7b28007c541a0434c7b"
+            },
+            {
+              "path": "src/render/ground-materials.ts",
+              "sha256": "03c39b1db9b9e19a7874c7f0335c2576a14c45b75a5d2978f9e3e7d45325799d"
+            },
+            {
+              "path": "src/world/terrain-surface.ts",
+              "sha256": "4cbed1713ea5ceef370113aa9f56783e48d563bf7d10486dbc1dc1465e1ffbdc"
+            }
+          ]
+        },
+        {
+          "at": "2026-09-06T08:33:21.343Z",
+          "files": [
+            {
+              "path": "src/render/alpha-weighted-color.ts",
+              "sha256": "b667f945d96c5142df938b037fdd33d31fc4c41f8e147171a40c9fd445c97391"
+            },
+            {
+              "path": "src/world/atmosphere.ts",
+              "sha256": "4004f8bf766238617dec81d4efacd4c346c131c25759193fd46db580b3ee24d8"
+            },
+            {
+              "path": "artifacts/continuation/after/wet-sand-mode-0-960.png",
+              "sha256": "2eb0dbfdd0a4d87f021037d1e7e548f566b74e4c7b98c52d1902bcec3f3dc0ec"
+            }
+          ]
+        }
+      ],
+      "end": "2026-09-06T08:38:16.969Z",
+      "seconds": 2008.486,
+      "evidence": [
+        {
+          "path": "src/main.ts",
+          "sha256": "67673e836573312c62113db16110e33c8d250d553ad42b05680fba8c359a4927"
+        },
+        {
+          "path": "src/world/offshore-rocks.ts",
+          "sha256": "bdfc649fa0c277edaff49a8b767e65bd16c37c377ad040bd7cdff819bee4f3b3"
+        },
+        {
+          "path": "src/render/embedded-image-pool.ts",
+          "sha256": "91c53f4184cf8cd86cf287fc54069fb9755c21cb1b15d4c4a2f91f7c301823ee"
+        },
+        {
+          "path": "artifacts/continuation/final-source-comparison.json",
+          "sha256": "6af3c2f656625cbd44cbdb8736a31231422a3fa4cb8b3bb2de2fa1790fdb5bba"
+        },
+        {
+          "path": "artifacts/continuation/offshore-check.json",
+          "sha256": "afa937344831430f6b926092dfc9d3761f3903abfd51e32603cfa167100993e6"
+        },
+        {
+          "path": "docs/continuation/REVIEW.md",
+          "sha256": "728a17a8d2c8ac529bab8c495f344b7cd21591b9ce5218254f90503f47ae7c9c"
+        }
+      ]
     }
   ],
   "cycles": [],

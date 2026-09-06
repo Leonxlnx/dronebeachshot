@@ -4,13 +4,13 @@ import fs from 'node:fs/promises';
 import {writeFileSync} from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
-import {pathToFileURL} from 'node:url';
+import {pathToFileURL,fileURLToPath} from 'node:url';
 import nodeGles from 'node-gles-webgl2';
 import sharp from 'sharp';
 import {installNativeAssetLoaders} from './native-asset-adapter.mjs';
 import {wrapNativeGL} from './native-gl-compat.mjs';
 
-const root='/workspace/sites/last-light-bay';
+const root=fileURLToPath(new URL('../../',import.meta.url)).replace(/\/$/,'');
 const THREE=await import(pathToFileURL(root+'/node_modules/three/build/three.module.js'));
 const {GLTFLoader}=await import(pathToFileURL(root+'/node_modules/three/examples/jsm/loaders/GLTFLoader.js'));
 const {OutputPass}=await import(pathToFileURL(root+'/node_modules/three/examples/jsm/postprocessing/OutputPass.js'));
@@ -30,10 +30,25 @@ const sourceHashes={};
 for(const folder of ['world','render','camera'])for(const name of await fs.readdir(root+'/src/'+folder))if(name.endsWith('.ts')&&!name.endsWith('.test.ts'))sourceHashes[folder+'/'+name]=crypto.createHash('sha256').update(await fs.readFile(root+'/src/'+folder+'/'+name)).digest('hex');
 sharp.concurrency(2);sharp.cache({memory:32,files:0,items:20});
 const assetAdapter=await installNativeAssetLoaders({THREE,GLTFLoader,publicRoot:root+'/public',sharp});
+// Production byte atlases use fetch; adapt only local asset I/O for native QA.
+const browserFetch=globalThis.fetch;
+globalThis.fetch=async(input,init)=>{
+ if(typeof input==='string'&&input.startsWith('/assets/'))return new Response(await fs.readFile(root+'/public'+input));
+ return browserFetch(input,init);
+};
 const cameraNames=(process.argv[2]||'mountain-wide').split(',').map(name=>name.trim()).filter(Boolean);
+// Extra diagnostic framing never changes the sixteen production evaluation views.
+const customCameras={};
+if(process.env.BAY_REVIEW_CAMERAS){
+ for(const [name,view] of Object.entries(JSON.parse(await fs.readFile(process.env.BAY_REVIEW_CAMERAS,'utf8')))){
+  if(evaluationCameras[name]||!/^[a-z][a-z0-9-]*$/.test(name))throw Error('Invalid or reserved review camera '+name);
+  for(const key of ['position','target'])if(!Array.isArray(view[key])||view[key].length!==3||!view[key].every(Number.isFinite))throw Error('Invalid review '+key);
+  customCameras[name]={time:view.time,position:new THREE.Vector3(...view.position),target:new THREE.Vector3(...view.target)};
+ }
+}
 if(!cameraNames.length)throw Error('Provide at least one camera');
 for(const name of cameraNames){
- const time=evaluationCameras[name]?.time??(/^(?:flight-)?[0-9]+(?:\.[0-9]+)?$/.test(name)?Number(name.replace('flight-','')):NaN);
+ const time=(customCameras[name]??evaluationCameras[name])?.time??(/^(?:flight-)?[0-9]+(?:\.[0-9]+)?$/.test(name)?Number(name.replace('flight-','')):NaN);
  if(!Number.isFinite(time)||time<0||time>20)throw Error('Unknown camera or time outside 0–20: '+name);
 }
 const width=Number(process.argv[3]||640),height=Math.round(width*9/16);
@@ -76,15 +91,15 @@ const refraction=createRefractionPass(renderer);
 log('renderer',gl.getParameter(gl.RENDERER),gl.getParameter(gl.VERSION));
 const progress=(p,label)=>log(p,label);
 const textures=await loadTextures(progress);
-scene.add(createTerrain(textures));
+const terrain=createTerrain(textures);scene.add(terrain);
 const rockSource=await new GLTFLoader().loadAsync(ROCK_VISUAL_URL);
 const rocks=createDetailedRocks(textures,rockSource.scene);scene.add(rocks);
 const field=createCoastalField(rocks);log('coastal field ready');
 const atmosphere=createAtmosphere(renderer);scene.add(atmosphere.group);
-const ocean=createOcean(field);scene.add(ocean.group);
+const ocean=createOcean(field,terrain);scene.add(ocean.group);
 const spray=createRockSpray(field);scene.add(spray);
 const cover=createGroundCover(textures);scene.add(cover);
-const vegetation=await createVegetation(progress);scene.add(vegetation.group);
+const vegetation=await createVegetation(progress,terrain);scene.add(vegetation.group);
 cover.add(createForestFloor(textures,vegetation.placements));
 const forestStructure=createForestStructure(textures,vegetation.placements);cover.add(forestStructure.group);
 scene.traverse(o=>{if(o instanceof THREE.Mesh&&o.castShadow&&o.material instanceof THREE.MeshStandardMaterial&&typeof o.material.userData.windBark==='boolean')o.customDepthMaterial=createGroundWindDepth(o.material)});
@@ -95,7 +110,7 @@ const completed=[];
 try {
  for(const [cameraIndex,cameraName] of cameraNames.entries()){
   log('batch camera',cameraIndex+1,'of',cameraNames.length,cameraName);
-const choice=evaluationCameras[cameraName];
+const choice=customCameras[cameraName]??evaluationCameras[cameraName];
 const time=choice?choice.time:Number(cameraName.replace('flight-',''));
 if(!Number.isFinite(time))throw Error('Unknown camera '+cameraName);
 worldTime.value=time;
@@ -113,7 +128,9 @@ log('atmosphere render begin');atmosphere.update(renderer,camera.position,time);
 scene.environment=mode===5?null:atmosphere.environment;scene.environmentIntensity=.65;
 log('scene compile begin');await renderer.compileAsync(scene,camera);await refraction.compile(scene,camera);
 log('scene render begin');renderer.info.reset();renderer.shadowMap.needsUpdate=true;
+if(renderer.shadowMap.enabled)vegetation.prepareSunShadow(atmosphere.sun);
 refraction.render(scene,camera,ocean.group,spray);
+vegetation.prepareMain(camera);
 renderer.setRenderTarget(reviewTarget);renderer.render(scene,camera);renderer.setRenderTarget(null);
 if(reviewOutput)reviewOutput.render(renderer,null,reviewTarget);
 gl.finish();
@@ -125,13 +142,14 @@ const glError=gl.getError();if(glError!==gl.NO_ERROR)throw Error('Native GL erro
 const filename=path.join(output,`${outputPrefix}${cameraName}-mode-${mode}-${width}.png`);
 await sharp(pixels,{raw:{width,height,channels:4}}).flip().removeAlpha().png().toFile(filename);
 const candidateOverrides={fog:process.env.BAY_FOG_CANDIDATE||null,terrain:process.env.BAY_TERRAIN_CANDIDATE||null};
-const info={candidateOverrides,method:'Native ANGLE execution of production Three.js modules, software graphics; not browser QA or consumer FPS',camera:cameraName,time,width,height,debugMode:mode,nativeSamples,nativeCoverage,nativeOutput:reviewTarget?'linear-half-float-MSAA + official OutputPass ACES/sRGB':'production-default-framebuffer',renderer:gl.getParameter(gl.RENDERER),version:gl.getParameter(gl.VERSION),trees:vegetation.count,cells:vegetation.cells,render:renderer.info.render,memory:renderer.info.memory,programs:renderer.info.programs.length,assetMetrics:assetAdapter.metrics,shaderErrors:errors,glError,at:new Date().toISOString(),sourceHashes,batchIndex:cameraIndex,batchCount:cameraNames.length};
+const info={candidateOverrides,method:'Native ANGLE execution of production Three.js modules, software graphics; not browser QA or consumer FPS',camera:cameraName,time,width,height,debugMode:mode,nativeSamples,nativeCoverage,nativeOutput:reviewTarget?'linear-half-float-MSAA + official OutputPass ACES/sRGB':'production-default-framebuffer',renderer:gl.getParameter(gl.RENDERER),version:gl.getParameter(gl.VERSION),trees:vegetation.count,cells:vegetation.cells,render:renderer.info.render,memory:renderer.info.memory,programs:renderer.info.programs.length,imageSharing:vegetation.imageSharing,offshoreRocks:rocks.userData.offshoreRocks?.instances??0,assetMetrics:assetAdapter.metrics,shaderErrors:errors,glError,at:new Date().toISOString(),sourceHashes,batchIndex:cameraIndex,batchCount:cameraNames.length};
 
+info.cameraPose={position:camera.position.toArray(),quaternion:camera.quaternion.toArray(),fov:camera.fov,diagnosticOverride:!!customCameras[cameraName]};
 await fs.writeFile(filename+'.json',JSON.stringify(info,null,2)+'\n');log('saved',filename,info.render);
 completed.push({camera:cameraName,time,filename,render:{...info.render},programs:info.programs,glError});
 await fs.writeFile(path.join(output,outputPrefix+'batch-progress.json'),JSON.stringify({completed,requested:cameraNames},null,2)+'\n');
 
  }
 } finally {
- reviewOutput?.dispose();reviewTarget?.dispose();atmosphere.dispose();refraction.dispose();renderer.dispose();gl.destroy();assetAdapter.restore();
+ reviewOutput?.dispose();reviewTarget?.dispose();atmosphere.dispose();refraction.dispose();renderer.dispose();gl.destroy();assetAdapter.restore();globalThis.fetch=browserFetch;
 }

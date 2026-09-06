@@ -4,11 +4,17 @@ A true Three.js coastal environment with a deterministic 20-second route from th
 
 ## Run the source
 
-Use Node 22.12+ or 24, then `npm ci` and `npm run dev`. Open the local address reported by Vite in a WebGL2-capable browser. `npm run build` creates a self-contained static build in `dist/`; all runtime assets are local. Serving `dist/` requires a normal HTTP static server, not opening index.html through file://.
+Use Node 22.12+ or 24. First restore the vendored assets with `python3 recovery/restore-assets.py`, then run `npm ci` and `npm run dev`. Open the local address reported by Vite in a WebGL2-capable browser. `npm run build` creates a self-contained static build in `dist/`; all runtime assets are local. Serving `dist/` requires a normal HTTP static server, not opening index.html through file://.
 
 Controls: Begin flight; Space to pause/resume; R to replay; arrow keys to move by half a second; drag to look around while paused; touch controls, sound and quality settings are available. Reduced-motion users begin paused. `?inspect=1` exposes named evaluation cameras and diagnostic modes. `?capture=1&quality=high&t=0` hides the interface and fixes time.
 
 ## Current status
+
+The 2026-09-06 continuation adds 37 grounded tidal rock instances, distant cloud
+occlusion, sand minification filtering, shared embedded texture images and exact
+terrain-height memoization. Playback and capture state handling were repaired.
+See [the continuation review](docs/continuation/REVIEW.md) for current evidence,
+before/after frames, limitations and the remaining acceptance work.
 
 The TypeScript/source checks, deterministic terrain and camera tests, GLB resource checks and production build are verified separately from completion. `npm run verify` intentionally exits nonzero until every completion condition is met. It is not appropriate to weaken its conditions to label this checkpoint finished.
 
@@ -28,7 +34,8 @@ review and are not represented as completed production features.
 
 ## Verification and capture
 
-- `npm run verify:build`: source checks, 16 meaningful tests, actual texture-alpha/license/checksum inspection, CPU world-geometry construction, TypeScript and production build.
+- `npm run verify:build`: source checks, 22 tests, actual texture-alpha/license/checksum inspection, CPU world-geometry construction, TypeScript and production build.
+- `node --experimental-strip-types --loader ./scripts/control/ts-resolve.mjs scripts/control/check-offshore.mjs`: independent dense route clearance, seabed contact, real wave-shelter rasterization and an empty-scene negative control for offshore rocks.
 - `node scripts/control/check-worker.mjs`: after build/world checks, confirms the compiled worker transfers the exact same coastal atlas; CPU-only.
 - `node scripts/control/active-time.mjs status`: honestly recorded active intervals. Python checks require Pillow; frame metrics also require NumPy.
 - `node scripts/control/final-check.mjs`: full unfinished-deliverable ledger, with nonzero exit until complete.

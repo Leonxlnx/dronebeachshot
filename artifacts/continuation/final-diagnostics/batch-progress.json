@@ -1,0 +1,51 @@
+{
+  "completed": [
+    {
+      "camera": "wet-sand",
+      "time": 11.5,
+      "filename": "/workspace/scratch/370812df87f3/dronebeachshot/artifacts/continuation/final-diagnostics/wet-sand-mode-0-960.png",
+      "render": {
+        "frame": 29,
+        "calls": 918,
+        "triangles": 41566953,
+        "points": 960,
+        "lines": 0
+      },
+      "programs": 75,
+      "glError": 0
+    },
+    {
+      "camera": "mountain-wide",
+      "time": 2,
+      "filename": "/workspace/scratch/370812df87f3/dronebeachshot/artifacts/continuation/final-diagnostics/mountain-wide-mode-0-960.png",
+      "render": {
+        "frame": 58,
+        "calls": 1031,
+        "triangles": 23258965,
+        "points": 960,
+        "lines": 0
+      },
+      "programs": 75,
+      "glError": 0
+    },
+    {
+      "camera": "offshore-west",
+      "time": 11.5,
+      "filename": "/workspace/scratch/370812df87f3/dronebeachshot/artifacts/continuation/final-diagnostics/offshore-west-mode-0-960.png",
+      "render": {
+        "frame": 87,
+        "calls": 915,
+        "triangles": 36264610,
+        "points": 960,
+        "lines": 0
+      },
+      "programs": 75,
+      "glError": 0
+    }
+  ],
+  "requested": [
+    "wet-sand",
+    "mountain-wide",
+    "offshore-west"
+  ]
+}

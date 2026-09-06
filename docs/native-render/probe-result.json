@@ -1,7 +1,7 @@
 {
   "method": "native ANGLE WebGL2, no browser process",
   "package": "node-gles-webgl2@0.4.0",
-  "at": "2026-09-05T04:19:01.636Z",
+  "at": "2026-09-06T08:11:38.761Z",
   "version": "OpenGL ES 3.0 (ANGLE 2.1.28447 git hash: aa5f0107c9db)",
   "renderer": "ANGLE (Mesa, llvmpipe (LLVM 20.1.2 256 bits), OpenGL ES 3.2 Mesa 25.2.8-0ubuntu0.24.04.2)",
   "vendor": "Google Inc. (Mesa)",

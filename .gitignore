@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.unlazy/
+.claude/settings.local.json
+.unlazy-hook-state.json
+artifacts/continuation/tmp/
+# Restored byte-for-byte from recovery/asset-parts; keep the existing archive scheme.
+public/assets/impostors/
+public/assets/models/
+public/assets/rocks/
+public/assets/textures/

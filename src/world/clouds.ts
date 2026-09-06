@@ -49,7 +49,20 @@ float filteredDensity(vec3 p,float footprint){
 }
 float density(vec3 p){return filteredDensity(p,1.);}
 float cloudSunTransmission(vec3 point,vec3 sun){
+ // Fine local samples preserve the lit cloud edge. The previous 725 m
+ // reach missed separate clouds between this point and the low horizon sun.
  float depth=density(point+sun*95.)*135.+density(point+sun*275.)*250.+density(point+sun*620.)*380.;
+ vec2 interval=cloudSegment(point,sun);
+ float remaining=max(0.,interval.y-810.);
+ for(int i=0;i<8;i++){
+  if(depth*cloudExtinction>5.||remaining<=0.)break;
+  float a=float(i)/8.,b=float(i+1)/8.;
+  float begin=810.+remaining*a*a,end=810.+remaining*b*b;
+  float stepLength=end-begin;
+  // Increasing footprint stabilizes distant cloud occluders without changing
+  // the fine primary-ray density or its accepted anti-banding quadrature.
+  depth+=filteredDensity(point+sun*((begin+end)*.5),max(30.,stepLength*.3))*stepLength;
+ }
  return exp(-depth*cloudExtinction);
 }
 `;

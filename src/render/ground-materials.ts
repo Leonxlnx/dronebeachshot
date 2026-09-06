@@ -71,7 +71,12 @@ export function createGroundMaterial(t:Textures){
  // Calibrated pale sediment retains the scan's relative grain variation.
  // This changes substrate albedo; sunset lighting and wetness remain separate.
  float sandLuminance=dot(sand,vec3(.2126,.7152,.0722));
- sand=vec3(.52,.465,.355)*clamp(sandLuminance/.142,.62,1.38);
+ // Keep close grain, but average sub-pixel contrast at grazing/aerial angles.
+ // Use the footprint on the ground, not camera distance, so a steep aerial
+ // view retains the detail it can actually resolve.
+ float sandFootprint=max(length(dFdx(gp.xz)),length(dFdy(gp.xz)));
+ float sandGrain=1.-smoothstep(.025,.18,sandFootprint);
+ sand=vec3(.52,.465,.355)*mix(1.,clamp(sandLuminance/.142,.62,1.38),sandGrain);
  vec3 ground=mix(soil,stone,cliff);ground=mix(ground,living,moss*.76);ground=mix(ground,sand,sediment);
  float macro=.91+.18*fbm(gp.xz*.027),wet=sandWetness(gp.x,d,uTime);
  // Darkening is bounded. Shaded ground must remain readable under sky fill.
@@ -85,7 +90,7 @@ export function createGroundMaterial(t:Textures){
  roughnessFactor=mix(roughnessFactor,.20,exposedFilm);`)
   .replace('#include <normal_fragment_maps>',`#include <normal_fragment_maps>
  vec3 detail=mix(triDetail(uSoilN,gp*.5,gn),triStoneDetail(uRockN,gp/5.7483,gn),cliff);detail=mix(detail,triDetail(uMossN,gp/3.,gn),moss*.76);
- vec3 sandNormal=texture2D(uSandN,gp.xz*.5).xyz*2.-1.;detail=mix(detail,vec3(sandNormal.x,0.,sandNormal.y),sediment);
+ vec3 sandNormal=texture2D(uSandN,gp.xz*.5).xyz*2.-1.;detail=mix(detail,vec3(sandNormal.x,0.,sandNormal.y)*sandGrain,sediment);
  // Fine tidal ripples affect the normal, not metres of geometry displacement.
  float ripple=cos(d*7.5+sin(gp.x*.09)*2.2+noise(gp.xz*.14)*1.4)*.035*sediment*(1.-smoothstep(5.,24.,d));vec2 inland=coastNormal(gp.x);detail+=vec3(inland.x,0.,inland.y)*ripple;
  vec3 detailed=normalize(gn+(detail-gn*dot(gn,detail))*.38);normal=normalize(mat3(viewMatrix)*detailed);`)
@@ -94,7 +99,7 @@ export function createGroundMaterial(t:Textures){
   .replace('#include <opaque_fragment>',`#include <opaque_fragment>
  if(uDebug==9.)gl_FragColor.rgb=vec3(clamp(d/100.,0.,1.));if(uDebug==12.)gl_FragColor.rgb=mix(vec3(.06,.12,.4),vec3(.3,.9,.18),habitat.a);`);
  };
- material.customProgramCacheKey=()=> 'soil-rock-moss-sediment-v8-stochastic-fractured-stone';return material;
+ material.customProgramCacheKey=()=> 'soil-rock-moss-sediment-v9-footprint-sand';return material;
 }
 export function createRockMaterial(t:Textures){
  const material=new THREE.MeshStandardMaterial({color:0xffffff,roughness:.86});

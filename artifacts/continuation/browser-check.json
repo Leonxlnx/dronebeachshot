@@ -1,0 +1,20 @@
+{
+  "date": "2026-09-06",
+  "scope": "Managed browser observations; no successful 3D frame",
+  "sourcePreview": {
+    "url": "http://terminal.local:4173/",
+    "observedAt": "2026-09-06T08:25:12.084Z",
+    "visibleAlert": "The scene could not load. Error: WebGL2 is unavailable in this browser, including the low-resource context.",
+    "mainCanvasLabel": "Last Light Bay interactive three-dimensional coastal environment",
+    "controlsVisibleInSnapshot": false,
+    "graphicsError": "GL_VENDOR = Disabled, GL_RENDERER = Disabled; BindToCurrentSequence failed",
+    "attempts": "Both ordinary and low-resource renderer creation fail before asset loading",
+    "result": "unavailable-graphics error UI observed; playback, scrubbing, capture and scene not reached"
+  },
+  "productionPreviewAttempt": {
+    "url": "http://terminal.local:4174/",
+    "result": "Browser Use cannot open this URL: net::ERR_BLOCKED_BY_CLIENT",
+    "claim": "No production-browser acceptance established; no alternate browser attempted"
+  },
+  "blockedChecks": ["production interaction", "browser capture", "mobile graphics/performance", "offline browser reload", "eight accepted browser cycles", "final gallery and film"]
+}
