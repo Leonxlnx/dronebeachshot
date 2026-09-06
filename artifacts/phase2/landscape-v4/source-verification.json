@@ -1,0 +1,55 @@
+{
+  "scope": "All five native frames match current production world/render/camera sources; not browser or final media acceptance",
+  "frames": [
+    {
+      "file": "flight-10-mode-0-960.png",
+      "sha256": "2209621da0cd7144363d3a419bdd3f584dba0bcc8d8ee194a452c8b9fac59006",
+      "camera": "flight-10",
+      "time": 10,
+      "sourceFilesMatched": 45,
+      "baselineNamedPairAvailable": false,
+      "glError": 0,
+      "shaderErrors": []
+    },
+    {
+      "file": "flight-20-mode-0-960.png",
+      "sha256": "f456f34d0cc4fbe10779f264c627a5e00d55b44af23a69fa6e53c20f698e734e",
+      "camera": "flight-20",
+      "time": 20,
+      "sourceFilesMatched": 45,
+      "baselineNamedPairAvailable": false,
+      "glError": 0,
+      "shaderErrors": []
+    },
+    {
+      "file": "headland-mode-0-960.png",
+      "sha256": "cc23ee23464c9a53c6f030a3e55b1021be8c9771b3286e80f73304b17147c4b4",
+      "camera": "headland",
+      "time": 14,
+      "sourceFilesMatched": 45,
+      "baselineNamedPairAvailable": true,
+      "glError": 0,
+      "shaderErrors": []
+    },
+    {
+      "file": "mountain-wide-mode-0-960.png",
+      "sha256": "9f0f4440d55e0f693f61577c8e33e5445f65c2134ac9f7f32112d57c7c453029",
+      "camera": "mountain-wide",
+      "time": 2,
+      "sourceFilesMatched": 45,
+      "baselineNamedPairAvailable": true,
+      "glError": 0,
+      "shaderErrors": []
+    },
+    {
+      "file": "wet-sand-mode-0-960.png",
+      "sha256": "eff3552fe19d1f89d421370f42f1c303e57c866f407e1c4a30d94671b9e47e99",
+      "camera": "wet-sand",
+      "time": 11.5,
+      "sourceFilesMatched": 45,
+      "baselineNamedPairAvailable": true,
+      "glError": 0,
+      "shaderErrors": []
+    }
+  ]
+}

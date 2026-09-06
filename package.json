@@ -14,7 +14,7 @@
     "verify:build": "npm run lint && npm run test && npm run check:assets && npm run check:world && npm run build",
     "verify": "npm run verify:build && node scripts/control/final-check.mjs",
     "check:assets": "python3 scripts/control/check-assets.py",
-    "check:landscape": "node --experimental-strip-types --loader ./scripts/control/ts-resolve.mjs scripts/control/check-cliffs.mjs && node --experimental-strip-types --loader ./scripts/control/ts-resolve.mjs scripts/control/check-distant-forest.mjs && node --experimental-strip-types --loader ./scripts/control/ts-resolve.mjs scripts/control/check-offshore.mjs",
+    "check:landscape": "node --experimental-strip-types --loader ./scripts/control/ts-resolve.mjs scripts/control/check-terrain-fractures.mjs && node --experimental-strip-types --loader ./scripts/control/ts-resolve.mjs scripts/control/check-offshore.mjs",
     "check:world": "node --experimental-strip-types --loader ./scripts/control/ts-resolve.mjs scripts/control/check-world.mjs"
   },
   "dependencies": {

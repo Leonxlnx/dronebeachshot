@@ -1,0 +1,21 @@
+{
+  "completed": [
+    {
+      "camera": "wet-sand",
+      "time": 11.5,
+      "filename": "/workspace/scratch/370812df87f3/dronebeachshot/artifacts/phase2/water-after/wet-sand-mode-0-960.png",
+      "render": {
+        "frame": 29,
+        "calls": 146,
+        "triangles": 11010283,
+        "points": 960,
+        "lines": 0
+      },
+      "programs": 24,
+      "glError": 0
+    }
+  ],
+  "requested": [
+    "wet-sand"
+  ]
+}

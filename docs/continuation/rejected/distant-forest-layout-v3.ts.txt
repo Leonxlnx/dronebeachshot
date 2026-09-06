@@ -31,13 +31,17 @@ export function distantForestHabitat(x:number,z:number,ground:ForestGround,surfa
  const warpZ=z+180*(noise(x*.0011-2.4,z*.0011+11.6)-.5);
  const edge=.68*noise(warpX*.0031+4.7,warpZ*.0031-6.2)
   +.32*noise(warpX*.0083-14.3,warpZ*.0083+9.7);
- const stand=smooth(.27,.61,edge);
+ // Clear stand cores keep neighbouring cohorts distinct even with a stronger
+ // continuity floor; the transition itself remains smoothly resolved in space.
+ const stand=smooth(.34,.57,edge);
  const succession=noise(warpX*.0017+29.1,warpZ*.0017-18.6);
  const maturity=clamp(.15+.55*succession+.30*shelter);
  const familyPatch=noise(warpX*.0025-32.7,warpZ*.0025+14.8);
  // Open patches retain sparse regeneration. Steep bare faces and exposed
  // convex shoulders remain legible instead of receiving the same blanket.
- const density=(.19+.79*stand)*(.48+.52*shelter)
+ // Even a younger/open stand needs connected crown cover at kilometre views.
+ // Lower floors exposed large smooth substrate holes in the native v1/v2 views.
+ const density=(.44+.54*stand)*(.48+.52*shelter)
   *(1-smooth(1.55,2.5,ground.slope)*.75)*smooth(9,23,ground.height);
  return {stand,shelter,maturity,familyPatch,density};
 }
@@ -66,11 +70,13 @@ export function createDistantForestLayout(surface:ForestSurface,sourceHeights:re
   // over hundreds of metres instead of leaving a straight last row of crowns.
   const northFade=1-smooth(2920,3600,pz);
   if(values[2]>habitat.density*distanceFade*northFade)continue;
-  const regeneration=.12+.43*(1-habitat.stand)+.17*(1-habitat.shelter);
+  // Shelter young crowns within the densely occupied stands. Coupling the
+  // shortest trees to the sparsest stands made their ground gaps much larger.
+  const regeneration=.12+.10*habitat.stand+.05*(1-habitat.shelter);
   const emergent=.075*habitat.stand*habitat.shelter;
   const layer=values[3]<regeneration?'regeneration':values[3]>1-emergent?'emergent':'canopy';
-  const shortFamily=.12+.37*habitat.familyPatch+.24*(1-habitat.stand)
-   +(layer==='regeneration'?.16:0);
+  const shortFamily=.08+.34*habitat.familyPatch+.07*(1-habitat.stand)
+   +(layer==='regeneration'?.04:0);
   const family=layer==='emergent'?0:values[4]<shortFamily?1:0;
   const rawHeight=layer==='regeneration'?6+6*habitat.maturity+values[5]*2.5
    :layer==='emergent'?24+5*habitat.maturity+values[5]*3

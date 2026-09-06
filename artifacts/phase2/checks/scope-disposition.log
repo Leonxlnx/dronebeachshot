@@ -1,0 +1,5 @@
+leaf-1.md: 2 gates
+leaf-2.md: 2 gates
+GATES.md: 4 gates
+HANDOFF REQUIRED: 3 abandoned (met: 5)
+  leaf-2:G1, leaf-2:G2, GATES:P4

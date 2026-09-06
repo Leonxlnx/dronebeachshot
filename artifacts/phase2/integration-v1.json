@@ -1,0 +1,37 @@
+{
+  "at": "2026-09-06T09:40:09.101080+00:00",
+  "commit": "a07783849d17d289089682041dc89e3511f80b57",
+  "githubWorkflow": {
+    "url": "https://github.com/Leonxlnx/dronebeachshot/actions/runs/34024903073",
+    "job": 101464033299,
+    "conclusion": "success",
+    "checks": [
+      "npm ci",
+      "25 tests and source checks",
+      "38 vendored assets",
+      "production CPU world and build",
+      "cliff/forest/offshore checks",
+      "compiled worker parity"
+    ]
+  },
+  "nativeViews": 8,
+  "nativeShaderErrors": 0,
+  "nativeGlErrors": 0,
+  "visualDecision": {
+    "cliffs": "rejected: continuous pipe-like ribs and repeated triangular seams",
+    "distantForest": "rejected: excessive smooth substrate gaps",
+    "water": "incremental roughness improvement accepted in matched isolated control; overall sea art remains unfinished"
+  },
+  "browserQA": {
+    "status": "blocked",
+    "url": "http://terminal.local:4173/",
+    "observedAt": "2026-09-06T09:05:04Z",
+    "error": "GL_VENDOR Disabled; GL_RENDERER Disabled; BindToCurrentSequence failed; ordinary and low-resource WebGL2 unavailable before assets"
+  },
+  "siteRecovery": {
+    "projectId": "appgprj_6a9b6e5ab4fc819189390e9ed1504847",
+    "status": "NOT_FOUND",
+    "preservedIdentity": true
+  },
+  "completionClaim": false
+}

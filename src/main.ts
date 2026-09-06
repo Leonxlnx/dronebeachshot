@@ -67,7 +67,7 @@ const api={ready:true,seed:SEED,duration:DURATION,renderAt:(t:number)=>seek(t),c
   renderer.setPixelRatio(1);renderer.setSize(width,height,false);camera.aspect=width/height;camera.updateProjectionMatrix();draw(time);
   return await new Promise<Blob>((resolve,reject)=>canvas.toBlob(b=>b?resolve(b):reject(Error('PNG encoding failed')),'image/png'));
  }finally{
-  renderer.setPixelRatio(previousDpr);renderer.setSize(previousSize.x,previousSize.y,false);camera.aspect=previousAspect;camera.updateProjectionMatrix();capturing=false;
+  renderer.setSize(previousSize.x,previousSize.y,false);renderer.setPixelRatio(previousDpr);camera.aspect=previousAspect;camera.updateProjectionMatrix();capturing=false;
   const nextQuality=pendingQuality,resizeNeeded=pendingResize;pendingQuality=undefined;pendingResize=false;
   if(nextQuality)setQuality(nextQuality);else if(resizeNeeded)engine.resize(tier,capture);
   if(ready)draw(time);

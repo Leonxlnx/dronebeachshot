@@ -1,0 +1,15 @@
+{
+  "at": "2026-09-06T09:22:53.152744+00:00",
+  "command": "npm run build",
+  "initialAssets": [
+    "public/assets/manifest.json"
+  ],
+  "dependencyMode": "existing locked node_modules reused by symlink; source and assets built in isolated fresh folder",
+  "restoredAssets": 38,
+  "publicAndDistChecksums": "all match tracked manifest",
+  "compiledJavaScript": {
+    "assets/coastal-worker-QK0v9RNu.js": "186e79dc04e23bd74c770feca8ae388862f88bbff6459a29c99551fc0a3196d4",
+    "assets/index-BguAy3tD.js": "38507a8a4926437dc3eca6b256296cf9fa51152f265c1a8d4f6ebdf0a5a40345"
+  },
+  "productionBrowserQA": false
+}

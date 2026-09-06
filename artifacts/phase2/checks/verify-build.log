@@ -1,0 +1,131 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> last-light-bay@0.1.0 preverify:build
+> node recovery/restore-assets.mjs
+
+ASSET_RESTORE_PASS {"files":38,"restored":0}
+
+> last-light-bay@0.1.0 verify:build
+> npm run lint && npm run test && npm run check:assets && npm run check:world && npm run build
+
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> last-light-bay@0.1.0 lint
+> node scripts/control/source-check.mjs
+
+SOURCE_CHECK_PASS: 59 files; no hotlinks or unseeded randomness
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> last-light-bay@0.1.0 test
+> node --experimental-strip-types --loader ./scripts/control/ts-resolve.mjs --test src/world/math.test.ts src/camera/cinematic.test.ts src/world/lod.test.ts src/world/coastal.test.ts src/world/coastal-field.test.ts src/world/terrain-surface.test.ts src/world/rock-shelter.test.ts src/app/capture-state.test.ts src/render/embedded-image-pool.test.ts recovery/restore-assets.test.mjs
+
+(node:70) ExperimentalWarning: `--experimental-loader` may be removed in the future; instead use `register()`:
+--import 'data:text/javascript,import { register } from "node:module"; import { pathToFileURL } from "node:url"; register("./scripts/control/ts-resolve.mjs", pathToFileURL("./")); register("./scripts/control/ts-resolve.mjs", pathToFileURL("./"));'
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ fresh deployment restores every real asset exactly, is idempotent and preserves edits (23525.506132ms)
+✔ asset recovery rejects a symlink destination without writing through it (8.191161ms)
+✔ ZIP parser rejects missing/truncated directories (1.416425ms)
+(node:71) ExperimentalWarning: `--experimental-loader` may be removed in the future; instead use `register()`:
+--import 'data:text/javascript,import { register } from "node:module"; import { pathToFileURL } from "node:url"; register("./scripts/control/ts-resolve.mjs", pathToFileURL("./")); register("./scripts/control/ts-resolve.mjs", pathToFileURL("./"));'
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ invalid external timestamps never enter the cinematic or GPU uniforms (40.268615ms)
+✔ capture size rejects allocations outside actual device limits (13.713357ms)
+(node:72) ExperimentalWarning: `--experimental-loader` may be removed in the future; instead use `register()`:
+--import 'data:text/javascript,import { register } from "node:module"; import { pathToFileURL } from "node:url"; register("./scripts/control/ts-resolve.mjs", pathToFileURL("./")); register("./scripts/control/ts-resolve.mjs", pathToFileURL("./"));'
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ route starts above highest surveyed summit and finishes seaward (1559.831278ms)
+✔ flight has finite positions, no terrain clipping, C1 velocity at every phase boundary (135.46865ms)
+✔ conservative tree envelopes keep the flight corridor clear (8763.373074ms)
+✔ all 16 evaluation cameras are distinct and above terrain (0.970776ms)
+✔ cinematic gaze avoids the abrupt beach-turn pan and uses the intended lens (139.972077ms)
+(node:73) ExperimentalWarning: `--experimental-loader` may be removed in the future; instead use `register()`:
+--import 'data:text/javascript,import { register } from "node:module"; import { pathToFileURL } from "node:url"; register("./scripts/control/ts-resolve.mjs", pathToFileURL("./")); register("./scripts/control/ts-resolve.mjs", pathToFileURL("./"));'
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ alpha filtering shares derived pixels but preserves per-texture sampling (40.546205ms)
+✔ equal encoded images share storage without merging sampler or colour-space state (10.748131ms)
+(node:74) ExperimentalWarning: `--experimental-loader` may be removed in the future; instead use `register()`:
+--import 'data:text/javascript,import { register } from "node:module"; import { pathToFileURL } from "node:url"; register("./scripts/control/ts-resolve.mjs", pathToFileURL("./")); register("./scripts/control/ts-resolve.mjs", pathToFileURL("./"));'
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ coastal atlas preserves transformed rock surfaces and waterline distance (16840.829574ms)
+(node:80) ExperimentalWarning: `--experimental-loader` may be removed in the future; instead use `register()`:
+--import 'data:text/javascript,import { register } from "node:module"; import { pathToFileURL } from "node:url"; register("./scripts/control/ts-resolve.mjs", pathToFileURL("./")); register("./scripts/control/ts-resolve.mjs", pathToFileURL("./"));'
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ a shallow crest travels inland and along the shoreline normal (24.669472ms)
+✔ swash velocity agrees with displacement in both advance and retreat (33.595398ms)
+✔ sand retains moisture behind a retreating wave, without wetting unreached sand (49.726963ms)
+(node:91) ExperimentalWarning: `--experimental-loader` may be removed in the future; instead use `register()`:
+--import 'data:text/javascript,import { register } from "node:module"; import { pathToFileURL } from "node:url"; register("./scripts/control/ts-resolve.mjs", pathToFileURL("./")); register("./scripts/control/ts-resolve.mjs", pathToFileURL("./"));'
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ LOD coverage conserves opacity at every distance (93.124914ms)
+✔ cell culling never hides a contributing tree LOD (460.274353ms)
+✔ LOD weights and first derivative meet continuously at threshold boundaries (0.377761ms)
+(node:133) ExperimentalWarning: `--experimental-loader` may be removed in the future; instead use `register()`:
+--import 'data:text/javascript,import { register } from "node:module"; import { pathToFileURL } from "node:url"; register("./scripts/control/ts-resolve.mjs", pathToFileURL("./")); register("./scripts/control/ts-resolve.mjs", pathToFileURL("./"));'
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ determinism and seed separation (36.290806ms)
+✔ coastline continuous, seabed continues, terrain never NaN (2907.449053ms)
+✔ summit scale and asymmetric bay (0.71033ms)
+(node:139) ExperimentalWarning: `--experimental-loader` may be removed in the future; instead use `register()`:
+--import 'data:text/javascript,import { register } from "node:module"; import { pathToFileURL } from "node:url"; register("./scripts/control/ts-resolve.mjs", pathToFileURL("./")); register("./scripts/control/ts-resolve.mjs", pathToFileURL("./"));'
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ rock lee is downstream, bounded, recovers and follows wave direction (161.584492ms)
+(node:146) ExperimentalWarning: `--experimental-loader` may be removed in the future; instead use `register()`:
+--import 'data:text/javascript,import { register } from "node:module"; import { pathToFileURL } from "node:url"; register("./scripts/control/ts-resolve.mjs", pathToFileURL("./")); register("./scripts/control/ts-resolve.mjs", pathToFileURL("./"));'
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ cached coastal samples remain bit-identical to uncached barycentric heights (350.580258ms)
+✔ water contact height agrees with actual rendered terrain triangles (1165.503498ms)
+ℹ tests 25
+ℹ suites 0
+ℹ pass 25
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 27326.739346
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> last-light-bay@0.1.0 check:assets
+> python3 scripts/control/check-assets.py
+
+ASSET_CHECK_PASS: 38 vendored files; checksums, CC0 sources, embedded GLB resources and leaf alpha verified
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> last-light-bay@0.1.0 check:world
+> node --experimental-strip-types --loader ./scripts/control/ts-resolve.mjs scripts/control/check-world.mjs
+
+(node:187) ExperimentalWarning: `--experimental-loader` may be removed in the future; instead use `register()`:
+--import 'data:text/javascript,import { register } from "node:module"; import { pathToFileURL } from "node:url"; register("./scripts/control/ts-resolve.mjs", pathToFileURL("./"));'
+(Use `node --trace-warnings ...` to show where the warning was created)
+WORLD_CPU_PASS {"trees":14000,"instances":51386,"geometries":95,"offshoreRocks":37,"fieldSha256":"2a1517546683ce37050f0be28a98d08bf0de896f30017b76ff846c8ae86fcad3"}
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> last-light-bay@0.1.0 prebuild
+> node recovery/restore-assets.mjs
+
+ASSET_RESTORE_PASS {"files":38,"restored":0}
+
+> last-light-bay@0.1.0 build
+> tsc --noEmit && vite build
+
+vite v8.2.2 building client environment for production...
+transforming...
+✓ 58 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                           1.71 kB │ gzip:   0.81 kB
+dist/assets/coastal-worker-QK0v9RNu.js  188.71 kB
+dist/assets/index-y4oHzDzR.css            3.20 kB │ gzip:   1.26 kB
+dist/assets/index-nyUvWA5w.js           788.35 kB │ gzip: 218.96 kB
+
+[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 3.65s
+[33m[PLUGIN_TIMINGS] [0mPlugin hooks ran for 2.0s of this 3.6s build (57%).
+The slowest hooks, timed inside each callback (the wait before a callback starts is excluded, the time it awaits is included):
+  - vite:worker-import-meta-url transform (44%, 1.6s, 1 call)
+Additional hook time came from hooks under 1s.
+See https://rolldown.rs/reference/InputOptions.checks#plugintimings for more details.
+

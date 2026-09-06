@@ -1622,6 +1622,219 @@
           "sha256": "728a17a8d2c8ac529bab8c495f344b7cd21591b9ce5218254f90503f47ae7c9c"
         }
       ]
+    },
+    {
+      "start": "2026-09-06T09:02:23.308Z",
+      "category": "implementation",
+      "description": "Continue landscape refinement and recover permitted preview validation",
+      "proofs": [
+        {
+          "at": "2026-09-06T09:13:28.953Z",
+          "files": [
+            {
+              "path": "recovery/restore-assets.mjs",
+              "sha256": "2d6a638ceac470d17ad052c9a17fd6d2a458613183897d0a7e09c73d7fe49141"
+            },
+            {
+              "path": "recovery/restore-assets.test.mjs",
+              "sha256": "0b385bfde386c02085284924428c36fbeec286ea935d2ecddef455cf7b4e8de4"
+            },
+            {
+              "path": "src/world/cliff-buttresses.ts",
+              "sha256": "65a06a70f240b0aea7459415ede595dae29f808e32aa44d03da3e0df746d5a5b"
+            },
+            {
+              "path": "src/world/distant-forest-layout.ts",
+              "sha256": "b104fe2db6cdb75d41f132d1e99b2c35b7b5f9b9b050d6bf105b96859fc4c4fb"
+            }
+          ]
+        },
+        {
+          "at": "2026-09-06T09:23:43.510Z",
+          "files": [
+            {
+              "path": "src/world/ecology.ts",
+              "sha256": "21f78715f5514b232bce86f37e5b0ff56a40203f44283be96148109f24143464"
+            },
+            {
+              "path": "src/world/ocean.ts",
+              "sha256": "7208f30292a168a4c2ba45526277e58ae2378342eb97b3e2a309f10ad6c98b99"
+            },
+            {
+              "path": "artifacts/phase2/clean-build.json",
+              "sha256": "f138fe85f4b6cdae49d52ae9ca3f088045556f658987223ace8ce7baa3122ba3"
+            }
+          ]
+        },
+        {
+          "at": "2026-09-06T09:34:26.842Z",
+          "files": [
+            {
+              "path": "src/main.ts",
+              "sha256": "638ad15994ff352587992e575556dab568803ac6de668330d8bc3638a411cce0"
+            },
+            {
+              "path": "src/app/audio.ts",
+              "sha256": "4feee393f9a9159b3f417da93b8ab5fcae858bbe726279741bc9f94a26978bf5"
+            },
+            {
+              "path": "artifacts/phase2/landscape/headland-mode-0-960.png",
+              "sha256": "ec208dbfcbb9cde3874260808e7d56f72e499118f7d757b11c23e3af7f2e0ff2"
+            },
+            {
+              "path": "artifacts/phase2/landscape/mountain-wide-mode-0-960.png",
+              "sha256": "7522bceadb22dc72fed8af44d53df18c5fc8389baeb1baeb1f881a571347d67b"
+            }
+          ]
+        },
+        {
+          "at": "2026-09-06T09:39:04.178Z",
+          "files": [
+            {
+              "path": "src/world/cliff-buttresses.ts",
+              "sha256": "e6b1777871ffc7d5339e0325878a1d618afa61547f2f86fc9b6f0be591548f3e"
+            },
+            {
+              "path": "src/world/distant-forest-layout.ts",
+              "sha256": "ae6abc88edea3a8454ea6379d7d86ce9abc22c8d33d65cb8d85c4ce34c46be21"
+            },
+            {
+              "path": "scripts/control/check-worker.mjs",
+              "sha256": "316ad3438956269ddf2def2ebe0a3739496881f7ea5bafc595948964f6d97c0b"
+            },
+            {
+              "path": "artifacts/worker-cpu-check.json",
+              "sha256": "d1397519606e49ac50dc32c200ee11be39e5447e6e1405b208cbd70905d51afe"
+            }
+          ]
+        },
+        {
+          "at": "2026-09-06T09:43:25.244Z",
+          "files": [
+            {
+              "path": "src/world/cliff-buttresses.ts",
+              "sha256": "e6b1777871ffc7d5339e0325878a1d618afa61547f2f86fc9b6f0be591548f3e"
+            },
+            {
+              "path": "src/world/distant-forest-layout.ts",
+              "sha256": "ae6abc88edea3a8454ea6379d7d86ce9abc22c8d33d65cb8d85c4ce34c46be21"
+            },
+            {
+              "path": "src/main.ts",
+              "sha256": "638ad15994ff352587992e575556dab568803ac6de668330d8bc3638a411cce0"
+            },
+            {
+              "path": "scripts/control/check-worker.mjs",
+              "sha256": "316ad3438956269ddf2def2ebe0a3739496881f7ea5bafc595948964f6d97c0b"
+            }
+          ]
+        },
+        {
+          "at": "2026-09-06T09:48:16.004Z",
+          "files": [
+            {
+              "path": "artifacts/phase2/landscape-v2/headland-mode-0-960.png",
+              "sha256": "950e2a478b5fccde837301eaab4c3db7c200ad20372cacb211540e2a4b419f4a"
+            },
+            {
+              "path": "artifacts/phase2/landscape-v2/mountain-wide-mode-0-960.png",
+              "sha256": "b495ebfdef1e277c16990786fcd361ee3acf362588cc12ef86aca178339e09fe"
+            }
+          ]
+        },
+        {
+          "at": "2026-09-06T09:59:29.132Z",
+          "files": [
+            {
+              "path": "src/world/cliff-buttresses.ts",
+              "sha256": "64c3c5fc690b89593e2b3c881fd51b223b0e2b38e8a0e9495a0c788f27191d57"
+            },
+            {
+              "path": "src/world/distant-forest-layout.ts",
+              "sha256": "9d55c0eaad0c244279fbfc947f1e427599d9bf7797fc7526160fc19db7eb5ac2"
+            },
+            {
+              "path": ".unlazy/coast2/reverify-v3.log",
+              "sha256": "446d6e45d54e008597b326093758e7de5ecf387e91c486d8ab47f8eb82ff697a"
+            }
+          ]
+        },
+        {
+          "at": "2026-09-06T10:01:34.440Z",
+          "files": [
+            {
+              "path": ".unlazy/coast2/reverify-v3.log",
+              "sha256": "c452629af80c8bdb2a3ca7e97a0efc36edfc4670e642dd29b98e9abe6b750cc5"
+            },
+            {
+              "path": "src/world/cliff-buttresses.ts",
+              "sha256": "64c3c5fc690b89593e2b3c881fd51b223b0e2b38e8a0e9495a0c788f27191d57"
+            },
+            {
+              "path": "src/world/distant-forest-layout.ts",
+              "sha256": "9d55c0eaad0c244279fbfc947f1e427599d9bf7797fc7526160fc19db7eb5ac2"
+            }
+          ]
+        },
+        {
+          "at": "2026-09-06T10:13:08.609Z",
+          "files": [
+            {
+              "path": ".unlazy/coast2/verify-build-v3.log",
+              "sha256": "65da8166aa7cc3b67451cd90123df73ee6048d8fbfbea5fcb1eb3cd8dde24af7"
+            },
+            {
+              "path": ".unlazy/coast2/worker-v3.log",
+              "sha256": "f7b6fbb5c401b297722ecde6aa704fd57b3988f67ac78cd5ee0a8d300077f607"
+            },
+            {
+              "path": "artifacts/phase2/landscape-v3/review-metrics.json",
+              "sha256": "b83737ae94b2b4af2c5894d1e6d17617e18b0767fefaa63d0d3de4a3f7e13886"
+            }
+          ]
+        },
+        {
+          "at": "2026-09-06T10:25:01.104Z",
+          "files": [
+            {
+              "path": "src/world/terrain-fractures.ts",
+              "sha256": "ebce2e7167cab9113c431bb1f4ad802312dfbb34bcc3f0d8e5bd9ea8935e16c8"
+            },
+            {
+              "path": "scripts/control/check-terrain-fractures.mjs",
+              "sha256": "e56138b120a628281fe3063d04141bfd3a282ccf5ea720cdb202b7bd6626a4a1"
+            },
+            {
+              "path": "artifacts/phase2/checks/terrain-v4.log",
+              "sha256": "001f825f1687007c3bf350023c90e8f82837691a603edd252bb7ac8340c8e248"
+            },
+            {
+              "path": "docs/continuation/runtime-phase2.md",
+              "sha256": "436ce716d18cff65229b9debe638dd820066989141ae92fffcc9c344c59a6b5a"
+            }
+          ]
+        }
+      ],
+      "end": "2026-09-06T10:34:58.868Z",
+      "seconds": 5555.56,
+      "evidence": [
+        {
+          "path": "artifacts/phase2/final-review.json",
+          "sha256": "2a0b2f575d0031b6479a3f7fcf4a3872870431006dcc75ca85ae3aa97cc142fc"
+        },
+        {
+          "path": "artifacts/phase2/landscape-v4/source-verification.json",
+          "sha256": "d9fdd6f1beb946a95bbaf8a8aec7974d1e831cbf0ddc1e513be5f44b667fdde5"
+        },
+        {
+          "path": "artifacts/phase2/checks/verify-build-v4.log",
+          "sha256": "da15208d6b77837d49d1297c0c8117aa35fc30e58c3c55a28d44fb9d19f2c9ba"
+        },
+        {
+          "path": "artifacts/worker-cpu-check.json",
+          "sha256": "da9b6fdace9da0e9a3698ed92b520af3b0dfbd11c9a59ec5a23fa8c3b17ea390"
+        }
+      ]
     }
   ],
   "cycles": [],

@@ -3,8 +3,20 @@ import crypto from 'node:crypto';
 import assert from 'node:assert/strict';
 import {Worker} from 'node:worker_threads';
 import {pathToFileURL} from 'node:url';
-const filename=fs.readdirSync('dist/assets').find(name=>/^coastal-worker-.*\.js$/.test(name));
-assert.ok(filename,'Built worker bundle missing');
+// Preview/output directories can retain older hashed bundles. Select the worker
+// referenced by the actual HTML entry, never whichever file sorts first.
+const entryScripts=[...fs.readFileSync('dist/index.html','utf8').matchAll(/<script\b[^>]*\bsrc=["']([^"']+\.js)["'][^>]*>/g)].map(match=>match[1]);
+assert.ok(entryScripts.length,'Built application entry missing');
+const workers=new Set();
+for(const entry of entryScripts){
+ const url=new URL(entry,'https://build.invalid');
+ assert.equal(url.origin,'https://build.invalid','Unexpected external application entry');
+ const source=fs.readFileSync('dist'+url.pathname,'utf8');
+ for(const match of source.matchAll(/coastal-worker-[A-Za-z0-9_-]+\.js/g))workers.add(match[0]);
+}
+assert.equal(workers.size,1,'Loaded application must reference exactly one coastal worker');
+const [filename]=workers;
+assert.ok(fs.existsSync('dist/assets/'+filename),'Referenced worker bundle missing');
 // CPU-only worker validation. This does not create a browser or a WebGL context.
 const runner=new URL('./worker-check-runner.mjs',import.meta.url);
 const worker=new Worker(runner,{workerData:{bundle:pathToFileURL(process.cwd()+'/dist/assets/'+filename).href}});

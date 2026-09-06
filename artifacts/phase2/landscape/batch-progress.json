@@ -1,0 +1,126 @@
+{
+  "completed": [
+    {
+      "camera": "headland",
+      "time": 14,
+      "filename": "/workspace/scratch/370812df87f3/dronebeachshot/artifacts/phase2/landscape/headland-mode-0-960.png",
+      "render": {
+        "frame": 29,
+        "calls": 944,
+        "triangles": 35516504,
+        "points": 960,
+        "lines": 0
+      },
+      "programs": 75,
+      "glError": 0
+    },
+    {
+      "camera": "mountain-wide",
+      "time": 2,
+      "filename": "/workspace/scratch/370812df87f3/dronebeachshot/artifacts/phase2/landscape/mountain-wide-mode-0-960.png",
+      "render": {
+        "frame": 58,
+        "calls": 1032,
+        "triangles": 23469395,
+        "points": 960,
+        "lines": 0
+      },
+      "programs": 75,
+      "glError": 0
+    },
+    {
+      "camera": "wet-sand",
+      "time": 11.5,
+      "filename": "/workspace/scratch/370812df87f3/dronebeachshot/artifacts/phase2/landscape/wet-sand-mode-0-960.png",
+      "render": {
+        "frame": 87,
+        "calls": 926,
+        "triangles": 40671895,
+        "points": 960,
+        "lines": 0
+      },
+      "programs": 75,
+      "glError": 0
+    },
+    {
+      "camera": "flight-0",
+      "time": 0,
+      "filename": "/workspace/scratch/370812df87f3/dronebeachshot/artifacts/phase2/landscape/flight-0-mode-0-960.png",
+      "render": {
+        "frame": 116,
+        "calls": 697,
+        "triangles": 58672992,
+        "points": 960,
+        "lines": 0
+      },
+      "programs": 75,
+      "glError": 0
+    },
+    {
+      "camera": "flight-5",
+      "time": 5,
+      "filename": "/workspace/scratch/370812df87f3/dronebeachshot/artifacts/phase2/landscape/flight-5-mode-0-960.png",
+      "render": {
+        "frame": 145,
+        "calls": 677,
+        "triangles": 44765721,
+        "points": 960,
+        "lines": 0
+      },
+      "programs": 75,
+      "glError": 0
+    },
+    {
+      "camera": "flight-10",
+      "time": 10,
+      "filename": "/workspace/scratch/370812df87f3/dronebeachshot/artifacts/phase2/landscape/flight-10-mode-0-960.png",
+      "render": {
+        "frame": 174,
+        "calls": 928,
+        "triangles": 38806865,
+        "points": 960,
+        "lines": 0
+      },
+      "programs": 75,
+      "glError": 0
+    },
+    {
+      "camera": "flight-15",
+      "time": 15,
+      "filename": "/workspace/scratch/370812df87f3/dronebeachshot/artifacts/phase2/landscape/flight-15-mode-0-960.png",
+      "render": {
+        "frame": 203,
+        "calls": 559,
+        "triangles": 32421359,
+        "points": 960,
+        "lines": 0
+      },
+      "programs": 75,
+      "glError": 0
+    },
+    {
+      "camera": "flight-20",
+      "time": 20,
+      "filename": "/workspace/scratch/370812df87f3/dronebeachshot/artifacts/phase2/landscape/flight-20-mode-0-960.png",
+      "render": {
+        "frame": 232,
+        "calls": 437,
+        "triangles": 20218943,
+        "points": 960,
+        "lines": 0
+      },
+      "programs": 75,
+      "glError": 0
+    }
+  ],
+  "requested": [
+    "headland",
+    "mountain-wide",
+    "wet-sand",
+    "flight-0",
+    "flight-5",
+    "flight-10",
+    "flight-15",
+    "flight-20"
+  ]
+}

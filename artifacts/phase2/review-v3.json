@@ -1,0 +1,18 @@
+{
+  "scope": "Native software GL diagnostic review only; no browser, consumer GPU, final media or accepted refinement-cycle claim",
+  "candidateDecisions": {
+    "landscape": "REJECT: repeating pointed cliff pipes, triangulation seams and patchy forest",
+    "landscape-v2": "REJECT: smooth cliff bulb and pale canopy gaps",
+    "landscape-v3": "REJECT: separate convex cliff caps remain; forest continuity weaker than baseline"
+  },
+  "sourceBaseline": "462588e855fc4773868321c73d1f703690344c5b",
+  "publicImageUpload": "Not authorized by automatic approval review; no phase2 images published to GitHub",
+  "forestProductionSha256": "3209c7eb3183d8fd115a5d32f954aa7ef1876e94926a98e1a4256969dec08d70",
+  "frameCounts": {
+    "water-before": 1,
+    "water-after": 1,
+    "landscape": 8,
+    "landscape-v2": 5,
+    "landscape-v3": 5
+  }
+}

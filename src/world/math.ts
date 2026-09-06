@@ -1,3 +1,4 @@
+import {terrainFractureCut} from './terrain-fractures';
 export const SEED=60829;
 export const clamp=(x:number,a=0,b=1)=>Math.max(a,Math.min(b,x));
 export const smooth=(a:number,b:number,x:number)=>{const t=clamp((x-a)/(b-a));return t*t*(3-2*t)};
@@ -115,7 +116,8 @@ export function terrainHeight(x:number,z:number){
  if(d<=25)return sand;
  const foothill=9+20*fbm(x*.012,z*.012);
  const relief=Math.max(connectedRelief(x+12,z+10)*ridgeReliefScale,foothill);
- return sand+smooth(25,100,d)*relief+fineGround(x,z,d);
+ const base=sand+smooth(25,100,d)*relief+fineGround(x,z,d);
+ return base-terrainFractureCut(x,z,base,d);
 }
 export function terrainSlope(x:number,z:number){const dx=(terrainHeight(x+1,z)-terrainHeight(x-1,z))*.5,dz=(terrainHeight(x,z+1)-terrainHeight(x,z-1))*.5;return Math.sqrt(dx*dx+dz*dz)}
 export const shorelineGLSL=`float shoreZ(float x){return 100.-.00235*x*x+12.*sin(x*.013)+5.*sin(x*.032);}float shoreDist(vec2 p){float grad=-.0047*p.x+.156*cos(p.x*.013)+.16*cos(p.x*.032);return (p.y-shoreZ(p.x))/sqrt(1.+grad*grad);}`;

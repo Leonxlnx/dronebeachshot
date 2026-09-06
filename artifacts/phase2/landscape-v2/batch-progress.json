@@ -1,0 +1,81 @@
+{
+  "completed": [
+    {
+      "camera": "headland",
+      "time": 14,
+      "filename": "/workspace/scratch/370812df87f3/dronebeachshot/artifacts/phase2/landscape-v2/headland-mode-0-960.png",
+      "render": {
+        "frame": 29,
+        "calls": 947,
+        "triangles": 36390621,
+        "points": 960,
+        "lines": 0
+      },
+      "programs": 75,
+      "glError": 0
+    },
+    {
+      "camera": "mountain-wide",
+      "time": 2,
+      "filename": "/workspace/scratch/370812df87f3/dronebeachshot/artifacts/phase2/landscape-v2/mountain-wide-mode-0-960.png",
+      "render": {
+        "frame": 58,
+        "calls": 1031,
+        "triangles": 23476817,
+        "points": 960,
+        "lines": 0
+      },
+      "programs": 75,
+      "glError": 0
+    },
+    {
+      "camera": "wet-sand",
+      "time": 11.5,
+      "filename": "/workspace/scratch/370812df87f3/dronebeachshot/artifacts/phase2/landscape-v2/wet-sand-mode-0-960.png",
+      "render": {
+        "frame": 87,
+        "calls": 917,
+        "triangles": 41075955,
+        "points": 960,
+        "lines": 0
+      },
+      "programs": 75,
+      "glError": 0
+    },
+    {
+      "camera": "flight-10",
+      "time": 10,
+      "filename": "/workspace/scratch/370812df87f3/dronebeachshot/artifacts/phase2/landscape-v2/flight-10-mode-0-960.png",
+      "render": {
+        "frame": 116,
+        "calls": 922,
+        "triangles": 38337387,
+        "points": 960,
+        "lines": 0
+      },
+      "programs": 75,
+      "glError": 0
+    },
+    {
+      "camera": "flight-20",
+      "time": 20,
+      "filename": "/workspace/scratch/370812df87f3/dronebeachshot/artifacts/phase2/landscape-v2/flight-20-mode-0-960.png",
+      "render": {
+        "frame": 145,
+        "calls": 436,
+        "triangles": 20223081,
+        "points": 960,
+        "lines": 0
+      },
+      "programs": 75,
+      "glError": 0
+    }
+  ],
+  "requested": [
+    "headland",
+    "mountain-wide",
+    "wet-sand",
+    "flight-10",
+    "flight-20"
+  ]
+}

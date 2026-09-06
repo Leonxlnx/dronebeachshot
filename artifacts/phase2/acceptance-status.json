@@ -1,0 +1,10 @@
+{
+  "status": "blocked-incomplete",
+  "verifiedActiveSeconds": 29853.328,
+  "requiredActiveSeconds": 86400,
+  "openInterval": null,
+  "acceptedBrowserCycles": 0,
+  "finalChecker": "LAST_LIGHT_BAY_INCOMPLETE",
+  "mainUnchanged": "1406996ccab65e8d9cb149f341fd66ce5d30387b",
+  "reason": "Browser WebGL disabled, original Site NOT_FOUND, full reference art and original media/time/QA requirements remain unmet"
+}

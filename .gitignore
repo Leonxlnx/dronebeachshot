@@ -9,3 +9,7 @@ public/assets/impostors/
 public/assets/models/
 public/assets/rocks/
 public/assets/textures/
+
+# New diagnostic images remain private pending explicit publication approval.
+/artifacts/phase2/**/*.png
+/artifacts/phase2/**/*.jpg

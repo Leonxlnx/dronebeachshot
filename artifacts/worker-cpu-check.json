@@ -1,8 +1,8 @@
 {
   "scope": "CPU worker bundle and transfer only; no browser or GPU verification",
-  "bundle": "coastal-worker-DkEB-Dtn.js",
+  "bundle": "coastal-worker-CQtzMMeL.js",
   "bytes": 16777216,
-  "sha256": "37665c712f6a500cf8d55da438a7127422c54b9433ceb329a64bb14e7e442f6c",
+  "sha256": "6fbe6e10c4769b2d2fd00c3a8219d2816194189327fc01394ee831cc1234de11",
   "equalsWorldAtlas": true,
   "diagnostics": {
     "resolution": 1024,
@@ -11,19 +11,19 @@
       1.513671875
     ],
     "textureBytes": 16777216,
-    "instancesVisited": 536,
-    "instancesRasterized": 163,
-    "trianglesVisited": 611170,
-    "trianglesRasterized": 4140,
+    "instancesVisited": 521,
+    "instancesRasterized": 148,
+    "trianglesVisited": 513340,
+    "trianglesRasterized": 3552,
     "degenerateTriangles": 0,
-    "rockSamples": 3892,
-    "blockingSamples": 2180,
-    "buildMilliseconds": 11544.759257999998,
-    "terrainMilliseconds": 9916.759324999999,
-    "rasterMilliseconds": 579.9072450000003,
-    "distanceMilliseconds": 302.4480199999998,
+    "rockSamples": 3654,
+    "blockingSamples": 2322,
+    "buildMilliseconds": 13285.491043000002,
+    "terrainMilliseconds": 12075.043950000003,
+    "rasterMilliseconds": 396.0283129999989,
+    "distanceMilliseconds": 252.5603169999995,
     "shelter": "directional-advection-diffusion",
-    "shelterMilliseconds": 745.2916850000001,
+    "shelterMilliseconds": 561.3627809999998,
     "distanceMethod": "anisotropic-8-neighbor-chamfer"
   }
 }

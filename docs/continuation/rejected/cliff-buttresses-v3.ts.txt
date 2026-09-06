@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import {toCreasedNormals} from 'three/addons/utils/BufferGeometryUtils.js';
 import {noise,smooth,shoreDistance} from './math';
 import {renderedTerrainHeight} from './terrain-surface';
 import {createRockMaterial} from '../render/ground-materials';
@@ -8,22 +9,13 @@ import type {Textures} from '../render/materials';
 // These are closed bedrock volumes, not scans stretched into walls. Their whole
 // perimeter and rear surface sit inside the unchanged, authoritative terrain.
 const exposures=[
- {name:'west-coastal-rib',x:-320,z:105,width:76,length:106,depth:24,seed:7},
- {name:'west-gully-wall',x:-265,z:205,width:86,length:102,depth:27,seed:19},
- {name:'summit-west-shoulder',x:-205,z:278,width:86,length:110,depth:30,seed:31},
- {name:'summit-east-shoulder',x:-29,z:237,width:70,length:110,depth:28,seed:43},
- {name:'east-bay-wall',x:170,z:185,width:106,length:118,depth:31,seed:59},
- {name:'east-headland-face',x:310,z:25,width:86,length:122,depth:25,seed:71},
+ {name:'west-coastal-rib',x:-320,z:105,width:82,length:92,depth:19,seed:7},
+ {name:'west-gully-wall',x:-265,z:205,width:92,length:94,depth:19,seed:18},
+ {name:'summit-west-shoulder',x:-205,z:278,width:92,length:96,depth:20,seed:29},
+ {name:'summit-east-shoulder',x:-29,z:237,width:78,length:96,depth:19,seed:43},
+ {name:'east-bay-wall',x:170,z:185,width:112,length:102,depth:19,seed:57},
+ {name:'east-headland-face',x:303,z:18,width:96,length:88,depth:18,seed:72},
 ] as const;
-
-type Section=Array<[number,number]>;
-function linearSection(section:Section,u:number){
- if(u<=section[0][0])return section[0][1];
- for(let i=1;i<section.length;i++)if(u<section[i][0]){
-  const [a,ya]=section[i-1],[b,yb]=section[i];return ya+(yb-ya)*(u-a)/(b-a);
- }
- return section[section.length-1][1];
-}
 
 function exposureGeometry(exposure:typeof exposures[number]){
  const {x:cx,z:cz,width,length,depth,seed}=exposure;
@@ -32,40 +24,77 @@ function exposureGeometry(exposure:typeof exposures[number]){
  const gx=(renderedTerrainHeight(cx+12,cz)-renderedTerrainHeight(cx-12,cz))/24;
  const gz=(renderedTerrainHeight(cx,cz+12)-renderedTerrainHeight(cx,cz-12))/24;
  const gradient=Math.hypot(gx,gz),ux=gx/gradient,uz=gz/gradient,tx=uz,tz=-ux;
- const across=Math.ceil(width/1.7),up=Math.ceil(length/2),stride=across+1;
+ const across=Math.ceil(width/1.7),up=Math.ceil(length/1.7),stride=across+1;
  const count=stride*(up+1),positions=new Float32Array(count*6),indices:number[]=[];
- // Four unequal buttresses share one host mass. Narrow recessed joints separate
- // broad faces; every exposure has its own spacing, lean and oblique bedding.
- const section:Section=[[-1,0]];
- const widths=[.44,.53,.39,.64],sum=widths.reduce((a,b)=>a+b,0);
- let edge=-1;
- for(let rib=0;rib<4;rib++){
-  const w=widths[(rib+seed)%4]/sum*2;
-  section.push([edge+w*.18,.17],[edge+w*(.44+.10*noise(seed,rib)),.80+.25*noise(rib,seed)],
-   [edge+w*.78,.69+.17*noise(seed+2,rib)],[edge+w,.035]);edge+=w;
+ function worldXZ(u:number,v:number){
+  const along=(v-.5)*length,bend=(noise(v*1.6+seed,seed*.17)-noise(seed,seed*.17))*8;
+  return [cx+ux*along+tx*(u*width*.5+bend),cz+uz*along+tz*(u*width*.5+bend)] as const;
  }
- section[section.length-1]=[1,0];
+ // The rejected version added four continuous peaks to the heightfield and
+ // repeated its bedding across the whole wall. It looked like corrugated pipes.
+ // Build a staggered fracture net instead. Each coarse panel is an actual plane
+ // anchored to sampled flank heights, with irregular joint positions and much
+ // lower relief. We interpolate absolute panel heights, not a rib-shaped offset
+ // on top of the old rounded terrain.
+ const crossKnots=[-1,-.71,-.32,.08,.48,1],heightKnots=[0,.14,.31,.51,.72,.88,1];
+ const control:THREE.Vector3[]=[],panels:THREE.Triangle[]=[];
+ for(let row=0;row<heightKnots.length;row++)for(let col=0;col<crossKnots.length;col++){
+  const border=row===0||row===heightKnots.length-1||col===0||col===crossKnots.length-1;
+  const u=crossKnots[col]+(border?0:(noise(seed+col*3.1,row*2.3)-.5)*.19);
+  const v=heightKnots[row]+(border?0:(noise(seed+row*4.7,col*1.9)-.5)*.095);
+  const [x,z]=worldXZ(u,v),base=renderedTerrainHeight(x,z);
+  // No bell-shaped raised shoulder: that produced the rejected smooth bulb.
+  // Broad inner planes meet the actual terrain at the buried outer control ring.
+  const projection=depth*(.60+.31*noise(seed+row*11.3,col*7.9));
+  control.push(new THREE.Vector3(x,base+(border?-2.5:projection-2.5),z));
+ }
+ for(let row=0;row<heightKnots.length-1;row++)for(let col=0;col<crossKnots.length-1;col++){
+  const a=row*crossKnots.length+col,b=a+1,c=a+crossKnots.length,d=c+1;
+  if((row+col+seed)%2)panels.push(new THREE.Triangle(control[a],control[c],control[b]),new THREE.Triangle(control[b],control[c],control[d]));
+  else panels.push(new THREE.Triangle(control[a],control[c],control[d]),new THREE.Triangle(control[a],control[d],control[b]));
+ }
+ function panelHeight(x:number,z:number){
+  for(const {a,b,c}of panels){
+   const det=(b.z-c.z)*(a.x-c.x)+(c.x-b.x)*(a.z-c.z);
+   const wa=((b.z-c.z)*(x-c.x)+(c.x-b.x)*(z-c.z))/det;
+   const wb=((c.z-a.z)*(x-c.x)+(a.x-c.x)*(z-c.z))/det,wc=1-wa-wb;
+   if(wa>=-1e-7&&wb>=-1e-7&&wc>=-1e-7)return wa*a.y+wb*b.y+wc*c.y;
+  }
+  return -Infinity;
+ }
+ // Sparse, staggered joints terminate inside the mass. They do not repeat as
+ // horizontal bands or run as several parallel grooves through its full height.
+ const jointPaths=[
+  [[-.86,.30],[-.49,.34],[-.12,.29]],
+  [[-.49,.34],[-.36,.47],[-.45,.60]],
+  [[-.12,.59],[.23,.64],[.76,.56]],
+  [[.23,.64],[.39,.77],[.27,.91]],
+  [[-.82,.79],[-.56,.75],[-.18,.83]],
+ ];
+ const joints=jointPaths.flatMap((path,branch)=>path.slice(1).map((to,i)=>{
+  const from=path[i],flip=seed%2?1:-1;
+  const dx=(noise(seed+branch,5)-.5)*.07,dv=(noise(seed+branch,9)-.5)*.045;
+  const a=worldXZ(from[0]*flip+dx,from[1]+dv),b=worldXZ(to[0]*flip+dx,to[1]+dv);
+  return {ax:a[0],az:a[1],bx:b[0],bz:b[1],width:2.4+noise(seed,branch)*1.4,depth:9+noise(branch,seed)*5};
+ }));
+ function jointCut(x:number,z:number){
+  let cut=0;
+  for(const joint of joints){
+   const distance=Math.sqrt(segmentDistanceSquared(x,z,joint.ax,joint.az,joint.bx,joint.bz));
+   cut=Math.max(cut,joint.depth*(1-smooth(.45,joint.width,distance)));
+  }
+  return cut;
+ }
  for(let row=0;row<=up;row++){
-  const v=row/up,along=(v-.5)*length;
-  const bend=(noise(v*1.6+seed,seed*.17)-noise(seed,seed*.17))*8;
+  const v=row/up;
   for(let col=0;col<=across;col++){
-   const u=col/across*2-1;
-   const x=cx+ux*along+tx*(u*width*.5+bend);
-   const z=cz+uz*along+tz*(u*width*.5+bend);
+   const u=col/across*2-1,[x,z]=worldXZ(u,v);
    const base=renderedTerrainHeight(x,z),index=row*stride+col;
-   const drift=(v-.5)*(.10+.09*noise(seed,3));
-   const rib=linearSection(section,u+drift*(1-u*u));
-   // Bedding breaks climb obliquely across the shared wall. Piecewise faces
-   // create real changes of plane, with recessed seams instead of painted lines.
-   const bedV=v+u*.073+(noise(u*.75+seed,1.7)-.5)*.085;
-   const bedding=linearSection([[0,.73],[.21,1],[.245,.73],[.34,.88],
-    [.58,1.04],[.615,.79],[.76,1.01],[1,.69]],bedV);
-   const toe=smooth(0,.15,v),crest=1-smooth(.79,1,v);
-   const edgeMask=smooth(0,.10,1-Math.abs(u));
+   const edgeMask=smooth(0,.13,1-Math.abs(u))*smooth(0,.12,v)*(1-smooth(.82,1,v));
    // Preserve soil shoulders, shore geometry and the actual highest summit.
    const support=smooth(25,48,shoreDistance(x,z))*(1-smooth(366,398,base));
-   const lift=depth*rib*bedding*toe*crest*edgeMask*support;
-   positions.set([x,base+lift-2.5,z],index*3);
+   const target=panelHeight(x,z)-jointCut(x,z),relief=Math.max(-2.5,Math.min(depth,target-base));
+   positions.set([x,base-2.5+(relief+2.5)*edgeMask*support,z],index*3);
    positions.set([x,base-9,z],(count+index)*3);
   }
  }
@@ -85,8 +114,12 @@ function exposureGeometry(exposure:typeof exposures[number]){
  }
  const geometry=new THREE.BufferGeometry();
  geometry.setAttribute('position',new THREE.BufferAttribute(positions,3));geometry.setIndex(indices);
- geometry.computeVertexNormals();geometry.computeBoundingBox();geometry.computeBoundingSphere();
- return geometry;
+ geometry.computeVertexNormals();
+ // Preserve geometric fracture edges; averaging every two-metre vertex rounded
+ // the v2 planes and ledges. This changes shading normals, never silhouette data.
+ const creased=toCreasedNormals(geometry,Math.PI*.20);geometry.dispose();
+ creased.setIndex(Array.from({length:creased.attributes.position.count},(_,i)=>i));
+ creased.computeBoundingBox();creased.computeBoundingSphere();return creased;
 }
 
 // Immutable CPU geometry is shared by rendering and ecological exclusion.

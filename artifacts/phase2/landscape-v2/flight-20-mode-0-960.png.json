@@ -1,0 +1,113 @@
+{
+  "candidateOverrides": {
+    "fog": null,
+    "terrain": null,
+    "ocean": null
+  },
+  "method": "Native ANGLE execution of production Three.js modules, software graphics; not browser QA or consumer FPS",
+  "camera": "flight-20",
+  "time": 20,
+  "width": 960,
+  "height": 540,
+  "debugMode": 0,
+  "nativeSamples": 4,
+  "nativeCoverage": false,
+  "nativeOutput": "linear-half-float-MSAA + official OutputPass ACES/sRGB",
+  "renderer": "ANGLE (Mesa, llvmpipe (LLVM 20.1.2 256 bits), OpenGL ES 3.2 Mesa 25.2.8-0ubuntu0.24.04.2)",
+  "version": "OpenGL ES 3.0 (ANGLE 2.1.28447 git hash: aa5f0107c9db)",
+  "trees": 14000,
+  "cells": 245,
+  "render": {
+    "frame": 145,
+    "calls": 436,
+    "triangles": 20223081,
+    "points": 960,
+    "lines": 0
+  },
+  "memory": {
+    "geometries": 1105,
+    "textures": 76
+  },
+  "programs": 75,
+  "imageSharing": {
+    "uniqueImages": 38,
+    "sharedImages": 20
+  },
+  "offshoreRocks": 37,
+  "assetMetrics": {
+    "standaloneTextures": 18,
+    "gltfImages": 59,
+    "gltfs": 8,
+    "rgbaBytes": 520093696
+  },
+  "shaderErrors": [],
+  "glError": 0,
+  "at": "2026-09-06T09:47:04.165Z",
+  "sourceHashes": {
+    "world/assets.ts": "20705c6803a0a61eae910051f94aa0cb10187fbf99967731838faeec73244784",
+    "world/atmosphere.ts": "4004f8bf766238617dec81d4efacd4c346c131c25759193fd46db580b3ee24d8",
+    "world/bathymetry.ts": "97a497855d952483a27a6860545c67b8f49b4db9301582adbe029f4784ee2c84",
+    "world/cliff-buttresses.ts": "e6b1777871ffc7d5339e0325878a1d618afa61547f2f86fc9b6f0be591548f3e",
+    "world/cloud-noise.ts": "692236e12f93aa03fa7155eccfb42cafc1987695dda406d4156efeb8018aa40c",
+    "world/clouds.ts": "5f0cc22b1fdeb794f9e64b7c45742fe9b820dac91a36e7b28007c541a0434c7b",
+    "world/coastal-field.ts": "16874f8f526f22a16b5a6b517cfd726aa2de76a3b0ee2a6476ead466acf87a2e",
+    "world/coastal-loader.ts": "3d8e9103f9ed8322202fa627e0083f5f9d9b5d6ffe181aabcd9e4589dccbf944",
+    "world/coastal-worker.ts": "1afc9da3556a2cbc3009dd41ec1b1defee9e4c9b3b84ece432b8ee6078c26381",
+    "world/coastal.ts": "b5fce5054daed96aa790f6dffe206e529f119a4bf0391b2af1ff6b6032cf1f6d",
+    "world/detailed-rocks.ts": "ee131d1fa1cdc1ce104cab14b02c2e77e17d2b1e6fca3292a93071213c5bd3e7",
+    "world/distant-forest-layout.ts": "ae6abc88edea3a8454ea6379d7d86ce9abc22c8d33d65cb8d85c4ce34c46be21",
+    "world/distant-forest.ts": "2401cc54ec59e518c2fa823059ebdd9e417c1728f70c6c841ff7eec2664eb2ff",
+    "world/ecology.ts": "21f78715f5514b232bce86f37e5b0ff56a40203f44283be96148109f24143464",
+    "world/forest-floor.ts": "007d698f778dfedabb86a98b41092b885117e7b793cab78abff6a0e5a272dde4",
+    "world/forest-structure.ts": "4872c3d5dd05020a9c92f0f256ad05f201bf3cf576cf60c1080ab70076124244",
+    "world/habitat.ts": "2da51191e5baf6f6998e78272ad8cba14b732133dd5b7d12fd6a963b3b1ab387",
+    "world/landscape-sampler.ts": "abd3986753b70d7a4d38e54280c0ac50a96dd2ab476508fc37cbb4ede502e311",
+    "world/lod.ts": "432d693723a429950e460fdfe1975827aa9284e7d2464b2de8a2c599d4c6062f",
+    "world/math.ts": "fea9ca1ffb2581113be9fcb128076f503ee116a33327969d4b18b894e850ded8",
+    "world/ocean.ts": "7208f30292a168a4c2ba45526277e58ae2378342eb97b3e2a309f10ad6c98b99",
+    "world/offshore-rocks.ts": "bdfc649fa0c277edaff49a8b767e65bd16c37c377ad040bd7cdff819bee4f3b3",
+    "world/photogrammetry-rocks.ts": "037f0e78a02fca7e916b2f99d970a69d88345d02473af213ecb8aeb6c2c3382c",
+    "world/plants.ts": "944ac0c56aa7a17fe4551f2bd0efad44bb55325e167a9f6b6d4eb8e568989142",
+    "world/rock-geometry.ts": "5a57d35751edf0d1c5177ec2e7261535c1165748a5b75a4c1047f0e302d7161b",
+    "world/rock-shelter.ts": "eecfa12f9690254f17afad32bdbb8e0d7c448be6565325b25199fbbf896e8223",
+    "world/spray.ts": "bd69677289e88970355e2411dc796de01537ade94ff1e4d06c6f8e09c2b835a5",
+    "world/terrain-surface.ts": "4cbed1713ea5ceef370113aa9f56783e48d563bf7d10486dbc1dc1465e1ffbdc",
+    "world/terrain.ts": "d4784c6cc5a6c7080ca8dec04868e0d9cb2aeedea7be2dc4c81a7ad4de6e3e1f",
+    "world/tree-impostor-data.ts": "bdd6f275f338429d72b04db484b72ac4b98ff80fe748d9a6355f18ca8e234e2b",
+    "world/tree-impostor.ts": "93324d0274bd8b0dfbfbb8e758e92c571a2a95ff8519e1e5890ef576a6078524",
+    "world/vegetation.ts": "cdc4d3ba70f8339179de4d9a6bef3a93cd524403e49db61829e7b069ed4dde20",
+    "world/weather.ts": "d38c3292ed627e63178815e8232325e7a9f3b9480bbc9115813ea5f06915da33",
+    "render/aerial-perspective.ts": "392e21dde27cbeaf8086904366e486f669ac4ec0c73fe12b4711df9205e8bc5e",
+    "render/alpha-weighted-color.ts": "b667f945d96c5142df938b037fdd33d31fc4c41f8e147171a40c9fd445c97391",
+    "render/diagnostics.ts": "fa897ab752278cea94e03d0966d90e1d4d1a4c9e9f7a9410cde3e582a2e9294a",
+    "render/embedded-image-pool.ts": "91c53f4184cf8cd86cf287fc54069fb9755c21cb1b15d4c4a2f91f7c301823ee",
+    "render/engine.ts": "f98d1ffade51d2982f929bd00eabb76c4f9212529147edea81a47e7362072a7a",
+    "render/ground-materials.ts": "03c39b1db9b9e19a7874c7f0335c2576a14c45b75a5d2978f9e3e7d45325799d",
+    "render/instance-frustum-packing.ts": "1755cef4f6446c91579944cd57fdcbbb584e014b1ec2e1807038ca35128164a0",
+    "render/materials.ts": "24694202443318f0ff076e03853d4e222b2f95e318e107e0349cbec7097e1a6a",
+    "render/refraction.ts": "43945801b50936f78fd6bd715bc8db183391a8ad47556a8a5ac5c7ab08ef0eb0",
+    "render/sky-lighting.ts": "0156a6c93b1dae40cafd3d6baeecef7ba655379ffe0c2dd29a75b66ac14abcc2",
+    "render/source-sun-visibility.ts": "f3bd1b3f78863c8f9aeba0359fd8a3c0fe4ff9de1bd267cbef1bf1785cc41f2a",
+    "render/vegetation-material.ts": "0b03359c21bee0e5fbaed7607b69b411b9f92f2bdfeac6744c25c48c5c7cb108",
+    "camera/cinematic.ts": "1729a9a1c5505bd1dfe074db21e5f558c8b81634e47029863e1af58b36bb171b"
+  },
+  "batchIndex": 4,
+  "batchCount": 5,
+  "overrideHashes": {},
+  "diagnosticOmissions": [],
+  "cameraPose": {
+    "position": [
+      -46,
+      6.6,
+      -280
+    ],
+    "quaternion": [
+      0.05152052887404156,
+      0.1943317046806882,
+      -0.010221316494723937,
+      0.9795286357986434
+    ],
+    "fov": 42,
+    "diagnosticOverride": false
+  }
+}

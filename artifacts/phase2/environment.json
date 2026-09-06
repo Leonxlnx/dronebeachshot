@@ -1,0 +1,28 @@
+{
+  "date": "2026-09-06",
+  "scope": "Observed continuation blockers; no successful production-browser 3D frame",
+  "managedPreview": {
+    "url": "http://terminal.local:4173/",
+    "supervisedStart": "succeeded",
+    "freshCheckThisContinuation": "correct Last Light Bay application; ordinary and low-resource WebGL2 both fail before scene assets load",
+    "graphicsError": "GL_VENDOR = Disabled; GL_RENDERER = Disabled; BindToCurrentSequence failed",
+    "browserCyclesAccepted": 0
+  },
+  "existingSite": {
+    "projectId": "appgprj_6a9b6e5ab4fc819189390e9ed1504847",
+    "lookupResult": "NOT_FOUND",
+    "identityPreserved": true,
+    "replacementCreated": false
+  },
+  "publicRenderArtifactUpload": {
+    "result": "automatic approval review rejected",
+    "reason": "User authorization did not specifically authorize public sharing of generated render artifacts",
+    "newPhase2ImagesUploadedToGitHub": 0,
+    "saferAlternative": "private review attachment; code and non-image technical records remain in the Git branch"
+  },
+  "nativeRenderer": {
+    "kind": "actual production Three.js modules in native ANGLE/Mesa software graphics",
+    "substitutesForBrowserQA": false,
+    "consumerGpuBenchmark": false
+  }
+}

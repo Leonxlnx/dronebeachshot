@@ -2,7 +2,6 @@ import {renderedTerrainHeight} from './terrain-surface.ts';
 import {rng,terrainSlope,shoreDistance} from './math.ts';
 import {habitatAt} from './habitat.ts';
 import {pathPosition} from '../camera/cinematic.ts';
-import {isExposedCliff} from './cliff-buttresses.ts';
 export type Placement={x:number,y:number,z:number,scale:number,angle:number,variant:number,family:number,exposure:number,moisture:number};
 const flightSamples=Array.from({length:601},(_,i)=>pathPosition(i/30));
 export function treePlacements(){
@@ -21,9 +20,6 @@ export function treePlacements(){
   const scale=family===2?(variant===0?.58:variant===2?.8:1)+random()*.24:variant===0?.65+random()*.25:variant===2?.75+random()*.28:1.+random()*.30;
   const angle=random()*Math.PI*2,height=(family===2?21:family===1?14.4:18.2)*scale,radius=(family===2?6:17)*scale*(1+variant*.06)+2;
   if(flightSamples.some(p=>p.y>y-2&&p.y<y+height+3&&Math.hypot(p.x-x,p.z-z)<radius))continue;
-  // Keep the seeded candidate sequence intact outside the new outcrops.
-  // Exclude exposed rock instead of raising tree roots onto steep cliff faces.
-  if(isExposedCliff(x,z,1))continue;
   placements.push({x,y:y-.06,z,scale,angle,variant,family,exposure:habitat.exposure,moisture:habitat.moisture});
  }
  return placements;

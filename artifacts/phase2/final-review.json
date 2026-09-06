@@ -1,0 +1,57 @@
+{
+  "date": "2026-09-06",
+  "scope": "Completed implementation/review increment; original project acceptance remains incomplete",
+  "terrainDecision": "lokal akzeptiert",
+  "terrainReview": {
+    "root": "ACCEPT limited headland fracture improvement; broad reference-art defects remain",
+    "independentReviewer": "ACCEPT all five native views; matched original comparisons for three named cameras, supplementary flight views",
+    "geologyReviewer": "PASS local improvement; regenerated individual tree/rock placement is not pixel-identical outside the cut",
+    "changedGridVertices": 866,
+    "totalGridVertices": 481401,
+    "maximumCutMeters": 19.4811,
+    "summitMeters": 425,
+    "coreTrees": 14000,
+    "flightGroundClearanceMeters": 5.1136,
+    "protectedCoastAndSummit": "exact baseline equality",
+    "negativeControls": 6
+  },
+  "forestDecision": "REJECT v1/v2/v3; original production file restored byte-identically",
+  "waterDecision": "Retain filtered-wave slope variance as reflection roughness; incremental matched-view improvement",
+  "validation": {
+    "tests": 25,
+    "vendoredAssets": 38,
+    "sourceTypescriptWorldBuild": "passed on current production sources",
+    "offshoreCheck": "passed; 37 grounded instances, 33.02271907490596 m minimum sampled clearance",
+    "compiledWorker": "passed actual HTML-referenced bundle; same 16777216-byte field as main-thread production world",
+    "nativeCurrentSourceFrames": 5,
+    "nativeSourceVerification": "landscape-v4/source-verification.json",
+    "nativeShaderErrors": 0,
+    "nativeGlErrors": 0,
+    "independentRuntimeSourceReview": "no additional concrete regression found; docs/continuation/runtime-phase2.md"
+  },
+  "globalArtAccepted": false,
+  "browserQaPassed": false,
+  "acceptedBrowserCycles": 0,
+  "finalGalleryDelivered": false,
+  "finalFilmDelivered": false,
+  "sourceHashes": {
+    "src/main.ts": "638ad15994ff352587992e575556dab568803ac6de668330d8bc3638a411cce0",
+    "src/app/audio.ts": "4feee393f9a9159b3f417da93b8ab5fcae858bbe726279741bc9f94a26978bf5",
+    "src/world/math.ts": "389cf335a0514b0d59088799498caca306714676ab5b3aec01d7cc8e8f25c7b2",
+    "src/world/terrain-fractures.ts": "ebce2e7167cab9113c431bb1f4ad802312dfbb34bcc3f0d8e5bd9ea8935e16c8",
+    "src/world/distant-forest.ts": "3209c7eb3183d8fd115a5d32f954aa7ef1876e94926a98e1a4256969dec08d70",
+    "src/world/ocean.ts": "7208f30292a168a4c2ba45526277e58ae2378342eb97b3e2a309f10ad6c98b99",
+    "recovery/restore-assets.mjs": "2d6a638ceac470d17ad052c9a17fd6d2a458613183897d0a7e09c73d7fe49141",
+    "scripts/control/check-terrain-fractures.mjs": "e56138b120a628281fe3063d04141bfd3a282ccf5ea720cdb202b7bd6626a4a1",
+    "scripts/control/check-worker.mjs": "316ad3438956269ddf2def2ebe0a3739496881f7ea5bafc595948964f6d97c0b"
+  },
+  "remaining": [
+    "reference-level rock, canopy, cloud and surf refinement",
+    "managed browser WebGL disabled",
+    "existing Site lookup NOT_FOUND",
+    "eight real browser refinement cycles",
+    "sixteen accepted 4K stills and 1200-frame film",
+    "86400 verified active seconds",
+    "final accepted main and existing Site publication"
+  ]
+}

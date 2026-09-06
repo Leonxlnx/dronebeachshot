@@ -15,15 +15,21 @@ const route=[...Array.from({length:1201},(_,i)=>pathPosition(i/60)),
  ...Object.values(evaluationCameras).map(c=>c.position)];
 const a=new THREE.Vector3(),b=new THREE.Vector3(),c=new THREE.Vector3();
 const normal=new THREE.Vector3(),nearest=new THREE.Vector3(),sample=new THREE.Vector3();
+const faceNormal=new THREE.Vector3(),shadeNormal=new THREE.Vector3();
 const triangle=new THREE.Triangle(),box=new THREE.Box3();
 function audit(mesh){
- const p=mesh.geometry.getAttribute('position'),ids=mesh.geometry.index.array;
+ const p=mesh.geometry.getAttribute('position'),normals=mesh.geometry.getAttribute('normal'),ids=mesh.geometry.index.array;
  const matrix=new THREE.Matrix4();mesh.getMatrixAt(0,matrix);mesh.updateWorldMatrix(true,false);
  matrix.premultiply(mesh.matrixWorld);
  const vertices=Array.from({length:p.count},(_,i)=>new THREE.Vector3().fromBufferAttribute(p,i).applyMatrix4(matrix));
+ // Creased shading duplicates vertices at hard edges. Weld only exact emitted
+ // positions for topology; otherwise valid split normals resemble open seams.
+ const weld=new Map(),weldIds=vertices.map(point=>{
+  const key=point.toArray().join(',');if(!weld.has(key))weld.set(key,weld.size);return weld.get(key);
+ });
  const bounds=new THREE.Box3().setFromPoints(vertices),edges=new Map();
  const nearby=route.map(point=>({point,bound:bounds.distanceToPoint(point)})).sort((x,y)=>x.bound-y.bound);
- let volume=0,minArea=Infinity,maxY=-Infinity,minimumClearance=Infinity;
+ let volume=0,minArea=Infinity,maxY=-Infinity,minimumClearance=Infinity,minimumNormalDot=1;
  let maximumProtrusion=-Infinity,buriedVertices=0,exposedVertices=0,rimTriangles=0,maxRimSeparation=-Infinity;
  for(const point of vertices){
   assert.ok(point.toArray().every(Number.isFinite),'Nonfinite cliff vertex');
@@ -39,8 +45,14 @@ function audit(mesh){
   a.copy(vertices[ia]);b.copy(vertices[ib]);c.copy(vertices[ic]);
   triangle.set(a,b,c);const area=triangle.getArea();minArea=Math.min(minArea,area);
   assert.ok(area>1e-6,'Degenerate cliff face');
+  triangle.getNormal(faceNormal);
+  for(const id of [ia,ib,ic]){
+   shadeNormal.fromBufferAttribute(normals,id).transformDirection(matrix);
+   assert.ok(shadeNormal.toArray().every(Number.isFinite),'Nonfinite cliff normal');
+   minimumNormalDot=Math.min(minimumNormalDot,shadeNormal.dot(faceNormal));
+  }
   volume+=a.dot(normal.crossVectors(b,c))/6;
-  for(const [x,y]of[[ia,ib],[ib,ic],[ic,ia]]){
+  for(const [x,y]of[[weldIds[ia],weldIds[ib]],[weldIds[ib],weldIds[ic]],[weldIds[ic],weldIds[ia]]]){
    const key=x<y?`${x}:${y}`:`${y}:${x}`,entry=edges.get(key)||{count:0,balance:0};
    entry.count++;entry.balance+=x<y?1:-1;edges.set(key,entry);
   }
@@ -69,8 +81,10 @@ function audit(mesh){
  assert.ok(maximumProtrusion>12&&maximumProtrusion<36,'Cliff relief missing or excessive');
  assert.ok(maxY<425,'Cliff geometry supplants the actual 425 m summit');
  assert.ok(minimumClearance>=5,'Cliff enters the flight or evaluation camera corridor');
+ assert.ok(minimumNormalDot>=Math.cos(Math.PI*.2)-.001,'Shading normal invents a plane absent from the real surface');
  return {name:mesh.name,triangles:ids.length/3,vertices:vertices.length,volume,minArea,maxY,
-  maximumProtrusion,buriedVertices,exposedVertices,rimTriangles,maxRimSeparation,minimumClearance};
+  maximumProtrusion,buriedVertices,exposedVertices,rimTriangles,maxRimSeparation,minimumClearance,
+  maximumNormalDeviationDegrees:Math.acos(minimumNormalDot)*180/Math.PI};
 }
 const results=group.children.map(audit);
 // Independent ray/triangle intersection checks the ecology exclusion API, not

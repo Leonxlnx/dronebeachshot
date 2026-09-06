@@ -15,6 +15,11 @@ occlusion, sand minification filtering, shared embedded texture images and exact
 terrain-height memoization. Playback and capture state handling were repaired.
 See [the continuation review](docs/continuation/REVIEW.md) for current evidence,
 before/after frames, limitations and the remaining acceptance work.
+The [second continuation](docs/continuation/PHASE2.md) adds automatic build-asset
+restoration, GitHub verification, capture/lifecycle fixes, water roughness, and
+independently reviewed cliff/forest candidates. Visually rejected canopy changes
+were removed from production. New diagnostic images are private
+review attachments pending explicit GitHub publication approval.
 
 The TypeScript/source checks, deterministic terrain and camera tests, GLB resource checks and production build are verified separately from completion. `npm run verify` intentionally exits nonzero until every completion condition is met. It is not appropriate to weaken its conditions to label this checkpoint finished.
 
@@ -35,7 +40,7 @@ review and are not represented as completed production features.
 ## Verification and capture
 
 - `npm run verify:build`: source checks, 25 tests (including fresh asset recovery), actual texture-alpha/license/checksum inspection, CPU world-geometry construction, TypeScript and production build.
-- `npm run check:landscape`: independent cliff topology/contact and tree intersection checks, deterministic distant canopy/grounding checks, and offshore shelter/clearance controls.
+- `npm run check:landscape`: independent terrain-fracture protection, grounding and route checks, plus offshore shelter/clearance controls. Rejected prototype checkers are archived separately.
 - `node --experimental-strip-types --loader ./scripts/control/ts-resolve.mjs scripts/control/check-offshore.mjs`: independent dense route clearance, seabed contact, real wave-shelter rasterization and an empty-scene negative control for offshore rocks.
 - `node scripts/control/check-worker.mjs`: after build/world checks, confirms the compiled worker transfers the exact same coastal atlas; CPU-only.
 - `node scripts/control/active-time.mjs status`: honestly recorded active intervals. Python checks require Pillow; frame metrics also require NumPy.
