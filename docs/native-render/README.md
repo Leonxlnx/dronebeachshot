@@ -69,6 +69,14 @@ for explicit offscreen MSAA with the official Three.js OutputPass. The optional
 names cannot be overridden. Actual pose and override status are recorded with
 each image; extra diagnostic views do not count as final-gallery cameras.
 
+For isolated material diagnosis, `BAY_OMIT_VEGETATION=1` omits trees, ground cover,
+forest floor and understory. Each image records these omissions explicitly;
+such views cannot establish complete landscape quality. `BAY_OCEAN_CANDIDATE`
+may select a frozen alternate ocean module by file URL. Its path and SHA-256 are
+recorded separately from the full production source manifest, as are existing
+terrain and fog candidate overrides. Use identical settings for both sides of
+a material comparison.
+
 The checked-in `artifacts/continuation/` comparison is 960×540 and is explicitly
 not the required 4K browser gallery. Source hashes accompany each frame. See
 `../continuation/REVIEW.md` for interpretation and unresolved visual defects.

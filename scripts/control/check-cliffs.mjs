@@ -1,0 +1,138 @@
+import assert from 'node:assert/strict';
+import crypto from 'node:crypto';
+import * as THREE from 'three';
+import {createCliffButtresses,isExposedCliff} from '../../src/world/cliff-buttresses.ts';
+import {renderedTerrainHeight} from '../../src/world/terrain-surface.ts';
+import {pathPosition,evaluationCameras} from '../../src/camera/cinematic.ts';
+import {treePlacements} from '../../src/world/ecology.ts';
+
+// Independent inspection of the emitted production triangles. No private
+// placement/profile helpers, metadata bounds or fabricated height functions.
+const textures=Object.fromEntries(['rock','rockNormal','rockARM','moss','mossNormal','mossARM']
+ .map(name=>[name,new THREE.Texture()]));
+const group=createCliffButtresses(textures),repeat=createCliffButtresses(textures);
+const route=[...Array.from({length:1201},(_,i)=>pathPosition(i/60)),
+ ...Object.values(evaluationCameras).map(c=>c.position)];
+const a=new THREE.Vector3(),b=new THREE.Vector3(),c=new THREE.Vector3();
+const normal=new THREE.Vector3(),nearest=new THREE.Vector3(),sample=new THREE.Vector3();
+const triangle=new THREE.Triangle(),box=new THREE.Box3();
+function audit(mesh){
+ const p=mesh.geometry.getAttribute('position'),ids=mesh.geometry.index.array;
+ const matrix=new THREE.Matrix4();mesh.getMatrixAt(0,matrix);mesh.updateWorldMatrix(true,false);
+ matrix.premultiply(mesh.matrixWorld);
+ const vertices=Array.from({length:p.count},(_,i)=>new THREE.Vector3().fromBufferAttribute(p,i).applyMatrix4(matrix));
+ const bounds=new THREE.Box3().setFromPoints(vertices),edges=new Map();
+ const nearby=route.map(point=>({point,bound:bounds.distanceToPoint(point)})).sort((x,y)=>x.bound-y.bound);
+ let volume=0,minArea=Infinity,maxY=-Infinity,minimumClearance=Infinity;
+ let maximumProtrusion=-Infinity,buriedVertices=0,exposedVertices=0,rimTriangles=0,maxRimSeparation=-Infinity;
+ for(const point of vertices){
+  assert.ok(point.toArray().every(Number.isFinite),'Nonfinite cliff vertex');
+  maxY=Math.max(maxY,point.y);
+  const separation=point.y-renderedTerrainHeight(point.x,point.z);
+  maximumProtrusion=Math.max(maximumProtrusion,separation);
+  if(separation<-.2)buriedVertices++;
+  if(separation>4)exposedVertices++;
+ }
+ for(let i=0;i<ids.length;i+=3){
+  const ia=ids[i],ib=ids[i+1],ic=ids[i+2];
+  assert.ok(ia<vertices.length&&ib<vertices.length&&ic<vertices.length,'Invalid index');
+  a.copy(vertices[ia]);b.copy(vertices[ib]);c.copy(vertices[ic]);
+  triangle.set(a,b,c);const area=triangle.getArea();minArea=Math.min(minArea,area);
+  assert.ok(area>1e-6,'Degenerate cliff face');
+  volume+=a.dot(normal.crossVectors(b,c))/6;
+  for(const [x,y]of[[ia,ib],[ib,ic],[ic,ia]]){
+   const key=x<y?`${x}:${y}`:`${y}:${x}`,entry=edges.get(key)||{count:0,balance:0};
+   entry.count++;entry.balance+=x<y?1:-1;edges.set(key,entry);
+  }
+  // Side walls have a repeated XZ corner at distinct heights. Independently
+  // sample their entire triangles, not just the convenient centre/root point.
+  const sameXZ=(x,y)=>x.x===y.x&&x.z===y.z;
+  if(sameXZ(a,b)||sameXZ(a,c)||sameXZ(b,c)){
+   rimTriangles++;
+   for(let u=0;u<=4;u++)for(let v=0;v<=4-u;v++){
+    sample.copy(a).multiplyScalar(u/4).addScaledVector(b,v/4).addScaledVector(c,1-(u+v)/4);
+    maxRimSeparation=Math.max(maxRimSeparation,sample.y-renderedTerrainHeight(sample.x,sample.z));
+   }
+  }
+  box.setFromPoints([a,b,c]);
+  for(const {point,bound}of nearby){
+   if(bound>=minimumClearance)break;
+   if(box.distanceToPoint(point)>=minimumClearance)continue;
+   triangle.closestPointToPoint(point,nearest);
+   minimumClearance=Math.min(minimumClearance,nearest.distanceTo(point));
+  }
+ }
+ for(const edge of edges.values())assert.ok(edge.count===2&&edge.balance===0,'Open or nonmanifold cliff seam');
+ assert.ok(volume>0,'Inverted or zero-volume cliff shell');
+ assert.ok(rimTriangles>100&&maxRimSeparation<-.4,'An exposed rim creates a pasted wall');
+ assert.ok(buriedVertices>vertices.length*.48&&exposedVertices>vertices.length*.15,'Missing grounded, exposed mass');
+ assert.ok(maximumProtrusion>12&&maximumProtrusion<36,'Cliff relief missing or excessive');
+ assert.ok(maxY<425,'Cliff geometry supplants the actual 425 m summit');
+ assert.ok(minimumClearance>=5,'Cliff enters the flight or evaluation camera corridor');
+ return {name:mesh.name,triangles:ids.length/3,vertices:vertices.length,volume,minArea,maxY,
+  maximumProtrusion,buriedVertices,exposedVertices,rimTriangles,maxRimSeparation,minimumClearance};
+}
+const results=group.children.map(audit);
+// Independent ray/triangle intersection checks the ecology exclusion API, not
+// the production footprint's cell index or contact-sampling implementation.
+group.updateMatrixWorld(true);
+const ray=new THREE.Raycaster(new THREE.Vector3(),new THREE.Vector3(0,-1,0));
+let seed=7117,exposedRaySamples=0;
+const random=()=>{seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296};
+for(const mesh of group.children){
+ const bounds=new THREE.Box3().setFromObject(mesh);
+ for(let i=0;i<1000;i++){
+  const x=bounds.min.x+random()*(bounds.max.x-bounds.min.x);
+  const z=bounds.min.z+random()*(bounds.max.z-bounds.min.z);
+  ray.ray.origin.set(x,450,z);const hit=ray.intersectObject(mesh,false)[0];
+  if(!hit||hit.point.y-renderedTerrainHeight(x,z)<=.5)continue;
+  exposedRaySamples++;
+  assert.ok(isExposedCliff(x,z,0),'Ecology permits a root inside actual exposed cliff triangles');
+ }
+}
+assert.ok(exposedRaySamples>1500,'Exclusion control did not exercise enough actual exposed surface');
+assert.equal(isExposedCliff(0,0),false,'Unrelated central beach is excluded');
+assert.equal(isExposedCliff(-124,350),false,'Unchanged main summit is excluded');
+assert.equal(isExposedCliff(NaN,0),false);assert.throws(()=>isExposedCliff(0,0,-1),RangeError);
+// Verify root-owned integration without trusting the exclusion predicate: cast
+// against every actual raised volume at every regenerated production tree root.
+const trees=treePlacements();let treeRockIntersections=0,maximumRockAboveRoot=-Infinity;
+assert.equal(trees.length,14000,'Cliff rejection failed to replenish the production forest');
+assert.deepEqual(trees,treePlacements(),'Regenerated core forest is nondeterministic');
+for(const tree of trees){
+ assert.equal(tree.y,renderedTerrainHeight(tree.x,tree.z)-.06,'Tree was raised onto a cliff');
+ ray.ray.origin.set(tree.x,450,tree.z);const hit=ray.intersectObject(group,true)[0];
+ if(!hit)continue;
+ const penetration=hit.point.y-tree.y;maximumRockAboveRoot=Math.max(maximumRockAboveRoot,penetration);
+ if(penetration>.3)treeRockIntersections++;
+}
+assert.equal(treeRockIntersections,0,'Regenerated trees still emerge through exposed cliff surfaces');
+const signature=g=>crypto.createHash('sha256').update(Buffer.concat(g.children.flatMap(mesh=>[
+ Buffer.from(mesh.geometry.attributes.position.array.buffer),Buffer.from(mesh.geometry.index.array.buffer)]))).digest('hex');
+assert.equal(signature(group),signature(repeat),'Production cliff geometry is nondeterministic');
+const triangles=results.reduce((sum,item)=>sum+item.triangles,0);
+assert.equal(results.length,6);assert.ok(triangles<110000,'Unbounded cliff geometry cost');
+assert.equal(renderedTerrainHeight(-124,350),425,'Authoritative summit changed');
+// Negative controls prove the contact, route and closed-shell assertions fail
+// under actual geometric damage; they are not assertions copied from metadata.
+const damaged=group.children[0].clone();damaged.geometry=group.children[0].geometry.clone();
+damaged.geometry.setIndex(Array.from(damaged.geometry.index.array).slice(3));
+assert.throws(()=>audit(damaged),/seam/,'Open-shell negative control escaped');damaged.geometry.dispose();
+const floating=group.children[0].clone();floating.position.y=65;
+assert.throws(()=>audit(floating),/rim|grounded|excessive|summit/,'Floating-shell negative control escaped');
+const obstruction=group.children[0].clone();obstruction.geometry=group.children[0].geometry.clone();
+const routePoint=route[0],first=new THREE.Vector3().fromBufferAttribute(obstruction.geometry.attributes.position,0);
+obstruction.position.copy(routePoint).sub(first);
+// Audit grounding fails first for a translated mountain. Directly exercise the
+// same independently measured triangle-distance oracle at the intersected face.
+obstruction.updateMatrixWorld(true);triangle.set(...[0,1,2].map(i=>new THREE.Vector3()
+ .fromBufferAttribute(obstruction.geometry.attributes.position,obstruction.geometry.index.getX(i))
+ .applyMatrix4(obstruction.matrixWorld)));
+triangle.closestPointToPoint(routePoint,nearest);assert.ok(nearest.distanceTo(routePoint)<1e-6);
+obstruction.geometry.dispose();
+console.log('CLIFF_CHECK_PASS '+JSON.stringify({scope:'Production CPU geometry; visual acceptance remains pending',
+ triangles,sourceGeometrySha256:signature(group),exposedRaySamples,
+ coreForest:{trees:trees.length,treeRockIntersections,maximumRockAboveRoot},
+ negativeControls:['missing triangle','floating shell','camera-intersecting triangle','unaffected beach and summit'],results}));
+for(const g of [group,repeat]){g.traverse(o=>o.geometry?.dispose());g.children[0].material.dispose();}
+Object.values(textures).forEach(texture=>texture.dispose());

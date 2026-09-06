@@ -14,7 +14,7 @@ const root=fileURLToPath(new URL('../../',import.meta.url)).replace(/\/$/,'');
 const THREE=await import(pathToFileURL(root+'/node_modules/three/build/three.module.js'));
 const {GLTFLoader}=await import(pathToFileURL(root+'/node_modules/three/examples/jsm/loaders/GLTFLoader.js'));
 const {OutputPass}=await import(pathToFileURL(root+'/node_modules/three/examples/jsm/postprocessing/OutputPass.js'));
-const moduleAt=async p=>import(p==='world/terrain'&&process.env.BAY_TERRAIN_CANDIDATE?new URL(process.env.BAY_TERRAIN_CANDIDATE,import.meta.url):pathToFileURL(root+'/src/'+p+'.ts'));
+const moduleAt=async p=>import(p==='world/terrain'&&process.env.BAY_TERRAIN_CANDIDATE?new URL(process.env.BAY_TERRAIN_CANDIDATE,import.meta.url):p==='world/ocean'&&process.env.BAY_OCEAN_CANDIDATE?new URL(process.env.BAY_OCEAN_CANDIDATE,import.meta.url):pathToFileURL(root+'/src/'+p+'.ts'));
 const [{createEngine},{loadTextures},{createTerrain,createRocks},{createAtmosphere},
  {createCoastalField},{createOcean},{createRockSpray},{createGroundCover},
  {createForestFloor},{createForestStructure},{createVegetation},
@@ -98,10 +98,13 @@ const field=createCoastalField(rocks);log('coastal field ready');
 const atmosphere=createAtmosphere(renderer);scene.add(atmosphere.group);
 const ocean=createOcean(field,terrain);scene.add(ocean.group);
 const spray=createRockSpray(field);scene.add(spray);
-const cover=createGroundCover(textures);scene.add(cover);
-const vegetation=await createVegetation(progress,terrain);scene.add(vegetation.group);
-cover.add(createForestFloor(textures,vegetation.placements));
-const forestStructure=createForestStructure(textures,vegetation.placements);cover.add(forestStructure.group);
+const omitVegetation=process.env.BAY_OMIT_VEGETATION==='1';
+const cover=omitVegetation?new THREE.Group():createGroundCover(textures);scene.add(cover);
+const vegetation=omitVegetation?{group:new THREE.Group(),count:0,cells:0,imageSharing:null,update(){},setTier(){},prepareSunShadow(){},prepareMain(){}}:await createVegetation(progress,terrain);scene.add(vegetation.group);
+if(!omitVegetation){
+ cover.add(createForestFloor(textures,vegetation.placements));
+ const forestStructure=createForestStructure(textures,vegetation.placements);cover.add(forestStructure.group);
+}
 scene.traverse(o=>{if(o instanceof THREE.Mesh&&o.castShadow&&o.material instanceof THREE.MeshStandardMaterial&&typeof o.material.userData.windBark==='boolean')o.customDepthMaterial=createGroundWindDepth(o.material)});
 const fogCandidate=process.env.BAY_FOG_CANDIDATE?await import(new URL(process.env.BAY_FOG_CANDIDATE,import.meta.url)):null;
 const materials=new Set();scene.traverse(o=>{if(o instanceof THREE.Mesh)for(const m of Array.isArray(o.material)?o.material:[o.material])if(m instanceof THREE.MeshStandardMaterial&&!materials.has(m)){enableMaterialDiagnostics(m);withCloudLighting(m);withAerialPerspective(m);fogCandidate?.applyHeightFog(m);materials.add(m)}});
@@ -141,9 +144,12 @@ gl.readPixels(0,0,width,height,gl.RGBA,gl.UNSIGNED_BYTE,pixels);
 const glError=gl.getError();if(glError!==gl.NO_ERROR)throw Error('Native GL error '+glError);
 const filename=path.join(output,`${outputPrefix}${cameraName}-mode-${mode}-${width}.png`);
 await sharp(pixels,{raw:{width,height,channels:4}}).flip().removeAlpha().png().toFile(filename);
-const candidateOverrides={fog:process.env.BAY_FOG_CANDIDATE||null,terrain:process.env.BAY_TERRAIN_CANDIDATE||null};
+const candidateOverrides={fog:process.env.BAY_FOG_CANDIDATE||null,terrain:process.env.BAY_TERRAIN_CANDIDATE||null,ocean:process.env.BAY_OCEAN_CANDIDATE||null};
+const overrideHashes={};
+for(const [key,file] of Object.entries(candidateOverrides))if(file)overrideHashes[key]=crypto.createHash('sha256').update(await fs.readFile(new URL(file,import.meta.url))).digest('hex');
 const info={candidateOverrides,method:'Native ANGLE execution of production Three.js modules, software graphics; not browser QA or consumer FPS',camera:cameraName,time,width,height,debugMode:mode,nativeSamples,nativeCoverage,nativeOutput:reviewTarget?'linear-half-float-MSAA + official OutputPass ACES/sRGB':'production-default-framebuffer',renderer:gl.getParameter(gl.RENDERER),version:gl.getParameter(gl.VERSION),trees:vegetation.count,cells:vegetation.cells,render:renderer.info.render,memory:renderer.info.memory,programs:renderer.info.programs.length,imageSharing:vegetation.imageSharing,offshoreRocks:rocks.userData.offshoreRocks?.instances??0,assetMetrics:assetAdapter.metrics,shaderErrors:errors,glError,at:new Date().toISOString(),sourceHashes,batchIndex:cameraIndex,batchCount:cameraNames.length};
 
+info.overrideHashes=overrideHashes;info.diagnosticOmissions=omitVegetation?['vegetation','ground cover','forest floor','understory']:[];
 info.cameraPose={position:camera.position.toArray(),quaternion:camera.quaternion.toArray(),fov:camera.fov,diagnosticOverride:!!customCameras[cameraName]};
 await fs.writeFile(filename+'.json',JSON.stringify(info,null,2)+'\n');log('saved',filename,info.render);
 completed.push({camera:cameraName,time,filename,render:{...info.render},programs:info.programs,glError});

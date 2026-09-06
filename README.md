@@ -4,7 +4,7 @@ A true Three.js coastal environment with a deterministic 20-second route from th
 
 ## Run the source
 
-Use Node 22.12+ or 24. First restore the vendored assets with `python3 recovery/restore-assets.py`, then run `npm ci` and `npm run dev`. Open the local address reported by Vite in a WebGL2-capable browser. `npm run build` creates a self-contained static build in `dist/`; all runtime assets are local. Serving `dist/` requires a normal HTTP static server, not opening index.html through file://.
+Use Node 22.12+ or 24, then run `npm ci` and `npm run dev`. Development and build commands automatically restore the vendored models and textures from the checked-in archive using Node, validating every SHA-256 checksum. Existing edited assets are preserved and reported instead of overwritten. No Python installation is needed to run or build the app. Open the local address reported by Vite in a WebGL2-capable browser. `npm run build` creates a self-contained static build in `dist/`; all runtime assets are local. Serving `dist/` requires a normal HTTP static server, not opening index.html through file://.
 
 Controls: Begin flight; Space to pause/resume; R to replay; arrow keys to move by half a second; drag to look around while paused; touch controls, sound and quality settings are available. Reduced-motion users begin paused. `?inspect=1` exposes named evaluation cameras and diagnostic modes. `?capture=1&quality=high&t=0` hides the interface and fixes time.
 
@@ -34,13 +34,18 @@ review and are not represented as completed production features.
 
 ## Verification and capture
 
-- `npm run verify:build`: source checks, 22 tests, actual texture-alpha/license/checksum inspection, CPU world-geometry construction, TypeScript and production build.
+- `npm run verify:build`: source checks, 25 tests (including fresh asset recovery), actual texture-alpha/license/checksum inspection, CPU world-geometry construction, TypeScript and production build.
+- `npm run check:landscape`: independent cliff topology/contact and tree intersection checks, deterministic distant canopy/grounding checks, and offshore shelter/clearance controls.
 - `node --experimental-strip-types --loader ./scripts/control/ts-resolve.mjs scripts/control/check-offshore.mjs`: independent dense route clearance, seabed contact, real wave-shelter rasterization and an empty-scene negative control for offshore rocks.
 - `node scripts/control/check-worker.mjs`: after build/world checks, confirms the compiled worker transfers the exact same coastal atlas; CPU-only.
 - `node scripts/control/active-time.mjs status`: honestly recorded active intervals. Python checks require Pillow; frame metrics also require NumPy.
 - `node scripts/control/final-check.mjs`: full unfinished-deliverable ledger, with nonzero exit until complete.
 - `scripts/capture.mjs`: authored Playwright/FFmpeg capture harness for a WebGL2-capable environment. It has not been executed or validated in this session. It accepts a production URL and `baseline`, `gallery` or `video`. Final gallery/video modes refuse to run before eight actual visual cycles and environment gates pass. Browser availability must be established in the environment's permitted way before running it.
 - `python3 scripts/control/frame-metrics.py <capture folder>`: luminance, black/clipped percentage, saturation, detail density, duplicate diagnostics and contact sheet from real captured PNGs.
+
+The GitHub workflow runs the build, landscape checks and compiled-worker parity
+on pull requests and main updates. A passing source check does not claim the
+unfinished browser, art, media or active-time gates.
 
 ## Provenance
 

@@ -33,18 +33,25 @@ float waterHeight(vec2 p,float t){
 }
 // A band disappears before it crosses the pixel Nyquist limit. Derivatives
 // are supplied by fragment main; this shared block also compiles in vertex.
+float unresolvedWaterSlopeVariance=0.;
 vec2 windRipple(vec2 p,float t,vec2 pixelDx,vec2 pixelDy,vec2 dir,
                 float k,float slopeAmplitude,float phaseOffset){
  vec2 waveVector=dir*k;
  float phasePerPixel=max(abs(dot(waveVector,pixelDx)),abs(dot(waveVector,pixelDy)));
  float bandVisibility=1.-smoothstep(1.,3.,phasePerPixel);
+ // A filtered wave still contributes surface roughness. Dropping its normal
+ // without retaining this variance turns distant water into polished metal.
+ unresolvedWaterSlopeVariance+=.5*slopeAmplitude*slopeAmplitude*(1.-bandVisibility*bandVisibility);
  float phase=dot(p,waveVector)-t*sqrt(9.81*k)+phaseOffset;
  return dir*(slopeAmplitude*bandVisibility*cos(phase));
 }
 vec3 waterNormal(vec2 p,float t,float dist,vec2 pixelDx,vec2 pixelDy){
+ unresolvedWaterSlopeVariance=0.;
  float e=.2,dx=waterHeight(p+vec2(e,0.),t)-waterHeight(p-vec2(e,0.),t),dz=waterHeight(p+vec2(0.,e),t)-waterHeight(p-vec2(0.,e),t);
  vec2 slope=vec2(dx,dz)/(2.*e);
- float micro=(1.-smoothstep(250.,1400.,dist))*(1.-smoothstep(-2.,4.,coastalDistance(p)));
+ float distanceVisibility=1.-smoothstep(250.,1400.,dist);
+ float shoreAmplitude=1.-smoothstep(-2.,4.,coastalDistance(p));
+ float micro=distanceVisibility*shoreAmplitude;
  vec2 along=normalize(vec2(${WIND[0]},${WIND[1]})),across=vec2(-along.y,along.x);
  // Deterministic broad directional spectrum: many independent components
  // remain within each visible band after footprint filtering. Total unfiltered
@@ -115,6 +122,11 @@ vec3 waterNormal(vec2 p,float t,float dist,vec2 pixelDx,vec2 pixelDy){
  ripples+=windRipple(p,t,pixelDx,pixelDy,along*cos(0.13567020)+across*sin(0.13567020),38.82962688,0.01322806,6.28171019);
  ripples+=windRipple(p,t,pixelDx,pixelDy,along*cos(0.07673339)+across*sin(0.07673339),40.06179143,0.01312106,2.47744021);
  slope+=micro*ripples;
+ // Sum of .5*A^2 over the fixed 64-wave spectrum is 0.0192. Distance LOD
+ // transfers the remaining resolved variance too; shore damping is physical.
+ unresolvedWaterSlopeVariance=shoreAmplitude*shoreAmplitude*(
+  .0192*(1.-distanceVisibility*distanceVisibility)
+  +unresolvedWaterSlopeVariance*distanceVisibility*distanceVisibility);
  return normalize(vec3(-slope.x,1.,-slope.y));
 }
 `;
@@ -176,7 +188,13 @@ uniform float uTime,uDebug,uSurfaceMode,uSkyDecodeScale;uniform vec3 uSun;unifor
  float filmReach=reach+fringe;if(d>filmReach)discard;
  vec4 coast=coastalFieldSample(p);if(coast.g<-.25&&coast.b>vWorld.y+.06)discard;
  vec3 V=normalize(cameraPosition-vWorld);float distanceToEye=length(cameraPosition-vWorld);vec3 N=waterNormal(p,t,distanceToEye,waterPixelDx,waterPixelDy);
- float fresnel=.025+.975*pow(1.-max(dot(V,N),0.),5.);vec3 reflection=textureCube(uReflectedSky,reflect(-V,N)).rgb*uSkyDecodeScale;
+ float fresnel=.025+.975*pow(1.-max(dot(V,N),0.),5.);
+ // Cubemap mip footprint approximates the unresolved reflected-normal cone.
+ // Keep ordinary gradient-selected mip filtering when it is already broader.
+ vec3 reflected=reflect(-V,N);
+ float reflectionPixels=max(length(dFdx(reflected)),length(dFdy(reflected)))*128.;
+ float reflectionLod=.5*log2(max(1.,reflectionPixels*reflectionPixels+unresolvedWaterSlopeVariance*128.*128.*.35));
+ vec3 reflection=textureLod(uReflectedSky,reflected,clamp(reflectionLod,0.,7.)).rgb*uSkyDecodeScale;
  // The detailed coast field ends at a rectangle; water depth must not jump
  // from its measured seabed to an unrelated constant along that rectangle.
  vec2 edgeDistance=min(p-uCoastalBounds.xy,uCoastalBounds.zw-p);
@@ -184,7 +202,12 @@ uniform float uTime,uDebug,uSurfaceMode,uSkyDecodeScale;uniform vec3 uSun;unifor
  float depth=max(-mix(distantSeabedHeight(p),coast.r,detailWeight),0.);
  vec3 deep=vec3(.018,.075,.09),shallow=vec3(.08,.34,.28),water=mix(shallow,deep,1.-exp(-depth*.11));water*=.8+noise(p*.075)*.27+noise(p*.31)*.09;
  vec3 transmitted=transmittedCoast(vWorld,N,water,depth);vec3 col=mix(transmitted,reflection,fresnel);vec3 H=normalize(V+uSun);
- float glint=pow(max(dot(N,H),0.),520.)*.76+pow(max(dot(N,H),0.),65.)*.085;
+ // Broaden the existing solar lobes by the same unresolved variance, conserving
+ // their integrated energy instead of inventing extra light at lower detail.
+ float sharpPower=max(1.,2./(2./522.+unresolvedWaterSlopeVariance)-2.);
+ float broadPower=max(1.,2./(2./67.+unresolvedWaterSlopeVariance)-2.);
+ float glint=pow(max(dot(N,H),0.),sharpPower)*.76*(sharpPower+2.)/522.
+  +pow(max(dot(N,H),0.),broadPower)*.085*(broadPower+2.)/67.;
  float sunlight=atmosphericSunlight(vWorld),sunPath=glint*max(dot(N,uSun),.08)*sunlight;col+=vec3(13.,8.,3.2)*sunPath;
  float travel=coastPhase(p,t),breakBand=pow(.5+.5*sin(travel),14.),breakerActivity=smoothstep(3.,9.,-d)*(1.-smoothstep(24.,42.,-d));
  float group=breakingGroup(p,d,t);

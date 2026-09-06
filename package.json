@@ -4,13 +4,17 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "predev": "node recovery/restore-assets.mjs",
+    "prebuild": "node recovery/restore-assets.mjs",
+    "preverify:build": "node recovery/restore-assets.mjs",
     "dev": "vite --host 0.0.0.0 --port 4173",
     "build": "tsc --noEmit && vite build",
     "lint": "node scripts/control/source-check.mjs",
-    "test": "node --experimental-strip-types --test src/world/math.test.ts src/camera/cinematic.test.ts src/world/lod.test.ts src/world/coastal.test.ts src/world/coastal-field.test.ts src/world/terrain-surface.test.ts src/world/rock-shelter.test.ts src/app/capture-state.test.ts src/render/embedded-image-pool.test.ts",
+    "test": "node --experimental-strip-types --loader ./scripts/control/ts-resolve.mjs --test src/world/math.test.ts src/camera/cinematic.test.ts src/world/lod.test.ts src/world/coastal.test.ts src/world/coastal-field.test.ts src/world/terrain-surface.test.ts src/world/rock-shelter.test.ts src/app/capture-state.test.ts src/render/embedded-image-pool.test.ts recovery/restore-assets.test.mjs",
     "verify:build": "npm run lint && npm run test && npm run check:assets && npm run check:world && npm run build",
     "verify": "npm run verify:build && node scripts/control/final-check.mjs",
     "check:assets": "python3 scripts/control/check-assets.py",
+    "check:landscape": "node --experimental-strip-types --loader ./scripts/control/ts-resolve.mjs scripts/control/check-cliffs.mjs && node --experimental-strip-types --loader ./scripts/control/ts-resolve.mjs scripts/control/check-distant-forest.mjs && node --experimental-strip-types --loader ./scripts/control/ts-resolve.mjs scripts/control/check-offshore.mjs",
     "check:world": "node --experimental-strip-types --loader ./scripts/control/ts-resolve.mjs scripts/control/check-world.mjs"
   },
   "dependencies": {
