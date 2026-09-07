@@ -1,0 +1,20 @@
+{
+  "sha256": "41ac0550f178632b523fabad61a6855037a70a550a0568aad5564bbc84efcebf",
+  "parts": [
+    {
+      "path": "derived-parts/form-atlases.zip.part000",
+      "size": 1048576,
+      "sha256": "c370f48f5a5cb8b62a2431f643743fec2e8f0b3ab1a438ed8d476dc3c5e70bfa"
+    },
+    {
+      "path": "derived-parts/form-atlases.zip.part001",
+      "size": 1048576,
+      "sha256": "abebdf5184ea758eeaea68389f7513c8f5f1f180f02220b7894d214f370c1d60"
+    },
+    {
+      "path": "derived-parts/form-atlases.zip.part002",
+      "size": 392102,
+      "sha256": "c4f61a06d791ac035d450f503846e549edf831e46f5ce319de71513bc4a0c801"
+    }
+  ]
+}

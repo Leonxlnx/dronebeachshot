@@ -349,7 +349,11 @@
     "bytes": 798481,
     "sha256": "fa511d86ca9659007e0c4cc0d17d9344cda5b7c8c2868c524eb70a6f942d7eac",
     "derivedFrom": "public/assets/models/island-tree-near.glb",
-    "derivedFromSHA256": "c81e6ece28b7646aa59f2c2c68142619b2790d0db62c5d829278fec92e4373d7"
+    "derivedFromSHA256": "c81e6ece28b7646aa59f2c2c68142619b2790d0db62c5d829278fec92e4373d7",
+    "dimensions": [
+      2048,
+      768
+    ]
   },
   {
     "name": "Island Tree 02 far-view normal atlas",
@@ -364,7 +368,11 @@
     "bytes": 933462,
     "sha256": "a6cd5cbb19f2647d6980a8eaeee9839d0622e81ba847033e321693fe1d4afd7a",
     "derivedFrom": "public/assets/models/island-tree-near.glb",
-    "derivedFromSHA256": "c81e6ece28b7646aa59f2c2c68142619b2790d0db62c5d829278fec92e4373d7"
+    "derivedFromSHA256": "c81e6ece28b7646aa59f2c2c68142619b2790d0db62c5d829278fec92e4373d7",
+    "dimensions": [
+      2048,
+      768
+    ]
   },
   {
     "name": "Tree Small 02 / wild syringa far-view albedo atlas",
@@ -379,7 +387,11 @@
     "bytes": 664818,
     "sha256": "69045d0cbeebac3c0e15d4345142a99c9298076a75b15013e8cc6c906b1e2004",
     "derivedFrom": "public/assets/models/syringa-tree-near.glb",
-    "derivedFromSHA256": "cb794443092f8b4b7b257c4d86f42e6f2b0ec91a2f95d2d3f34043f0a3b49b07"
+    "derivedFromSHA256": "cb794443092f8b4b7b257c4d86f42e6f2b0ec91a2f95d2d3f34043f0a3b49b07",
+    "dimensions": [
+      2048,
+      768
+    ]
   },
   {
     "name": "Tree Small 02 / wild syringa far-view normal atlas",
@@ -394,7 +406,11 @@
     "bytes": 796819,
     "sha256": "370dce1764a6ed7aa00afbfb023290a86e0388ca97bbe4e6de0ffc038f73ecb1",
     "derivedFrom": "public/assets/models/syringa-tree-near.glb",
-    "derivedFromSHA256": "cb794443092f8b4b7b257c4d86f42e6f2b0ec91a2f95d2d3f34043f0a3b49b07"
+    "derivedFromSHA256": "cb794443092f8b4b7b257c4d86f42e6f2b0ec91a2f95d2d3f34043f0a3b49b07",
+    "dimensions": [
+      2048,
+      768
+    ]
   },
   {
     "name": "Rock Moss Set 01",
@@ -537,7 +553,12 @@
     "path": "public/assets/impostors/island-visibility.rg8",
     "bytes": 6291456,
     "sha256": "511289cba41882d4d417c23b7081bfd5971242c879041f08ffb97bceeeb7017d",
-    "sourceSHA256": "c81e6ece28b7646aa59f2c2c68142619b2790d0db62c5d829278fec92e4373d7"
+    "sourceSHA256": "c81e6ece28b7646aa59f2c2c68142619b2790d0db62c5d829278fec92e4373d7",
+    "dimensions": [
+      1024,
+      3072
+    ],
+    "format": "RG8"
   },
   {
     "name": "Wild Syringa source sun visibility",
@@ -551,6 +572,75 @@
     "path": "public/assets/impostors/syringa-visibility.rg8",
     "bytes": 6291456,
     "sha256": "fcc1b601ed813ced3b6a7016e5d8fafbc5000f7baf819a4dd706ff29d060d63b",
-    "sourceSHA256": "cb794443092f8b4b7b257c4d86f42e6f2b0ec91a2f95d2d3f34043f0a3b49b07"
+    "sourceSHA256": "cb794443092f8b4b7b257c4d86f42e6f2b0ec91a2f95d2d3f34043f0a3b49b07",
+    "dimensions": [
+      1024,
+      3072
+    ],
+    "format": "RG8"
+  },
+  {
+    "path": "public/assets/impostors/island-fork-open-albedo.png",
+    "sha256": "fd2cbeb540b28fbc15c36b0dbf6587625e91418753e70eb9b81cf1b54dabb9e9",
+    "license": "CC0-1.0",
+    "sourcePage": "https://polyhaven.com/a/island_tree_02",
+    "derivation": "Island fork-open growth form; continuous source geometry with matching24-view albedo/normal and192-view sun visibility",
+    "sourceModelSha256": "c81e6ece28b7646aa59f2c2c68142619b2790d0db62c5d829278fec92e4373d7",
+    "formSourceSha256": "5e9aff85dc10705c89604869a7f800657e6c5d9e35d126b3c779504260e4ed74",
+    "dimensions": [
+      2048,
+      768
+    ],
+    "creator": "Rico Cilliers; Rob Tuytel",
+    "sourceDownload": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/1k/island_tree_02/island_tree_02_1k.gltf",
+    "attribution": "Optional; retained in docs/ASSET_LICENSES.md",
+    "downloadDate": "2026-09-05",
+    "name": "Island Tree 02 fork-open albedo atlas",
+    "modifications": "Continuous root-fixed crown growth form applied to all source materials; 24 orthographic views with 4x spatial supersampling and 4x MSAA. Albedo integrates linear weighted color; normals use root-local mean direction; visibility uses eight source-sun azimuths at fixed elevation.",
+    "derivativeDate": "2026-09-07",
+    "bytes": 748664
+  },
+  {
+    "path": "public/assets/impostors/island-fork-open-normal.png",
+    "sha256": "306f6223065425833328e63e8390e2bcdfad8d84b9973e22349acbc987b39d1b",
+    "license": "CC0-1.0",
+    "sourcePage": "https://polyhaven.com/a/island_tree_02",
+    "derivation": "Island fork-open growth form; continuous source geometry with matching24-view albedo/normal and192-view sun visibility",
+    "sourceModelSha256": "c81e6ece28b7646aa59f2c2c68142619b2790d0db62c5d829278fec92e4373d7",
+    "formSourceSha256": "5e9aff85dc10705c89604869a7f800657e6c5d9e35d126b3c779504260e4ed74",
+    "dimensions": [
+      2048,
+      768
+    ],
+    "creator": "Rico Cilliers; Rob Tuytel",
+    "sourceDownload": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/1k/island_tree_02/island_tree_02_1k.gltf",
+    "attribution": "Optional; retained in docs/ASSET_LICENSES.md",
+    "downloadDate": "2026-09-05",
+    "name": "Island Tree 02 fork-open normal atlas",
+    "modifications": "Continuous root-fixed crown growth form applied to all source materials; 24 orthographic views with 4x spatial supersampling and 4x MSAA. Albedo integrates linear weighted color; normals use root-local mean direction; visibility uses eight source-sun azimuths at fixed elevation.",
+    "derivativeDate": "2026-09-07",
+    "bytes": 853733
+  },
+  {
+    "path": "public/assets/impostors/island-fork-open-visibility.rg8",
+    "sha256": "9dd1c765ade0caa5af2e80fa8574b64efee51bc8d69162adfb883355d7f4974d",
+    "license": "CC0-1.0",
+    "sourcePage": "https://polyhaven.com/a/island_tree_02",
+    "derivation": "Island fork-open growth form; continuous source geometry with matching24-view albedo/normal and192-view sun visibility",
+    "sourceModelSha256": "c81e6ece28b7646aa59f2c2c68142619b2790d0db62c5d829278fec92e4373d7",
+    "formSourceSha256": "5e9aff85dc10705c89604869a7f800657e6c5d9e35d126b3c779504260e4ed74",
+    "dimensions": [
+      1024,
+      3072
+    ],
+    "format": "RG8",
+    "creator": "Rico Cilliers; Rob Tuytel",
+    "sourceDownload": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/1k/island_tree_02/island_tree_02_1k.gltf",
+    "attribution": "Optional; retained in docs/ASSET_LICENSES.md",
+    "downloadDate": "2026-09-05",
+    "name": "Island Tree 02 fork-open visibility atlas",
+    "modifications": "Continuous root-fixed crown growth form applied to all source materials; 24 orthographic views with 4x spatial supersampling and 4x MSAA. Albedo integrates linear weighted color; normals use root-local mean direction; visibility uses eight source-sun azimuths at fixed elevation.",
+    "derivativeDate": "2026-09-07",
+    "bytes": 6291456
   }
 ]

@@ -15,3 +15,6 @@ public/assets/textures/
 /artifacts/phase2/**/*.jpg
 # Phase-three diagnostics contain private environment metadata and images.
 /artifacts/phase3/
+
+# Local tree authoring evidence and raw readbacks.
+/artifacts/tree-form-authoring/

@@ -27,4 +27,4 @@ The former endpoint coordinate constraint was replaced with checks of the reques
 
 Current full-route CPU review samples 2,401 poses: minimum terrain clearance 5.114 m, conservative tree-envelope margin 0.483 m and rock-box distance 23.857 m. On the changed final section, the corresponding minima are 9.597 m, 64.257 m and 65.914 m. These are discrete conservative CPU checks, not mesh visibility or browser approval.
 
-Maximum gaze turn remains 53.22°/s in the unchanged earlier section; the new ending is below 35.20°/s. Native composition stills have been inspected. A native motion study is in progress; actual browser, final-film, foliage/LOD and full-route visual acceptance remain open.
+Maximum gaze turn remains 53.22°/s in the unchanged earlier section; the new ending is below 35.20°/s. Native composition stills have been inspected. A six-second 640×360 native motion study at 12 fps has been inspected across the ending, including resumed render batches; motion remains continuous in those samples. It is a development study. Actual browser, final-film, foliage/LOD and full-route visual acceptance remain open.

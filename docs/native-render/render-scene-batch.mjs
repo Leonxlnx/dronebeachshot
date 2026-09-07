@@ -101,7 +101,7 @@ const ocean=createOcean(field,terrain);scene.add(ocean.group);
 const spray=createRockSpray(field);scene.add(spray);
 const omitVegetation=process.env.BAY_OMIT_VEGETATION==='1';
 const cover=omitVegetation?new THREE.Group():createGroundCover(textures);scene.add(cover);
-const vegetation=omitVegetation?{group:new THREE.Group(),count:0,cells:0,imageSharing:null,update(){},setTier(){},prepareSunShadow(){},prepareMain(){}}:await createVegetation(progress,terrain);scene.add(vegetation.group);
+const vegetation=omitVegetation?{group:new THREE.Group(),count:0,cells:0,imageSharing:null,update(){},setTier(){},prepareSunShadow(){},prepareMain(){}}:await createVegetation(progress,terrain,{growthForms:process.env.BAY_TREE_FORM_BASELINE!=='1'});scene.add(vegetation.group);
 if(!omitVegetation){
  cover.add(createForestFloor(textures,vegetation.placements));
  const forestStructure=createForestStructure(textures,vegetation.placements);cover.add(forestStructure.group);
@@ -154,6 +154,7 @@ const info={candidateOverrides,method:'Native ANGLE execution of production Thre
 
 info.overrideHashes=overrideHashes;info.diagnosticOmissions=omitVegetation?['vegetation','ground cover','forest floor','understory']:[];
 info.processMemory=process.memoryUsage();
+info.treeForms={baseline:process.env.BAY_TREE_FORM_BASELINE==='1',stats:vegetation.formStats??null};
 info.pixelSha256=crypto.createHash('sha256').update(pixels).digest('hex');
 info.cameraPose={position:camera.position.toArray(),quaternion:camera.quaternion.toArray(),fov:camera.fov,diagnosticOverride:!!customCameras[cameraName]};
 await fs.writeFile(filename+'.json',JSON.stringify(info,null,2)+'\n');log('saved',filename,info.render);

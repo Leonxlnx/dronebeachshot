@@ -1,0 +1,128 @@
+{
+  "name": "Island Tree 02 fork-open",
+  "license": "CC0-1.0",
+  "sourcePage": "https://polyhaven.com/a/island_tree_02",
+  "sourceModelSha256": "c81e6ece28b7646aa59f2c2c68142619b2790d0db62c5d829278fec92e4373d7",
+  "formSourceSha256": "5e9aff85dc10705c89604869a7f800657e6c5d9e35d126b3c779504260e4ed74",
+  "definition": {
+    "family": 0,
+    "center": [
+      -0.24971771240234375,
+      8.926415018737316,
+      3.9319496154785156
+    ],
+    "halfSize": 20.544708595064446,
+    "bounds": {
+      "min": [
+        -11.901169776916504,
+        -0.09006203711032867,
+        -7.5474853515625
+      ],
+      "max": [
+        11.401734352111816,
+        17.94289207458496,
+        15.411384582519531
+      ]
+    },
+    "columns": 8,
+    "rows": 3
+  },
+  "geometry": {
+    "sourceTriangles": 238617,
+    "renderedNearTriangles": 238647,
+    "deformation": "One continuous root-fixed growth field for every material and geometricLOD; conforming refinement only for coarse wood faces."
+  },
+  "atlas": {
+    "cellPixels": 256,
+    "visibilityCellPixels": 128,
+    "supersampleLinearFactor": 4,
+    "nativeSamples": 4,
+    "worldTime": 0,
+    "albedoColorSpace": "sRGB after linear sample integration, straight color plus fractional coverage; source maps alpha-weighted in linear space before mip filtering",
+    "normalSpace": "Root-local visible-face shading normal including source normal maps, linear coverage-weighted mean direction renormalized per texel, encoded and stored straight with fractional coverage; runtime alpha-weights then normalizes",
+    "atlasOrigin": "PNG top-first, elevation rows 0/35/70, azimuth columns 0 through315; camera +Z at azimuth0, positive toward +X"
+  },
+  "visibility": {
+    "width": 1024,
+    "height": 3072,
+    "format": "RG8",
+    "origin": "bottom-first, flipY=false; blockRow=sunFrame*3+2-cameraRow",
+    "red": "visibility times silhouette coverage",
+    "green": "silhouette coverage",
+    "sunElevationDegrees": 6.021653966,
+    "sunAzimuthDegrees": [
+      0,
+      45,
+      90,
+      135,
+      180,
+      225,
+      270,
+      315
+    ]
+  },
+  "files": [
+    {
+      "file": "island-fork-open-albedo.png",
+      "bytes": 748664,
+      "sha256": "fd2cbeb540b28fbc15c36b0dbf6587625e91418753e70eb9b81cf1b54dabb9e9",
+      "path": "public/assets/impostors/island-fork-open-albedo.png"
+    },
+    {
+      "file": "island-fork-open-normal.png",
+      "bytes": 853733,
+      "sha256": "306f6223065425833328e63e8390e2bcdfad8d84b9973e22349acbc987b39d1b",
+      "path": "public/assets/impostors/island-fork-open-normal.png"
+    },
+    {
+      "file": "island-fork-open-visibility.rg8",
+      "bytes": 6291456,
+      "sha256": "9dd1c765ade0caa5af2e80fa8574b64efee51bc8d69162adfb883355d7f4974d",
+      "path": "public/assets/impostors/island-fork-open-visibility.rg8"
+    }
+  ],
+  "authoringToolHashes": {
+    "bake-tree.mjs": "a800c74502c53938ec51e405e7c15cf05cbf62dc17e3cd4e6f860c11708ac3f0",
+    "encode.mjs": "1ef0754721d8dd2cfa74a36ec9d4dbe0351b8da6d30b391db77785f4f6c1cba9"
+  },
+  "validation": {
+    "sourceViews": 24,
+    "sunDirections": 8,
+    "outputs": 240,
+    "minimumEmptyBorderPixels": 26,
+    "visibilityMinimumEmptyBorderPixels": 13,
+    "allPackedCellsVerified": true,
+    "coverageInvariantAcrossSunDirections": true
+  },
+  "limits": [
+    "Native source-asset authoring, not browser or scene approval.",
+    "Fixed-elevation source self-shadow; no dynamic per-leaf re-occlusion."
+  ],
+  "portableToolHashes": {
+    "bake-tree.mjs": "0cfcd2702c60081d9bcd80570dc357f58e4ec01dbe997caa6fc263f7cc0b7279",
+    "encode.mjs": "1ef0754721d8dd2cfa74a36ec9d4dbe0351b8da6d30b391db77785f4f6c1cba9"
+  },
+  "portabilityValidation": {
+    "changes": "Repository-relative source root and default output directory only",
+    "repeatedViews": [
+      0
+    ],
+    "repeatedSunDirections": [
+      0
+    ],
+    "passes": 3,
+    "byteIdenticalSourceAndEncodedFiles": 7
+  },
+  "bakeSourceHashes": {
+    "src/render/vegetation-material.ts": "0b03359c21bee0e5fbaed7607b69b411b9f92f2bdfeac6744c25c48c5c7cb108",
+    "src/render/alpha-weighted-color.ts": "b667f945d96c5142df938b037fdd33d31fc4c41f8e147171a40c9fd445c97391",
+    "src/render/materials.ts": "24694202443318f0ff076e03853d4e222b2f95e318e107e0349cbec7097e1a6a",
+    "src/world/weather.ts": "d38c3292ed627e63178815e8232325e7a9f3b9480bbc9115813ea5f06915da33",
+    "src/world/habitat.ts": "2da51191e5baf6f6998e78272ad8cba14b732133dd5b7d12fd6a963b3b1ab387",
+    "src/world/math.ts": "389cf335a0514b0d59088799498caca306714676ab5b3aec01d7cc8e8f25c7b2",
+    "src/world/terrain-fractures.ts": "ebce2e7167cab9113c431bb1f4ad802312dfbb34bcc3f0d8e5bd9ea8935e16c8",
+    "src/render/diagnostics.ts": "fa897ab752278cea94e03d0966d90e1d4d1a4c9e9f7a9410cde3e582a2e9294a",
+    "src/world/lod.ts": "432d693723a429950e460fdfe1975827aa9284e7d2464b2de8a2c599d4c6062f"
+  },
+  "dependencyReview": "The recorded import closure describes authoring provenance. The automatic geometry/atlas gate binds the source model, growth field and runtime framing; material, wind or sampling edits additionally require a deliberate atlas compatibility review."
+}

@@ -89,3 +89,7 @@ The 24-view Syringa albedo/normal atlases were regenerated from the restored `sy
 
 ### Source-tree sunlight visibility (2026-09-05)
 Island Tree02 (Rico Cilliers; Rob Tuytel) and restored Wild Syringa / Tree Small02 (Rico Cilliers), Poly Haven CC0, each contribute an original derived RG8 atlas of source cutout self-shadow visibility. The bake retains 24 camera views and 8 relative sun azimuths at the current 6.021654° sun elevation. Source albedo, normal and alpha atlas files are unchanged. The additional binaries encode coverage-weighted direct-sun visibility only, at 128 px per view, with shared yaw-aware interpolation in the far-tree shader. Each uses 6 MiB source bytes and 8 MiB logical GPU data with mips. This is a static source-occlusion approximation, not dynamic per-leaf occlusion under changing wind/tilt.
+
+## Island Tree 02 fork-open derivative
+
+The three `island-fork-open` production atlas files derive from the vendored Poly Haven Island Tree 02 near model (CC0-1.0). A continuous root-fixed growth field is applied to the source geometry, then 24 camera views and eight source sunlight directions are rendered. Source URL, source/model hashes, framing and encoding are documented in `tree-form-authoring/island-fork-open.json`; the matching runtime geometry is in `src/world/tree-form.ts`. These are runtime albedo, normal and visibility assets.

@@ -6,9 +6,11 @@ for item in manifest:
  p=Path(item['path']);assert p.is_file(),p
  raw=p.read_bytes();assert hashlib.sha256(raw).hexdigest()==item['sha256'],f'Checksum mismatch {p}'
  assert item['license']=='CC0-1.0';assert item.get('sourcePage');seen.append(str(p))
- if p.suffix=='.webp':
-  image=Image.open(p);assert max(image.size)<=2048
+ if p.suffix in ['.webp','.png']:
+  image=Image.open(p);image.load();assert max(image.size)<=2048
   if item.get('dimensions'):assert list(image.size)==item['dimensions']
+ if p.suffix=='.rg8':
+  width,height=item['dimensions'];assert len(raw)==width*height*2,f'{p} RG8 dimensions differ from payload'
  if p.suffix=='.glb':
   assert raw[:4]==b'glTF';n=struct.unpack_from('<I',raw,12)[0];doc=json.loads(raw[20:20+n]);pos=20+n;binary=raw[pos+8:]
   assert all('uri' not in b for b in doc.get('buffers',[]));assert all('uri' not in im for im in doc.get('images',[]))

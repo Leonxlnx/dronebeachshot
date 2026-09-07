@@ -1,3 +1,5 @@
+import {applyIslandTreeForm} from './tree-form';
+import {islandForkOpenDefinition,treeFormFor} from './tree-form-data';
 import {EmbeddedImagePool} from '../render/embedded-image-pool';
 import {createInstanceFrustumPacker} from '../render/instance-frustum-packing';
 import {loadSourceVisibilityTexture} from '../render/source-sun-visibility';
@@ -15,11 +17,11 @@ import {activeLods,lodRanges,type QualityTier} from './lod';
 import {prepareTreeMaterial,lodCamera,setVegetationQuality} from '../render/vegetation-material';
 type Part={geometry:THREE.BufferGeometry,material:THREE.MeshStandardMaterial,depth:THREE.MeshDepthMaterial};
 type Cell={bounds:THREE.Sphere,lods:THREE.Group[],family:number,placements:Placement[]};
-export async function createVegetation(progress:(p:number,label:string)=>void,terrain?:THREE.Group){
+export async function createVegetation(progress:(p:number,label:string)=>void,terrain?:THREE.Group,{growthForms=true}:{growthForms?:boolean}={}){
  const loader=new GLTFLoader(),imagePool=new EmbeddedImagePool();
  const paths=['island-tree-near.glb','island-tree-hero.glb','island-tree-medium.glb','island-tree-far.glb','syringa-tree-near.glb','syringa-tree-hero.glb','syringa-tree-medium.glb','syringa-tree-far.glb','palm-tree.glb'];
  const textureLoader=new THREE.TextureLoader();
- const farTextures=await Promise.all(['island','syringa'].map(async family=>{
+ const farTextures=await Promise.all(['island','syringa',...(growthForms?['island-fork-open']:[])].map(async family=>{
   const base='/assets/impostors/'+family;
   const [albedo,normals,visibility]=await Promise.all([
    textureLoader.loadAsync(base+'-albedo.png'),
@@ -28,7 +30,7 @@ export async function createVegetation(progress:(p:number,label:string)=>void,te
   ]);
   return {albedo,normals,visibility};
  }));
- const parts:Part[][]=[];
+ const parts:Part[][]=[],forkParts:Part[][]=[];
 const treeHeights = [{value:1}, {value:1}, {value:1}];
  for(let index=0;index<paths.length;index++){
   // Actual source-tree view atlases supply far LOD; skip loading obsolete cards.
@@ -62,22 +64,25 @@ if (isHeightSource) {
   if (!(crownY > 0)) throw Error('Missing root-relative tree crown height');
   heightUniform.value = crownY;
 }
-  parts.push(primitives);progress(44+index*3,'Preparing forest detail');
+  parts.push(primitives);
+  if(growthForms&&index<3)forkParts.push(primitives.map(part=>({...part,geometry:applyIslandTreeForm(part.geometry.clone(),'fork-open')})));
+  progress(44+index*3,'Preparing forest detail');
  }
  imagePool.clear();
+ const formFor=(p:Placement)=>growthForms?treeFormFor(p):0;
  const placements=treePlacements();updateHabitatCanopy(placements);const bins=new Map<string,Placement[]>();
- for(const plant of placements){const key=[Math.floor(plant.x/100),Math.floor(plant.z/100),plant.family].join(',');const list=bins.get(key)||[];list.push(plant);bins.set(key,list)}
+ for(const plant of placements){const key=[Math.floor(plant.x/100),Math.floor(plant.z/100),plant.family,formFor(plant)].join(',');const list=bins.get(key)||[];list.push(plant);bins.set(key,list)}
  const instanceFrustumPacker=createInstanceFrustumPacker();
  const group=new THREE.Group();group.name='forest';const distant=terrain?createDistantForest(terrain,farTextures):null;if(distant)group.add(distant);const cells:Cell[]=[];const dummy=new THREE.Object3D();const up=new THREE.Vector3(0,1,0),windAxis=new THREE.Vector3(WIND[1],0,-WIND[0]).normalize(),tilt=new THREE.Quaternion();
  for(const [key,list] of bins){
-  const family=Number(key.split(',')[2]),rootBox=new THREE.Box3();
+  const family=Number(key.split(',')[2]),form=Number(key.split(',')[3]),atlasIndex=form?2:family,rootBox=new THREE.Box3();
   for(const p of list)rootBox.expandByPoint(new THREE.Vector3(p.x,p.y,p.z));
   const cell:Cell={bounds:rootBox.getBoundingSphere(new THREE.Sphere()),lods:[],family,placements:list};
   for(let lod=0;lod<(family===2?1:4);lod++){
    const level=new THREE.Group();level.name=`trees-${key}-lod-${lod}`;level.userData.lod=lod;
    const meshes=family!==2&&lod===3
-    ?[createTreeImpostor(treeImpostorDefinitions[family],farTextures[family].albedo,farTextures[family].normals,list.length,farTextures[family].visibility)]
-    :parts[family===2?8:family*4+lod].map(part=>{
+    ?[createTreeImpostor(form?islandForkOpenDefinition:treeImpostorDefinitions[family],farTextures[atlasIndex].albedo,farTextures[atlasIndex].normals,list.length,farTextures[atlasIndex].visibility)]
+    :(form?forkParts[lod]:parts[family===2?8:family*4+lod]).map(part=>{
       const mesh=new THREE.InstancedMesh(part.geometry,part.material,list.length);
       mesh.customDepthMaterial=part.depth;return mesh;
      });
@@ -129,5 +134,5 @@ if (isHeightSource) {
    }
   }
  }
- return {imageSharing:imagePool.stats,prepareMain:instanceFrustumPacker.prepareMain,prepareSunShadow:instanceFrustumPacker.prepareSunShadow,disposeVisibility:instanceFrustumPacker.dispose,group,placements,farTextures,distantCount:distant?.userData.stats.trees??0,distantStats:distant?.userData.stats??null,update,setTier:(value:QualityTier)=>{tier=value;setVegetationQuality(value)},count:placements.length,cells:cells.length};
+ return {formStats:{forkOpen:placements.filter(p=>formFor(p)===1).length,scope:'bounded core forest; remote forms unchanged'},imageSharing:imagePool.stats,prepareMain:instanceFrustumPacker.prepareMain,prepareSunShadow:instanceFrustumPacker.prepareSunShadow,disposeVisibility:instanceFrustumPacker.dispose,group,placements,farTextures,distantCount:distant?.userData.stats.trees??0,distantStats:distant?.userData.stats??null,update,setTier:(value:QualityTier)=>{tier=value;setVegetationQuality(value)},count:placements.length,cells:cells.length};
 }

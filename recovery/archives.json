@@ -1,0 +1,7 @@
+{
+  "version": 1,
+  "manifests": [
+    "asset-parts/manifest.json",
+    "derived-parts/manifest.json"
+  ]
+}

@@ -50,6 +50,24 @@ function safeDestination(outputRoot,name){
  return current;
 }
 
+function readArchive(repositoryRoot,manifestName){
+ if(!/^[a-z][a-z0-9-]*\/manifest\.json$/.test(manifestName))throw Error('Invalid archive manifest path');
+ const directory=manifestName.split('/')[0];
+ const archiveManifest=JSON.parse(fs.readFileSync(path.join(repositoryRoot,'recovery',manifestName)));
+ if(!Array.isArray(archiveManifest.parts)||!archiveManifest.parts.length)throw Error('Archive has no parts');
+ const seen=new Set();
+ const parts=archiveManifest.parts.map(part=>{
+  if(typeof part.path!=='string'||!part.path.startsWith(directory+'/')||!new RegExp('^'+directory+'/[a-z0-9-]+\\.zip\\.part[0-9]+$').test(part.path)||seen.has(part.path))throw Error('Invalid or duplicate archive part path');
+  seen.add(part.path);
+  const bytes=fs.readFileSync(path.join(repositoryRoot,'recovery',part.path));
+  if(bytes.length!==part.size||sha256(bytes)!==part.sha256)throw Error('Asset part checksum failed: '+part.path);
+  return bytes;
+ });
+ const archive=Buffer.concat(parts);
+ if(sha256(archive)!==archiveManifest.sha256)throw Error('Archive checksum failed');
+ return zipEntries(archive);
+}
+
 export function restoreAssets({repositoryRoot=root,outputRoot=repositoryRoot}={}){
  const manifestPath=path.join(repositoryRoot,'public/assets/manifest.json');
  const manifestBytes=fs.readFileSync(manifestPath),manifest=JSON.parse(manifestBytes);
@@ -63,16 +81,23 @@ export function restoreAssets({repositoryRoot=root,outputRoot=repositoryRoot}={}
   else if(sha256(fs.readFileSync(destination))!==hash)throw Error('Existing asset differs from its manifest; preserving it: '+name);
  }
  if(!missing.length)return {files:expected.size-1,restored:0};
- const archiveManifest=JSON.parse(fs.readFileSync(path.join(repositoryRoot,'recovery/asset-parts/manifest.json')));
- const parts=archiveManifest.parts.map(part=>{
-  if(!/^asset-parts\/assets\.zip\.part[0-9]+$/.test(part.path))throw Error('Invalid archive part path');
-  const bytes=fs.readFileSync(path.join(repositoryRoot,'recovery',part.path));
-  if(bytes.length!==part.size||sha256(bytes)!==part.sha256)throw Error('Asset part checksum failed: '+part.path);
-  return bytes;
- });
- const archive=Buffer.concat(parts);
- if(sha256(archive)!==archiveManifest.sha256)throw Error('Archive checksum failed');
- const entries=zipEntries(archive);
+ const catalogPath=path.join(repositoryRoot,'recovery/archives.json');
+ let manifestNames=['asset-parts/manifest.json'];
+ const multipleArchives=fs.existsSync(catalogPath);
+ if(multipleArchives){
+  const catalog=JSON.parse(fs.readFileSync(catalogPath));
+  if(catalog.version!==1||!Array.isArray(catalog.manifests)||!catalog.manifests.length||new Set(catalog.manifests).size!==catalog.manifests.length)throw Error('Invalid asset archive catalog');
+  manifestNames=catalog.manifests;
+ }
+ const entries=new Map();
+ for(const name of manifestNames)for(const [asset,bytes] of readArchive(repositoryRoot,name)){
+  // The original recovery archive contains its historical manifest. With an
+  // explicit catalog, the tracked current manifest defines the combined set.
+  if(multipleArchives&&asset==='public/assets/manifest.json')continue;
+  if(entries.has(asset))throw Error('Duplicate archived asset: '+asset);
+  entries.set(asset,bytes);
+ }
+ if(multipleArchives)entries.set('public/assets/manifest.json',manifestBytes);
  if(entries.size!==expected.size||[...expected].some(([name,hash])=>!entries.has(name)||sha256(entries.get(name))!==hash))throw Error('Archived assets do not match the runtime manifest');
  // Validate every entry before writing anything; never overwrite edited assets.
  for(const name of missing){
