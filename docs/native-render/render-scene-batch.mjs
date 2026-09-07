@@ -14,7 +14,12 @@ const root=fileURLToPath(new URL('../../',import.meta.url)).replace(/\/$/,'');
 const THREE=await import(pathToFileURL(root+'/node_modules/three/build/three.module.js'));
 const {GLTFLoader}=await import(pathToFileURL(root+'/node_modules/three/examples/jsm/loaders/GLTFLoader.js'));
 const {OutputPass}=await import(pathToFileURL(root+'/node_modules/three/examples/jsm/postprocessing/OutputPass.js'));
-const moduleAt=async p=>import(p==='world/terrain'&&process.env.BAY_TERRAIN_CANDIDATE?new URL(process.env.BAY_TERRAIN_CANDIDATE,import.meta.url):p==='world/ocean'&&process.env.BAY_OCEAN_CANDIDATE?new URL(process.env.BAY_OCEAN_CANDIDATE,import.meta.url):pathToFileURL(root+'/src/'+p+'.ts'));
+const moduleOverrides={
+ 'world/terrain':process.env.BAY_TERRAIN_CANDIDATE,
+ 'world/ocean':process.env.BAY_OCEAN_CANDIDATE,
+ 'world/detailed-rocks':process.env.BAY_ROCKS_CANDIDATE
+};
+const moduleAt=async p=>import(moduleOverrides[p]?new URL(moduleOverrides[p],import.meta.url):pathToFileURL(root+'/src/'+p+'.ts'));
 const [{createEngine},{loadTextures},{createTerrain,createRocks},{createAtmosphere},
  {createCoastalField},{createOcean},{createRockSpray},{createGroundCover},
  {createForestFloor},{createForestStructure},{createVegetation},
@@ -26,6 +31,9 @@ const [{createEngine},{loadTextures},{createTerrain,createRocks},{createAtmosphe
  'render/sky-lighting','render/refraction'].map(moduleAt));
 const {withAerialPerspective}=await moduleAt('render/aerial-perspective');
 const {createDetailedRocks,ROCK_VISUAL_URL}=await moduleAt('world/detailed-rocks');
+for(const [moduleName,override] of [['world/math',process.env.BAY_MATH_CANDIDATE],['world/ecology',process.env.BAY_ECOLOGY_CANDIDATE]]){
+ if(override&&await moduleAt(moduleName)!==await import(new URL(override,import.meta.url)))throw Error('Declared '+moduleName+' override requires the matching study loader');
+}
 const sourceHashes={};
 for(const folder of ['world','render','camera'])for(const name of await fs.readdir(root+'/src/'+folder))if(name.endsWith('.ts')&&!name.endsWith('.test.ts'))sourceHashes[folder+'/'+name]=crypto.createHash('sha256').update(await fs.readFile(root+'/src/'+folder+'/'+name)).digest('hex');
 sharp.concurrency(2);sharp.cache({memory:32,files:0,items:20});
@@ -150,7 +158,11 @@ const occurrence=cameraNames.slice(0,cameraIndex+1).filter(name=>name===cameraNa
 const repeatSuffix=occurrence>1?`-repeat-${occurrence}`:'';
 const filename=path.join(output,`${outputPrefix}${cameraName}${repeatSuffix}-mode-${mode}-${width}.png`);
 await sharp(pixels,{raw:{width,height,channels:4}}).flip().removeAlpha().png().toFile(filename);
-const candidateOverrides={fog:process.env.BAY_FOG_CANDIDATE||null,terrain:process.env.BAY_TERRAIN_CANDIDATE||null,ocean:process.env.BAY_OCEAN_CANDIDATE||null};
+const candidateOverrides={fog:process.env.BAY_FOG_CANDIDATE||null,terrain:process.env.BAY_TERRAIN_CANDIDATE||null,ocean:process.env.BAY_OCEAN_CANDIDATE||null,rocks:process.env.BAY_ROCKS_CANDIDATE||null};
+// A private study loader can redirect the authoritative height module for all
+// its consumers. Record that effective source explicitly in any such frame.
+if(process.env.BAY_MATH_CANDIDATE)candidateOverrides.math=process.env.BAY_MATH_CANDIDATE;
+if(process.env.BAY_ECOLOGY_CANDIDATE)candidateOverrides.ecology=process.env.BAY_ECOLOGY_CANDIDATE;
 const overrideHashes={};
 for(const [key,file] of Object.entries(candidateOverrides))if(file)overrideHashes[key]=crypto.createHash('sha256').update(await fs.readFile(new URL(file,import.meta.url))).digest('hex');
 const info={candidateOverrides,method:'Native ANGLE execution of production Three.js modules, software graphics; not browser QA or consumer FPS',camera:cameraName,time,width,height,debugMode:mode,nativeSamples,nativeCoverage,nativeOutput:reviewTarget?'linear-half-float-MSAA + official OutputPass ACES/sRGB':'production-default-framebuffer',renderer:gl.getParameter(gl.RENDERER),version:gl.getParameter(gl.VERSION),trees:vegetation.count,cells:vegetation.cells,render:renderer.info.render,memory:renderer.info.memory,programs:renderer.info.programs.length,imageSharing:vegetation.imageSharing,offshoreRocks:rocks.userData.offshoreRocks?.instances??0,assetMetrics:assetAdapter.metrics,shaderErrors:errors,glError,at:new Date().toISOString(),sourceHashes,batchIndex:cameraIndex,batchCount:cameraNames.length};
@@ -158,6 +170,7 @@ const info={candidateOverrides,method:'Native ANGLE execution of production Thre
 info.overrideHashes=overrideHashes;info.diagnosticOmissions=omitVegetation?['vegetation','ground cover','forest floor','understory']:[];
 info.processMemory=process.memoryUsage();
 info.vegetationTier=vegetationTier;
+info.inlandRockCandidate=rocks.userData.inlandRocks??rocks.userData.inlandRockCandidate??null;
 info.treeForms={baseline:process.env.BAY_TREE_FORM_BASELINE==='1',stats:vegetation.formStats??null};
 info.pixelSha256=crypto.createHash('sha256').update(pixels).digest('hex');
 info.cameraPose={position:camera.position.toArray(),quaternion:camera.quaternion.toArray(),fov:camera.fov,diagnosticOverride:!!customCameras[cameraName]};
