@@ -44,7 +44,8 @@ if(process.env.BAY_REVIEW_CAMERAS){
   if(evaluationCameras[name]||!/^[a-z][a-z0-9-]*$/.test(name))throw Error('Invalid or reserved review camera '+name);
   for(const key of ['position','target'])if(!Array.isArray(view[key])||view[key].length!==3||!view[key].every(Number.isFinite))throw Error('Invalid review '+key);
   if(view.fov!==undefined&&(!Number.isFinite(view.fov)||view.fov<20||view.fov>80))throw Error('Invalid review field of view');
-  customCameras[name]={time:view.time,fov:view.fov??54,position:new THREE.Vector3(...view.position),target:new THREE.Vector3(...view.target)};
+  if(view.bank!==undefined&&(!Number.isFinite(view.bank)||Math.abs(view.bank)>Math.PI/3))throw Error('Invalid review bank');
+  customCameras[name]={time:view.time,fov:view.fov??54,bank:view.bank??0,position:new THREE.Vector3(...view.position),target:new THREE.Vector3(...view.target)};
  }
 }
 if(!cameraNames.length)throw Error('Provide at least one camera');
@@ -109,7 +110,9 @@ if(!omitVegetation){
 scene.traverse(o=>{if(o instanceof THREE.Mesh&&o.castShadow&&o.material instanceof THREE.MeshStandardMaterial&&typeof o.material.userData.windBark==='boolean')o.customDepthMaterial=createGroundWindDepth(o.material)});
 const fogCandidate=process.env.BAY_FOG_CANDIDATE?await import(new URL(process.env.BAY_FOG_CANDIDATE,import.meta.url)):null;
 const materials=new Set();scene.traverse(o=>{if(o instanceof THREE.Mesh)for(const m of Array.isArray(o.material)?o.material:[o.material])if(m instanceof THREE.MeshStandardMaterial&&!materials.has(m)){enableMaterialDiagnostics(m);withCloudLighting(m);withAerialPerspective(m);fogCandidate?.applyHeightFog(m);materials.add(m)}});
-vegetation.setTier('high');atmosphere.sun.shadow.mapSize.setScalar(2048);
+const vegetationTier=process.env.BAY_VEGETATION_TIER||'high';
+if(!['high','balanced','low'].includes(vegetationTier))throw Error('Invalid BAY_VEGETATION_TIER');
+vegetation.setTier(vegetationTier);atmosphere.sun.shadow.mapSize.setScalar(2048);
 const completed=[];
 try {
  for(const [cameraIndex,cameraName] of cameraNames.entries()){
@@ -118,7 +121,7 @@ const choice=customCameras[cameraName]??evaluationCameras[cameraName];
 const time=choice?choice.time:Number(cameraName.replace('flight-',''));
 if(!Number.isFinite(time))throw Error('Unknown camera '+cameraName);
 worldTime.value=time;
-if(choice){camera.position.copy(choice.position);camera.up.set(0,1,0);camera.lookAt(choice.target);camera.fov=choice.fov??54;camera.updateProjectionMatrix()}
+if(choice){camera.position.copy(choice.position);camera.up.set(Math.sin(choice.bank??0),Math.cos(choice.bank??0),0);camera.lookAt(choice.target);camera.fov=choice.fov??54;camera.updateProjectionMatrix()}
 else applyCinematic(camera,time);
 debugMode.value=mode;
 vegetation.group.visible=mode!==12;rocks.visible=mode!==12;cover.visible=mode!==12;
@@ -154,6 +157,7 @@ const info={candidateOverrides,method:'Native ANGLE execution of production Thre
 
 info.overrideHashes=overrideHashes;info.diagnosticOmissions=omitVegetation?['vegetation','ground cover','forest floor','understory']:[];
 info.processMemory=process.memoryUsage();
+info.vegetationTier=vegetationTier;
 info.treeForms={baseline:process.env.BAY_TREE_FORM_BASELINE==='1',stats:vegetation.formStats??null};
 info.pixelSha256=crypto.createHash('sha256').update(pixels).digest('hex');
 info.cameraPose={position:camera.position.toArray(),quaternion:camera.quaternion.toArray(),fov:camera.fov,diagnosticOverride:!!customCameras[cameraName]};

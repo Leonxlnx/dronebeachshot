@@ -8,11 +8,39 @@ import {treePlacements} from '../world/ecology.ts';
 import {solarDirection} from '../render/sky-lighting.ts';
 test('route starts above highest surveyed summit and finishes seaward',()=>{const start=sampleCamera(0).position,end=sampleCamera(20).position;let peak=-Infinity;for(let x=-550;x<550;x+=4)for(let z=100;z<700;z+=4)peak=Math.max(peak,terrainHeight(x,z));assert.ok(start.y>peak+20);assert.ok(terrainHeight(start.x,start.z)>peak-2);assert.ok(shoreDistance(end.x,end.z)<-100);assert.ok(end.y>=4&&end.y<=10)});
 
-test('final glide preserves the complete earlier pose and joins with continuous velocity and acceleration',()=>{
+test('opening gaze preserves every route sample and the complete later camera',()=>{
+ const positions=crypto.createHash('sha256'),later=crypto.createHash('sha256'),start=crypto.createHash('sha256');
+ for(let i=0;i<=2000;i++){
+  const t=i/100,c=sampleCamera(t);
+  positions.update(JSON.stringify(c.position.toArray()));
+  const pose=JSON.stringify([c.position.toArray(),c.target.toArray(),c.fov,c.bank]);
+  if(i>=950)later.update(pose);
+  if(i<=25)start.update(pose);
+ }
+ // Captured independently from main before any opening-camera source edit.
+ assert.equal(positions.digest('hex'),'b7eb9f36b72e446b01cf983d1dddf06fbed5bd17a1d3983713bd8f682bc7c6ba');
+ assert.equal(later.digest('hex'),'12627080c7110868d8e5ef8882c6c2217641768da48e63152b5a74ab15387a83');
+ assert.equal(start.digest('hex'),'2348de6abda59fcbc918663de75e6a280346464e28cd3bf3d3fe4efddbaff54c');
+});
+
+test('opening gaze has continuous angular velocity and acceleration at its blend boundaries',()=>{
+ const direction=(t:number)=>{const c=sampleCamera(t);return c.target.sub(c.position).normalize();};
+ const e=.0002;
+ for(const t of [.25,1.5,4.5,9.5]){
+  const p=direction(t),a=direction(t-e),b=direction(t+e);
+  const left=p.clone().sub(a).divideScalar(e),right=b.clone().sub(p).divideScalar(e);
+  assert.ok(left.distanceTo(right)<.001,`angular velocity jump at ${t}`);
+  const leftAcceleration=p.clone().addScaledVector(a,-2).add(direction(t-2*e)).divideScalar(e*e);
+  const rightAcceleration=direction(t+2*e).addScaledVector(b,-2).add(p).divideScalar(e*e);
+  assert.ok(leftAcceleration.distanceTo(rightAcceleration)<.02,`angular acceleration jump at ${t}`);
+ }
+});
+
+test('final glide preserves the preceding beach pose and joins with continuous velocity and acceleration',()=>{
  const hash=crypto.createHash('sha256');
- for(let i=0;i<=1470;i++){const c=sampleCamera(i/100);hash.update(JSON.stringify([c.position.toArray(),c.target.toArray(),c.fov,c.bank]))}
- // Frozen independently before replacing the final curve; includes old lookahead.
- assert.equal(hash.digest('hex'),'3526b48d5d3640e5e1206acc84749b28a60c63310035f699395b29ea8099a38f');
+ for(let i=950;i<=1470;i++){const c=sampleCamera(i/100);hash.update(JSON.stringify([c.position.toArray(),c.target.toArray(),c.fov,c.bank]))}
+ // Frozen from main before the opening gaze change; retains original lookahead from 9.5 seconds.
+ assert.equal(hash.digest('hex'),'25d472a347ccdfbee0a65c861c31a1377fc5042000d703473587bae30ecc331b');
  const e=.0002,p=pathPosition(GLIDE_START),before=pathPosition(GLIDE_START-e),earlier=pathPosition(GLIDE_START-2*e);
  assert.ok(finalGlide(GLIDE_START).distanceTo(p)<1e-10);
  assert.ok(p.clone().sub(before).divideScalar(e).distanceTo(finalGlide(GLIDE_START,1))<.003);

@@ -1,3 +1,4 @@
+import {withOpeningGaze} from './opening-gaze.ts';
 import {createFinalGlide} from './final-glide.ts';
 import {renderedTerrainHeight} from '../world/terrain-surface.ts';
 import * as THREE from 'three';
@@ -41,7 +42,7 @@ export function pathPosition(time:number){return time<=GLIDE_START?authoredPosit
 const finalTargetOffset=V(-750,82,-650);
 export function sampleCamera(time:number){
  const t=clamp(time,0,DURATION),original=sampleAuthoredCamera(t);
- if(t<=GLIDE_START)return original;
+ if(t<=GLIDE_START)return withOpeningGaze(original,t,authoredPosition);
  const position=pathPosition(t),a=original.target.clone().sub(original.position),b=finalTargetOffset.clone();
  const distance=a.length(),finalDistance=b.length();a.normalize();b.normalize();
  const u=clamp((t-GLIDE_START)/(18.8-GLIDE_START)),blend=u*u*u*(u*(u*6-15)+10);
