@@ -176,6 +176,14 @@ const leafAlphaCoverage = /* glsl */ `
   if (diffuseColor.a <= 0.0) discard;
 #endif
 `;
+// A rendered crown atlas already integrates the source leaf cutout and overlap.
+// Its alpha is area coverage at every footprint, including magnification.
+// Thresholding it again replaces fine leaf gaps with solid crown patches.
+const integratedAlphaCoverage = /* glsl */ `
+#ifdef USE_ALPHATEST
+  if (diffuseColor.a <= 0.0) discard;
+#endif
+`;
 const fragmentUniforms=`uniform vec4 uLodRanges;uniform vec2 uHeroRange;uniform float uLodIndex,uForcedLod;varying float vTreeDistance;`;
 const coverage=`
 if(uLodIndex>=0.){
@@ -196,6 +204,7 @@ if(uLodIndex>=0.){
 type TreeResponse = {
   height: { value: number };
   thinLeaf: boolean;
+  coverageMap?: boolean;
 };
 
 function bind(m: THREE.Material, lod: number, response: TreeResponse) {
@@ -217,13 +226,13 @@ function bind(m: THREE.Material, lod: number, response: TreeResponse) {
     shader.fragmentShader = shader.fragmentShader
       .replace('#include <common>', '#include <common>\n' + fragmentUniforms)
       .replace('#include <clipping_planes_fragment>', '#include <clipping_planes_fragment>\n' + coverage)
-      .replace('#include <alphatest_fragment>', leafAlphaCoverage);
+      .replace('#include <alphatest_fragment>', response.coverageMap ? integratedAlphaCoverage : leafAlphaCoverage);
     if (lit) {
       shader.fragmentShader = shader.fragmentShader.replace(
         '#include <lights_physical_pars_fragment>',
         '#include <lights_physical_pars_fragment>\n' + leafLighting);
     }
   };
-  m.customProgramCacheKey = () => 'asset-wind-lod-v6-filtered-alpha-' + lod + (lit ? '-lit' : '-depth');
+  m.customProgramCacheKey = () => 'asset-wind-lod-v7-filtered-alpha-' + lod + (lit ? '-lit' : '-depth') + (response.coverageMap ? '-integrated-coverage' : '-source-cutout');
 }
 export function prepareTreeMaterial(source:THREE.MeshStandardMaterial,lod:number,response:TreeResponse){const material=source.clone();if(material.alphaTest>0&&material.map)material.map=alphaWeightedColorTexture(material.map);material.roughness=Math.max(material.roughness,.75);material.metalness=0;if(material.map)material.map.anisotropy=4;if(material.alphaTest>0){material.alphaTest=Math.max(material.alphaTest,.4);material.alphaToCoverage=multisampledFoliage&&lod===3;material.alphaHash=!material.alphaToCoverage;material.side=THREE.DoubleSide;material.forceSinglePass=true}material.userData.lod=Math.max(0,lod);bind(material,lod,response);enableMaterialDiagnostics(material);const depth=new THREE.MeshDepthMaterial({depthPacking:THREE.RGBADepthPacking,map:material.map,alphaMap:material.alphaMap,alphaTest:material.alphaTest,side:material.side});depth.alphaHash=material.alphaTest>0;bind(depth,lod,response);bindAlphaWeightedColor(material);bindAlphaWeightedColor(depth);return {material,depth}}

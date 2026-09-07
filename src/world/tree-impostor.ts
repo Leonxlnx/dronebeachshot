@@ -29,7 +29,7 @@ export function createTreeImpostor(metadata:TreeImpostorMetadata,
  geometry.boundingSphere=new THREE.Sphere(center.clone(),radius);
  geometry.boundingBox=new THREE.Box3().setFromCenterAndSize(center,new THREE.Vector3().setScalar(radius*2));
  const source=new THREE.MeshStandardMaterial({map:albedo,alphaTest:.45,roughness:.95,metalness:0,side:THREE.DoubleSide});
- const {material,depth}=prepareTreeMaterial(source,3,{height:{value:metadata.bounds.max[1]},thinLeaf:true});source.dispose();
+ const {material,depth}=prepareTreeMaterial(source,3,{height:{value:metadata.bounds.max[1]},thinLeaf:true,coverageMap:true});source.dispose();
  function bindImpostor(target:THREE.Material,lit:boolean){
   const previous=target.onBeforeCompile.bind(target),key=target.customProgramCacheKey.bind(target);
   target.onBeforeCompile=(shader,renderer)=>{

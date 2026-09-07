@@ -31,7 +31,7 @@ const [{createEngine},{loadTextures},{createTerrain,createRocks},{createAtmosphe
  'render/sky-lighting','render/refraction'].map(moduleAt));
 const {withAerialPerspective}=await moduleAt('render/aerial-perspective');
 const {createDetailedRocks,ROCK_VISUAL_URL}=await moduleAt('world/detailed-rocks');
-for(const [moduleName,override] of [['world/math',process.env.BAY_MATH_CANDIDATE],['world/ecology',process.env.BAY_ECOLOGY_CANDIDATE]]){
+for(const [moduleName,override] of [['world/math',process.env.BAY_MATH_CANDIDATE],['world/ecology',process.env.BAY_ECOLOGY_CANDIDATE],['render/vegetation-material',process.env.BAY_VEGETATION_MATERIAL_CANDIDATE]]){
  if(override&&await moduleAt(moduleName)!==await import(new URL(override,import.meta.url)))throw Error('Declared '+moduleName+' override requires the matching study loader');
 }
 const sourceHashes={};
@@ -163,6 +163,7 @@ const candidateOverrides={fog:process.env.BAY_FOG_CANDIDATE||null,terrain:proces
 // its consumers. Record that effective source explicitly in any such frame.
 if(process.env.BAY_MATH_CANDIDATE)candidateOverrides.math=process.env.BAY_MATH_CANDIDATE;
 if(process.env.BAY_ECOLOGY_CANDIDATE)candidateOverrides.ecology=process.env.BAY_ECOLOGY_CANDIDATE;
+if(process.env.BAY_VEGETATION_MATERIAL_CANDIDATE)candidateOverrides.vegetationMaterial=process.env.BAY_VEGETATION_MATERIAL_CANDIDATE;
 const overrideHashes={};
 for(const [key,file] of Object.entries(candidateOverrides))if(file)overrideHashes[key]=crypto.createHash('sha256').update(await fs.readFile(new URL(file,import.meta.url))).digest('hex');
 const info={candidateOverrides,method:'Native ANGLE execution of production Three.js modules, software graphics; not browser QA or consumer FPS',camera:cameraName,time,width,height,debugMode:mode,nativeSamples,nativeCoverage,nativeOutput:reviewTarget?'linear-half-float-MSAA + official OutputPass ACES/sRGB':'production-default-framebuffer',renderer:gl.getParameter(gl.RENDERER),version:gl.getParameter(gl.VERSION),trees:vegetation.count,cells:vegetation.cells,render:renderer.info.render,memory:renderer.info.memory,programs:renderer.info.programs.length,imageSharing:vegetation.imageSharing,offshoreRocks:rocks.userData.offshoreRocks?.instances??0,assetMetrics:assetAdapter.metrics,shaderErrors:errors,glError,at:new Date().toISOString(),sourceHashes,batchIndex:cameraIndex,batchCount:cameraNames.length};
