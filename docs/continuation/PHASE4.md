@@ -21,6 +21,14 @@ Native visual review confirmed the improvement at wet sand and final flight. Mou
 
 A local tree-root support experiment and two bounded planar headland cuts were rejected after direct image review: they exposed broad smooth rock faces without sufficiently improving their shape. Both were removed from production; their private diagnostic evidence remains available.
 
-The final camera phase still requires correction: the checkpoint route ends at approximately 67 m/s despite the requested slowing shoreline glide. A separate candidate is under numerical and visual review.
+At the first checkpoint the route still ended at approximately 67 m/s despite the requested slowing shoreline glide. The subsequent integrated correction is described below.
 
 No new final gallery, accepted film, genuine browser cycle or completed art acceptance is asserted. Final checking must continue to report incomplete until the original evidence exists.
+
+## Integrated final glide
+
+The subsequent camera change preserves the complete original pose through 14.7 s and fits a C2 quintic final segment. Speed decreases monotonically from 26.90 to 5 m/s; final gaze is stable from 18.8–20 s. Native candidate stills show coastline, forested hills, foreground water and the actual sun in one composition.
+
+The integrated source passes 45 tests, TypeScript, asset/world verification, production build, unchanged terrain-fracture and offshore-rock checks. A separate current-world check samples 2,401 poses against 14,000 tree envelopes and 521 transformed rock boxes. Minimum whole-route terrain clearance is 5.114 m, tree-envelope margin 0.483 m and rock-box distance 23.857 m; the edited ending is substantially farther from all obstacles. See CINEMATIC_TIMELINE.md for positions, speeds, framing and numerical limits.
+
+This replaces the former chosen endpoint-coordinate test with direct tests for the original seaward/slow/continuous ending. It retains the terrain, tree, rock, lens and angular-speed constraints, adds an independent early-pose hash, and checks positive motion and a stable final composition. Browser/full-film and final art acceptance remain open.

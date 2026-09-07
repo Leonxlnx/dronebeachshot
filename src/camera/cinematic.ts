@@ -1,3 +1,4 @@
+import {createFinalGlide} from './final-glide.ts';
 import {renderedTerrainHeight} from '../world/terrain-surface.ts';
 import * as THREE from 'three';
 import {terrainHeight,shoreZ,clamp,smooth} from '../world/math.ts';
@@ -10,7 +11,7 @@ export const flightKeys=[
  {t:9.0,p:V(-90,5.6,73)}, {t:10.8,p:V(-25,4.8,86)}, {t:12.8,p:V(62,4.8,69)},
  {t:14.7,p:V(112,5.0,21)}, {t:16.5,p:V(85,5.2,-42)}, {t:18,p:V(22,5.8,-150)}, {t:20,p:V(-46,6.6,-280)}
 ];
-function spline(values:number[]){const n=values.length,second=Array(n).fill(0),u=Array(n).fill(0);for(let i=1;i<n-1;i++){const before=flightKeys[i].t-flightKeys[i-1].t,after=flightKeys[i+1].t-flightKeys[i].t,sig=before/(before+after),p=sig*second[i-1]+2;second[i]=(sig-1)/p;const change=(values[i+1]-values[i])/after-(values[i]-values[i-1])/before;u[i]=(6*change/(before+after)-sig*u[i-1])/p}for(let i=n-2;i>=0;i--)second[i]=second[i]*second[i+1]+u[i];return (t:number)=>{let i=0;while(i<n-2&&t>flightKeys[i+1].t)i++;const h=flightKeys[i+1].t-flightKeys[i].t,b=(t-flightKeys[i].t)/h,a=1-b;return a*values[i]+b*values[i+1]+((a*a*a-a)*second[i]+(b*b*b-b)*second[i+1])*h*h/6}}
+function spline(values:number[]){const n=values.length,second=Array(n).fill(0),u=Array(n).fill(0);for(let i=1;i<n-1;i++){const before=flightKeys[i].t-flightKeys[i-1].t,after=flightKeys[i+1].t-flightKeys[i].t,sig=before/(before+after),p=sig*second[i-1]+2;second[i]=(sig-1)/p;const change=(values[i+1]-values[i])/after-(values[i]-values[i-1])/before;u[i]=(6*change/(before+after)-sig*u[i-1])/p}for(let i=n-2;i>=0;i--)second[i]=second[i]*second[i+1]+u[i];return (t:number,order:0|1|2=0)=>{let i=0;while(i<n-2&&t>flightKeys[i+1].t)i++;const h=flightKeys[i+1].t-flightKeys[i].t,b=(t-flightKeys[i].t)/h,a=1-b;if(order===1)return (values[i+1]-values[i])/h+h*((1-3*a*a)*second[i]+(3*b*b-1)*second[i+1])/6;if(order===2)return a*second[i]+b*second[i+1];return a*values[i]+b*values[i+1]+((a*a*a-a)*second[i]+(b*b*b-b)*second[i+1])*h*h/6}}
 const sx=spline(flightKeys.map(k=>k.p.x)),sy=spline(flightKeys.map(k=>k.p.y)),sz=spline(flightKeys.map(k=>k.p.z));
 // C2 height correction for the connected ridge terrain; X/Z, gaze and the
 // exact beach/sea path remain driven by the authored cinematic curve. These
@@ -28,8 +29,27 @@ function ridgeHeightOffset(time:number){
  }
  return d[degree];
 }
-export function pathPosition(time:number){const t=clamp(time,0,20);return V(sx(t),sy(t)+ridgeHeightOffset(t),sz(t))}
-export function sampleCamera(time:number){const t=clamp(time,0,20),position=pathPosition(t),forward=pathPosition(Math.min(t+2.5,20)).sub(pathPosition(Math.max(0,t-2.5)));forward.y=0;forward.normalize();const reveal=clamp(t/6),revealEase=reveal*reveal*reveal*(reveal*(reveal*6-15)+10);const heading=V(-104,0,-430).normalize().lerp(forward,revealEase).normalize();const target=position.clone().add(heading.multiplyScalar(100));target.y=position.y-((24.08965+47.91035*smooth(0,5,t))*(1-smooth(5,10.5,t))+1.0);const sunset=position.clone().add(V(-380,105,-920));target.lerp(sunset,smooth(14.8,19.8,t));const previous=pathPosition(Math.max(0,t-.2)),next=pathPosition(Math.min(20,t+.2));const bank=clamp((next.x-2*position.x+previous.x)*.007,-.015,.015)*(1-smooth(15,20,t));return {position,target,fov:42,bank};}
+function authoredPosition(time:number){const t=clamp(time,0,20);return V(sx(t),sy(t)+ridgeHeightOffset(t),sz(t))}
+function sampleAuthoredCamera(time:number){const t=clamp(time,0,20),position=authoredPosition(t),forward=authoredPosition(Math.min(t+2.5,20)).sub(authoredPosition(Math.max(0,t-2.5)));forward.y=0;forward.normalize();const reveal=clamp(t/6),revealEase=reveal*reveal*reveal*(reveal*(reveal*6-15)+10);const heading=V(-104,0,-430).normalize().lerp(forward,revealEase).normalize();const target=position.clone().add(heading.multiplyScalar(100));target.y=position.y-((24.08965+47.91035*smooth(0,5,t))*(1-smooth(5,10.5,t))+1.0);const sunset=position.clone().add(V(-380,105,-920));target.lerp(sunset,smooth(14.8,19.8,t));const previous=authoredPosition(Math.max(0,t-.2)),next=authoredPosition(Math.min(20,t+.2));const bank=clamp((next.x-2*position.x+previous.x)*.007,-.015,.015)*(1-smooth(15,20,t));return {position,target,fov:42,bank};}
+// Preserve the old lookahead as well as the route through 14.7 seconds.
+// Otherwise replacing the final path also changes earlier gaze from 12.2 s.
+export const GLIDE_START=14.7;
+export const finalGlide=createFinalGlide(GLIDE_START,DURATION-GLIDE_START,
+ authoredPosition(GLIDE_START),V(sx(GLIDE_START,1),sy(GLIDE_START,1),sz(GLIDE_START,1)),
+ V(sx(GLIDE_START,2),sy(GLIDE_START,2),sz(GLIDE_START,2)));
+export function pathPosition(time:number){return time<=GLIDE_START?authoredPosition(time):finalGlide(time)}
+const finalTargetOffset=V(-750,82,-650);
+export function sampleCamera(time:number){
+ const t=clamp(time,0,DURATION),original=sampleAuthoredCamera(t);
+ if(t<=GLIDE_START)return original;
+ const position=pathPosition(t),a=original.target.clone().sub(original.position),b=finalTargetOffset.clone();
+ const distance=a.length(),finalDistance=b.length();a.normalize();b.normalize();
+ const u=clamp((t-GLIDE_START)/(18.8-GLIDE_START)),blend=u*u*u*(u*(u*6-15)+10);
+ const angle=Math.acos(clamp(a.dot(b),-1,1));
+ const direction=angle<1e-8?a.lerp(b,blend).normalize():a.multiplyScalar(Math.sin((1-blend)*angle)/Math.sin(angle)).addScaledVector(b,Math.sin(blend*angle)/Math.sin(angle));
+ const target=blend===1?position.clone().add(finalTargetOffset):position.clone().addScaledVector(direction,distance+(finalDistance-distance)*blend);
+ return {position,target,fov:42,bank:original.bank*(1-blend)};
+}
 export function applyCinematic(camera:THREE.PerspectiveCamera,time:number){const s=sampleCamera(time);camera.position.copy(s.position);camera.up.set(Math.sin(s.bank),Math.cos(s.bank),0);camera.lookAt(s.target);camera.fov=s.fov;camera.updateProjectionMatrix();}
 export const evaluationCameras:Record<string,{position:THREE.Vector3,target:THREE.Vector3,time:number}>={
 'mountain-wide':{position:V(-465,395,-280),target:V(-35,160,160),time:2},

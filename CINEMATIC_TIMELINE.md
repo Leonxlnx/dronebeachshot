@@ -1,12 +1,8 @@
-# Current cinematic — framing and timing under review
+# Current cinematic — slow sunset glide
 
-One continuous 20 s virtual camera move: highest 425 m crest → descending forested flank → curved beach → open sea and sunset. The positional route is unchanged; framing now uses 42° vertical FOV (26.38 mm full-frame equivalent at 16:9). A diagonal coastal opening blends smoothly toward the route tangent over 6 s. The 2.5 s half-window avoids the former abrupt 101°/s beach-turn pan. Maximum sampled angular speed is 53.22°/s; full temporal judgment remains open.
+One continuous 20-second camera move: the 425 m crest, descending forested flank, curved beach, then a slowing offshore glide with coast, forested mountains and sunset in the same composition. Position and gaze through 14.7 s remain exactly as before. The final segment now has matching position, velocity and acceleration at the join and decreases continuously from 26.90 to 5 m/s.
 
-- 0–1.5 s: establish crest, coast and open sea.
-- 1.5–6 s: accelerate down the forested flank.
-- 6–10.5 s: descend and brake toward the coast; the low path begins at 10.5 s.
-- 10.5–15 s: curve beside the beach.
-- 15–20 s: leave the bay and settle toward sunset.
+The 42° vertical field of view remains equivalent to approximately 26.38 mm full frame at 16:9. The real sun direction is unchanged. The final camera gaze is fixed from 18.8–20 s while the camera travels another 6.30 m, preserving readable motion without an abrupt stop.
 
 | Time s | Position X / Y / Z m | Look target X / Y / Z m | Speed m/s |
 | --- | --- | --- | --- |
@@ -21,8 +17,14 @@ One continuous 20 s virtual camera move: highest 425 m crest → descending fore
 | 10.8 | -25.00 / 4.80 / 86.00 | 74.58 / 3.80 / 76.90 | 41.26 |
 | 12.8 | 62.00 / 4.80 / 69.00 | 151.57 / 3.80 / 24.54 | 44.93 |
 | 14.7 | 112.00 / 5.00 / 21.00 | 124.05 / 4.00 / -78.27 | 26.90 |
-| 16.5 | 85.00 / 5.20 / -42.00 | -46.91 / 32.63 / -355.49 | 66.43 |
-| 18 | 22.00 / 5.80 / -150.00 | -260.07 / 79.48 / -823.98 | 85.17 |
-| 20 | -46.00 / 6.60 / -280.00 | -426.00 / 111.60 / -1200.00 | 67.47 |
+| 16 | 106.71 / 5.11 / -8.31 | -59.60 / 30.27 / -341.27 | 20.95 |
+| 18 | 90.24 / 5.59 / -33.16 | -632.79 / 87.86 / -692.05 | 8.81 |
+| 18.8 | 87.45 / 5.74 / -38.20 | -662.55 / 87.74 / -688.20 | 5.95 |
+| 19 | 86.97 / 5.76 / -39.24 | -663.03 / 87.76 / -689.24 | 5.57 |
+| 20 | 85.00 / 5.80 / -44.00 | -665.00 / 87.80 / -694.00 | 5.00 |
 
-Sampled terrain clearance: 5.114 m. Maximum total speed: 93.228 m/s. Source-tree and rock-envelope fit minima remain 3.200 m and 23.149 m because the positional curve is unchanged. Fixed seed 60829 and absolute time drive the environment. The route remains aggressive and treetop proximity inconsistent. No final film, full-route temporal inspection, LOD/wind stability or browser capture approval is claimed.
+The former endpoint coordinate constraint was replaced with checks of the requested seaward, slowing, continuous ending: final height 4–10 m, at least 100 m signed shoreline separation, monotonic positive motion ending at 5 m/s, zero terminal acceleration, a stable last 1.2 s of gaze, and useful sun frame margin. All existing terrain, tree and rock checks remain.
+
+Current full-route CPU review samples 2,401 poses: minimum terrain clearance 5.114 m, conservative tree-envelope margin 0.483 m and rock-box distance 23.857 m. On the changed final section, the corresponding minima are 9.597 m, 64.257 m and 65.914 m. These are discrete conservative CPU checks, not mesh visibility or browser approval.
+
+Maximum gaze turn remains 53.22°/s in the unchanged earlier section; the new ending is below 35.20°/s. Native composition stills have been inspected. A native motion study is in progress; actual browser, final-film, foliage/LOD and full-route visual acceptance remain open.
