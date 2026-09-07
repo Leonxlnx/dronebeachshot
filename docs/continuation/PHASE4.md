@@ -32,3 +32,14 @@ The subsequent camera change preserves the complete original pose through 14.7 s
 The integrated source passes 45 tests, TypeScript, asset/world verification, production build, unchanged terrain-fracture and offshore-rock checks. A separate current-world check samples 2,401 poses against 14,000 tree envelopes and 521 transformed rock boxes. Minimum whole-route terrain clearance is 5.114 m, tree-envelope margin 0.483 m and rock-box distance 23.857 m; the edited ending is substantially farther from all obstacles. See CINEMATIC_TIMELINE.md for positions, speeds, framing and numerical limits.
 
 This replaces the former chosen endpoint-coordinate test with direct tests for the original seaward/slow/continuous ending. It retains the terrain, tree, rock, lens and angular-speed constraints, adds an independent early-pose hash, and checks positive motion and a stable final composition. Browser/full-film and final art acceptance remain open.
+
+
+## Ending motion study and native handle lifetime
+
+The final glide was checked as 73 native frames from 14 through 20 seconds at 12 samples per second. Every recorded pose matches the production camera; source hashes are identical across frames. The first 72 frames form a six-second 640×360 development video, verified by full decode and independent source-frame checks. Contact-sheet review found no visible chunk boundary or discontinuity at that resolution. This is not the required final 20-second film or browser acceptance.
+
+The long native diagnostic attempt stopped after 47 frames. The remaining frames were rendered in fresh contexts of at most eight frames. The original process had no memory telemetry, so its termination cause is unproven. Native diagnostics now record process memory; completed short runs warm up and then stabilize. This does not establish long-run browser or consumer-GPU stability.
+
+A separate reproduction demonstrated that the native handle adapter retained deleted JavaScript wrappers. Its canonicalization table now uses weak references. Observable live handles retain identity, including current programs and attached shaders whose native deletion is deferred. Finalizer cleanup checks the exact reference before removing a reused numeric ID. The regression probe verifies collection, live/deferred identities, native ID reuse, delayed cleanup and uniform relinking without allocating graphics resources. It runs in `verify:build` through `npm run check:native-handles`.
+
+The wrapper correction concerns diagnostic JavaScript ownership. It is not evidence that the application leaked GPU resources or that wrapper retention caused the interrupted render. Original art, browser, gallery, final-film and active-time gates remain unchanged.

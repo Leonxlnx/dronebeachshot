@@ -131,7 +131,7 @@ vegetation.update(camera.position);
 log('atmosphere render begin');atmosphere.update(renderer,camera.position,time);
 scene.environment=mode===5?null:atmosphere.environment;scene.environmentIntensity=.65;
 log('scene compile begin');await renderer.compileAsync(scene,camera);await refraction.compile(scene,camera);
-log('scene render begin');renderer.info.reset();renderer.shadowMap.needsUpdate=true;
+log('scene render begin',{processMemory:process.memoryUsage()});renderer.info.reset();renderer.shadowMap.needsUpdate=true;
 if(renderer.shadowMap.enabled)vegetation.prepareSunShadow(atmosphere.sun);
 refraction.render(scene,camera,ocean.group,spray);
 vegetation.prepareMain(camera);
@@ -153,6 +153,7 @@ for(const [key,file] of Object.entries(candidateOverrides))if(file)overrideHashe
 const info={candidateOverrides,method:'Native ANGLE execution of production Three.js modules, software graphics; not browser QA or consumer FPS',camera:cameraName,time,width,height,debugMode:mode,nativeSamples,nativeCoverage,nativeOutput:reviewTarget?'linear-half-float-MSAA + official OutputPass ACES/sRGB':'production-default-framebuffer',renderer:gl.getParameter(gl.RENDERER),version:gl.getParameter(gl.VERSION),trees:vegetation.count,cells:vegetation.cells,render:renderer.info.render,memory:renderer.info.memory,programs:renderer.info.programs.length,imageSharing:vegetation.imageSharing,offshoreRocks:rocks.userData.offshoreRocks?.instances??0,assetMetrics:assetAdapter.metrics,shaderErrors:errors,glError,at:new Date().toISOString(),sourceHashes,batchIndex:cameraIndex,batchCount:cameraNames.length};
 
 info.overrideHashes=overrideHashes;info.diagnosticOmissions=omitVegetation?['vegetation','ground cover','forest floor','understory']:[];
+info.processMemory=process.memoryUsage();
 info.pixelSha256=crypto.createHash('sha256').update(pixels).digest('hex');
 info.cameraPose={position:camera.position.toArray(),quaternion:camera.quaternion.toArray(),fov:camera.fov,diagnosticOverride:!!customCameras[cameraName]};
 await fs.writeFile(filename+'.json',JSON.stringify(info,null,2)+'\n');log('saved',filename,info.render);

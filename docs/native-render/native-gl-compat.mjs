@@ -7,6 +7,15 @@ export function wrapNativeGL(nativeGL) {
   if (wrappedContexts.has(nativeGL)) return wrappedContexts.get(nativeGL);
   const handleData = new WeakMap();
   const resources = new Map();
+  // Canonicalization must not own every wrapper ever returned by the driver.
+  // Weak entries retain identity while a caller still holds the object, including
+  // programs/shaders whose native deletion is deferred until unbound/detached.
+  const retiredHandles = new FinalizationRegistry(({ kind, native, reference }) => {
+    const handles = resources.get(kind);
+    if (handles?.get(native) !== reference) return;
+    handles.delete(native);
+    if (handles.size === 0) resources.delete(kind);
+  });
   const functions = new Map();
   const extensions = new WeakMap();
   const uniformLocations = new Map();
@@ -49,16 +58,20 @@ export function wrapNativeGL(nativeGL) {
     const kind = type + (scope === '' ? '' : ':' + scope);
     let handles = resources.get(kind);
     if (!handles) resources.set(kind, handles = new Map());
-    if (fresh || !handles.has(value)) {
-      const object = Object.create(null);
+    let object = handles.get(value)?.deref();
+    if (fresh || !object) {
+      object = Object.create(null);
       Object.defineProperties(object, {
         [Symbol.toStringTag]: { value: 'WebGL' + type },
         nativeId: { value, enumerable: false }
       });
       handleData.set(object, { type, native: value });
-      handles.set(value, Object.freeze(object));
+      Object.freeze(object);
+      const reference = new WeakRef(object);
+      handles.set(value, reference);
+      retiredHandles.register(object, { kind, native: value, reference });
     }
-    return handles.get(value);
+    return object;
   }
 
   function wrapResult(name, args, value) {
