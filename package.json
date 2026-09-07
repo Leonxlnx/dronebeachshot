@@ -10,7 +10,7 @@
     "dev": "vite --host 0.0.0.0 --port 4173",
     "build": "tsc --noEmit && vite build",
     "lint": "node scripts/control/source-check.mjs",
-    "test": "node --experimental-strip-types --loader ./scripts/control/ts-resolve.mjs --test src/world/math.test.ts src/camera/cinematic.test.ts src/world/lod.test.ts src/world/coastal.test.ts src/world/coastal-field.test.ts src/world/terrain-surface.test.ts src/world/rock-shelter.test.ts src/world/ocean-geometry.test.ts src/app/capture-state.test.ts src/render/embedded-image-pool.test.ts recovery/restore-assets.test.mjs",
+    "test": "node --experimental-strip-types --loader ./scripts/control/ts-resolve.mjs --test src/world/math.test.ts src/camera/cinematic.test.ts src/world/lod.test.ts src/world/coastal.test.ts src/world/coastal-field.test.ts src/world/terrain-surface.test.ts src/world/rock-shelter.test.ts src/world/ocean-geometry.test.ts src/app/capture-state.test.ts src/app/scene-readiness.test.ts src/render/embedded-image-pool.test.ts recovery/restore-assets.test.mjs scripts/control/capture-run.test.mjs scripts/control/final-media-check.test.mjs",
     "verify:build": "npm run lint && npm run test && npm run check:assets && npm run check:world && npm run build",
     "verify": "npm run verify:build && node scripts/control/final-check.mjs",
     "check:assets": "python3 scripts/control/check-assets.py",

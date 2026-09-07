@@ -3,6 +3,7 @@ import {aerialPerspectiveGLSL} from '../render/aerial-perspective';
 import * as THREE from 'three';
 import {WIND} from './weather';
 import {waterSlopeFilterGLSL} from './water-slope-filter';
+import {waterReflectionGLSL} from './water-reflection';
 import {createDistantWaterGeometry} from './ocean-geometry';
 import {noiseGLSL,shorelineGLSL,shoreDistance,terrainHeight} from './math';
 import {coastalGLSL} from './coastal';
@@ -203,7 +204,7 @@ export function createOcean(field:CoastalField,terrain:THREE.Group){
  uniform float uTime,uSurfaceMode;varying vec3 vWorld;${waterFns}
  void main(){vec3 p=position;p.y=uSurfaceMode>.5&&uSurfaceMode<1.5?0.:waterHeight(p.xz,uTime);vWorld=p;gl_Position=projectionMatrix*viewMatrix*vec4(p,1.);}`,fragmentShader:`
  precision highp float;
-${aerialPerspectiveGLSL}${bathymetryGLSL}
+${aerialPerspectiveGLSL}${bathymetryGLSL}${waterReflectionGLSL}
 uniform float uTime,uDebug,uSurfaceMode,uSkyDecodeScale;uniform vec3 uSun;uniform samplerCube uReflectedSky;varying vec3 vWorld;${waterFns}${cloudLightingGLSL}${refractionGLSL}
  // Average unresolved foam octaves instead of turning distant bubbles into
  // unstable white pixels. The phase/advection field remains world anchored.
@@ -235,6 +236,10 @@ uniform float uTime,uDebug,uSurfaceMode,uSkyDecodeScale;uniform vec3 uSun;unifor
  // Cubemap mip footprint approximates the unresolved reflected-normal cone.
  // Keep ordinary gradient-selected mip filtering when it is already broader.
  vec3 reflected=reflect(-V,N);
+ // Below-horizon probe rays meet the adjacent water surface. A secondary
+ // reflection supplies sky radiance; its transmitted share uses local water.
+ // Above-horizon rays are unchanged, including their Fresnel/roughness response.
+ vec4 bounce=neighbouringWaterReflection(reflected);reflected=bounce.xyz;
  float reflectionPixels=max(length(dFdx(reflected)),length(dFdy(reflected)))*128.;
  float reflectionLod=.5*log2(max(1.,reflectionPixels*reflectionPixels+unresolvedWaterSlopeVariance*128.*128.*.35));
  vec3 reflection=textureLod(uReflectedSky,reflected,clamp(reflectionLod,0.,7.)).rgb*uSkyDecodeScale;
@@ -244,6 +249,7 @@ uniform float uTime,uDebug,uSurfaceMode,uSkyDecodeScale;uniform vec3 uSun;unifor
  float detailWeight=smoothstep(0.,90.,min(edgeDistance.x,edgeDistance.y));
  float depth=max(-mix(distantSeabedHeight(p),coast.r,detailWeight),0.);
  vec3 deep=vec3(.018,.075,.09),shallow=vec3(.08,.34,.28),water=mix(shallow,deep,1.-exp(-depth*.11));water*=.8+noise(p*.075)*.27+noise(p*.31)*.09;
+ reflection=mix(water,reflection,bounce.w);
  vec3 transmitted=transmittedCoast(vWorld,N,water,depth);vec3 col=mix(transmitted,reflection,fresnel);vec3 H=normalize(V+uSun);
  // Broaden the existing solar lobes by the same unresolved variance, conserving
  // their integrated energy instead of inventing extra light at lower detail.

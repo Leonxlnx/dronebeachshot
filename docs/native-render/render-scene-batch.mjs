@@ -43,7 +43,8 @@ if(process.env.BAY_REVIEW_CAMERAS){
  for(const [name,view] of Object.entries(JSON.parse(await fs.readFile(process.env.BAY_REVIEW_CAMERAS,'utf8')))){
   if(evaluationCameras[name]||!/^[a-z][a-z0-9-]*$/.test(name))throw Error('Invalid or reserved review camera '+name);
   for(const key of ['position','target'])if(!Array.isArray(view[key])||view[key].length!==3||!view[key].every(Number.isFinite))throw Error('Invalid review '+key);
-  customCameras[name]={time:view.time,position:new THREE.Vector3(...view.position),target:new THREE.Vector3(...view.target)};
+  if(view.fov!==undefined&&(!Number.isFinite(view.fov)||view.fov<20||view.fov>80))throw Error('Invalid review field of view');
+  customCameras[name]={time:view.time,fov:view.fov??54,position:new THREE.Vector3(...view.position),target:new THREE.Vector3(...view.target)};
  }
 }
 if(!cameraNames.length)throw Error('Provide at least one camera');
@@ -117,7 +118,7 @@ const choice=customCameras[cameraName]??evaluationCameras[cameraName];
 const time=choice?choice.time:Number(cameraName.replace('flight-',''));
 if(!Number.isFinite(time))throw Error('Unknown camera '+cameraName);
 worldTime.value=time;
-if(choice){camera.position.copy(choice.position);camera.up.set(0,1,0);camera.lookAt(choice.target);camera.fov=54;camera.updateProjectionMatrix()}
+if(choice){camera.position.copy(choice.position);camera.up.set(0,1,0);camera.lookAt(choice.target);camera.fov=choice.fov??54;camera.updateProjectionMatrix()}
 else applyCinematic(camera,time);
 debugMode.value=mode;
 vegetation.group.visible=mode!==12;rocks.visible=mode!==12;cover.visible=mode!==12;
@@ -142,7 +143,9 @@ if(errors.length){await fs.writeFile(path.join(output,outputPrefix+cameraName+'-
 const pixels=new Uint8Array(width*height*4);
 gl.readPixels(0,0,width,height,gl.RGBA,gl.UNSIGNED_BYTE,pixels);
 const glError=gl.getError();if(glError!==gl.NO_ERROR)throw Error('Native GL error '+glError);
-const filename=path.join(output,`${outputPrefix}${cameraName}-mode-${mode}-${width}.png`);
+const occurrence=cameraNames.slice(0,cameraIndex+1).filter(name=>name===cameraName).length;
+const repeatSuffix=occurrence>1?`-repeat-${occurrence}`:'';
+const filename=path.join(output,`${outputPrefix}${cameraName}${repeatSuffix}-mode-${mode}-${width}.png`);
 await sharp(pixels,{raw:{width,height,channels:4}}).flip().removeAlpha().png().toFile(filename);
 const candidateOverrides={fog:process.env.BAY_FOG_CANDIDATE||null,terrain:process.env.BAY_TERRAIN_CANDIDATE||null,ocean:process.env.BAY_OCEAN_CANDIDATE||null};
 const overrideHashes={};
@@ -150,9 +153,10 @@ for(const [key,file] of Object.entries(candidateOverrides))if(file)overrideHashe
 const info={candidateOverrides,method:'Native ANGLE execution of production Three.js modules, software graphics; not browser QA or consumer FPS',camera:cameraName,time,width,height,debugMode:mode,nativeSamples,nativeCoverage,nativeOutput:reviewTarget?'linear-half-float-MSAA + official OutputPass ACES/sRGB':'production-default-framebuffer',renderer:gl.getParameter(gl.RENDERER),version:gl.getParameter(gl.VERSION),trees:vegetation.count,cells:vegetation.cells,render:renderer.info.render,memory:renderer.info.memory,programs:renderer.info.programs.length,imageSharing:vegetation.imageSharing,offshoreRocks:rocks.userData.offshoreRocks?.instances??0,assetMetrics:assetAdapter.metrics,shaderErrors:errors,glError,at:new Date().toISOString(),sourceHashes,batchIndex:cameraIndex,batchCount:cameraNames.length};
 
 info.overrideHashes=overrideHashes;info.diagnosticOmissions=omitVegetation?['vegetation','ground cover','forest floor','understory']:[];
+info.pixelSha256=crypto.createHash('sha256').update(pixels).digest('hex');
 info.cameraPose={position:camera.position.toArray(),quaternion:camera.quaternion.toArray(),fov:camera.fov,diagnosticOverride:!!customCameras[cameraName]};
 await fs.writeFile(filename+'.json',JSON.stringify(info,null,2)+'\n');log('saved',filename,info.render);
-completed.push({camera:cameraName,time,filename,render:{...info.render},programs:info.programs,glError});
+completed.push({camera:cameraName,time,filename,pixelSha256:info.pixelSha256,render:{...info.render},programs:info.programs,glError});
 await fs.writeFile(path.join(output,outputPrefix+'batch-progress.json'),JSON.stringify({completed,requested:cameraNames},null,2)+'\n');
 
  }
