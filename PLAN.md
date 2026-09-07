@@ -14,7 +14,7 @@ Natural decomposition (root → environment/runtime/film → branches → leaves
 - Film: camera; deterministic still harness; video capture/validation.
 - Acceptance: eight evidenced refinement cycles; technical review; hostile visual review; final cleanup; active time; exact-tree main push.
 
-No pre-rendered environment. No final capture until visual gates pass. No final commit/push to main until every completion condition passes. Intermediate state must remain explicitly incomplete.
+No pre-rendered environment. No final capture until visual gates pass. User amendment, 2026-09-07: verified improvements go directly to main during iteration, without pull requests. Intermediate state must remain explicitly incomplete until every completion condition passes.
 
 ## Status log
 - Initialized compact control system and reviewed all nine reference images. Research delegation begins next.

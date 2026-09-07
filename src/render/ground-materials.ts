@@ -38,7 +38,13 @@ vec3 stoneSample(sampler2D tex,vec2 uv){
 vec3 triWeights(vec3 n){vec3 w=pow(abs(n),vec3(4.));return w/max(dot(w,vec3(1.)),.0001);}
 vec3 triSample(sampler2D tex,vec3 p,vec3 n){vec3 w=triWeights(n);return texture2D(tex,p.yz).rgb*w.x+texture2D(tex,p.xz).rgb*w.y+texture2D(tex,p.xy).rgb*w.z;}
 vec3 triStone(sampler2D tex,vec3 p,vec3 n){vec3 w=triWeights(n);return stoneSample(tex,p.yz)*w.x+stoneSample(tex,p.xz)*w.y+stoneSample(tex,p.xy)*w.z;}
-vec3 triStoneDetail(sampler2D tex,vec3 p,vec3 n){vec3 w=triWeights(n),a=stoneSample(tex,p.yz)*2.-1.,b=stoneSample(tex,p.xz)*2.-1.,c=stoneSample(tex,p.xy)*2.-1.;return vec3(0.,a.x,a.y)*w.x+vec3(b.x,0.,b.y)*w.y+vec3(c.x,c.y,0.)*w.z;}
+vec3 triStoneDetail(sampler2D tex,vec3 p,vec3 n){
+ vec3 w=triWeights(n),a=stoneSample(tex,p.yz)*2.-1.,b=stoneSample(tex,p.xz)*2.-1.,c=stoneSample(tex,p.xy)*2.-1.;
+ // Tangent-space normals encode slopes as XY/Z. Using XY alone flattened
+ // the scan's steep fractures. Bound the rare lossy near-zero Z texels.
+ a.xy/=max(a.z,.15);b.xy/=max(b.z,.15);c.xy/=max(c.z,.15);
+ return vec3(0.,a.x,a.y)*w.x+vec3(b.x,0.,b.y)*w.y+vec3(c.x,c.y,0.)*w.z;
+}
 vec3 triDetail(sampler2D tex,vec3 p,vec3 n){vec3 w=triWeights(n),a=texture2D(tex,p.yz).xyz*2.-1.,b=texture2D(tex,p.xz).xyz*2.-1.,c=texture2D(tex,p.xy).xyz*2.-1.;return vec3(0.,a.x,a.y)*w.x+vec3(b.x,0.,b.y)*w.y+vec3(c.x,c.y,0.)*w.z;}
 `;
 function attachWorld(shader:THREE.WebGLProgramParametersWithUniforms){
@@ -99,7 +105,7 @@ export function createGroundMaterial(t:Textures){
   .replace('#include <opaque_fragment>',`#include <opaque_fragment>
  if(uDebug==9.)gl_FragColor.rgb=vec3(clamp(d/100.,0.,1.));if(uDebug==12.)gl_FragColor.rgb=mix(vec3(.06,.12,.4),vec3(.3,.9,.18),habitat.a);`);
  };
- material.customProgramCacheKey=()=> 'soil-rock-moss-sediment-v9-footprint-sand';return material;
+ material.customProgramCacheKey=()=> 'soil-rock-moss-sediment-v10-stone-slopes';return material;
 }
 export function createRockMaterial(t:Textures){
  const material=new THREE.MeshStandardMaterial({color:0xffffff,roughness:.86});
@@ -119,5 +125,5 @@ export function createRockMaterial(t:Textures){
  vec3 detail=mix(triStoneDetail(uRockN,gp/5.7483,gn),triDetail(uMossN,gp/3.,gn),moss*.82);normal=normalize(mat3(viewMatrix)*normalize(gn+(detail-gn*dot(gn,detail))*.45));`)
   .replace('#include <aomap_fragment>','#include <aomap_fragment>\nreflectedLight.indirectDiffuse*=mix(.72,1.,rockARM.r);');
  };
- material.customProgramCacheKey=()=> 'world-rock-wet-moss-v6-stochastic-fractures';return material;
+ material.customProgramCacheKey=()=> 'world-rock-wet-moss-v7-stone-slopes';return material;
 }

@@ -36,7 +36,9 @@ export function createCloudNoiseTexture(){
  const size=64,data=new Uint8Array(size**3*4),w4=worleyFactory(4),w8=worleyFactory(8),w16=worleyFactory(16);
  for(let z=0;z<size;z++)for(let y=0;y<size;y++)for(let x=0;x<size;x++){
   const u=(x+.5)/size,v=(y+.5)/size,w=(z+.5)/size,n=((z*size+y)*size+x)*4;
-  data[n]=Math.round(255*(.625*perlin(u*4,v*4,w*4,4)+.25*perlin(u*8,v*8,w*8,8)+.125*perlin(u*16,v*16,w*16,16)));
+  // Preserve the regional mass while giving the 8/16-cell octaves enough
+  // weight to form smaller connected billows inside the 4-cell structures.
+  data[n]=Math.round(255*(.40*perlin(u*4,v*4,w*4,4)+.35*perlin(u*8,v*8,w*8,8)+.25*perlin(u*16,v*16,w*16,16)));
   data[n+1]=Math.round(255*w4(u*4,v*4,w*4));data[n+2]=Math.round(255*w8(u*8,v*8,w*8));data[n+3]=Math.round(255*w16(u*16,v*16,w*16));
  }
  const texture=new THREE.Data3DTexture(data,size,size,size);texture.name='original-perlin-worley-density';

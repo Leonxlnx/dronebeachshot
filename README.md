@@ -10,6 +10,11 @@ Controls: Begin flight; Space to pause/resume; R to replay; arrow keys to move b
 
 ## Current status
 
+The [2026-09-07 continuation](docs/continuation/PHASE3.md) works directly on main,
+as requested, without PRs. It improves cloud shapes, stone normal detail and
+wave filtering, connects shoaling amplitude to breaking groups, and removes a
+visible seam between the near and distant ocean.
+
 The 2026-09-06 continuation adds 37 grounded tidal rock instances, distant cloud
 occlusion, sand minification filtering, shared embedded texture images and exact
 terrain-height memoization. Playback and capture state handling were repaired.
@@ -29,17 +34,17 @@ produced a baseline and repeated diagnostic iterations. It starts no browser.
 Native images exposed and helped correct real shader, geometry, foliage, sky and
 water defects. The scene is still visibly below the supplied reference quality.
 No accepted browser refinement cycle, final gallery, final film, consumer FPS,
-mobile/offline browser result or final main push is claimed.
+mobile/offline browser result or complete-deliverable acceptance is claimed.
 
 The largest remaining art problems are the radial cone landforms, sparse/pale
 far canopy, procedural cloud shapes, remote terrain and overly uniform surf.
 See `RUN_REPORT.md`, `docs/native-render/cycles-02-07-review.md`, `GATES.md` and
-`RUN_STATE.json`. Authored ridge and source-tree impostor candidates are in active
-review and are not represented as completed production features.
+`RUN_STATE.json`. Earlier additive-cliff and distant-canopy prototypes were rejected and remain
+archived; their previous reviews are not production acceptance.
 
 ## Verification and capture
 
-- `npm run verify:build`: source checks, 25 tests (including fresh asset recovery), actual texture-alpha/license/checksum inspection, CPU world-geometry construction, TypeScript and production build.
+- `npm run verify:build`: source checks, 27 tests (including fresh asset recovery), actual texture-alpha/license/checksum inspection, CPU world-geometry construction, TypeScript and production build.
 - `npm run check:landscape`: independent terrain-fracture protection, grounding and route checks, plus offshore shelter/clearance controls. Rejected prototype checkers are archived separately.
 - `node --experimental-strip-types --loader ./scripts/control/ts-resolve.mjs scripts/control/check-offshore.mjs`: independent dense route clearance, seabed contact, real wave-shelter rasterization and an empty-scene negative control for offshore rocks.
 - `node scripts/control/check-worker.mjs`: after build/world checks, confirms the compiled worker transfers the exact same coastal atlas; CPU-only.
@@ -56,4 +61,4 @@ unfinished browser, art, media or active-time gates.
 
 Runtime Three.js is pinned to 0.185.1. Poly Haven materials/tree and Yughues palm are CC0. All optimized production assets, source pages, creators, modifications and SHA-256 checksums are in `public/assets/manifest.json` and `docs/ASSET_LICENSES.md`. Original environment geometry, shaders, ecology, camera and procedural ambience were authored for this project. No reference image is used as a scene backdrop.
 
-Sites identity has been registered but no version was published. Preserve `.openai/hosting.json` when resuming; do not create a second Site. Final commit/push to main remains conditional on complete acceptance.
+Sites identity has been registered but no version was published. Preserve `.openai/hosting.json` when resuming; do not create a second Site. Verified improvements are saved directly to main under the 2026-09-07 user amendment; full completion remains conditional on the remaining acceptance gates.

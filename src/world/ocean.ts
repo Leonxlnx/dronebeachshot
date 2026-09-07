@@ -2,6 +2,8 @@ import {createDistantBathymetry,bathymetryGLSL} from './bathymetry';
 import {aerialPerspectiveGLSL} from '../render/aerial-perspective';
 import * as THREE from 'three';
 import {WIND} from './weather';
+import {waterSlopeFilterGLSL} from './water-slope-filter';
+import {createDistantWaterGeometry} from './ocean-geometry';
 import {noiseGLSL,shorelineGLSL,shoreDistance,terrainHeight} from './math';
 import {coastalGLSL} from './coastal';
 import {createTerrainHeightTexture,terrainSurfaceGLSL} from './terrain-surface';
@@ -13,11 +15,21 @@ import {reflectedSky,cloudShadow,cloudShadowBounds,solarDirection,cloudLightingG
 import {coastalFieldGLSL,type CoastalField} from './coastal-field';
 const waterFns=`${noiseGLSL}${shorelineGLSL}${coastalGLSL}${coastalFieldGLSL}${terrainSurfaceGLSL}
 float coastalDistance(vec2 p){float original=shoreDist(p);float bound=1.-smoothstep(575.,600.,abs(p.x));return mix(min(original,-120.),original,bound);}
+// Coherent wave groups control both shoaling geometry and its breaking foam.
+ float breakingGroup(vec2 p,float distanceToShore,float time){
+  float groupTravel=distanceToShore-3.2*time;
+  return clamp(.50+.24*sin(p.x*.035+groupTravel*.071)
+    +.17*sin(p.x*.082-groupTravel*.043+1.8)
+    +.09*sin(p.x*.017+groupTravel*.119+4.2),0.,1.);
+ }
 float swell(vec2 p,float t){
  float d=coastalDistance(p),shelter=mix(.45,1.,smoothstep(20.,150.,-d)),h=0.;
  for(int i=0;i<7;i++){float fi=float(i),a=fi*2.399963;vec2 dir=normalize(vec2(sin(a)*.45,1.+cos(a)*.18));float k=.045*pow(1.68,fi),amp=.36*pow(.60,fi);h+=amp*sin(dot(p,dir)*k-t*sqrt(9.81*k)+fi*1.7);}
  float fade=smoothstep(-4.,35.,-d),phase=coastPhase(p,t);
- float shallow=pow(.5+.5*sin(phase),3.)*.52*smoothstep(1.,8.,-d)*(1.-smoothstep(30.,60.,-d));
+ // Energy controls amplitude, with residual swell in the quiet packets.
+ float packetEnergy=smoothstep(.30,.68,breakingGroup(p,d,t));
+ float packetAmplitude=sqrt(.18+.82*packetEnergy);
+ float shallow=pow(.5+.5*sin(phase),3.)*.52*packetAmplitude*smoothstep(1.,8.,-d)*(1.-smoothstep(30.,60.,-d));
  float rockDamping=mix(1.,.30,coastalFieldSample(p).a);
  return (h*shelter*fade+shallow)*rockDamping*(1.-smoothstep(640.,840.,length(p-vec2(0.,-350.))));
 }
@@ -30,6 +42,45 @@ float waterHeight(vec2 p,float t){
   h=mix(h,renderedTerrainHeight(p)+.028,contact);
  }
  return h;
+}
+${waterSlopeFilterGLSL}
+// The displaced mesh, contact film and their full FD gradient remain unchanged.
+// These envelopes reproduce the existing phase amplitudes at the same stencil.
+vec2 swellSlopeAmplitude(vec2 p,float t){
+ float d=coastalDistance(p),actualDistance=shoreDist(p),contact=0.;
+ if(abs(p.x)<600.&&actualDistance> -3.&&actualDistance<12.)
+  contact=smoothstep(-3.,0.,actualDistance)*(1.-smoothstep(6.,12.,actualDistance));
+ float attenuation=mix(1.,.30,coastalFieldSample(p).a)*(1.-contact)
+  *(1.-smoothstep(640.,840.,length(p-vec2(0.,-350.))));
+ float deep=mix(.45,1.,smoothstep(20.,150.,-d))*smoothstep(-4.,35.,-d);
+ float shallow=.52*sqrt(.18+.82*smoothstep(.30,.68,breakingGroup(p,d,t)))
+  *smoothstep(1.,8.,-d)*(1.-smoothstep(30.,60.,-d));
+ return vec2(deep,shallow)*attenuation;
+}
+vec2 filteredSwellCorrection(vec2 p,float t,vec2 pixelDx,vec2 pixelDy,inout float variance){
+ vec2 px=p+vec2(.2,0.),mx=p-vec2(.2,0.),pz=p+vec2(0.,.2),mz=p-vec2(0.,.2);
+ vec4 phase=vec4(coastPhase(px,t),coastPhase(mx,t),coastPhase(pz,t),coastPhase(mz,t));
+ vec2 waveVector=vec2(phase.x-phase.y,phase.z-phase.w)/.4;
+ // Cauchy bounds every deep-wave direction. Avoid amplitude/texture work
+ // when all seven swells and all three coastal harmonics are fully resolved.
+ if(max(length(pixelDx),length(pixelDy))*.045*pow(1.68,6.)<=1.
+  &&waterBandVisibility(waveVector*3.,pixelDx,pixelDy)==1.)return vec2(0.);
+ vec2 ax=swellSlopeAmplitude(px,t),bx=swellSlopeAmplitude(mx,t);
+ vec2 az=swellSlopeAmplitude(pz,t),bz=swellSlopeAmplitude(mz,t);
+ vec4 deep=vec4(ax.x,bx.x,az.x,bz.x),shallow=vec4(ax.y,bx.y,az.y,bz.y);
+ vec2 correction=vec2(0.);
+ for(int i=0;i<7;i++){
+  float fi=float(i),a=fi*2.399963;
+  vec2 dir=normalize(vec2(sin(a)*.45,1.+cos(a)*.18));
+  float k=.045*pow(1.68,fi),amp=.36*pow(.60,fi);
+  vec4 swellPhase=vec4(dot(px,dir),dot(mx,dir),dot(pz,dir),dot(mz,dir))*k-t*sqrt(9.81*k)+fi*1.7;
+  correction+=filteredPhaseCorrection(swellPhase,deep*amp,waterBandVisibility(dir*k,pixelDx,pixelDy),false,variance);
+ }
+ // Exact harmonics of (.5+.5*sin(phase))^3; the 5/16 DC term stays intact.
+ correction+=filteredPhaseCorrection(phase,shallow*(15./32.),waterBandVisibility(waveVector,pixelDx,pixelDy),false,variance);
+ correction+=filteredPhaseCorrection(phase*2.,shallow*(-3./16.),waterBandVisibility(waveVector*2.,pixelDx,pixelDy),true,variance);
+ correction+=filteredPhaseCorrection(phase*3.,shallow*(-1./32.),waterBandVisibility(waveVector*3.,pixelDx,pixelDy),false,variance);
+ return correction;
 }
 // A band disappears before it crosses the pixel Nyquist limit. Derivatives
 // are supplied by fragment main; this shared block also compiles in vertex.
@@ -49,6 +100,8 @@ vec3 waterNormal(vec2 p,float t,float dist,vec2 pixelDx,vec2 pixelDy){
  unresolvedWaterSlopeVariance=0.;
  float e=.2,dx=waterHeight(p+vec2(e,0.),t)-waterHeight(p-vec2(e,0.),t),dz=waterHeight(p+vec2(0.,e),t)-waterHeight(p-vec2(0.,e),t);
  vec2 slope=vec2(dx,dz)/(2.*e);
+ float baseVariance=0.;
+ slope+=filteredSwellCorrection(p,t,pixelDx,pixelDy,baseVariance);
  float distanceVisibility=1.-smoothstep(250.,1400.,dist);
  float shoreAmplitude=1.-smoothstep(-2.,4.,coastalDistance(p));
  float micro=distanceVisibility*shoreAmplitude;
@@ -124,7 +177,7 @@ vec3 waterNormal(vec2 p,float t,float dist,vec2 pixelDx,vec2 pixelDy){
  slope+=micro*ripples;
  // Sum of .5*A^2 over the fixed 64-wave spectrum is 0.0192. Distance LOD
  // transfers the remaining resolved variance too; shore damping is physical.
- unresolvedWaterSlopeVariance=shoreAmplitude*shoreAmplitude*(
+ unresolvedWaterSlopeVariance=baseVariance+shoreAmplitude*shoreAmplitude*(
   .0192*(1.-distanceVisibility*distanceVisibility)
   +unresolvedWaterSlopeVariance*distanceVisibility*distanceVisibility);
  return normalize(vec3(-slope.x,1.,-slope.y));
@@ -148,7 +201,7 @@ export function createOcean(field:CoastalField,terrain:THREE.Group){
  const terrainHeights=createTerrainHeightTexture();
  const material=new THREE.ShaderMaterial({polygonOffset:true,polygonOffsetFactor:-1,polygonOffsetUnits:-2,uniforms:{...refractionUniforms,uDistantBathymetry:{value:bathymetry.texture},uBathymetryBounds:{value:bathymetry.bounds},uTerrainHeights:{value:terrainHeights},uTime:worldTime,uSurfaceMode:{value:0},uSun:{value:sunDirection},uDebug:debugMode,uReflectedSky:reflectedSky,uSkyDecodeScale:skyDecodeScale,uCloudShadow:cloudShadow,uCloudShadowBounds:cloudShadowBounds,uSolarDirection:solarDirection,uCoastalField:{value:field.texture},uCoastalBounds:{value:field.bounds}},vertexShader:`
  uniform float uTime,uSurfaceMode;varying vec3 vWorld;${waterFns}
- void main(){vec3 p=position;p.y=uSurfaceMode>.5&&uSurfaceMode<1.5?swell(p.xz,uTime):waterHeight(p.xz,uTime);vWorld=p;gl_Position=projectionMatrix*viewMatrix*vec4(p,1.);}`,fragmentShader:`
+ void main(){vec3 p=position;p.y=uSurfaceMode>.5&&uSurfaceMode<1.5?0.:waterHeight(p.xz,uTime);vWorld=p;gl_Position=projectionMatrix*viewMatrix*vec4(p,1.);}`,fragmentShader:`
  precision highp float;
 ${aerialPerspectiveGLSL}${bathymetryGLSL}
 uniform float uTime,uDebug,uSurfaceMode,uSkyDecodeScale;uniform vec3 uSun;uniform samplerCube uReflectedSky;varying vec3 vWorld;${waterFns}${cloudLightingGLSL}${refractionGLSL}
@@ -163,21 +216,11 @@ uniform float uTime,uDebug,uSurfaceMode,uSkyDecodeScale;uniform vec3 uSun;unifor
   }
   return sum;
  }
- // A slowly advecting interference envelope represents coherent wave groups.
- // It modulates breaking/foam energy only: coastPhase, runup, displaced water,
- // CPU wetness/spray, swash mesh and the thinning-film edge stay authoritative.
- float breakingGroup(vec2 p,float distanceToShore,float time){
-  float groupTravel=distanceToShore-3.2*time;
-  return clamp(.50+.24*sin(p.x*.035+groupTravel*.071)
-    +.17*sin(p.x*.082-groupTravel*.043+1.8)
-    +.09*sin(p.x*.017+groupTravel*.119+4.2),0.,1.);
- }
  void main(){
  vec2 p=vWorld.xz;
  // Evaluate before any nonuniform discard; values are world meters per pixel.
  vec2 waterPixelDx=dFdx(p),waterPixelDy=dFdy(p);
  float d=coastalDistance(p),t=uTime;
- if(uSurfaceMode>.5&&uSurfaceMode<1.5&&abs(p.x)<900.&&p.y>-1250.&&p.y<550.)discard;
  if(uSurfaceMode<.5&&abs(p.x)<575.&&d>=-60.)discard;
  if(uSurfaceMode>1.5&&(abs(p.x)>=575.||d< -60.))discard;
  float reach=runup(p.x,t);
@@ -275,6 +318,6 @@ uniform float uTime,uDebug,uSurfaceMode,uSkyDecodeScale;uniform vec3 uSun;unifor
    uniforms:{...material.uniforms,uSurfaceMode:{value:mode}}});
  }
  const swash=new THREE.Mesh(swashGeometry(),surfaceMaterial(2));swash.name='sand-following-swash';root.add(swash);
- const far=new THREE.PlaneGeometry(26000,26000,80,80);far.rotateX(-Math.PI/2);far.translate(0,0,-4000);const distant=new THREE.Mesh(far,surfaceMaterial(1));distant.renderOrder=-1;root.add(distant);
+ const distant=new THREE.Mesh(createDistantWaterGeometry(),surfaceMaterial(1));distant.renderOrder=-1;root.add(distant);
  return {group:root,material};
 }

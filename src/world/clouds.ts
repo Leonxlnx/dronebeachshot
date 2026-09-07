@@ -29,9 +29,12 @@ float filteredDensity(vec3 p,float footprint){
  vec3 coord=p*.00032;
  float baseLod=max(0.,log2(max(footprint,1.)*.00032*64.));
  vec4 n=textureLod(uCloudNoise,coord,baseLod);
- float cellular=dot(n.gba,vec3(.625,.25,.125));
+ float cellular=dot(n.gba,vec3(.35,.40,.25));
  float perlinWorley=clamp((n.r+cellular*.45-.18)/.72,0.,1.);
- float profile=smoothstep(0.,.13,height)*(1.-smoothstep(.45,1.,height));
+ // Regional cloud maturity changes the ceiling while sharing a condensation base.
+ float cloudType=noise(p.xz*.00013+vec2(47.2,-11.8));
+ float profile=smoothstep(0.,.11,height)*(1.-smoothstep(
+  mix(.42,.58,cloudType),mix(.80,1.,cloudType),height));
  float base=clamp((perlinWorley-(1.-cover))/max(cover,.001),0.,1.);
  base*=profile;
  if(base<.001)return 0.;
@@ -39,7 +42,11 @@ float filteredDensity(vec3 p,float footprint){
  vec4 detail=textureLod(uCloudNoise,coord*5.+vec3(.18,.31,.13),detailLod);
  float erosion=dot(detail.gba,vec3(.625,.25,.125));
  float amount=mix(1.-erosion,erosion,smoothstep(.05,.4,height));
- float shape=clamp((base-amount*.23)/.77,0.,1.);
+ // Remap by the actual erosion threshold. A fixed denominator clipped dense
+ // cores and removed the internal variation needed for light to penetrate.
+ float edgeWeight=1.-smoothstep(.35,.80,base);
+ float threshold=amount*mix(.20,.34,edgeWeight);
+ float shape=clamp((base-threshold)/max(1.-threshold,.001),0.,1.);
  vec2 along=normalize(vec2(-.38,-.92)),across=vec2(-along.y,along.x);
  vec2 openingDelta=p.xz-along*14000.;
  float opening=length(vec2(dot(openingDelta,across)/3100.,dot(openingDelta,along)/10000.));
