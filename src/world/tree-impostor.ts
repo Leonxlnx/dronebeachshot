@@ -42,6 +42,13 @@ export function createTreeImpostor(metadata:TreeImpostorMetadata,
     .replace('#include <begin_vertex>',`#include <begin_vertex>
     vec3 impostorEye=(inverse(treeWorld)*vec4(cameraPosition,1.)).xyz;
     vec3 impostorDirection=normalize(impostorEye-uImpostorCenter);
+    // Orthographic shadow cameras have parallel rays. Their position must not
+    // change the billboard or selected atlas view. MeshDepthMaterial does not
+    // receive Three's isOrthographic uniform, so inspect the projection itself.
+    if(projectionMatrix[3][3]>.5){
+     vec3 cameraBackward=vec3(viewMatrix[0][2],viewMatrix[1][2],viewMatrix[2][2]);
+     impostorDirection=normalize(inverse(mat3(treeWorld))*cameraBackward);
+    }
     vec3 impostorUpReference=abs(impostorDirection.y)>.995?vec3(0.,0.,-1.):vec3(0.,1.,0.);
     vec3 impostorRight=normalize(cross(impostorUpReference,impostorDirection));
     vec3 impostorUp=normalize(cross(impostorDirection,impostorRight));
@@ -88,7 +95,7 @@ export function createTreeImpostor(metadata:TreeImpostorMetadata,
      normal=normalize(mat3(viewMatrix)*impostorWorldNormal);`);
    }
   };
-  target.customProgramCacheKey=()=>key()+'-native-tree-impostor-v2-four-view-'+(lit?'lit':'depth');
+  target.customProgramCacheKey=()=>key()+'-native-tree-impostor-v3-orthographic-'+(lit?'lit':'depth');
  }
  // Make closure-only normal data discoverable by the application teardown.
  material.userData.sharedShaderTextures=[filteredNormals];
