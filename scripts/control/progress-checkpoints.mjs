@@ -76,18 +76,81 @@ export function bundleInventory(directory){
  if(!rows.some(row=>row.path==='index.html'))throw Error('Production bundle has no index.html');
  return rows.sort((a,b)=>a.path.localeCompare(b.path));
 }
+function readProcProcess(procPid){
+ const text=fs.readFileSync('/proc/'+procPid+'/stat','utf8'),end=text.lastIndexOf(')');
+ const pid=Number(text.slice(0,text.indexOf('(')).trim()),fields=text.slice(end+1).trim().split(/\s+/);
+ // comm may contain spaces or parentheses. Fields after its final ')' begin at
+ // state (field 3); process start time is field 22, kept as an exact tick string.
+ if(end<0||pid!==procPid||fields.length<20||!/^\d+$/.test(fields[19]))throw Error('Malformed proc process stat');
+ return {procPid:pid,startTicks:fields[19],state:fields[0]};
+}
+const readProcNamespace=procPid=>fs.readlinkSync('/proc/'+procPid+'/ns/pid');
+const procInteger=value=>typeof value==='string'&&/^(0|[1-9]\d*)$/.test(value);
+const procNamespace=value=>typeof value==='string'&&/^pid:\[[1-9]\d*\]$/.test(value);
+function validProcessIdentity(value){
+ return plain(value)&&value.kind==='linux-proc-v1'&&typeof value.bootId==='string'&&/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i.test(value.bootId)
+  &&procInteger(value.procfsDevice)&&procInteger(value.procfsRootInode)
+  &&Number.isSafeInteger(value.procPid)&&value.procPid>0&&procInteger(value.startTicks)
+  &&procNamespace(value.pidNamespace)&&Array.isArray(value.namespacePids)&&value.namespacePids.length>0
+  &&value.namespacePids.every(pid=>Number.isSafeInteger(pid)&&pid>0)&&value.namespacePids[0]===value.procPid;
+}
+export function captureProcessIdentity(){
+ if(process.platform!=='linux')throw Error('A verifiable Linux proc identity is required for a capture lock');
+ const procPid=Number(fs.readlinkSync('/proc/self')),view=fs.statSync('/proc',{bigint:true});
+ if(!Number.isSafeInteger(procPid)||procPid<=0)throw Error('Cannot resolve capture owner through /proc/self');
+ const observed=readProcProcess(procPid),status=fs.readFileSync('/proc/self/status','utf8');
+ const namespacePids=status.match(/^NSpid:\s+(.+)$/m)?.[1].trim().split(/\s+/).map(Number);
+ const identity={kind:'linux-proc-v1',bootId:fs.readFileSync('/proc/sys/kernel/random/boot_id','utf8').trim(),
+  procfsDevice:view.dev.toString(),procfsRootInode:view.ino.toString(),procPid,startTicks:observed.startTicks,
+  pidNamespace:readProcNamespace(procPid),namespacePids};
+ if(!validProcessIdentity(identity)||namespacePids.at(-1)!==process.pid)throw Error('Capture PID and proc namespace identities disagree');
+ return identity;
+}
+export function captureLockOwnerState(previous,current,{readProcess=readProcProcess,readNamespace=readProcNamespace}={}){
+ const unknown=reason=>({state:'unknown',reason}),stale=reason=>({state:'stale',reason});
+ if(!plain(previous)||previous.host!==current.host)return unknown('another host or malformed owner');
+ // Old PID-only locks cannot distinguish writers in sibling PID namespaces.
+ // Even ESRCH for that PID would not prove the original writer has exited.
+ if(previous.lockVersion!==2)return unknown('legacy lock has no verifiable proc process identity');
+ const identity=previous.processIdentity,observer=current.processIdentity;
+ if(!validProcessIdentity(identity)||!validProcessIdentity(observer)||!Number.isSafeInteger(previous.pid)||previous.pid<=0
+  ||identity.namespacePids.at(-1)!==previous.pid||typeof previous.token!=='string'||!previous.token)return unknown('malformed process identity');
+ if(identity.bootId!==observer.bootId)return unknown('different kernel boot identity');
+ // procfs superblocks belong to a PID namespace. A different view can hide an
+ // otherwise-live process, so absence there is not evidence that it is dead.
+ if(identity.procfsDevice!==observer.procfsDevice||identity.procfsRootInode!==observer.procfsRootInode)return unknown('different procfs PID view');
+ try{
+  const first=readProcess(identity.procPid);
+  if(first?.procPid!==identity.procPid||!procInteger(first?.startTicks)||!/^[A-Za-z]$/.test(first?.state??''))return unknown('malformed observed proc process');
+  if(first.startTicks!==identity.startTicks)return stale('proc PID was reused by a different process birth');
+  if(first.state==='Z'||first.state==='X'||first.state==='x')return stale('owner process has terminated');
+  const namespace=readNamespace(identity.procPid);
+  if(!procNamespace(namespace))return unknown('malformed observed PID namespace');
+  if(namespace!==identity.pidNamespace)return stale('proc PID now belongs to a different PID namespace');
+  // Recheck birth after reading the namespace to avoid combining two reused
+  // process entries during the check. A still-live matching owner always blocks.
+  const second=readProcess(identity.procPid);
+  if(second?.procPid!==identity.procPid||!procInteger(second?.startTicks)||!/^[A-Za-z]$/.test(second?.state??''))return unknown('malformed observed proc process');
+  if(second.startTicks!==identity.startTicks)return stale('proc PID changed birth during identity verification');
+  if(second.state==='Z'||second.state==='X'||second.state==='x')return stale('owner process terminated during identity verification');
+  return {state:'active',reason:'matching proc PID, process birth and PID namespace'};
+ }catch(error){
+  if(error.code==='ENOENT'||error.code==='ESRCH')return stale('owner proc entry is absent');
+  return unknown('cannot inspect owner proc identity: '+(error.code??error.message));
+ }
+}
 export function acquireCaptureLock(output){
  fs.mkdirSync(output,{recursive:true});
  if(!fs.lstatSync(output).isDirectory())throw Error('Capture output is not a directory');
- const file=path.join(output,'.capture-lock.json'),owner={pid:process.pid,host:os.hostname(),token:crypto.randomUUID(),startedAt:new Date().toISOString()};
+ const file=path.join(output,'.capture-lock.json'),owner={lockVersion:2,pid:process.pid,host:os.hostname(),processIdentity:captureProcessIdentity(),token:crypto.randomUUID(),startedAt:new Date().toISOString()};
  for(let attempt=0;attempt<2;attempt++){
   try{const fd=fs.openSync(file,'wx');try{fs.writeFileSync(fd,JSON.stringify(owner));}finally{fs.closeSync(fd);}return()=>{try{ensureRegular(file);const value=JSON.parse(fs.readFileSync(file,'utf8'));if(value.token===owner.token)fs.unlinkSync(file);}catch(error){if(error.code!=='ENOENT')throw error;}};}
   catch(error){
    if(error.code!=='EEXIST')throw error;
    ensureRegular(file);const before=fs.readFileSync(file,'utf8'),previous=JSON.parse(before);
-   if(previous.host!==owner.host||!Number.isInteger(previous.pid)||previous.pid<=0)throw Error('Capture output is locked by another or unknown writer');
-   let alive=true;try{process.kill(previous.pid,0);}catch(check){if(check.code==='ESRCH')alive=false;else throw check;}
-   if(alive)throw Error('Capture output is locked by an active writer');
+   const liveness=captureLockOwnerState(previous,owner);
+   if(liveness.state==='active')throw Error('Capture output is locked by an active writer: '+liveness.reason);
+   if(liveness.state!=='stale')throw Error('Capture output is locked by another or unknown writer: '+liveness.reason);
    if(fs.readFileSync(file,'utf8')!==before)throw Error('Capture lock changed while checking stale writer');
    fs.unlinkSync(file);
   }
