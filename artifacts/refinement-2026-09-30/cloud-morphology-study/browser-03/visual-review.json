@@ -1,0 +1,22 @@
+{
+  "imagesInspected": [
+    "off-1.png",
+    "on.png"
+  ],
+  "coverageControl": 0.65,
+  "comparedAgainst": "browser-02 at0.9, identical production source hashes/camera/sun/renderer",
+  "observations": [
+    "Lower coverage brightens and differentiates the upper-right bank internally, but it still reads as a connected ceiling.",
+    "Morphology ON retains more directional strips and broken cloud shapes than OFF.",
+    "The fixed upper-sky region becomes brighter; absolute spatial contrast rises slightly while contrast relative to the mean decreases."
+  ],
+  "recommendation": "Keep study default OFF until the queued complete-scene comparison. The 0.65 morphology-ON combination is worth that bounded comparison, without claiming a resolved sky or a quality rating.",
+  "limitations": [
+    "Display-linear measurements decode the tonemapped sRGB PNG; they are not physical scene radiance.",
+    "Opaque sky alpha does not supply a cloud-occupancy mask; no pixel-coverage percentage is inferred.",
+    "192px cloud filtering differs from the full scene.",
+    "Visible-only probe does not render reflection, cloud shadow or PMREM."
+  ],
+  "productionEdited": false,
+  "browserClosed": true
+}

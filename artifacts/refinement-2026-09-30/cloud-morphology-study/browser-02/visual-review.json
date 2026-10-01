@@ -1,0 +1,20 @@
+{
+  "imagesInspected": [
+    "off-1.png",
+    "on.png"
+  ],
+  "restoredImageVerifiedBy": "OFF1/OFF2 RGBA SHA equality and zero byte differences",
+  "observations": [
+    "ON differentiates the upper-left rounded clusters into more directional broken strips, with larger visible blue gaps and clearer lit edges.",
+    "The broad gray bank across the upper right remains; this fixture does not establish a cure for the gray cloud ceiling."
+  ],
+  "recommendation": "Keep default OFF; compare the same control pair in the complete scene at coverage 0.9 before any acceptance.",
+  "limitations": [
+    "192x108 derivatives choose cloud footprints different from the full-resolution scene.",
+    "Only the actual visible shader was rendered; reflection, cloud-shadow and PMREM updates stayed at zero.",
+    "Coverage 0.9 is an explicit requested study value; the cited film profile omits coverage and its unmodified runtime default is 1.",
+    "Unchanged coverage control does not guarantee unchanged occupied cloud density."
+  ],
+  "productionEdited": false,
+  "browserClosed": true
+}

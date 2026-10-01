@@ -1,0 +1,11 @@
+{
+  "at": "2026-10-01T07:55:42.769949+00:00",
+  "method": "Advisory clean-page eviction on own task and closed recovery copies only; film immutable pin and older committed frames only; no file byte changes",
+  "files": 7248,
+  "logicalBytes": 2154880523,
+  "before": 8209453056,
+  "after": 7689035776,
+  "workingAfter": 7194927104,
+  "committedFrames": 262,
+  "failures": []
+}

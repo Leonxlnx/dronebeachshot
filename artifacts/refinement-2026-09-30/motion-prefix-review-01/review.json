@@ -1,0 +1,151 @@
+{
+  "createdAt": "2026-10-01T07:52:41.641416+00:00",
+  "scope": {
+    "frames": 254,
+    "firstIndex": 0,
+    "lastIndex": 253,
+    "firstTime": 0,
+    "lastTime": 10.54166667,
+    "nominalFullFrames": 480,
+    "sourceIdentity": "ee114c8d7bf6eca95ce22fe39a35e16f00e779974c773861829e36c84c1dfbd8",
+    "snapshotSha256": "3c8a97bdfd3b4b9ca1739266e65261cc71aacfc27b4662a52e75c26a758edd23"
+  },
+  "result": "No confidently identified abrupt LOD pop or whole-frame lighting flash in the reviewed prefix. This is a limited screening result, not temporal-quality acceptance.",
+  "checks": {
+    "all254PngHashesVerified": true,
+    "consecutiveIndicesAnd24fpsTimes": true,
+    "uniquePngHashes": 254,
+    "noExactDuplicateFrames": true,
+    "maxAbsoluteFrameMeanLumaStep": 0.012777582742273808,
+    "maxAbsoluteFrameMeanRGBChannelStep": 0.01727396249771118,
+    "resumeBoundaryIndex": 46,
+    "fullOriginalPngsVisuallyInspected": [
+      13,
+      14,
+      15,
+      22,
+      24,
+      26,
+      45,
+      46,
+      47,
+      103,
+      104,
+      105,
+      179,
+      180,
+      181,
+      212,
+      213,
+      214,
+      248,
+      249,
+      250
+    ]
+  },
+  "candidates": [
+    {
+      "transition": [
+        13,
+        14
+      ],
+      "time": [
+        0.5416666666666666,
+        0.5833333333333334
+      ],
+      "status": "not_confirmed",
+      "evidence": "Strongest local-patch anomaly, robust z 5.227; full-frame normalized z 2.678. Worst patch is sky/sun column around native (320,80), and estimated horizontal translation hits search limit (+8 analysis pixels). Original frames 13/14/15 show continuous camera tilt and sky motion; no discrete forest/lighting pop apparent."
+    },
+    {
+      "transition": [
+        23,
+        24
+      ],
+      "time": [
+        0.9583333333333334,
+        1.0
+      ],
+      "status": "explained_camera_composition",
+      "evidence": "Largest whole-frame mean luma step -0.012778 (display proxy, 1.278% full scale) and RGB channel mean step 0.017274. Adjacent steps 22\u201329 form a smooth decrease as bright horizon exits the top of the view; original frames 22/24/26 agree. No isolated flash."
+    },
+    {
+      "transition": [
+        45,
+        46
+      ],
+      "time": [
+        1.875,
+        1.9166666666666667
+      ],
+      "status": "no_resume_discontinuity_found",
+      "evidence": "Capture restart boundary. Motion-normalized MAE 0.005626, local robust z -0.213, 17.8th percentile of prefix residuals. Original frames 45/46/47 show consistent geometry, light and motion."
+    },
+    {
+      "transition": [
+        103,
+        105
+      ],
+      "time": [
+        4.291666666666667,
+        4.375
+      ],
+      "status": "not_confirmed",
+      "evidence": "Raised normalized residuals 0.017144/0.017481 around 4.33\u20134.375 s, local robust z 2.290/1.996. Worst patch native (80,280) is near foliage/terrain with parallax and thin leaves. Original frames 103/104/105 show continuous near-canopy motion; small foliage shimmer remains a visual-quality concern, but no discrete LOD replacement is established."
+    },
+    {
+      "transition": [
+        179,
+        181
+      ],
+      "time": [
+        7.458333333333333,
+        7.541666666666667
+      ],
+      "status": "explained_animated_water_candidate",
+      "evidence": "Normalized robust z 2.451/2.397, strongest patch native (80,80) over animated reflective water. Original frames 179/180/181 show smooth wave/camera progression, not an isolated flash."
+    },
+    {
+      "transition": [
+        212,
+        214
+      ],
+      "time": [
+        8.833333333333334,
+        8.916666666666666
+      ],
+      "status": "explained_camera_and_water_motion",
+      "evidence": "Prefix raw MAE maximum 0.045269 occurs at frame 213, but motion-normalized MAE falls to 0.012032 with local robust z 0.008. Original frames 212/213/214 show strong consistent coastal tracking and animated water, no abrupt state change."
+    },
+    {
+      "transition": [
+        248,
+        249
+      ],
+      "time": [
+        10.333333333333334,
+        10.375
+      ],
+      "status": "not_confirmed",
+      "evidence": "Local-patch robust z 4.371, while mean normalized residual z is -0.145. Worst patch native (320,280) is moving reflective water, correlation 0.571. Original frames 248/249/250 show stable shore/forest geometry and lighting; water motion explains the low match confidence."
+    },
+    {
+      "transition": [
+        252,
+        253
+      ],
+      "time": [
+        10.5,
+        10.541666666666666
+      ],
+      "status": "endpoint_candidate_only",
+      "evidence": "Mean normalized robust z 3.358 at snapshot endpoint has one-sided neighborhood support and modest absolute residual 0.016972; no subsequent committed frames were included. Do not classify this as a confirmed jump."
+    }
+  ],
+  "limitations": [
+    "Only frames 0\u2013253 (0\u201310.54166667 s), 254/480 nominal frames; remaining flight not reviewed.",
+    "Statistics use 160x90 analysis arrays and local translation compensation, not full optical flow; subpixel leaves, parallax and shader animation may escape or trigger the screen.",
+    "Twenty-one original full-resolution PNGs inspected individually, not a complete real-time video playback.",
+    "Pinned candidate-10 source ee114c8d7bf6eca95ce22fe39a35e16f00e779974c773861829e36c84c1dfbd8; new coastal reflection, sand drying, cloud morphology and other pending studies are absent.",
+    "No active film, lock, encoding output, source file, browser or GPU modified."
+  ]
+}

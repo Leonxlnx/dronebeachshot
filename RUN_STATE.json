@@ -2245,6 +2245,335 @@
           "sha256": "6db6ef7d2bc5ea2936e01e4c6ca111d308073faf13497b374505b817fa2cd76f"
         }
       ]
+    },
+    {
+      "start": "2026-10-01T04:57:12.746Z",
+      "category": "materials",
+      "description": "Develop bounded coastal vegetation, sand and mineral surface comparisons while recovering real scene capture",
+      "proofs": [
+        {
+          "at": "2026-10-01T05:08:15.489Z",
+          "files": [
+            {
+              "path": "src/main.ts",
+              "sha256": "2d394b01be8f1f5f4dda2948ef064459313d5eb54858bba7e3924cbd85254dc8"
+            },
+            {
+              "path": "src/render/ground-materials.ts",
+              "sha256": "ce30e6a6cec4d531d942210ce848c865bc99932196044a1065c4ef850244a3ac"
+            },
+            {
+              "path": "artifacts/refinement-2026-09-30/candidate-07-recovered-review-retry2/recovery-review-proof.json",
+              "sha256": "b9df51ddbec18ded31a5d389802846ed1cc7c49a099507a50006d29448a38433"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-01T05:24:35.174Z",
+          "files": [
+            {
+              "path": "src/main.ts",
+              "sha256": "9da3bf925f61fe8998c89a1329b9f3958910908e66ecc8ff424a6b222a32943e"
+            },
+            {
+              "path": "src/render/ground-materials.ts",
+              "sha256": "2d347d9f44d797829a925e5228dba2ebde6c3bb1cb78652661fb6c4a960fd8ab"
+            },
+            {
+              "path": "artifacts/refinement-2026-09-30/candidate-08-coastal-materials-retry/manifest.json",
+              "sha256": "5bb17f2eee9deb840ce204bd103e5664c84228546afc8f20f1b19f9d98a41572"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-01T05:47:00.448Z",
+          "files": [
+            {
+              "path": "src/main.ts",
+              "sha256": "102b97135de4e38361f3c669f8fe84b4e1fde5190dd3a3cc888cfeb8d462db71"
+            },
+            {
+              "path": "src/render/ground-materials.ts",
+              "sha256": "2d347d9f44d797829a925e5228dba2ebde6c3bb1cb78652661fb6c4a960fd8ab"
+            },
+            {
+              "path": "artifacts/refinement-2026-09-30/surface-review-proof.json",
+              "sha256": "b82a34e132f4bfb0a3fcf33dc28597beccf8c76f06158316b10f37d19941a451"
+            },
+            {
+              "path": "artifacts/refinement-2026-09-30/cloud-coverage-review-proof.json",
+              "sha256": "3cee0f32da17de41def2edd88e108a9906e2ba542ef0c1d0f94a455c9e7e799d"
+            }
+          ]
+        }
+      ],
+      "end": "2026-10-01T06:02:34.176Z",
+      "seconds": 3921.43,
+      "evidence": [
+        {
+          "path": "src/render/ground-materials.ts",
+          "sha256": "2d347d9f44d797829a925e5228dba2ebde6c3bb1cb78652661fb6c4a960fd8ab"
+        },
+        {
+          "path": "artifacts/refinement-2026-09-30/cloud-coverage-review-proof.json",
+          "sha256": "3cee0f32da17de41def2edd88e108a9906e2ba542ef0c1d0f94a455c9e7e799d"
+        },
+        {
+          "path": "artifacts/refinement-2026-09-30/terrain-shadow-chunks/actual-source-audit.json",
+          "sha256": "b9a73f067a955866604a7181615b47bf49b7b1caf6137f104e52f5ebee8353e4"
+        }
+      ]
+    },
+    {
+      "start": "2026-10-01T06:02:34.292Z",
+      "category": "optimization",
+      "description": "Verify bounded geometry and shader work reduction while reviewing source crown and route-visible rock improvements",
+      "proofs": [
+        {
+          "at": "2026-10-01T06:20:57.432Z",
+          "files": [
+            {
+              "path": "src/render/terrain-shadow-chunks.ts",
+              "sha256": "ff4498b41bff4ba4a60202ed81c44324779ff01a63ef9b789fb6dee7a332968e"
+            },
+            {
+              "path": "artifacts/refinement-2026-09-30/terrain-shadow-chunks/README.md",
+              "sha256": "9cac15a7bfb1266dc102bde4ce369901165596a8f119a4c47a2b360f8e63c9c8"
+            },
+            {
+              "path": "artifacts/refinement-2026-09-30/ground-layer-pruning-gpu/REVIEW.md",
+              "sha256": "ca06807c3203122f58109e287e5204d726a4093ef6575b67f5bcaa72140c9e4c"
+            },
+            {
+              "path": "artifacts/refinement-2026-09-30/normal-response-audit/pilot-03/review.md",
+              "sha256": "76f7ecfcf53ba2fd634389a6f45d66be80fa268b6fcb6d16a43306cebe5191c8"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-01T06:42:11.016Z",
+          "files": [
+            {
+              "path": "src/render/ground-materials.ts",
+              "sha256": "91fab7337200e507657694988e591707afb282a9d40dc1db14e3eed04b67d2f3"
+            },
+            {
+              "path": "artifacts/refinement-2026-09-30/terrain-shadow-chunks/browser-03/results.json",
+              "sha256": "d0dd461e4f65da51d43e40d0e416f3aa6050575e786bb3fbe37bc464b9d6bbef"
+            },
+            {
+              "path": "scripts/control/progress-checkpoints.test.mjs",
+              "sha256": "2ce6dff5a265043f898edff6f237823233a798b12c6657e22b24a05a89841e86"
+            }
+          ]
+        }
+      ],
+      "end": "2026-10-01T06:44:52.288Z",
+      "seconds": 2537.996,
+      "evidence": [
+        {
+          "path": "src/render/ground-materials.ts",
+          "sha256": "91fab7337200e507657694988e591707afb282a9d40dc1db14e3eed04b67d2f3"
+        },
+        {
+          "path": "src/render/terrain-shadow-chunks.ts",
+          "sha256": "53d08d191c808d67b874ac6b43a9dc604c59a16fbdd9c685fb9ff9ac5746c555"
+        },
+        {
+          "path": "artifacts/refinement-2026-09-30/terrain-shadow-chunks/browser-03/results.json",
+          "sha256": "d0dd461e4f65da51d43e40d0e416f3aa6050575e786bb3fbe37bc464b9d6bbef"
+        },
+        {
+          "path": "artifacts/refinement-2026-09-30/source-response-plan.json",
+          "sha256": "8a40c4d4c8645ac78e2b5b2170ef970a633a81f20098cd38743efe654c457c4a"
+        }
+      ]
+    },
+    {
+      "start": "2026-10-01T06:44:52.404Z",
+      "category": "visual-review",
+      "description": "Evaluate actual source-crown response and coastal material depth with bounded scene variants",
+      "proofs": [
+        {
+          "at": "2026-10-01T07:05:59.030Z",
+          "files": [
+            {
+              "path": "src/main.ts",
+              "sha256": "cd95d6052a2ff7ef6cb171786984f50e742baf922a016dde8ed1f432bd6442fa"
+            },
+            {
+              "path": "scripts/control/progress-memory.mjs",
+              "sha256": "4889d80aa450ef3ef8a81963fa54a88dc3e4fa1d19ea86e0658a3529bc568d82"
+            },
+            {
+              "path": "artifacts/refinement-2026-09-30/candidate-12-source-response/manifest.json",
+              "sha256": "b119d03f5aaf5e8a8dafe6a075ff4640a4125024a3bcc6e08be1d4ac6389b176"
+            },
+            {
+              "path": "recovery/island-response-parts/packaging-audit.json",
+              "sha256": "67ccb7b7c40ba90b318f3e0d63f08bf165d66d4bfc269e9d377aa8b43315e829"
+            }
+          ]
+        }
+      ],
+      "end": "2026-10-01T07:05:59.182Z",
+      "seconds": 1266.778,
+      "evidence": [
+        {
+          "path": "artifacts/refinement-2026-09-30/candidate-12-source-response/manifest.json",
+          "sha256": "b119d03f5aaf5e8a8dafe6a075ff4640a4125024a3bcc6e08be1d4ac6389b176"
+        },
+        {
+          "path": "src/render/island-direct-response.ts",
+          "sha256": "75d695be867d940b084c2e63762715f41b627650052b5822106020064e3d3373"
+        },
+        {
+          "path": "src/render/linear-main-output.ts",
+          "sha256": "45f9456394507e8d9c6a0e05286dd8fc71acea50080cdad9b72b288639570c9d"
+        }
+      ]
+    },
+    {
+      "start": "2026-10-01T07:05:59.280Z",
+      "category": "debugging",
+      "description": "Bound concurrent scene startup memory while preserving full capture quality and committed film frames",
+      "proofs": [
+        {
+          "at": "2026-10-01T07:16:48.563Z",
+          "files": [
+            {
+              "path": "src/render/diagnostics.ts",
+              "sha256": "05613275ee2e54a3e1788f8c40a58de0ff3becdc13fc61d3eefee11f0a655fe1"
+            },
+            {
+              "path": "src/render/diagnostics.test.ts",
+              "sha256": "83a7a507ced777923fcb3ba9ee509c4682c22a1ff789c5dc9fa35875702c0f3c"
+            },
+            {
+              "path": "scripts/control/progress-startup-memory.mjs",
+              "sha256": "f1b5bfa983a2d97e1d8efe1ed8db97002b2651d9bcb18c1cf0c823d55441bb9c"
+            },
+            {
+              "path": "artifacts/refinement-2026-09-30/glb-streaming-inventory-proof.json",
+              "sha256": "74a7801e8367b54853c2f2dec8d3eebd15f810e49655153e22b953777a61bfa8"
+            }
+          ]
+        }
+      ],
+      "end": "2026-10-01T07:25:06.647Z",
+      "seconds": 1147.367,
+      "evidence": [
+        {
+          "path": "src/render/diagnostics.ts",
+          "sha256": "05613275ee2e54a3e1788f8c40a58de0ff3becdc13fc61d3eefee11f0a655fe1"
+        },
+        {
+          "path": "src/render/diagnostics.test.ts",
+          "sha256": "83a7a507ced777923fcb3ba9ee509c4682c22a1ff789c5dc9fa35875702c0f3c"
+        },
+        {
+          "path": "scripts/control/progress-startup-memory.mjs",
+          "sha256": "f1b5bfa983a2d97e1d8efe1ed8db97002b2651d9bcb18c1cf0c823d55441bb9c"
+        },
+        {
+          "path": "artifacts/refinement-2026-09-30/candidate-12-source-response-retry3/manifest.json",
+          "sha256": "3dd133c2b490110ecdd358abbf587b90bad6319a855036954e251bccb1bf0080"
+        }
+      ]
+    },
+    {
+      "start": "2026-10-01T07:25:06.926Z",
+      "category": "materials",
+      "description": "Refine coastal water contact and sand drying while reviewing source forest and sky variants",
+      "proofs": [
+        {
+          "at": "2026-10-01T07:40:57.769Z",
+          "files": [
+            {
+              "path": "src/main.ts",
+              "sha256": "e43d1e740ff609c066b522c5ebb66a9899127554063dd098cdbebd2aeb9dbce7"
+            },
+            {
+              "path": "src/render/coastal-reflection.ts",
+              "sha256": "75c4497dcea48c622a76c20f86327189d10141acd0f6a2db924fde352a22f83b"
+            },
+            {
+              "path": "src/world/ocean.ts",
+              "sha256": "d22ae56a1d508b4b2d7138c125c92641417a2523e5e8207f7f018bae2889453a"
+            },
+            {
+              "path": "src/world/cloud-morphology.ts",
+              "sha256": "e8294521128b2a63327243bc16452505704b753304e614c0c440f656ac7c7707"
+            },
+            {
+              "path": "artifacts/refinement-2026-09-30/cloud-morphology-study/cpu-proof.json",
+              "sha256": "e4b241c6341294d224c8a069b1e3bd91121fde6f3456d570157b334f5f608ed7"
+            },
+            {
+              "path": "artifacts/refinement-2026-09-30/coastal-reflection/ocean-integration-check.json",
+              "sha256": "a13b1145578d4ea0f90d26bf29970f031ec6e72cce0700af5db8ccf877d5a018"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-01T07:50:35.697Z",
+          "files": [
+            {
+              "path": "scripts/control/isolated-coastal-reflection.mjs",
+              "sha256": "1625407da49b7215c8490137163461e72c6780c8c8b92313e6c1319604961a0e"
+            },
+            {
+              "path": "scripts/control/isolated-coastal-reflection-page.mjs",
+              "sha256": "73374c946959e9a35682fdd5b249c72503299adb606993323f86c111c36510cb"
+            },
+            {
+              "path": "artifacts/refinement-2026-09-30/coastal-reflection/isolated-gpu-03/results.json",
+              "sha256": "b56e8e2b514859fec7266d987e13cd751d7bbe634712aa013e4a4272a3fa754f"
+            },
+            {
+              "path": "artifacts/refinement-2026-09-30/wind-ripple-zero-skip/cpu-proof.json",
+              "sha256": "1231d79879ea3a68c2c0b9c55429a55a0c1de60a0b6ff5f388a3be3977ac12a4"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-01T08:03:17.340Z",
+          "files": [
+            {
+              "path": "docs/continuation/2026-10-01-optics.md",
+              "sha256": "18d2ab19c5d86d2dc2455fdd6a2157f0229cce0928647f9860c77af750421bc1"
+            },
+            {
+              "path": "artifacts/refinement-2026-09-30/cloud-morphology-study/browser-03/results.json",
+              "sha256": "6ff394f9f40205097abc57d2dca24b1b69c17f84952de65f095c58bf807193d5"
+            },
+            {
+              "path": "artifacts/refinement-2026-09-30/scene-memory-cleanup/source-audit.json",
+              "sha256": "c7f2a1c934609f19cfc9c0ec9ce7e95744921d2e899f7b270af3f102d68e1f12"
+            },
+            {
+              "path": "artifacts/refinement-2026-09-30/motion-prefix-encoder-smoke-01/export-result.json",
+              "sha256": "299a4c2d08495b287bfd423745b68d57940553473df9c979a0fe1c5335de53c1"
+            }
+          ]
+        }
+      ],
+      "end": "2026-10-01T08:03:17.439Z",
+      "seconds": 2290.513,
+      "evidence": [
+        {
+          "path": "docs/continuation/2026-10-01-optics.md",
+          "sha256": "18d2ab19c5d86d2dc2455fdd6a2157f0229cce0928647f9860c77af750421bc1"
+        },
+        {
+          "path": "artifacts/refinement-2026-09-30/coastal-reflection/isolated-gpu-03/results.json",
+          "sha256": "b56e8e2b514859fec7266d987e13cd751d7bbe634712aa013e4a4272a3fa754f"
+        },
+        {
+          "path": "artifacts/refinement-2026-09-30/cloud-morphology-study/browser-03/coverage-comparison.json",
+          "sha256": "52025c5e634297c237e8d278c465707d16907c7309df6e1e1ec59728b7cc0895"
+        }
+      ]
     }
   ],
   "cycles": [],
@@ -2262,28 +2591,10 @@
     }
   ],
   "open": {
-    "start": "2026-10-01T04:57:12.746Z",
-    "category": "materials",
-    "description": "Develop bounded coastal vegetation, sand and mineral surface comparisons while recovering real scene capture",
-    "proofs": [
-      {
-        "at": "2026-10-01T05:08:15.489Z",
-        "files": [
-          {
-            "path": "src/main.ts",
-            "sha256": "2d394b01be8f1f5f4dda2948ef064459313d5eb54858bba7e3924cbd85254dc8"
-          },
-          {
-            "path": "src/render/ground-materials.ts",
-            "sha256": "ce30e6a6cec4d531d942210ce848c865bc99932196044a1065c4ef850244a3ac"
-          },
-          {
-            "path": "artifacts/refinement-2026-09-30/candidate-07-recovered-review-retry2/recovery-review-proof.json",
-            "sha256": "b9df51ddbec18ded31a5d389802846ed1cc7c49a099507a50006d29448a38433"
-          }
-        ]
-      }
-    ]
+    "start": "2026-10-01T08:03:17.581Z",
+    "category": "visual-review",
+    "description": "Review actual shoreline diagnostic feasibility and optical studies while the pinned flight continues",
+    "proofs": []
   },
   "nativeVisualCycles": [
     {

@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-01T08:02:31.514Z",
+  "sourceIdentity": "f90d6de26b244225e76cd482685989810248242784db66276abd9c2893cd1971",
+  "bundle": "dist/assets/index-3aanmDF-.js",
+  "bundleSHA256": "5f0284ef423d3ac26c07206d56d2a10d42d9be2936397d2e0b0570b72663e86a",
+  "checks": {
+    "sourceLint": "94 files passed",
+    "typescript": "passed through npm run build",
+    "vite": "passed"
+  },
+  "gpuFullScene": false,
+  "existingFilmUnchanged": true
+}

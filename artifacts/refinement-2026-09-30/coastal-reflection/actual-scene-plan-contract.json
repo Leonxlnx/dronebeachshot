@@ -1,0 +1,114 @@
+{
+  "status": "Prepared only; no browser or GPU run. Eight current-source stills permit a bounded visual decision, not full-film acceptance.",
+  "sourceCommitAtPreparation": "1956b26a33d5a35a45d3d34e2e1acc803dc5355c",
+  "sourceSha256": {
+    "src/main.ts": "e43d1e740ff609c066b522c5ebb66a9899127554063dd098cdbebd2aeb9dbce7",
+    "src/world/ocean.ts": "d22ae56a1d508b4b2d7138c125c92641417a2523e5e8207f7f018bae2889453a",
+    "src/render/coastal-reflection.ts": "75c4497dcea48c622a76c20f86327189d10141acd0f6a2db924fde352a22f83b",
+    "src/render/aerial-perspective.ts": "4b2270d5b5ba86927d9006e1e825ebc1d153c4139208e0e79fcc6935901c748c",
+    "src/render/ground-materials.ts": "1d99899f66daf04a755e53f6f6e980533b454d30607f5f56a8729dc71833e728",
+    "src/render/sand-film.ts": "a229d9c7df102f862abad337e612ed0da97270218534e7339551bccc0a90898b",
+    "scripts/control/progress-checkpoints.mjs": "0c25a09e632bfb486c51db5edb0f52feb2385c2ca4c0712b24a09dd63806c0f8",
+    "scripts/progress-capture.mjs": "1d8f89ca343595721c99782017f024e9453beeb7215c43c8f5a61d2912d2ff20"
+  },
+  "profile": "artifacts/refinement-2026-09-30/coastal-reflection/actual-scene-profile.json",
+  "plan": "artifacts/refinement-2026-09-30/coastal-reflection/actual-scene-plan.json",
+  "profileSha256": "e06fae68bc779bf14c64ecd104cf100c5c5b347c48781d7ec308741315f05ab2",
+  "planSha256": "77a822409e11b0b295be1188853e71373f88d0881f69725dd6f0721ab5e4e054",
+  "dimensions": {
+    "width": 640,
+    "height": 360,
+    "reflectionWidth": 320,
+    "reflectionHeight": 180,
+    "reflectionSamples": 4
+  },
+  "savedFrames": 8,
+  "captureArguments": [
+    "width=640",
+    "height=360",
+    "dist=dist",
+    "out=artifacts/refinement-2026-09-30/coastal-reflection/actual-scene-01",
+    "profile=artifacts/refinement-2026-09-30/coastal-reflection/actual-scene-profile.json",
+    "plan=artifacts/refinement-2026-09-30/coastal-reflection/actual-scene-plan.json",
+    "memoryStartMiB=6144",
+    "memoryLimitMiB=7424",
+    "memoryMetric=working",
+    "jsHeapMiB=384"
+  ],
+  "executionOwner": "Root after memory release and the existing isolated optical checks. Current main CLI: working-memory start6144/limit7424 MiB,384 MiB V8 old-space. The conservative working estimate is not a guarantee of reclaimable memory. The active film is running and working memory is about7.1 GiB at this instruction; wait for actual headroom rather than launch or raise the guard.",
+  "baselineRule": "Use freshly rendered shore-off from the same current normal dist as all other entries. The old motion-11 ee114 source pin and older candidate PNGs are context only, never A/B controls. Record actual browser build.sourceIdentity and bundle hashes in the resulting manifest.",
+  "constantControls": "Profile explicitly keeps cloud morphology, sand chroma/filter, Island response, far-crown studies, linear main/SSAA, coastal understory, terrain shadow chunking and remote shadow studies off. Retain existing cloud coverage 0.9 and accepted lighting. Principal, broad-recess and east-spur source flags must remain false.",
+  "comparisonOrder": [
+    {
+      "pair": [
+        "shore-off",
+        "shore-reflection-flat"
+      ],
+      "decides": "Real reflected coast attaches to the bank at the correct position and orientation; flat control is optical evidence, not the intended wave appearance."
+    },
+    {
+      "pair": [
+        "shore-reflection-flat",
+        "shore-reflection-wave"
+      ],
+      "decides": "Depth-guided wave distortion breaks up the mirror naturally without losing coherent coast contact or creating stretched stripes."
+    },
+    {
+      "pair": [
+        "shore-off",
+        "shore-film-only"
+      ],
+      "decides": "Recently wetted exposed sand remains glossy while older damp sand loses its broad polished ribbon; assess the independent film change."
+    },
+    {
+      "pair": [
+        "shore-reflection-wave",
+        "shore-combined"
+      ],
+      "decides": "Film change still helps with real coast reflection active; the two features do not hide each other's defects."
+    },
+    {
+      "pair": [
+        "nearby-off",
+        "nearby-combined"
+      ],
+      "decides": "The combined improvement survives a nearby real route/wave time. Both members use t10.75; comparison to t10.5 includes camera motion and is not a temporal-stability proof."
+    },
+    {
+      "pair": [
+        "shore-off",
+        "shore-off-restored"
+      ],
+      "decides": "Decoded RGBA must match exactly after both studies and a time seek. Any difference is unresolved state restoration, not acceptable artistic variation."
+    }
+  ],
+  "opticalFailureChecks": [
+    "Reflection: no mirrored land above the waterline, underwater geometry leak, missing/inverted coast, duplicate coast edge, rectangular capture boundary, black stripe, bright alpha halo or separate pasted-looking mirror surface.",
+    "Reflection: no global sky/exposure/color change, double fog veil, canopy coverage thickening, clipped-tree fragments, overblurred coast smear, or plausible-looking dark stripe unrelated to actual visible coast.",
+    "Distortion: coast remains geographically connected as wave normals vary; no stretched triangles, hard depth-classification edge, divergent sampling flash or glaring jump to sky at the capture boundary. Downward rays retain the existing neighbouring-water fallback.",
+    "Film: only exposed sand gloss is shortened. The damp color boundary, actual waterline, sand geometry, vegetation, sky and offshore foam remain coherent; freshly wetted sand must not become chalky/matte and older damp sand must not change hue.",
+    "Cross-feature: above-water land/sky composition and shadow placement remain stable. A main-camera LOD/packing change, missing tree or retained mirrored camera is a rejection regardless of prettier water."
+  ],
+  "requiredRuntimeEvidence": [
+    "No shader, context, network or capture-health errors; same current sourceIdentity and 640x360 output throughout.",
+    "Reflection ON stats: enabled=true, initialized=true, ready=true, width=320, height=180, samples=4, distortion equals entry. OFF/restored stats: enabled=false and ready=false. Cached resources may remain initialized while OFF.",
+    "All frames use debug0, native output with linearMainOutput=false and sampleScale1. Record per-frame settings and reflection state from the existing capture manifest.",
+    "Compare decoded RGBA for the restored pair, not PNG byte hashes alone. Keep timing/call/triangle records descriptive; this eight-image plan is not a speed benchmark."
+  ],
+  "decisionRule": "Reject any optical or restored-state failure. Reflection, drying and combined appearance receive separate yes/no decisions from the isolated pairs. A subtle improvement is a narrow study result; these stills cannot establish an 8/10 result or authorize a full-film default change.",
+  "resetAfterRun": {
+    "lastLightBay.setCoastalReflection": false,
+    "lastLightBay.setCoastalReflectionDistortion": 1,
+    "lastLightBay.setSurfaceStudy": {
+      "sandFilmDrying": 0
+    },
+    "fullReset": "Reapply every key in actual-scene-profile.json using the existing capture settingMethods mapping. The final shore-off-restored entry already does this, then renders t10.5. On abort, reset the surviving session before any further capture or close that owned session."
+  },
+  "guardPolicy": {
+    "memoryMetric": "working",
+    "memoryStartMiB": 6144,
+    "memoryLimitMiB": 7424,
+    "jsHeapMiB": 384,
+    "meaning": "Conservative pressure estimate, not a reclamation guarantee. Shared guard retains raw and effective readings; root owns scheduling after fresh preflight."
+  }
+}

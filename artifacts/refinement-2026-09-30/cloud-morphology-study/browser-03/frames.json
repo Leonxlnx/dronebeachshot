@@ -1,0 +1,65 @@
+[
+  {
+    "name": "off-1",
+    "enabled": false,
+    "sha256": "6afe919b34a3326d0b3bc7186cb6a016460654645b6f34b249b13d96b9f45b80",
+    "renderAndReadbackMilliseconds": 1918.199999999255,
+    "fence": {
+      "method": "webgl2-fence",
+      "milliseconds": 1720.6000000014901,
+      "polls": 184
+    },
+    "alphaFailures": 0,
+    "minimumRGB": 32,
+    "maximumRGB": 224,
+    "meanRGB": [
+      101.87606095679013,
+      108.7632137345679,
+      113.54219714506173
+    ],
+    "drawCalls": 1,
+    "triangles": 960
+  },
+  {
+    "name": "on",
+    "enabled": true,
+    "sha256": "4fbbb156b37c9d4df9768c75aecac72867fbc5ec41696d8e62d476685d999fed",
+    "renderAndReadbackMilliseconds": 1327.300000000745,
+    "fence": {
+      "method": "webgl2-fence",
+      "milliseconds": 1217.5999999977648,
+      "polls": 162
+    },
+    "alphaFailures": 0,
+    "minimumRGB": 32,
+    "maximumRGB": 224,
+    "meanRGB": [
+      103.22858796296296,
+      110.5481288580247,
+      115.60498649691358
+    ],
+    "drawCalls": 1,
+    "triangles": 960
+  },
+  {
+    "name": "off-2",
+    "enabled": false,
+    "sha256": "6afe919b34a3326d0b3bc7186cb6a016460654645b6f34b249b13d96b9f45b80",
+    "renderAndReadbackMilliseconds": 1490.6000000014901,
+    "fence": {
+      "method": "webgl2-fence",
+      "milliseconds": 1437.5,
+      "polls": 193
+    },
+    "alphaFailures": 0,
+    "minimumRGB": 32,
+    "maximumRGB": 224,
+    "meanRGB": [
+      101.87606095679013,
+      108.7632137345679,
+      113.54219714506173
+    ],
+    "drawCalls": 1,
+    "triangles": 960
+  }
+]

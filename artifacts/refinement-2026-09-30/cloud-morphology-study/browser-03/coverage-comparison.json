@@ -1,0 +1,81 @@
+{
+  "scope": "Actual PNG display-space measurements, same fixed top48-row sky region; not volumetric occupancy or scene-linear radiance",
+  "sourceChangesSinceCoverage09": {
+    "scripts/control/check-cloud-morphology-browser.mjs": {
+      "before": "31b759051a9dd07262971e7ef9256cd3c6340bc2bfae04cedc0640360bd7604a",
+      "after": "ed84575ecf35ecfe9ecfa3c99847a974c6eb87fa9157841416ea37e88aaa5de4"
+    }
+  },
+  "cameraExactlyEqual": true,
+  "sunExactlyEqual": true,
+  "rendererExactlyEqual": true,
+  "rows": [
+    {
+      "coverageControl": 0.9,
+      "morphology": false,
+      "skyRegion": "top48 rows, all192 columns; excludes horizon/lower hemisphere",
+      "meanSRGB": [
+        131.07280815972868,
+        138.53743489584375,
+        149.38975694446208
+      ],
+      "meanDisplayLinearLuminance": 0.2737631095968992,
+      "spatialStdDisplayLinearLuminance": 0.14670549289542434,
+      "relativeSpatialContrast": 0.5358848133754761,
+      "minimumLuminance": 0.11882370656242164,
+      "maximumLuminance": 0.6935377536030105
+    },
+    {
+      "coverageControl": 0.9,
+      "morphology": true,
+      "skyRegion": "top48 rows, all192 columns; excludes horizon/lower hemisphere",
+      "meanSRGB": [
+        130.5758463541731,
+        139.36002604167794,
+        151.49750434029446
+      ],
+      "meanDisplayLinearLuminance": 0.27049130501099494,
+      "spatialStdDisplayLinearLuminance": 0.12080863496755985,
+      "relativeSpatialContrast": 0.446626685329679,
+      "minimumLuminance": 0.12424685915171264,
+      "maximumLuminance": 0.6885594894422029
+    },
+    {
+      "coverageControl": 0.65,
+      "morphology": false,
+      "skyRegion": "top48 rows, all192 columns; excludes horizon/lower hemisphere",
+      "meanSRGB": [
+        142.32953559028056,
+        147.3238932291739,
+        155.45247395835239
+      ],
+      "meanDisplayLinearLuminance": 0.31174202895118386,
+      "spatialStdDisplayLinearLuminance": 0.14992121294840532,
+      "relativeSpatialContrast": 0.4809143427108499,
+      "minimumLuminance": 0.11882370656242164,
+      "maximumLuminance": 0.6936680506143504
+    },
+    {
+      "coverageControl": 0.65,
+      "morphology": true,
+      "skyRegion": "top48 rows, all192 columns; excludes horizon/lower hemisphere",
+      "meanSRGB": [
+        145.37272135417166,
+        151.33995225695477,
+        160.0937500000188
+      ],
+      "meanDisplayLinearLuminance": 0.3238758021866157,
+      "spatialStdDisplayLinearLuminance": 0.13114757311096117,
+      "relativeSpatialContrast": 0.4049316812973714,
+      "minimumLuminance": 0.1315679296473745,
+      "maximumLuminance": 0.694640210680963
+    }
+  ],
+  "memory": {
+    "startWorkingMiB": 7130.21875,
+    "peakWorkingMiB": 7244.84765625,
+    "peakRawMiB": 7863.43359375,
+    "browserClosed": true
+  },
+  "wallMilliseconds": 7228
+}

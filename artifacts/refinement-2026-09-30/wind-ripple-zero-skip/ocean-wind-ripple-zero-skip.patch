@@ -1,0 +1,8 @@
+--- a/src/world/ocean.ts
++++ b/src/world/ocean.ts
+@@ -155,4 +155,5 @@
+  // without retaining this variance turns distant water into polished metal.
+  unresolvedWaterSlopeVariance+=.5*slopeAmplitude*slopeAmplitude*(1.-bandVisibility*bandVisibility);
++ if(bandVisibility==0.)return vec2(0.);
+  float phase=dot(p,waveVector)-t*sqrt(9.81*k)+phaseOffset;
+  return dir*(slopeAmplitude*bandVisibility*cos(phase));

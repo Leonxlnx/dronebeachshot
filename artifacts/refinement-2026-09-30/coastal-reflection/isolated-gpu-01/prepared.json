@@ -1,0 +1,28 @@
+{
+  "fixture": "isolated actual coastal reflection",
+  "physicalCanvas": [
+    128,
+    128
+  ],
+  "reflection": [
+    64,
+    64
+  ],
+  "dpr": [
+    1,
+    2
+  ],
+  "samples": 4,
+  "format": "RGBA16F",
+  "approximateExpectedAdditionalMiB": "200–300 browser overhead; texture/geometry payload below1MiB, not a measured bound",
+  "memoryMetric": "working",
+  "memoryStartMiB": 7168,
+  "memoryLimitMiB": 7424,
+  "productionModified": false,
+  "sourceHashes": {
+    "src/world/ocean.ts": "d22ae56a1d508b4b2d7138c125c92641417a2523e5e8207f7f018bae2889453a",
+    "selected coastalReflectionGLSL declaration": "57db37e5854e34a1d15b7365ed3a501c98b5088e86834d81a48e66407737795f",
+    "src/render/materials.ts": "24694202443318f0ff076e03853d4e222b2f95e318e107e0349cbec7097e1a6a",
+    "selected debugMode declaration": "6aef1ec24317f8fa699ed6860282d84fb3b6dfa5e52bfdb4d38b2af22ba18193"
+  }
+}

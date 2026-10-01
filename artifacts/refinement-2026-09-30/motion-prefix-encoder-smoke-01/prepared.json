@@ -1,0 +1,160 @@
+{
+  "kind": "manual-intermediate-flight-export",
+  "createdAt": "2026-10-01T07:59:07.051Z",
+  "mode": "export",
+  "label": "Incomplete progress prefix: 12/480 frames; 0.500 of 20 seconds",
+  "completeFlight": false,
+  "finalGateClaim": false,
+  "visuallyApproved": false,
+  "sourceManifest": "/workspace/scratch/ff8fac50118b/dronebeachshot/artifacts/refinement-2026-09-30/motion-11-full-flight/manifest.json",
+  "captureDirectory": "/workspace/scratch/ff8fac50118b/dronebeachshot/artifacts/refinement-2026-09-30/motion-11-full-flight",
+  "manifestSnapshotSha256": "c6c08cb3cb643639194f0be63554ac2188ea6b22829ce71a02539da08bcb5b1b",
+  "sourceIdentity": "ee114c8d7bf6eca95ce22fe39a35e16f00e779974c773861829e36c84c1dfbd8",
+  "sourceCaptureSucceededAtSnapshot": false,
+  "snapshotCommittedFrames": 266,
+  "selectedFrames": 12,
+  "nominalFullFrames": 480,
+  "firstIndex": 0,
+  "lastIndex": 11,
+  "firstSceneTime": 0,
+  "lastSceneTime": 0.4583333333333333,
+  "videoDuration": 0.5,
+  "fps": 24,
+  "width": 640,
+  "height": 360,
+  "allSelectedPngsValidated": true,
+  "exportSucceeded": false,
+  "outputFilename": "last-light-bay-progress-prefix-12f.mp4",
+  "encoder": {
+    "command": "ffmpeg",
+    "args": [
+      "-hide_banner",
+      "-loglevel",
+      "error",
+      "-n",
+      "-threads",
+      "2",
+      "-f",
+      "image2pipe",
+      "-vcodec",
+      "png",
+      "-framerate",
+      "24",
+      "-i",
+      "pipe:0",
+      "-map",
+      "0:v:0",
+      "-frames:v",
+      "12",
+      "-an",
+      "-sn",
+      "-dn",
+      "-c:v",
+      "libx264",
+      "-threads",
+      "2",
+      "-preset",
+      "medium",
+      "-crf",
+      "18",
+      "-pix_fmt",
+      "yuv420p",
+      "-fps_mode",
+      "passthrough",
+      "-movflags",
+      "+faststart",
+      "-metadata",
+      "title=Incomplete progress prefix: 12/480 frames; 0.500 of 20 seconds",
+      "-metadata",
+      "comment=Source ee114c8d7bf6eca95ce22fe39a35e16f00e779974c773861829e36c84c1dfbd8; validated committed PNG prefix; no repeated, interpolated, or newly rendered frames.",
+      "/workspace/scratch/ff8fac50118b/dronebeachshot/artifacts/refinement-2026-09-30/motion-prefix-encoder-smoke-01/last-light-bay-progress-prefix-12f.encoding.mp4"
+    ]
+  },
+  "scriptSha256": "89e0e1ab3b8d977aa9dda16c69f596777de02e6082a0f9fa6560a475986b4e5a",
+  "selected": [
+    {
+      "index": 0,
+      "path": "frames/000000.png",
+      "time": 0,
+      "sha256": "a99c969227856ac9d0886639bfbd29303e26364fc23bea8a6caa9ce55ee406c6",
+      "sizeBytes": 368338
+    },
+    {
+      "index": 1,
+      "path": "frames/000001.png",
+      "time": 0.04166667,
+      "sha256": "98b5b739419cc9ebb6b8c18e9be7f3fba539b73cded1e4ce4574c41b6da94983",
+      "sizeBytes": 366517
+    },
+    {
+      "index": 2,
+      "path": "frames/000002.png",
+      "time": 0.08333333,
+      "sha256": "9e46d650399e631b2c0f61193c00cf28d836018fade8074bc49ff60fef823686",
+      "sizeBytes": 364634
+    },
+    {
+      "index": 3,
+      "path": "frames/000003.png",
+      "time": 0.125,
+      "sha256": "43f98ac23b1fc5e790865b09c78332962e66a8a261f5b28b427c238a96375958",
+      "sizeBytes": 363037
+    },
+    {
+      "index": 4,
+      "path": "frames/000004.png",
+      "time": 0.16666667,
+      "sha256": "7f5ea9a70994b6e4fe0378457aad74db9f391617b2915a23f0f9657702137c6a",
+      "sizeBytes": 361338
+    },
+    {
+      "index": 5,
+      "path": "frames/000005.png",
+      "time": 0.20833333,
+      "sha256": "c39d030ec146dfaad39f6c87f0d9b82b8b26bd171a9c692c02a22805d0b0c5ed",
+      "sizeBytes": 359950
+    },
+    {
+      "index": 6,
+      "path": "frames/000006.png",
+      "time": 0.25,
+      "sha256": "efe90f26c8c68382c47edcad29c21e4ea65c540a5c1edf7c53f396a675cd5897",
+      "sizeBytes": 358534
+    },
+    {
+      "index": 7,
+      "path": "frames/000007.png",
+      "time": 0.29166667,
+      "sha256": "ec2a553b1a298de914b2532abc940af9618574b9ca4b38649a8c59b04f10befb",
+      "sizeBytes": 358554
+    },
+    {
+      "index": 8,
+      "path": "frames/000008.png",
+      "time": 0.33333333,
+      "sha256": "4580add488f709bfc12d0e193a17b9eabc8b5ad85073002984f5157d64d54616",
+      "sizeBytes": 357992
+    },
+    {
+      "index": 9,
+      "path": "frames/000009.png",
+      "time": 0.375,
+      "sha256": "193574ab40f0725fdaa98197b143f2c8a3c6fc05b6dc54f1583eca2839271a70",
+      "sizeBytes": 357350
+    },
+    {
+      "index": 10,
+      "path": "frames/000010.png",
+      "time": 0.41666667,
+      "sha256": "bfd5845f7afcb860496c102aa7468e6fff2835774e410b63a200067f609c51d4",
+      "sizeBytes": 357129
+    },
+    {
+      "index": 11,
+      "path": "frames/000011.png",
+      "time": 0.45833333,
+      "sha256": "d8a45e258318239f9a3ce3caca8e59a47192c12e8f5913842a588f6f81e7c552",
+      "sizeBytes": 357633
+    }
+  ]
+}

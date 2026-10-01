@@ -1,0 +1,1352 @@
+{
+  "sourceSHA256": "d22ae56a1d508b4b2d7138c125c92641417a2523e5e8207f7f018bae2889453a",
+  "sourceUnmodified": true,
+  "sourceDifference": "One exact equality guard after unchanged variance accumulation, before phase/cos. No other source line changed.",
+  "waves": 64,
+  "kRange": [
+    0.67559677,
+    40.06179143
+  ],
+  "zeroProjectionThresholdMeters": [
+    0.07488431976992098,
+    4.4405185655342905
+  ],
+  "numeric": {
+    "syntheticInputs": 6536,
+    "waveEvaluations": 418304,
+    "zeroBandsSkipped": 177037,
+    "nonzeroBandsPreserved": 241267,
+    "partialBandsPreserved": 43643,
+    "signedZeroIntermediateCases": 112874,
+    "aggregateSlopeAndVarianceBitIdentical": true,
+    "scope": "Deterministic Float32 JS model; not actual GLSL/compiler proof. Exact per-band return may change signed zero, but tested accumulated slopes/variance remain bit-identical."
+  },
+  "footprints": {
+    "method": "Actual cinematic camera/FOV/bank; 64x36 screen lattice; one-pixel world-XZ finite differences on sea-level plane. Only domain water samples with shoreDistance<-12m. Near waves, swash and occlusion are not rendered; not measured fragment derivatives.",
+    "reports": [
+      {
+        "width": 384,
+        "height": 216,
+        "time": 6,
+        "whole": {
+          "samples": 1409,
+          "footprintMetersPerPixel": {
+            "min": 0.645468272835521,
+            "p10": 0.7742284179709326,
+            "median": 1.1446929970800215,
+            "p90": 1.6434925690830051,
+            "max": 1.8624861401949226
+          },
+          "skippedOf64": {
+            "min": 30,
+            "p10": 33,
+            "median": 38,
+            "p90": 42,
+            "max": 44
+          },
+          "meanSkipped": 37.773598296664304,
+          "all64": 0,
+          "none": 0
+        },
+        "near": {
+          "samples": 1409,
+          "footprintMetersPerPixel": {
+            "min": 0.645468272835521,
+            "p10": 0.7742284179709326,
+            "median": 1.1446929970800215,
+            "p90": 1.6434925690830051,
+            "max": 1.8624861401949226
+          },
+          "skippedOf64": {
+            "min": 30,
+            "p10": 33,
+            "median": 38,
+            "p90": 42,
+            "max": 44
+          },
+          "meanSkipped": 37.773598296664304,
+          "all64": 0,
+          "none": 0
+        },
+        "flatDistant": {
+          "samples": 0,
+          "footprintMetersPerPixel": null,
+          "skippedOf64": null,
+          "meanSkipped": 0,
+          "all64": 0,
+          "none": 0
+        }
+      },
+      {
+        "width": 384,
+        "height": 216,
+        "time": 9,
+        "whole": {
+          "samples": 1060,
+          "footprintMetersPerPixel": {
+            "min": 0.25729557520465907,
+            "p10": 0.33482776900722333,
+            "median": 1.0036067452166832,
+            "p90": 8.178942207922406,
+            "max": 107.03506557477793
+          },
+          "skippedOf64": {
+            "min": 10,
+            "p10": 18,
+            "median": 33,
+            "p90": 59,
+            "max": 64
+          },
+          "meanSkipped": 35.75094339622642,
+          "all64": 15,
+          "none": 0
+        },
+        "near": {
+          "samples": 1060,
+          "footprintMetersPerPixel": {
+            "min": 0.25729557520465907,
+            "p10": 0.33482776900722333,
+            "median": 1.0036067452166832,
+            "p90": 8.178942207922406,
+            "max": 107.03506557477793
+          },
+          "skippedOf64": {
+            "min": 10,
+            "p10": 18,
+            "median": 33,
+            "p90": 59,
+            "max": 64
+          },
+          "meanSkipped": 35.75094339622642,
+          "all64": 15,
+          "none": 0
+        },
+        "flatDistant": {
+          "samples": 0,
+          "footprintMetersPerPixel": null,
+          "skippedOf64": null,
+          "meanSkipped": 0,
+          "all64": 0,
+          "none": 0
+        }
+      },
+      {
+        "width": 384,
+        "height": 216,
+        "time": 10.5,
+        "whole": {
+          "samples": 536,
+          "footprintMetersPerPixel": {
+            "min": 0.12820620221091467,
+            "p10": 0.1809873693887421,
+            "median": 0.6621690186327346,
+            "p90": 5.179338700882158,
+            "max": 50.245373667412636
+          },
+          "skippedOf64": {
+            "min": 2,
+            "p10": 7,
+            "median": 28,
+            "p90": 61,
+            "max": 64
+          },
+          "meanSkipped": 30.80223880597015,
+          "all64": 11,
+          "none": 0
+        },
+        "near": {
+          "samples": 536,
+          "footprintMetersPerPixel": {
+            "min": 0.12820620221091467,
+            "p10": 0.1809873693887421,
+            "median": 0.6621690186327346,
+            "p90": 5.179338700882158,
+            "max": 50.245373667412636
+          },
+          "skippedOf64": {
+            "min": 2,
+            "p10": 7,
+            "median": 28,
+            "p90": 61,
+            "max": 64
+          },
+          "meanSkipped": 30.80223880597015,
+          "all64": 11,
+          "none": 0
+        },
+        "flatDistant": {
+          "samples": 0,
+          "footprintMetersPerPixel": null,
+          "skippedOf64": null,
+          "meanSkipped": 0,
+          "all64": 0,
+          "none": 0
+        }
+      },
+      {
+        "width": 384,
+        "height": 216,
+        "time": 14,
+        "whole": {
+          "samples": 1130,
+          "footprintMetersPerPixel": {
+            "min": 0.11972213151265916,
+            "p10": 0.1508120119714024,
+            "median": 0.44473565581236935,
+            "p90": 5.358672080450907,
+            "max": 15233.59191112124
+          },
+          "skippedOf64": {
+            "min": 0,
+            "p10": 1,
+            "median": 15,
+            "p90": 53,
+            "max": 64
+          },
+          "meanSkipped": 20.765486725663717,
+          "all64": 8,
+          "none": 7
+        },
+        "near": {
+          "samples": 1125,
+          "footprintMetersPerPixel": {
+            "min": 0.11972213151265916,
+            "p10": 0.1508120119714024,
+            "median": 0.4405874446177864,
+            "p90": 5.059980345846268,
+            "max": 47.93966361482375
+          },
+          "skippedOf64": {
+            "min": 0,
+            "p10": 1,
+            "median": 15,
+            "p90": 52,
+            "max": 64
+          },
+          "meanSkipped": 20.573333333333334,
+          "all64": 3,
+          "none": 7
+        },
+        "flatDistant": {
+          "samples": 5,
+          "footprintMetersPerPixel": {
+            "min": 6596.106097529991,
+            "p10": 6596.106097529991,
+            "median": 9298.623530182182,
+            "p90": 11586.396424820017,
+            "max": 15233.59191112124
+          },
+          "skippedOf64": {
+            "min": 64,
+            "p10": 64,
+            "median": 64,
+            "p90": 64,
+            "max": 64
+          },
+          "meanSkipped": 64,
+          "all64": 5,
+          "none": 0
+        }
+      },
+      {
+        "width": 384,
+        "height": 216,
+        "time": 17,
+        "whole": {
+          "samples": 871,
+          "footprintMetersPerPixel": {
+            "min": 0.2347451695135143,
+            "p10": 0.2829162694417104,
+            "median": 0.880885274186557,
+            "p90": 22.642630551184894,
+            "max": 419.8538008938191
+          },
+          "skippedOf64": {
+            "min": 9,
+            "p10": 14,
+            "median": 31,
+            "p90": 63,
+            "max": 64
+          },
+          "meanSkipped": 35.37083811710677,
+          "all64": 64,
+          "none": 0
+        },
+        "near": {
+          "samples": 871,
+          "footprintMetersPerPixel": {
+            "min": 0.2347451695135143,
+            "p10": 0.2829162694417104,
+            "median": 0.880885274186557,
+            "p90": 22.642630551184894,
+            "max": 419.8538008938191
+          },
+          "skippedOf64": {
+            "min": 9,
+            "p10": 14,
+            "median": 31,
+            "p90": 63,
+            "max": 64
+          },
+          "meanSkipped": 35.37083811710677,
+          "all64": 64,
+          "none": 0
+        },
+        "flatDistant": {
+          "samples": 0,
+          "footprintMetersPerPixel": null,
+          "skippedOf64": null,
+          "meanSkipped": 0,
+          "all64": 0,
+          "none": 0
+        }
+      },
+      {
+        "width": 384,
+        "height": 216,
+        "time": 20,
+        "whole": {
+          "samples": 877,
+          "footprintMetersPerPixel": {
+            "min": 0.24583327307811256,
+            "p10": 0.2960699724671596,
+            "median": 0.9084340768106449,
+            "p90": 17.73238360296569,
+            "max": 142.69071825309948
+          },
+          "skippedOf64": {
+            "min": 11,
+            "p10": 17,
+            "median": 33,
+            "p90": 63,
+            "max": 64
+          },
+          "meanSkipped": 37.01824401368301,
+          "all64": 78,
+          "none": 0
+        },
+        "near": {
+          "samples": 877,
+          "footprintMetersPerPixel": {
+            "min": 0.24583327307811256,
+            "p10": 0.2960699724671596,
+            "median": 0.9084340768106449,
+            "p90": 17.73238360296569,
+            "max": 142.69071825309948
+          },
+          "skippedOf64": {
+            "min": 11,
+            "p10": 17,
+            "median": 33,
+            "p90": 63,
+            "max": 64
+          },
+          "meanSkipped": 37.01824401368301,
+          "all64": 78,
+          "none": 0
+        },
+        "flatDistant": {
+          "samples": 0,
+          "footprintMetersPerPixel": null,
+          "skippedOf64": null,
+          "meanSkipped": 0,
+          "all64": 0,
+          "none": 0
+        }
+      },
+      {
+        "width": 640,
+        "height": 360,
+        "time": 6,
+        "whole": {
+          "samples": 1409,
+          "footprintMetersPerPixel": {
+            "min": 0.38732476763733237,
+            "p10": 0.4645607282659613,
+            "median": 0.6868319478126957,
+            "p90": 0.9862083444405764,
+            "max": 1.1176426296099606
+          },
+          "skippedOf64": {
+            "min": 25,
+            "p10": 26,
+            "median": 29,
+            "p90": 33,
+            "max": 35
+          },
+          "meanSkipped": 29.408090844570616,
+          "all64": 0,
+          "none": 0
+        },
+        "near": {
+          "samples": 1409,
+          "footprintMetersPerPixel": {
+            "min": 0.38732476763733237,
+            "p10": 0.4645607282659613,
+            "median": 0.6868319478126957,
+            "p90": 0.9862083444405764,
+            "max": 1.1176426296099606
+          },
+          "skippedOf64": {
+            "min": 25,
+            "p10": 26,
+            "median": 29,
+            "p90": 33,
+            "max": 35
+          },
+          "meanSkipped": 29.408090844570616,
+          "all64": 0,
+          "none": 0
+        },
+        "flatDistant": {
+          "samples": 0,
+          "footprintMetersPerPixel": null,
+          "skippedOf64": null,
+          "meanSkipped": 0,
+          "all64": 0,
+          "none": 0
+        }
+      },
+      {
+        "width": 640,
+        "height": 360,
+        "time": 9,
+        "whole": {
+          "samples": 1060,
+          "footprintMetersPerPixel": {
+            "min": 0.1543771308917405,
+            "p10": 0.20090247720539536,
+            "median": 0.6022319383869491,
+            "p90": 4.906583307810954,
+            "max": 64.03316110831894
+          },
+          "skippedOf64": {
+            "min": 2,
+            "p10": 7,
+            "median": 25,
+            "p90": 53,
+            "max": 64
+          },
+          "meanSkipped": 28.276415094339622,
+          "all64": 3,
+          "none": 0
+        },
+        "near": {
+          "samples": 1060,
+          "footprintMetersPerPixel": {
+            "min": 0.1543771308917405,
+            "p10": 0.20090247720539536,
+            "median": 0.6022319383869491,
+            "p90": 4.906583307810954,
+            "max": 64.03316110831894
+          },
+          "skippedOf64": {
+            "min": 2,
+            "p10": 7,
+            "median": 25,
+            "p90": 53,
+            "max": 64
+          },
+          "meanSkipped": 28.276415094339622,
+          "all64": 3,
+          "none": 0
+        },
+        "flatDistant": {
+          "samples": 0,
+          "footprintMetersPerPixel": null,
+          "skippedOf64": null,
+          "meanSkipped": 0,
+          "all64": 0,
+          "none": 0
+        }
+      },
+      {
+        "width": 640,
+        "height": 360,
+        "time": 10.5,
+        "whole": {
+          "samples": 536,
+          "footprintMetersPerPixel": {
+            "min": 0.07690390875138349,
+            "p10": 0.1091619285427964,
+            "median": 0.40036024301847506,
+            "p90": 3.13555088297967,
+            "max": 29.99260224565887
+          },
+          "skippedOf64": {
+            "min": 0,
+            "p10": 1,
+            "median": 21,
+            "p90": 54,
+            "max": 64
+          },
+          "meanSkipped": 24.119402985074625,
+          "all64": 9,
+          "none": 49
+        },
+        "near": {
+          "samples": 536,
+          "footprintMetersPerPixel": {
+            "min": 0.07690390875138349,
+            "p10": 0.1091619285427964,
+            "median": 0.40036024301847506,
+            "p90": 3.13555088297967,
+            "max": 29.99260224565887
+          },
+          "skippedOf64": {
+            "min": 0,
+            "p10": 1,
+            "median": 21,
+            "p90": 54,
+            "max": 64
+          },
+          "meanSkipped": 24.119402985074625,
+          "all64": 9,
+          "none": 49
+        },
+        "flatDistant": {
+          "samples": 0,
+          "footprintMetersPerPixel": null,
+          "skippedOf64": null,
+          "meanSkipped": 0,
+          "all64": 0,
+          "none": 0
+        }
+      },
+      {
+        "width": 640,
+        "height": 360,
+        "time": 14,
+        "whole": {
+          "samples": 1137,
+          "footprintMetersPerPixel": {
+            "min": 0.07183184513397824,
+            "p10": 0.09094239425943422,
+            "median": 0.27214224303758716,
+            "p90": 3.4674611861270987,
+            "max": 13490.74346423768
+          },
+          "skippedOf64": {
+            "min": 0,
+            "p10": 0,
+            "median": 7,
+            "p90": 47,
+            "max": 64
+          },
+          "meanSkipped": 15.65523306948109,
+          "all64": 12,
+          "none": 200
+        },
+        "near": {
+          "samples": 1125,
+          "footprintMetersPerPixel": {
+            "min": 0.07183184513397824,
+            "p10": 0.09046047035230613,
+            "median": 0.2644220011419458,
+            "p90": 3.0354533813808624,
+            "max": 28.625191583389878
+          },
+          "skippedOf64": {
+            "min": 0,
+            "p10": 0,
+            "median": 7,
+            "p90": 44,
+            "max": 62
+          },
+          "meanSkipped": 15.139555555555555,
+          "all64": 0,
+          "none": 200
+        },
+        "flatDistant": {
+          "samples": 12,
+          "footprintMetersPerPixel": {
+            "min": 2436.8279802179636,
+            "p10": 2667.9406272565516,
+            "median": 4139.369614746599,
+            "p90": 7996.015674963625,
+            "max": 13490.74346423768
+          },
+          "skippedOf64": {
+            "min": 64,
+            "p10": 64,
+            "median": 64,
+            "p90": 64,
+            "max": 64
+          },
+          "meanSkipped": 64,
+          "all64": 12,
+          "none": 0
+        }
+      },
+      {
+        "width": 640,
+        "height": 360,
+        "time": 17,
+        "whole": {
+          "samples": 873,
+          "footprintMetersPerPixel": {
+            "min": 0.14084277249821325,
+            "p10": 0.16980149808056627,
+            "median": 0.5299595252450316,
+            "p90": 13.570315930187409,
+            "max": 243.03411168688174
+          },
+          "skippedOf64": {
+            "min": 4,
+            "p10": 9,
+            "median": 24,
+            "p90": 62,
+            "max": 64
+          },
+          "meanSkipped": 29.52577319587629,
+          "all64": 48,
+          "none": 0
+        },
+        "near": {
+          "samples": 873,
+          "footprintMetersPerPixel": {
+            "min": 0.14084277249821325,
+            "p10": 0.16980149808056627,
+            "median": 0.5299595252450316,
+            "p90": 13.570315930187409,
+            "max": 243.03411168688174
+          },
+          "skippedOf64": {
+            "min": 4,
+            "p10": 9,
+            "median": 24,
+            "p90": 62,
+            "max": 64
+          },
+          "meanSkipped": 29.52577319587629,
+          "all64": 48,
+          "none": 0
+        },
+        "flatDistant": {
+          "samples": 0,
+          "footprintMetersPerPixel": null,
+          "skippedOf64": null,
+          "meanSkipped": 0,
+          "all64": 0,
+          "none": 0
+        }
+      },
+      {
+        "width": 640,
+        "height": 360,
+        "time": 20,
+        "whole": {
+          "samples": 879,
+          "footprintMetersPerPixel": {
+            "min": 0.14749739514025834,
+            "p10": 0.17757951689813425,
+            "median": 0.545691844467389,
+            "p90": 10.673068636439597,
+            "max": 84.66402990873499
+          },
+          "skippedOf64": {
+            "min": 7,
+            "p10": 11,
+            "median": 27,
+            "p90": 62,
+            "max": 64
+          },
+          "meanSkipped": 30.916951080773607,
+          "all64": 56,
+          "none": 0
+        },
+        "near": {
+          "samples": 879,
+          "footprintMetersPerPixel": {
+            "min": 0.14749739514025834,
+            "p10": 0.17757951689813425,
+            "median": 0.545691844467389,
+            "p90": 10.673068636439597,
+            "max": 84.66402990873499
+          },
+          "skippedOf64": {
+            "min": 7,
+            "p10": 11,
+            "median": 27,
+            "p90": 62,
+            "max": 64
+          },
+          "meanSkipped": 30.916951080773607,
+          "all64": 56,
+          "none": 0
+        },
+        "flatDistant": {
+          "samples": 0,
+          "footprintMetersPerPixel": null,
+          "skippedOf64": null,
+          "meanSkipped": 0,
+          "all64": 0,
+          "none": 0
+        }
+      },
+      {
+        "width": 1280,
+        "height": 720,
+        "time": 6,
+        "whole": {
+          "samples": 1406,
+          "footprintMetersPerPixel": {
+            "min": 0.19416182331139042,
+            "p10": 0.23239385067537602,
+            "median": 0.34302616242143996,
+            "p90": 0.49234064870722566,
+            "max": 0.5579089435035515
+          },
+          "skippedOf64": {
+            "min": 12,
+            "p10": 16,
+            "median": 20,
+            "p90": 23,
+            "max": 26
+          },
+          "meanSkipped": 19.55263157894737,
+          "all64": 0,
+          "none": 0
+        },
+        "near": {
+          "samples": 1406,
+          "footprintMetersPerPixel": {
+            "min": 0.19416182331139042,
+            "p10": 0.23239385067537602,
+            "median": 0.34302616242143996,
+            "p90": 0.49234064870722566,
+            "max": 0.5579089435035515
+          },
+          "skippedOf64": {
+            "min": 12,
+            "p10": 16,
+            "median": 20,
+            "p90": 23,
+            "max": 26
+          },
+          "meanSkipped": 19.55263157894737,
+          "all64": 0,
+          "none": 0
+        },
+        "flatDistant": {
+          "samples": 0,
+          "footprintMetersPerPixel": null,
+          "skippedOf64": null,
+          "meanSkipped": 0,
+          "all64": 0,
+          "none": 0
+        }
+      },
+      {
+        "width": 1280,
+        "height": 720,
+        "time": 9,
+        "whole": {
+          "samples": 1061,
+          "footprintMetersPerPixel": {
+            "min": 0.07687285864273354,
+            "p10": 0.10002404304972436,
+            "median": 0.2993340178401856,
+            "p90": 2.400486921112279,
+            "max": 29.649410233976507
+          },
+          "skippedOf64": {
+            "min": 0,
+            "p10": 0,
+            "median": 16,
+            "p90": 43,
+            "max": 63
+          },
+          "meanSkipped": 18.695570216776627,
+          "all64": 0,
+          "none": 133
+        },
+        "near": {
+          "samples": 1061,
+          "footprintMetersPerPixel": {
+            "min": 0.07687285864273354,
+            "p10": 0.10002404304972436,
+            "median": 0.2993340178401856,
+            "p90": 2.400486921112279,
+            "max": 29.649410233976507
+          },
+          "skippedOf64": {
+            "min": 0,
+            "p10": 0,
+            "median": 16,
+            "p90": 43,
+            "max": 63
+          },
+          "meanSkipped": 18.695570216776627,
+          "all64": 0,
+          "none": 133
+        },
+        "flatDistant": {
+          "samples": 0,
+          "footprintMetersPerPixel": null,
+          "skippedOf64": null,
+          "meanSkipped": 0,
+          "all64": 0,
+          "none": 0
+        }
+      },
+      {
+        "width": 1280,
+        "height": 720,
+        "time": 10.5,
+        "whole": {
+          "samples": 536,
+          "footprintMetersPerPixel": {
+            "min": 0.038217671425360186,
+            "p10": 0.0542493988670319,
+            "median": 0.2026402067901332,
+            "p90": 2.8323299775321495,
+            "max": 13.515899499520309
+          },
+          "skippedOf64": {
+            "min": 0,
+            "p10": 0,
+            "median": 10,
+            "p90": 45,
+            "max": 63
+          },
+          "meanSkipped": 16.46828358208955,
+          "all64": 0,
+          "none": 151
+        },
+        "near": {
+          "samples": 536,
+          "footprintMetersPerPixel": {
+            "min": 0.038217671425360186,
+            "p10": 0.0542493988670319,
+            "median": 0.2026402067901332,
+            "p90": 2.8323299775321495,
+            "max": 13.515899499520309
+          },
+          "skippedOf64": {
+            "min": 0,
+            "p10": 0,
+            "median": 10,
+            "p90": 45,
+            "max": 63
+          },
+          "meanSkipped": 16.46828358208955,
+          "all64": 0,
+          "none": 151
+        },
+        "flatDistant": {
+          "samples": 0,
+          "footprintMetersPerPixel": null,
+          "skippedOf64": null,
+          "meanSkipped": 0,
+          "all64": 0,
+          "none": 0
+        }
+      },
+      {
+        "width": 1280,
+        "height": 720,
+        "time": 14,
+        "whole": {
+          "samples": 1146,
+          "footprintMetersPerPixel": {
+            "min": 0.03571631210732879,
+            "p10": 0.04519386642133988,
+            "median": 0.13897650293973496,
+            "p90": 2.7837865362623977,
+            "max": 1942.9716181090844
+          },
+          "skippedOf64": {
+            "min": 0,
+            "p10": 0,
+            "median": 1,
+            "p90": 38,
+            "max": 64
+          },
+          "meanSkipped": 10.550610820244328,
+          "all64": 19,
+          "none": 491
+        },
+        "near": {
+          "samples": 1127,
+          "footprintMetersPerPixel": {
+            "min": 0.03571631210732879,
+            "p10": 0.04498955998949684,
+            "median": 0.13163421146810608,
+            "p90": 1.5000097913965562,
+            "max": 13.045742435969098
+          },
+          "skippedOf64": {
+            "min": 0,
+            "p10": 0,
+            "median": 1,
+            "p90": 36,
+            "max": 59
+          },
+          "meanSkipped": 9.649511978704526,
+          "all64": 0,
+          "none": 491
+        },
+        "flatDistant": {
+          "samples": 19,
+          "footprintMetersPerPixel": {
+            "min": 507.0645567790888,
+            "p10": 532.3799157063331,
+            "median": 853.6794874348302,
+            "p90": 1552.8351896653023,
+            "max": 1942.9716181090844
+          },
+          "skippedOf64": {
+            "min": 64,
+            "p10": 64,
+            "median": 64,
+            "p90": 64,
+            "max": 64
+          },
+          "meanSkipped": 64,
+          "all64": 19,
+          "none": 0
+        }
+      },
+      {
+        "width": 1280,
+        "height": 720,
+        "time": 17,
+        "whole": {
+          "samples": 878,
+          "footprintMetersPerPixel": {
+            "min": 0.06989620858347308,
+            "p10": 0.08432819506397672,
+            "median": 0.26361222193767875,
+            "p90": 6.37724341198286,
+            "max": 92.06183083922157
+          },
+          "skippedOf64": {
+            "min": 0,
+            "p10": 1,
+            "median": 14,
+            "p90": 57,
+            "max": 64
+          },
+          "meanSkipped": 21.24145785876993,
+          "all64": 29,
+          "none": 81
+        },
+        "near": {
+          "samples": 878,
+          "footprintMetersPerPixel": {
+            "min": 0.06989620858347308,
+            "p10": 0.08432819506397672,
+            "median": 0.26361222193767875,
+            "p90": 6.37724341198286,
+            "max": 92.06183083922157
+          },
+          "skippedOf64": {
+            "min": 0,
+            "p10": 1,
+            "median": 14,
+            "p90": 57,
+            "max": 64
+          },
+          "meanSkipped": 21.24145785876993,
+          "all64": 29,
+          "none": 81
+        },
+        "flatDistant": {
+          "samples": 0,
+          "footprintMetersPerPixel": null,
+          "skippedOf64": null,
+          "meanSkipped": 0,
+          "all64": 0,
+          "none": 0
+        }
+      },
+      {
+        "width": 1280,
+        "height": 720,
+        "time": 20,
+        "whole": {
+          "samples": 883,
+          "footprintMetersPerPixel": {
+            "min": 0.07321005722896662,
+            "p10": 0.08815685985422217,
+            "median": 0.2717591169420687,
+            "p90": 5.046697127814935,
+            "max": 36.14335971862618
+          },
+          "skippedOf64": {
+            "min": 0,
+            "p10": 2,
+            "median": 16,
+            "p90": 58,
+            "max": 64
+          },
+          "meanSkipped": 22.2480181200453,
+          "all64": 27,
+          "none": 59
+        },
+        "near": {
+          "samples": 883,
+          "footprintMetersPerPixel": {
+            "min": 0.07321005722896662,
+            "p10": 0.08815685985422217,
+            "median": 0.2717591169420687,
+            "p90": 5.046697127814935,
+            "max": 36.14335971862618
+          },
+          "skippedOf64": {
+            "min": 0,
+            "p10": 2,
+            "median": 16,
+            "p90": 58,
+            "max": 64
+          },
+          "meanSkipped": 22.2480181200453,
+          "all64": 27,
+          "none": 59
+        },
+        "flatDistant": {
+          "samples": 0,
+          "footprintMetersPerPixel": null,
+          "skippedOf64": null,
+          "meanSkipped": 0,
+          "all64": 0,
+          "none": 0
+        }
+      },
+      {
+        "width": 1920,
+        "height": 1080,
+        "time": 6,
+        "whole": {
+          "samples": 1408,
+          "footprintMetersPerPixel": {
+            "min": 0.129122912907716,
+            "p10": 0.15509931119126166,
+            "median": 0.22894952782272093,
+            "p90": 0.32877749556091407,
+            "max": 0.37259821693372486
+          },
+          "skippedOf64": {
+            "min": 8,
+            "p10": 9,
+            "median": 13,
+            "p90": 17,
+            "max": 18
+          },
+          "meanSkipped": 12.602272727272727,
+          "all64": 0,
+          "none": 0
+        },
+        "near": {
+          "samples": 1408,
+          "footprintMetersPerPixel": {
+            "min": 0.129122912907716,
+            "p10": 0.15509931119126166,
+            "median": 0.22894952782272093,
+            "p90": 0.32877749556091407,
+            "max": 0.37259821693372486
+          },
+          "skippedOf64": {
+            "min": 8,
+            "p10": 9,
+            "median": 13,
+            "p90": 17,
+            "max": 18
+          },
+          "meanSkipped": 12.602272727272727,
+          "all64": 0,
+          "none": 0
+        },
+        "flatDistant": {
+          "samples": 0,
+          "footprintMetersPerPixel": null,
+          "skippedOf64": null,
+          "meanSkipped": 0,
+          "all64": 0,
+          "none": 0
+        }
+      },
+      {
+        "width": 1920,
+        "height": 1080,
+        "time": 9,
+        "whole": {
+          "samples": 1063,
+          "footprintMetersPerPixel": {
+            "min": 0.05145919113113297,
+            "p10": 0.06699404289897866,
+            "median": 0.20092004670854258,
+            "p90": 1.636142950589121,
+            "max": 21.309678972890623
+          },
+          "skippedOf64": {
+            "min": 0,
+            "p10": 0,
+            "median": 9,
+            "p90": 38,
+            "max": 62
+          },
+          "meanSkipped": 14.22483537158984,
+          "all64": 0,
+          "none": 288
+        },
+        "near": {
+          "samples": 1063,
+          "footprintMetersPerPixel": {
+            "min": 0.05145919113113297,
+            "p10": 0.06699404289897866,
+            "median": 0.20092004670854258,
+            "p90": 1.636142950589121,
+            "max": 21.309678972890623
+          },
+          "skippedOf64": {
+            "min": 0,
+            "p10": 0,
+            "median": 9,
+            "p90": 38,
+            "max": 62
+          },
+          "meanSkipped": 14.22483537158984,
+          "all64": 0,
+          "none": 288
+        },
+        "flatDistant": {
+          "samples": 0,
+          "footprintMetersPerPixel": null,
+          "skippedOf64": null,
+          "meanSkipped": 0,
+          "all64": 0,
+          "none": 0
+        }
+      },
+      {
+        "width": 1920,
+        "height": 1080,
+        "time": 10.5,
+        "whole": {
+          "samples": 537,
+          "footprintMetersPerPixel": {
+            "min": 0.02562821836808463,
+            "p10": 0.03637499570815278,
+            "median": 0.13566050097812984,
+            "p90": 1.9849083246469774,
+            "max": 9.970259779209199
+          },
+          "skippedOf64": {
+            "min": 0,
+            "p10": 0,
+            "median": 4,
+            "p90": 40,
+            "max": 62
+          },
+          "meanSkipped": 12.787709497206704,
+          "all64": 0,
+          "none": 212
+        },
+        "near": {
+          "samples": 537,
+          "footprintMetersPerPixel": {
+            "min": 0.02562821836808463,
+            "p10": 0.03637499570815278,
+            "median": 0.13566050097812984,
+            "p90": 1.9849083246469774,
+            "max": 9.970259779209199
+          },
+          "skippedOf64": {
+            "min": 0,
+            "p10": 0,
+            "median": 4,
+            "p90": 40,
+            "max": 62
+          },
+          "meanSkipped": 12.787709497206704,
+          "all64": 0,
+          "none": 212
+        },
+        "flatDistant": {
+          "samples": 0,
+          "footprintMetersPerPixel": null,
+          "skippedOf64": null,
+          "meanSkipped": 0,
+          "all64": 0,
+          "none": 0
+        }
+      },
+      {
+        "width": 1920,
+        "height": 1080,
+        "time": 14,
+        "whole": {
+          "samples": 1141,
+          "footprintMetersPerPixel": {
+            "min": 0.023943647176629175,
+            "p10": 0.03031768400896594,
+            "median": 0.09165398833900695,
+            "p90": 1.9455927246480709,
+            "max": 3430.425070744029
+          },
+          "skippedOf64": {
+            "min": 0,
+            "p10": 0,
+            "median": 0,
+            "p90": 33,
+            "max": 64
+          },
+          "meanSkipped": 8.234005258545135,
+          "all64": 15,
+          "none": 615
+        },
+        "near": {
+          "samples": 1126,
+          "footprintMetersPerPixel": {
+            "min": 0.023943647176629175,
+            "p10": 0.030159977447321424,
+            "median": 0.08816588816808585,
+            "p90": 1.0230860751777135,
+            "max": 9.669879765835613
+          },
+          "skippedOf64": {
+            "min": 0,
+            "p10": 0,
+            "median": 0,
+            "p90": 32,
+            "max": 57
+          },
+          "meanSkipped": 7.4911190053285965,
+          "all64": 0,
+          "none": 615
+        },
+        "flatDistant": {
+          "samples": 15,
+          "footprintMetersPerPixel": {
+            "min": 682.1223751983775,
+            "p10": 734.3216604995796,
+            "median": 1258.150034039355,
+            "p90": 2409.286297765322,
+            "max": 3430.425070744029
+          },
+          "skippedOf64": {
+            "min": 64,
+            "p10": 64,
+            "median": 64,
+            "p90": 64,
+            "max": 64
+          },
+          "meanSkipped": 64,
+          "all64": 15,
+          "none": 0
+        }
+      },
+      {
+        "width": 1920,
+        "height": 1080,
+        "time": 17,
+        "whole": {
+          "samples": 876,
+          "footprintMetersPerPixel": {
+            "min": 0.04694675468966444,
+            "p10": 0.056618462892774994,
+            "median": 0.1778780056592339,
+            "p90": 4.545659950677686,
+            "max": 79.62615115960465
+          },
+          "skippedOf64": {
+            "min": 0,
+            "p10": 0,
+            "median": 10,
+            "p90": 54,
+            "max": 64
+          },
+          "meanSkipped": 17.25799086757991,
+          "all64": 23,
+          "none": 223
+        },
+        "near": {
+          "samples": 876,
+          "footprintMetersPerPixel": {
+            "min": 0.04694675468966444,
+            "p10": 0.056618462892774994,
+            "median": 0.1778780056592339,
+            "p90": 4.545659950677686,
+            "max": 79.62615115960465
+          },
+          "skippedOf64": {
+            "min": 0,
+            "p10": 0,
+            "median": 10,
+            "p90": 54,
+            "max": 64
+          },
+          "meanSkipped": 17.25799086757991,
+          "all64": 23,
+          "none": 223
+        },
+        "flatDistant": {
+          "samples": 0,
+          "footprintMetersPerPixel": null,
+          "skippedOf64": null,
+          "meanSkipped": 0,
+          "all64": 0,
+          "none": 0
+        }
+      },
+      {
+        "width": 1920,
+        "height": 1080,
+        "time": 20,
+        "whole": {
+          "samples": 881,
+          "footprintMetersPerPixel": {
+            "min": 0.04916555532713105,
+            "p10": 0.059240122386508894,
+            "median": 0.1834832523922142,
+            "p90": 3.573393747586952,
+            "max": 28.07023946734988
+          },
+          "skippedOf64": {
+            "min": 0,
+            "p10": 0,
+            "median": 11,
+            "p90": 54,
+            "max": 64
+          },
+          "meanSkipped": 17.955732122587968,
+          "all64": 20,
+          "none": 208
+        },
+        "near": {
+          "samples": 881,
+          "footprintMetersPerPixel": {
+            "min": 0.04916555532713105,
+            "p10": 0.059240122386508894,
+            "median": 0.1834832523922142,
+            "p90": 3.573393747586952,
+            "max": 28.07023946734988
+          },
+          "skippedOf64": {
+            "min": 0,
+            "p10": 0,
+            "median": 11,
+            "p90": 54,
+            "max": 64
+          },
+          "meanSkipped": 17.955732122587968,
+          "all64": 20,
+          "none": 208
+        },
+        "flatDistant": {
+          "samples": 0,
+          "footprintMetersPerPixel": null,
+          "skippedOf64": null,
+          "meanSkipped": 0,
+          "all64": 0,
+          "none": 0
+        }
+      }
+    ]
+  },
+  "potential": "One dynamic phase/cos per fully hidden band can be bypassed. Constant arguments may already fold sqrt/direction. SIMD divergence/predication can erase some gain; no speedup claimed without actual GPU timing.",
+  "glslHarnessPrepared": true,
+  "gpuLaunched": false
+}

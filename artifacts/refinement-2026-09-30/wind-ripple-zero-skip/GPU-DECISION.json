@@ -1,0 +1,67 @@
+{
+  "decision": "REJECT adoption for now; leave production ocean source unchanged",
+  "actualGLSLEquality": {
+    "pixels": 16384,
+    "channels": 4,
+    "bitDifferences": 0,
+    "maxAbsolute": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "nonfinite": 0
+  },
+  "timings": {
+    "off": {
+      "gpuMilliseconds": {
+        "samples": 8,
+        "min": 1.410769,
+        "median": 1.5566754999999999,
+        "mean": 1.8897568750000002,
+        "max": 3.443722
+      },
+      "wallMilliseconds": {
+        "samples": 8,
+        "min": 0.3999999985098839,
+        "median": 0.7999999988824129,
+        "mean": 1.4499999997206032,
+        "max": 6.199999999254942
+      }
+    },
+    "on": {
+      "gpuMilliseconds": {
+        "samples": 8,
+        "min": 2.110831,
+        "median": 2.915566,
+        "mean": 3.63752575,
+        "max": 7.023089
+      },
+      "wallMilliseconds": {
+        "samples": 8,
+        "min": 0.3999999985098839,
+        "median": 0.6499999985098839,
+        "mean": 1.9624999989755452,
+        "max": 8.199999999254942
+      }
+    }
+  },
+  "medianQueryChangePercent": 87.29439757997093,
+  "wallRunMilliseconds": 2070,
+  "memory": {
+    "metric": "working",
+    "startEffectiveMiB": 7159.6171875,
+    "peakEffectiveMiB": 7311.90625,
+    "peakRawMiB": 7954.265625,
+    "limitMiB": 7424,
+    "abort": null,
+    "cleanupErrors": []
+  },
+  "limitations": [
+    "Configured SwiftShader raw128-square fixture, not complete ocean/scene GPU time.",
+    "Synthetic/data-texture inputs mix footprints differently from spatially coherent real sea pixels; branch divergence is not representative and was not separately measured.",
+    "Driver query medians were substantially slower with the guard; wall medians are very small/noisy and means also worsened. No performance gain is demonstrated.",
+    "Correct numeric equality is insufficient reason to integrate a performance-only change with no observed benefit."
+  ],
+  "nextAction": "None. No production patch, rerun or broader benchmark; root explicitly closed this decision."
+}

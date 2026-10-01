@@ -1,0 +1,57 @@
+{
+  "config": {
+    "width": 192,
+    "height": 108,
+    "time": 10.375,
+    "lighting": {
+      "exposure": 1.08,
+      "sunIntensity": 4.8,
+      "skyIntensity": 0.48,
+      "environmentIntensity": 0.55,
+      "sunColor": "#ffdfb6",
+      "skyColor": "#a1c9ed",
+      "groundColor": "#365842",
+      "fogDensity": 0.000065,
+      "cloudFogDensity": 0.00004,
+      "cloudCoverage": 0.9
+    },
+    "guards": {
+      "memoryMetric": "working",
+      "startLimit": 7516192768,
+      "stopLimit": 7784628224,
+      "deadlineMilliseconds": 120000
+    }
+  },
+  "sourceHashes": {
+    "artifacts/refinement-2026-09-30/clear-motion-profile.json": "3648a2cda11e2143e4bf314723019ebb17e892da149eb2f2b16b8ad28eba53f3",
+    "scripts/control/cloud-morphology-probe-page.mjs": "3912900b9d2c76d9fcfc1b95e026e271056441417acfb286e3500e414be8ea5e",
+    "node_modules/three/build/three.module.js": "bbf5ed13fe4373f5bd38b14ea8e62e9f157327da5638edc6d3863e08b167c9c7",
+    "node_modules/three/build/three.core.js": "3718df126d69c125362a03340913204470d8c50238605150e57f808840fb7759",
+    "src/render/engine.ts": "530dd0981d93d7c7572028bed65f168195281a795cdf0b499c5ef16914aaccad",
+    "src/world/atmosphere.ts": "fa8b3e803a7ec3f277b62e59e4c9a3c94687c6a0b0e31697b9eb2e414592156b",
+    "src/world/cloud-noise.ts": "75756416f58e8cb1c25f34e2e51960532e7f2155535656f300b4648016eb15b1",
+    "src/render/aerial-perspective.ts": "4b2270d5b5ba86927d9006e1e825ebc1d153c4139208e0e79fcc6935901c748c",
+    "src/render/coastal-reflection.ts": "75c4497dcea48c622a76c20f86327189d10141acd0f6a2db924fde352a22f83b",
+    "src/render/materials.ts": "24694202443318f0ff076e03853d4e222b2f95e318e107e0349cbec7097e1a6a",
+    "src/world/weather.ts": "d38c3292ed627e63178815e8232325e7a9f3b9480bbc9115813ea5f06915da33",
+    "src/world/habitat.ts": "c4599e693e07a45f6cdfeae4c7a930fa8550fb6e553c52b9d82c33a36f98a21c",
+    "src/world/math.ts": "6f9f3918d8faf1d2a22e53f44da725b14ea7750db3722b2aa1c50a7967df8c4b",
+    "src/world/terrain-fractures.ts": "ebce2e7167cab9113c431bb1f4ad802312dfbb34bcc3f0d8e5bd9ea8935e16c8",
+    "src/world/principal-face-planes.ts": "91afc6ff752c39bb5b312c61df10a118247f89b6a052679445c8df899370c4b0",
+    "src/world/broad-recess-planes.ts": "41e99d8961dff6e5eb51ccff6aad03867bbccedff81c5b4a1d06732c4ecbd0ba",
+    "src/world/east-spur.ts": "a5181a90570275b81bdb30d7721833e9c124107ccd15ae026b2f3e9f82a87f1b",
+    "src/render/refraction.ts": "b1997a145c0d3870f5af33056d475fbe294907edf1d983f8e24b9a54813be304",
+    "src/world/clouds.ts": "de4f1760b87b12c938fffaad72d106cf5255bd3c6cf2e9ebcd80f8bbbe7aecb8",
+    "src/world/cloud-morphology.ts": "e8294521128b2a63327243bc16452505704b753304e614c0c440f656ac7c7707",
+    "src/render/sky-lighting.ts": "2d8d3be053b16c1bf3a1d807c31cfceb004aee9175265fd3be8624c4aa40fb81",
+    "src/camera/cinematic.ts": "b150d04543dbee3a5c17feea537cc15623dccdde48e6d272e6a88a109186bf9e",
+    "src/camera/opening-gaze.ts": "0cc7b3576cd157c8cf347d1741a70759ccb2fad12757c27da76ff8f8ae077a40",
+    "src/camera/final-glide.ts": "c7fcb4169d00d17633975c82ed5ae97b41d8931eaffbb80ec67b858c7f37429e",
+    "src/world/terrain-surface.ts": "47a6a59021a5b7d56f3f0d3eb525c41e02626c753fe7fbe5eb8462e5ec9ea15b",
+    "src/render/profiling-sync.ts": "b94dd23cffb33cab4d302794189a947ca82e54edb5fba1d655ba4c7898f4c651",
+    "scripts/control/check-cloud-morphology-browser.mjs": "31b759051a9dd07262971e7ef9256cd3c6340bc2bfae04cedc0640360bd7604a",
+    "scripts/control/progress-memory.mjs": "b036a57baf33c52c87d8d1400ccfad0f126cc91c46646405565aecced94d5007"
+  },
+  "sourceModuleCount": 25,
+  "sourceBytes": 2190651
+}
