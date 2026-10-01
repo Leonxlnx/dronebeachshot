@@ -4,10 +4,12 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import {spawn,spawnSync} from 'node:child_process';
+import {EventEmitter} from 'node:events';
 import {deflateSync} from 'node:zlib';
 import {crc32,inspectPng,sha256} from './capture-integrity.mjs';
 import {acquireCaptureLock,makeVideoContract,openVideoCheckpoint,validateProfile} from './progress-checkpoints.mjs';
 import {parseOptions,runProgressCapture} from '../progress-capture.mjs';
+import {trackCaptureRequests} from './progress-network.mjs';
 
 const identity='a'.repeat(64),build={production:true,sourceIdentity:identity};
 function png(value,width=8,height=4){
@@ -18,6 +20,37 @@ function png(value,width=8,height=4){
  return Buffer.concat([Buffer.from([137,80,78,71,13,10,26,10]),chunk('IHDR',header),chunk('IDAT',deflateSync(pixels)),chunk('IEND',Buffer.alloc(0))]);
 }
 const stats=time=>({ready:true,sourceIdentity:identity,quality:'high',time});
+
+test('network drain waits for actual request completion and records the real failure stage',async()=>{
+ const page=new EventEmitter(),failedRequests=[],diagnostics={};let stage='scene-readiness',settled=false;
+ const tracker=trackCaptureRequests(page,{failedRequests,diagnostics,getStage:()=>stage});
+ const request={url:()=> 'http://127.0.0.1/assets/models/palm-tree.glb',method:()=> 'GET',resourceType:()=> 'fetch',failure:()=>({errorText:'net::ERR_ABORTED'})};
+ try{
+  page.emit('request',request);
+  page.emit('response',{request:()=>request,status:()=>200,headers:()=>({'content-length':'490580'})});
+  const drained=tracker.waitForIdle({timeoutMs:1000,quietMs:0}).then(()=>{settled=true;});
+  await new Promise(resolve=>setImmediate(resolve));assert.equal(settled,false);assert.equal(tracker.snapshot()[0].contentLength,'490580');
+  page.emit('requestfinished',request);await drained;assert.deepEqual(tracker.snapshot(),[]);
+  // Even an empty tracker must cancel its pending quiet completion when a new
+  // request begins, so readiness alone cannot trigger the offline transition.
+  settled=false;const anotherDrain=tracker.waitForIdle({timeoutMs:1000,quietMs:0}).then(()=>{settled=true;});
+  page.emit('request',request);await new Promise(resolve=>setImmediate(resolve));assert.equal(settled,false);
+  stage='network-drain';page.emit('requestfailed',request);await anotherDrain;
+  assert.equal(failedRequests.length,1);assert.equal(failedRequests[0].errorText,'net::ERR_ABORTED');assert.equal(failedRequests[0].failureStage,'network-drain');assert.equal(failedRequests[0].resourceType,'fetch');
+  assert.equal(diagnostics.networkEvents.at(-1).kind,'requestfailed');
+ }finally{tracker.dispose();}
+});
+
+test('network drain timeout reports unfinished URLs and HTTP failures retain status',async()=>{
+ const page=new EventEmitter(),failedRequests=[],diagnostics={},tracker=trackCaptureRequests(page,{failedRequests,diagnostics,getStage:()=> 'network-drain'});
+ const request={url:()=> 'http://127.0.0.1/assets/stalled.glb',method:()=> 'GET',resourceType:()=> 'fetch',failure:()=>null};
+ try{
+  page.emit('request',request);await assert.rejects(tracker.waitForIdle({timeoutMs:20,quietMs:0}),/network drain timed out.*stalled\.glb/);
+  page.emit('response',{request:()=>request,status:()=>503,headers:()=>({})});page.emit('requestfinished',request);
+  assert.equal(failedRequests[0].status,503);assert.equal(failedRequests[0].failureStage,'network-drain');
+ }finally{tracker.dispose();}
+});
+
 function fixture(){
  const root=fs.mkdtempSync(path.join(os.tmpdir(),'bay-progress-recovery-')),dist=path.join(root,'dist'),output=path.join(root,'out');
  fs.mkdirSync(dist);fs.writeFileSync(path.join(dist,'index.html'),'original pinned production bundle');
@@ -32,10 +65,10 @@ function populate(f,count=1){
 
 test('restored CLI preserves dimensions, profile controls and original video timeline',()=>{
  const f=fixture();try{
-  fs.writeFileSync(path.join(f.root,'profile.json'),JSON.stringify({profiling:true,linearMainOutput:true,farCrownBlending:false,surfaceStudy:{foamDepthGate:1}}));
+  fs.writeFileSync(path.join(f.root,'profile.json'),JSON.stringify({profiling:true,linearMainOutput:true,farCrownBlending:false,coastalUnderstory:true,surfaceStudy:{foamDepthGate:1}}));
   const parsed=parseOptions(['video','width=512','fps=24','duration=0.5','start=9.75','profile=profile.json','out=video'],f.root);
   assert.equal(parsed.height,288);assert.equal(parsed.contract.timeline.length,12);assert.equal(parsed.contract.timeline[11].view,'10.20833333');
-  assert.equal(parsed.profile.profiling,true);assert.throws(()=>validateProfile({profiling:'true'}),/Invalid/);
+  assert.equal(parsed.profile.profiling,true);assert.equal(parsed.profile.coastalUnderstory,true);assert.throws(()=>validateProfile({profiling:'true'}),/Invalid/);
   assert.throws(()=>parseOptions(['video','width=511'],f.root),/even/);
   assert.throws(()=>makeVideoContract({...f.contract,timeline:[{view:0},{view:0}]}),/repeated/);
  }finally{f.cleanup();}

@@ -1,0 +1,103 @@
+{
+  "captureSucceeded": true,
+  "build": {
+    "sourceIdentity": "5d22516368fa6d3496a871d7f3ed1274d6db78d61f534f484fe2ffdf93366d00",
+    "production": true
+  },
+  "frames": 12,
+  "errors": [],
+  "failedRequests": [],
+  "glbDelivery": {
+    "verified": 8,
+    "failures": []
+  },
+  "pairs": [
+    {
+      "a": "recovered-clear-10_5",
+      "b": "recovered-no-culling-10_5",
+      "identical": true,
+      "changedPixels": 0,
+      "maxRgbDelta": 0,
+      "meanRgbDelta": 0.0
+    },
+    {
+      "a": "recovered-clear-0",
+      "b": "clear-linear-0",
+      "identical": false,
+      "changedPixels": 42480,
+      "maxRgbDelta": 76,
+      "meanRgbDelta": 0.3454454210069444
+    },
+    {
+      "a": "clear-linear-0",
+      "b": "clear-linear-blend-0",
+      "identical": false,
+      "changedPixels": 35527,
+      "maxRgbDelta": 98,
+      "meanRgbDelta": 1.0698603877314814
+    }
+  ],
+  "alpha": [
+    {
+      "view": "recovered-default-0",
+      "min": 255,
+      "max": 255
+    },
+    {
+      "view": "recovered-default-6",
+      "min": 255,
+      "max": 255
+    },
+    {
+      "view": "recovered-default-10_5",
+      "min": 255,
+      "max": 255
+    },
+    {
+      "view": "recovered-default-19_5",
+      "min": 255,
+      "max": 255
+    },
+    {
+      "view": "recovered-clear-0",
+      "min": 255,
+      "max": 255
+    },
+    {
+      "view": "recovered-clear-mountain-wide",
+      "min": 255,
+      "max": 255
+    },
+    {
+      "view": "recovered-clear-descent-3",
+      "min": 255,
+      "max": 255
+    },
+    {
+      "view": "clear-linear-0",
+      "min": 255,
+      "max": 255
+    },
+    {
+      "view": "clear-linear-blend-0",
+      "min": 255,
+      "max": 255
+    },
+    {
+      "view": "clear-linear-blend-10_5",
+      "min": 255,
+      "max": 255
+    },
+    {
+      "view": "recovered-clear-10_5",
+      "min": 255,
+      "max": 255
+    },
+    {
+      "view": "recovered-no-culling-10_5",
+      "min": 255,
+      "max": 255
+    }
+  ],
+  "timingCaveat": "The finish-based in-page phase times do not account for the real wall duration and are not valid GPU bottleneck evidence. Async context completion study is pending."
+}

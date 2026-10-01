@@ -24,3 +24,23 @@ and seeded far-crown coverage remain default off. No old final gate is advanced.
 
 A read-only baseline checkout and local recovery patches are retained. All further
 work remains local while the earlier automatic GitHub push rejection is unresolved.
+# Fresh full-scene validation at 05:07 UTC
+
+The third candidate-07 attempt completed all twelve 512×288 production frames.
+`candidate-07-recovered-review-retry2/manifest.json` records build
+`5d22516368fa6d3496a871d7f3ed1274d6db78d61f534f484fe2ffdf93366d00`, no page,
+shader or network failures, and eight exact SHA-256-verified GLB deliveries.
+Every exported alpha byte is255. The clear10.5-second culling on/off pair is
+identical in every RGBA byte. This validates the recovered scene and that
+specific culling pair; it does not make the reconstructed source byte-identical
+to the lost work or revalidate every historical camera pair.
+
+Root inspected the opening, descent, low shoreline, sunset and mountain views.
+Water depth and color are readable, but the large tan cliff remains too smooth,
+and foliage still looks granular or, with source-over blending, overly flat.
+The quality target remains unmet. The broad recess, coastal understory and new
+surface controls were not in this frozen build and remain unaccepted studies.
+
+Finish-based in-page timing does not explain the real frame wall duration. It
+must not be used as GPU phase evidence; an asynchronous completion probe is
+being prepared before making performance changes.

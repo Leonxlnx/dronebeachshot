@@ -16,7 +16,7 @@ const same=(a,b)=>JSON.stringify(canonical(a))===JSON.stringify(canonical(b));
 const plain=value=>value!==null&&typeof value==='object'&&!Array.isArray(value);
 export function validateProfile(profile){
  if(!plain(profile))throw Error('Settings profile must be a JSON object');
- const objectKeys=['lighting','surfaceStudy','shadowStudy'],booleanKeys=['culling','oceanCulling','farCrownCoverage','farCrownBlending','linearMainOutput','profiling'];
+ const objectKeys=['lighting','surfaceStudy','shadowStudy'],booleanKeys=['culling','oceanCulling','farCrownCoverage','farCrownBlending','linearMainOutput','profiling','coastalUnderstory'];
  for(const [key,value]of Object.entries(profile)){
   if(objectKeys.includes(key)){if(!plain(value))throw Error('Invalid '+key+' settings');}
   else if(booleanKeys.includes(key)){if(typeof value!=='boolean')throw Error('Invalid '+key+' setting');}
@@ -142,7 +142,7 @@ export function openVideoCheckpoint({output,dist,contract,resume=false}){
   output,bundle:path.join(output,'render-bundle'),manifest,release,
   startAttempt(){attempt={startedAt:new Date().toISOString(),reusedFrames:manifest.frames.length};manifest.attempts.push(attempt);manifest.captureSucceeded=false;manifest.errors=[];manifest.failedRequests=[];delete manifest.finishedAt;save();},
   bindBuild(build){validateBuild(build);if(manifest.build&&!same(build,manifest.build))throw Error('Loaded production build changed across capture attempts');manifest.build=canonical(build);save();},
-  update(values){for(const key of ['encodingCommand','graphics','offlineAfterLoad'])if(Object.hasOwn(values,key))manifest[key]=values[key];save();},
+  update(values){for(const key of ['encodingCommand','graphics','offlineAfterLoad','diagnostics'])if(Object.hasOwn(values,key))manifest[key]=values[key];save();},
   readFrame(index){const record=manifest.frames[index];if(!record)throw Error('Missing checkpoint record');const file=path.join(output,record.path);ensureRegular(file);const bytes=fs.readFileSync(file);const info=inspectPng(bytes,contract.width,contract.height);if(info.sha256!==record.sha256)throw Error('Checkpoint changed after validation at '+index);return bytes;},
   appendFrame(index,bytes,stats,milliseconds=0){
    if(index!==manifest.frames.length||index>=contract.timeline.length)throw Error('Checkpoint frames must append in order');

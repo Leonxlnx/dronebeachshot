@@ -13,13 +13,15 @@ import {fileURLToPath,pathToFileURL} from 'node:url';
 import {assertCaptureHealthy,inspectPng} from './control/capture-integrity.mjs';
 import {withDeadline,writeEncoderFrame} from './control/capture-run.mjs';
 import {acquireCaptureLock,makeVideoContract,openVideoCheckpoint,validateProfile,validateTimeline,writeAtomic,writeAtomicJson} from './control/progress-checkpoints.mjs';
+import {trackCaptureRequests} from './control/progress-network.mjs';
+import {captureGlbManifest,installCaptureGlbFetch} from './control/progress-glb-fetch.mjs';
 
 const projectRoot=fileURLToPath(new URL('../',import.meta.url));
 const settingMethods={lighting:'setLighting',surfaceStudy:'setSurfaceStudy',shadowStudy:'setShadowStudy',
  culling:'setGroundCulling',oceanCulling:'setOceanCulling',debug:'setDebug',farCrownCoverage:'setFarCrownCoverage',
- farCrownBlending:'setFarCrownBlending',linearMainOutput:'setLinearMainOutput',profiling:'setFrameProfiling'};
+ farCrownBlending:'setFarCrownBlending',linearMainOutput:'setLinearMainOutput',profiling:'setFrameProfiling',coastalUnderstory:'setCoastalUnderstory'};
 const settingsOf=entry=>Object.fromEntries(Object.entries(entry).filter(([key])=>key!=='view'&&key!=='label'));
-const supportedArguments=new Set(['width','height','out','dist','plan','views','times','fps','duration','start','profile','writeTimeout','exitTimeout','readyTimeout','resume','video']);
+const supportedArguments=new Set(['width','height','out','dist','plan','views','times','fps','duration','start','profile','writeTimeout','exitTimeout','readyTimeout','networkTimeout','resume','video']);
 export function parseOptions(argv,root=projectRoot){
  const args={};let video=false,resume=false;
  for(const item of argv){
@@ -39,70 +41,114 @@ export function parseOptions(argv,root=projectRoot){
  if(args.views||args.times)timeline=(args.views??args.times).split(',').map(view=>({view}));
  const options={root,width,height,video,resume,output:resolve(args.out??'artifacts/progress-'+new Date().toISOString().replaceAll(':','-')),
   dist:resolve(args.dist??'dist'),fps:Number(args.fps??24),duration:Number(args.duration??20),start:Number(args.start??0),profile,
-  writeTimeout:Number(args.writeTimeout??120000),exitTimeout:Number(args.exitTimeout??120000),readyTimeout:Number(args.readyTimeout??300000)};
- for(const key of ['writeTimeout','exitTimeout','readyTimeout'])if(!Number.isFinite(options[key])||options[key]<=0)throw Error('Invalid '+key);
+  writeTimeout:Number(args.writeTimeout??120000),exitTimeout:Number(args.exitTimeout??120000),readyTimeout:Number(args.readyTimeout??300000),networkTimeout:Number(args.networkTimeout??30000)};
+ for(const key of ['writeTimeout','exitTimeout','readyTimeout','networkTimeout'])if(!Number.isFinite(options[key])||options[key]<=0)throw Error('Invalid '+key);
  if(video)options.contract=makeVideoContract({...options,timeline});
  else{if(resume)throw Error('Resume is supported for video checkpoints only');options.timeline=validateTimeline(timeline??[0,6,10.5,19.5].map(view=>({view})));}
  return options;
 }
 
-async function serveBundle(directory){
+async function serveBundle(directory,diagnostics={}){
  const mime={'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.png':'image/png','.jpg':'image/jpeg','.jpeg':'image/jpeg','.webp':'image/webp','.glb':'model/gltf-binary','.rg8':'application/octet-stream','.woff2':'font/woff2'};
+ const issue=value=>{const list=diagnostics.serverIssues??=[];list.push({at:new Date().toISOString(),duringCleanup:diagnostics.closing===true,...value});if(list.length>40)list.shift();};
  const root=path.resolve(directory),server=http.createServer((request,response)=>{
   try{
    const requested=decodeURIComponent(new URL(request.url,'http://localhost').pathname),file=path.resolve(root,'.'+(requested==='/'?'/index.html':requested));
    if(file!==root&&!file.startsWith(root+path.sep)){response.writeHead(403).end();return;}
    const stat=fs.statSync(file);if(!stat.isFile()){response.writeHead(404).end();return;}
    response.writeHead(200,{'content-type':mime[path.extname(file)]??'application/octet-stream','content-length':stat.size,'cache-control':'no-store'});
-   const stream=fs.createReadStream(file);stream.on('error',()=>response.destroy());stream.pipe(response);
-  }catch(error){response.writeHead(error.code==='ENOENT'?404:500).end(String(error));}
+   const stream=fs.createReadStream(file);
+   stream.on('error',error=>{issue({kind:'read-error',url:request.url,error:String(error),code:error.code??null});response.destroy();});
+   response.on('close',()=>{if(!response.writableFinished)issue({kind:'incomplete-response',url:request.url,expectedBytes:stat.size,readBytes:stream.bytesRead});});stream.pipe(response);
+  }catch(error){issue({kind:'server-error',url:request.url,error:String(error),code:error.code??null});response.writeHead(error.code==='ENOENT'?404:500).end(String(error));}
  });
  await new Promise((resolve,reject)=>{server.once('error',reject);server.listen(0,'127.0.0.1',resolve);});
  return {url:'http://127.0.0.1:'+server.address().port,close:()=>new Promise(resolve=>server.close(resolve))};
 }
-async function browserCapture({directory,width,height,readyTimeout,errors,failedRequests}){
- const server=await serveBundle(directory);let browser,context;
+async function browserCapture({directory,width,height,readyTimeout,networkTimeout=30000,errors,failedRequests,diagnostics={}}){
+ const stage=name=>{diagnostics.stage=name;const history=diagnostics.stageHistory??=[];history.push({stage:name,at:new Date().toISOString()});if(history.length>64)history.shift();};
+ stage('serve-bundle');const server=await serveBundle(directory,diagnostics);let browser,context,page,requests;
+ async function diagnose(error){
+  diagnostics.failingStage??=diagnostics.stage;diagnostics.failure=String(error);diagnostics.activeRequests=requests?.snapshot()??[];
+  if(!page){diagnostics.pageSnapshot={unavailable:'Browser page not created'};return;}
+  try{
+   diagnostics.pageSnapshot=await withDeadline(page.evaluate(()=>({url:location.href,documentReadyState:document.readyState,
+    ready:window.lastLightBay?.ready??false,error:window.lastLightBay?.error??null,build:window.lastLightBay?.build??null,
+    loadingHidden:document.getElementById('loading')?.hidden??null,
+    loadingLabel:document.getElementById('load-label')?.textContent?.slice(0,1024)??null,
+    loadingProgress:document.getElementById('load-progress')?.value??null,
+    visibleError:document.getElementById('error')?.textContent?.slice(0,2048)??null,
+    datasetReady:document.documentElement.dataset.ready??null,
+    canvasSize:document.getElementById('world')?[document.getElementById('world').width,document.getElementById('world').height]:null,
+    recentResources:performance.getEntriesByType('resource').slice(-12).map(value=>({name:value.name,duration:value.duration,responseEnd:value.responseEnd,transferSize:value.transferSize,encodedBodySize:value.encodedBodySize})),
+    glbDelivery:globalThis.__bayCaptureGlbDelivery??null,
+   })),2500,'Failure page snapshot');
+  }catch(snapshotError){diagnostics.pageSnapshot={unavailable:String(snapshotError),url:page.url()};}
+ }
  try{
+  stage('hash-served-glbs');diagnostics.glbInventory=captureGlbManifest(directory);
+  stage('launch-browser');
   const {chromium}=await import('playwright');
   browser=await chromium.launch({executablePath:process.env.BAY_BROWSER_EXECUTABLE,headless:true,timeout:120000,
    args:['--no-sandbox','--disable-dev-shm-usage','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader','--force-color-profile=srgb']});
   context=await browser.newContext({viewport:{width,height},deviceScaleFactor:1,reducedMotion:'reduce'});
-  const page=await context.newPage();page.setDefaultTimeout(0);
+  page=await context.newPage();page.setDefaultTimeout(0);
   page.on('pageerror',error=>errors.push(String(error)));
   page.on('console',message=>{if(message.type()==='error')errors.push(message.text());});
-  page.on('requestfailed',request=>failedRequests.push(request.url()));
-  page.on('response',response=>{if(response.status()>=400)failedRequests.push(response.status()+' '+response.url());});
+  requests=trackCaptureRequests(page,{failedRequests,diagnostics,getStage:()=>diagnostics.closing?'browser-cleanup':diagnostics.stage});
+  stage('install-glb-transport');await page.addInitScript(installCaptureGlbFetch,diagnostics.glbInventory);
+  stage('navigate');
   await page.goto(server.url+'/?capture=1&quality=high',{waitUntil:'load',timeout:120000});
+  stage('scene-readiness');
   await page.waitForFunction(()=>window.lastLightBay?.ready===true||window.lastLightBay?.error,undefined,{timeout:readyTimeout});
+  stage('validate-build');
   const build=await page.evaluate(()=>window.lastLightBay?.build);
   if(build?.production!==true||!/^[a-f0-9]{64}$/.test(build.sourceIdentity??''))throw Error('Loaded page is not a verified production build');
-  const healthy=()=>assertCaptureHealthy(page,errors,failedRequests,build.sourceIdentity);
-  await healthy();await context.setOffline(true);
+  const healthy=async()=>{
+   await assertCaptureHealthy(page,errors,failedRequests,build.sourceIdentity);
+   diagnostics.glbDelivery=await page.evaluate(()=>globalThis.__bayCaptureGlbDelivery??null);
+   if(diagnostics.glbDelivery?.version!==1||diagnostics.glbDelivery.failures.length)throw Error('Capture GLB delivery verification failed: '+JSON.stringify(diagnostics.glbDelivery));
+  };
+  stage('health-before-network-drain');await healthy();
+  // Scene readiness can precede delivery of the browser's requestfinished
+  // events. Do not cut off a still-active request by switching offline early.
+  stage('network-drain');await requests.waitForIdle({timeoutMs:networkTimeout});await healthy();
+  diagnostics.requestsBeforeOffline=requests.snapshot();
+  stage('offline-transition');await context.setOffline(true);
+  stage('health-after-offline');await healthy();
+  stage('graphics-state');
   const graphics=await page.evaluate(()=>{const gl=document.getElementById('world').getContext('webgl2'),extension=gl.getExtension('WEBGL_debug_renderer_info');return{version:gl.getParameter(gl.VERSION),renderer:extension?gl.getParameter(extension.UNMASKED_RENDERER_WEBGL):gl.getParameter(gl.RENDERER),samples:gl.getParameter(gl.SAMPLES)};});
-  return {build,graphics,offlineAfterLoad:true,healthy,
+  return {build,graphics,offlineAfterLoad:true,healthy,diagnose,
    async applySettings(settings){
+    stage('apply-settings');
     validateProfile(settings);
     await page.evaluate(({settings,methods})=>{for(const [key,value]of Object.entries(settings)){const method=methods[key];if(typeof window.lastLightBay[method]!=='function')throw Error('Capture setting unavailable: '+method);window.lastLightBay[method](value);}}, {settings,methods:settingMethods});
     await healthy();
    },
    async renderFrame(entry){
+    stage('frame-health-before');
     await healthy();
+    stage('frame-render-and-png');
     const result=await page.evaluate(async({view})=>{
      const number=Number(view),api=window.lastLightBay;
+     const renderStarted=performance.now();
      const stats=await (Number.isFinite(number)?api.renderAt(number):api.setCamera(String(view)));
+     const renderFinished=performance.now(),exportStarted=performance.now();
      const dataURL=document.getElementById('world').toDataURL('image/png');
+     const exportFinished=performance.now();
      return{stats:{...stats,
+      capturePageMilliseconds:{action:Number.isFinite(number)?'renderAt':'setCamera',render:renderFinished-renderStarted,pngExport:exportFinished-exportStarted},
       ...(typeof api.getShadowStudy==='function'?{shadowStudy:api.getShadowStudy()}:{}),
       ...(typeof api.getLinearMainOutput==='function'?{linearMainOutput:api.getLinearMainOutput()}:{}),
      },dataURL};
     },entry);
-    await healthy();
+    stage('frame-health-after');await healthy();
     if(!result.dataURL.startsWith('data:image/png;base64,'))throw Error('Canvas did not produce a PNG');
     return{stats:result.stats,bytes:Buffer.from(result.dataURL.slice('data:image/png;base64,'.length),'base64')};
    },
-   async close(){try{await context.close();}finally{try{await browser.close();}finally{await server.close();}}},
+   async close(){diagnostics.closing=true;try{await context.close();}finally{try{await browser.close();}finally{requests?.dispose();await server.close();}}},
   };
- }catch(error){try{await context?.close();}finally{try{await browser?.close();}finally{await server.close();}}throw error;}
+ }catch(error){await diagnose(error);diagnostics.closing=true;try{await context?.close();}finally{try{await browser?.close();}finally{requests?.dispose();await server.close();}}throw error;}
 }
 
 function createEncoder(options,spawnEncoder){
@@ -138,7 +184,7 @@ function createEncoder(options,spawnEncoder){
  };
 }
 export async function runProgressCapture(options,{captureFactory=browserCapture,spawnEncoder=spawn,log=console.log}={}){
- const errors=[],failedRequests=[];let capture,encoder,checkpoint,release,stillManifest;
+ const errors=[],failedRequests=[],diagnostics={};let capture,encoder,checkpoint,release,stillManifest;
  const frameState=(stats,expectedIdentity,entry)=>{
   if(stats?.ready!==true||stats.sourceIdentity!==expectedIdentity||stats.quality!=='high'||!Number.isFinite(stats.time))throw Error('Frame is not ready at production high quality');
   if(Number.isFinite(Number(entry.view))&&Math.abs(stats.time-Number(entry.view))>1e-8)throw Error('Absolute frame time mismatch');
@@ -156,7 +202,7 @@ export async function runProgressCapture(options,{captureFactory=browserCapture,
      if(!capture){
       // Await startup completely even if the encoder exits: no orphan browser
       // promise may escape cleanup. Already saved frames remain reusable.
-      capture=await captureFactory({directory:checkpoint.bundle,...options,errors,failedRequests});
+      capture=await captureFactory({directory:checkpoint.bundle,...options,errors,failedRequests,diagnostics});
       checkpoint.bindBuild(capture.build);checkpoint.update({graphics:capture.graphics,offlineAfterLoad:capture.offlineAfterLoad});
       await capture.applySettings(options.contract.profile);
       for(let prior=0;prior<index;prior++)await capture.applySettings(settingsOf(timeline[prior]));
@@ -174,15 +220,15 @@ export async function runProgressCapture(options,{captureFactory=browserCapture,
    await capture?.healthy();const encoded=await encoder.finish();await capture?.healthy();
    if(errors.length||failedRequests.length)throw Error('Capture accumulated browser errors');
    fs.renameSync(encoded,path.join(options.output,'last-light-bay-progress.mp4'));
-   checkpoint.finish({errors,failedRequests});
+   checkpoint.update({diagnostics});checkpoint.finish({errors,failedRequests});
    return{captureSucceeded:true,intermediate:true,output:options.output,frames:checkpoint.manifest.frames.length,reusedFrames:completed};
   }
   release=acquireCaptureLock(options.output);
   const manifestPath=path.join(options.output,'manifest.json');if(fs.existsSync(manifestPath))throw Error('Still output already has a manifest; choose a new output directory');
   const names=options.timeline.map(entry=>entry.label??(Number.isFinite(Number(entry.view))?'flight-'+Number(entry.view).toFixed(3):String(entry.view)));
   if(new Set(names).size!==names.length)throw Error('Still plan would overwrite a frame');
-  stillManifest={kind:'intermediate-progress',startedAt:new Date().toISOString(),width:options.width,height:options.height,frames:[],errors,failedRequests,captureSucceeded:false};writeAtomicJson(manifestPath,stillManifest);
-  capture=await captureFactory({directory:options.dist,...options,errors,failedRequests});
+  stillManifest={kind:'intermediate-progress',startedAt:new Date().toISOString(),width:options.width,height:options.height,frames:[],errors,failedRequests,diagnostics,captureSucceeded:false};writeAtomicJson(manifestPath,stillManifest);
+  capture=await captureFactory({directory:options.dist,...options,errors,failedRequests,diagnostics});
   Object.assign(stillManifest,{build:capture.build,graphics:capture.graphics,offlineAfterLoad:capture.offlineAfterLoad});
   await capture.applySettings(options.profile);
   for(const [index,entry]of options.timeline.entries()){
@@ -196,7 +242,8 @@ export async function runProgressCapture(options,{captureFactory=browserCapture,
   Object.assign(stillManifest,{captureSucceeded:true,finishedAt:new Date().toISOString()});writeAtomicJson(manifestPath,stillManifest);
   return{captureSucceeded:true,intermediate:true,output:options.output,frames:stillManifest.frames.length};
  }catch(error){
-  if(checkpoint)checkpoint.fail(error,{errors,failedRequests});
+  await capture?.diagnose?.(error);diagnostics.failingStage??=diagnostics.stage??'capture-or-encode';diagnostics.failure??=String(error);
+  if(checkpoint){checkpoint.update({diagnostics});checkpoint.fail(error,{errors,failedRequests});}
   if(stillManifest){Object.assign(stillManifest,{captureSucceeded:false,error:String(error),finishedAt:new Date().toISOString()});writeAtomicJson(path.join(options.output,'manifest.json'),stillManifest);}
   throw error;
  }finally{try{await encoder?.close();}finally{try{await capture?.close();}finally{release?.();}}}

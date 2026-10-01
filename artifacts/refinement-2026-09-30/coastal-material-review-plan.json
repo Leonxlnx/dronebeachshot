@@ -1,0 +1,93 @@
+[
+  {
+    "view": 10.5,
+    "label": "shore-sand-1",
+    "lighting": {
+      "exposure": 1.08,
+      "sunIntensity": 4.8,
+      "skyIntensity": 0.48,
+      "environmentIntensity": 0.55,
+      "sunColor": "#ffdfb6",
+      "skyColor": "#a1c9ed",
+      "groundColor": "#365842",
+      "fogDensity": 6.5e-05,
+      "cloudFogDensity": 4e-05
+    },
+    "farCrownCoverage": false,
+    "surfaceStudy": {
+      "mineralRelief": 0,
+      "foamDepthGate": 1,
+      "stoneBedding": 1,
+      "sandRipple": 1,
+      "rockWeathering": 0
+    },
+    "profiling": true
+  },
+  {
+    "view": 10.5,
+    "label": "shore-sand-0",
+    "surfaceStudy": {
+      "sandRipple": 0
+    }
+  },
+  {
+    "view": 10.5,
+    "label": "shore-sand-02",
+    "surfaceStudy": {
+      "sandRipple": 0.2
+    }
+  },
+  {
+    "view": 10.5,
+    "label": "shore-understory-on",
+    "surfaceStudy": {
+      "sandRipple": 1
+    },
+    "coastalUnderstory": true
+  },
+  {
+    "view": 6,
+    "label": "descent-understory-on"
+  },
+  {
+    "view": 6,
+    "label": "descent-understory-off",
+    "coastalUnderstory": false
+  },
+  {
+    "view": "headland",
+    "label": "headland-weathering-0"
+  },
+  {
+    "view": "headland",
+    "label": "headland-weathering-1",
+    "surfaceStudy": {
+      "rockWeathering": 1
+    }
+  },
+  {
+    "view": 10.5,
+    "label": "shore-foam-diagnostic",
+    "surfaceStudy": {
+      "rockWeathering": 0
+    },
+    "debug": 10
+  },
+  {
+    "view": 10.5,
+    "label": "shore-reflection-diagnostic",
+    "debug": 6
+  },
+  {
+    "view": 10.5,
+    "label": "shore-normal-sand-1",
+    "debug": 2
+  },
+  {
+    "view": 10.5,
+    "label": "shore-normal-sand-0",
+    "surfaceStudy": {
+      "sandRipple": 0
+    }
+  }
+]

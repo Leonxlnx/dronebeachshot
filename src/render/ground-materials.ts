@@ -6,15 +6,24 @@ import {habitatGLSL,habitatUniform} from '../world/habitat';
 // Recovered accepted source-calibrated controls; relief stays disabled after review.
 export const mineralReliefStrength={value:0};
 export const stoneBeddingAligned={value:1};
+// Reversible art studies: source texture grain remains unchanged.
+export const sandRippleStrength={value:1};
+export const rockWeatheringStrength={value:0};
 const projection=`
 // A dry, exposed fracture reveals lighter mineral grain. Preserve the scan's
 // variation and leave low coastal/weathered rock unchanged; this is albedo,
 // so the material still responds to the same sunlight, sky fill and shadows.
-vec3 bedrockAlbedo(vec3 stone,vec3 p,vec3 n){
+vec3 bedrockAlbedo(vec3 stone,vec3 p,vec3 n,vec4 site){
  float fresh=smoothstep(15.,65.,p.y)*(1.-smoothstep(.72,.96,abs(n.y)));
  float gray=dot(stone,vec3(.2126,.7152,.0722));
  vec3 mineral=min(mix(stone,vec3(gray),.28)*mix(vec3(.94,.96,.98),vec3(1.07,1.035,.99),fbm(p.xz*.012+p.y*.009)),vec3(.65));
- return mix(stone,mineral,fresh);
+ vec3 result=mix(stone,mineral,fresh);
+ // Existing terrain moisture includes measured local hollows and upwind shelter.
+ // Restrict weathered mineral to elevated, sheltered faces. This changes albedo,
+ // not normals, shadow visibility, source alpha or the sun contribution.
+ float retention=smoothstep(.47,.68,site.g)*(1.-smoothstep(.38,.8,site.r));
+ float patch=retention*smoothstep(8.,35.,p.y)*(1.-smoothstep(.65,.96,abs(n.y)))*uRockWeathering;
+ return result*mix(vec3(1.),vec3(.79,.83,.86),patch);
 }
 
 // Three deterministic source phases remove coherent tile repetition. Matching
@@ -67,9 +76,9 @@ function attachWorld(shader:THREE.WebGLProgramParametersWithUniforms){
 export function createGroundMaterial(t:Textures){
  const material=new THREE.MeshStandardMaterial({color:0xffffff,roughness:1,vertexColors:true});
  material.onBeforeCompile=shader=>{
-  attachWorld(shader);Object.assign(shader.uniforms,{uHabitat:habitatUniform,uTime:worldTime,uMineralRelief:mineralReliefStrength,uStoneBeddingAligned:stoneBeddingAligned,uDebug:debugMode,uRock:{value:t.rock},uRockN:{value:t.rockNormal},uRockARM:{value:t.rockARM},uSand:{value:t.sand},uSandN:{value:t.sandNormal},uSandARM:{value:t.sandARM},uSoil:{value:t.soil},uSoilN:{value:t.soilNormal},uSoilARM:{value:t.soilARM},uMoss:{value:t.moss},uMossN:{value:t.mossNormal},uMossARM:{value:t.mossARM}});
+  attachWorld(shader);Object.assign(shader.uniforms,{uHabitat:habitatUniform,uTime:worldTime,uMineralRelief:mineralReliefStrength,uStoneBeddingAligned:stoneBeddingAligned,uSandRipple:sandRippleStrength,uRockWeathering:rockWeatheringStrength,uDebug:debugMode,uRock:{value:t.rock},uRockN:{value:t.rockNormal},uRockARM:{value:t.rockARM},uSand:{value:t.sand},uSandN:{value:t.sandNormal},uSandARM:{value:t.sandARM},uSoil:{value:t.soil},uSoilN:{value:t.soilNormal},uSoilARM:{value:t.soilARM},uMoss:{value:t.moss},uMossN:{value:t.mossNormal},uMossARM:{value:t.mossARM}});
   shader.fragmentShader=shader.fragmentShader.replace('#include <common>',`#include <common>
- varying vec3 vGroundWorld,vGroundNormal;uniform float uTime,uMineralRelief,uStoneBeddingAligned;uniform float uDebug;
+ varying vec3 vGroundWorld,vGroundNormal;uniform float uTime,uMineralRelief,uStoneBeddingAligned,uSandRipple,uRockWeathering;uniform float uDebug;
  uniform sampler2D uRock,uRockN,uRockARM,uSand,uSandN,uSandARM,uSoil,uSoilN,uSoilARM,uMoss,uMossN,uMossARM;
  ${noiseGLSL}${shorelineGLSL}${coastalGLSL}${habitatGLSL}${projection}`)
   .replace('#include <map_fragment>',`#include <map_fragment>
@@ -81,7 +90,7 @@ export function createGroundMaterial(t:Textures){
  float canopyShelter=smoothstep(.08,.75,habitat.a),retainedSoil=soilSupport*(.25+.75*canopyShelter);
  cliff*=1.-.72*retainedSoil*(1.-sediment);
  float moss=patches*moisture*(.55+.45*habitat.a)*soilSupport*(1.-sediment);
- vec3 stone=bedrockAlbedo(triStone(uRock,gp/5.7483,gn),gp,gn),soil=triSample(uSoil,gp*.5,gn),living=triSample(uMoss,gp/3.,gn),sand=texture2D(uSand,gp.xz*.5).rgb;
+ vec3 stone=bedrockAlbedo(triStone(uRock,gp/5.7483,gn),gp,gn,habitat),soil=triSample(uSoil,gp*.5,gn),living=triSample(uMoss,gp/3.,gn),sand=texture2D(uSand,gp.xz*.5).rgb;
  // Calibrated pale sediment retains the scan's relative grain variation.
  // This changes substrate albedo; sunset lighting and wetness remain separate.
  float sandLuminance=dot(sand,vec3(.2126,.7152,.0722));
@@ -111,25 +120,26 @@ export function createGroundMaterial(t:Textures){
   detail+=mineral*uMineralRelief*cliff*(1.-sediment)*(1.-moss*.76)*(1.-wet)*smoothstep(.3,2.,gp.y);
  }
  // Fine tidal ripples affect the normal, not metres of geometry displacement.
- float ripple=cos(d*7.5+sin(gp.x*.09)*2.2+noise(gp.xz*.14)*1.4)*.035*sediment*(1.-smoothstep(5.,24.,d));vec2 inland=coastNormal(gp.x);detail+=vec3(inland.x,0.,inland.y)*ripple;
+ float ripple=cos(d*7.5+sin(gp.x*.09)*2.2+noise(gp.xz*.14)*1.4)*.035*uSandRipple*sediment*(1.-smoothstep(5.,24.,d));vec2 inland=coastNormal(gp.x);detail+=vec3(inland.x,0.,inland.y)*ripple;
  vec3 detailed=normalize(gn+(detail-gn*dot(gn,detail))*.38);normal=normalize(mat3(viewMatrix)*detailed);`)
   .replace('#include <aomap_fragment>',`#include <aomap_fragment>
  reflectedLight.indirectDiffuse*=mix(.72,1.,surfaceARM.r);`)
   .replace('#include <opaque_fragment>',`#include <opaque_fragment>
  if(uDebug==9.)gl_FragColor.rgb=vec3(clamp(d/100.,0.,1.));if(uDebug==12.)gl_FragColor.rgb=mix(vec3(.06,.12,.4),vec3(.3,.9,.18),habitat.a);`);
  };
- material.customProgramCacheKey=()=> 'soil-rock-moss-sediment-v15-recovered-bedding';return material;
+ material.customProgramCacheKey=()=> 'soil-rock-moss-sediment-v16-weathering-study';return material;
 }
 export function createRockMaterial(t:Textures){
  const material=new THREE.MeshStandardMaterial({color:0xffffff,roughness:.86});
  material.onBeforeCompile=shader=>{
-  attachWorld(shader);Object.assign(shader.uniforms,{uHabitat:habitatUniform,uTime:worldTime,uMineralRelief:mineralReliefStrength,uStoneBeddingAligned:stoneBeddingAligned,uRock:{value:t.rock},uRockN:{value:t.rockNormal},uRockARM:{value:t.rockARM},uMoss:{value:t.moss},uMossN:{value:t.mossNormal},uMossARM:{value:t.mossARM}});
+  attachWorld(shader);Object.assign(shader.uniforms,{uHabitat:habitatUniform,uTime:worldTime,uMineralRelief:mineralReliefStrength,uStoneBeddingAligned:stoneBeddingAligned,uSandRipple:sandRippleStrength,uRockWeathering:rockWeatheringStrength,uRock:{value:t.rock},uRockN:{value:t.rockNormal},uRockARM:{value:t.rockARM},uMoss:{value:t.moss},uMossN:{value:t.mossNormal},uMossARM:{value:t.mossARM}});
   shader.fragmentShader=shader.fragmentShader.replace('#include <common>',`#include <common>
- varying vec3 vGroundWorld,vGroundNormal;uniform float uTime,uMineralRelief,uStoneBeddingAligned;uniform sampler2D uRock,uRockN,uRockARM,uMoss,uMossN,uMossARM;${noiseGLSL}${shorelineGLSL}${coastalGLSL}${habitatGLSL}${projection}`)
+ varying vec3 vGroundWorld,vGroundNormal;uniform float uTime,uMineralRelief,uStoneBeddingAligned,uSandRipple,uRockWeathering;uniform sampler2D uRock,uRockN,uRockARM,uMoss,uMossN,uMossARM;${noiseGLSL}${shorelineGLSL}${coastalGLSL}${habitatGLSL}${projection}`)
   .replace('#include <map_fragment>',`#include <map_fragment>
  vec3 gp=vGroundWorld,gn=normalize(vGroundNormal);float d=shoreDist(gp.xz);float splash=1.-smoothstep(.3,1.9,gp.y);float shoreWet=sandWetness(gp.x,d,uTime);float wet=splash*shoreWet;
  float moss=smoothstep(.35,.9,gn.y)*smoothstep(9.,35.,d)*(1.-smoothstep(60.,140.,gp.y))*smoothstep(.48,.68,fbm(gp.xz*.32));
- vec3 stone=bedrockAlbedo(triStone(uRock,gp/5.7483,gn),gp,gn),living=triSample(uMoss,gp/3.,gn);float grain=.94+.12*noise(gp.xz*.045);
+ vec4 habitat=vec4(0.);if(uRockWeathering>0.)habitat=habitatAt(gp.xz);
+ vec3 stone=bedrockAlbedo(triStone(uRock,gp/5.7483,gn),gp,gn,habitat),living=triSample(uMoss,gp/3.,gn);float grain=.94+.12*noise(gp.xz*.045);
  diffuseColor.rgb*=mix(stone,living,moss*.82)*grain*mix(1.,.64,wet);
  vec3 rockARM=mix(triStone(uRockARM,gp/5.7483,gn),triSample(uMossARM,gp/3.,gn),moss*.82);`)
   .replace('#include <roughnessmap_fragment>',`#include <roughnessmap_fragment>
@@ -140,5 +150,5 @@ export function createRockMaterial(t:Textures){
  normal=normalize(mat3(viewMatrix)*normalize(gn+(detail-gn*dot(gn,detail))*.45));`)
   .replace('#include <aomap_fragment>','#include <aomap_fragment>\nreflectedLight.indirectDiffuse*=mix(.72,1.,rockARM.r);');
  };
- material.customProgramCacheKey=()=> 'world-rock-wet-moss-v12-recovered-bedding';return material;
+ material.customProgramCacheKey=()=> 'world-rock-wet-moss-v13-weathering-study';return material;
 }

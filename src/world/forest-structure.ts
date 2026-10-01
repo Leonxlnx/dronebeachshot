@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { rng, noise, terrainSlope, shoreDistance } from './math';
+import { rng, noise, terrainSlope, shoreDistance, shoreZ } from './math';
 import { habitatAt } from './habitat';
 import { renderedTerrainHeight } from './terrain-surface';
 import { pathPosition } from '../camera/cinematic';
@@ -16,6 +16,8 @@ const SEED = 607193;
 const SHRUB_TARGET = 420;
 const SNAG_TARGET = 24;
 const TAU = Math.PI * 2;
+export const COASTAL_SHRUB_SAMPLING_STUDY_ENABLED = false;
+export type ForestStructureOptions = { coastalSampling?: boolean };
 
 type Habitat = ReturnType<typeof habitatAt>;
 type Kind = 'shrub' | 'snag';
@@ -33,6 +35,7 @@ export type ForestStructureStats = {
   drawCalls: number; instancedTriangles: number; sourceTriangles: number;
   routeRejected: number; spacingRejected: number;
   shrubAttempts: number; snagAttempts: number; placementSignature: string;
+  coastalSampling: boolean; coastalAttempts: number; coastalShrubs: number;
   buildMilliseconds: number; maxShrubHeight: number; maxSnagHeight: number;
 };
 
@@ -206,7 +209,7 @@ function snagShape(variant: number): Shape {
   return bounds(wood.finish(), cuts.finish());
 }
 
-export function createForestStructure(textures: Textures, liveTrees:readonly {x:number,z:number,scale:number}[]=[]): { group: THREE.Group; stats: ForestStructureStats } {
+export function createForestStructure(textures: Textures, liveTrees:readonly {x:number,z:number,scale:number}[]=[], options:ForestStructureOptions={}): { group: THREE.Group; stats: ForestStructureStats } {
   const started = performance.now(), group = new THREE.Group();
   group.name = 'habitat-shrubs-and-standing-snags';
   const random = rng(SEED), shrubShapes = Array.from({ length: 4 }, (_, i) => shrubShape(i));
@@ -214,9 +217,11 @@ export function createForestStructure(textures: Textures, liveTrees:readonly {x:
   // Same 20-second route and 1/30-second sampling convention used by ecology.ts.
   const flight = Array.from({ length: 601 }, (_, i) => pathPosition(i / 30));
   const placements: PlantPlacement[] = [];
+  const coastalSampling = options.coastalSampling ?? COASTAL_SHRUB_SAMPLING_STUDY_ENABLED;
   const stats: ForestStructureStats = { seed: SEED, shrubs: 0, snags: 0, leafSurfaces: 0,
     drawCalls: 0, instancedTriangles: 0, sourceTriangles: 0, routeRejected: 0, spacingRejected: 0,
-    shrubAttempts: 0, snagAttempts: 0, placementSignature: '', buildMilliseconds: 0, maxShrubHeight: 0, maxSnagHeight: 0 };
+    shrubAttempts: 0, snagAttempts: 0, placementSignature: '', coastalSampling, coastalAttempts: 0, coastalShrubs: 0,
+    buildMilliseconds: 0, maxShrubHeight: 0, maxSnagHeight: 0 };
 
   const trunkCells=new Map<string,{x:number,z:number,scale:number}[]>();
   for(const tree of liveTrees){const key=Math.floor(tree.x/16)+','+Math.floor(tree.z/16);const list=trunkCells.get(key)||[];list.push(tree);trunkCells.set(key,list)}
@@ -227,7 +232,7 @@ export function createForestStructure(textures: Textures, liveTrees:readonly {x:
     }
     return false;
   }
-  function place(kind: Kind, x: number, z: number, habitat: Habitat, variant: number, scale: number): boolean {
+  function place(kind: Kind, x: number, z: number, habitat: Habitat, variant: number, scale: number, rotationRandom=random): boolean {
     if(liveTrunkTooClose(x,z,kind)){stats.spacingRejected++;return false}
     const shape = kind === 'shrub' ? shrubShapes[variant] : snagShapes[variant];
     const y = renderedTerrainHeight(x, z) - 0.055;
@@ -240,7 +245,7 @@ export function createForestStructure(textures: Textures, liveTrees:readonly {x:
         kind !== p.kind ? 1.5 + radius + p.radius : (radius + p.radius) * 0.78;
       return Math.hypot(p.x - x, p.z - z) < separation;
     })) { stats.spacingRejected++; return false; }
-    placements.push({ kind, variant, x, y, z, angle: random() * TAU, scale, radius, height,
+    placements.push({ kind, variant, x, y, z, angle: rotationRandom() * TAU, scale, radius, height,
       moisture: habitat.moisture, exposure: habitat.exposure, soil: habitat.soil });
     return true;
   }
@@ -256,17 +261,43 @@ export function createForestStructure(textures: Textures, liveTrees:readonly {x:
     const variant = Math.floor(random() * snagShapes.length), scale = 0.76 + random() * 0.39;
     if (place('snag', x, z, habitat, variant, scale)) stats.snags++;
   }
-  for (let i = 0; i < 30000 && stats.shrubs < SHRUB_TARGET; i++) {
+  function tryShrub(x:number,z:number,candidateRandom:()=>number){
     stats.shrubAttempts++;
-    const x = (random() - 0.5) * 980, z = -135 + random() * 820, d = shoreDistance(x, z);
-    if (d < 31 || d > 260 || terrainSlope(x, z) > 0.82) continue;
+    const d = shoreDistance(x, z);
+    if (d < 31 || d > 260 || terrainSlope(x, z) > 0.82) return false;
     const habitat = habitatAt(x, z), clump = noise(x * 0.033 + 29, z * 0.033 - 14);
-    if (habitat.soil < 0.28 || habitat.moisture < 0.38 || clump < 0.40) continue;
+    if (habitat.soil < 0.28 || habitat.moisture < 0.38 || clump < 0.40) return false;
     const density = (0.18 + habitat.soil * 0.43 + habitat.moisture * 0.31) * (0.88 - habitat.canopy * 0.27);
-    if (random() > density) continue;
-    const variant = Math.floor(random() * shrubShapes.length);
-    const scale = (0.72 + random() * 0.65) * (1 - habitat.exposure * 0.24);
-    if (place('shrub', x, z, habitat, variant, scale)) stats.shrubs++;
+    if (candidateRandom() > density) return false;
+    const variant = Math.floor(candidateRandom() * shrubShapes.length);
+    const scale = (0.72 + candidateRandom() * 0.65) * (1 - habitat.exposure * 0.24);
+    if (!place('shrub', x, z, habitat, variant, scale, candidateRandom)) return false;
+    stats.shrubs++;return true;
+  }
+  for (let i = 0; i < 30000 && stats.shrubs < SHRUB_TARGET; i++) {
+    const x = (random() - 0.5) * 980, z = -135 + random() * 820;
+    tryShrub(x,z,random);
+  }
+  if(coastalSampling&&stats.shrubs<SHRUB_TARGET){
+    // Fill only unused capacity in the same meshes. The original random cohort
+    // remains exact; a separate stream visits each 2 m coastal stratum once.
+    // Shuffle first so hitting the cap cannot privilege a traversal direction.
+    const coastalRandom=rng(SEED+80137),columns=490,rows=32;
+    const order=Uint16Array.from({length:columns*rows},(_,index)=>index);
+    for(let i=order.length-1;i>0;i--){const j=Math.floor(coastalRandom()*(i+1)),swap=order[i];order[i]=order[j];order[j]=swap}
+    // Central bay first: distant outer shores otherwise fill the spare cap
+    // before narrow bay pockets are visited. Keep shuffled order within both
+    // regions; this priority is geographic and independent of camera framing.
+    const central=(cell:number)=>{const x=-490+(cell%columns+.5)*2;return x>=-200&&x<=200?0:1};
+    order.sort((a,b)=>central(a)-central(b));
+    for(const cell of order){
+      if(stats.shrubs>=SHRUB_TARGET)break;
+      const x=-490+(cell%columns+coastalRandom())*2;
+      const distance=31+(Math.floor(cell/columns)+coastalRandom())*2;
+      const shore=shoreZ(x),z=shore+distance/shoreDistance(x,shore+1);
+      stats.coastalAttempts++;
+      if(tryShrub(x,z,coastalRandom))stats.coastalShrubs++;
+    }
   }
 
   const shrubWood = windMaterial(0xffffff, true, textures); shrubWood.vertexColors = true;

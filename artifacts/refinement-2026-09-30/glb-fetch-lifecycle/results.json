@@ -1,0 +1,4719 @@
+{
+  "expected": {
+    "/assets/models/island-tree-far.glb": {
+      "sizeBytes": 1304260,
+      "sha256": "ac2213e39b8bfee6d5fe5d46d99486de24cf60efa93905d9c9f2b4c92ad2dc4a"
+    },
+    "/assets/models/island-tree-hero.glb": {
+      "sizeBytes": 3950040,
+      "sha256": "8d892e4a572bb30804aecc3a88adb57e92b852220ccf8f59068f400cf6713a5b"
+    },
+    "/assets/models/island-tree-medium.glb": {
+      "sizeBytes": 1739460,
+      "sha256": "2c210426ac4e761261b6c4dfc8c250fedd72ca1787de918abc965d4d3f32be64"
+    },
+    "/assets/models/island-tree-near.glb": {
+      "sizeBytes": 13299192,
+      "sha256": "c81e6ece28b7646aa59f2c2c68142619b2790d0db62c5d829278fec92e4373d7"
+    },
+    "/assets/models/palm-tree.glb": {
+      "sizeBytes": 490580,
+      "sha256": "5e3f42cc9bd4a52d1e4249184fc8cba7bf87acf91b1403711115acaa7f2ca0f6"
+    },
+    "/assets/models/syringa-tree-far.glb": {
+      "sizeBytes": 2048168,
+      "sha256": "e0ed4e55345c21765804531340a285c2d10dddcb21f2a690fbb77cbfbd659523"
+    },
+    "/assets/models/syringa-tree-hero.glb": {
+      "sizeBytes": 3114880,
+      "sha256": "df11a6b9f0a2bf51b8ffd5bb12e4a18a864b47d767177cd53ad263996d8a5f2f"
+    },
+    "/assets/models/syringa-tree-medium.glb": {
+      "sizeBytes": 2254268,
+      "sha256": "c4ef49e31bf9fb6565ccfdfa7dfa05b84ca6a9054401f2362c81c6f2538770de"
+    },
+    "/assets/models/syringa-tree-near.glb": {
+      "sizeBytes": 38586500,
+      "sha256": "cb794443092f8b4b7b257c4d86f42e6f2b0ec91a2f95d2d3f34043f0a3b49b07"
+    },
+    "/assets/rocks/rock_moss_set_01_2k.glb": {
+      "sizeBytes": 3256512,
+      "sha256": "864ece45cf6cafeb7fab5ab65704b1810622ba411da2026ebad847a0a08eab2f"
+    }
+  },
+  "conditions": "Actual Three 185 GLTFLoader, four production GLBs, three rounds; rounds 1/2 request GC during progress, no renderer/canvas/WebGL created",
+  "modes": [
+    {
+      "buffered": false,
+      "elapsedMilliseconds": 2174,
+      "threeRevision": "185",
+      "rows": [
+        {
+          "name": "island-tree-hero.glb",
+          "round": 0,
+          "meshes": 3,
+          "vertices": 73978,
+          "triangles": 34418,
+          "jsonSha256": "df339dd3d2812fc228cb7a4e3f572bb9d3fdcf9cdb41a85392147e652685d53b",
+          "images": [
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ]
+          ],
+          "gcCalls": 0
+        },
+        {
+          "name": "island-tree-medium.glb",
+          "round": 0,
+          "meshes": 3,
+          "vertices": 14982,
+          "triangles": 6636,
+          "jsonSha256": "81ed3b6acecfa47356a46c67081f50af184332ba1512e6044f11411bedb0e04e",
+          "images": [
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ]
+          ],
+          "gcCalls": 0
+        },
+        {
+          "name": "syringa-tree-near.glb",
+          "round": 0,
+          "meshes": 3,
+          "vertices": 709651,
+          "triangles": 689139,
+          "jsonSha256": "e97876206f8e57bbced4a8e4255bd75e525204b7b12dea2a204fb7f5f4088e50",
+          "images": [
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ]
+          ],
+          "gcCalls": 0
+        },
+        {
+          "name": "palm-tree.glb",
+          "round": 0,
+          "meshes": 1,
+          "vertices": 743,
+          "triangles": 1032,
+          "jsonSha256": "467340930f6a4e73a1821a28a1592b913187a9e27840944209012f9743f6b56a",
+          "images": [
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ]
+          ],
+          "gcCalls": 0
+        },
+        {
+          "name": "island-tree-hero.glb",
+          "round": 1,
+          "meshes": 3,
+          "vertices": 73978,
+          "triangles": 34418,
+          "jsonSha256": "df339dd3d2812fc228cb7a4e3f572bb9d3fdcf9cdb41a85392147e652685d53b",
+          "images": [
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ]
+          ],
+          "gcCalls": 1
+        },
+        {
+          "name": "island-tree-medium.glb",
+          "round": 1,
+          "meshes": 3,
+          "vertices": 14982,
+          "triangles": 6636,
+          "jsonSha256": "81ed3b6acecfa47356a46c67081f50af184332ba1512e6044f11411bedb0e04e",
+          "images": [
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ]
+          ],
+          "gcCalls": 1
+        },
+        {
+          "name": "syringa-tree-near.glb",
+          "round": 1,
+          "meshes": 3,
+          "vertices": 709651,
+          "triangles": 689139,
+          "jsonSha256": "e97876206f8e57bbced4a8e4255bd75e525204b7b12dea2a204fb7f5f4088e50",
+          "images": [
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ]
+          ],
+          "gcCalls": 3
+        },
+        {
+          "name": "palm-tree.glb",
+          "round": 1,
+          "meshes": 1,
+          "vertices": 743,
+          "triangles": 1032,
+          "jsonSha256": "467340930f6a4e73a1821a28a1592b913187a9e27840944209012f9743f6b56a",
+          "images": [
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ]
+          ],
+          "gcCalls": 1
+        },
+        {
+          "name": "island-tree-hero.glb",
+          "round": 2,
+          "meshes": 3,
+          "vertices": 73978,
+          "triangles": 34418,
+          "jsonSha256": "df339dd3d2812fc228cb7a4e3f572bb9d3fdcf9cdb41a85392147e652685d53b",
+          "images": [
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ]
+          ],
+          "gcCalls": 1
+        },
+        {
+          "name": "island-tree-medium.glb",
+          "round": 2,
+          "meshes": 3,
+          "vertices": 14982,
+          "triangles": 6636,
+          "jsonSha256": "81ed3b6acecfa47356a46c67081f50af184332ba1512e6044f11411bedb0e04e",
+          "images": [
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ]
+          ],
+          "gcCalls": 1
+        },
+        {
+          "name": "syringa-tree-near.glb",
+          "round": 2,
+          "meshes": 3,
+          "vertices": 709651,
+          "triangles": 689139,
+          "jsonSha256": "e97876206f8e57bbced4a8e4255bd75e525204b7b12dea2a204fb7f5f4088e50",
+          "images": [
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ]
+          ],
+          "gcCalls": 2
+        },
+        {
+          "name": "palm-tree.glb",
+          "round": 2,
+          "meshes": 1,
+          "vertices": 743,
+          "triangles": 1032,
+          "jsonSha256": "467340930f6a4e73a1821a28a1592b913187a9e27840944209012f9743f6b56a",
+          "images": [
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ]
+          ],
+          "gcCalls": 1
+        }
+      ],
+      "webglContexts": 0,
+      "canvasElements": 0,
+      "gcExposed": true,
+      "delivery": null,
+      "failedRequests": [],
+      "errors": [],
+      "consoleErrors": [],
+      "diagnostics": {
+        "networkEvents": [
+          {
+            "event": "finished",
+            "id": 25,
+            "url": "blob:http://127.0.0.1:37741/a2319eb1-219a-4ea3-938e-60588b567796",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:00.839Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "61012",
+            "finishedAt": "2026-10-01T04:58:00.854Z"
+          },
+          {
+            "event": "finished",
+            "id": 26,
+            "url": "blob:http://127.0.0.1:37741/e4a5f73c-d0af-452b-80a3-9ef64cb99f64",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:00.839Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "183204",
+            "finishedAt": "2026-10-01T04:58:00.854Z"
+          },
+          {
+            "event": "request",
+            "id": 27,
+            "url": "http://127.0.0.1:37741/assets/models/syringa-tree-near.glb?round=0",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:00.933Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "finished",
+            "id": 27,
+            "url": "http://127.0.0.1:37741/assets/models/syringa-tree-near.glb?round=0",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:00.933Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "38586500",
+            "finishedAt": "2026-10-01T04:58:01.231Z"
+          },
+          {
+            "event": "request",
+            "id": 28,
+            "url": "blob:http://127.0.0.1:37741/82df546d-3cf2-4e07-9954-22d94e1760c4",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.384Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 29,
+            "url": "blob:http://127.0.0.1:37741/1806c3e4-5046-4b4e-b390-1500f8e8bcb8",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.384Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 30,
+            "url": "blob:http://127.0.0.1:37741/f7436845-9775-44bf-8e4e-fc7cc66c1420",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.384Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 31,
+            "url": "blob:http://127.0.0.1:37741/abfa981c-26b2-4462-9b8d-864aa18cf61f",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.385Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 32,
+            "url": "blob:http://127.0.0.1:37741/31e05737-a7b7-483a-b663-b6264f2b56ab",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.385Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 33,
+            "url": "blob:http://127.0.0.1:37741/d4db2465-0a2c-4559-8eb5-9b87930caf71",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.385Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 34,
+            "url": "blob:http://127.0.0.1:37741/beb953a5-5c12-4ac0-8c9f-b23022d38740",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.385Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 35,
+            "url": "blob:http://127.0.0.1:37741/245d5779-7abf-475e-9dab-a04be299c2ed",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.385Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 36,
+            "url": "blob:http://127.0.0.1:37741/87e429e3-1d8d-4382-bc1f-f56efadf3db6",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.385Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "finished",
+            "id": 28,
+            "url": "blob:http://127.0.0.1:37741/82df546d-3cf2-4e07-9954-22d94e1760c4",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.384Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "449977",
+            "finishedAt": "2026-10-01T04:58:01.427Z"
+          },
+          {
+            "event": "finished",
+            "id": 29,
+            "url": "blob:http://127.0.0.1:37741/1806c3e4-5046-4b4e-b390-1500f8e8bcb8",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.384Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "375732",
+            "finishedAt": "2026-10-01T04:58:01.427Z"
+          },
+          {
+            "event": "finished",
+            "id": 30,
+            "url": "blob:http://127.0.0.1:37741/f7436845-9775-44bf-8e4e-fc7cc66c1420",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.384Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "581596",
+            "finishedAt": "2026-10-01T04:58:01.429Z"
+          },
+          {
+            "event": "finished",
+            "id": 32,
+            "url": "blob:http://127.0.0.1:37741/31e05737-a7b7-483a-b663-b6264f2b56ab",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.385Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "633698",
+            "finishedAt": "2026-10-01T04:58:01.430Z"
+          },
+          {
+            "event": "finished",
+            "id": 33,
+            "url": "blob:http://127.0.0.1:37741/d4db2465-0a2c-4559-8eb5-9b87930caf71",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.385Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "681604",
+            "finishedAt": "2026-10-01T04:58:01.436Z"
+          },
+          {
+            "event": "finished",
+            "id": 35,
+            "url": "blob:http://127.0.0.1:37741/245d5779-7abf-475e-9dab-a04be299c2ed",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.385Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "708242",
+            "finishedAt": "2026-10-01T04:58:01.436Z"
+          },
+          {
+            "event": "finished",
+            "id": 34,
+            "url": "blob:http://127.0.0.1:37741/beb953a5-5c12-4ac0-8c9f-b23022d38740",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.385Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "863246",
+            "finishedAt": "2026-10-01T04:58:01.440Z"
+          },
+          {
+            "event": "finished",
+            "id": 36,
+            "url": "blob:http://127.0.0.1:37741/87e429e3-1d8d-4382-bc1f-f56efadf3db6",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.385Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "1228646",
+            "finishedAt": "2026-10-01T04:58:01.442Z"
+          },
+          {
+            "event": "finished",
+            "id": 31,
+            "url": "blob:http://127.0.0.1:37741/abfa981c-26b2-4462-9b8d-864aa18cf61f",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.385Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "2338424",
+            "finishedAt": "2026-10-01T04:58:01.449Z"
+          },
+          {
+            "event": "request",
+            "id": 37,
+            "url": "http://127.0.0.1:37741/assets/models/palm-tree.glb?round=0",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.499Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "finished",
+            "id": 37,
+            "url": "http://127.0.0.1:37741/assets/models/palm-tree.glb?round=0",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.499Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "490580",
+            "finishedAt": "2026-10-01T04:58:01.506Z"
+          },
+          {
+            "event": "request",
+            "id": 38,
+            "url": "blob:http://127.0.0.1:37741/cf91811a-804d-4ef3-ad4c-3dd918ff3c52",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.511Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 39,
+            "url": "blob:http://127.0.0.1:37741/46766f91-7362-4993-95cf-76effa199828",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.511Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "finished",
+            "id": 38,
+            "url": "blob:http://127.0.0.1:37741/cf91811a-804d-4ef3-ad4c-3dd918ff3c52",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.511Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "243362",
+            "finishedAt": "2026-10-01T04:58:01.514Z"
+          },
+          {
+            "event": "finished",
+            "id": 39,
+            "url": "blob:http://127.0.0.1:37741/46766f91-7362-4993-95cf-76effa199828",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.511Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "215552",
+            "finishedAt": "2026-10-01T04:58:01.516Z"
+          },
+          {
+            "event": "request",
+            "id": 40,
+            "url": "http://127.0.0.1:37741/assets/models/island-tree-hero.glb?round=1",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.576Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "finished",
+            "id": 40,
+            "url": "http://127.0.0.1:37741/assets/models/island-tree-hero.glb?round=1",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.576Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "3950040",
+            "finishedAt": "2026-10-01T04:58:01.603Z"
+          },
+          {
+            "event": "request",
+            "id": 41,
+            "url": "blob:http://127.0.0.1:37741/d64655b5-edf2-4b6b-8321-99af5f9477f1",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.618Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 42,
+            "url": "blob:http://127.0.0.1:37741/6e439740-3639-4115-90a1-5e4ea21d1d48",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.619Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 43,
+            "url": "blob:http://127.0.0.1:37741/e766d174-a3a7-42ee-bbbf-3031ccce2e76",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.619Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 44,
+            "url": "blob:http://127.0.0.1:37741/770931e5-c4cb-4a81-853a-55b187b6b15d",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.619Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 45,
+            "url": "blob:http://127.0.0.1:37741/ee51fe67-7621-49c0-ba5c-f5595ebce5f6",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.620Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 46,
+            "url": "blob:http://127.0.0.1:37741/39905337-f9b2-49f6-a59a-ecdbfc2afe97",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.620Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 47,
+            "url": "blob:http://127.0.0.1:37741/e68bc3f9-e1ab-4ad4-a521-03bfc548f8b3",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.620Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 48,
+            "url": "blob:http://127.0.0.1:37741/5b4e9f9c-7f92-48fb-98e4-d3c5bef481db",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.620Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 49,
+            "url": "blob:http://127.0.0.1:37741/a46454d0-f504-4012-9808-fb72e368f5cb",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.620Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "finished",
+            "id": 44,
+            "url": "blob:http://127.0.0.1:37741/770931e5-c4cb-4a81-853a-55b187b6b15d",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.619Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "55458",
+            "finishedAt": "2026-10-01T04:58:01.621Z"
+          },
+          {
+            "event": "finished",
+            "id": 42,
+            "url": "blob:http://127.0.0.1:37741/6e439740-3639-4115-90a1-5e4ea21d1d48",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.619Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "111706",
+            "finishedAt": "2026-10-01T04:58:01.621Z"
+          },
+          {
+            "event": "finished",
+            "id": 41,
+            "url": "blob:http://127.0.0.1:37741/d64655b5-edf2-4b6b-8321-99af5f9477f1",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.618Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "199346",
+            "finishedAt": "2026-10-01T04:58:01.621Z"
+          },
+          {
+            "event": "finished",
+            "id": 46,
+            "url": "blob:http://127.0.0.1:37741/39905337-f9b2-49f6-a59a-ecdbfc2afe97",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.620Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "52896",
+            "finishedAt": "2026-10-01T04:58:01.621Z"
+          },
+          {
+            "event": "finished",
+            "id": 45,
+            "url": "blob:http://127.0.0.1:37741/ee51fe67-7621-49c0-ba5c-f5595ebce5f6",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.620Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "82018",
+            "finishedAt": "2026-10-01T04:58:01.622Z"
+          },
+          {
+            "event": "finished",
+            "id": 47,
+            "url": "blob:http://127.0.0.1:37741/e68bc3f9-e1ab-4ad4-a521-03bfc548f8b3",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.620Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "110660",
+            "finishedAt": "2026-10-01T04:58:01.622Z"
+          },
+          {
+            "event": "finished",
+            "id": 43,
+            "url": "blob:http://127.0.0.1:37741/e766d174-a3a7-42ee-bbbf-3031ccce2e76",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.619Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "358506",
+            "finishedAt": "2026-10-01T04:58:01.624Z"
+          },
+          {
+            "event": "finished",
+            "id": 48,
+            "url": "blob:http://127.0.0.1:37741/5b4e9f9c-7f92-48fb-98e4-d3c5bef481db",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.620Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "61012",
+            "finishedAt": "2026-10-01T04:58:01.624Z"
+          },
+          {
+            "event": "finished",
+            "id": 49,
+            "url": "blob:http://127.0.0.1:37741/a46454d0-f504-4012-9808-fb72e368f5cb",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.620Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "183204",
+            "finishedAt": "2026-10-01T04:58:01.624Z"
+          },
+          {
+            "event": "request",
+            "id": 50,
+            "url": "http://127.0.0.1:37741/assets/models/island-tree-medium.glb?round=1",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.677Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "finished",
+            "id": 50,
+            "url": "http://127.0.0.1:37741/assets/models/island-tree-medium.glb?round=1",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.677Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "1739460",
+            "finishedAt": "2026-10-01T04:58:01.687Z"
+          },
+          {
+            "event": "request",
+            "id": 51,
+            "url": "blob:http://127.0.0.1:37741/b61e99c8-3979-4895-9b06-e53a9d46a0eb",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.702Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 52,
+            "url": "blob:http://127.0.0.1:37741/c357a8ef-ea6b-4bba-8183-0f43cdfd565e",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.706Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 53,
+            "url": "blob:http://127.0.0.1:37741/63fd46de-88c1-4d4e-95ea-2ba3abe141d3",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.706Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 54,
+            "url": "blob:http://127.0.0.1:37741/4642b4fb-d9d1-459c-9904-ea46daf49cc9",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.706Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 55,
+            "url": "blob:http://127.0.0.1:37741/92b3ec55-77b1-4872-80aa-47e4436eb197",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.706Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 56,
+            "url": "blob:http://127.0.0.1:37741/04fe861b-bbc6-4c3c-a021-a9ab3b121e28",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.706Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 57,
+            "url": "blob:http://127.0.0.1:37741/b4f1e5a1-a2b1-4307-90be-60e056e40deb",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.706Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 58,
+            "url": "blob:http://127.0.0.1:37741/d029885c-8b03-4819-bb2c-41f2eacb3def",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.706Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 59,
+            "url": "blob:http://127.0.0.1:37741/d2d83970-e374-411b-9494-fdc7738cc120",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.706Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "finished",
+            "id": 51,
+            "url": "blob:http://127.0.0.1:37741/b61e99c8-3979-4895-9b06-e53a9d46a0eb",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.702Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "199346",
+            "finishedAt": "2026-10-01T04:58:01.706Z"
+          },
+          {
+            "event": "finished",
+            "id": 52,
+            "url": "blob:http://127.0.0.1:37741/c357a8ef-ea6b-4bba-8183-0f43cdfd565e",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.706Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "111706",
+            "finishedAt": "2026-10-01T04:58:01.706Z"
+          },
+          {
+            "event": "finished",
+            "id": 54,
+            "url": "blob:http://127.0.0.1:37741/4642b4fb-d9d1-459c-9904-ea46daf49cc9",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.706Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "55458",
+            "finishedAt": "2026-10-01T04:58:01.706Z"
+          },
+          {
+            "event": "finished",
+            "id": 55,
+            "url": "blob:http://127.0.0.1:37741/92b3ec55-77b1-4872-80aa-47e4436eb197",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.706Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "82018",
+            "finishedAt": "2026-10-01T04:58:01.706Z"
+          },
+          {
+            "event": "finished",
+            "id": 56,
+            "url": "blob:http://127.0.0.1:37741/04fe861b-bbc6-4c3c-a021-a9ab3b121e28",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.706Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "52896",
+            "finishedAt": "2026-10-01T04:58:01.707Z"
+          },
+          {
+            "event": "finished",
+            "id": 57,
+            "url": "blob:http://127.0.0.1:37741/b4f1e5a1-a2b1-4307-90be-60e056e40deb",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.706Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "110660",
+            "finishedAt": "2026-10-01T04:58:01.708Z"
+          },
+          {
+            "event": "finished",
+            "id": 53,
+            "url": "blob:http://127.0.0.1:37741/63fd46de-88c1-4d4e-95ea-2ba3abe141d3",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.706Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "358506",
+            "finishedAt": "2026-10-01T04:58:01.708Z"
+          },
+          {
+            "event": "finished",
+            "id": 58,
+            "url": "blob:http://127.0.0.1:37741/d029885c-8b03-4819-bb2c-41f2eacb3def",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.706Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "61012",
+            "finishedAt": "2026-10-01T04:58:01.708Z"
+          },
+          {
+            "event": "finished",
+            "id": 59,
+            "url": "blob:http://127.0.0.1:37741/d2d83970-e374-411b-9494-fdc7738cc120",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.706Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "183204",
+            "finishedAt": "2026-10-01T04:58:01.710Z"
+          },
+          {
+            "event": "request",
+            "id": 60,
+            "url": "http://127.0.0.1:37741/assets/models/syringa-tree-near.glb?round=1",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.773Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "finished",
+            "id": 60,
+            "url": "http://127.0.0.1:37741/assets/models/syringa-tree-near.glb?round=1",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.773Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "38586500",
+            "finishedAt": "2026-10-01T04:58:01.853Z"
+          },
+          {
+            "event": "request",
+            "id": 61,
+            "url": "blob:http://127.0.0.1:37741/e1f17bf4-6677-4a97-9559-0a154b3176a6",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.950Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 62,
+            "url": "blob:http://127.0.0.1:37741/dd400c5e-2315-4ca5-bb50-aab47cc25f2f",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.950Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 63,
+            "url": "blob:http://127.0.0.1:37741/e77843ae-5be8-451e-9cf0-4ee20fcd5d4e",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.950Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 64,
+            "url": "blob:http://127.0.0.1:37741/34a924ae-b173-4636-9d50-72cdbbb8409f",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.950Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 65,
+            "url": "blob:http://127.0.0.1:37741/7dbc8e10-c5f6-4587-ab23-484e1152a729",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.950Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 66,
+            "url": "blob:http://127.0.0.1:37741/c9caaf6e-e30c-4ef5-92b5-9012a436a09c",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.950Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 67,
+            "url": "blob:http://127.0.0.1:37741/68fc000b-0b18-44db-87c1-0ffbfc25b9a1",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.956Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 68,
+            "url": "blob:http://127.0.0.1:37741/0650eaf9-ac0b-409a-a87e-64075e5840bb",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.956Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 69,
+            "url": "blob:http://127.0.0.1:37741/9018aede-126c-4fd2-bcb8-443eac59af1f",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.957Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "finished",
+            "id": 61,
+            "url": "blob:http://127.0.0.1:37741/e1f17bf4-6677-4a97-9559-0a154b3176a6",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.950Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "449977",
+            "finishedAt": "2026-10-01T04:58:01.957Z"
+          },
+          {
+            "event": "finished",
+            "id": 62,
+            "url": "blob:http://127.0.0.1:37741/dd400c5e-2315-4ca5-bb50-aab47cc25f2f",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.950Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "375732",
+            "finishedAt": "2026-10-01T04:58:01.982Z"
+          },
+          {
+            "event": "finished",
+            "id": 63,
+            "url": "blob:http://127.0.0.1:37741/e77843ae-5be8-451e-9cf0-4ee20fcd5d4e",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.950Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "581596",
+            "finishedAt": "2026-10-01T04:58:01.984Z"
+          },
+          {
+            "event": "finished",
+            "id": 65,
+            "url": "blob:http://127.0.0.1:37741/7dbc8e10-c5f6-4587-ab23-484e1152a729",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.950Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "633698",
+            "finishedAt": "2026-10-01T04:58:01.996Z"
+          },
+          {
+            "event": "finished",
+            "id": 66,
+            "url": "blob:http://127.0.0.1:37741/c9caaf6e-e30c-4ef5-92b5-9012a436a09c",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.950Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "681604",
+            "finishedAt": "2026-10-01T04:58:01.996Z"
+          },
+          {
+            "event": "finished",
+            "id": 68,
+            "url": "blob:http://127.0.0.1:37741/0650eaf9-ac0b-409a-a87e-64075e5840bb",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.956Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "708242",
+            "finishedAt": "2026-10-01T04:58:02.003Z"
+          },
+          {
+            "event": "finished",
+            "id": 67,
+            "url": "blob:http://127.0.0.1:37741/68fc000b-0b18-44db-87c1-0ffbfc25b9a1",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.956Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "863246",
+            "finishedAt": "2026-10-01T04:58:02.007Z"
+          },
+          {
+            "event": "finished",
+            "id": 69,
+            "url": "blob:http://127.0.0.1:37741/9018aede-126c-4fd2-bcb8-443eac59af1f",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.957Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "1228646",
+            "finishedAt": "2026-10-01T04:58:02.007Z"
+          },
+          {
+            "event": "finished",
+            "id": 64,
+            "url": "blob:http://127.0.0.1:37741/34a924ae-b173-4636-9d50-72cdbbb8409f",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:01.950Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "2338424",
+            "finishedAt": "2026-10-01T04:58:02.013Z"
+          },
+          {
+            "event": "request",
+            "id": 70,
+            "url": "http://127.0.0.1:37741/assets/models/palm-tree.glb?round=1",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.054Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "finished",
+            "id": 70,
+            "url": "http://127.0.0.1:37741/assets/models/palm-tree.glb?round=1",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.054Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "490580",
+            "finishedAt": "2026-10-01T04:58:02.067Z"
+          },
+          {
+            "event": "request",
+            "id": 71,
+            "url": "blob:http://127.0.0.1:37741/c9016353-2112-43f8-879b-ccc5cfd56ef2",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.073Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 72,
+            "url": "blob:http://127.0.0.1:37741/af78c33a-b470-4414-b10a-973800975b90",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.073Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "finished",
+            "id": 71,
+            "url": "blob:http://127.0.0.1:37741/c9016353-2112-43f8-879b-ccc5cfd56ef2",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.073Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "243362",
+            "finishedAt": "2026-10-01T04:58:02.074Z"
+          },
+          {
+            "event": "finished",
+            "id": 72,
+            "url": "blob:http://127.0.0.1:37741/af78c33a-b470-4414-b10a-973800975b90",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.073Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "215552",
+            "finishedAt": "2026-10-01T04:58:02.075Z"
+          },
+          {
+            "event": "request",
+            "id": 73,
+            "url": "http://127.0.0.1:37741/assets/models/island-tree-hero.glb?round=2",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.101Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "finished",
+            "id": 73,
+            "url": "http://127.0.0.1:37741/assets/models/island-tree-hero.glb?round=2",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.101Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "3950040",
+            "finishedAt": "2026-10-01T04:58:02.123Z"
+          },
+          {
+            "event": "request",
+            "id": 74,
+            "url": "blob:http://127.0.0.1:37741/03b1a374-edaf-4efe-9415-3cf94aaacfdc",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.141Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 75,
+            "url": "blob:http://127.0.0.1:37741/0a7699f5-c039-45a6-9f59-da3108296cc1",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.141Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 76,
+            "url": "blob:http://127.0.0.1:37741/5e341e65-6ead-4075-9030-6a211bab4dd2",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.141Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 77,
+            "url": "blob:http://127.0.0.1:37741/db84915c-32ed-47a8-9b14-ac758d6aa044",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.141Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 78,
+            "url": "blob:http://127.0.0.1:37741/cd425f49-f5fb-4bbd-ad61-5daa10480b50",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.142Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 79,
+            "url": "blob:http://127.0.0.1:37741/f401250f-2672-4899-941f-778900d29429",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.142Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 80,
+            "url": "blob:http://127.0.0.1:37741/7a6d2089-6b86-4f20-a22f-00920deac0a9",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.142Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 81,
+            "url": "blob:http://127.0.0.1:37741/35f9a0c3-7594-48a1-be6d-82294f43cb55",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.142Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 82,
+            "url": "blob:http://127.0.0.1:37741/17eb23a2-307e-4f1a-b544-3815703b7218",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.142Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "finished",
+            "id": 74,
+            "url": "blob:http://127.0.0.1:37741/03b1a374-edaf-4efe-9415-3cf94aaacfdc",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.141Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "199346",
+            "finishedAt": "2026-10-01T04:58:02.142Z"
+          },
+          {
+            "event": "finished",
+            "id": 75,
+            "url": "blob:http://127.0.0.1:37741/0a7699f5-c039-45a6-9f59-da3108296cc1",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.141Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "111706",
+            "finishedAt": "2026-10-01T04:58:02.142Z"
+          },
+          {
+            "event": "finished",
+            "id": 77,
+            "url": "blob:http://127.0.0.1:37741/db84915c-32ed-47a8-9b14-ac758d6aa044",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.141Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "55458",
+            "finishedAt": "2026-10-01T04:58:02.142Z"
+          },
+          {
+            "event": "finished",
+            "id": 79,
+            "url": "blob:http://127.0.0.1:37741/f401250f-2672-4899-941f-778900d29429",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.142Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "52896",
+            "finishedAt": "2026-10-01T04:58:02.144Z"
+          },
+          {
+            "event": "finished",
+            "id": 78,
+            "url": "blob:http://127.0.0.1:37741/cd425f49-f5fb-4bbd-ad61-5daa10480b50",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.142Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "82018",
+            "finishedAt": "2026-10-01T04:58:02.144Z"
+          },
+          {
+            "event": "finished",
+            "id": 81,
+            "url": "blob:http://127.0.0.1:37741/35f9a0c3-7594-48a1-be6d-82294f43cb55",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.142Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "61012",
+            "finishedAt": "2026-10-01T04:58:02.145Z"
+          },
+          {
+            "event": "finished",
+            "id": 80,
+            "url": "blob:http://127.0.0.1:37741/7a6d2089-6b86-4f20-a22f-00920deac0a9",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.142Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "110660",
+            "finishedAt": "2026-10-01T04:58:02.145Z"
+          },
+          {
+            "event": "finished",
+            "id": 82,
+            "url": "blob:http://127.0.0.1:37741/17eb23a2-307e-4f1a-b544-3815703b7218",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.142Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "183204",
+            "finishedAt": "2026-10-01T04:58:02.152Z"
+          },
+          {
+            "event": "finished",
+            "id": 76,
+            "url": "blob:http://127.0.0.1:37741/5e341e65-6ead-4075-9030-6a211bab4dd2",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.141Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "358506",
+            "finishedAt": "2026-10-01T04:58:02.153Z"
+          },
+          {
+            "event": "request",
+            "id": 83,
+            "url": "http://127.0.0.1:37741/assets/models/island-tree-medium.glb?round=2",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.191Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "finished",
+            "id": 83,
+            "url": "http://127.0.0.1:37741/assets/models/island-tree-medium.glb?round=2",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.191Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "1739460",
+            "finishedAt": "2026-10-01T04:58:02.203Z"
+          },
+          {
+            "event": "request",
+            "id": 84,
+            "url": "blob:http://127.0.0.1:37741/93e75929-0a7f-421d-9829-37acfc1455bd",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.214Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 85,
+            "url": "blob:http://127.0.0.1:37741/46ef9a64-3f17-43d5-a25a-85eb780a9618",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.214Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 86,
+            "url": "blob:http://127.0.0.1:37741/9c522914-401c-4416-8b5a-9205443b395d",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.214Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 87,
+            "url": "blob:http://127.0.0.1:37741/2f792f49-32a0-48e3-b4dd-d8d55fac95d6",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.215Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 88,
+            "url": "blob:http://127.0.0.1:37741/bdbed02a-6b87-4930-880e-ec0ce3817501",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.215Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 89,
+            "url": "blob:http://127.0.0.1:37741/ecb03f4a-2fdf-4d30-a887-c52e2fa6d1f4",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.216Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 90,
+            "url": "blob:http://127.0.0.1:37741/b07ff306-6340-4114-b274-545b2fa2e1de",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.216Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 91,
+            "url": "blob:http://127.0.0.1:37741/b10b4b71-0725-41af-9bac-aded6956b5ad",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.216Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 92,
+            "url": "blob:http://127.0.0.1:37741/a43094a1-8e26-4755-b868-0e33ebeb4eae",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.216Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "finished",
+            "id": 84,
+            "url": "blob:http://127.0.0.1:37741/93e75929-0a7f-421d-9829-37acfc1455bd",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.214Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "199346",
+            "finishedAt": "2026-10-01T04:58:02.217Z"
+          },
+          {
+            "event": "finished",
+            "id": 85,
+            "url": "blob:http://127.0.0.1:37741/46ef9a64-3f17-43d5-a25a-85eb780a9618",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.214Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "111706",
+            "finishedAt": "2026-10-01T04:58:02.217Z"
+          },
+          {
+            "event": "finished",
+            "id": 87,
+            "url": "blob:http://127.0.0.1:37741/2f792f49-32a0-48e3-b4dd-d8d55fac95d6",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.215Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "55458",
+            "finishedAt": "2026-10-01T04:58:02.217Z"
+          },
+          {
+            "event": "finished",
+            "id": 89,
+            "url": "blob:http://127.0.0.1:37741/ecb03f4a-2fdf-4d30-a887-c52e2fa6d1f4",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.216Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "52896",
+            "finishedAt": "2026-10-01T04:58:02.217Z"
+          },
+          {
+            "event": "finished",
+            "id": 88,
+            "url": "blob:http://127.0.0.1:37741/bdbed02a-6b87-4930-880e-ec0ce3817501",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.215Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "82018",
+            "finishedAt": "2026-10-01T04:58:02.218Z"
+          },
+          {
+            "event": "finished",
+            "id": 90,
+            "url": "blob:http://127.0.0.1:37741/b07ff306-6340-4114-b274-545b2fa2e1de",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.216Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "110660",
+            "finishedAt": "2026-10-01T04:58:02.221Z"
+          },
+          {
+            "event": "finished",
+            "id": 91,
+            "url": "blob:http://127.0.0.1:37741/b10b4b71-0725-41af-9bac-aded6956b5ad",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.216Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "61012",
+            "finishedAt": "2026-10-01T04:58:02.221Z"
+          },
+          {
+            "event": "finished",
+            "id": 86,
+            "url": "blob:http://127.0.0.1:37741/9c522914-401c-4416-8b5a-9205443b395d",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.214Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "358506",
+            "finishedAt": "2026-10-01T04:58:02.221Z"
+          },
+          {
+            "event": "finished",
+            "id": 92,
+            "url": "blob:http://127.0.0.1:37741/a43094a1-8e26-4755-b868-0e33ebeb4eae",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.216Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "183204",
+            "finishedAt": "2026-10-01T04:58:02.221Z"
+          },
+          {
+            "event": "request",
+            "id": 93,
+            "url": "http://127.0.0.1:37741/assets/models/syringa-tree-near.glb?round=2",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.279Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "finished",
+            "id": 93,
+            "url": "http://127.0.0.1:37741/assets/models/syringa-tree-near.glb?round=2",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.279Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "38586500",
+            "finishedAt": "2026-10-01T04:58:02.353Z"
+          },
+          {
+            "event": "request",
+            "id": 94,
+            "url": "blob:http://127.0.0.1:37741/2e4b3d6e-c448-4ed6-bd9b-98e180de5c96",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.410Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 95,
+            "url": "blob:http://127.0.0.1:37741/7cd20054-958b-4c35-aa49-8a5b1b6e116a",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.410Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 96,
+            "url": "blob:http://127.0.0.1:37741/df1fc59b-10e5-4a4f-b0ab-df7d420e9b2f",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.410Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 97,
+            "url": "blob:http://127.0.0.1:37741/a426f0c7-82d9-48cf-b04a-8ab50c8f2786",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.410Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 98,
+            "url": "blob:http://127.0.0.1:37741/78cd80f9-547c-478e-8c1e-e99793b2812d",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.410Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 99,
+            "url": "blob:http://127.0.0.1:37741/f714a9c5-06e2-4f87-8845-3ca165ecd14d",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.410Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 100,
+            "url": "blob:http://127.0.0.1:37741/2356a1f5-b68d-4fde-8449-985a45d08d5d",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.410Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 101,
+            "url": "blob:http://127.0.0.1:37741/232cc7e5-f6e0-4ebb-a57c-b79890a66736",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.410Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 102,
+            "url": "blob:http://127.0.0.1:37741/0c398793-075d-443a-a6a0-44adfc2ab48c",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.410Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "finished",
+            "id": 94,
+            "url": "blob:http://127.0.0.1:37741/2e4b3d6e-c448-4ed6-bd9b-98e180de5c96",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.410Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "449977",
+            "finishedAt": "2026-10-01T04:58:02.411Z"
+          },
+          {
+            "event": "finished",
+            "id": 95,
+            "url": "blob:http://127.0.0.1:37741/7cd20054-958b-4c35-aa49-8a5b1b6e116a",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.410Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "375732",
+            "finishedAt": "2026-10-01T04:58:02.413Z"
+          },
+          {
+            "event": "finished",
+            "id": 96,
+            "url": "blob:http://127.0.0.1:37741/df1fc59b-10e5-4a4f-b0ab-df7d420e9b2f",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.410Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "581596",
+            "finishedAt": "2026-10-01T04:58:02.417Z"
+          },
+          {
+            "event": "finished",
+            "id": 98,
+            "url": "blob:http://127.0.0.1:37741/78cd80f9-547c-478e-8c1e-e99793b2812d",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.410Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "633698",
+            "finishedAt": "2026-10-01T04:58:02.425Z"
+          },
+          {
+            "event": "finished",
+            "id": 99,
+            "url": "blob:http://127.0.0.1:37741/f714a9c5-06e2-4f87-8845-3ca165ecd14d",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.410Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "681604",
+            "finishedAt": "2026-10-01T04:58:02.425Z"
+          },
+          {
+            "event": "finished",
+            "id": 101,
+            "url": "blob:http://127.0.0.1:37741/232cc7e5-f6e0-4ebb-a57c-b79890a66736",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.410Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "708242",
+            "finishedAt": "2026-10-01T04:58:02.425Z"
+          },
+          {
+            "event": "finished",
+            "id": 100,
+            "url": "blob:http://127.0.0.1:37741/2356a1f5-b68d-4fde-8449-985a45d08d5d",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.410Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "863246",
+            "finishedAt": "2026-10-01T04:58:02.425Z"
+          },
+          {
+            "event": "finished",
+            "id": 102,
+            "url": "blob:http://127.0.0.1:37741/0c398793-075d-443a-a6a0-44adfc2ab48c",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.410Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "1228646",
+            "finishedAt": "2026-10-01T04:58:02.427Z"
+          },
+          {
+            "event": "finished",
+            "id": 97,
+            "url": "blob:http://127.0.0.1:37741/a426f0c7-82d9-48cf-b04a-8ab50c8f2786",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.410Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "2338424",
+            "finishedAt": "2026-10-01T04:58:02.436Z"
+          },
+          {
+            "event": "request",
+            "id": 103,
+            "url": "http://127.0.0.1:37741/assets/models/palm-tree.glb?round=2",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.474Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "finished",
+            "id": 103,
+            "url": "http://127.0.0.1:37741/assets/models/palm-tree.glb?round=2",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.474Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "490580",
+            "finishedAt": "2026-10-01T04:58:02.483Z"
+          },
+          {
+            "event": "request",
+            "id": 104,
+            "url": "blob:http://127.0.0.1:37741/cc233dc6-9ab1-4140-8193-89b93b8915e4",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.488Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "request",
+            "id": 105,
+            "url": "blob:http://127.0.0.1:37741/bb9eeacb-d1c8-4fc7-bf98-ced8d3b540f0",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.489Z",
+            "stage": "original-probe"
+          },
+          {
+            "event": "finished",
+            "id": 104,
+            "url": "blob:http://127.0.0.1:37741/cc233dc6-9ab1-4140-8193-89b93b8915e4",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.488Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "243362",
+            "finishedAt": "2026-10-01T04:58:02.492Z"
+          },
+          {
+            "event": "finished",
+            "id": 105,
+            "url": "blob:http://127.0.0.1:37741/bb9eeacb-d1c8-4fc7-bf98-ced8d3b540f0",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:02.489Z",
+            "stage": "original-probe",
+            "status": 200,
+            "contentLength": "215552",
+            "finishedAt": "2026-10-01T04:58:02.492Z"
+          }
+        ]
+      }
+    },
+    {
+      "buffered": true,
+      "elapsedMilliseconds": 2637,
+      "threeRevision": "185",
+      "rows": [
+        {
+          "name": "island-tree-hero.glb",
+          "round": 0,
+          "meshes": 3,
+          "vertices": 73978,
+          "triangles": 34418,
+          "jsonSha256": "df339dd3d2812fc228cb7a4e3f572bb9d3fdcf9cdb41a85392147e652685d53b",
+          "images": [
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ]
+          ],
+          "gcCalls": 0
+        },
+        {
+          "name": "island-tree-medium.glb",
+          "round": 0,
+          "meshes": 3,
+          "vertices": 14982,
+          "triangles": 6636,
+          "jsonSha256": "81ed3b6acecfa47356a46c67081f50af184332ba1512e6044f11411bedb0e04e",
+          "images": [
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ]
+          ],
+          "gcCalls": 0
+        },
+        {
+          "name": "syringa-tree-near.glb",
+          "round": 0,
+          "meshes": 3,
+          "vertices": 709651,
+          "triangles": 689139,
+          "jsonSha256": "e97876206f8e57bbced4a8e4255bd75e525204b7b12dea2a204fb7f5f4088e50",
+          "images": [
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ]
+          ],
+          "gcCalls": 0
+        },
+        {
+          "name": "palm-tree.glb",
+          "round": 0,
+          "meshes": 1,
+          "vertices": 743,
+          "triangles": 1032,
+          "jsonSha256": "467340930f6a4e73a1821a28a1592b913187a9e27840944209012f9743f6b56a",
+          "images": [
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ]
+          ],
+          "gcCalls": 0
+        },
+        {
+          "name": "island-tree-hero.glb",
+          "round": 1,
+          "meshes": 3,
+          "vertices": 73978,
+          "triangles": 34418,
+          "jsonSha256": "df339dd3d2812fc228cb7a4e3f572bb9d3fdcf9cdb41a85392147e652685d53b",
+          "images": [
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ]
+          ],
+          "gcCalls": 1
+        },
+        {
+          "name": "island-tree-medium.glb",
+          "round": 1,
+          "meshes": 3,
+          "vertices": 14982,
+          "triangles": 6636,
+          "jsonSha256": "81ed3b6acecfa47356a46c67081f50af184332ba1512e6044f11411bedb0e04e",
+          "images": [
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ]
+          ],
+          "gcCalls": 1
+        },
+        {
+          "name": "syringa-tree-near.glb",
+          "round": 1,
+          "meshes": 3,
+          "vertices": 709651,
+          "triangles": 689139,
+          "jsonSha256": "e97876206f8e57bbced4a8e4255bd75e525204b7b12dea2a204fb7f5f4088e50",
+          "images": [
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ]
+          ],
+          "gcCalls": 1
+        },
+        {
+          "name": "palm-tree.glb",
+          "round": 1,
+          "meshes": 1,
+          "vertices": 743,
+          "triangles": 1032,
+          "jsonSha256": "467340930f6a4e73a1821a28a1592b913187a9e27840944209012f9743f6b56a",
+          "images": [
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ]
+          ],
+          "gcCalls": 1
+        },
+        {
+          "name": "island-tree-hero.glb",
+          "round": 2,
+          "meshes": 3,
+          "vertices": 73978,
+          "triangles": 34418,
+          "jsonSha256": "df339dd3d2812fc228cb7a4e3f572bb9d3fdcf9cdb41a85392147e652685d53b",
+          "images": [
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ]
+          ],
+          "gcCalls": 1
+        },
+        {
+          "name": "island-tree-medium.glb",
+          "round": 2,
+          "meshes": 3,
+          "vertices": 14982,
+          "triangles": 6636,
+          "jsonSha256": "81ed3b6acecfa47356a46c67081f50af184332ba1512e6044f11411bedb0e04e",
+          "images": [
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ]
+          ],
+          "gcCalls": 1
+        },
+        {
+          "name": "syringa-tree-near.glb",
+          "round": 2,
+          "meshes": 3,
+          "vertices": 709651,
+          "triangles": 689139,
+          "jsonSha256": "e97876206f8e57bbced4a8e4255bd75e525204b7b12dea2a204fb7f5f4088e50",
+          "images": [
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ]
+          ],
+          "gcCalls": 1
+        },
+        {
+          "name": "palm-tree.glb",
+          "round": 2,
+          "meshes": 1,
+          "vertices": 743,
+          "triangles": 1032,
+          "jsonSha256": "467340930f6a4e73a1821a28a1592b913187a9e27840944209012f9743f6b56a",
+          "images": [
+            [
+              1024,
+              1024
+            ],
+            [
+              1024,
+              1024
+            ]
+          ],
+          "gcCalls": 1
+        }
+      ],
+      "webglContexts": 0,
+      "canvasElements": 0,
+      "gcExposed": true,
+      "delivery": {
+        "version": 1,
+        "mode": "drain-and-verify-glb-before-three",
+        "records": [
+          {
+            "url": "http://127.0.0.1:37741/assets/models/island-tree-hero.glb?round=0",
+            "path": "/assets/models/island-tree-hero.glb",
+            "status": 200,
+            "sizeBytes": 3950040,
+            "sha256": "8d892e4a572bb30804aecc3a88adb57e92b852220ccf8f59068f400cf6713a5b",
+            "startedAt": "2026-10-01T04:58:03.081Z",
+            "completedAt": "2026-10-01T04:58:03.110Z"
+          },
+          {
+            "url": "http://127.0.0.1:37741/assets/models/island-tree-medium.glb?round=0",
+            "path": "/assets/models/island-tree-medium.glb",
+            "status": 200,
+            "sizeBytes": 1739460,
+            "sha256": "2c210426ac4e761261b6c4dfc8c250fedd72ca1787de918abc965d4d3f32be64",
+            "startedAt": "2026-10-01T04:58:03.189Z",
+            "completedAt": "2026-10-01T04:58:03.200Z"
+          },
+          {
+            "url": "http://127.0.0.1:37741/assets/models/syringa-tree-near.glb?round=0",
+            "path": "/assets/models/syringa-tree-near.glb",
+            "status": 200,
+            "sizeBytes": 38586500,
+            "sha256": "cb794443092f8b4b7b257c4d86f42e6f2b0ec91a2f95d2d3f34043f0a3b49b07",
+            "startedAt": "2026-10-01T04:58:03.275Z",
+            "completedAt": "2026-10-01T04:58:03.451Z"
+          },
+          {
+            "url": "http://127.0.0.1:37741/assets/models/palm-tree.glb?round=0",
+            "path": "/assets/models/palm-tree.glb",
+            "status": 200,
+            "sizeBytes": 490580,
+            "sha256": "5e3f42cc9bd4a52d1e4249184fc8cba7bf87acf91b1403711115acaa7f2ca0f6",
+            "startedAt": "2026-10-01T04:58:03.810Z",
+            "completedAt": "2026-10-01T04:58:03.817Z"
+          },
+          {
+            "url": "http://127.0.0.1:37741/assets/models/island-tree-hero.glb?round=1",
+            "path": "/assets/models/island-tree-hero.glb",
+            "status": 200,
+            "sizeBytes": 3950040,
+            "sha256": "8d892e4a572bb30804aecc3a88adb57e92b852220ccf8f59068f400cf6713a5b",
+            "startedAt": "2026-10-01T04:58:03.853Z",
+            "completedAt": "2026-10-01T04:58:03.876Z"
+          },
+          {
+            "url": "http://127.0.0.1:37741/assets/models/island-tree-medium.glb?round=1",
+            "path": "/assets/models/island-tree-medium.glb",
+            "status": 200,
+            "sizeBytes": 1739460,
+            "sha256": "2c210426ac4e761261b6c4dfc8c250fedd72ca1787de918abc965d4d3f32be64",
+            "startedAt": "2026-10-01T04:58:03.956Z",
+            "completedAt": "2026-10-01T04:58:03.968Z"
+          },
+          {
+            "url": "http://127.0.0.1:37741/assets/models/syringa-tree-near.glb?round=1",
+            "path": "/assets/models/syringa-tree-near.glb",
+            "status": 200,
+            "sizeBytes": 38586500,
+            "sha256": "cb794443092f8b4b7b257c4d86f42e6f2b0ec91a2f95d2d3f34043f0a3b49b07",
+            "startedAt": "2026-10-01T04:58:04.036Z",
+            "completedAt": "2026-10-01T04:58:04.164Z"
+          },
+          {
+            "url": "http://127.0.0.1:37741/assets/models/palm-tree.glb?round=1",
+            "path": "/assets/models/palm-tree.glb",
+            "status": 200,
+            "sizeBytes": 490580,
+            "sha256": "5e3f42cc9bd4a52d1e4249184fc8cba7bf87acf91b1403711115acaa7f2ca0f6",
+            "startedAt": "2026-10-01T04:58:04.487Z",
+            "completedAt": "2026-10-01T04:58:04.493Z"
+          },
+          {
+            "url": "http://127.0.0.1:37741/assets/models/island-tree-hero.glb?round=2",
+            "path": "/assets/models/island-tree-hero.glb",
+            "status": 200,
+            "sizeBytes": 3950040,
+            "sha256": "8d892e4a572bb30804aecc3a88adb57e92b852220ccf8f59068f400cf6713a5b",
+            "startedAt": "2026-10-01T04:58:04.530Z",
+            "completedAt": "2026-10-01T04:58:04.553Z"
+          },
+          {
+            "url": "http://127.0.0.1:37741/assets/models/island-tree-medium.glb?round=2",
+            "path": "/assets/models/island-tree-medium.glb",
+            "status": 200,
+            "sizeBytes": 1739460,
+            "sha256": "2c210426ac4e761261b6c4dfc8c250fedd72ca1787de918abc965d4d3f32be64",
+            "startedAt": "2026-10-01T04:58:04.629Z",
+            "completedAt": "2026-10-01T04:58:04.640Z"
+          },
+          {
+            "url": "http://127.0.0.1:37741/assets/models/syringa-tree-near.glb?round=2",
+            "path": "/assets/models/syringa-tree-near.glb",
+            "status": 200,
+            "sizeBytes": 38586500,
+            "sha256": "cb794443092f8b4b7b257c4d86f42e6f2b0ec91a2f95d2d3f34043f0a3b49b07",
+            "startedAt": "2026-10-01T04:58:04.712Z",
+            "completedAt": "2026-10-01T04:58:04.887Z"
+          },
+          {
+            "url": "http://127.0.0.1:37741/assets/models/palm-tree.glb?round=2",
+            "path": "/assets/models/palm-tree.glb",
+            "status": 200,
+            "sizeBytes": 490580,
+            "sha256": "5e3f42cc9bd4a52d1e4249184fc8cba7bf87acf91b1403711115acaa7f2ca0f6",
+            "startedAt": "2026-10-01T04:58:05.402Z",
+            "completedAt": "2026-10-01T04:58:05.412Z"
+          }
+        ],
+        "failures": []
+      },
+      "failedRequests": [],
+      "errors": [],
+      "consoleErrors": [],
+      "diagnostics": {
+        "networkEvents": [
+          {
+            "event": "request",
+            "id": 31,
+            "url": "blob:http://127.0.0.1:37741/086cf4d1-668c-498e-9ab2-40d7845edb7b",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.713Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "request",
+            "id": 32,
+            "url": "blob:http://127.0.0.1:37741/750d815e-567f-41db-a4b8-28966d82c932",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.713Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "request",
+            "id": 33,
+            "url": "blob:http://127.0.0.1:37741/f53b49b8-f8d1-448e-a536-159aff709dbe",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.713Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "request",
+            "id": 34,
+            "url": "blob:http://127.0.0.1:37741/278b3c40-ccef-4824-a738-6d5b8c8343be",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.713Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "request",
+            "id": 35,
+            "url": "blob:http://127.0.0.1:37741/7860e30f-f501-43bb-b48a-89806bba88f5",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.713Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "request",
+            "id": 36,
+            "url": "blob:http://127.0.0.1:37741/84764940-3243-48e7-87c7-c891765e8406",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.713Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "finished",
+            "id": 28,
+            "url": "blob:http://127.0.0.1:37741/7b27dd68-2c46-4201-a4d8-1a100338f9dd",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.713Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "449977",
+            "finishedAt": "2026-10-01T04:58:03.738Z"
+          },
+          {
+            "event": "finished",
+            "id": 29,
+            "url": "blob:http://127.0.0.1:37741/ff6b9917-ab99-4064-8dfb-50fb792baf0f",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.713Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "375732",
+            "finishedAt": "2026-10-01T04:58:03.738Z"
+          },
+          {
+            "event": "finished",
+            "id": 30,
+            "url": "blob:http://127.0.0.1:37741/fac69316-204f-4346-806f-2346b9256f57",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.713Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "581596",
+            "finishedAt": "2026-10-01T04:58:03.756Z"
+          },
+          {
+            "event": "finished",
+            "id": 32,
+            "url": "blob:http://127.0.0.1:37741/750d815e-567f-41db-a4b8-28966d82c932",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.713Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "633698",
+            "finishedAt": "2026-10-01T04:58:03.756Z"
+          },
+          {
+            "event": "finished",
+            "id": 33,
+            "url": "blob:http://127.0.0.1:37741/f53b49b8-f8d1-448e-a536-159aff709dbe",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.713Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "681604",
+            "finishedAt": "2026-10-01T04:58:03.756Z"
+          },
+          {
+            "event": "finished",
+            "id": 35,
+            "url": "blob:http://127.0.0.1:37741/7860e30f-f501-43bb-b48a-89806bba88f5",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.713Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "708242",
+            "finishedAt": "2026-10-01T04:58:03.756Z"
+          },
+          {
+            "event": "finished",
+            "id": 34,
+            "url": "blob:http://127.0.0.1:37741/278b3c40-ccef-4824-a738-6d5b8c8343be",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.713Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "863246",
+            "finishedAt": "2026-10-01T04:58:03.760Z"
+          },
+          {
+            "event": "finished",
+            "id": 36,
+            "url": "blob:http://127.0.0.1:37741/84764940-3243-48e7-87c7-c891765e8406",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.713Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "1228646",
+            "finishedAt": "2026-10-01T04:58:03.766Z"
+          },
+          {
+            "event": "finished",
+            "id": 31,
+            "url": "blob:http://127.0.0.1:37741/086cf4d1-668c-498e-9ab2-40d7845edb7b",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.713Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "2338424",
+            "finishedAt": "2026-10-01T04:58:03.770Z"
+          },
+          {
+            "event": "request",
+            "id": 37,
+            "url": "http://127.0.0.1:37741/assets/models/palm-tree.glb?round=0",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.812Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "finished",
+            "id": 37,
+            "url": "http://127.0.0.1:37741/assets/models/palm-tree.glb?round=0",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.812Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "490580",
+            "finishedAt": "2026-10-01T04:58:03.816Z"
+          },
+          {
+            "event": "request",
+            "id": 38,
+            "url": "blob:http://127.0.0.1:37741/0e7b1a54-06df-447f-b071-fd19ef0ec84d",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.826Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "request",
+            "id": 39,
+            "url": "blob:http://127.0.0.1:37741/4157f7e1-a3a8-4747-b78b-39c103e6713d",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.826Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "finished",
+            "id": 38,
+            "url": "blob:http://127.0.0.1:37741/0e7b1a54-06df-447f-b071-fd19ef0ec84d",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.826Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "243362",
+            "finishedAt": "2026-10-01T04:58:03.827Z"
+          },
+          {
+            "event": "finished",
+            "id": 39,
+            "url": "blob:http://127.0.0.1:37741/4157f7e1-a3a8-4747-b78b-39c103e6713d",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.826Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "215552",
+            "finishedAt": "2026-10-01T04:58:03.827Z"
+          },
+          {
+            "event": "request",
+            "id": 40,
+            "url": "http://127.0.0.1:37741/assets/models/island-tree-hero.glb?round=1",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.857Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "finished",
+            "id": 40,
+            "url": "http://127.0.0.1:37741/assets/models/island-tree-hero.glb?round=1",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.857Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "3950040",
+            "finishedAt": "2026-10-01T04:58:03.871Z"
+          },
+          {
+            "event": "request",
+            "id": 41,
+            "url": "blob:http://127.0.0.1:37741/24ab40de-97fd-4bef-81bb-c7dabf632a53",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.909Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "request",
+            "id": 42,
+            "url": "blob:http://127.0.0.1:37741/cdb74b88-2f25-4ac7-bf78-b334484fab48",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.909Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "request",
+            "id": 43,
+            "url": "blob:http://127.0.0.1:37741/7cac4c9a-2426-4b62-a624-cd6f3d76f993",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.909Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "request",
+            "id": 44,
+            "url": "blob:http://127.0.0.1:37741/6d9d301b-d241-4bd8-80b9-d9f8f65562aa",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.909Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "request",
+            "id": 45,
+            "url": "blob:http://127.0.0.1:37741/da0769cc-4245-4f23-9926-50c38d9ffffe",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.909Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "request",
+            "id": 46,
+            "url": "blob:http://127.0.0.1:37741/79283d2b-c591-420c-9e70-2456d1f06d26",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.909Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "request",
+            "id": 47,
+            "url": "blob:http://127.0.0.1:37741/7fe2d070-55d1-4ad2-9875-a6e8c64676e3",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.910Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "request",
+            "id": 48,
+            "url": "blob:http://127.0.0.1:37741/31f9ff0e-2222-421e-8901-2c6f855623cf",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.910Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "request",
+            "id": 49,
+            "url": "blob:http://127.0.0.1:37741/c6c8ca9f-e3c9-4d9f-9a00-d12c0fd33ca5",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.910Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "finished",
+            "id": 41,
+            "url": "blob:http://127.0.0.1:37741/24ab40de-97fd-4bef-81bb-c7dabf632a53",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.909Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "199346",
+            "finishedAt": "2026-10-01T04:58:03.910Z"
+          },
+          {
+            "event": "finished",
+            "id": 42,
+            "url": "blob:http://127.0.0.1:37741/cdb74b88-2f25-4ac7-bf78-b334484fab48",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.909Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "111706",
+            "finishedAt": "2026-10-01T04:58:03.910Z"
+          },
+          {
+            "event": "finished",
+            "id": 43,
+            "url": "blob:http://127.0.0.1:37741/7cac4c9a-2426-4b62-a624-cd6f3d76f993",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.909Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "358506",
+            "finishedAt": "2026-10-01T04:58:03.910Z"
+          },
+          {
+            "event": "finished",
+            "id": 44,
+            "url": "blob:http://127.0.0.1:37741/6d9d301b-d241-4bd8-80b9-d9f8f65562aa",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.909Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "55458",
+            "finishedAt": "2026-10-01T04:58:03.910Z"
+          },
+          {
+            "event": "finished",
+            "id": 45,
+            "url": "blob:http://127.0.0.1:37741/da0769cc-4245-4f23-9926-50c38d9ffffe",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.909Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "82018",
+            "finishedAt": "2026-10-01T04:58:03.910Z"
+          },
+          {
+            "event": "finished",
+            "id": 46,
+            "url": "blob:http://127.0.0.1:37741/79283d2b-c591-420c-9e70-2456d1f06d26",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.909Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "52896",
+            "finishedAt": "2026-10-01T04:58:03.910Z"
+          },
+          {
+            "event": "finished",
+            "id": 48,
+            "url": "blob:http://127.0.0.1:37741/31f9ff0e-2222-421e-8901-2c6f855623cf",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.910Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "61012",
+            "finishedAt": "2026-10-01T04:58:03.914Z"
+          },
+          {
+            "event": "finished",
+            "id": 47,
+            "url": "blob:http://127.0.0.1:37741/7fe2d070-55d1-4ad2-9875-a6e8c64676e3",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.910Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "110660",
+            "finishedAt": "2026-10-01T04:58:03.914Z"
+          },
+          {
+            "event": "finished",
+            "id": 49,
+            "url": "blob:http://127.0.0.1:37741/c6c8ca9f-e3c9-4d9f-9a00-d12c0fd33ca5",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.910Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "183204",
+            "finishedAt": "2026-10-01T04:58:03.914Z"
+          },
+          {
+            "event": "request",
+            "id": 50,
+            "url": "http://127.0.0.1:37741/assets/models/island-tree-medium.glb?round=1",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.959Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "finished",
+            "id": 50,
+            "url": "http://127.0.0.1:37741/assets/models/island-tree-medium.glb?round=1",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.959Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "1739460",
+            "finishedAt": "2026-10-01T04:58:03.966Z"
+          },
+          {
+            "event": "request",
+            "id": 51,
+            "url": "blob:http://127.0.0.1:37741/49306d3e-2b43-4593-9f0f-4d955ba32285",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.990Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "request",
+            "id": 52,
+            "url": "blob:http://127.0.0.1:37741/2e44e6c9-9fc4-4556-a87a-b9a036da67e6",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.990Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "request",
+            "id": 53,
+            "url": "blob:http://127.0.0.1:37741/159d6407-ef91-42b0-a4a1-753b44127928",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.990Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "request",
+            "id": 54,
+            "url": "blob:http://127.0.0.1:37741/650092a6-bf28-47d6-93fd-cd24f6e39a32",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.990Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "request",
+            "id": 55,
+            "url": "blob:http://127.0.0.1:37741/45d8c224-e984-41d5-90fc-a2e7302e34d4",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.990Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "request",
+            "id": 56,
+            "url": "blob:http://127.0.0.1:37741/4fe9041a-fa65-4af7-8154-0f09ec57bf7b",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.990Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "request",
+            "id": 57,
+            "url": "blob:http://127.0.0.1:37741/d1553919-9639-4451-98d5-e1983cd2936c",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.992Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "request",
+            "id": 58,
+            "url": "blob:http://127.0.0.1:37741/33baf6e1-a24a-4f1d-a5fb-a2bf0ab73af5",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.992Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "request",
+            "id": 59,
+            "url": "blob:http://127.0.0.1:37741/06ce1aaf-32ec-45df-be83-136cf2e51a25",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.992Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "finished",
+            "id": 51,
+            "url": "blob:http://127.0.0.1:37741/49306d3e-2b43-4593-9f0f-4d955ba32285",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.990Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "199346",
+            "finishedAt": "2026-10-01T04:58:03.993Z"
+          },
+          {
+            "event": "finished",
+            "id": 52,
+            "url": "blob:http://127.0.0.1:37741/2e44e6c9-9fc4-4556-a87a-b9a036da67e6",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.990Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "111706",
+            "finishedAt": "2026-10-01T04:58:03.993Z"
+          },
+          {
+            "event": "finished",
+            "id": 54,
+            "url": "blob:http://127.0.0.1:37741/650092a6-bf28-47d6-93fd-cd24f6e39a32",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.990Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "55458",
+            "finishedAt": "2026-10-01T04:58:03.993Z"
+          },
+          {
+            "event": "finished",
+            "id": 53,
+            "url": "blob:http://127.0.0.1:37741/159d6407-ef91-42b0-a4a1-753b44127928",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.990Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "358506",
+            "finishedAt": "2026-10-01T04:58:03.993Z"
+          },
+          {
+            "event": "finished",
+            "id": 56,
+            "url": "blob:http://127.0.0.1:37741/4fe9041a-fa65-4af7-8154-0f09ec57bf7b",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.990Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "52896",
+            "finishedAt": "2026-10-01T04:58:03.993Z"
+          },
+          {
+            "event": "finished",
+            "id": 58,
+            "url": "blob:http://127.0.0.1:37741/33baf6e1-a24a-4f1d-a5fb-a2bf0ab73af5",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.992Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "61012",
+            "finishedAt": "2026-10-01T04:58:03.995Z"
+          },
+          {
+            "event": "finished",
+            "id": 55,
+            "url": "blob:http://127.0.0.1:37741/45d8c224-e984-41d5-90fc-a2e7302e34d4",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.990Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "82018",
+            "finishedAt": "2026-10-01T04:58:03.995Z"
+          },
+          {
+            "event": "finished",
+            "id": 57,
+            "url": "blob:http://127.0.0.1:37741/d1553919-9639-4451-98d5-e1983cd2936c",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.992Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "110660",
+            "finishedAt": "2026-10-01T04:58:03.995Z"
+          },
+          {
+            "event": "finished",
+            "id": 59,
+            "url": "blob:http://127.0.0.1:37741/06ce1aaf-32ec-45df-be83-136cf2e51a25",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:03.992Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "183204",
+            "finishedAt": "2026-10-01T04:58:04.001Z"
+          },
+          {
+            "event": "request",
+            "id": 60,
+            "url": "http://127.0.0.1:37741/assets/models/syringa-tree-near.glb?round=1",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.060Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "finished",
+            "id": 60,
+            "url": "http://127.0.0.1:37741/assets/models/syringa-tree-near.glb?round=1",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.060Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "38586500",
+            "finishedAt": "2026-10-01T04:58:04.107Z"
+          },
+          {
+            "event": "request",
+            "id": 61,
+            "url": "blob:http://127.0.0.1:37741/ee122f66-59d8-4b7b-a15d-f7bcf223c6c3",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.425Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "request",
+            "id": 62,
+            "url": "blob:http://127.0.0.1:37741/4d21d1eb-d5b0-45dc-b94a-19d859507f6e",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.425Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "request",
+            "id": 63,
+            "url": "blob:http://127.0.0.1:37741/d4366c67-8109-4569-b341-28f28a15577f",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.425Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "request",
+            "id": 64,
+            "url": "blob:http://127.0.0.1:37741/7237c5ab-14b2-47d5-bd17-4aaf46669385",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.425Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "request",
+            "id": 65,
+            "url": "blob:http://127.0.0.1:37741/0266cb3a-c4f1-4f23-8fc5-cc11de9ae53d",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.425Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "request",
+            "id": 66,
+            "url": "blob:http://127.0.0.1:37741/3ea460bb-4880-4549-9342-379928af4c4e",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.425Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "request",
+            "id": 67,
+            "url": "blob:http://127.0.0.1:37741/4c04483b-e7f9-440b-8821-5c696109c67e",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.425Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "request",
+            "id": 68,
+            "url": "blob:http://127.0.0.1:37741/c29ca870-209d-48e8-8950-69ccc3eb0b22",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.425Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "request",
+            "id": 69,
+            "url": "blob:http://127.0.0.1:37741/1ace9cc9-981b-497a-8dc1-24db54503bfe",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.425Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "finished",
+            "id": 61,
+            "url": "blob:http://127.0.0.1:37741/ee122f66-59d8-4b7b-a15d-f7bcf223c6c3",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.425Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "449977",
+            "finishedAt": "2026-10-01T04:58:04.426Z"
+          },
+          {
+            "event": "finished",
+            "id": 62,
+            "url": "blob:http://127.0.0.1:37741/4d21d1eb-d5b0-45dc-b94a-19d859507f6e",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.425Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "375732",
+            "finishedAt": "2026-10-01T04:58:04.426Z"
+          },
+          {
+            "event": "finished",
+            "id": 63,
+            "url": "blob:http://127.0.0.1:37741/d4366c67-8109-4569-b341-28f28a15577f",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.425Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "581596",
+            "finishedAt": "2026-10-01T04:58:04.426Z"
+          },
+          {
+            "event": "finished",
+            "id": 65,
+            "url": "blob:http://127.0.0.1:37741/0266cb3a-c4f1-4f23-8fc5-cc11de9ae53d",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.425Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "633698",
+            "finishedAt": "2026-10-01T04:58:04.437Z"
+          },
+          {
+            "event": "finished",
+            "id": 66,
+            "url": "blob:http://127.0.0.1:37741/3ea460bb-4880-4549-9342-379928af4c4e",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.425Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "681604",
+            "finishedAt": "2026-10-01T04:58:04.437Z"
+          },
+          {
+            "event": "finished",
+            "id": 68,
+            "url": "blob:http://127.0.0.1:37741/c29ca870-209d-48e8-8950-69ccc3eb0b22",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.425Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "708242",
+            "finishedAt": "2026-10-01T04:58:04.437Z"
+          },
+          {
+            "event": "finished",
+            "id": 67,
+            "url": "blob:http://127.0.0.1:37741/4c04483b-e7f9-440b-8821-5c696109c67e",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.425Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "863246",
+            "finishedAt": "2026-10-01T04:58:04.438Z"
+          },
+          {
+            "event": "finished",
+            "id": 69,
+            "url": "blob:http://127.0.0.1:37741/1ace9cc9-981b-497a-8dc1-24db54503bfe",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.425Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "1228646",
+            "finishedAt": "2026-10-01T04:58:04.438Z"
+          },
+          {
+            "event": "finished",
+            "id": 64,
+            "url": "blob:http://127.0.0.1:37741/7237c5ab-14b2-47d5-bd17-4aaf46669385",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.425Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "2338424",
+            "finishedAt": "2026-10-01T04:58:04.449Z"
+          },
+          {
+            "event": "request",
+            "id": 70,
+            "url": "http://127.0.0.1:37741/assets/models/palm-tree.glb?round=1",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.489Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "finished",
+            "id": 70,
+            "url": "http://127.0.0.1:37741/assets/models/palm-tree.glb?round=1",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.489Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "490580",
+            "finishedAt": "2026-10-01T04:58:04.493Z"
+          },
+          {
+            "event": "request",
+            "id": 71,
+            "url": "blob:http://127.0.0.1:37741/3026e7ea-93aa-41a7-a850-5298aecbc2da",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.507Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "request",
+            "id": 72,
+            "url": "blob:http://127.0.0.1:37741/abcf6761-978d-483d-a1fa-cf576c635348",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.507Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "finished",
+            "id": 71,
+            "url": "blob:http://127.0.0.1:37741/3026e7ea-93aa-41a7-a850-5298aecbc2da",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.507Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "243362",
+            "finishedAt": "2026-10-01T04:58:04.507Z"
+          },
+          {
+            "event": "finished",
+            "id": 72,
+            "url": "blob:http://127.0.0.1:37741/abcf6761-978d-483d-a1fa-cf576c635348",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.507Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "215552",
+            "finishedAt": "2026-10-01T04:58:04.508Z"
+          },
+          {
+            "event": "request",
+            "id": 73,
+            "url": "http://127.0.0.1:37741/assets/models/island-tree-hero.glb?round=2",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.531Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "finished",
+            "id": 73,
+            "url": "http://127.0.0.1:37741/assets/models/island-tree-hero.glb?round=2",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.531Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "3950040",
+            "finishedAt": "2026-10-01T04:58:04.547Z"
+          },
+          {
+            "event": "request",
+            "id": 74,
+            "url": "blob:http://127.0.0.1:37741/7f900638-2b1f-4955-82ae-02a5a42d31e5",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.582Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "request",
+            "id": 75,
+            "url": "blob:http://127.0.0.1:37741/c1cd0b64-9db3-4727-9189-2a0d36908af5",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.582Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "request",
+            "id": 76,
+            "url": "blob:http://127.0.0.1:37741/6ec9c972-106e-40fc-89aa-e0889d4c6225",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.582Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "request",
+            "id": 77,
+            "url": "blob:http://127.0.0.1:37741/5ea16d12-9363-4bf3-9395-58afc436ac21",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.582Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "request",
+            "id": 78,
+            "url": "blob:http://127.0.0.1:37741/31cbc518-81bd-4cff-811b-f8c9221f27d3",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.582Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "request",
+            "id": 79,
+            "url": "blob:http://127.0.0.1:37741/11898487-966c-42a3-b4ad-dc030692b30c",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.582Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "request",
+            "id": 80,
+            "url": "blob:http://127.0.0.1:37741/0d261d12-da44-42e3-bf14-5d7fe6fc32ea",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.582Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "request",
+            "id": 81,
+            "url": "blob:http://127.0.0.1:37741/c340d203-e769-41d2-9686-87eb88c5ca7a",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.582Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "request",
+            "id": 82,
+            "url": "blob:http://127.0.0.1:37741/a0328e21-bc28-48e0-9fe6-7b631c09e8dd",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.583Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "finished",
+            "id": 77,
+            "url": "blob:http://127.0.0.1:37741/5ea16d12-9363-4bf3-9395-58afc436ac21",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.582Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "55458",
+            "finishedAt": "2026-10-01T04:58:04.584Z"
+          },
+          {
+            "event": "finished",
+            "id": 75,
+            "url": "blob:http://127.0.0.1:37741/c1cd0b64-9db3-4727-9189-2a0d36908af5",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.582Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "111706",
+            "finishedAt": "2026-10-01T04:58:04.584Z"
+          },
+          {
+            "event": "finished",
+            "id": 79,
+            "url": "blob:http://127.0.0.1:37741/11898487-966c-42a3-b4ad-dc030692b30c",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.582Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "52896",
+            "finishedAt": "2026-10-01T04:58:04.584Z"
+          },
+          {
+            "event": "finished",
+            "id": 78,
+            "url": "blob:http://127.0.0.1:37741/31cbc518-81bd-4cff-811b-f8c9221f27d3",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.582Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "82018",
+            "finishedAt": "2026-10-01T04:58:04.584Z"
+          },
+          {
+            "event": "finished",
+            "id": 80,
+            "url": "blob:http://127.0.0.1:37741/0d261d12-da44-42e3-bf14-5d7fe6fc32ea",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.582Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "110660",
+            "finishedAt": "2026-10-01T04:58:04.595Z"
+          },
+          {
+            "event": "finished",
+            "id": 74,
+            "url": "blob:http://127.0.0.1:37741/7f900638-2b1f-4955-82ae-02a5a42d31e5",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.582Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "199346",
+            "finishedAt": "2026-10-01T04:58:04.595Z"
+          },
+          {
+            "event": "finished",
+            "id": 81,
+            "url": "blob:http://127.0.0.1:37741/c340d203-e769-41d2-9686-87eb88c5ca7a",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.582Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "61012",
+            "finishedAt": "2026-10-01T04:58:04.596Z"
+          },
+          {
+            "event": "finished",
+            "id": 82,
+            "url": "blob:http://127.0.0.1:37741/a0328e21-bc28-48e0-9fe6-7b631c09e8dd",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.583Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "183204",
+            "finishedAt": "2026-10-01T04:58:04.597Z"
+          },
+          {
+            "event": "finished",
+            "id": 76,
+            "url": "blob:http://127.0.0.1:37741/6ec9c972-106e-40fc-89aa-e0889d4c6225",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.582Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "358506",
+            "finishedAt": "2026-10-01T04:58:04.597Z"
+          },
+          {
+            "event": "request",
+            "id": 83,
+            "url": "http://127.0.0.1:37741/assets/models/island-tree-medium.glb?round=2",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.631Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "finished",
+            "id": 83,
+            "url": "http://127.0.0.1:37741/assets/models/island-tree-medium.glb?round=2",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.631Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "1739460",
+            "finishedAt": "2026-10-01T04:58:04.638Z"
+          },
+          {
+            "event": "request",
+            "id": 84,
+            "url": "blob:http://127.0.0.1:37741/a04aa38a-6f10-4bff-9830-2707a7ed6370",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.663Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "request",
+            "id": 85,
+            "url": "blob:http://127.0.0.1:37741/b7d40290-17e5-4741-8246-1317d360990b",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.663Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "request",
+            "id": 86,
+            "url": "blob:http://127.0.0.1:37741/77443956-b6e1-4eb3-bc05-6658c9793497",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.663Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "request",
+            "id": 87,
+            "url": "blob:http://127.0.0.1:37741/c74f8388-8f92-4dcf-9017-d9a953ff563f",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.663Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "request",
+            "id": 88,
+            "url": "blob:http://127.0.0.1:37741/6ab6b30d-0403-46cb-a4d0-0d6792062978",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.663Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "request",
+            "id": 89,
+            "url": "blob:http://127.0.0.1:37741/b37804be-7e52-4224-bdee-6d6f83f50ed3",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.663Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "request",
+            "id": 90,
+            "url": "blob:http://127.0.0.1:37741/8ce9cb9f-a679-4565-8870-4127471e0f4c",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.663Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "request",
+            "id": 91,
+            "url": "blob:http://127.0.0.1:37741/db06bddd-860a-4cef-890c-ba514e0cb4c1",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.663Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "request",
+            "id": 92,
+            "url": "blob:http://127.0.0.1:37741/cb14a135-8ab2-45ef-a3c2-dfab271cc801",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.663Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "finished",
+            "id": 84,
+            "url": "blob:http://127.0.0.1:37741/a04aa38a-6f10-4bff-9830-2707a7ed6370",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.663Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "199346",
+            "finishedAt": "2026-10-01T04:58:04.665Z"
+          },
+          {
+            "event": "finished",
+            "id": 85,
+            "url": "blob:http://127.0.0.1:37741/b7d40290-17e5-4741-8246-1317d360990b",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.663Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "111706",
+            "finishedAt": "2026-10-01T04:58:04.665Z"
+          },
+          {
+            "event": "finished",
+            "id": 87,
+            "url": "blob:http://127.0.0.1:37741/c74f8388-8f92-4dcf-9017-d9a953ff563f",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.663Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "55458",
+            "finishedAt": "2026-10-01T04:58:04.665Z"
+          },
+          {
+            "event": "finished",
+            "id": 88,
+            "url": "blob:http://127.0.0.1:37741/6ab6b30d-0403-46cb-a4d0-0d6792062978",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.663Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "82018",
+            "finishedAt": "2026-10-01T04:58:04.666Z"
+          },
+          {
+            "event": "finished",
+            "id": 89,
+            "url": "blob:http://127.0.0.1:37741/b37804be-7e52-4224-bdee-6d6f83f50ed3",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.663Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "52896",
+            "finishedAt": "2026-10-01T04:58:04.666Z"
+          },
+          {
+            "event": "finished",
+            "id": 91,
+            "url": "blob:http://127.0.0.1:37741/db06bddd-860a-4cef-890c-ba514e0cb4c1",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.663Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "61012",
+            "finishedAt": "2026-10-01T04:58:04.666Z"
+          },
+          {
+            "event": "finished",
+            "id": 90,
+            "url": "blob:http://127.0.0.1:37741/8ce9cb9f-a679-4565-8870-4127471e0f4c",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.663Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "110660",
+            "finishedAt": "2026-10-01T04:58:04.668Z"
+          },
+          {
+            "event": "finished",
+            "id": 86,
+            "url": "blob:http://127.0.0.1:37741/77443956-b6e1-4eb3-bc05-6658c9793497",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.663Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "358506",
+            "finishedAt": "2026-10-01T04:58:04.668Z"
+          },
+          {
+            "event": "finished",
+            "id": 92,
+            "url": "blob:http://127.0.0.1:37741/cb14a135-8ab2-45ef-a3c2-dfab271cc801",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.663Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "183204",
+            "finishedAt": "2026-10-01T04:58:04.677Z"
+          },
+          {
+            "event": "request",
+            "id": 93,
+            "url": "http://127.0.0.1:37741/assets/models/syringa-tree-near.glb?round=2",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.740Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "finished",
+            "id": 93,
+            "url": "http://127.0.0.1:37741/assets/models/syringa-tree-near.glb?round=2",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:04.740Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "38586500",
+            "finishedAt": "2026-10-01T04:58:04.818Z"
+          },
+          {
+            "event": "request",
+            "id": 94,
+            "url": "blob:http://127.0.0.1:37741/f7aef00a-7d0b-4d7f-a2de-cfdf938a31b9",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:05.267Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "request",
+            "id": 95,
+            "url": "blob:http://127.0.0.1:37741/083be087-12d1-4552-965b-c073a6928388",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:05.268Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "request",
+            "id": 96,
+            "url": "blob:http://127.0.0.1:37741/0292e5fc-fdcd-410f-942e-f26ed34bd520",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:05.268Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "request",
+            "id": 97,
+            "url": "blob:http://127.0.0.1:37741/55cfd8d2-a5c7-40b9-9c22-28c6a604b9d2",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:05.268Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "request",
+            "id": 98,
+            "url": "blob:http://127.0.0.1:37741/3b8be68f-bf42-4c09-8291-8bc03c6ec3ed",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:05.268Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "request",
+            "id": 99,
+            "url": "blob:http://127.0.0.1:37741/33da186a-6ec0-4c9c-95f8-c7c4a2a0cb26",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:05.268Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "request",
+            "id": 100,
+            "url": "blob:http://127.0.0.1:37741/fb170869-0473-4529-8e1c-eff6cc8e10fb",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:05.268Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "request",
+            "id": 101,
+            "url": "blob:http://127.0.0.1:37741/e0d53994-6b72-40cd-8922-4b68bf3289b9",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:05.268Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "request",
+            "id": 102,
+            "url": "blob:http://127.0.0.1:37741/95678a02-72cc-418f-bec2-4c0dcb646634",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:05.268Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "finished",
+            "id": 94,
+            "url": "blob:http://127.0.0.1:37741/f7aef00a-7d0b-4d7f-a2de-cfdf938a31b9",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:05.267Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "449977",
+            "finishedAt": "2026-10-01T04:58:05.294Z"
+          },
+          {
+            "event": "finished",
+            "id": 95,
+            "url": "blob:http://127.0.0.1:37741/083be087-12d1-4552-965b-c073a6928388",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:05.268Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "375732",
+            "finishedAt": "2026-10-01T04:58:05.294Z"
+          },
+          {
+            "event": "finished",
+            "id": 96,
+            "url": "blob:http://127.0.0.1:37741/0292e5fc-fdcd-410f-942e-f26ed34bd520",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:05.268Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "581596",
+            "finishedAt": "2026-10-01T04:58:05.298Z"
+          },
+          {
+            "event": "finished",
+            "id": 98,
+            "url": "blob:http://127.0.0.1:37741/3b8be68f-bf42-4c09-8291-8bc03c6ec3ed",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:05.268Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "633698",
+            "finishedAt": "2026-10-01T04:58:05.301Z"
+          },
+          {
+            "event": "finished",
+            "id": 99,
+            "url": "blob:http://127.0.0.1:37741/33da186a-6ec0-4c9c-95f8-c7c4a2a0cb26",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:05.268Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "681604",
+            "finishedAt": "2026-10-01T04:58:05.303Z"
+          },
+          {
+            "event": "finished",
+            "id": 101,
+            "url": "blob:http://127.0.0.1:37741/e0d53994-6b72-40cd-8922-4b68bf3289b9",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:05.268Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "708242",
+            "finishedAt": "2026-10-01T04:58:05.345Z"
+          },
+          {
+            "event": "finished",
+            "id": 100,
+            "url": "blob:http://127.0.0.1:37741/fb170869-0473-4529-8e1c-eff6cc8e10fb",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:05.268Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "863246",
+            "finishedAt": "2026-10-01T04:58:05.345Z"
+          },
+          {
+            "event": "finished",
+            "id": 102,
+            "url": "blob:http://127.0.0.1:37741/95678a02-72cc-418f-bec2-4c0dcb646634",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:05.268Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "1228646",
+            "finishedAt": "2026-10-01T04:58:05.350Z"
+          },
+          {
+            "event": "finished",
+            "id": 97,
+            "url": "blob:http://127.0.0.1:37741/55cfd8d2-a5c7-40b9-9c22-28c6a604b9d2",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:05.268Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "2338424",
+            "finishedAt": "2026-10-01T04:58:05.354Z"
+          },
+          {
+            "event": "request",
+            "id": 103,
+            "url": "http://127.0.0.1:37741/assets/models/palm-tree.glb?round=2",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:05.409Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "finished",
+            "id": 103,
+            "url": "http://127.0.0.1:37741/assets/models/palm-tree.glb?round=2",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:05.409Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "490580",
+            "finishedAt": "2026-10-01T04:58:05.411Z"
+          },
+          {
+            "event": "request",
+            "id": 104,
+            "url": "blob:http://127.0.0.1:37741/3fc2e3a7-4232-4dae-bbcc-ea96323ef17a",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:05.425Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "request",
+            "id": 105,
+            "url": "blob:http://127.0.0.1:37741/37e11dc8-f138-4aeb-bacd-98b38c087c3e",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:05.425Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "finished",
+            "id": 104,
+            "url": "blob:http://127.0.0.1:37741/3fc2e3a7-4232-4dae-bbcc-ea96323ef17a",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:05.425Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "243362",
+            "finishedAt": "2026-10-01T04:58:05.425Z"
+          },
+          {
+            "event": "finished",
+            "id": 105,
+            "url": "blob:http://127.0.0.1:37741/37e11dc8-f138-4aeb-bacd-98b38c087c3e",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:05.425Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "215552",
+            "finishedAt": "2026-10-01T04:58:05.426Z"
+          },
+          {
+            "event": "request",
+            "id": 106,
+            "url": "http://127.0.0.1:37741/assets/models/palm-tree.glb?case=tampered",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:05.719Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "event": "finished",
+            "id": 106,
+            "url": "http://127.0.0.1:37741/assets/models/palm-tree.glb?case=tampered",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:05.719Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "490580",
+            "finishedAt": "2026-10-01T04:58:05.723Z"
+          },
+          {
+            "event": "request",
+            "id": 107,
+            "url": "http://127.0.0.1:37741/assets/models/palm-tree.glb?case=truncated",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:05.726Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "kind": "requestfailed",
+            "id": 107,
+            "url": "http://127.0.0.1:37741/assets/models/palm-tree.glb?case=truncated",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:05.726Z",
+            "stage": "buffered-probe",
+            "status": 200,
+            "contentLength": "490580",
+            "errorText": "net::ERR_CONTENT_LENGTH_MISMATCH",
+            "failedAt": "2026-10-01T04:58:05.729Z",
+            "failureStage": "buffered-probe"
+          },
+          {
+            "event": "request",
+            "id": 108,
+            "url": "http://127.0.0.1:37741/assets/models/palm-tree.glb?case=http-error",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:05.730Z",
+            "stage": "buffered-probe"
+          },
+          {
+            "kind": "http-error",
+            "url": "http://127.0.0.1:37741/assets/models/palm-tree.glb?case=http-error",
+            "method": "GET",
+            "resourceType": "fetch",
+            "status": 503,
+            "failedAt": "2026-10-01T04:58:05.731Z",
+            "failureStage": "buffered-probe"
+          },
+          {
+            "event": "finished",
+            "id": 108,
+            "url": "http://127.0.0.1:37741/assets/models/palm-tree.glb?case=http-error",
+            "method": "GET",
+            "resourceType": "fetch",
+            "startedAt": "2026-10-01T04:58:05.730Z",
+            "stage": "buffered-probe",
+            "status": 503,
+            "contentLength": null,
+            "finishedAt": "2026-10-01T04:58:05.782Z"
+          }
+        ]
+      }
+    }
+  ],
+  "negative": {
+    "rows": [
+      {
+        "scenario": "tampered",
+        "rejected": true,
+        "error": "Error: Capture GLB byte integrity mismatch: /assets/models/palm-tree.glb"
+      },
+      {
+        "scenario": "truncated",
+        "rejected": true,
+        "error": "TypeError: Failed to fetch"
+      },
+      {
+        "scenario": "http-error",
+        "rejected": true,
+        "error": "Error: Capture GLB HTTP status 503: /assets/models/palm-tree.glb"
+      },
+      {
+        "scenario": "aborted",
+        "rejected": true,
+        "error": "AbortError: signal is aborted without reason"
+      }
+    ],
+    "delivery": {
+      "version": 1,
+      "mode": "drain-and-verify-glb-before-three",
+      "records": [
+        {
+          "url": "http://127.0.0.1:37741/assets/models/island-tree-hero.glb?round=0",
+          "path": "/assets/models/island-tree-hero.glb",
+          "status": 200,
+          "sizeBytes": 3950040,
+          "sha256": "8d892e4a572bb30804aecc3a88adb57e92b852220ccf8f59068f400cf6713a5b",
+          "startedAt": "2026-10-01T04:58:03.081Z",
+          "completedAt": "2026-10-01T04:58:03.110Z"
+        },
+        {
+          "url": "http://127.0.0.1:37741/assets/models/island-tree-medium.glb?round=0",
+          "path": "/assets/models/island-tree-medium.glb",
+          "status": 200,
+          "sizeBytes": 1739460,
+          "sha256": "2c210426ac4e761261b6c4dfc8c250fedd72ca1787de918abc965d4d3f32be64",
+          "startedAt": "2026-10-01T04:58:03.189Z",
+          "completedAt": "2026-10-01T04:58:03.200Z"
+        },
+        {
+          "url": "http://127.0.0.1:37741/assets/models/syringa-tree-near.glb?round=0",
+          "path": "/assets/models/syringa-tree-near.glb",
+          "status": 200,
+          "sizeBytes": 38586500,
+          "sha256": "cb794443092f8b4b7b257c4d86f42e6f2b0ec91a2f95d2d3f34043f0a3b49b07",
+          "startedAt": "2026-10-01T04:58:03.275Z",
+          "completedAt": "2026-10-01T04:58:03.451Z"
+        },
+        {
+          "url": "http://127.0.0.1:37741/assets/models/palm-tree.glb?round=0",
+          "path": "/assets/models/palm-tree.glb",
+          "status": 200,
+          "sizeBytes": 490580,
+          "sha256": "5e3f42cc9bd4a52d1e4249184fc8cba7bf87acf91b1403711115acaa7f2ca0f6",
+          "startedAt": "2026-10-01T04:58:03.810Z",
+          "completedAt": "2026-10-01T04:58:03.817Z"
+        },
+        {
+          "url": "http://127.0.0.1:37741/assets/models/island-tree-hero.glb?round=1",
+          "path": "/assets/models/island-tree-hero.glb",
+          "status": 200,
+          "sizeBytes": 3950040,
+          "sha256": "8d892e4a572bb30804aecc3a88adb57e92b852220ccf8f59068f400cf6713a5b",
+          "startedAt": "2026-10-01T04:58:03.853Z",
+          "completedAt": "2026-10-01T04:58:03.876Z"
+        },
+        {
+          "url": "http://127.0.0.1:37741/assets/models/island-tree-medium.glb?round=1",
+          "path": "/assets/models/island-tree-medium.glb",
+          "status": 200,
+          "sizeBytes": 1739460,
+          "sha256": "2c210426ac4e761261b6c4dfc8c250fedd72ca1787de918abc965d4d3f32be64",
+          "startedAt": "2026-10-01T04:58:03.956Z",
+          "completedAt": "2026-10-01T04:58:03.968Z"
+        },
+        {
+          "url": "http://127.0.0.1:37741/assets/models/syringa-tree-near.glb?round=1",
+          "path": "/assets/models/syringa-tree-near.glb",
+          "status": 200,
+          "sizeBytes": 38586500,
+          "sha256": "cb794443092f8b4b7b257c4d86f42e6f2b0ec91a2f95d2d3f34043f0a3b49b07",
+          "startedAt": "2026-10-01T04:58:04.036Z",
+          "completedAt": "2026-10-01T04:58:04.164Z"
+        },
+        {
+          "url": "http://127.0.0.1:37741/assets/models/palm-tree.glb?round=1",
+          "path": "/assets/models/palm-tree.glb",
+          "status": 200,
+          "sizeBytes": 490580,
+          "sha256": "5e3f42cc9bd4a52d1e4249184fc8cba7bf87acf91b1403711115acaa7f2ca0f6",
+          "startedAt": "2026-10-01T04:58:04.487Z",
+          "completedAt": "2026-10-01T04:58:04.493Z"
+        },
+        {
+          "url": "http://127.0.0.1:37741/assets/models/island-tree-hero.glb?round=2",
+          "path": "/assets/models/island-tree-hero.glb",
+          "status": 200,
+          "sizeBytes": 3950040,
+          "sha256": "8d892e4a572bb30804aecc3a88adb57e92b852220ccf8f59068f400cf6713a5b",
+          "startedAt": "2026-10-01T04:58:04.530Z",
+          "completedAt": "2026-10-01T04:58:04.553Z"
+        },
+        {
+          "url": "http://127.0.0.1:37741/assets/models/island-tree-medium.glb?round=2",
+          "path": "/assets/models/island-tree-medium.glb",
+          "status": 200,
+          "sizeBytes": 1739460,
+          "sha256": "2c210426ac4e761261b6c4dfc8c250fedd72ca1787de918abc965d4d3f32be64",
+          "startedAt": "2026-10-01T04:58:04.629Z",
+          "completedAt": "2026-10-01T04:58:04.640Z"
+        },
+        {
+          "url": "http://127.0.0.1:37741/assets/models/syringa-tree-near.glb?round=2",
+          "path": "/assets/models/syringa-tree-near.glb",
+          "status": 200,
+          "sizeBytes": 38586500,
+          "sha256": "cb794443092f8b4b7b257c4d86f42e6f2b0ec91a2f95d2d3f34043f0a3b49b07",
+          "startedAt": "2026-10-01T04:58:04.712Z",
+          "completedAt": "2026-10-01T04:58:04.887Z"
+        },
+        {
+          "url": "http://127.0.0.1:37741/assets/models/palm-tree.glb?round=2",
+          "path": "/assets/models/palm-tree.glb",
+          "status": 200,
+          "sizeBytes": 490580,
+          "sha256": "5e3f42cc9bd4a52d1e4249184fc8cba7bf87acf91b1403711115acaa7f2ca0f6",
+          "startedAt": "2026-10-01T04:58:05.402Z",
+          "completedAt": "2026-10-01T04:58:05.412Z"
+        }
+      ],
+      "failures": [
+        {
+          "url": "http://127.0.0.1:37741/assets/models/palm-tree.glb?case=tampered",
+          "path": "/assets/models/palm-tree.glb",
+          "startedAt": "2026-10-01T04:58:05.718Z",
+          "failedAt": "2026-10-01T04:58:05.723Z",
+          "error": "Error: Capture GLB byte integrity mismatch: /assets/models/palm-tree.glb"
+        },
+        {
+          "url": "http://127.0.0.1:37741/assets/models/palm-tree.glb?case=truncated",
+          "path": "/assets/models/palm-tree.glb",
+          "startedAt": "2026-10-01T04:58:05.724Z",
+          "failedAt": "2026-10-01T04:58:05.727Z",
+          "error": "TypeError: Failed to fetch"
+        },
+        {
+          "url": "http://127.0.0.1:37741/assets/models/palm-tree.glb?case=http-error",
+          "path": "/assets/models/palm-tree.glb",
+          "startedAt": "2026-10-01T04:58:05.727Z",
+          "failedAt": "2026-10-01T04:58:05.730Z",
+          "error": "Error: Capture GLB HTTP status 503: /assets/models/palm-tree.glb"
+        },
+        {
+          "url": "http://127.0.0.1:37741/assets/models/palm-tree.glb?case=aborted",
+          "path": "/assets/models/palm-tree.glb",
+          "startedAt": "2026-10-01T04:58:05.730Z",
+          "failedAt": "2026-10-01T04:58:05.730Z",
+          "error": "AbortError: signal is aborted without reason"
+        }
+      ]
+    },
+    "rawFailedRequests": [
+      {
+        "kind": "requestfailed",
+        "id": 107,
+        "url": "http://127.0.0.1:37741/assets/models/palm-tree.glb?case=truncated",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T04:58:05.726Z",
+        "stage": "buffered-probe",
+        "status": 200,
+        "contentLength": "490580",
+        "errorText": "net::ERR_CONTENT_LENGTH_MISMATCH",
+        "failedAt": "2026-10-01T04:58:05.729Z",
+        "failureStage": "buffered-probe"
+      },
+      {
+        "kind": "http-error",
+        "url": "http://127.0.0.1:37741/assets/models/palm-tree.glb?case=http-error",
+        "method": "GET",
+        "resourceType": "fetch",
+        "status": 503,
+        "failedAt": "2026-10-01T04:58:05.731Z",
+        "failureStage": "buffered-probe"
+      }
+    ]
+  },
+  "ok": true
+}

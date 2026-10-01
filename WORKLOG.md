@@ -78,3 +78,5 @@ Only prospective, evidence-backed implementation and review intervals count. Par
 - 2026-10-01T02:09:16.556Z → 2026-10-01T03:01:46.435Z | visual-review | 3149.9 s | Review isolated forest density, mineral relief and foam-energy browser comparisons; investigate crown coverage and structural coastal relief | artifacts/refinement-2026-09-30/candidate-05-crown-light/manifest.json, src/render/remote-shadow-study.ts, scripts/control/progress-checkpoints.mjs
 
 - 2026-10-01T03:01:46.534Z → 2026-10-01T03:27:23.315Z | implementation | 1536.8 s | Integrate and visually review principal-face geometry, preserve stable ecological and rock cohorts, and test real remote canopy shadows | docs/continuation/2026-10-01-source-recovery.md, src/world/ocean.ts, src/render/engine.ts
+
+- 2026-10-01T03:27:23.395Z → 2026-10-01T04:57:12.631Z | debugging | 5389.2 s | Restore reviewed source changes and validate resumed renderer after workspace file loss | src/main.ts, src/render/ground-materials.ts, src/world/forest-structure.ts, scripts/control/progress-network.mjs

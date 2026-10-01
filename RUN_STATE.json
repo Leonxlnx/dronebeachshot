@@ -2171,11 +2171,85 @@
           "sha256": "530dd0981d93d7c7572028bed65f168195281a795cdf0b499c5ef16914aaccad"
         }
       ]
+    },
+    {
+      "start": "2026-10-01T03:27:23.395Z",
+      "category": "debugging",
+      "description": "Restore reviewed source changes and validate resumed renderer after workspace file loss",
+      "proofs": [
+        {
+          "at": "2026-10-01T04:30:04.528Z",
+          "files": [
+            {
+              "path": "src/main.ts",
+              "sha256": "0f95c9fc9a3e819a83f13424ac801de121f238f39d37fdb95dc2b1571137fe99"
+            },
+            {
+              "path": "src/render/ground-cover-culling.ts",
+              "sha256": "0014a770b73acdc3bc05517ff5c757bd05d8afb1a46f0de03ffbe14f1669af71"
+            },
+            {
+              "path": "src/render/linear-main-output.ts",
+              "sha256": "dca401e489afb01a35301350da2e50cb59da27b0a084fbe0fe5273d0065098d9"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-01T04:32:36.290Z",
+          "files": [
+            {
+              "path": "src/world/ocean-tiles.test.ts",
+              "sha256": "2c3192ed46e86a1485521c8aaa3ce2b9e5f1fd62e62aa171b1813fffa87e0f03"
+            },
+            {
+              "path": "src/render/ground-cover-culling.ts",
+              "sha256": "0014a770b73acdc3bc05517ff5c757bd05d8afb1a46f0de03ffbe14f1669af71"
+            },
+            {
+              "path": "src/main.ts",
+              "sha256": "0f95c9fc9a3e819a83f13424ac801de121f238f39d37fdb95dc2b1571137fe99"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-01T04:53:28.537Z",
+          "files": [
+            {
+              "path": "scripts/control/progress-network.mjs",
+              "sha256": "6db6ef7d2bc5ea2936e01e4c6ca111d308073faf13497b374505b817fa2cd76f"
+            },
+            {
+              "path": "artifacts/refinement-2026-09-30/candidate-07-recovered-review-retry/manifest.json",
+              "sha256": "4ff70474e673eeab20a5a68076300db1d09778a094e971cfdf0df13e80be564d"
+            }
+          ]
+        }
+      ],
+      "end": "2026-10-01T04:57:12.631Z",
+      "seconds": 5389.236,
+      "evidence": [
+        {
+          "path": "src/main.ts",
+          "sha256": "27bd9862283c69779c47e99b04ef8d43685af2dcd985c058de741c820f2b9995"
+        },
+        {
+          "path": "src/render/ground-materials.ts",
+          "sha256": "51c08d9113efe900e8655b0dd1b500d373d50bb42909b2d0c0eda1305a5c583d"
+        },
+        {
+          "path": "src/world/forest-structure.ts",
+          "sha256": "24a9124ab9648014b6d0a51f55e51f03ee69b2b45ae5ca2c07e6c00ed3ce6649"
+        },
+        {
+          "path": "scripts/control/progress-network.mjs",
+          "sha256": "6db6ef7d2bc5ea2936e01e4c6ca111d308073faf13497b374505b817fa2cd76f"
+        }
+      ]
     }
   ],
   "cycles": [],
-  "blocker": "Art quality remains below references. Managed browser WebGL unavailable. Final browser/mobile/offline/performance,24h/eightcycles,4Kgallery/films andmain/publication conditions remain unmet.",
-  "resumeFrom": "Continue actual native visual refinements, then acquire permitted browser GPU validation for final film/mobile/performance. Preserve 24h and all final gates. Public Sites only after finished acceptance.",
+  "blocker": "Visual quality remains below target. Browser WebGL2 capture is now working; final art/motion/mobile/consumer-GPU/offline verification, 24 active hours/eight genuine cycles, final media and main/publication conditions remain open. Automatic review rejected main pushes; no workaround attempted.",
+  "resumeFrom": "Review recovered real scene comparisons, test coastal materials/understory and the broad recess, render a current-state progress film around the requested elapsed-eight-hour point, then continue refinement.",
   "excludedIntervals": [
     {
       "start": "2026-09-05T04:03:38.808Z",
@@ -2188,41 +2262,24 @@
     }
   ],
   "open": {
-    "start": "2026-10-01T03:27:23.395Z",
-    "category": "debugging",
-    "description": "Restore reviewed source changes and validate resumed renderer after workspace file loss",
+    "start": "2026-10-01T04:57:12.746Z",
+    "category": "materials",
+    "description": "Develop bounded coastal vegetation, sand and mineral surface comparisons while recovering real scene capture",
     "proofs": [
       {
-        "at": "2026-10-01T04:30:04.528Z",
+        "at": "2026-10-01T05:08:15.489Z",
         "files": [
           {
             "path": "src/main.ts",
-            "sha256": "0f95c9fc9a3e819a83f13424ac801de121f238f39d37fdb95dc2b1571137fe99"
+            "sha256": "2d394b01be8f1f5f4dda2948ef064459313d5eb54858bba7e3924cbd85254dc8"
           },
           {
-            "path": "src/render/ground-cover-culling.ts",
-            "sha256": "0014a770b73acdc3bc05517ff5c757bd05d8afb1a46f0de03ffbe14f1669af71"
+            "path": "src/render/ground-materials.ts",
+            "sha256": "ce30e6a6cec4d531d942210ce848c865bc99932196044a1065c4ef850244a3ac"
           },
           {
-            "path": "src/render/linear-main-output.ts",
-            "sha256": "dca401e489afb01a35301350da2e50cb59da27b0a084fbe0fe5273d0065098d9"
-          }
-        ]
-      },
-      {
-        "at": "2026-10-01T04:32:36.290Z",
-        "files": [
-          {
-            "path": "src/world/ocean-tiles.test.ts",
-            "sha256": "2c3192ed46e86a1485521c8aaa3ce2b9e5f1fd62e62aa171b1813fffa87e0f03"
-          },
-          {
-            "path": "src/render/ground-cover-culling.ts",
-            "sha256": "0014a770b73acdc3bc05517ff5c757bd05d8afb1a46f0de03ffbe14f1669af71"
-          },
-          {
-            "path": "src/main.ts",
-            "sha256": "0f95c9fc9a3e819a83f13424ac801de121f238f39d37fdb95dc2b1571137fe99"
+            "path": "artifacts/refinement-2026-09-30/candidate-07-recovered-review-retry2/recovery-review-proof.json",
+            "sha256": "b9df51ddbec18ded31a5d389802846ed1cc7c49a099507a50006d29448a38433"
           }
         ]
       }
@@ -2290,6 +2347,8 @@
     "graphicsAvailable": true,
     "consumerPerformanceVerified": false,
     "progressVideoComplete": false,
-    "qualityTargetAccepted": false
+    "qualityTargetAccepted": false,
+    "recoveredCapture": "artifacts/refinement-2026-09-30/candidate-07-recovered-review-retry2/manifest.json",
+    "sourceRecoveryVerified": true
   }
 }
