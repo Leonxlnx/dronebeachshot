@@ -1,0 +1,120 @@
+{
+  "at": "2026-10-01T02:23:33.460118+00:00",
+  "source": {
+    "sourceIdentity": "4717e3957706fab34dcb69cda41e6320bad8711a7e91b3c5cf9a56aa1534d1a8",
+    "production": true
+  },
+  "frames": [
+    {
+      "frame": "density-0",
+      "opaque": true,
+      "size": [
+        768,
+        432
+      ]
+    },
+    {
+      "frame": "density-19_5",
+      "opaque": true,
+      "size": [
+        768,
+        432
+      ]
+    },
+    {
+      "frame": "mineral-off-10_5",
+      "opaque": true,
+      "size": [
+        768,
+        432
+      ]
+    },
+    {
+      "frame": "mineral-on-10_5",
+      "opaque": true,
+      "size": [
+        768,
+        432
+      ]
+    },
+    {
+      "frame": "mineral-off-headland",
+      "opaque": true,
+      "size": [
+        768,
+        432
+      ]
+    },
+    {
+      "frame": "mineral-on-headland",
+      "opaque": true,
+      "size": [
+        768,
+        432
+      ]
+    },
+    {
+      "frame": "mineral-off-mountain-wide",
+      "opaque": true,
+      "size": [
+        768,
+        432
+      ]
+    },
+    {
+      "frame": "mineral-on-mountain-wide",
+      "opaque": true,
+      "size": [
+        768,
+        432
+      ]
+    },
+    {
+      "frame": "foam-off-6",
+      "opaque": true,
+      "size": [
+        768,
+        432
+      ]
+    },
+    {
+      "frame": "foam-on-6",
+      "opaque": true,
+      "size": [
+        768,
+        432
+      ]
+    },
+    {
+      "frame": "foam-off-10_5",
+      "opaque": true,
+      "size": [
+        768,
+        432
+      ]
+    },
+    {
+      "frame": "foam-on-10_5",
+      "opaque": true,
+      "size": [
+        768,
+        432
+      ]
+    }
+  ],
+  "errors": [],
+  "failedRequests": [],
+  "accepted": [
+    "remote forest density as bounded static improvement",
+    "foam energy/depth gate1 as bounded static improvement"
+  ],
+  "rejected": [
+    "mineralRelief .12 default: negligible plane readability; restored0"
+  ],
+  "pending": [
+    "temporal forest andfoam",
+    "bedding orientation",
+    "structural terrain",
+    "8/10 target"
+  ]
+}

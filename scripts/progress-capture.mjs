@@ -65,8 +65,15 @@ async function serveBundle(directory,diagnostics={}){
  await new Promise((resolve,reject)=>{server.once('error',reject);server.listen(0,'127.0.0.1',resolve);});
  return {url:'http://127.0.0.1:'+server.address().port,close:()=>new Promise(resolve=>server.close(resolve))};
 }
-async function browserCapture({directory,width,height,readyTimeout,networkTimeout=30000,errors,failedRequests,diagnostics={}}){
- const stage=name=>{diagnostics.stage=name;const history=diagnostics.stageHistory??=[];history.push({stage:name,at:new Date().toISOString()});if(history.length>64)history.shift();};
+function captureStatus(output,stage,{name,...counts}={}){
+ if(output)writeAtomicJson(path.join(output,'capture-status.json'),{stage,...(name===undefined?{}:{name}),timestamp:new Date().toISOString(),...counts});
+}
+async function browserCapture({directory,output,width,height,readyTimeout,networkTimeout=30000,errors,failedRequests,diagnostics={}}){
+ let startup=true;
+ const stage=(name,{persist=startup,frameName}={})=>{
+  diagnostics.stage=name;const history=diagnostics.stageHistory??=[];history.push({stage:name,at:new Date().toISOString()});if(history.length>64)history.shift();
+  if(persist)captureStatus(output,name,{name:frameName,errorCount:errors.length,failedRequestCount:failedRequests.length});
+ };
  stage('serve-bundle');const server=await serveBundle(directory,diagnostics);let browser,context,page,requests;
  async function diagnose(error){
   diagnostics.failingStage??=diagnostics.stage;diagnostics.failure=String(error);diagnostics.activeRequests=requests?.snapshot()??[];
@@ -93,14 +100,23 @@ async function browserCapture({directory,width,height,readyTimeout,networkTimeou
    args:['--no-sandbox','--disable-dev-shm-usage','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader','--force-color-profile=srgb']});
   context=await browser.newContext({viewport:{width,height},deviceScaleFactor:1,reducedMotion:'reduce'});
   page=await context.newPage();page.setDefaultTimeout(0);
-  page.on('pageerror',error=>errors.push(String(error)));
-  page.on('console',message=>{if(message.type()==='error')errors.push(message.text());});
+  let startupFailure;
+  const failedStartup=new Promise(resolve=>{startupFailure=resolve;});
+  const runtimeError=error=>{const text=String(error);errors.push(text);startupFailure({error:text});};
+  page.on('pageerror',runtimeError);
+  page.on('console',message=>{if(message.type()==='error')runtimeError(message.text());});
   requests=trackCaptureRequests(page,{failedRequests,diagnostics,getStage:()=>diagnostics.closing?'browser-cleanup':diagnostics.stage});
   stage('install-glb-transport');await page.addInitScript(installCaptureGlbFetch,diagnostics.glbInventory);
   stage('navigate');
   await page.goto(server.url+'/?capture=1&quality=high',{waitUntil:'load',timeout:120000});
   stage('scene-readiness');
-  await page.waitForFunction(()=>window.lastLightBay?.ready===true||window.lastLightBay?.error,undefined,{timeout:readyTimeout});
+  const readyOrFailure=await Promise.race([
+   page.waitForFunction(()=>window.lastLightBay?.ready===true||window.lastLightBay?.error||Boolean(document.getElementById('error')?.textContent?.trim()),undefined,{timeout:readyTimeout}),
+   failedStartup,
+  ]);
+  if(readyOrFailure?.error)throw Error('Scene startup failed: '+readyOrFailure.error);
+  const sceneError=await page.evaluate(()=>window.lastLightBay?.error||document.getElementById('error')?.textContent?.trim()||null);
+  if(sceneError)throw Error('Scene startup failed: '+sceneError);
   stage('validate-build');
   const build=await page.evaluate(()=>window.lastLightBay?.build);
   if(build?.production!==true||!/^[a-f0-9]{64}$/.test(build.sourceIdentity??''))throw Error('Loaded page is not a verified production build');
@@ -118,6 +134,7 @@ async function browserCapture({directory,width,height,readyTimeout,networkTimeou
   stage('health-after-offline');await healthy();
   stage('graphics-state');
   const graphics=await page.evaluate(()=>{const gl=document.getElementById('world').getContext('webgl2'),extension=gl.getExtension('WEBGL_debug_renderer_info');return{version:gl.getParameter(gl.VERSION),renderer:extension?gl.getParameter(extension.UNMASKED_RENDERER_WEBGL):gl.getParameter(gl.RENDERER),samples:gl.getParameter(gl.SAMPLES)};});
+  stage('capture-ready');startup=false;
   return {build,graphics,offlineAfterLoad:true,healthy,diagnose,
    async applySettings(settings){
     stage('apply-settings');
@@ -128,7 +145,7 @@ async function browserCapture({directory,width,height,readyTimeout,networkTimeou
    async renderFrame(entry){
     stage('frame-health-before');
     await healthy();
-    stage('frame-render-and-png');
+    stage('frame-render-and-png',{persist:true,frameName:String(entry.label??entry.view)});
     const result=await page.evaluate(async({view})=>{
      const number=Number(view),api=window.lastLightBay;
      const renderStarted=performance.now();
@@ -221,6 +238,7 @@ export async function runProgressCapture(options,{captureFactory=browserCapture,
    if(errors.length||failedRequests.length)throw Error('Capture accumulated browser errors');
    fs.renameSync(encoded,path.join(options.output,'last-light-bay-progress.mp4'));
    checkpoint.update({diagnostics});checkpoint.finish({errors,failedRequests});
+   captureStatus(options.output,'complete',{errorCount:errors.length,failedRequestCount:failedRequests.length});
    return{captureSucceeded:true,intermediate:true,output:options.output,frames:checkpoint.manifest.frames.length,reusedFrames:completed};
   }
   release=acquireCaptureLock(options.output);
@@ -240,9 +258,11 @@ export async function runProgressCapture(options,{captureFactory=browserCapture,
   }
   await capture.healthy();if(errors.length||failedRequests.length)throw Error('Capture accumulated browser errors');
   Object.assign(stillManifest,{captureSucceeded:true,finishedAt:new Date().toISOString()});writeAtomicJson(manifestPath,stillManifest);
+  captureStatus(options.output,'complete',{errorCount:errors.length,failedRequestCount:failedRequests.length});
   return{captureSucceeded:true,intermediate:true,output:options.output,frames:stillManifest.frames.length};
  }catch(error){
   await capture?.diagnose?.(error);diagnostics.failingStage??=diagnostics.stage??'capture-or-encode';diagnostics.failure??=String(error);
+  if(checkpoint||stillManifest)captureStatus(options.output,'failed',{name:diagnostics.failingStage,errorCount:errors.length,failedRequestCount:failedRequests.length});
   if(checkpoint){checkpoint.update({diagnostics});checkpoint.fail(error,{errors,failedRequests});}
   if(stillManifest){Object.assign(stillManifest,{captureSucceeded:false,error:String(error),finishedAt:new Date().toISOString()});writeAtomicJson(path.join(options.output,'manifest.json'),stillManifest);}
   throw error;

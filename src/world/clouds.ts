@@ -1,7 +1,11 @@
 import {noiseGLSL} from './math';
 import {weatherGLSL} from './weather';
+// Inspection-only coverage study. All cloud consumers share the same value;
+// changing it requires the atmosphere's existing lighting invalidation.
+export const cloudCoverageScale={value:1};
 export const cloudFieldGLSL=`${noiseGLSL}${weatherGLSL}
 uniform highp sampler3D uCloudNoise;
+uniform float uCloudCoverageScale;
 const float cloudBase=1000.;
 const float cloudTop=2250.;
 const float cloudWorldRadius=36000.;
@@ -27,7 +31,7 @@ float filteredDensity(vec3 p,float footprint){
  float distantFade=(1.-smoothstep(26000.,cloudWorldRadius,radius))*smoothstep(700.,2500.,radius);
  if(clearing==0.||distantFade==0.)return 0.;
  float weather=noise(p.xz*.00021+vec2(8.3,2.7))*.8+.2*noise(p.xz*.00063);
- float cover=smoothstep(.26,.74,weather)*.61;
+ float cover=smoothstep(.26,.74,weather)*.61*uCloudCoverageScale;
  if(cover<.001)return 0.;
  float height=(p.y-cloudBase)/(cloudTop-cloudBase);
  // Regional cloud maturity changes the ceiling while sharing a condensation base.

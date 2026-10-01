@@ -1,0 +1,37 @@
+{
+  "kind": "actual browser startup failure fixtures",
+  "webglCallsPermitted": false,
+  "readyTimeoutMilliseconds": 8000,
+  "productionDefaultReadyTimeoutMilliseconds": 300000,
+  "rows": [
+    {
+      "kind": "visible-error",
+      "message": "Deliberate visible-error before capture API initialization",
+      "elapsedMilliseconds": 1281.258055,
+      "error": "Error: Scene startup failed: Deliberate visible-error before capture API initialization",
+      "stage": "scene-readiness",
+      "frames": 0,
+      "apiInstalled": false,
+      "serverClosed": true,
+      "childProcessesBefore": [],
+      "childProcessesAfter": [],
+      "manifest": "artifacts/refinement-2026-09-30/startup-failure-fixtures/visible-error/capture/manifest.json",
+      "status": "artifacts/refinement-2026-09-30/startup-failure-fixtures/visible-error/capture/capture-status.json"
+    },
+    {
+      "kind": "console-error",
+      "message": "Deliberate console-error before capture API initialization",
+      "elapsedMilliseconds": 445.69202100000007,
+      "error": "Error: Scene startup failed: Deliberate console-error before capture API initialization",
+      "stage": "scene-readiness",
+      "frames": 0,
+      "apiInstalled": false,
+      "serverClosed": true,
+      "childProcessesBefore": [],
+      "childProcessesAfter": [],
+      "manifest": "artifacts/refinement-2026-09-30/startup-failure-fixtures/console-error/capture/manifest.json",
+      "status": "artifacts/refinement-2026-09-30/startup-failure-fixtures/console-error/capture/capture-status.json"
+    }
+  ],
+  "ok": true
+}

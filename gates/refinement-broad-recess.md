@@ -1,6 +1,7 @@
 # Gates: broad three-plane recess study
 
-This is a reversible visual trial, separate from the rejected principal-face lip.
+This historical trial was REJECTED after the actual candidate09 frames.
+It is separate from the rejected principal-face lip.
 `BROAD_RECESS_STUDY_ENABLED` defaults to false; the old study also stays false.
 
 - [x] B1: Distinct broad planar target agreed with art review.
@@ -20,10 +21,15 @@ This is a reversible visual trial, separate from the rejected principal-face lip
   CPU terrain and worker use the same conditional branch. Both study flags
   cannot enable together. TypeScript and whitespace checks passed.
 - [ ] B4: Two actual browser frames justify continuing the candidate.
-  Pending: broad mass/readable recess versus artificial canyon or quarry.
+  REJECTED: candidate-09-broad-recess mountain-wide reads as a straight pale
+  engineered chute with a pointed return. The 3 s descent hides the intended
+  face gain and adds a pale ledge. Root reset the broad flag to false.
 - [ ] B5: Enabled source-worker parity, current atlas and local support accepted.
-  Pending until B4 warrants the larger audit. Stable core tree/rock cohorts
-  are selected from the reference stage and refitted to current terrain;
-  this does not imply every affected tree base or rock fit is acceptable.
+  Not accepted. Bounded source audit found 73 lowered tree roots, 79 affected
+  basal footprints and 18 new basal support flags. Five local rock transforms
+  change; no source identities change. The near-scan 17.324 m maximum positive
+  vertex-to-terrain height is above-ground exposure, not a measured basal gap
+  or proof that the whole rock floats. Further full audits are not warranted
+  for this visually rejected geometry.
 - [ ] B6: Full-scene ecological and visual acceptance.
-  Pending; no build, browser capture or acceptance claim by the land worker.
+  REJECTED; no acceptance claim by the land worker.

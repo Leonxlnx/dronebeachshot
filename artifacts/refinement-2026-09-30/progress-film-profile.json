@@ -1,0 +1,29 @@
+{
+  "lighting": {
+    "exposure": 1.08,
+    "sunIntensity": 4.8,
+    "skyIntensity": 0.48,
+    "environmentIntensity": 0.55,
+    "sunColor": "#ffdfb6",
+    "skyColor": "#a1c9ed",
+    "groundColor": "#365842",
+    "fogDensity": 6.5e-05,
+    "cloudFogDensity": 4e-05,
+    "cloudCoverage": 0.9
+  },
+  "farCrownCoverage": false,
+  "farCrownBlending": false,
+  "linearMainOutput": false,
+  "surfaceStudy": {
+    "mineralRelief": 0,
+    "foamDepthGate": 1,
+    "stoneBedding": 1,
+    "sandRipple": 0.2,
+    "rockWeathering": 0
+  },
+  "coastalUnderstory": false,
+  "profiling": false,
+  "culling": true,
+  "oceanCulling": true,
+  "debug": 0
+}

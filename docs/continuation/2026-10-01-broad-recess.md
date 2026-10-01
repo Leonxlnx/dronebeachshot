@@ -1,4 +1,10 @@
-# Reversible broad recess candidate
+# Rejected broad recess candidate
+
+Root rejected the actual candidate09 full-scene mountain-wide and 3 s descent
+frames. The long pale chute and pointed return look engineered; the descent
+occludes the intended main-face gain and introduces a pale ledge. B4 remains
+unchecked and rejected, and the broad production flag was reset to false.
+The helper and CPU evidence remain for diagnosis, not further acceptance work.
 
 The rejected principal-face study produced a small hooked groove rather than
 broad mass articulation. This separate study uses three planes forming one
@@ -50,7 +56,13 @@ selection remains unchanged; current local Y/support and atlas R still use
 actual selected geometry.
 
 TypeScript and whitespace checks passed. Both flags remain false. No build
-or browser was run by this worker. Enabled worker parity, basal tree support,
-rock exposure and root clearance await actual image justification; the deep
-cut may expose new local support defects despite stable reference cohorts.
-Actual browser acceptance and the canyon/quarry appearance risk remain open.
+or browser was run by this worker; root made the candidate09 comparison.
+Bounded enabled source-only support review found 73 lower root Ys,79 affected
+basal footprints,18 new basal flags, and five locally refitted rocks with
+original source identities retained. Detailed results are in
+`artifacts/refinement-2026-09-30/broad-recess/support-review.md`.
+The rock maximum of17.324 m is positive rock-vertex elevation above terrain
+at the same XZ, not a measured bottom-support gap or proof of a wholly floating
+rock. Sixty percent refers to sampled vertices below terrain, not volume.
+Full worker/atlas and ecological acceptance remain unfulfilled. The actual
+visual rejection ends this geometry candidate; do not tick accepted gates.

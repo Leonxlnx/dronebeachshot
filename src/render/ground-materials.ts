@@ -6,8 +6,9 @@ import {habitatGLSL,habitatUniform} from '../world/habitat';
 // Recovered accepted source-calibrated controls; relief stays disabled after review.
 export const mineralReliefStrength={value:0};
 export const stoneBeddingAligned={value:1};
-// Reversible art studies: source texture grain remains unchanged.
-export const sandRippleStrength={value:1};
+// Actual shore comparison retained subtle relief without the dominant rail bands.
+// Source texture grain remains unchanged; motion/filtering review is separate.
+export const sandRippleStrength={value:.2};
 export const rockWeatheringStrength={value:0};
 const projection=`
 // A dry, exposed fracture reveals lighter mineral grain. Preserve the scan's
@@ -22,8 +23,8 @@ vec3 bedrockAlbedo(vec3 stone,vec3 p,vec3 n,vec4 site){
  // Restrict weathered mineral to elevated, sheltered faces. This changes albedo,
  // not normals, shadow visibility, source alpha or the sun contribution.
  float retention=smoothstep(.47,.68,site.g)*(1.-smoothstep(.38,.8,site.r));
- float patch=retention*smoothstep(8.,35.,p.y)*(1.-smoothstep(.65,.96,abs(n.y)))*uRockWeathering;
- return result*mix(vec3(1.),vec3(.79,.83,.86),patch);
+ float weatheredArea=retention*smoothstep(8.,35.,p.y)*(1.-smoothstep(.65,.96,abs(n.y)))*uRockWeathering;
+ return result*mix(vec3(1.),vec3(.79,.83,.86),weatheredArea);
 }
 
 // Three deterministic source phases remove coherent tile repetition. Matching

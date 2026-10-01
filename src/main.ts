@@ -26,6 +26,7 @@ import {withCloudLighting,solarColor,solarIntensity} from './render/sky-lighting
 import {createRefractionPass} from './render/refraction';
 import {mineralReliefStrength,stoneBeddingAligned,sandRippleStrength,rockWeatheringStrength} from './render/ground-materials';
 import {waitForProfilingFence} from './render/profiling-sync';
+import {cloudCoverageScale} from './world/clouds';
 import {createGroundCoverCulling} from './render/ground-cover-culling';
 import {createRemoteShadowStudy} from './render/remote-shadow-study';
 import {getFarCrownCoverage,setFarCrownCoverage} from './render/far-crown-coverage';
@@ -63,12 +64,13 @@ const remoteShadowStudy=(capture||inspect)?createRemoteShadowStudy(atmosphere.su
 function inspection(){readiness.assertReady();if(!capture&&!inspect)throw Error('Study controls require capture or inspection mode');if(capturing)throw Error('A frame capture is in progress');}
 function finite(value:unknown,lo:number,hi:number,key:string){if(typeof value!=='number'||!Number.isFinite(value)||value<lo||value>hi)throw Error('Invalid '+key);return value;}
 function boolean(value:unknown,key:string){if(typeof value!=='boolean')throw Error('Invalid '+key);return value;}
-function getLighting(){return {exposure,sunIntensity:atmosphere.lighting.sunIntensity,skyIntensity:atmosphere.lighting.skyIntensity,environmentIntensity,sunColor:'#'+atmosphere.sun.color.getHexString(),skyColor:'#'+atmosphere.hemi.color.getHexString(),groundColor:'#'+atmosphere.hemi.groundColor.getHexString(),fogDensity:aerialDensity.value,cloudFogDensity:cloudAerialDensity.value};}
+function getLighting(){return {exposure,sunIntensity:atmosphere.lighting.sunIntensity,skyIntensity:atmosphere.lighting.skyIntensity,environmentIntensity,sunColor:'#'+atmosphere.sun.color.getHexString(),skyColor:'#'+atmosphere.hemi.color.getHexString(),groundColor:'#'+atmosphere.hemi.groundColor.getHexString(),fogDensity:aerialDensity.value,cloudFogDensity:cloudAerialDensity.value,cloudCoverage:cloudCoverageScale.value};}
 function setLighting(settings:Record<string,unknown>){
  inspection();const next={...getLighting()};
  for(const [key,value] of Object.entries(settings)){
   if(!Object.hasOwn(next,key))throw Error('Unknown lighting setting: '+key);
   if(key.endsWith('Color')){if(typeof value!=='string'||!/^#[a-f0-9]{6}$/i.test(value))throw Error('Invalid light color');}
+  else if(key==='cloudCoverage')finite(value,.65,1.15,key);
   else finite(value,0,key.includes('Density')?.002:key==='exposure'?3:12,key);
   Object.assign(next,{[key]:value});
  }
@@ -78,6 +80,7 @@ function setLighting(settings:Record<string,unknown>){
  atmosphere.sun.color.set(next.sunColor);atmosphere.hemi.color.set(next.skyColor);atmosphere.hemi.groundColor.set(next.groundColor);
  solarColor.value.copy(atmosphere.sun.color);solarIntensity.value=next.sunIntensity;
  aerialDensity.value=next.fogDensity;(scene.fog as THREE.FogExp2).density=next.fogDensity;cloudAerialDensity.value=next.cloudFogDensity;
+ cloudCoverageScale.value=next.cloudCoverage;
  renderer.toneMappingExposure=debugMode.value===11?1:exposure;atmosphere.invalidateLighting();return getLighting();
 }
 function getSurfaceStudy(){return {mineralRelief:mineralReliefStrength.value,foamDepthGate:foamDepthGate.value,stoneBedding:stoneBeddingAligned.value,sandRipple:sandRippleStrength.value,rockWeathering:rockWeatheringStrength.value};}
@@ -115,17 +118,18 @@ function frameWork(t:number,name=evalName){
 function draw(t:number,name=evalName){const frame=frameWork(t,name);for(const [,render]of frame.phases)render();return frame.finish();}
 async function drawProfiled(t:number,name=evalName){
  if(capturing)throw Error('A frame capture is in progress');
- capturing=true;setPlaying(false);
+ capturing=true;setPlaying(false);let completed=false;
  try{
   // Drain preceding setup work separately; it must not inflate the next phase.
   const preFrame=await waitForProfilingFence(graphics),frame=frameWork(t,name),timings:Record<string,number>={};
   for(const [phase,render]of frame.phases){const started=performance.now();render();await waitForProfilingFence(graphics);timings[phase]=performance.now()-started;}
-  return frame.finish(timings,preFrame.milliseconds);
+  const result=frame.finish(timings,preFrame.milliseconds);completed=true;return result;
  }finally{
   capturing=false;
   const nextQuality=pendingQuality,resizeNeeded=pendingResize;pendingQuality=undefined;pendingResize=false;
   if(nextQuality)setQuality(nextQuality);else if(resizeNeeded)engine.resize(tier,capture);
-  if(ready&&(nextQuality||resizeNeeded))draw(time);
+  if(completed&&ready&&(nextQuality||resizeNeeded))draw(time);
+  if(completed&&(nextQuality||resizeNeeded))throw Error('Profiled frame interrupted by a presentation change; retry with the current settings');
  }
 }
 function drawInspected(t:number,name=evalName){return profileFrame?drawProfiled(t,name):draw(t,name);}
@@ -152,7 +156,7 @@ const api={build:buildIdentity,
  getLinearMainOutput:()=>linearMain.getState(),getLighting,setLighting,getSurfaceStudy,setSurfaceStudy,getShadowStudy,setShadowStudy,
  setGroundCulling:(value:boolean)=>{inspection();groundCoverCulling.setEnabled(boolean(value,'ground culling'));return value;},
  setOceanCulling:(value:boolean)=>{inspection();ocean.setTiledCulling(boolean(value,'ocean culling'));return value;},
- setFrameProfiling:(value:boolean)=>{inspection();profileFrame=boolean(value,'frame profiling');return profileFrame;},get ready(){return readiness.ready},get error(){return readiness.error},seed:SEED,duration:DURATION,renderAt:(t:number)=>seek(t),cameraNames:Object.keys(evaluationCameras),cameraDiagnostics,stats:()=>{readiness.assertReady();return draw(time)},setCamera:(name:string)=>{readiness.assertReady();if(capturing)throw Error('A frame capture is in progress');if(!Object.hasOwn(evaluationCameras,name))throw Error('Unknown evaluation camera');setPlaying(false);freeYaw=freePitch=0;evalName=name;time=evaluationCameras[name].time;return drawInspected(time,name)},setDebug:(mode:number)=>{readiness.assertReady();if(capturing)throw Error('A frame capture is in progress');if(!Number.isInteger(mode)||mode<0||mode>12)throw Error('Invalid diagnostic mode');debugMode.value=mode;vegetation.group.visible=mode!==12;rocks.visible=mode!==12;cover.visible=tier!=='low'&&mode!==12;atmosphere.sun.intensity=mode===6?0:atmosphere.lighting.sunIntensity;atmosphere.hemi.intensity=mode===5?0:atmosphere.lighting.skyIntensity;renderer.shadowMap.enabled=tier!=="low"&&mode!==6;atmosphere.dome.visible=![1,2,3,4,7,8,9,10,11,12].includes(mode);scene.background=new THREE.Color(mode===0||mode===5||mode===6?0xa4a89a:0x000000);renderer.toneMappingExposure=mode===11?1:exposure;draw(time)},capture:async(width=3840,height=2160)=>{
+ setFrameProfiling:(value:boolean)=>{inspection();profileFrame=boolean(value,'frame profiling');return profileFrame;},get ready(){return readiness.ready},get error(){return readiness.error},seed:SEED,duration:DURATION,renderAt:(t:number)=>seek(t),cameraNames:Object.keys(evaluationCameras),cameraDiagnostics,stats:()=>{readiness.assertReady();if(capturing)throw Error('A frame capture is in progress');return draw(time)},setCamera:(name:string)=>{readiness.assertReady();if(capturing)throw Error('A frame capture is in progress');if(!Object.hasOwn(evaluationCameras,name))throw Error('Unknown evaluation camera');setPlaying(false);freeYaw=freePitch=0;evalName=name;time=evaluationCameras[name].time;return drawInspected(time,name)},setDebug:(mode:number)=>{readiness.assertReady();if(capturing)throw Error('A frame capture is in progress');if(!Number.isInteger(mode)||mode<0||mode>12)throw Error('Invalid diagnostic mode');debugMode.value=mode;vegetation.group.visible=mode!==12;rocks.visible=mode!==12;cover.visible=tier!=='low'&&mode!==12;atmosphere.sun.intensity=mode===6?0:atmosphere.lighting.sunIntensity;atmosphere.hemi.intensity=mode===5?0:atmosphere.lighting.skyIntensity;renderer.shadowMap.enabled=tier!=="low"&&mode!==6;atmosphere.dome.visible=![1,2,3,4,7,8,9,10,11,12].includes(mode);scene.background=new THREE.Color(mode===0||mode===5||mode===6?0xa4a89a:0x000000);renderer.toneMappingExposure=mode===11?1:exposure;draw(time)},capture:async(width=3840,height=2160)=>{
  readiness.assertReady();
  if(capturing)throw Error('A frame capture is already in progress');
  captureDimensions(width,height,renderer.capabilities.maxTextureSize);
@@ -171,5 +175,5 @@ const api={build:buildIdentity,
 }};
 Object.assign(window,{lastLightBay:api});
 if(inspect){const panel=document.createElement('div');panel.id='review-controls';panel.style.cssText='position:absolute;top:12px;right:12px;display:flex;flex-wrap:wrap;gap:4px;max-width:340px;justify-content:flex-end';for(const name of Object.keys(evaluationCameras)){const b=document.createElement('button');b.textContent=name;b.style.cssText='font-size:11px;padding:5px;min-height:25px';b.onclick=()=>{if(capturing)return;setPlaying(false);api.setCamera(name)};panel.append(b)}const download=document.createElement('button');download.textContent='Save 4K frame';download.onclick=async()=>{if(download.disabled)return;download.disabled=true;const filename=(evalName||'flight-'+time.toFixed(2))+'.png';try{const blob=await api.capture();const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=filename;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);download.textContent='Save 4K frame'}catch{download.textContent='Frame unavailable — try again'}finally{download.disabled=false}};panel.append(download);const modes=['beauty','albedo','normals','roughness','depth','direct light','environment','shadows','LOD','shore depth','foam','exposure','vegetation density'];const select=document.createElement('select');select.setAttribute('aria-label','Diagnostic view');select.style.cssText='color:white;background:#182b2d;padding:8px';modes.forEach((m,i)=>select.add(new Option(m,String(i))));select.onchange=()=>{if(!capturing)api.setDebug(Number(select.value))};panel.append(select);document.body.append(panel)}
-draw(time);window.addEventListener('pageshow',event=>{if(event.persisted){last=0;if(!capture)raf=requestAnimationFrame(loop);draw(time)}});window.addEventListener('pagehide',event=>{cancelAnimationFrame(raf);if(event.persisted){setPlaying(false);audio.pause();el('sound').textContent='Sound off';el('sound').setAttribute('aria-pressed','false');return}audio.dispose();disposeFarCrownBlending();linearMain.dispose();vegetation.disposeVisibility();atmosphere.dispose();refraction.dispose();const geometries=new Set<THREE.BufferGeometry>(),materials=new Set<THREE.Material>(),texturesToDispose=new Set<THREE.Texture>(Object.values(textures));scene.traverse(o=>{if(o instanceof THREE.Mesh||o instanceof THREE.Points){if(o instanceof THREE.InstancedMesh)o.dispose();geometries.add(o.geometry);if(o.customDepthMaterial)materials.add(o.customDepthMaterial);for(const m of Array.isArray(o.material)?o.material:[o.material]){materials.add(m);for(const texture of m.userData.sharedShaderTextures??[])if(texture instanceof THREE.Texture)texturesToDispose.add(texture);for(const value of Object.values(m))if(value instanceof THREE.Texture)texturesToDispose.add(value)}}});geometries.forEach(g=>g.dispose());materials.forEach(m=>{if(m instanceof THREE.ShaderMaterial)for(const uniform of Object.values(m.uniforms))if(uniform.value instanceof THREE.Texture)texturesToDispose.add(uniform.value);m.dispose()});for(const atlas of vegetation.farTextures){texturesToDispose.add(atlas.albedo);texturesToDispose.add(atlas.normals);texturesToDispose.add(atlas.visibility)}texturesToDispose.forEach(t=>t.dispose());renderer.dispose()});}
+draw(time);window.addEventListener('pageshow',event=>{if(event.persisted){last=0;if(!capture)raf=requestAnimationFrame(loop);if(capturing){pendingResize=true;return}draw(time)}});window.addEventListener('pagehide',event=>{cancelAnimationFrame(raf);if(event.persisted){setPlaying(false);audio.pause();el('sound').textContent='Sound off';el('sound').setAttribute('aria-pressed','false');return}audio.dispose();disposeFarCrownBlending();linearMain.dispose();vegetation.disposeVisibility();atmosphere.dispose();refraction.dispose();const geometries=new Set<THREE.BufferGeometry>(),materials=new Set<THREE.Material>(),texturesToDispose=new Set<THREE.Texture>(Object.values(textures));scene.traverse(o=>{if(o instanceof THREE.Mesh||o instanceof THREE.Points){if(o instanceof THREE.InstancedMesh)o.dispose();geometries.add(o.geometry);if(o.customDepthMaterial)materials.add(o.customDepthMaterial);for(const m of Array.isArray(o.material)?o.material:[o.material]){materials.add(m);for(const texture of m.userData.sharedShaderTextures??[])if(texture instanceof THREE.Texture)texturesToDispose.add(texture);for(const value of Object.values(m))if(value instanceof THREE.Texture)texturesToDispose.add(value)}}});geometries.forEach(g=>g.dispose());materials.forEach(m=>{if(m instanceof THREE.ShaderMaterial)for(const uniform of Object.values(m.uniforms))if(uniform.value instanceof THREE.Texture)texturesToDispose.add(uniform.value);m.dispose()});for(const atlas of vegetation.farTextures){texturesToDispose.add(atlas.albedo);texturesToDispose.add(atlas.normals);texturesToDispose.add(atlas.visibility)}texturesToDispose.forEach(t=>t.dispose());renderer.dispose()});}
 start().catch(e=>{console.error(e);failure('The scene could not load. '+String(e))});

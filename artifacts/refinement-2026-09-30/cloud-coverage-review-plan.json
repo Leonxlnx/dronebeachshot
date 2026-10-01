@@ -1,0 +1,68 @@
+[
+  {
+    "view": 10.5,
+    "label": "shore-cloud-1",
+    "lighting": {
+      "exposure": 1.08,
+      "sunIntensity": 4.8,
+      "skyIntensity": 0.48,
+      "environmentIntensity": 0.55,
+      "sunColor": "#ffdfb6",
+      "skyColor": "#a1c9ed",
+      "groundColor": "#365842",
+      "fogDensity": 6.5e-05,
+      "cloudFogDensity": 4e-05
+    },
+    "farCrownCoverage": false,
+    "surfaceStudy": {
+      "mineralRelief": 0,
+      "foamDepthGate": 1,
+      "stoneBedding": 1,
+      "sandRipple": 0.2,
+      "rockWeathering": 0
+    },
+    "profiling": true
+  },
+  {
+    "view": 10.5,
+    "label": "shore-cloud-09",
+    "lighting": {
+      "cloudCoverage": 0.9
+    }
+  },
+  {
+    "view": 10.5,
+    "label": "shore-cloud-08",
+    "lighting": {
+      "cloudCoverage": 0.8
+    }
+  },
+  {
+    "view": 19.5,
+    "label": "sunset-cloud-09",
+    "lighting": {
+      "cloudCoverage": 0.9
+    }
+  },
+  {
+    "view": 19.5,
+    "label": "sunset-cloud-1",
+    "lighting": {
+      "cloudCoverage": 1
+    }
+  },
+  {
+    "view": 0,
+    "label": "opening-cloud-09",
+    "lighting": {
+      "cloudCoverage": 0.9
+    }
+  },
+  {
+    "view": 0,
+    "label": "opening-cloud-1",
+    "lighting": {
+      "cloudCoverage": 1
+    }
+  }
+]
