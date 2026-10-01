@@ -1,0 +1,372 @@
+{
+  "createdAt": "2026-10-01T08:22:01.135697+00:00",
+  "scope": {
+    "video": "/workspace/scratch/ff8fac50118b/dronebeachshot/artifacts/refinement-2026-09-30/motion-prefix-encoder-smoke-01/last-light-bay-progress-prefix-12f.mp4",
+    "videoSHA256": "0f9424f1468ccab0524796daec45828bc758a94be8e1cb2770dcf8459c742341",
+    "frames": 12,
+    "duration": 0.5,
+    "width": 640,
+    "height": 360,
+    "sourceIdentity": "ee114c8d7bf6eca95ce22fe39a35e16f00e779974c773861829e36c84c1dfbd8",
+    "allSourceHashesVerified": true
+  },
+  "units": "RGB code values 0..255; no perceptual DeltaE or browser display measurement",
+  "observedColorMetadata": {
+    "color_range": "absent",
+    "color_space": "absent",
+    "color_transfer": "absent",
+    "color_primaries": "absent",
+    "chroma_location": "left"
+  },
+  "sourceColorManagement": {
+    "engineSHA256": "530dd0981d93d7c7572028bed65f168195281a795cdf0b499c5ef16914aaccad",
+    "explicitSRGBOutput": true,
+    "toneMappingACES": true,
+    "screenshotPNGHasNoSRGBGammaICCChunk": true,
+    "pinnedBundle": {
+      "path": "assets/index-gIM6HHTJ.js",
+      "sha256": "4d954f205a934f32e979faa72ac92924ba8958a6d15cc1383992897ae22e6fcb",
+      "hashVerified": true,
+      "observedEngineAssignment": "t.outputColorSpace=He,t.toneMapping=4,t.toneMappingExposure=1.08",
+      "observedConstant": "He=`srgb`"
+    }
+  },
+  "roundtrip": {
+    "default": {
+      "decodedRGBSHA256": "71c0d4f20ecc3e11d8785de2278b45898ca7da7be67b80682199d42e40e18ae5",
+      "identicalToDefault": true,
+      "MAE": 1.7848048080632717,
+      "RMSE": 2.5788951301508316,
+      "PSNRdB": 39.902129967338134,
+      "absoluteErrorMedian": 1.0,
+      "absoluteErrorP95": 5.0,
+      "absoluteErrorP99": 9.0,
+      "absoluteErrorMaximum": 69,
+      "meanRGBBias": [
+        -0.85095703125,
+        -1.3595128038194444,
+        -0.8753182870370371
+      ],
+      "fractionChannelErrorsOver5": 0.037547863618827164,
+      "regions": {
+        "sky": {
+          "meanRGBBias": [
+            -0.9751427469135803,
+            -1.2710108024691358,
+            -0.8202314814814815
+          ],
+          "MAE": 1.7188670267489712
+        },
+        "water": {
+          "meanRGBBias": [
+            -0.8018638888888889,
+            -1.4196805555555556,
+            -0.6059541666666667
+          ],
+          "MAE": 1.3181726851851852
+        },
+        "forest": {
+          "meanRGBBias": [
+            -0.9148887310606061,
+            -1.250234375,
+            -1.0896851325757575
+          ],
+          "MAE": 2.1763502209595957
+        }
+      }
+    },
+    "explicit_bt601_limited": {
+      "decodedRGBSHA256": "71c0d4f20ecc3e11d8785de2278b45898ca7da7be67b80682199d42e40e18ae5",
+      "identicalToDefault": true,
+      "MAE": 1.7848048080632717,
+      "RMSE": 2.5788951301508316,
+      "PSNRdB": 39.902129967338134,
+      "absoluteErrorMedian": 1.0,
+      "absoluteErrorP95": 5.0,
+      "absoluteErrorP99": 9.0,
+      "absoluteErrorMaximum": 69,
+      "meanRGBBias": [
+        -0.85095703125,
+        -1.3595128038194444,
+        -0.8753182870370371
+      ],
+      "fractionChannelErrorsOver5": 0.037547863618827164,
+      "regions": {
+        "sky": {
+          "meanRGBBias": [
+            -0.9751427469135803,
+            -1.2710108024691358,
+            -0.8202314814814815
+          ],
+          "MAE": 1.7188670267489712
+        },
+        "water": {
+          "meanRGBBias": [
+            -0.8018638888888889,
+            -1.4196805555555556,
+            -0.6059541666666667
+          ],
+          "MAE": 1.3181726851851852
+        },
+        "forest": {
+          "meanRGBBias": [
+            -0.9148887310606061,
+            -1.250234375,
+            -1.0896851325757575
+          ],
+          "MAE": 2.1763502209595957
+        }
+      }
+    },
+    "explicit_bt709_limited": {
+      "decodedRGBSHA256": "cb9acbb0be3475e249b7bcebc71fd01eebf5dea8fed3bb7f21978ce9d0377018",
+      "identicalToDefault": false,
+      "MAE": 2.298313078703704,
+      "RMSE": 3.123387034906852,
+      "PSNRdB": 38.238287544250284,
+      "absoluteErrorMedian": 2.0,
+      "absoluteErrorP95": 6.0,
+      "absoluteErrorP99": 9.0,
+      "absoluteErrorMaximum": 70,
+      "meanRGBBias": [
+        -0.8075122974537037,
+        -1.9480374710648147,
+        -1.1523343460648148
+      ],
+      "fractionChannelErrorsOver5": 0.06558497299382716,
+      "regions": {
+        "sky": {
+          "meanRGBBias": [
+            -0.16049768518518517,
+            -0.7187268518518518,
+            -1.0561574074074074
+          ],
+          "MAE": 1.6908963477366254
+        },
+        "water": {
+          "meanRGBBias": [
+            -3.191636111111111,
+            -3.280797222222222,
+            -0.047093055555555555
+          ],
+          "MAE": 2.5471689814814815
+        },
+        "forest": {
+          "meanRGBBias": [
+            0.6070525568181818,
+            -1.612298768939394,
+            -2.09765625
+          ],
+          "MAE": 2.4127935606060604
+        }
+      }
+    },
+    "explicit_bt601_full": {
+      "decodedRGBSHA256": "eadc10409f04b9eb8411ef516d88bf7598ddb0081ac64795b2ca93d407811e26",
+      "identicalToDefault": false,
+      "MAE": 6.213720823688272,
+      "RMSE": 7.729978232605995,
+      "PSNRdB": 30.3672381894909,
+      "absoluteErrorMedian": 6.0,
+      "absoluteErrorP95": 15.0,
+      "absoluteErrorP99": 17.0,
+      "absoluteErrorMaximum": 72,
+      "meanRGBBias": [
+        -1.1860727719907407,
+        -1.8651218894675925,
+        -0.3098629195601852
+      ],
+      "fractionChannelErrorsOver5": 0.5104951533564814,
+      "regions": {
+        "sky": {
+          "meanRGBBias": [
+            -7.61366512345679,
+            -6.892681327160494,
+            -5.861454475308642
+          ],
+          "MAE": 6.87082304526749
+        },
+        "water": {
+          "meanRGBBias": [
+            3.6150444444444445,
+            -0.1797,
+            -0.7247458333333333
+          ],
+          "MAE": 2.5988486111111113
+        },
+        "forest": {
+          "meanRGBBias": [
+            4.709876893939394,
+            5.902230113636364,
+            9.392521306818182
+          ],
+          "MAE": 7.120374842171717
+        }
+      }
+    }
+  },
+  "nativeLumaMatrixEvidence": {
+    "bt601": {
+      "nativeEncodedYVersusSourceFormulaMAE": 0.9472079846430764,
+      "meanSignedError": 0.1012925229822008,
+      "RMSE": 1.5032335439130196
+    },
+    "bt709": {
+      "nativeEncodedYVersusSourceFormulaMAE": 1.4113004181585311,
+      "meanSignedError": -0.2654513078814297,
+      "RMSE": 1.8990952596929476
+    }
+  },
+  "commands": [
+    [
+      "ffmpeg",
+      "-hide_banner",
+      "-loglevel",
+      "error",
+      "-threads",
+      "2",
+      "-filter_threads",
+      "2",
+      "-i",
+      "/workspace/scratch/ff8fac50118b/dronebeachshot/artifacts/refinement-2026-09-30/motion-prefix-encoder-smoke-01/last-light-bay-progress-prefix-12f.mp4",
+      "-map",
+      "0:v:0",
+      "-frames:v",
+      "12",
+      "-an",
+      "-sn",
+      "-dn",
+      "-threads",
+      "2",
+      "-pix_fmt",
+      "rgb24",
+      "-f",
+      "rawvideo",
+      "pipe:1"
+    ],
+    [
+      "ffmpeg",
+      "-hide_banner",
+      "-loglevel",
+      "error",
+      "-threads",
+      "2",
+      "-filter_threads",
+      "2",
+      "-i",
+      "/workspace/scratch/ff8fac50118b/dronebeachshot/artifacts/refinement-2026-09-30/motion-prefix-encoder-smoke-01/last-light-bay-progress-prefix-12f.mp4",
+      "-map",
+      "0:v:0",
+      "-frames:v",
+      "12",
+      "-an",
+      "-sn",
+      "-dn",
+      "-vf",
+      "scale=in_color_matrix=bt601:in_range=limited:out_range=full",
+      "-threads",
+      "2",
+      "-pix_fmt",
+      "rgb24",
+      "-f",
+      "rawvideo",
+      "pipe:1"
+    ],
+    [
+      "ffmpeg",
+      "-hide_banner",
+      "-loglevel",
+      "error",
+      "-threads",
+      "2",
+      "-filter_threads",
+      "2",
+      "-i",
+      "/workspace/scratch/ff8fac50118b/dronebeachshot/artifacts/refinement-2026-09-30/motion-prefix-encoder-smoke-01/last-light-bay-progress-prefix-12f.mp4",
+      "-map",
+      "0:v:0",
+      "-frames:v",
+      "12",
+      "-an",
+      "-sn",
+      "-dn",
+      "-vf",
+      "scale=in_color_matrix=bt709:in_range=limited:out_range=full",
+      "-threads",
+      "2",
+      "-pix_fmt",
+      "rgb24",
+      "-f",
+      "rawvideo",
+      "pipe:1"
+    ],
+    [
+      "ffmpeg",
+      "-hide_banner",
+      "-loglevel",
+      "error",
+      "-threads",
+      "2",
+      "-filter_threads",
+      "2",
+      "-i",
+      "/workspace/scratch/ff8fac50118b/dronebeachshot/artifacts/refinement-2026-09-30/motion-prefix-encoder-smoke-01/last-light-bay-progress-prefix-12f.mp4",
+      "-map",
+      "0:v:0",
+      "-frames:v",
+      "12",
+      "-an",
+      "-sn",
+      "-dn",
+      "-vf",
+      "scale=in_color_matrix=bt601:in_range=full:out_range=full",
+      "-threads",
+      "2",
+      "-pix_fmt",
+      "rgb24",
+      "-f",
+      "rawvideo",
+      "pipe:1"
+    ],
+    [
+      "ffmpeg",
+      "-hide_banner",
+      "-loglevel",
+      "error",
+      "-threads",
+      "2",
+      "-filter_threads",
+      "2",
+      "-i",
+      "/workspace/scratch/ff8fac50118b/dronebeachshot/artifacts/refinement-2026-09-30/motion-prefix-encoder-smoke-01/last-light-bay-progress-prefix-12f.mp4",
+      "-map",
+      "0:v:0",
+      "-frames:v",
+      "12",
+      "-an",
+      "-sn",
+      "-dn",
+      "-threads",
+      "2",
+      "-pix_fmt",
+      "yuv420p",
+      "-f",
+      "rawvideo",
+      "pipe:1"
+    ]
+  ],
+  "limitations": [
+    "Only actual existing 12-frame 0.5-second smoke clip decoded.",
+    "No browser/player playback, display colorimeter, or transfer-aware color managed player tested.",
+    "Default and forced-matrix decoded comparisons quantify this local FFmpeg build, not unknown player behavior.",
+    "No new video created, no active render/exporter/encoder modified. Raw decoded samples stayed in process memory."
+  ],
+  "conclusion": {
+    "observedMaterialHueOrGammaFailure": false,
+    "scopeOfThatConclusion": "No large hue/gamma failure observed in this local FFmpeg 12-frame RGB roundtrip; not a browser-playback guarantee.",
+    "metadataIncomplete": true,
+    "currentDecision": "Keep exporter unchanged for this update; explicitly retain unknown player color-management limitation.",
+    "rejectedShortcut": "Do not add BT.709 matrix tags alone to existing bytes, which locally decode as BT.601 limited-range.",
+    "futureWorkIfRequested": "Any explicit color pipeline should pair its actual RGB-to-YUV matrix/range conversion with matching tags and preserve or explicitly transform the source sRGB transfer; verify a fresh bounded smoke and target-player playback before adoption."
+  }
+}

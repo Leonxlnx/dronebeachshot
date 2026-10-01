@@ -13,7 +13,7 @@
   },
   "profile": "artifacts/refinement-2026-09-30/coastal-reflection/actual-scene-profile.json",
   "plan": "artifacts/refinement-2026-09-30/coastal-reflection/actual-scene-plan.json",
-  "profileSha256": "e06fae68bc779bf14c64ecd104cf100c5c5b347c48781d7ec308741315f05ab2",
+  "profileSha256": "b813fa9f1bdae8ca70fb599616cbb808c8f8232b2450103f46c79b52f740691c",
   "planSha256": "77a822409e11b0b295be1188853e71373f88d0881f69725dd6f0721ab5e4e054",
   "dimensions": {
     "width": 640,
@@ -35,7 +35,7 @@
     "memoryMetric=working",
     "jsHeapMiB=384"
   ],
-  "executionOwner": "Root after memory release and the existing isolated optical checks. Current main CLI: working-memory start6144/limit7424 MiB,384 MiB V8 old-space. The conservative working estimate is not a guarantee of reclaimable memory. The active film is running and working memory is about7.1 GiB at this instruction; wait for actual headroom rather than launch or raise the guard.",
+  "executionOwner": "Root manually launches still comparisons after the user cancelled cloud video rendering at 2026-10-01T08:23 UTC. Keep working-memory start6144/limit7424 MiB and384 MiB V8 old-space; freshly verify headroom.",
   "baselineRule": "Use freshly rendered shore-off from the same current normal dist as all other entries. The old motion-11 ee114 source pin and older candidate PNGs are context only, never A/B controls. Record actual browser build.sourceIdentity and bundle hashes in the resulting manifest.",
   "constantControls": "Profile explicitly keeps cloud morphology, sand chroma/filter, Island response, far-crown studies, linear main/SSAA, coastal understory, terrain shadow chunking and remote shadow studies off. Retain existing cloud coverage 0.9 and accepted lighting. Principal, broad-recess and east-spur source flags must remain false.",
   "comparisonOrder": [
@@ -110,5 +110,7 @@
     "memoryLimitMiB": 7424,
     "jsHeapMiB": 384,
     "meaning": "Conservative pressure estimate, not a reclamation guarantee. Shared guard retains raw and effective readings; root owns scheduling after fresh preflight."
-  }
+  },
+  "originalProfileSha256AtPreparation": "e06fae68bc779bf14c64ecd104cf100c5c5b347c48781d7ec308741315f05ab2",
+  "profileAmendment": "Current complete baseline additionally pins grassPalette=0; original coast comparisons and values are unchanged."
 }

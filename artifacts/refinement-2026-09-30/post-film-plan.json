@@ -1,0 +1,274 @@
+[
+  {
+    "view": 12,
+    "label": "grass-palette-off-12"
+  },
+  {
+    "view": 12,
+    "label": "grass-palette-on-12",
+    "surfaceStudy": {
+      "grassPalette": 1
+    }
+  },
+  {
+    "view": 12,
+    "label": "grass-palette-off-restored-12",
+    "surfaceStudy": {
+      "grassPalette": 0
+    }
+  },
+  {
+    "view": 4.083333333333333,
+    "label": "near-crown-native"
+  },
+  {
+    "view": 4.083333333333333,
+    "label": "near-crown-linear-1x",
+    "linearMainOutput": true
+  },
+  {
+    "view": 4.083333333333333,
+    "label": "near-crown-linear-2x",
+    "linearMainSampleScale": 2
+  },
+  {
+    "view": 4.083333333333333,
+    "label": "near-crown-native-restored",
+    "linearMainOutput": false,
+    "linearMainSampleScale": 1
+  },
+  {
+    "view": 0,
+    "label": "opening-baseline"
+  },
+  {
+    "view": 0,
+    "label": "opening-response",
+    "islandDirectResponse": true
+  },
+  {
+    "view": 0,
+    "label": "opening-blend",
+    "farCrownBlending": true,
+    "islandDirectResponse": false
+  },
+  {
+    "view": 0,
+    "label": "opening-combined",
+    "islandDirectResponse": true
+  },
+  {
+    "view": 5,
+    "label": "descent-baseline",
+    "farCrownBlending": false,
+    "islandDirectResponse": false
+  },
+  {
+    "view": 5,
+    "label": "descent-response",
+    "islandDirectResponse": true
+  },
+  {
+    "view": 5,
+    "label": "descent-blend",
+    "farCrownBlending": true,
+    "islandDirectResponse": false
+  },
+  {
+    "view": 5,
+    "label": "descent-combined",
+    "islandDirectResponse": true
+  },
+  {
+    "view": 10.5,
+    "label": "shore-old-sand",
+    "farCrownBlending": false,
+    "islandDirectResponse": false
+  },
+  {
+    "view": 10.5,
+    "label": "shore-warm-sand",
+    "surfaceStudy": {
+      "sandChroma": 1
+    }
+  },
+  {
+    "view": 19.5,
+    "label": "sunset-old-sand",
+    "surfaceStudy": {
+      "sandChroma": 0
+    }
+  },
+  {
+    "view": 19.5,
+    "label": "sunset-warm-sand",
+    "surfaceStudy": {
+      "sandChroma": 1
+    }
+  },
+  {
+    "view": 9,
+    "label": "spur-reference-9",
+    "surfaceStudy": {
+      "sandChroma": 0
+    }
+  },
+  {
+    "view": 0,
+    "label": "opening-clearer-clouds",
+    "lighting": {
+      "cloudCoverage": 0.65
+    }
+  },
+  {
+    "view": 10.5,
+    "label": "shore-clearer-clouds"
+  },
+  {
+    "view": 19.5,
+    "label": "sunset-clearer-clouds"
+  },
+  {
+    "view": 10.5,
+    "label": "shore-off",
+    "lighting": {
+      "cloudCoverage": 0.9
+    }
+  },
+  {
+    "view": 10.5,
+    "label": "shore-reflection-flat",
+    "coastalReflection": true,
+    "coastalReflectionDistortion": 0
+  },
+  {
+    "view": 10.5,
+    "label": "shore-reflection-wave",
+    "coastalReflectionDistortion": 1
+  },
+  {
+    "view": 10.5,
+    "label": "shore-film-only",
+    "coastalReflection": false,
+    "surfaceStudy": {
+      "sandFilmDrying": 1
+    }
+  },
+  {
+    "view": 10.5,
+    "label": "shore-combined",
+    "coastalReflection": true
+  },
+  {
+    "view": 10.75,
+    "label": "nearby-off",
+    "coastalReflection": false,
+    "surfaceStudy": {
+      "sandFilmDrying": 0
+    }
+  },
+  {
+    "view": 10.75,
+    "label": "nearby-combined",
+    "coastalReflection": true,
+    "surfaceStudy": {
+      "sandFilmDrying": 1
+    }
+  },
+  {
+    "view": 10.5,
+    "label": "shore-off-restored",
+    "coastalReflection": false,
+    "surfaceStudy": {
+      "sandFilmDrying": 0
+    }
+  },
+  {
+    "view": 0,
+    "label": "opening-cloud-morphology-09",
+    "lighting": {
+      "cloudMorphology": true
+    }
+  },
+  {
+    "view": 10.5,
+    "label": "shore-cloud-morphology-09"
+  },
+  {
+    "view": 19.5,
+    "label": "sunset-cloud-morphology-09"
+  },
+  {
+    "view": 0,
+    "label": "opening-cloud-morphology-065",
+    "lighting": {
+      "cloudCoverage": 0.65
+    }
+  },
+  {
+    "view": 10.5,
+    "label": "shore-cloud-morphology-065"
+  },
+  {
+    "view": 19.5,
+    "label": "sunset-cloud-morphology-065"
+  },
+  {
+    "view": 0,
+    "label": "opening-cloud-coverage-04",
+    "lighting": {
+      "cloudCoverage": 0.4,
+      "cloudMorphology": false
+    }
+  },
+  {
+    "view": 10.5,
+    "label": "shore-cloud-coverage-04"
+  },
+  {
+    "view": 19.5,
+    "label": "sunset-cloud-coverage-04"
+  },
+  {
+    "view": 0,
+    "label": "opening-cloud-morphology-04",
+    "lighting": {
+      "cloudMorphology": true
+    }
+  },
+  {
+    "view": 10.5,
+    "label": "shore-cloud-morphology-04"
+  },
+  {
+    "view": 19.5,
+    "label": "sunset-cloud-morphology-04"
+  },
+  {
+    "view": 10.5,
+    "label": "terrain-shadow-off",
+    "lighting": {
+      "cloudCoverage": 0.9,
+      "cloudMorphology": false
+    },
+    "profiling": true
+  },
+  {
+    "view": 10.5,
+    "label": "terrain-shadow-on",
+    "shadowStudy": {
+      "terrainChunks": true
+    }
+  },
+  {
+    "view": 10.5,
+    "label": "terrain-shadow-on-repeat"
+  },
+  {
+    "view": 10.5,
+    "label": "terrain-shadow-off-restored",
+    "shadowStudy": {
+      "terrainChunks": false
+    }
+  }
+]

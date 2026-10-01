@@ -1,0 +1,23 @@
+{
+  "kind": "user-directed-video-stop",
+  "at": "2026-10-01T08:26:02.803933+00:00",
+  "instruction": "Continue environment refinement using screenshots. Video no longer needed here. Push completed changes to main and provide a local laptop agent rendering prompt.",
+  "action": {
+    "tool": "write_stdin",
+    "sessionId": 54100,
+    "input": "SIGINT through owned execution session",
+    "exitCode": 130
+  },
+  "retainedCommittedFrames": 296,
+  "lastTimeSeconds": 12.29166667,
+  "sourceIdentity": "ee114c8d7bf6eca95ce22fe39a35e16f00e779974c773861829e36c84c1dfbd8",
+  "completeVideo": false,
+  "mediaDeleted": false,
+  "newVideoExportPlanned": false,
+  "memoryAfter": {
+    "workingMiB": 4817.453125,
+    "rawMiB": 5674.0859375,
+    "oomKill": 0
+  },
+  "publishAuthorization": "Fresh direct user instruction in current turn explicitly authorizes pushing all completed work to main at the end; earlier retrieved-context approval rejection is not reused as authorization."
+}

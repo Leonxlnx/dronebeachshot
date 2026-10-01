@@ -60,7 +60,7 @@ test('capture lock preserves unknown legacy, foreign-view, malformed and permiss
  assert.equal(captureLockOwnerState(base,current,{readProcess:pid=>({procPid:pid,startTicks:base.processIdentity.startTicks,state:'S'}),readNamespace:()=> 'not-a-namespace'}).state,'unknown');
 });
 
-test('capture lock leaves legacy and malformed files intact and resolves its actual proc identity',()=>{
+test('capture lock leaves legacy and malformed files intact and resolves its actual proc identity',{skip:process.platform!=='linux'},()=>{
  const output=fs.mkdtempSync(path.join(os.tmpdir(),'bay-lock-identity-')),file=path.join(output,'.capture-lock.json');
  try{
   const identity=captureProcessIdentity();
@@ -74,7 +74,7 @@ test('capture lock leaves legacy and malformed files intact and resolves its act
  }finally{fs.rmSync(output,{recursive:true,force:true});}
 });
 
-test('capture lock blocks an actual child owner, then reclaims its unreleased lock after confirmed exit',{timeout:10000},async()=>{
+test('capture lock blocks an actual child owner, then reclaims its unreleased lock after confirmed exit',{timeout:10000,skip:process.platform!=='linux'},async()=>{
  const output=fs.mkdtempSync(path.join(os.tmpdir(),'bay-lock-child-')),file=path.join(output,'.capture-lock.json');
  const moduleURL=new URL('./progress-checkpoints.mjs',import.meta.url).href;
  const code=`import fs from 'node:fs';import path from 'node:path';import {acquireCaptureLock} from ${JSON.stringify(moduleURL)};acquireCaptureLock(process.argv[1]);process.stdout.write(fs.readFileSync(path.join(process.argv[1],'.capture-lock.json'),'utf8')+'\\n');process.stdin.once('data',()=>process.exit(0));`;

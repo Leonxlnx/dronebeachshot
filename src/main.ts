@@ -17,7 +17,7 @@ import {setFoliageMultisampling} from './render/vegetation-material';
 import {worldTime,debugMode,createGroundWindDepth} from './render/materials';
 import {applyCinematic,evaluationCameras,DURATION,cameraDiagnostics} from './camera/cinematic';
 import {Ambience} from './app/audio';
-import {timelineTime,captureDimensions} from './app/capture-state';
+import {timelineTime,captureDimensions,validateCloudCoverage} from './app/capture-state';
 import {createSceneReadiness} from './app/scene-readiness';
 import {SEED,clamp} from './world/math';
 import {enableMaterialDiagnostics} from './render/diagnostics';
@@ -29,6 +29,7 @@ import {mineralReliefStrength,stoneBeddingAligned,sandRippleStrength,sandRippleF
 import {waitForProfilingFence} from './render/profiling-sync';
 import {cloudCoverageScale,getCloudMorphologyStudy,setCloudMorphologyStudy} from './world/clouds';
 import {createGroundCoverCulling} from './render/ground-cover-culling';
+import {grassPaletteSRGB} from './render/grass-palette';
 import {createRemoteShadowStudy} from './render/remote-shadow-study';
 import {createTerrainShadowChunkStudy} from './render/terrain-shadow-chunks';
 import {getFarCrownCoverage,setFarCrownCoverage} from './render/far-crown-coverage';
@@ -75,7 +76,7 @@ function setLighting(settings:Record<string,unknown>){
   if(!Object.hasOwn(next,key))throw Error('Unknown lighting setting: '+key);
   if(key.endsWith('Color')){if(typeof value!=='string'||!/^#[a-f0-9]{6}$/i.test(value))throw Error('Invalid light color');}
   else if(key==='cloudMorphology')boolean(value,key);
-  else if(key==='cloudCoverage')finite(value,.65,1.15,key);
+  else if(key==='cloudCoverage')validateCloudCoverage(value);
   else finite(value,0,key.includes('Density')?.002:key==='exposure'?3:12,key);
   Object.assign(next,{[key]:value});
  }
@@ -88,8 +89,8 @@ function setLighting(settings:Record<string,unknown>){
  cloudCoverageScale.value=next.cloudCoverage;setCloudMorphologyStudy(next.cloudMorphology);
  renderer.toneMappingExposure=debugMode.value===11?1:exposure;atmosphere.invalidateLighting();return getLighting();
 }
-function getSurfaceStudy(){return {mineralRelief:mineralReliefStrength.value,foamDepthGate:foamDepthGate.value,stoneBedding:stoneBeddingAligned.value,sandRipple:sandRippleStrength.value,sandRippleFilter:sandRippleFilter.value,sandChroma:sandChroma.value,sandFilmDrying:sandFilmDrying.value,rockWeathering:rockWeatheringStrength.value,groundLayerPruning:groundLayerPruning.value};}
-function setSurfaceStudy(settings:Record<string,unknown>){inspection();const targets={mineralRelief:mineralReliefStrength,foamDepthGate,stoneBedding:stoneBeddingAligned,sandRipple:sandRippleStrength,sandRippleFilter,sandChroma,sandFilmDrying,rockWeathering:rockWeatheringStrength,groundLayerPruning};for(const [key,value]of Object.entries(settings)){if(!Object.hasOwn(targets,key))throw Error('Unknown surface setting: '+key);if(key==='groundLayerPruning'){if(typeof value!=='number'||![0,1,2].includes(value))throw Error('Invalid ground layer sampling mode');}else finite(value,0,1,key);}for(const [key,value]of Object.entries(settings))targets[key as keyof typeof targets].value=value as number;return getSurfaceStudy();}
+function getSurfaceStudy(){return {mineralRelief:mineralReliefStrength.value,foamDepthGate:foamDepthGate.value,stoneBedding:stoneBeddingAligned.value,sandRipple:sandRippleStrength.value,sandRippleFilter:sandRippleFilter.value,sandChroma:sandChroma.value,sandFilmDrying:sandFilmDrying.value,rockWeathering:rockWeatheringStrength.value,groundLayerPruning:groundLayerPruning.value,grassPalette:grassPaletteSRGB.value};}
+function setSurfaceStudy(settings:Record<string,unknown>){inspection();const targets={mineralRelief:mineralReliefStrength,foamDepthGate,stoneBedding:stoneBeddingAligned,sandRipple:sandRippleStrength,sandRippleFilter,sandChroma,sandFilmDrying,rockWeathering:rockWeatheringStrength,groundLayerPruning,grassPalette:grassPaletteSRGB};for(const [key,value]of Object.entries(settings)){if(!Object.hasOwn(targets,key))throw Error('Unknown surface setting: '+key);if(key==='groundLayerPruning'){if(typeof value!=='number'||![0,1,2].includes(value))throw Error('Invalid ground layer sampling mode');}else if(key==='grassPalette'){if(value!==0&&value!==1)throw Error('Invalid grass palette study');}else finite(value,0,1,key);}for(const [key,value]of Object.entries(settings))targets[key as keyof typeof targets].value=value as number;return getSurfaceStudy();}
 function getShadowStudy(){return {mapSize:atmosphere.sun.shadow.mapSize.x,normalBias:atmosphere.sun.shadow.normalBias,bias:atmosphere.sun.shadow.bias,...remoteShadowStudy?.get(),...terrainShadowStudy?.get()};}
 function setShadowStudy(settings:Record<string,unknown>){
  inspection();for(const [key,value]of Object.entries(settings)){

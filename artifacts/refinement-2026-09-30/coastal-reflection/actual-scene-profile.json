@@ -24,7 +24,8 @@
     "sandChroma": 0,
     "sandRippleFilter": 0,
     "groundLayerPruning": 0,
-    "sandFilmDrying": 0
+    "sandFilmDrying": 0,
+    "grassPalette": 0
   },
   "coastalUnderstory": false,
   "profiling": false,

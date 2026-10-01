@@ -1,0 +1,40 @@
+{
+  "imagesInspected": [
+    "browser-06/off-1.png",
+    "browser-06/on.png",
+    "browser-03/on.png",
+    "browser-02/on.png"
+  ],
+  "coverageControl": 0.4,
+  "outsideProductionCoverageRange": true,
+  "productionRangeUnchanged": [
+    0.65,
+    1.15
+  ],
+  "observations": [
+    "At0.4 the upper-right bank is more visibly divided into individually lit lobes and blue separations than at0.65 or0.9; its nearly uniform gray-roof appearance is weakened.",
+    "A visually crowded small-cloud layer remains toward the horizon; this is not a guarantee of a mostly clear sky.",
+    "Morphology ON keeps directional streaks and banks, whereas OFF retains more similarly rounded clusters."
+  ],
+  "recommendation": "The0.4 morphology-ON combination is the strongest tiny-fixture direction and merits an actual-shore comparison if separately authorized. Keep production bounds/defaults unchanged pending that decision.",
+  "limitations": [
+    "These are qualitative observations from actual192x108 images. No cloud-occupancy fraction is inferred from brightness or opaque alpha.",
+    "Derivative-selected cloud footprints differ from full-scene resolution.",
+    "Only the visible sky was rendered; reflection, cloud-shadow and PMREM renders were deliberately omitted.",
+    "Lowering the positive coverage control changes the density support and self-illumination; image coverage is not held constant."
+  ],
+  "comparisonIntegrity": {
+    "cameraExactlyEqual": true,
+    "sunExactlyEqual": true,
+    "rendererExactlyEqual": true,
+    "changedSourceFiles": [
+      "scripts/control/check-cloud-morphology-browser.mjs"
+    ]
+  },
+  "preparedFixtureSHA256": "b2f19f1b2f378c65fb34296ab64c2816163330201e46bd7b876a6983a0a7edb9",
+  "workingPeakMiB": 7267.6328125,
+  "rawPeakMiB": 8090.71484375,
+  "browserClosed": true,
+  "serverClosed": true,
+  "cleanupErrors": []
+}

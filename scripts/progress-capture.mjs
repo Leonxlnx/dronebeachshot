@@ -2,6 +2,7 @@
  * node scripts/progress-capture.mjs [video] width=768 [height=432] out=...
  * Still plans: plan=entries.json, or views=0,6,10.5,19.5
  * Video: fps=24 duration=20 start=0 profile=settings.json [resume]
+ * Local hardware: backend=hardware (default software preserves cloud captures)
  * Optional guard: memoryStartMiB=6144 memoryLimitMiB=7424 [memoryMetric=total|working]
  * Optional heap experiment and startup measurements: jsHeapMiB=512
  * A video pins its first dist bundle. Resume validates every committed PNG and
@@ -19,13 +20,14 @@ import {trackCaptureRequests} from './control/progress-network.mjs';
 import {captureGlbManifest,installCaptureGlbFetch} from './control/progress-glb-fetch.mjs';
 import {createCaptureMemoryGuard,validateCaptureMemoryLimits} from './control/progress-memory.mjs';
 import {createStartupMemorySampler,validateJsHeapMiB} from './control/progress-startup-memory.mjs';
+import {validateCaptureBackend,captureLaunchOptions,probeHardwareWebGL2,assertHardwareGraphics,assertHardwareGraphicsMatch} from './control/progress-backend.mjs';
 
 const projectRoot=fileURLToPath(new URL('../',import.meta.url));
 const settingMethods={lighting:'setLighting',surfaceStudy:'setSurfaceStudy',shadowStudy:'setShadowStudy',
  culling:'setGroundCulling',oceanCulling:'setOceanCulling',debug:'setDebug',farCrownCoverage:'setFarCrownCoverage',islandDirectResponse:'setIslandDirectResponseStudy',
  farCrownBlending:'setFarCrownBlending',linearMainOutput:'setLinearMainOutput',linearMainSampleScale:'setLinearMainSampleScale',profiling:'setFrameProfiling',coastalUnderstory:'setCoastalUnderstory',coastalReflection:'setCoastalReflection',coastalReflectionDistortion:'setCoastalReflectionDistortion'};
 const settingsOf=entry=>Object.fromEntries(Object.entries(entry).filter(([key])=>key!=='view'&&key!=='label'));
-const supportedArguments=new Set(['width','height','out','dist','plan','views','times','fps','duration','start','profile','writeTimeout','exitTimeout','readyTimeout','networkTimeout','memoryStartMiB','memoryLimitMiB','memoryMetric','jsHeapMiB','resume','video']);
+const supportedArguments=new Set(['width','height','out','dist','plan','views','times','fps','duration','start','profile','writeTimeout','exitTimeout','readyTimeout','networkTimeout','memoryStartMiB','memoryLimitMiB','memoryMetric','jsHeapMiB','backend','resume','video']);
 export function parseOptions(argv,root=projectRoot){
  const args={};let video=false,resume=false;
  for(const item of argv){
@@ -43,7 +45,7 @@ export function parseOptions(argv,root=projectRoot){
  if(args.plan&&(args.views||args.times))throw Error('Choose a plan or explicit views');
  if(args.views&&args.times)throw Error('Choose views or times, not both');
  if(args.views||args.times)timeline=(args.views??args.times).split(',').map(view=>({view}));
- const options={root,width,height,video,resume,output:resolve(args.out??'artifacts/progress-'+new Date().toISOString().replaceAll(':','-')),
+ const options={root,width,height,video,resume,backend:validateCaptureBackend(args.backend),output:resolve(args.out??'artifacts/progress-'+new Date().toISOString().replaceAll(':','-')),
   dist:resolve(args.dist??'dist'),fps:Number(args.fps??24),duration:Number(args.duration??20),start:Number(args.start??0),profile,
   writeTimeout:Number(args.writeTimeout??120000),exitTimeout:Number(args.exitTimeout??120000),readyTimeout:Number(args.readyTimeout??300000),networkTimeout:Number(args.networkTimeout??30000)};
  for(const key of ['writeTimeout','exitTimeout','readyTimeout','networkTimeout'])if(!Number.isFinite(options[key])||options[key]<=0)throw Error('Invalid '+key);
@@ -74,9 +76,10 @@ async function serveBundle(directory,diagnostics={}){
 function captureStatus(output,stage,{name,...counts}={}){
  if(output)writeAtomicJson(path.join(output,'capture-status.json'),{stage,...(name===undefined?{}:{name}),timestamp:new Date().toISOString(),...counts});
 }
-export async function browserCapture({directory,output,width,height,readyTimeout,networkTimeout=30000,islandResponseNeeded=false,memoryStartMiB,memoryLimitMiB,memoryMetric,jsHeapMiB,errors,failedRequests,diagnostics={}},
+export async function browserCapture({directory,output,width,height,readyTimeout,networkTimeout=30000,islandResponseNeeded=false,memoryStartMiB,memoryLimitMiB,memoryMetric,jsHeapMiB,backend='software',expectedGraphics,errors,failedRequests,diagnostics={}},
  {launchBrowser=async options=>{const {chromium}=await import('playwright');return chromium.launch(options);},serve=serveBundle,memoryDependencies,startupMemoryDependencies}={}){
  jsHeapMiB=validateJsHeapMiB(jsHeapMiB);
+ backend=validateCaptureBackend(backend);diagnostics.backend=backend;
  let startup=true;
  const stage=(name,{persist=startup,frameName}={})=>{
   diagnostics.stage=name;const history=diagnostics.stageHistory??=[];history.push({stage:name,at:new Date().toISOString()});if(history.length>64)history.shift();
@@ -112,11 +115,18 @@ export async function browserCapture({directory,output,width,height,readyTimeout
   stage('launch-browser');
   const jsFlags=jsHeapMiB===undefined?[]:[`--js-flags=--max-old-space-size=${jsHeapMiB}`];
   if(jsHeapMiB!==undefined)diagnostics.jsHeap={requestedMiB:jsHeapMiB,launchArgument:jsFlags[0],forcedGC:false};
-  browser=await launchBrowser({executablePath:process.env.BAY_BROWSER_EXECUTABLE,headless:true,timeout:120000,
-   args:['--no-sandbox','--disable-dev-shm-usage','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader','--force-color-profile=srgb',...jsFlags]});
+  browser=await launchBrowser(captureLaunchOptions({backend,executablePath:process.env.BAY_BROWSER_EXECUTABLE,jsHeapMiB}));
   memory.attachBrowser(browser);memory.assertHealthy();
   context=await browser.newContext({viewport:{width,height},deviceScaleFactor:1,reducedMotion:'reduce'});
   page=await context.newPage();page.setDefaultTimeout(0);
+  if(backend==='hardware'){
+   stage('hardware-webgl2-preflight');
+   diagnostics.hardwarePreflight=await withDeadline(page.evaluate(probeHardwareWebGL2),30000,'Hardware WebGL2 preflight');
+   diagnostics.hardwarePreflight.backend=backend;
+   assertHardwareGraphics(diagnostics.hardwarePreflight);memory.assertHealthy();
+   if(expectedGraphics)assertHardwareGraphicsMatch(diagnostics.hardwarePreflight,expectedGraphics);
+   console.log(JSON.stringify({stage:'hardware-webgl2-preflight',backend,graphics:diagnostics.hardwarePreflight}));
+  }
   let startupFailure;
   const failedStartup=new Promise(resolve=>{startupFailure=resolve;});
   const runtimeError=error=>{const text=String(error);errors.push(text);startupFailure({error:text});};
@@ -166,7 +176,8 @@ export async function browserCapture({directory,output,width,height,readyTimeout
   stage('offline-transition');await context.setOffline(true);
   stage('health-after-offline');await healthy();
   stage('graphics-state');
-  const graphics=await page.evaluate(()=>{const gl=document.getElementById('world').getContext('webgl2'),extension=gl.getExtension('WEBGL_debug_renderer_info');return{version:gl.getParameter(gl.VERSION),renderer:extension?gl.getParameter(extension.UNMASKED_RENDERER_WEBGL):gl.getParameter(gl.RENDERER),samples:gl.getParameter(gl.SAMPLES)};});
+  const graphics=await page.evaluate(()=>{const gl=document.getElementById('world').getContext('webgl2'),extension=gl.getExtension('WEBGL_debug_renderer_info');return{version:gl.getParameter(gl.VERSION),renderer:extension?gl.getParameter(extension.UNMASKED_RENDERER_WEBGL):gl.getParameter(gl.RENDERER),unmaskedRendererAvailable:!!extension,samples:gl.getParameter(gl.SAMPLES)};});
+  graphics.backend=backend;if(backend==='hardware'){assertHardwareGraphics(graphics);if(expectedGraphics)assertHardwareGraphicsMatch(graphics,expectedGraphics);}
   await startupMemory?.stop('capture-ready');
   stage('capture-ready');startup=false;
   return {build,graphics,offlineAfterLoad:true,healthy,diagnose,get failure(){return memory.error;},
@@ -241,6 +252,9 @@ function createEncoder(options,spawnEncoder){
  };
 }
 export async function runProgressCapture(options,{captureFactory=browserCapture,spawnEncoder=spawn,log=console.log}={}){
+ // Programmatic callers must not bypass the persisted backend contract either.
+ const backend=validateCaptureBackend(options.backend);
+ if(options.video&&backend!==validateCaptureBackend(options.contract?.backend))throw Error('Capture backend does not match the video contract');
  const errors=[],failedRequests=[],diagnostics={};let capture,encoder,checkpoint,release,stillManifest;
  const frameState=(stats,expectedIdentity,entry)=>{
   if(stats?.ready!==true||stats.sourceIdentity!==expectedIdentity||stats.quality!=='high'||!Number.isFinite(stats.time))throw Error('Frame is not ready at production high quality');
@@ -250,6 +264,8 @@ export async function runProgressCapture(options,{captureFactory=browserCapture,
   if(options.video){
    checkpoint=openVideoCheckpoint({output:options.output,dist:options.dist,contract:options.contract,resume:options.resume});
    release=checkpoint.release;checkpoint.startAttempt();
+   const expectedGraphics=backend==='hardware'&&checkpoint.manifest.frames.length?checkpoint.manifest.graphics:undefined;
+   if(backend==='hardware'&&checkpoint.manifest.frames.length)assertHardwareGraphicsMatch(expectedGraphics,expectedGraphics);
    encoder=createEncoder(options,spawnEncoder);checkpoint.update({encodingCommand:encoder.command});
    const completed=checkpoint.manifest.frames.length,timeline=options.contract.timeline;
    for(let index=0;index<timeline.length;index++){
@@ -259,8 +275,9 @@ export async function runProgressCapture(options,{captureFactory=browserCapture,
      if(!capture){
       // Await startup completely even if the encoder exits: no orphan browser
       // promise may escape cleanup. Already saved frames remain reusable.
-      capture=await captureFactory({directory:checkpoint.bundle,...options,errors,failedRequests,diagnostics,
+      capture=await captureFactory({directory:checkpoint.bundle,...options,expectedGraphics,errors,failedRequests,diagnostics,
        islandResponseNeeded:[options.contract.profile,...timeline].some(settings=>settings.islandDirectResponse===true)});
+      if(backend==='hardware'){assertHardwareGraphics(capture.graphics);if(expectedGraphics)assertHardwareGraphicsMatch(capture.graphics,expectedGraphics);}
       checkpoint.bindBuild(capture.build);checkpoint.update({graphics:capture.graphics,offlineAfterLoad:capture.offlineAfterLoad});
       await capture.applySettings(options.contract.profile);
       for(let prior=0;prior<index;prior++)await capture.applySettings(settingsOf(timeline[prior]));

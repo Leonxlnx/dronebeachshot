@@ -4,6 +4,7 @@ import path from 'node:path';
 import os from 'node:os';
 import crypto from 'node:crypto';
 import {inspectPng,sha256} from './capture-integrity.mjs';
+import {acquirePortableCaptureLock,portableCaptureProcessIdentity} from './progress-portable-lock.mjs';
 
 export function canonical(value){
  if(Array.isArray(value))return value.map(canonical);
@@ -42,7 +43,8 @@ export function validateTimeline(timeline,{numeric=false}={}){
   return canonical({view,...(label===undefined?{}:{label}),...validateProfile(settings)});
  });
 }
-export function makeVideoContract({width,height,fps,duration,start=0,profile={},timeline}){
+export function makeVideoContract({width,height,fps,duration,start=0,profile={},timeline,backend='software'}){
+ if(!['software','hardware'].includes(backend))throw Error('backend must be software or hardware');
  if(![width,height].every(n=>Number.isInteger(n)&&n>=2&&n<=16384&&n%2===0))throw Error('Video dimensions must be positive even integers');
  if(!Number.isFinite(fps)||fps<1||fps>60)throw Error('Invalid video fps');
  if(!Number.isFinite(duration)||duration<=0||duration>20||!Number.isFinite(start)||start<0||start>=20)throw Error('Invalid video interval');
@@ -52,7 +54,8 @@ export function makeVideoContract({width,height,fps,duration,start=0,profile={},
  if(plan.length!==count)throw Error('Video timeline length does not match duration and fps');
  const validated=validateTimeline(plan,{numeric:true});
  if(new Set(validated.map(entry=>Number(entry.view))).size!==validated.length)throw Error('Video contains repeated input times');
- return canonical({width,height,fps,duration,start,profile:validateProfile(profile),timeline:validated});
+ // Absence retains the exact legacy software contract, including old prefixes.
+ return canonical({width,height,fps,duration,start,profile:validateProfile(profile),timeline:validated,...(backend==='hardware'?{backend}: {})});
 }
 export function writeAtomic(file,bytes){
  const temporary=file+'.pending-'+process.pid+'-'+crypto.randomUUID();
@@ -97,7 +100,7 @@ function validProcessIdentity(value){
   &&value.namespacePids.every(pid=>Number.isSafeInteger(pid)&&pid>0)&&value.namespacePids[0]===value.procPid;
 }
 export function captureProcessIdentity(){
- if(process.platform!=='linux')throw Error('A verifiable Linux proc identity is required for a capture lock');
+ if(process.platform!=='linux')return portableCaptureProcessIdentity();
  const procPid=Number(fs.readlinkSync('/proc/self')),view=fs.statSync('/proc',{bigint:true});
  if(!Number.isSafeInteger(procPid)||procPid<=0)throw Error('Cannot resolve capture owner through /proc/self');
  const observed=readProcProcess(procPid),status=fs.readFileSync('/proc/self/status','utf8');
@@ -142,6 +145,7 @@ export function captureLockOwnerState(previous,current,{readProcess=readProcProc
  }
 }
 export function acquireCaptureLock(output){
+ if(process.platform!=='linux')return acquirePortableCaptureLock(output);
  fs.mkdirSync(output,{recursive:true});
  if(!fs.lstatSync(output).isDirectory())throw Error('Capture output is not a directory');
  const file=path.join(output,'.capture-lock.json'),owner={lockVersion:2,pid:process.pid,host:os.hostname(),processIdentity:captureProcessIdentity(),token:crypto.randomUUID(),startedAt:new Date().toISOString()};

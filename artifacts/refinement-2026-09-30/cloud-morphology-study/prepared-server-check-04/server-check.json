@@ -1,0 +1,20 @@
+{
+  "ok": true,
+  "noBrowser": true,
+  "verifiedRoutes": 27,
+  "preparedSHA256": "b2f19f1b2f378c65fb34296ab64c2816163330201e46bd7b876a6983a0a7edb9",
+  "driver": {
+    "nodeVersion": "v24.19.0",
+    "execArgv": [],
+    "runPrepared": true,
+    "typescriptImported": false,
+    "sourceSHA256": "4e884420a9f0e4ae87c7c328995e9874111b6a5cf3be13379650a99c15ed6022",
+    "memoryAtPreflight": {
+      "rss": 114593792,
+      "heapTotal": 80486400,
+      "heapUsed": 55334224,
+      "external": 13172300,
+      "arrayBuffers": 9201863
+    }
+  }
+}

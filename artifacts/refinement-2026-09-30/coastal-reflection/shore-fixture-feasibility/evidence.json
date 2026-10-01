@@ -1,0 +1,455 @@
+{
+  "kind": "shore-fixture-feasibility-no-go",
+  "createdAt": "2026-10-01T08:07:40.286565+00:00",
+  "decision": "Do not implement or launch a cropped/reduced-texture shore fixture. Wait for guarded full-scene headroom.",
+  "requestedIncrementalMiB": 400,
+  "browserLaunched": false,
+  "productionModified": false,
+  "textures": [
+    {
+      "file": "public/assets/textures/marble_cliff_03_diff_2k.webp",
+      "sha256": "e1967f1ad5de34c328c1eb7ea9927de44b05235a75734959af47a2c60d23ced3",
+      "width": 2048,
+      "height": 2048,
+      "rgba8BaseBytes": 16777216,
+      "rgba8FullMipBytes": 22369620
+    },
+    {
+      "file": "public/assets/textures/marble_cliff_03_nor_gl_2k.webp",
+      "sha256": "425bec3f1a4f29e1bc965ee7eaf888d085f838147d0432d7c3ee15a4ee128ccc",
+      "width": 2048,
+      "height": 2048,
+      "rgba8BaseBytes": 16777216,
+      "rgba8FullMipBytes": 22369620
+    },
+    {
+      "file": "public/assets/textures/marble_cliff_03_arm_2k.webp",
+      "sha256": "fed4947d4f0570e3e035c5973db816047f2009b33a14c4e1b9c5a7463913bc9f",
+      "width": 2048,
+      "height": 2048,
+      "rgba8BaseBytes": 16777216,
+      "rgba8FullMipBytes": 22369620
+    },
+    {
+      "file": "public/assets/textures/sand_03_diff_2k.webp",
+      "sha256": "190dcce01f0d7a5c66d3d3c06a987f117c3501c3d54c962f29148fe248c17fa5",
+      "width": 2048,
+      "height": 2048,
+      "rgba8BaseBytes": 16777216,
+      "rgba8FullMipBytes": 22369620
+    },
+    {
+      "file": "public/assets/textures/sand_03_nor_gl_2k.webp",
+      "sha256": "fbd85ea3821bff1681aa34d7d23feaac10666a875dbc25b950a66fc4079d81c6",
+      "width": 2048,
+      "height": 2048,
+      "rgba8BaseBytes": 16777216,
+      "rgba8FullMipBytes": 22369620
+    },
+    {
+      "file": "public/assets/textures/sand_03_arm_2k.webp",
+      "sha256": "8cecb65d928fd0b2598e5d024a71aa65bdae756e9f293a58cfb5dccfed173c41",
+      "width": 2048,
+      "height": 2048,
+      "rgba8BaseBytes": 16777216,
+      "rgba8FullMipBytes": 22369620
+    },
+    {
+      "file": "public/assets/textures/palm_bark_diff_1k.webp",
+      "sha256": "3a9486460e7a643edc706ea7812a29da4b402e9267327cba0978f2bcd2e83f8f",
+      "width": 1024,
+      "height": 1024,
+      "rgba8BaseBytes": 4194304,
+      "rgba8FullMipBytes": 5592404
+    },
+    {
+      "file": "public/assets/textures/palm_bark_nor_gl_1k.webp",
+      "sha256": "70f0d74a1a1856b06898115d3df081044f9c87484983e895cd2240ad28833927",
+      "width": 1024,
+      "height": 1024,
+      "rgba8BaseBytes": 4194304,
+      "rgba8FullMipBytes": 5592404
+    },
+    {
+      "file": "public/assets/textures/forest_ground_05_diff_2k.webp",
+      "sha256": "d4cc33ba4a495a931122cda9976d9e0758a79021d5f66ca3bb8afefafd908634",
+      "width": 2048,
+      "height": 2048,
+      "rgba8BaseBytes": 16777216,
+      "rgba8FullMipBytes": 22369620
+    },
+    {
+      "file": "public/assets/textures/forest_ground_05_nor_gl_2k.webp",
+      "sha256": "5f9e07b047de75b7475a45c57669dc338a99a92854989ae3eb243f3b78acc54c",
+      "width": 2048,
+      "height": 2048,
+      "rgba8BaseBytes": 16777216,
+      "rgba8FullMipBytes": 22369620
+    },
+    {
+      "file": "public/assets/textures/forest_ground_05_arm_2k.webp",
+      "sha256": "a53ccffa1f4502fdcf1cba0a23543d3bbe73d7c3e419c7568c31073130e18c6a",
+      "width": 2048,
+      "height": 2048,
+      "rgba8BaseBytes": 16777216,
+      "rgba8FullMipBytes": 22369620
+    },
+    {
+      "file": "public/assets/textures/forest_leaves_02_diff_2k.webp",
+      "sha256": "d4fdb0fc221f6141a0a0f160eaa5dd00aecad103e11a2b6a690e18863e45c109",
+      "width": 2048,
+      "height": 2048,
+      "rgba8BaseBytes": 16777216,
+      "rgba8FullMipBytes": 22369620
+    },
+    {
+      "file": "public/assets/textures/forest_leaves_02_nor_gl_2k.webp",
+      "sha256": "33c631f816a1d351f87ce7e299f824c4ede95ab8b64b3b7d2689d572d74c446b",
+      "width": 2048,
+      "height": 2048,
+      "rgba8BaseBytes": 16777216,
+      "rgba8FullMipBytes": 22369620
+    },
+    {
+      "file": "public/assets/textures/forest_leaves_02_arm_2k.webp",
+      "sha256": "3e4f7a3e4bde60276561d904468750e50c2c46d1be2a7e2b2866d0121265670a",
+      "width": 2048,
+      "height": 2048,
+      "rgba8BaseBytes": 16777216,
+      "rgba8FullMipBytes": 22369620
+    }
+  ],
+  "allocationCalculations": {
+    "textureDecodedRGBA8Bytes": 209715200,
+    "textureGPUFullMipRGBA8Bytes": 279620248,
+    "textureCombinedMiB": 466.6666488647461,
+    "coreTerrain": {
+      "tiles": 48,
+      "verticesPerTile": 10201,
+      "retainedBytesPerVertex": 44,
+      "indicesPerTile": 60000,
+      "indexBytes": 2,
+      "arrayBytes": 27304512
+    },
+    "continuation": {
+      "perimeter": 2800,
+      "rings": 292,
+      "vertices": 817600,
+      "triangles": 1629600,
+      "retainedBytesPerVertex": 36,
+      "arrayBytes": 48988800
+    },
+    "nearOcean": {
+      "tiles": 36,
+      "verticesPerTile": 22801,
+      "retainedBytesPerVertex": 12,
+      "indicesPerTile": 135000,
+      "indexBytes": 2,
+      "arrayBytes": 19570032
+    },
+    "geometryRetainedCPUBytes": 95863344,
+    "geometryCPUPlusAllUploadedGPUBytes": 191726688,
+    "coastalFieldCPUPlusGPUBytes": 33554432,
+    "terrainHeightCPUPlusGPUBytes": 3851208,
+    "distantBathymetryCPUPlusGPUBytes": 2097152
+  },
+  "estimateLimits": [
+    "Logical RGBA8 decoded/backing and complete GPU mip estimates, not measured process RSS or driver allocation.",
+    "Geometry GPU total assumes every listed mesh is uploaded; CPU arrays are retained by full constructors even if frustum-culled.",
+    "Excludes browser overhead, shader/compiler temporary memory, shadows, cloud render targets/PMREM, swash, rock images and geometry, worker temporaries and forest."
+  ],
+  "visualConfounds": [
+    "Removing forest removes real reflected canopy silhouettes/color and its sun shadows; nearshore roughness judgments would see different incident radiance.",
+    "Forcing existing far atlases changes nearby geometry/coverage; palms have no existing far-atlas branch. Three atlas sets alone add a significant retained/derived texture budget.",
+    "Cropping geometry needs the reflected view and shadow casters too, while ocean bathymetry explicitly depends on the full continuation. It is not a drop-in camera crop.",
+    "Downsampling sand normal/ARM changes exactly the gloss/grain response under review; downsampling albedo also needs linear-light filtering to preserve calibration.",
+    "Rock geometry-only pack preserves collision positions/indices but omits the scan normal/UV/PBR images; it cannot replace the visible source without a declared shading approximation."
+  ],
+  "usefulness": "An aggressively bounded variant could test shoreline coordinate/contact faults, but cannot decide production sand appearance or forest reflection quality. Existing actual-plane GPU fixture already establishes the optics plumbing; the full-scene matrix remains the useful next visual gate.",
+  "sourceEvidence": [
+    {
+      "path": "src/world/assets.ts",
+      "sha256": "20705c6803a0a61eae910051f94aa0cb10187fbf99967731838faeec73244784",
+      "anchors": [
+        {
+          "text": "const textureFiles=",
+          "lines": [
+            3
+          ]
+        },
+        {
+          "text": "Promise.all(Object.entries",
+          "lines": [
+            4
+          ]
+        },
+        {
+          "text": "tex.anisotropy=",
+          "lines": [
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src/world/terrain.ts",
+      "sha256": "16d6999fe3a1be5a08a2e327c2bab4af943a75d29af0b50d91f3a163b57389cc",
+      "anchors": [
+        {
+          "text": "const count=perimeter.length",
+          "lines": [
+            136
+          ]
+        },
+        {
+          "text": "const indices=new Uint32Array",
+          "lines": [
+            146
+          ]
+        },
+        {
+          "text": "geometry.computeVertexNormals();",
+          "lines": [
+            155
+          ]
+        },
+        {
+          "text": "export function createTerrain",
+          "lines": [
+            210
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src/world/ocean-tiles.ts",
+      "sha256": "d26e9402bca4135eeec57ce0c15166a80d008d5821b522236a8cfd70e812b0ef",
+      "anchors": [
+        {
+          "text": "for(let z=0;z<6",
+          "lines": [
+            5
+          ]
+        },
+        {
+          "text": "new THREE.PlaneGeometry",
+          "lines": [
+            6
+          ]
+        },
+        {
+          "text": "geometry.deleteAttribute",
+          "lines": [
+            12
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src/world/ocean.ts",
+      "sha256": "d22ae56a1d508b4b2d7138c125c92641417a2523e5e8207f7f018bae2889453a",
+      "anchors": [
+        {
+          "text": "function swashGeometry()",
+          "lines": [
+            247
+          ]
+        },
+        {
+          "text": "export function createOcean",
+          "lines": [
+            260
+          ]
+        },
+        {
+          "text": "const bathymetry=createDistantBathymetry",
+          "lines": [
+            261
+          ]
+        },
+        {
+          "text": "for(const geometry of createOceanTiles())",
+          "lines": [
+            399
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src/world/coastal-loader.ts",
+      "sha256": "3d8e9103f9ed8322202fa627e0083f5f9d9b5d6ffe181aabcd9e4589dccbf944",
+      "anchors": [
+        {
+          "text": "new Worker",
+          "lines": [
+            5
+          ]
+        },
+        {
+          "text": "const data=new Float32Array",
+          "lines": [
+            10
+          ]
+        },
+        {
+          "text": "texture.internalFormat=",
+          "lines": [
+            13
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src/world/coastal-worker.ts",
+      "sha256": "1afc9da3556a2cbc3009dd41ec1b1defee9e4c9b3b84ece432b8ee6078c26381",
+      "anchors": [
+        {
+          "text": "decodeRockGeometrySource",
+          "lines": [
+            3,
+            14
+          ]
+        },
+        {
+          "text": "createDetailedRocks(textures,source)",
+          "lines": [
+            15
+          ]
+        },
+        {
+          "text": "self.postMessage",
+          "lines": [
+            16,
+            18
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src/world/bathymetry.ts",
+      "sha256": "97a497855d952483a27a6860545c67b8f49b4db9301582adbe029f4784ee2c84",
+      "anchors": [
+        {
+          "text": "const mesh=terrain.getObjectByName",
+          "lines": [
+            7
+          ]
+        },
+        {
+          "text": "size=512",
+          "lines": [
+            9
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src/world/terrain-surface.ts",
+      "sha256": "47a6a59021a5b7d56f3f0d3eb525c41e02626c753fe7fbe5eb8462e5ec9ea15b",
+      "anchors": [
+        {
+          "text": "export const TERRAIN_GRID",
+          "lines": [
+            3
+          ]
+        },
+        {
+          "text": "export function createTerrainHeightTexture",
+          "lines": [
+            23
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src/world/vegetation.ts",
+      "sha256": "a05ad03dd9d87784cb1fb012b838abee340613f2770124cd4204da366d8b4bc9",
+      "anchors": [
+        {
+          "text": "const farTextures=",
+          "lines": [
+            24
+          ]
+        },
+        {
+          "text": "family===2?1:4",
+          "lines": [
+            86
+          ]
+        },
+        {
+          "text": "family!==2&&lod===3",
+          "lines": [
+            88
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src/render/source-sun-visibility.ts",
+      "sha256": "f3bd1b3f78863c8f9aeba0359fd8a3c0fe4ff9de1bd267cbef1bf1785cc41f2a",
+      "anchors": [
+        {
+          "text": "SOURCE_VISIBILITY_WIDTH=",
+          "lines": [
+            3
+          ]
+        },
+        {
+          "text": "SOURCE_VISIBILITY_HEIGHT=",
+          "lines": [
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src/render/alpha-weighted-color.ts",
+      "sha256": "b667f945d96c5142df938b037fdd33d31fc4c41f8e147171a40c9fd445c97391",
+      "anchors": [
+        {
+          "text": "const out=new Uint8Array",
+          "lines": [
+            14
+          ]
+        },
+        {
+          "text": "const result=new THREE.DataTexture",
+          "lines": [
+            59
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src/world/rock-geometry.ts",
+      "sha256": "5a57d35751edf0d1c5177ec2e7261535c1165748a5b75a4c1047f0e302d7161b",
+      "anchors": [
+        {
+          "text": "position:RockGeometryStream;index:RockGeometryStream",
+          "lines": [
+            11
+          ]
+        },
+        {
+          "text": "geometry.setAttribute",
+          "lines": [
+            44
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src/world/cloud-noise.ts",
+      "sha256": "75756416f58e8cb1c25f34e2e51960532e7f2155535656f300b4648016eb15b1",
+      "anchors": [
+        {
+          "text": "const size=64,data=",
+          "lines": [
+            36
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -10,3 +10,9 @@ export function captureDimensions(width:number,height:number,maximum:number):voi
   throw new RangeError('Capture dimensions must be positive integers within the graphics limit');
  }
 }
+
+/** Bounded inspection control; accepting a value does not change the default. */
+export function validateCloudCoverage(value:unknown):number {
+ if(typeof value!=='number'||!Number.isFinite(value)||value<.4||value>1.15)throw Error('Invalid cloudCoverage');
+ return value;
+}

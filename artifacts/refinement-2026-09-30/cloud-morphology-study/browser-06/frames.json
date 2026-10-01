@@ -1,0 +1,65 @@
+[
+  {
+    "name": "off-1",
+    "enabled": false,
+    "sha256": "db6f4ed21cedbcf10ce5c72c3ceafefc0165ea847e2eaa70ecfd73a7bc6f24ba",
+    "renderAndReadbackMilliseconds": 1611.6000000014901,
+    "fence": {
+      "method": "webgl2-fence",
+      "milliseconds": 1426.1000000014901,
+      "polls": 158
+    },
+    "alphaFailures": 0,
+    "minimumRGB": 32,
+    "maximumRGB": 224,
+    "meanRGB": [
+      111.44280478395062,
+      116.49464699074075,
+      119.13387345679013
+    ],
+    "drawCalls": 1,
+    "triangles": 960
+  },
+  {
+    "name": "on",
+    "enabled": true,
+    "sha256": "b9ae1bd218ca877cf5d98e5deebfaba316277b10bc421133b95b00e22bb6967e",
+    "renderAndReadbackMilliseconds": 1105.8999999985099,
+    "fence": {
+      "method": "webgl2-fence",
+      "milliseconds": 1066.9000000059605,
+      "polls": 166
+    },
+    "alphaFailures": 0,
+    "minimumRGB": 32,
+    "maximumRGB": 224,
+    "meanRGB": [
+      109.94902584876543,
+      116.39163773148148,
+      120.23191550925925
+    ],
+    "drawCalls": 1,
+    "triangles": 960
+  },
+  {
+    "name": "off-2",
+    "enabled": false,
+    "sha256": "db6f4ed21cedbcf10ce5c72c3ceafefc0165ea847e2eaa70ecfd73a7bc6f24ba",
+    "renderAndReadbackMilliseconds": 842.6999999955297,
+    "fence": {
+      "method": "webgl2-fence",
+      "milliseconds": 822.8999999985099,
+      "polls": 135
+    },
+    "alphaFailures": 0,
+    "minimumRGB": 32,
+    "maximumRGB": 224,
+    "meanRGB": [
+      111.44280478395062,
+      116.49464699074075,
+      119.13387345679013
+    ],
+    "drawCalls": 1,
+    "triangles": 960
+  }
+]

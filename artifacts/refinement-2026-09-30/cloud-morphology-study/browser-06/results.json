@@ -1,0 +1,235 @@
+{
+  "ok": true,
+  "scope": "Actual production visible atmosphere shader only; no geometry, reflection, shadow or PMREM renders",
+  "config": {
+    "width": 192,
+    "height": 108,
+    "time": 10.375,
+    "lighting": {
+      "exposure": 1.08,
+      "sunIntensity": 4.8,
+      "skyIntensity": 0.48,
+      "environmentIntensity": 0.55,
+      "sunColor": "#ffdfb6",
+      "skyColor": "#a1c9ed",
+      "groundColor": "#365842",
+      "fogDensity": 0.000065,
+      "cloudFogDensity": 0.00004,
+      "cloudCoverage": 0.4
+    },
+    "profileOverrides": {
+      "lighting": {
+        "cloudCoverage": 0.4
+      }
+    },
+    "profileCoveragePresent": false,
+    "productionCoverageRange": [
+      0.65,
+      1.15
+    ],
+    "outsideProductionCoverageRange": true,
+    "guards": {
+      "memoryMetric": "working",
+      "startLimit": 7516192768,
+      "stopLimit": 7784628224,
+      "deadlineMilliseconds": 120000
+    }
+  },
+  "camera": {
+    "position": [
+      -41.78563231828215,
+      4.993834844905843,
+      83.35829952164914
+    ],
+    "target": [
+      57.954083009970596,
+      3.883955055273989,
+      76.14794680911787
+    ],
+    "quaternion": [
+      -0.004019784547656317,
+      -0.6811272260395107,
+      -0.0038260045381447614,
+      0.732144046598199
+    ],
+    "up": [
+      0.0017531146973243338,
+      0.9999984632932483,
+      0
+    ],
+    "fov": 42,
+    "aspect": 1.7777777777777777,
+    "near": 0.4,
+    "far": 22000
+  },
+  "sun": {
+    "direction": [
+      -0.37965372389340435,
+      0.10490431844423015,
+      -0.9191616473208737
+    ],
+    "linearColor": [
+      1,
+      0.7379104087672317,
+      0.46778379610254284
+    ],
+    "intensity": 4.8
+  },
+  "renderer": {
+    "threeRevision": "185",
+    "contextFallback": false,
+    "drawingBuffer": [
+      192,
+      108
+    ],
+    "antialias": true,
+    "samples": 4,
+    "toneMapping": 4,
+    "outputColorSpace": "srgb"
+  },
+  "creationMilliseconds": 428.5,
+  "probeMilliseconds": 4059.89999999851,
+  "rows": [
+    {
+      "name": "off-1",
+      "enabled": false,
+      "sha256": "db6f4ed21cedbcf10ce5c72c3ceafefc0165ea847e2eaa70ecfd73a7bc6f24ba",
+      "renderAndReadbackMilliseconds": 1611.6000000014901,
+      "fence": {
+        "method": "webgl2-fence",
+        "milliseconds": 1426.1000000014901,
+        "polls": 158
+      },
+      "alphaFailures": 0,
+      "minimumRGB": 32,
+      "maximumRGB": 224,
+      "meanRGB": [
+        111.44280478395062,
+        116.49464699074075,
+        119.13387345679013
+      ],
+      "drawCalls": 1,
+      "triangles": 960
+    },
+    {
+      "name": "on",
+      "enabled": true,
+      "sha256": "b9ae1bd218ca877cf5d98e5deebfaba316277b10bc421133b95b00e22bb6967e",
+      "renderAndReadbackMilliseconds": 1105.8999999985099,
+      "fence": {
+        "method": "webgl2-fence",
+        "milliseconds": 1066.9000000059605,
+        "polls": 166
+      },
+      "alphaFailures": 0,
+      "minimumRGB": 32,
+      "maximumRGB": 224,
+      "meanRGB": [
+        109.94902584876543,
+        116.39163773148148,
+        120.23191550925925
+      ],
+      "drawCalls": 1,
+      "triangles": 960
+    },
+    {
+      "name": "off-2",
+      "enabled": false,
+      "sha256": "db6f4ed21cedbcf10ce5c72c3ceafefc0165ea847e2eaa70ecfd73a7bc6f24ba",
+      "renderAndReadbackMilliseconds": 842.6999999955297,
+      "fence": {
+        "method": "webgl2-fence",
+        "milliseconds": 822.8999999985099,
+        "polls": 135
+      },
+      "alphaFailures": 0,
+      "minimumRGB": 32,
+      "maximumRGB": 224,
+      "meanRGB": [
+        111.44280478395062,
+        116.49464699074075,
+        119.13387345679013
+      ],
+      "drawCalls": 1,
+      "triangles": 960
+    }
+  ],
+  "restoration": {
+    "changedPixels": 0,
+    "maximumChannelDelta": 0,
+    "meanAbsoluteRGBDelta": 0
+  },
+  "onDifference": {
+    "changedPixels": 8982,
+    "maximumChannelDelta": 130,
+    "meanAbsoluteRGBDelta": 13.582240226337449
+  },
+  "compiledPrograms": [
+    {
+      "enabled": false,
+      "fragmentSHA256": "3509ab438f499eff7d1369b272b2e975ed7c712bafd79f0ea9952f9cc987df49"
+    },
+    {
+      "enabled": true,
+      "fragmentSHA256": "8791ad809ea31bf63bc2364c15e077f16c2935a21262f0cb874e7b4fefe2770b"
+    }
+  ],
+  "unusedLightingUpdates": {
+    "cubeUpdates": 0,
+    "shadowUpdates": 0
+  },
+  "shaderErrors": [],
+  "limitations": [
+    "192-pixel view uses its own derivative-driven cloud footprint; it is not a full-resolution scene pixel match.",
+    "The unoccluded lower hemisphere replaces terrain/ocean only in this isolated sky fixture.",
+    "Shared reflection/shadow field composition is CPU-verified separately; those targets are not rendered here.",
+    "Changing morphology can change actual occupied density and image coverage at unchanged coverage control."
+  ],
+  "sourceHashes": {
+    "artifacts/refinement-2026-09-30/clear-motion-profile.json": "3648a2cda11e2143e4bf314723019ebb17e892da149eb2f2b16b8ad28eba53f3",
+    "scripts/control/cloud-morphology-probe-page.mjs": "3912900b9d2c76d9fcfc1b95e026e271056441417acfb286e3500e414be8ea5e",
+    "node_modules/three/build/three.module.js": "bbf5ed13fe4373f5bd38b14ea8e62e9f157327da5638edc6d3863e08b167c9c7",
+    "node_modules/three/build/three.core.js": "3718df126d69c125362a03340913204470d8c50238605150e57f808840fb7759",
+    "src/render/engine.ts": "530dd0981d93d7c7572028bed65f168195281a795cdf0b499c5ef16914aaccad",
+    "src/world/atmosphere.ts": "fa8b3e803a7ec3f277b62e59e4c9a3c94687c6a0b0e31697b9eb2e414592156b",
+    "src/world/cloud-noise.ts": "75756416f58e8cb1c25f34e2e51960532e7f2155535656f300b4648016eb15b1",
+    "src/render/aerial-perspective.ts": "4b2270d5b5ba86927d9006e1e825ebc1d153c4139208e0e79fcc6935901c748c",
+    "src/render/coastal-reflection.ts": "75c4497dcea48c622a76c20f86327189d10141acd0f6a2db924fde352a22f83b",
+    "src/render/materials.ts": "24694202443318f0ff076e03853d4e222b2f95e318e107e0349cbec7097e1a6a",
+    "src/world/weather.ts": "d38c3292ed627e63178815e8232325e7a9f3b9480bbc9115813ea5f06915da33",
+    "src/world/habitat.ts": "c4599e693e07a45f6cdfeae4c7a930fa8550fb6e553c52b9d82c33a36f98a21c",
+    "src/world/math.ts": "6f9f3918d8faf1d2a22e53f44da725b14ea7750db3722b2aa1c50a7967df8c4b",
+    "src/world/terrain-fractures.ts": "ebce2e7167cab9113c431bb1f4ad802312dfbb34bcc3f0d8e5bd9ea8935e16c8",
+    "src/world/principal-face-planes.ts": "91afc6ff752c39bb5b312c61df10a118247f89b6a052679445c8df899370c4b0",
+    "src/world/broad-recess-planes.ts": "41e99d8961dff6e5eb51ccff6aad03867bbccedff81c5b4a1d06732c4ecbd0ba",
+    "src/world/east-spur.ts": "a5181a90570275b81bdb30d7721833e9c124107ccd15ae026b2f3e9f82a87f1b",
+    "src/render/refraction.ts": "b1997a145c0d3870f5af33056d475fbe294907edf1d983f8e24b9a54813be304",
+    "src/world/clouds.ts": "de4f1760b87b12c938fffaad72d106cf5255bd3c6cf2e9ebcd80f8bbbe7aecb8",
+    "src/world/cloud-morphology.ts": "e8294521128b2a63327243bc16452505704b753304e614c0c440f656ac7c7707",
+    "src/render/sky-lighting.ts": "2d8d3be053b16c1bf3a1d807c31cfceb004aee9175265fd3be8624c4aa40fb81",
+    "src/camera/cinematic.ts": "b150d04543dbee3a5c17feea537cc15623dccdde48e6d272e6a88a109186bf9e",
+    "src/camera/opening-gaze.ts": "0cc7b3576cd157c8cf347d1741a70759ccb2fad12757c27da76ff8f8ae077a40",
+    "src/camera/final-glide.ts": "c7fcb4169d00d17633975c82ed5ae97b41d8931eaffbb80ec67b858c7f37429e",
+    "src/world/terrain-surface.ts": "47a6a59021a5b7d56f3f0d3eb525c41e02626c753fe7fbe5eb8462e5ec9ea15b",
+    "src/render/profiling-sync.ts": "b94dd23cffb33cab4d302794189a947ca82e54edb5fba1d655ba4c7898f4c651",
+    "scripts/control/check-cloud-morphology-browser.mjs": "4e884420a9f0e4ae87c7c328995e9874111b6a5cf3be13379650a99c15ed6022",
+    "scripts/control/progress-memory.mjs": "b036a57baf33c52c87d8d1400ccfad0f126cc91c46646405565aecced94d5007"
+  },
+  "errors": [],
+  "requests": [],
+  "driver": {
+    "nodeVersion": "v24.19.0",
+    "execArgv": [],
+    "runPrepared": true,
+    "typescriptImported": false,
+    "sourceSHA256": "4e884420a9f0e4ae87c7c328995e9874111b6a5cf3be13379650a99c15ed6022",
+    "memoryAtPreflight": {
+      "rss": 112758784,
+      "heapTotal": 78651392,
+      "heapUsed": 53562664,
+      "external": 6539904,
+      "arrayBuffers": 2569467
+    }
+  },
+  "wallMilliseconds": 5882
+}
