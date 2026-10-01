@@ -35,7 +35,12 @@ const treeHeights = [{value:1}, {value:1}, {value:1}];
  for(let index=0;index<paths.length;index++){
   // Actual source-tree view atlases supply far LOD; skip loading obsolete cards.
   if(index===3||index===7){parts.push([]);continue;}
-  const gltf=await loader.loadAsync('/assets/models/'+paths[index]);gltf.scene.updateMatrixWorld(true);await imagePool.share(gltf.scene,gltf.parser);
+  // This parser is local to one complete load and is never asked for images
+  // after sharing. Retained materials use the canonical Sources. Keep general
+  // cache ownership out of the optional orphan-bitmap disposal path.
+  const privateImages=!THREE.Cache.enabled;
+  const gltf=await loader.loadAsync('/assets/models/'+paths[index]);gltf.scene.updateMatrixWorld(true);
+  await imagePool.share(gltf.scene,gltf.parser,{disposeOrphanedBitmaps:privateImages});
   const scale=index===8?21/10.99348258972168:index>=4?14/4.556740965694189:18/3.4;
   const primitives:Part[]=[];
 const familyIndex = index === 8 ? 2 : index >= 4 ? 1 : 0;

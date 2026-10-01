@@ -1,0 +1,571 @@
+{
+  "kind": "scene-memory-cleanup-source-audit",
+  "createdAt": "2026-10-01T07:59:03.863595+00:00",
+  "scope": "Two bounded startup resource cleanups; no browser/GPU execution or running-film modification by this audit.",
+  "threeVersion": "0.185.1",
+  "changes": [
+    {
+      "name": "Private GLTF orphan ImageBitmap disposal",
+      "ownership": "Opt-in only for createVegetation private complete loads; parser is not reused for image loading. Generic and cache-enabled callers do not dispose.",
+      "releasePoint": "After every awaited lookup and source rebinding has succeeded. Close each displaced ImageBitmap identity once only if no current scene texture, canonical pool Source, or direct Cache entry retains it.",
+      "failureBehavior": "No closure after a failed lookup or rebind. Canonical images survive pool.clear. A different Source or unassociated scene texture referencing the same bitmap protects it.",
+      "estimate": {
+        "duplicateEmbeddedImageEntries": 18,
+        "uniqueEncodedImages": 38,
+        "rgba8BackingBytes": 75497472,
+        "MiB": 72,
+        "derivation": "18 byte-identical duplicate 1024 x 1024 image entries x 4 RGBA8 bytes. Full encoded-byte equality verified after SHA-256 matching. Native allocation/RSS not measured."
+      },
+      "runtimeEvidenceAvailable": "closedBitmaps and closedBitmapPixels diagnostics; no full-scene result collected for this change yet."
+    },
+    {
+      "name": "Unused near-ocean normal and UV attributes",
+      "ownership": "36 static noncasting near-ocean tiles use the custom world-position shader; water normals are analytic. No normal/UV/depth-caster consumer in the reviewed path.",
+      "releasePoint": "Delete only normal and uv attributes before the first renderer upload, after existing positions, indices and bounds have been built.",
+      "estimate": {
+        "tiles": 36,
+        "verticesPerTile": 22801,
+        "totalVertices": 820836,
+        "bytesPerNormalAndUVVertex": 20,
+        "cpuAttributeBytes": 16416720,
+        "cpuAttributeMiB": 15.656204223632812,
+        "possibleAdditionalGpuAttributeBytes": 16416720,
+        "possibleCpuPlusGpuMiB": 31.312408447265625,
+        "gpuCaveat": "Three uploads every retained geometry attribute when that geometry is submitted. GPU saving depends on which tiles were uploaded; this is an upper bound for all 36."
+      },
+      "visualInvariant": "All 36 position/index arrays and bounding boxes/spheres match the unpruned reference exactly; original XZ triangle coverage and winding test also passes."
+    }
+  ],
+  "verification": {
+    "tests": {
+      "command": "node --experimental-strip-types --loader ./scripts/control/ts-resolve.mjs --test src/render/embedded-image-pool.test.ts src/world/ocean-tiles.test.ts",
+      "exitCode": 0,
+      "passed": 9,
+      "failed": 0,
+      "durationMs": 4756.577692,
+      "provenance": "Executed by scene_art_review immediately after these changes; result recorded from the tool response, not rerun for this audit."
+    },
+    "typescript": {
+      "command": "./node_modules/.bin/tsc --noEmit",
+      "exitCode": 0,
+      "output": "",
+      "provenance": "Executed alongside the focused tests; no build or browser."
+    },
+    "actualMemoryGain": "UNMEASURED. Byte calculations describe removable resource backing, not observed working-set/RSS changes and not a guarantee that a full-scene capture will fit."
+  },
+  "alreadyCorrectOwnership": "Coastal worker transfers the 16 MiB field ArrayBuffer and terminates. Core tree primitive geometry is shared across instance cells. These were inspected and left unchanged.",
+  "sourceEvidence": [
+    {
+      "path": "node_modules/three/examples/jsm/loaders/GLTFLoader.js",
+      "sha256": "97642d720f16cc9a0c9844934198e4d0c023bea8e89576d0f7545d03b2d103d2",
+      "bytes": 114959,
+      "anchors": [
+        {
+          "match": "image bitmaps are not",
+          "lines": [
+            80
+          ]
+        },
+        {
+          "match": "this.sourceCache = {}",
+          "lines": [
+            2573
+          ]
+        },
+        {
+          "match": "this.textureLoader = new ImageBitmapLoader",
+          "lines": [
+            2606
+          ]
+        },
+        {
+          "match": "loadImageSource( sourceIndex, loader ) {",
+          "lines": [
+            3287
+          ]
+        },
+        {
+          "match": "new Texture( imageBitmap )",
+          "lines": [
+            3335
+          ]
+        },
+        {
+          "match": "URL.revokeObjectURL( sourceURI )",
+          "lines": [
+            3354
+          ]
+        },
+        {
+          "match": "this.sourceCache[ sourceIndex ] = promise",
+          "lines": [
+            3371
+          ]
+        }
+      ]
+    },
+    {
+      "path": "node_modules/three/src/loaders/ImageBitmapLoader.js",
+      "sha256": "e549af8e615e28094d89d9a262802eb8f662bf314567d8d8c76204695238e351",
+      "bytes": 5603,
+      "anchors": [
+        {
+          "match": "Cache.get( `image-bitmap:",
+          "lines": [
+            121
+          ]
+        },
+        {
+          "match": "return createImageBitmap(",
+          "lines": [
+            179
+          ]
+        },
+        {
+          "match": "Cache.add( `image-bitmap:",
+          "lines": [
+            183,
+            202
+          ]
+        }
+      ]
+    },
+    {
+      "path": "node_modules/three/src/loaders/Cache.js",
+      "sha256": "e07792536bda2efe6ba985ff8b0fd4c33635bfebc283fece85125218d66fa653",
+      "bytes": 2194,
+      "anchors": [
+        {
+          "match": "enabled: false",
+          "lines": [
+            16
+          ]
+        },
+        {
+          "match": "if ( isBlobURL( key ) ) return",
+          "lines": [
+            38,
+            57
+          ]
+        },
+        {
+          "match": "return url.protocol",
+          "lines": [
+            104
+          ]
+        }
+      ]
+    },
+    {
+      "path": "node_modules/three/src/renderers/webgl/WebGLGeometries.js",
+      "sha256": "d04c0ef5e4ccf862867be3a00d5c4a12de1f0939f81e7d5c50c5c4dcb3bc0eff",
+      "bytes": 3489,
+      "anchors": [
+        {
+          "match": "function update( geometry )",
+          "lines": [
+            65
+          ]
+        },
+        {
+          "match": "for ( const name in geometryAttributes )",
+          "lines": [
+            71
+          ]
+        },
+        {
+          "match": "attributes.update( geometryAttributes[ name ]",
+          "lines": [
+            73
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src/render/embedded-image-pool.ts",
+      "sha256": "ecbc52a97dd0c05a6a31fdac110d1351fd0be49ad1551c2b3ca5641ace845541",
+      "bytes": 3730,
+      "anchors": [
+        {
+          "match": "disposeOrphanedBitmaps?:boolean",
+          "lines": [
+            9
+          ]
+        },
+        {
+          "match": "texture.source=match.source",
+          "lines": [
+            40
+          ]
+        },
+        {
+          "match": "if(disposeOrphanedBitmaps&&!THREE.Cache.enabled",
+          "lines": [
+            50
+          ]
+        },
+        {
+          "match": "for(const bitmap of displaced)",
+          "lines": [
+            54
+          ]
+        },
+        {
+          "match": "clear(){",
+          "lines": [
+            60
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src/world/vegetation.ts",
+      "sha256": "a05ad03dd9d87784cb1fb012b838abee340613f2770124cd4204da366d8b4bc9",
+      "bytes": 9696,
+      "anchors": [
+        {
+          "match": "const privateImages=",
+          "lines": [
+            41
+          ]
+        },
+        {
+          "match": "await imagePool.share(",
+          "lines": [
+            43
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src/world/ocean-tiles.ts",
+      "sha256": "d26e9402bca4135eeec57ce0c15166a80d008d5821b522236a8cfd70e812b0ef",
+      "bytes": 917,
+      "anchors": [
+        {
+          "match": "new THREE.PlaneGeometry",
+          "lines": [
+            6
+          ]
+        },
+        {
+          "match": "geometry.deleteAttribute",
+          "lines": [
+            12
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src/world/ocean.ts",
+      "sha256": "d22ae56a1d508b4b2d7138c125c92641417a2523e5e8207f7f018bae2889453a",
+      "bytes": 31626,
+      "anchors": [
+        {
+          "match": "void main(){vec3 p=position",
+          "lines": [
+            267
+          ]
+        },
+        {
+          "match": "tile.receiveShadow=true",
+          "lines": [
+            400
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src/render/embedded-image-pool.test.ts",
+      "sha256": "499fc4840ed0d3c304b3dfcd8966e6122e89e66f0c5a6784fa93b67e69890dd2",
+      "bytes": 7857,
+      "anchors": []
+    },
+    {
+      "path": "src/world/ocean-tiles.test.ts",
+      "sha256": "f85f81b512947895468042ec287a089d27708268ade42e141d2f341dbdb131c1",
+      "bytes": 2306,
+      "anchors": []
+    }
+  ],
+  "assetEvidence": [
+    {
+      "path": "public/assets/models/island-tree-near.glb",
+      "sha256": "c81e6ece28b7646aa59f2c2c68142619b2790d0db62c5d829278fec92e4373d7",
+      "bytes": 13299192,
+      "embeddedImages": 9
+    },
+    {
+      "path": "public/assets/models/island-tree-hero.glb",
+      "sha256": "8d892e4a572bb30804aecc3a88adb57e92b852220ccf8f59068f400cf6713a5b",
+      "bytes": 3950040,
+      "embeddedImages": 9
+    },
+    {
+      "path": "public/assets/models/island-tree-medium.glb",
+      "sha256": "2c210426ac4e761261b6c4dfc8c250fedd72ca1787de918abc965d4d3f32be64",
+      "bytes": 1739460,
+      "embeddedImages": 9
+    },
+    {
+      "path": "public/assets/models/syringa-tree-near.glb",
+      "sha256": "cb794443092f8b4b7b257c4d86f42e6f2b0ec91a2f95d2d3f34043f0a3b49b07",
+      "bytes": 38586500,
+      "embeddedImages": 9
+    },
+    {
+      "path": "public/assets/models/syringa-tree-hero.glb",
+      "sha256": "df11a6b9f0a2bf51b8ffd5bb12e4a18a864b47d767177cd53ad263996d8a5f2f",
+      "bytes": 3114880,
+      "embeddedImages": 9
+    },
+    {
+      "path": "public/assets/models/syringa-tree-medium.glb",
+      "sha256": "c4ef49e31bf9fb6565ccfdfa7dfa05b84ca6a9054401f2362c81c6f2538770de",
+      "bytes": 2254268,
+      "embeddedImages": 9
+    },
+    {
+      "path": "public/assets/models/palm-tree.glb",
+      "sha256": "5e3f42cc9bd4a52d1e4249184fc8cba7bf87acf91b1403711115acaa7f2ca0f6",
+      "bytes": 490580,
+      "embeddedImages": 2
+    }
+  ],
+  "duplicateImageEvidence": [
+    {
+      "asset": "island-tree-medium.glb",
+      "imageIndex": 0,
+      "mimeType": "image/webp",
+      "encodedBytes": 358506,
+      "encodedSha256": "18570bf56895b52ea8171463c41300b00b9e16ae8c7d163c59ff20fbab48fe66",
+      "width": 1024,
+      "height": 1024,
+      "canonicalAsset": "island-tree-hero.glb",
+      "canonicalImageIndex": 0,
+      "rgba8BackingBytes": 4194304,
+      "fullEncodedByteEquality": true
+    },
+    {
+      "asset": "island-tree-medium.glb",
+      "imageIndex": 1,
+      "mimeType": "image/webp",
+      "encodedBytes": 199346,
+      "encodedSha256": "639cdaac63d17d2092d5b6ce2be5d6219b1bcf16a9f8a011f921d1f6213ab465",
+      "width": 1024,
+      "height": 1024,
+      "canonicalAsset": "island-tree-hero.glb",
+      "canonicalImageIndex": 1,
+      "rgba8BackingBytes": 4194304,
+      "fullEncodedByteEquality": true
+    },
+    {
+      "asset": "island-tree-medium.glb",
+      "imageIndex": 2,
+      "mimeType": "image/webp",
+      "encodedBytes": 111706,
+      "encodedSha256": "254ce628002f4d3b6dc9bea208e67d215e7ae3d84539fbac4a6cbede69da4139",
+      "width": 1024,
+      "height": 1024,
+      "canonicalAsset": "island-tree-hero.glb",
+      "canonicalImageIndex": 2,
+      "rgba8BackingBytes": 4194304,
+      "fullEncodedByteEquality": true
+    },
+    {
+      "asset": "island-tree-medium.glb",
+      "imageIndex": 3,
+      "mimeType": "image/webp",
+      "encodedBytes": 52896,
+      "encodedSha256": "b0480d616cdd9fc6619c7b14e0ca65c73a755558721c6d9727b3ba213b615309",
+      "width": 1024,
+      "height": 1024,
+      "canonicalAsset": "island-tree-hero.glb",
+      "canonicalImageIndex": 3,
+      "rgba8BackingBytes": 4194304,
+      "fullEncodedByteEquality": true
+    },
+    {
+      "asset": "island-tree-medium.glb",
+      "imageIndex": 4,
+      "mimeType": "image/webp",
+      "encodedBytes": 55458,
+      "encodedSha256": "10b204e50c04c4147d1bf82df4bed728031f71f825a8e29f92b220461653e38e",
+      "width": 1024,
+      "height": 1024,
+      "canonicalAsset": "island-tree-hero.glb",
+      "canonicalImageIndex": 4,
+      "rgba8BackingBytes": 4194304,
+      "fullEncodedByteEquality": true
+    },
+    {
+      "asset": "island-tree-medium.glb",
+      "imageIndex": 5,
+      "mimeType": "image/webp",
+      "encodedBytes": 82018,
+      "encodedSha256": "6c63ba056c2706efc15dbf840a900e0ab3e3abfe16d554601aea1a514abd886b",
+      "width": 1024,
+      "height": 1024,
+      "canonicalAsset": "island-tree-hero.glb",
+      "canonicalImageIndex": 5,
+      "rgba8BackingBytes": 4194304,
+      "fullEncodedByteEquality": true
+    },
+    {
+      "asset": "island-tree-medium.glb",
+      "imageIndex": 6,
+      "mimeType": "image/webp",
+      "encodedBytes": 183204,
+      "encodedSha256": "b88ccc7f9b187086bda5549def16769e98195e1b27e564e4660c561a7bc3c24c",
+      "width": 1024,
+      "height": 1024,
+      "canonicalAsset": "island-tree-hero.glb",
+      "canonicalImageIndex": 6,
+      "rgba8BackingBytes": 4194304,
+      "fullEncodedByteEquality": true
+    },
+    {
+      "asset": "island-tree-medium.glb",
+      "imageIndex": 7,
+      "mimeType": "image/webp",
+      "encodedBytes": 110660,
+      "encodedSha256": "22b5afcffeadd73242b12ac71d1605481f70295f3fa3dded90965b3c65a5a2f4",
+      "width": 1024,
+      "height": 1024,
+      "canonicalAsset": "island-tree-hero.glb",
+      "canonicalImageIndex": 7,
+      "rgba8BackingBytes": 4194304,
+      "fullEncodedByteEquality": true
+    },
+    {
+      "asset": "island-tree-medium.glb",
+      "imageIndex": 8,
+      "mimeType": "image/webp",
+      "encodedBytes": 61012,
+      "encodedSha256": "442ea4c23550d441f881f076671054af6069f97430adac33fa9cc70704bd7c91",
+      "width": 1024,
+      "height": 1024,
+      "canonicalAsset": "island-tree-hero.glb",
+      "canonicalImageIndex": 8,
+      "rgba8BackingBytes": 4194304,
+      "fullEncodedByteEquality": true
+    },
+    {
+      "asset": "syringa-tree-medium.glb",
+      "imageIndex": 0,
+      "mimeType": "image/webp",
+      "encodedBytes": 141648,
+      "encodedSha256": "2a6b76251ed5fdda3d489f35cab1a7f952d967d1bb7dde90085292d924b67677",
+      "width": 1024,
+      "height": 1024,
+      "canonicalAsset": "syringa-tree-hero.glb",
+      "canonicalImageIndex": 0,
+      "rgba8BackingBytes": 4194304,
+      "fullEncodedByteEquality": true
+    },
+    {
+      "asset": "syringa-tree-medium.glb",
+      "imageIndex": 1,
+      "mimeType": "image/webp",
+      "encodedBytes": 96950,
+      "encodedSha256": "1cb0f1bc4c4152172ad8c3e0832e2365efd52cd5b220b63a847e12deb7aabdaf",
+      "width": 1024,
+      "height": 1024,
+      "canonicalAsset": "syringa-tree-hero.glb",
+      "canonicalImageIndex": 1,
+      "rgba8BackingBytes": 4194304,
+      "fullEncodedByteEquality": true
+    },
+    {
+      "asset": "syringa-tree-medium.glb",
+      "imageIndex": 2,
+      "mimeType": "image/webp",
+      "encodedBytes": 56302,
+      "encodedSha256": "d143a4a67b595b1eb5daf62abce397e3a67c87849262e920e545749668667b07",
+      "width": 1024,
+      "height": 1024,
+      "canonicalAsset": "syringa-tree-hero.glb",
+      "canonicalImageIndex": 2,
+      "rgba8BackingBytes": 4194304,
+      "fullEncodedByteEquality": true
+    },
+    {
+      "asset": "syringa-tree-medium.glb",
+      "imageIndex": 3,
+      "mimeType": "image/webp",
+      "encodedBytes": 142670,
+      "encodedSha256": "cbee32643c721a7e2fad18ddc6e77df552f6ade5d27f281afa1b04ac312d6df0",
+      "width": 1024,
+      "height": 1024,
+      "canonicalAsset": "syringa-tree-hero.glb",
+      "canonicalImageIndex": 3,
+      "rgba8BackingBytes": 4194304,
+      "fullEncodedByteEquality": true
+    },
+    {
+      "asset": "syringa-tree-medium.glb",
+      "imageIndex": 4,
+      "mimeType": "image/webp",
+      "encodedBytes": 491980,
+      "encodedSha256": "5adfadc05725ef8419ee1c92d12fe643d22c29a52c1b996055eff809adfac664",
+      "width": 1024,
+      "height": 1024,
+      "canonicalAsset": "syringa-tree-hero.glb",
+      "canonicalImageIndex": 4,
+      "rgba8BackingBytes": 4194304,
+      "fullEncodedByteEquality": true
+    },
+    {
+      "asset": "syringa-tree-medium.glb",
+      "imageIndex": 5,
+      "mimeType": "image/webp",
+      "encodedBytes": 109602,
+      "encodedSha256": "ed0ff857fae45719d1dd7d8b8ba7bdf19d37b1ac73710d935b99f6820655688f",
+      "width": 1024,
+      "height": 1024,
+      "canonicalAsset": "syringa-tree-hero.glb",
+      "canonicalImageIndex": 5,
+      "rgba8BackingBytes": 4194304,
+      "fullEncodedByteEquality": true
+    },
+    {
+      "asset": "syringa-tree-medium.glb",
+      "imageIndex": 6,
+      "mimeType": "image/webp",
+      "encodedBytes": 432402,
+      "encodedSha256": "6163f0bc6f3f77f7a7a43d2faa0961921dd57a3eb141e8c6db83b941844558b4",
+      "width": 1024,
+      "height": 1024,
+      "canonicalAsset": "syringa-tree-hero.glb",
+      "canonicalImageIndex": 6,
+      "rgba8BackingBytes": 4194304,
+      "fullEncodedByteEquality": true
+    },
+    {
+      "asset": "syringa-tree-medium.glb",
+      "imageIndex": 7,
+      "mimeType": "image/webp",
+      "encodedBytes": 293964,
+      "encodedSha256": "e3ce3c32ba2da9030ef40c2b63e24593b2bbbcedcff5d5c4594b9c44ad945c6a",
+      "width": 1024,
+      "height": 1024,
+      "canonicalAsset": "syringa-tree-hero.glb",
+      "canonicalImageIndex": 7,
+      "rgba8BackingBytes": 4194304,
+      "fullEncodedByteEquality": true
+    },
+    {
+      "asset": "syringa-tree-medium.glb",
+      "imageIndex": 8,
+      "mimeType": "image/webp",
+      "encodedBytes": 138838,
+      "encodedSha256": "2f1dbbd7fe58f93d7a67efb227482e88fdd6997bc9820e732d2812de834d98cd",
+      "width": 1024,
+      "height": 1024,
+      "canonicalAsset": "syringa-tree-hero.glb",
+      "canonicalImageIndex": 8,
+      "rgba8BackingBytes": 4194304,
+      "fullEncodedByteEquality": true
+    }
+  ]
+}

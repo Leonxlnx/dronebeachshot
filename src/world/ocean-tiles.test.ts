@@ -21,3 +21,20 @@ test('tiled sea preserves every original XZ triangle once, with winding and wave
  }
  assert.equal(seen.reduce((a,b)=>a+b,0),810000);original.dispose();
 });
+
+test('near-ocean attribute pruning preserves exact position/index bytes and bounds for every tile',()=>{
+ const tiles=createOceanTiles();let removedBytes=0;
+ for(const tile of tiles){
+  const [x,z]=tile.userData.oceanTile;
+  const reference=new THREE.PlaneGeometry(300,300,150,150);reference.rotateX(-Math.PI/2);reference.translate(-750+x*300,0,-1100+z*300);
+  reference.computeBoundingBox();reference.boundingBox!.min.y=-2;reference.boundingBox!.max.y=2;
+  reference.computeBoundingSphere();reference.boundingSphere!.radius+=2;
+  assert.deepEqual(tile.getAttribute('position').array,reference.getAttribute('position').array);
+  assert.deepEqual(tile.index!.array,reference.index!.array);
+  assert.deepEqual(tile.boundingBox,reference.boundingBox);assert.deepEqual(tile.boundingSphere,reference.boundingSphere);
+  assert.deepEqual(Object.keys(tile.attributes),['position']);
+  removedBytes+=reference.getAttribute('normal').array.byteLength+reference.getAttribute('uv').array.byteLength;
+  reference.dispose();tile.dispose();
+ }
+ assert.equal(removedBytes,16416720);
+});

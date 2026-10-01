@@ -6,6 +6,10 @@ export function createOceanTiles(){
   const geometry=new THREE.PlaneGeometry(300,300,150,150);geometry.rotateX(-Math.PI/2);geometry.translate(-750+x*300,0,-1100+z*300);
   geometry.computeBoundingBox();geometry.boundingBox!.min.y=-2;geometry.boundingBox!.max.y=2;
   geometry.computeBoundingSphere();geometry.boundingSphere!.radius+=2;
+  // Ocean color/refraction use world position and analytic water normals; these
+  // noncasting tiles have no normal/UV consumer. Three uploads every retained
+  // attribute even when its shader does not use it. Preserve positions/indices.
+  geometry.deleteAttribute('normal');geometry.deleteAttribute('uv');
   geometry.userData.oceanTile=[x,z];tiles.push(geometry);
  }
  return tiles;
