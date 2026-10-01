@@ -1,0 +1,71 @@
+{
+  "status": "implemented-default-OFF; GPU compile and visual judgment pending",
+  "referenceImage": "artifacts/refinement-2026-09-30/candidate-10-cloud-coverage/sunset-cloud-09.png",
+  "referenceTime": 19.5,
+  "referenceCoverageScale": 0.9,
+  "rationale": "Actual image has a connected ceiling of similarly rounded lobes. Existing texture sampling and regional weather are isotropic; the study differentiates advected wind-aligned banks and their maturity-dependent height rather than recoloring radiance.",
+  "densityChanges": {
+    "wind": "normalize(worldWind), current world X/Z wind [1.6,0.4]; uses the already advected position shared by sky/reflection/shadow",
+    "largeWeatherCoordinates": "wind coordinates * [0.000085,0.00030], same offset and0.8weight",
+    "fragmentWeatherCoordinates": "wind coordinates * [0.000255,0.00063], same0.2weight",
+    "maturityCoordinates": "wind coordinates * [0.000065,0.00016], original offset",
+    "macroNoiseCoordinates": "[(along-.30*(y-1000))*.4, y, across] *0.00032;2.5xalongwind; upper cloud leaned375m at2250m",
+    "heightProfile": "same1000m condensation base and0..0.11bottom ramp; upper fade starts mix0.28..0.58 and ends mix0.56..1 bymaturity (baseline starts0.42..0.58, ends0.80..1)",
+    "fineErosion": "original isotropic p*.00032*5 and original explicit detailLOD retained",
+    "baseLOD": "footprint multiplied1.02, above maximum linear-map stretch1.008507894",
+    "unchanged": [
+      "coverage scalar andcoverremap",
+      "clearing geometry",
+      "36000m worldbound anddistancefade",
+      "density erosion/remap/extinction",
+      "cloud lighting, phase approximation, ambient, exposure, fog andtone mapping",
+      "ray samplecounts andtimeadvectedsharedfield"
+    ]
+  },
+  "occupancyCaveat": "No equal-cloud-mass or equal-image-coverage claim. At equal maturity the newheight envelope never exceedsold; its integrated envelope is0.365vs0.555atlowmaturity and0.735vs0.735atmaturity1. A uniformmaturity average gives0.8527envelope ratio; this is not actual density mass, because domains and nonlinear erosion also change.",
+  "api": {
+    "module": "src/world/clouds.ts",
+    "register": "registerCloudMorphologyMaterial(material:THREE.ShaderMaterial)",
+    "set": "setCloudMorphologyStudy(value:boolean):boolean",
+    "get": "getCloudMorphologyStudy():boolean",
+    "registration": [
+      "register visible material after construction",
+      "register reflectionMaterial after material.clone()",
+      "register cloudMaterial after construction"
+    ],
+    "toggle": "root validates inspection boolean; setCloudMorphologyStudy(next.cloudMorphology); atmosphere.invalidateLighting(); draw through normal shared atmosphere update",
+    "cache": "OFFreturns untouched shader;ONreplaces sharedfield atcompile andsetsdedicatedprogramdefine;OFFrestoresoriginalprogram;recompilesonlyontoggle",
+    "teardown": "normalmaterialdispose removesregistration;losinganymaterialdisablesstudyandremainingdefines",
+    "partialRegistration": "enablingfailsunlessexactly3registeredmaterials",
+    "changedSourceAnchors": "The OFF program remainsusableifdensity sourceanchors change; enablingfailsbeforechangingstate."
+  },
+  "rootOwnedIntegration": [
+    "src/world/atmosphere.ts:register3materials",
+    "src/main.ts:getLighting.cloudMorphology boolean;setLighting validatesboolean+setter+invalidate",
+    "capture lightingkeys:booleanstudyprofile"
+  ],
+  "comparisonGate": {
+    "poses": [
+      19.5,
+      0
+    ],
+    "coverageScale": 0.9,
+    "paired": "OFF/ON atsame lighting, quality,camera,exposure,coverage,output path;retain .65coverage test asindependentstudy",
+    "judge": [
+      "differentiatedcloudbank silhouettes andgaps",
+      "visible internaldepth andsun-rim continuity",
+      "grayunderside plausibility without a colorgrade",
+      "reflection/transmission/groundshadow coherence",
+      "OFFrestoration",
+      "raybanding orblur fromstretchedmips"
+    ],
+    "acceptance": "none yet;noGPU/build executedforstudy"
+  },
+  "cpuProof": "cpu-proof.json",
+  "sourceSHA256": {
+    "src/world/clouds.ts": "de4f1760b87b12c938fffaad72d106cf5255bd3c6cf2e9ebcd80f8bbbe7aecb8",
+    "src/world/cloud-morphology.ts": "e8294521128b2a63327243bc16452505704b753304e614c0c440f656ac7c7707",
+    "scripts/control/check-cloud-morphology.mjs": "b5582339c78dfcd4b3af54a14255f89323c9ebc25d53f56c5077bcd624e06fbe"
+  },
+  "independentReview": "No consequential GLSL/cache/lifecycle flaw found; currentmain disposesallthree materials. The final lazy-anchor guard also passesCPUproof."
+}

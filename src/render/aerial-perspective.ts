@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import {coastalReflectionPass,coastalReflectionSeaLevel} from './coastal-reflection';
 export const aerialDensity={value:.00014};
 
 // Shared scene-linear radiance fit. The same directional sky colors illuminate
@@ -29,17 +30,31 @@ export function withAerialPerspective(material:THREE.MeshStandardMaterial){
  const prior=material.onBeforeCompile.bind(material),key=material.customProgramCacheKey();
  material.onBeforeCompile=(shader,renderer)=>{
   prior(shader,renderer);
+  shader.uniforms.uCoastalReflectionPass=coastalReflectionPass;
+  shader.uniforms.uCoastalReflectionSeaLevel=coastalReflectionSeaLevel;
   shader.fragmentShader=shader.fragmentShader
-   .replace('#include <common>','#include <common>\n'+aerialPerspectiveGLSL)
+   .replace('#include <common>','#include <common>\nuniform float uCoastalReflectionPass,uCoastalReflectionSeaLevel;\n'+aerialPerspectiveGLSL)
    .replace('#include <fog_fragment>','')
    .replace('#include <tonemapping_fragment>',`
     #if defined(USE_FOG) && defined(FOG_EXP2)
      // Respect the refraction pass setting fogDensity=0. Mix radiance before
      // display tone mapping, and preserve that pass's HDR storage scale.
-     gl_FragColor.rgb=bayAerialPerspective(gl_FragColor.rgb/uSceneCaptureScale,
-      cameraPosition,vLightingWorld,uSolarDirection,fogDensity)*uSceneCaptureScale;
+     if(uCoastalReflectionPass>.5){
+      // A mirrored-eye ray reaches this above-water fragment through the sea
+      // plane. Fog only the coast-to-water leg before coverage/MSAA blending;
+      // the ocean shader supplies the water-to-real-eye leg exactly once.
+      vec3 coastRay=vLightingWorld-cameraPosition;
+      float waterHit=clamp((uCoastalReflectionSeaLevel-cameraPosition.y)
+       /max(coastRay.y,.00001),0.,1.);
+      vec3 waterOrigin=cameraPosition+coastRay*waterHit;
+      gl_FragColor.rgb=bayAerialPerspective(gl_FragColor.rgb/uSceneCaptureScale,
+       waterOrigin,vLightingWorld,uSolarDirection,fogDensity)*uSceneCaptureScale;
+     }else{
+      gl_FragColor.rgb=bayAerialPerspective(gl_FragColor.rgb/uSceneCaptureScale,
+       cameraPosition,vLightingWorld,uSolarDirection,fogDensity)*uSceneCaptureScale;
+     }
     #endif
     #include <tonemapping_fragment>`);
  };
- material.customProgramCacheKey=()=>key+'-height-aerial-v1';
+ material.customProgramCacheKey=()=>key+'-height-aerial-v2-coastal-reflection';
 }

@@ -12,10 +12,68 @@ import {createTerrainHeightTexture,terrainSurfaceGLSL} from './terrain-surface';
 import {worldTime,debugMode} from '../render/materials';
 import {diagnosticOutputShader} from '../render/diagnostics';
 import {refractionUniforms,refractionGLSL} from '../render/refraction';
+import {coastalReflectionUniforms,coastalReflectionSeaLevel} from '../render/coastal-reflection';
 import {sunDirection} from './atmosphere';
 import {reflectedSky,cloudShadow,cloudShadowBounds,solarDirection,cloudLightingGLSL,skyDecodeScale,solarColor,solarIntensity} from '../render/sky-lighting';
 import {coastalFieldGLSL,type CoastalField} from './coastal-field';
 export const foamDepthGate={value:1};
+const coastalReflectionGLSL=`
+uniform sampler2D uCoastalReflectionColor,uCoastalReflectionDepth;
+uniform vec2 uCoastalReflectionResolution;
+uniform mat4 uCoastalReflectionInverseViewProjection,uCoastalReflectionTextureMatrix;
+uniform float uCoastalReflectionReady,uCoastalReflectionDistortion,uCoastalReflectionSeaLevel;
+float coastalSignedDenominator(float w){return (w<0.?-1.:1.)*max(abs(w),.00001);}
+vec3 coastalReflectedRadiance(vec3 surface,vec3 ray,vec3 fallback,float slopeVariance){
+ vec3 planePoint=vec3(surface.x,uCoastalReflectionSeaLevel,surface.z);
+ vec4 flatProjection=uCoastalReflectionTextureMatrix*vec4(planePoint,1.);
+ vec2 flatUv=flatProjection.xy/coastalSignedDenominator(flatProjection.w);
+ vec2 texel=1./uCoastalReflectionResolution;
+ vec2 depthUv=clamp(flatUv,texel*.5,vec2(1.)-texel*.5);
+ float coastDepth=texture2D(uCoastalReflectionDepth,depthUv).r;
+ vec4 coastH=uCoastalReflectionInverseViewProjection*vec4(depthUv*2.-1.,coastDepth*2.-1.,1.);
+ vec3 coast=coastH.xyz/coastalSignedDenominator(coastH.w);
+ float coastRange=length(coast-planePoint);
+ bool coastHit=coastDepth<.999999;
+ // One depth-guided reprojection approximates a wave reflection using real
+ // captured geometry. At an empty sky texel only direction matters. No main
+ // color-buffer image, target-alpha mask or reconstructed coverage is used.
+ vec4 distorted=coastHit
+  ?uCoastalReflectionTextureMatrix*vec4(planePoint+ray*coastRange,1.)
+  :uCoastalReflectionTextureMatrix*vec4(ray,0.);
+ vec4 projected=mix(flatProjection,distorted,uCoastalReflectionDistortion);
+ float denominator=coastalSignedDenominator(projected.w);
+ vec2 uv=projected.xy/denominator;
+ // Recombine before derivatives: depth and validity can vary within a quad.
+ float pixelFootprint=max(length(dFdx(uv)*uCoastalReflectionResolution),
+  length(dFdy(uv)*uCoastalReflectionResolution));
+ // Small normal-angle variance becomes about four times that reflection-ray
+ // variance. Project the angular cone through the same capture Jacobian.
+ // Sky uses a direction (unit range); finite coast uses its measured range.
+ float rayScale=coastHit?coastRange:1.;
+ vec3 mirrorEye=vec3(cameraPosition.x,2.*uCoastalReflectionSeaLevel-cameraPosition.y,cameraPosition.z);
+ vec3 flatRay=normalize(planePoint-mirrorEye);
+ vec4 flatReference=coastHit?uCoastalReflectionTextureMatrix*vec4(coast,1.)
+  :uCoastalReflectionTextureMatrix*vec4(flatRay,0.);
+ // The flat control has the same UV at the water plane and coast, but a
+ // different projective distance. Its cone must use the coast distance too.
+ float coneDenominator=coastalSignedDenominator(mix(flatReference.w,distorted.w,uCoastalReflectionDistortion));
+ vec2 jx=(uCoastalReflectionTextureMatrix[0].xy-uv*uCoastalReflectionTextureMatrix[0].w)/coneDenominator;
+ vec2 jy=(uCoastalReflectionTextureMatrix[1].xy-uv*uCoastalReflectionTextureMatrix[1].w)/coneDenominator;
+ vec2 jz=(uCoastalReflectionTextureMatrix[2].xy-uv*uCoastalReflectionTextureMatrix[2].w)/coneDenominator;
+ vec2 conePixels=2.*sqrt(max(slopeVariance,0.))*rayScale
+  *sqrt(jx*jx+jy*jy+jz*jz)*uCoastalReflectionResolution;
+ float footprint=max(pixelFootprint,max(conePixels.x,conePixels.y));
+ float maximumLod=floor(log2(max(uCoastalReflectionResolution.x,uCoastalReflectionResolution.y)));
+ float lod=clamp(log2(max(footprint,1.)),0.,maximumLod);
+ vec3 captured=textureLod(uCoastalReflectionColor,clamp(uv,texel*.5,vec2(1.)-texel*.5),lod).rgb;
+ bool valid=flatProjection.w>.00001&&projected.w>.00001&&ray.y>0.
+  &&all(greaterThanEqual(flatUv,vec2(0.)))&&all(lessThanEqual(flatUv,vec2(1.)))
+  &&all(greaterThanEqual(uv,vec2(0.)))&&all(lessThanEqual(uv,vec2(1.)));
+ vec2 edgePixels=min(uv,vec2(1.)-uv)*uCoastalReflectionResolution;
+ float edge=clamp(min(edgePixels.x,edgePixels.y),0.,1.);
+ return mix(fallback,captured,valid?edge:0.);
+}
+`;
 const waterFns=`${noiseGLSL}${shorelineGLSL}${coastalGLSL}${coastalFieldGLSL}${terrainSurfaceGLSL}
 float coastalDistance(vec2 p){float original=shoreDist(p);float bound=1.-smoothstep(575.,600.,abs(p.x));return mix(min(original,-120.),original,bound);}
 // Coherent wave groups control both shoaling geometry and its breaking foam.
@@ -202,7 +260,7 @@ function swashGeometry(){
 export function createOcean(field:CoastalField,terrain:THREE.Group){
  const bathymetry=createDistantBathymetry(terrain);
  const terrainHeights=createTerrainHeightTexture();
- const material=new THREE.ShaderMaterial({lights:true,polygonOffset:true,polygonOffsetFactor:-1,polygonOffsetUnits:-2,uniforms:{...THREE.UniformsUtils.clone(THREE.UniformsLib.lights),...refractionUniforms,uFoamDepthGate:foamDepthGate,uAerialDensity:aerialDensity,uSunColor:solarColor,uSunIntensity:solarIntensity,uDistantBathymetry:{value:bathymetry.texture},uBathymetryBounds:{value:bathymetry.bounds},uTerrainHeights:{value:terrainHeights},uTime:worldTime,uSurfaceMode:{value:0},uSun:{value:sunDirection},uDebug:debugMode,uReflectedSky:reflectedSky,uSkyDecodeScale:skyDecodeScale,uCloudShadow:cloudShadow,uCloudShadowBounds:cloudShadowBounds,uSolarDirection:solarDirection,uCoastalField:{value:field.texture},uCoastalBounds:{value:field.bounds}},vertexShader:`
+ const material=new THREE.ShaderMaterial({lights:true,polygonOffset:true,polygonOffsetFactor:-1,polygonOffsetUnits:-2,uniforms:{...THREE.UniformsUtils.clone(THREE.UniformsLib.lights),...refractionUniforms,...coastalReflectionUniforms,uCoastalReflectionSeaLevel:coastalReflectionSeaLevel,uFoamDepthGate:foamDepthGate,uAerialDensity:aerialDensity,uSunColor:solarColor,uSunIntensity:solarIntensity,uDistantBathymetry:{value:bathymetry.texture},uBathymetryBounds:{value:bathymetry.bounds},uTerrainHeights:{value:terrainHeights},uTime:worldTime,uSurfaceMode:{value:0},uSun:{value:sunDirection},uDebug:debugMode,uReflectedSky:reflectedSky,uSkyDecodeScale:skyDecodeScale,uCloudShadow:cloudShadow,uCloudShadowBounds:cloudShadowBounds,uSolarDirection:solarDirection,uCoastalField:{value:field.texture},uCoastalBounds:{value:field.bounds}},vertexShader:`
 #include <common>
 #include <shadowmap_pars_vertex>
  uniform float uTime,uSurfaceMode;varying vec3 vWorld;${waterFns}
@@ -221,7 +279,7 @@ export function createOcean(field:CoastalField,terrain:THREE.Group){
 #include <shadowmap_pars_fragment>
 uniform bool receiveShadow;
 #include <shadowmask_pars_fragment>
-${aerialPerspectiveGLSL}${bathymetryGLSL}${waterReflectionGLSL}
+${aerialPerspectiveGLSL}${bathymetryGLSL}${waterReflectionGLSL}${coastalReflectionGLSL}
 uniform float uTime,uDebug,uSurfaceMode,uSkyDecodeScale,uSunIntensity,uAerialDensity,uFoamDepthGate;uniform vec3 uSun,uSunColor;uniform samplerCube uReflectedSky;varying vec3 vWorld;${waterFns}${cloudLightingGLSL}${refractionGLSL}
  // Average unresolved foam octaves instead of turning distant bubbles into
  // unstable white pixels. The phase/advection field remains world anchored.
@@ -253,6 +311,7 @@ uniform float uTime,uDebug,uSurfaceMode,uSkyDecodeScale,uSunIntensity,uAerialDen
  // Cubemap mip footprint approximates the unresolved reflected-normal cone.
  // Keep ordinary gradient-selected mip filtering when it is already broader.
  vec3 reflected=reflect(-V,N);
+ vec3 coastalRay=reflected;
  // Below-horizon probe rays meet the adjacent water surface. A secondary
  // reflection supplies sky radiance; its transmitted share uses local water.
  // Above-horizon rays are unchanged, including their Fresnel/roughness response.
@@ -267,6 +326,7 @@ uniform float uTime,uDebug,uSurfaceMode,uSkyDecodeScale,uSunIntensity,uAerialDen
  float depth=max(-mix(distantSeabedHeight(p),coast.r,detailWeight),0.);
  vec3 water=vec3(.01,.084,.12);
  reflection=mix(water,reflection,bounce.w);
+ if(uCoastalReflectionReady>.5)reflection=coastalReflectedRadiance(vWorld,coastalRay,reflection,unresolvedWaterSlopeVariance);
  vec3 transmitted=transmittedCoast(vWorld,N,water,depth);vec3 col=mix(transmitted,reflection,fresnel);vec3 H=normalize(V+uSun);
  // Broaden the existing solar lobes by the same unresolved variance, conserving
  // their integrated energy instead of inventing extra light at lower detail.

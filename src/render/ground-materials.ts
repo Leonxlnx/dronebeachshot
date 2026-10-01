@@ -3,6 +3,7 @@ import {worldTime,debugMode,type Textures} from './materials';
 import {noiseGLSL,shorelineGLSL} from '../world/math';
 import {coastalGLSL} from '../world/coastal';
 import {habitatGLSL,habitatUniform} from '../world/habitat';
+import {sandFilmGLSL} from './sand-film';
 // Recovered accepted source-calibrated controls; relief stays disabled after review.
 export const mineralReliefStrength={value:0};
 export const stoneBeddingAligned={value:1};
@@ -14,6 +15,8 @@ export const sandRippleFilter={value:0};
 // Reversible source-chroma study. Both endpoints have nearly identical linear
 // luminance; this restores restrained warm sand color without lifting exposure.
 export const sandChroma={value:0};
+// Separate short surface gloss from the existing persistent damp sand color.
+export const sandFilmDrying={value:0};
 export const rockWeatheringStrength={value:0};
 // Inspection study: 0 original, 1 explicit gradients, 2 exact-zero pruning.
 export const groundLayerPruning={value:0};
@@ -110,11 +113,11 @@ export function createGroundMaterial(t:Textures,allowLayerPruning=false){
  const layerPruningMode=allowLayerPruning?groundLayerPruning:{value:0};
  const material=new THREE.MeshStandardMaterial({color:0xffffff,roughness:1,vertexColors:true});
  material.onBeforeCompile=shader=>{
-  attachWorld(shader);Object.assign(shader.uniforms,{uHabitat:habitatUniform,uTime:worldTime,uMineralRelief:mineralReliefStrength,uStoneBeddingAligned:stoneBeddingAligned,uSandRipple:sandRippleStrength,uSandRippleFilter:sandRippleFilter,uSandChroma:sandChroma,uRockWeathering:rockWeatheringStrength,uGroundLayerPruning:layerPruningMode,uDebug:debugMode,uRock:{value:t.rock},uRockN:{value:t.rockNormal},uRockARM:{value:t.rockARM},uSand:{value:t.sand},uSandN:{value:t.sandNormal},uSandARM:{value:t.sandARM},uSoil:{value:t.soil},uSoilN:{value:t.soilNormal},uSoilARM:{value:t.soilARM},uMoss:{value:t.moss},uMossN:{value:t.mossNormal},uMossARM:{value:t.mossARM}});
+  attachWorld(shader);Object.assign(shader.uniforms,{uHabitat:habitatUniform,uTime:worldTime,uMineralRelief:mineralReliefStrength,uStoneBeddingAligned:stoneBeddingAligned,uSandRipple:sandRippleStrength,uSandRippleFilter:sandRippleFilter,uSandChroma:sandChroma,uSandFilmDrying:sandFilmDrying,uRockWeathering:rockWeatheringStrength,uGroundLayerPruning:layerPruningMode,uDebug:debugMode,uRock:{value:t.rock},uRockN:{value:t.rockNormal},uRockARM:{value:t.rockARM},uSand:{value:t.sand},uSandN:{value:t.sandNormal},uSandARM:{value:t.sandARM},uSoil:{value:t.soil},uSoilN:{value:t.soilNormal},uSoilARM:{value:t.soilARM},uMoss:{value:t.moss},uMossN:{value:t.mossNormal},uMossARM:{value:t.mossARM}});
   shader.fragmentShader=shader.fragmentShader.replace('#include <common>',`#include <common>
- varying vec3 vGroundWorld,vGroundNormal;uniform float uTime,uMineralRelief,uStoneBeddingAligned,uSandRipple,uSandRippleFilter,uSandChroma,uRockWeathering;uniform float uDebug,uGroundLayerPruning;
+ varying vec3 vGroundWorld,vGroundNormal;uniform float uTime,uMineralRelief,uStoneBeddingAligned,uSandRipple,uSandRippleFilter,uSandChroma,uSandFilmDrying,uRockWeathering;uniform float uDebug,uGroundLayerPruning;
  uniform sampler2D uRock,uRockN,uRockARM,uSand,uSandN,uSandARM,uSoil,uSoilN,uSoilARM,uMoss,uMossN,uMossARM;
- ${noiseGLSL}${shorelineGLSL}${coastalGLSL}${habitatGLSL}${projection}${groundLayerProjection}`)
+ ${noiseGLSL}${shorelineGLSL}${coastalGLSL}${sandFilmGLSL}${habitatGLSL}${projection}${groundLayerProjection}`)
   .replace('#include <map_fragment>',`#include <map_fragment>
  vec3 gp=vGroundWorld,gn=normalize(vGroundNormal);float d=shoreDist(gp.xz);
  float slope=1.-gn.y,cliff=smoothstep(.13,.43,slope),sediment=(1.-smoothstep(22.,53.,d))*(1.-smoothstep(5.,18.,gp.y))*smoothstep(.5,.86,gn.y);
@@ -177,6 +180,12 @@ export function createGroundMaterial(t:Textures,allowLayerPruning=false){
  roughnessFactor=max(clamp(surfaceARM.g,.42,.98),.73*cliff*(1.-sediment));// A reflective water film exists on exposed wet sand. Submerged sediment
  // keeps its granular roughness; the separate ocean owns the air/water interface.
  float exposedFilm=wet*sediment*smoothstep(-.25,.10,gp.y);
+ // At control 0 preserve the original expression above exactly. Damp albedo
+ // still uses its 18 s history; only gloss can drain after the same runup events.
+ if(uSandFilmDrying>0.){
+  float drainedFilm=sandFilmWetness(gp.x,d,uTime);
+  exposedFilm=mix(wet,drainedFilm,uSandFilmDrying)*sediment*smoothstep(-.25,.10,gp.y);
+ }
  roughnessFactor=mix(roughnessFactor,.20,exposedFilm);`)
   .replace('#include <normal_fragment_maps>',`#include <normal_fragment_maps>
  vec3 detail,sandNormal;

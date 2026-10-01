@@ -1,5 +1,6 @@
 import {noiseGLSL} from './math';
 import {weatherGLSL} from './weather';
+import {createCloudMorphologyStudy} from './cloud-morphology';
 // Inspection-only coverage study. All cloud consumers share the same value;
 // changing it requires the atmosphere's existing lighting invalidation.
 export const cloudCoverageScale={value:1};
@@ -79,3 +80,10 @@ float cloudSunTransmission(vec3 point,vec3 sun){
  return exp(-depth*cloudExtinction);
 }
 `;
+// Register visible sky, reflection sky and cloud-shadow materials separately
+// (ShaderMaterial.clone does not preserve compile callbacks). After toggling,
+// the owner must call atmosphere.invalidateLighting() before the next frame.
+const morphology=createCloudMorphologyStudy(cloudFieldGLSL);
+export const registerCloudMorphologyMaterial=morphology.register;
+export const setCloudMorphologyStudy=morphology.set;
+export const getCloudMorphologyStudy=morphology.get;

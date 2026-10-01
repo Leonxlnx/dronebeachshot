@@ -1,0 +1,22 @@
+{
+  "kind": "CPU math and source checks only",
+  "passed": [
+    "Flat water point and real reflected coast project to the same UV",
+    "Coast reconstructed using inverse clipped VP matches the original point",
+    "Depth-guided reflected ray reduces to exact mean-plane mapping for an up normal",
+    "Sky direction projection agrees with mean-plane mapping",
+    "Per-fragment aerial origin is the actual mean-plane intersection",
+    "Aerial default flag is zero, uniform objects are shared, ordinary branch retains original expression",
+    "Ready guard, shared ocean surface uniforms and downward-ray fallback are present; target alpha is unused",
+    "Three changed TypeScript files transpile without syntax diagnostics"
+  ],
+  "sourceSha256": {
+    "src/render/aerial-perspective.ts": "4b2270d5b5ba86927d9006e1e825ebc1d153c4139208e0e79fcc6935901c748c",
+    "src/world/ocean.ts": "d22ae56a1d508b4b2d7138c125c92641417a2523e5e8207f7f018bae2889453a",
+    "src/render/coastal-reflection.ts": "75c4497dcea48c622a76c20f86327189d10141acd0f6a2db924fde352a22f83b"
+  },
+  "limits": [
+    "No WebGL context, GLSL compile, target readback, full-scene frame, timing or art acceptance.",
+    "Wave-normal reprojection is one approximation from a mean-plane capture; it does not trace wave intersections or new disocclusions."
+  ]
+}

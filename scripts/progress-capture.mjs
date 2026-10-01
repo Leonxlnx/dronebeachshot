@@ -2,7 +2,7 @@
  * node scripts/progress-capture.mjs [video] width=768 [height=432] out=...
  * Still plans: plan=entries.json, or views=0,6,10.5,19.5
  * Video: fps=24 duration=20 start=0 profile=settings.json [resume]
- * Optional guard: memoryStartMiB=6144 memoryLimitMiB=7424
+ * Optional guard: memoryStartMiB=6144 memoryLimitMiB=7424 [memoryMetric=total|working]
  * Optional heap experiment and startup measurements: jsHeapMiB=512
  * A video pins its first dist bundle. Resume validates every committed PNG and
  * replays it into a fresh encoder before rendering the missing suffix.
@@ -23,9 +23,9 @@ import {createStartupMemorySampler,validateJsHeapMiB} from './control/progress-s
 const projectRoot=fileURLToPath(new URL('../',import.meta.url));
 const settingMethods={lighting:'setLighting',surfaceStudy:'setSurfaceStudy',shadowStudy:'setShadowStudy',
  culling:'setGroundCulling',oceanCulling:'setOceanCulling',debug:'setDebug',farCrownCoverage:'setFarCrownCoverage',islandDirectResponse:'setIslandDirectResponseStudy',
- farCrownBlending:'setFarCrownBlending',linearMainOutput:'setLinearMainOutput',linearMainSampleScale:'setLinearMainSampleScale',profiling:'setFrameProfiling',coastalUnderstory:'setCoastalUnderstory'};
+ farCrownBlending:'setFarCrownBlending',linearMainOutput:'setLinearMainOutput',linearMainSampleScale:'setLinearMainSampleScale',profiling:'setFrameProfiling',coastalUnderstory:'setCoastalUnderstory',coastalReflection:'setCoastalReflection',coastalReflectionDistortion:'setCoastalReflectionDistortion'};
 const settingsOf=entry=>Object.fromEntries(Object.entries(entry).filter(([key])=>key!=='view'&&key!=='label'));
-const supportedArguments=new Set(['width','height','out','dist','plan','views','times','fps','duration','start','profile','writeTimeout','exitTimeout','readyTimeout','networkTimeout','memoryStartMiB','memoryLimitMiB','jsHeapMiB','resume','video']);
+const supportedArguments=new Set(['width','height','out','dist','plan','views','times','fps','duration','start','profile','writeTimeout','exitTimeout','readyTimeout','networkTimeout','memoryStartMiB','memoryLimitMiB','memoryMetric','jsHeapMiB','resume','video']);
 export function parseOptions(argv,root=projectRoot){
  const args={};let video=false,resume=false;
  for(const item of argv){
@@ -47,7 +47,7 @@ export function parseOptions(argv,root=projectRoot){
   dist:resolve(args.dist??'dist'),fps:Number(args.fps??24),duration:Number(args.duration??20),start:Number(args.start??0),profile,
   writeTimeout:Number(args.writeTimeout??120000),exitTimeout:Number(args.exitTimeout??120000),readyTimeout:Number(args.readyTimeout??300000),networkTimeout:Number(args.networkTimeout??30000)};
  for(const key of ['writeTimeout','exitTimeout','readyTimeout','networkTimeout'])if(!Number.isFinite(options[key])||options[key]<=0)throw Error('Invalid '+key);
- Object.assign(options,validateCaptureMemoryLimits(args.memoryStartMiB,args.memoryLimitMiB));
+ Object.assign(options,validateCaptureMemoryLimits(args.memoryStartMiB,args.memoryLimitMiB,args.memoryMetric));
  if(args.jsHeapMiB!==undefined)options.jsHeapMiB=validateJsHeapMiB(args.jsHeapMiB);
  if(video)options.contract=makeVideoContract({...options,timeline});
  else{if(resume)throw Error('Resume is supported for video checkpoints only');options.timeline=validateTimeline(timeline??[0,6,10.5,19.5].map(view=>({view})));}
@@ -74,7 +74,7 @@ async function serveBundle(directory,diagnostics={}){
 function captureStatus(output,stage,{name,...counts}={}){
  if(output)writeAtomicJson(path.join(output,'capture-status.json'),{stage,...(name===undefined?{}:{name}),timestamp:new Date().toISOString(),...counts});
 }
-export async function browserCapture({directory,output,width,height,readyTimeout,networkTimeout=30000,islandResponseNeeded=false,memoryStartMiB,memoryLimitMiB,jsHeapMiB,errors,failedRequests,diagnostics={}},
+export async function browserCapture({directory,output,width,height,readyTimeout,networkTimeout=30000,islandResponseNeeded=false,memoryStartMiB,memoryLimitMiB,memoryMetric,jsHeapMiB,errors,failedRequests,diagnostics={}},
  {launchBrowser=async options=>{const {chromium}=await import('playwright');return chromium.launch(options);},serve=serveBundle,memoryDependencies,startupMemoryDependencies}={}){
  jsHeapMiB=validateJsHeapMiB(jsHeapMiB);
  let startup=true;
@@ -82,7 +82,7 @@ export async function browserCapture({directory,output,width,height,readyTimeout
   diagnostics.stage=name;const history=diagnostics.stageHistory??=[];history.push({stage:name,at:new Date().toISOString()});if(history.length>64)history.shift();
   if(persist)captureStatus(output,name,{name:frameName,errorCount:errors.length,failedRequestCount:failedRequests.length});
  };
- const memory=createCaptureMemoryGuard({memoryStartMiB,memoryLimitMiB,diagnostics,getStage:()=>diagnostics.stage},memoryDependencies);
+ const memory=createCaptureMemoryGuard({memoryStartMiB,memoryLimitMiB,memoryMetric,diagnostics,getStage:()=>diagnostics.stage},memoryDependencies);
  stage('serve-bundle');const server=await serve(directory,diagnostics);let browser,context,page,requests,startupMemory;
  async function close(){
   diagnostics.closing=true;memory.stop();
@@ -192,6 +192,7 @@ export async function browserCapture({directory,output,width,height,readyTimeout
       ...(typeof api.getShadowStudy==='function'?{shadowStudy:api.getShadowStudy()}:{}),
       ...(typeof api.getLinearMainOutput==='function'?{linearMainOutput:api.getLinearMainOutput()}:{}),
       ...(typeof api.getIslandDirectResponseStudy==='function'?{islandDirectResponse:api.getIslandDirectResponseStudy()}:{}),
+      ...(typeof api.getCoastalReflection==='function'?{coastalReflection:api.getCoastalReflection()}:{}),
      },dataURL};
     },entry);
     stage('frame-health-after');await healthy();

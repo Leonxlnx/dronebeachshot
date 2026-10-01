@@ -1,0 +1,20 @@
+{
+  "kind": "CPU mocks only",
+  "passed": [
+    "OFF remains lazy and direct; requested scale 2 has effective scale 1",
+    "1x/2x use 640x360/1280x720 main targets, 4x MSAA request, canvas output, matching resolve uniform",
+    "Main restores renderer state after success/failure; rejects oversize before resize; recovers, validates scale and disposes idempotently",
+    "Refraction target/depth dimensions and uUnderResolution scale together; default 1x and error restoration hold",
+    "Spray uses canvas physical height on canvas and actual active viewport height on an offscreen target"
+  ],
+  "sourceSha256": {
+    "src/main.ts": "cd95d6052a2ff7ef6cb171786984f50e742baf922a016dde8ed1f432bd6442fa",
+    "src/render/linear-main-output.ts": "45f9456394507e8d9c6a0e05286dd8fc71acea50080cdad9b72b288639570c9d",
+    "src/render/refraction.ts": "b1997a145c0d3870f5af33056d475fbe294907edf1d983f8e24b9a54813be304",
+    "src/world/spray.ts": "f18ef9bc98fadfd34ede748f850404fc0bdf7af35f8b56263cdc6655704551d2"
+  },
+  "limits": [
+    "Renderer and GL capability/status responses are mocked; Three scene/target objects are real CPU objects.",
+    "No WebGL context, allocation, GLSL compile, pixel comparison, speed measurement or art acceptance."
+  ]
+}

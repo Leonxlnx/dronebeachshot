@@ -1,0 +1,37 @@
+{
+  "ok": true,
+  "method": "CPU shader composition and analytic bounds; no GPU/pixel/mean-density acceptance",
+  "originalFieldLiteralUnchanged": true,
+  "offShaderExact": true,
+  "offOnOffShaderExact": true,
+  "sharedCompiledDensityAcrossThreeConsumers": true,
+  "disposalDisablesIncompleteSet": true,
+  "changedAnchorLeavesOffUsable": true,
+  "maximumScalarNoiseCallsPerDensity": 3,
+  "maximumTextureSamplesPerDensity": 2,
+  "profileBoundSamples": 8481,
+  "profileAlwaysWithin01": true,
+  "profileNeverAboveOriginalAtSameMaturity": true,
+  "macroAspectAlongWind": 2.5,
+  "maximumWindShearMeters": 375,
+  "maximumCoordinateStretch": 1.008507893625579,
+  "conservativeFootprintScale": 1.02,
+  "lowestCloudTopMeters": 1700,
+  "highestCloudTopMeters": 2250,
+  "heightEnvelopeIntegral": {
+    "lowMaturity": 0.36500000000000005,
+    "highMaturity": 0.735,
+    "baselineLowMaturity": 0.555,
+    "baselineHighMaturity": 0.735,
+    "uniformMaturityRatio": 0.8527131782945737
+  },
+  "coverageScaleUnchanged": true,
+  "equalMeanDensityGuaranteed": false,
+  "limits": [
+    "Envelope integral is not actual cloud mass/occupancy; domains and nonlinear erosion also change.",
+    "ON shader requires actual GPU compile and image review.",
+    "Set control and invalidate lighting only between frames; register visible/reflection/shadow materials."
+  ],
+  "originalFieldSHA256": "d6ce3eae1d6c2156185306aa5a6f3f2f8af4486cd84d158952741c95db937cde",
+  "variantFieldSHA256": "bc6517400385a9d76c18bc6257bd729e1252cb981a958ae7fcf4f5c17078dab3"
+}

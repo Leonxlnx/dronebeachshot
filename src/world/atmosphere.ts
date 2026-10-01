@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import {createCloudNoiseTexture} from './cloud-noise';
 import {aerialPerspectiveGLSL} from '../render/aerial-perspective';
 import {worldTime} from '../render/materials';
-import {cloudFieldGLSL,cloudCoverageScale} from './clouds';
+import {cloudFieldGLSL,cloudCoverageScale,registerCloudMorphologyMaterial} from './clouds';
 import {sceneCaptureScale} from '../render/refraction';
 import {reflectedSky,solarDirection,cloudShadow,cloudShadowBounds,skyDecodeScale,solarColor,solarIntensity} from '../render/sky-lighting';
 export const cloudAerialDensity={value:.00010};
@@ -38,13 +38,13 @@ if(interval.y>interval.x){
  }
  color=color*trans+cloudLight;skyTransmittance=trans;
 }
-gl_FragColor=vec4(color*uOutputScale*uSceneCaptureScale,mix(1.,skyTransmittance,uStoreTransmittance));\n#include <tonemapping_fragment>\n#include <colorspace_fragment>}`.replace('1.);#include','1.);\n#include')});const dome=new THREE.Mesh(new THREE.SphereGeometry(12000,32,16),material);dome.name='volumetric-cloud-sky';dome.frustumCulled=false;dome.renderOrder=1000;group.add(dome);const sun=new THREE.DirectionalLight(0xffd1a1,atmosphereLighting.sunIntensity);sun.position.copy(sunDirection).multiplyScalar(1000);sun.castShadow=true;sun.shadow.mapSize.set(2048,2048);Object.assign(sun.shadow.camera,{left:-380,right:380,top:380,bottom:-380,near:1,far:1800});sun.shadow.bias=-.00004;sun.shadow.normalBias=.25;sun.target.position.set(0,80,150);sun.position.copy(sun.target.position).addScaledVector(sunDirection,1000);group.add(sun,sun.target);const hemi=new THREE.HemisphereLight(0xabc7e0,0x4c5634,atmosphereLighting.skyIntensity);group.add(hemi);
+gl_FragColor=vec4(color*uOutputScale*uSceneCaptureScale,mix(1.,skyTransmittance,uStoreTransmittance));\n#include <tonemapping_fragment>\n#include <colorspace_fragment>}`.replace('1.);#include','1.);\n#include')});registerCloudMorphologyMaterial(material);const dome=new THREE.Mesh(new THREE.SphereGeometry(12000,32,16),material);dome.name='volumetric-cloud-sky';dome.frustumCulled=false;dome.renderOrder=1000;group.add(dome);const sun=new THREE.DirectionalLight(0xffd1a1,atmosphereLighting.sunIntensity);sun.position.copy(sunDirection).multiplyScalar(1000);sun.castShadow=true;sun.shadow.mapSize.set(2048,2048);Object.assign(sun.shadow.camera,{left:-380,right:380,top:380,bottom:-380,near:1,far:1800});sun.shadow.bias=-.00004;sun.shadow.normalBias=.25;sun.target.position.set(0,80,150);sun.position.copy(sun.target.position).addScaledVector(sunDirection,1000);group.add(sun,sun.target);const hemi=new THREE.HemisphereLight(0xabc7e0,0x4c5634,atmosphereLighting.skyIntensity);group.add(hemi);
 // Small deterministic cube capture shares the visible ray-marched cloud field.
 // Alpha carries cloud transmittance; the solar disk is omitted to avoid counting
 // the analytic water sun glitter twice.
 const hdr=renderer.extensions.has('EXT_color_buffer_float');skyDecodeScale.value=hdr?1:4;
 const skyTarget=new THREE.WebGLCubeRenderTarget(128,{type:hdr?THREE.HalfFloatType:THREE.UnsignedByteType,format:THREE.RGBAFormat,generateMipmaps:true,minFilter:THREE.LinearMipmapLinearFilter});
-const reflectionScene=new THREE.Scene(),reflectionMaterial=material.clone();
+const reflectionScene=new THREE.Scene(),reflectionMaterial=material.clone();registerCloudMorphologyMaterial(reflectionMaterial);
 reflectionMaterial.uniforms.uStoreTransmittance.value=1;reflectionMaterial.uniforms.uCloudCoverageScale=cloudCoverageScale;reflectionMaterial.uniforms.uCloudFog=cloudAerialDensity;reflectionMaterial.uniforms.uSolarColor=solarColor;reflectionMaterial.uniforms.uSolarIntensity=solarIntensity;reflectionMaterial.uniforms.uCloudNoise={value:cloudNoise};reflectionMaterial.uniforms.uSceneCaptureScale=sceneCaptureScale;reflectionMaterial.uniforms.uTime={value:0};reflectionMaterial.uniforms.uEye={value:new THREE.Vector3(0,4,0)};reflectionMaterial.uniforms.uSunDisk.value=0;reflectionMaterial.uniforms.uOutputScale.value=1/skyDecodeScale.value;
 const reflectionDome=new THREE.Mesh(dome.geometry,reflectionMaterial);reflectionDome.frustumCulled=false;reflectionScene.add(reflectionDome);
 const reflectionCamera=new THREE.CubeCamera(.1,22000,skyTarget);reflectedSky.value=skyTarget.texture;
@@ -54,6 +54,7 @@ const cloudMaterial=new THREE.ShaderMaterial({depthTest:false,depthWrite:false,u
 void main(){vec2 ground=mix(uBounds.xy,uBounds.zw,vUV);vec3 origin=vec3(ground.x,0.,ground.y);vec2 interval=cloudSegment(origin,uSun);float transmittance=1.;
  if(interval.y>interval.x){float steps=clamp(ceil((interval.y-interval.x)/60.),12.,256.);float stepLen=(interval.y-interval.x)/steps;for(int i=0;i<256;i++){if(float(i)>=steps)break;vec3 p=origin+uSun*(interval.x+(float(i)+.5)*stepLen);p.xz-=worldWind*uTime;transmittance*=exp(-density(p)*stepLen*cloudExtinction);if(transmittance<.008)break;}}
  gl_FragColor=vec4(vec3(transmittance),1.);}`});
+registerCloudMorphologyMaterial(cloudMaterial);
 const cloudScene=new THREE.Scene(),cloudPlane=new THREE.Mesh(new THREE.PlaneGeometry(2,2),cloudMaterial),cloudCamera=new THREE.Camera();cloudScene.add(cloudPlane);cloudPlane.frustumCulled=false;
 const pmrem=hdr?new THREE.PMREMGenerator(renderer):null;let environmentTarget:THREE.WebGLRenderTarget|null=null;
 // The kilometre-scale cloud field changes slowly. Visible sky remains continuous;

@@ -1,6 +1,6 @@
 # Conditional follow-up: damp sand versus surface film
 
-Proposal only. Keep this separate from the first sand-chroma comparison. No source was changed and no image was rendered for this follow-up.
+Implemented as the default-off `sandFilmDrying` material study; keep its comparison separate from sand chroma. The CPU/source checks pass, but no image or motion pair has yet been rendered for this follow-up and no visual improvement is accepted.
 
 The actual candidate10 shore frame shows a broad smooth gray-taupe strip. Its appearance alone does not prove whether the low-chroma albedo or reflected sky dominates. There is, however, a concrete material coupling worth addressing **if the palette pair still leaves excessive gray gloss**: `sandWetness` retains moisture with an 18 s exponential history, and `exposedFilm=wet*sediment*smoothstep(-.25,.10,gp.y)` uses that same persistent value to drive roughness toward `.20`.
 
@@ -32,3 +32,5 @@ The source sand ARM mean roughness is approximately `.835` (mean stored green ch
 | 4.2 s | .792 | .061 | .332 | .796 |
 
 The expected art benefit is a retained dark beige damp band with a narrower moving reflective swash. It cannot fix the broad geometric strip or grain that has become subpixel. The existing 0.6 s history sampling, transition during recession, and max-history switching require an actual short motion review; a static improvement alone is insufficient. Reject a chalky exposed band, a sudden sheen cutoff, or visible roughness pulsing. Because the current ocean already renders the water sheet, changing its reflection or Fresnel simultaneously would confound this material study.
+
+Implementation: `src/render/sand-film.ts` supplies matching CPU/GLSL film histories; `ground-materials.ts` retains the original roughness expression at control zero and evaluates the short history only when the uniform is positive. Control one selects the 1.5 s history; intermediate controls blend only film weights. `sand-film.test.ts` checks actual runup histories, fresh/dry endpoints, the film/damp bound, repeatable absolute time, small time-step continuity, and real ground shader composition retaining the original damp albedo and vertex path. Focused sand-film, coastal and diagnostics tests passed (7 tests), as did `tsc --noEmit`. These checks do not replace the required GPU and motion comparison.
