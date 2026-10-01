@@ -11,6 +11,8 @@ public/assets/rocks/
 public/assets/textures/
 public/assets/studies/
 dist-east-spur-study-*/
+dist-startup-queue-study-*/
+.capture-lock.json
 
 # New diagnostic images remain private pending explicit publication approval.
 /artifacts/phase2/**/*.png

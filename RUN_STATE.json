@@ -2574,6 +2574,84 @@
           "sha256": "52025c5e634297c237e8d278c465707d16907c7309df6e1e1ec59728b7cc0895"
         }
       ]
+    },
+    {
+      "start": "2026-10-01T08:03:17.581Z",
+      "category": "visual-review",
+      "description": "Review actual shoreline diagnostic feasibility and optical studies while the pinned flight continues",
+      "proofs": [
+        {
+          "at": "2026-10-01T08:26:03.004Z",
+          "files": [
+            {
+              "path": "artifacts/refinement-2026-09-30/user-direction-2026-10-01.json",
+              "sha256": "6f1b676288cd7b35605f56cec59a33526bb0fdd52bf46b83030be1f318bffc76"
+            },
+            {
+              "path": "docs/continuation/2026-10-01-film-12s-art-review.md",
+              "sha256": "dab1dbe93aa6ecd22baace44b96b81cda640a3889c03ef184a1882e31944b7af"
+            },
+            {
+              "path": "artifacts/refinement-2026-09-30/cloud-morphology-study/browser-06/results.json",
+              "sha256": "ece8d0094156dc2a428a252c7ee9128ddf8715fe750fd549fc3af9f6c5e4522e"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-01T08:44:33.026Z",
+          "files": [
+            {
+              "path": "artifacts/refinement-2026-09-30/grass-palette-study/full-scene-01.json",
+              "sha256": "930a207f34c86f041c759ccd41d43831e90a6108d93232f23d07b9580693c985"
+            },
+            {
+              "path": "artifacts/refinement-2026-09-30/ssaa-internal2x/full-scene-01.json",
+              "sha256": "acd2ab3bb1ef3a61b18cda443c133916893e56aaff5e4ce1a48c87f06cf29d52"
+            },
+            {
+              "path": "artifacts/refinement-2026-09-30/normal-response-audit/full-scene-01.json",
+              "sha256": "b8b5d248085a6a415494fc44fa9743d00e068d35ce5069ecb1d964fdaf9b3473"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-01T08:57:37.503Z",
+          "files": [
+            {
+              "path": "docs/continuation/2026-10-01-screenshot-refinement.md",
+              "sha256": "55466393a64857ea722a617f24743eabe132be3d877ef4db76a7c1af7c4f7a50"
+            },
+            {
+              "path": "artifacts/refinement-2026-09-30/coastal-reflection/full-scene-art-review-01.json",
+              "sha256": "e8c69476289a683d7a0f7ae39e4fc217717c775fdff70ad24c02c68afd21f372"
+            },
+            {
+              "path": "artifacts/refinement-2026-09-30/sand-chroma-study/full-scene-chroma-01.json",
+              "sha256": "54f04c116c23419544f52d53dd3646142750e81608ca650c703b1494995b910a"
+            }
+          ]
+        }
+      ],
+      "end": "2026-10-01T08:59:06.147Z",
+      "seconds": 3348.566,
+      "evidence": [
+        {
+          "path": "artifacts/refinement-2026-09-30/post-film-review-01/manifest.json",
+          "sha256": "263ea2414e069c6b443669b899c9c9b534a831b37ce95f58bbfbdc7ad25bd3ae"
+        },
+        {
+          "path": "artifacts/refinement-2026-09-30/cloud-morphology-study/full-scene-art-review-01.json",
+          "sha256": "ba91e22ce4b0d69a9e0a7456de5d372f68c19f0fb343f4698b67c5a70b889475"
+        },
+        {
+          "path": "artifacts/refinement-2026-09-30/terrain-shadow-chunks/full-scene-review-01.json",
+          "sha256": "0acaa60f0c212f006f4d3f4e272a928c51b339ccdb78f6140fdd0d1e083129e7"
+        },
+        {
+          "path": "docs/continuation/2026-10-01-screenshot-refinement.md",
+          "sha256": "55466393a64857ea722a617f24743eabe132be3d877ef4db76a7c1af7c4f7a50"
+        }
+      ]
     }
   ],
   "cycles": [],
@@ -2591,9 +2669,9 @@
     }
   ],
   "open": {
-    "start": "2026-10-01T08:03:17.581Z",
-    "category": "visual-review",
-    "description": "Review actual shoreline diagnostic feasibility and optical studies while the pinned flight continues",
+    "start": "2026-10-01T08:59:06.258Z",
+    "category": "implementation",
+    "description": "Integrate reviewed scene appearance and coastal woodland while correcting bounded reflection artifacts",
     "proofs": []
   },
   "nativeVisualCycles": [

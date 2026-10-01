@@ -1,0 +1,341 @@
+{
+  "kind": "actual-full-scene-static-art-review",
+  "sourceIdentity": "5b3479529a796233889fd2de92d044f0aba207d73933c932ccb34c85b495e248",
+  "distEntry": "assets/index-Cv_z3WVV.js",
+  "distEntrySha256": "0d3db1ab36d8f141dea8b9ba969ff5881177edbc5c8ea5c6cc27a053852da6b4",
+  "dimensions": [
+    640,
+    360
+  ],
+  "backend": "software",
+  "captureManifest": "artifacts/refinement-2026-09-30/post-film-review-01/manifest.json",
+  "timesSeconds": [
+    0,
+    5
+  ],
+  "decisions": {
+    "sourceResponse": "ACCEPT as a bounded lighting improvement; opening improves, descent mostly neutral.",
+    "farCrownBlending": "REJECT for the canonical environment: cleaner coverage erases crown separation and produces a soft blanket.",
+    "combined": "REJECT: response restores some shading variation but does not recover the detail lost to blending."
+  },
+  "fixedControls": {
+    "grassPalette": 0,
+    "linearMainOutput": false,
+    "linearMainSampleScale": 1,
+    "farCrownCoverage": false,
+    "coastalReflection": false,
+    "cloudCoverage": 0.9,
+    "cloudMorphology": false,
+    "otherSettings": "Identical complete baseline within each quartet; see post-film-effective-profiles.json."
+  },
+  "observations": [
+    {
+      "view": "opening",
+      "regionXYInclusive": [
+        20,
+        90,
+        225,
+        255
+      ],
+      "finding": "Response gives more readable internal light/dark organization while retaining the textured crown edge. The overall brown mass remains a realism weakness."
+    },
+    {
+      "view": "opening",
+      "regionXYInclusive": [
+        0,
+        80,
+        240,
+        250
+      ],
+      "finding": "Blend turns the headland into a soft continuous moss-like mound and removes crest/crown separation. Combined has more shading than blend alone but retains the soft blanket."
+    },
+    {
+      "view": "descent",
+      "regionXYInclusive": [
+        0,
+        10,
+        120,
+        150
+      ],
+      "finding": "Response is mostly neutral or slightly better in the distant left patch. Blend makes that patch a blurry green mass beside sharper near crowns."
+    },
+    {
+      "view": "descent",
+      "regionXYInclusive": [
+        0,
+        160,
+        550,
+        359
+      ],
+      "finding": "The visible near crowns remain essentially unchanged; these far-atlas studies do not solve their residual stipple."
+    }
+  ],
+  "frames": [
+    {
+      "label": "opening-baseline",
+      "png": "artifacts/refinement-2026-09-30/post-film-review-01/opening-baseline.png",
+      "pngSha256": "a99c969227856ac9d0886639bfbd29303e26364fc23bea8a6caa9ce55ee406c6",
+      "timeSeconds": 0,
+      "camera": [
+        -126,
+        451.5217757946498,
+        350
+      ],
+      "settings": {
+        "islandDirectResponse": false,
+        "farCrownBlending": false
+      },
+      "actualResponseState": {
+        "enabled": false,
+        "ready": true,
+        "dataSHA256": "9f1e04acf3995292adb4a7bba6c28ba28088cd37a3e7e90374a4fac3d564f63f"
+      }
+    },
+    {
+      "label": "opening-response",
+      "png": "artifacts/refinement-2026-09-30/post-film-review-01/opening-response.png",
+      "pngSha256": "5f6d6650f162bc0f9f032caa455d9e8e428f13f3151b5895db41e42f2f59df3a",
+      "timeSeconds": 0,
+      "camera": [
+        -126,
+        451.5217757946498,
+        350
+      ],
+      "settings": {
+        "islandDirectResponse": true,
+        "farCrownBlending": false
+      },
+      "actualResponseState": {
+        "enabled": true,
+        "ready": true,
+        "dataSHA256": "9f1e04acf3995292adb4a7bba6c28ba28088cd37a3e7e90374a4fac3d564f63f"
+      }
+    },
+    {
+      "label": "opening-blend",
+      "png": "artifacts/refinement-2026-09-30/post-film-review-01/opening-blend.png",
+      "pngSha256": "0bc3a5c791b55ac2ba1990466a46311cf9ba3921c0d8ede9988f2d137e00509a",
+      "timeSeconds": 0,
+      "camera": [
+        -126,
+        451.5217757946498,
+        350
+      ],
+      "settings": {
+        "islandDirectResponse": false,
+        "farCrownBlending": true
+      },
+      "actualResponseState": {
+        "enabled": false,
+        "ready": true,
+        "dataSHA256": "9f1e04acf3995292adb4a7bba6c28ba28088cd37a3e7e90374a4fac3d564f63f"
+      }
+    },
+    {
+      "label": "opening-combined",
+      "png": "artifacts/refinement-2026-09-30/post-film-review-01/opening-combined.png",
+      "pngSha256": "2c266ff0b490f8ee18e6514a22ad24a5e0e8523e5d8856fa0cc116332e5ae51d",
+      "timeSeconds": 0,
+      "camera": [
+        -126,
+        451.5217757946498,
+        350
+      ],
+      "settings": {
+        "islandDirectResponse": true,
+        "farCrownBlending": true
+      },
+      "actualResponseState": {
+        "enabled": true,
+        "ready": true,
+        "dataSHA256": "9f1e04acf3995292adb4a7bba6c28ba28088cd37a3e7e90374a4fac3d564f63f"
+      }
+    },
+    {
+      "label": "descent-baseline",
+      "png": "artifacts/refinement-2026-09-30/post-film-review-01/descent-baseline.png",
+      "pngSha256": "62d2f92dca7c8d71976a5df7f6cb174c7ae9cf37cb718b3af91bdc3698fb63f8",
+      "timeSeconds": 5,
+      "camera": [
+        -75.52494783783412,
+        264.21479235356315,
+        185.2920688382211
+      ],
+      "settings": {
+        "islandDirectResponse": false,
+        "farCrownBlending": false
+      },
+      "actualResponseState": {
+        "enabled": false,
+        "ready": true,
+        "dataSHA256": "9f1e04acf3995292adb4a7bba6c28ba28088cd37a3e7e90374a4fac3d564f63f"
+      }
+    },
+    {
+      "label": "descent-response",
+      "png": "artifacts/refinement-2026-09-30/post-film-review-01/descent-response.png",
+      "pngSha256": "1ad10a78fb08c16a10a981f72222aa54bd770785f9cf65d789357895de18b03e",
+      "timeSeconds": 5,
+      "camera": [
+        -75.52494783783412,
+        264.21479235356315,
+        185.2920688382211
+      ],
+      "settings": {
+        "islandDirectResponse": true,
+        "farCrownBlending": false
+      },
+      "actualResponseState": {
+        "enabled": true,
+        "ready": true,
+        "dataSHA256": "9f1e04acf3995292adb4a7bba6c28ba28088cd37a3e7e90374a4fac3d564f63f"
+      }
+    },
+    {
+      "label": "descent-blend",
+      "png": "artifacts/refinement-2026-09-30/post-film-review-01/descent-blend.png",
+      "pngSha256": "a26d818e72423ab22ac10fee6f19cc2f0402d09ea5a5161146931dbc1b335c72",
+      "timeSeconds": 5,
+      "camera": [
+        -75.52494783783412,
+        264.21479235356315,
+        185.2920688382211
+      ],
+      "settings": {
+        "islandDirectResponse": false,
+        "farCrownBlending": true
+      },
+      "actualResponseState": {
+        "enabled": false,
+        "ready": true,
+        "dataSHA256": "9f1e04acf3995292adb4a7bba6c28ba28088cd37a3e7e90374a4fac3d564f63f"
+      }
+    },
+    {
+      "label": "descent-combined",
+      "png": "artifacts/refinement-2026-09-30/post-film-review-01/descent-combined.png",
+      "pngSha256": "3f2d35a30f1cd2ab85026fa7388e3b4d78b27506568579b41ec99e087517259b",
+      "timeSeconds": 5,
+      "camera": [
+        -75.52494783783412,
+        264.21479235356315,
+        185.2920688382211
+      ],
+      "settings": {
+        "islandDirectResponse": true,
+        "farCrownBlending": true
+      },
+      "actualResponseState": {
+        "enabled": true,
+        "ready": true,
+        "dataSHA256": "9f1e04acf3995292adb4a7bba6c28ba28088cd37a3e7e90374a4fac3d564f63f"
+      }
+    }
+  ],
+  "pixelComparisons": [
+    {
+      "a": "opening-baseline",
+      "b": "opening-response",
+      "differentPixels": 51944,
+      "maxChannelDelta": 12,
+      "changedBoundsInclusive": [
+        0,
+        80,
+        245,
+        359
+      ]
+    },
+    {
+      "a": "opening-baseline",
+      "b": "opening-blend",
+      "differentPixels": 54582,
+      "maxChannelDelta": 76,
+      "changedBoundsInclusive": [
+        0,
+        79,
+        247,
+        359
+      ]
+    },
+    {
+      "a": "opening-baseline",
+      "b": "opening-combined",
+      "differentPixels": 55583,
+      "maxChannelDelta": 80,
+      "changedBoundsInclusive": [
+        0,
+        79,
+        247,
+        359
+      ]
+    },
+    {
+      "a": "opening-response",
+      "b": "opening-combined",
+      "differentPixels": 53748,
+      "maxChannelDelta": 79,
+      "changedBoundsInclusive": [
+        0,
+        79,
+        247,
+        359
+      ]
+    },
+    {
+      "a": "descent-baseline",
+      "b": "descent-response",
+      "differentPixels": 14782,
+      "maxChannelDelta": 23,
+      "changedBoundsInclusive": [
+        0,
+        0,
+        639,
+        359
+      ]
+    },
+    {
+      "a": "descent-baseline",
+      "b": "descent-blend",
+      "differentPixels": 24753,
+      "maxChannelDelta": 83,
+      "changedBoundsInclusive": [
+        0,
+        0,
+        639,
+        359
+      ]
+    },
+    {
+      "a": "descent-baseline",
+      "b": "descent-combined",
+      "differentPixels": 25299,
+      "maxChannelDelta": 79,
+      "changedBoundsInclusive": [
+        0,
+        0,
+        639,
+        359
+      ]
+    },
+    {
+      "a": "descent-response",
+      "b": "descent-combined",
+      "differentPixels": 24908,
+      "maxChannelDelta": 80,
+      "changedBoundsInclusive": [
+        0,
+        0,
+        639,
+        359
+      ]
+    }
+  ],
+  "pixelMethod": "PNG decoded to uint8 RGBA using Pillow; differences record numerical locality, not a quality score. SHA256 verifies file provenance against the capture manifest.",
+  "limits": [
+    "No restored frames exist in these eight labels; no restoration claim is made for these studies.",
+    "Static poses at 0 and 5 seconds cannot establish motion quality or full-route acceptance.",
+    "Source response affects the base Island far crowns; it does not fix near crown geometry or the entire scene.",
+    "Single-study recommendations remain subject to the combined final profile at other poses.",
+    "No 8/10 score, runtime speedup or completed-environment claim."
+  ]
+}

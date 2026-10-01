@@ -1,0 +1,148 @@
+{
+  "sourceIdentity": "5b3479529a796233889fd2de92d044f0aba207d73933c932ccb34c85b495e248",
+  "time": 10.5,
+  "dimensions": [
+    640,
+    360
+  ],
+  "review": "water_refine actual first four coastal studies",
+  "decisions": {
+    "reflection": "reject current implementation; hard segmented transitions observed",
+    "sandFilmDrying": "active but visually modest here; no quality acceptance from changed pixel count"
+  },
+  "frames": [
+    {
+      "label": "shore-off",
+      "path": "artifacts/refinement-2026-09-30/post-film-review-01/shore-off.png",
+      "sha256": "fed2e1c15abbc8c0ea259c9a1433615a306ac9750169c697a4becc475a489bb9",
+      "bytes": 560925,
+      "profileDifferencesFromOff": [],
+      "changedRGBPixels": 0,
+      "totalPixels": 230400,
+      "maxChannelDifference": 0,
+      "meanAbsRGBFullFrame": 0.0,
+      "bboxInclusive": null
+    },
+    {
+      "label": "shore-reflection-flat",
+      "path": "artifacts/refinement-2026-09-30/post-film-review-01/shore-reflection-flat.png",
+      "sha256": "ee93420dd4a12cb1868d8dba06828d0a596140c216c1c042fd7d92064568cd7d",
+      "bytes": 555455,
+      "profileDifferencesFromOff": [
+        [
+          "coastalReflection",
+          false,
+          true
+        ],
+        [
+          "coastalReflectionDistortion",
+          1,
+          0
+        ]
+      ],
+      "changedRGBPixels": 76491,
+      "totalPixels": 230400,
+      "maxChannelDifference": 90,
+      "meanAbsRGBFullFrame": 5.039940682870371,
+      "bboxInclusive": [
+        0,
+        180,
+        527,
+        359
+      ]
+    },
+    {
+      "label": "shore-reflection-wave",
+      "path": "artifacts/refinement-2026-09-30/post-film-review-01/shore-reflection-wave.png",
+      "sha256": "c551211ca3cd64513e65b551399508cdb9d83743a86d96352cf391896e07f501",
+      "bytes": 584846,
+      "profileDifferencesFromOff": [
+        [
+          "coastalReflection",
+          false,
+          true
+        ]
+      ],
+      "changedRGBPixels": 56335,
+      "totalPixels": 230400,
+      "maxChannelDifference": 61,
+      "meanAbsRGBFullFrame": 4.203570601851852,
+      "bboxInclusive": [
+        0,
+        180,
+        527,
+        359
+      ]
+    },
+    {
+      "label": "shore-film-only",
+      "path": "artifacts/refinement-2026-09-30/post-film-review-01/shore-film-only.png",
+      "sha256": "771b1ff49725b2f83d9dbfd784a00316f486717d56dfdf955b6e9827e2bddf6f",
+      "bytes": 560928,
+      "profileDifferencesFromOff": [
+        [
+          "surfaceStudy.sandFilmDrying",
+          0,
+          1
+        ]
+      ],
+      "changedRGBPixels": 14642,
+      "totalPixels": 230400,
+      "maxChannelDifference": 23,
+      "meanAbsRGBFullFrame": 0.18330005787037038,
+      "bboxInclusive": [
+        1,
+        179,
+        639,
+        359
+      ]
+    }
+  ],
+  "primaryHypothesis": {
+    "status": "source-supported diagnosis, agreed by root; correction not yet implemented/verified",
+    "cause": "Perturbed ray.y>0 hard validity test still runs at distortion=0, selecting captured planar coast vs old sky/neighbor-water fallback along wave normal contours.",
+    "source": "src/world/ocean.ts coastalReflectedRadiance valid ray.y branch, with call before neighboring-water ray substitution",
+    "evidence": "Internal bright spans in flat image are byte-identical to OFF: row205 x75..99,189..203,326..341; row240 x135..160,360..401. Flat projected UV does not depend on distorted depth/ray, while eligibility does.",
+    "competingFactors": "Wave mode additionally crosses projected-UV validity boundaries with only a one-target-pixel fade. Depth discontinuities and cone LOD can affect blur, but cannot alone explain exact fallback-colored internal slits."
+  },
+  "filmROIs": {
+    "nearSand": {
+      "rectangleExclusive": [
+        530,
+        220,
+        640,
+        360
+      ],
+      "changed": 12259,
+      "total": 15400,
+      "meanAbsRGB": 1.8236580086580088,
+      "maxChannel": 16
+    },
+    "water": {
+      "rectangleExclusive": [
+        0,
+        200,
+        450,
+        360
+      ],
+      "changed": 0,
+      "total": 72000
+    },
+    "thinShore": {
+      "rectangleExclusive": [
+        0,
+        175,
+        640,
+        200
+      ],
+      "changed": 947,
+      "total": 16000,
+      "maxChannel": 23
+    }
+  },
+  "limitations": [
+    "Static native640x360 first four only; other coast frames not reviewed here.",
+    "No diagnostic GPU masks yet; source branch and exact fallback pixels strongly identify validity discontinuity, not an exhaustive proof of every stripe.",
+    "No production source edits or GPU work performed for this diagnosis."
+  ]
+}

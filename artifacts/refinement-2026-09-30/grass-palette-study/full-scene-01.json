@@ -1,0 +1,159 @@
+{
+  "kind": "actual-full-scene-static-review",
+  "sourceIdentity": "5b3479529a796233889fd2de92d044f0aba207d73933c932ccb34c85b495e248",
+  "distEntry": "assets/index-Cv_z3WVV.js",
+  "distEntrySha256": "0d3db1ab36d8f141dea8b9ba969ff5881177edbc5c8ea5c6cc27a053852da6b4",
+  "captureManifest": "artifacts/refinement-2026-09-30/post-film-review-01/manifest.json",
+  "backend": "software",
+  "pixelMethod": "Decode PNG with Pillow to RGBA; compare uint8 channels exactly. PNG SHA256 records provenance, not pixel restoration evidence.",
+  "limits": [
+    "Single static pose per study; no temporal flicker conclusion.",
+    "Capture milliseconds are unsynchronized render/export durations, not a performance benchmark.",
+    "A narrow study acceptance does not establish 8/10 realism or completion of the environment."
+  ],
+  "decision": "ACCEPT bounded grass palette correction",
+  "settings": [
+    {
+      "grassPalette": 0
+    },
+    {
+      "grassPalette": 1
+    },
+    {
+      "grassPalette": 0
+    }
+  ],
+  "frames": [
+    {
+      "label": "grass-palette-off-12",
+      "png": "artifacts/refinement-2026-09-30/post-film-review-01/grass-palette-off-12.png",
+      "pngSha256": "84bf41d56237ab56dd4ab3e2dd949f6a41f7c6c24962aac9bbbac1bd563228d1",
+      "timeSeconds": 12,
+      "dimensions": [
+        640,
+        360
+      ],
+      "linearMainOutput": {
+        "enabled": false,
+        "sampleScale": 1,
+        "requestedSampleScale": 1,
+        "supported": null,
+        "supportError": null,
+        "initialized": false,
+        "width": 0,
+        "height": 0,
+        "samples": 4,
+        "framebufferValidated": false,
+        "format": "RGBA16F",
+        "colorSpace": "srgb-linear",
+        "resolveDrawsPerFrame": 0,
+        "disposed": false
+      },
+      "captureMilliseconds": 79002
+    },
+    {
+      "label": "grass-palette-on-12",
+      "png": "artifacts/refinement-2026-09-30/post-film-review-01/grass-palette-on-12.png",
+      "pngSha256": "601dbcc0c209f72a3ad29965842514b3f6b23066d4267ef673d9636c731afb49",
+      "timeSeconds": 12,
+      "dimensions": [
+        640,
+        360
+      ],
+      "linearMainOutput": {
+        "enabled": false,
+        "sampleScale": 1,
+        "requestedSampleScale": 1,
+        "supported": null,
+        "supportError": null,
+        "initialized": false,
+        "width": 0,
+        "height": 0,
+        "samples": 4,
+        "framebufferValidated": false,
+        "format": "RGBA16F",
+        "colorSpace": "srgb-linear",
+        "resolveDrawsPerFrame": 0,
+        "disposed": false
+      },
+      "captureMilliseconds": 34361
+    },
+    {
+      "label": "grass-palette-off-restored-12",
+      "png": "artifacts/refinement-2026-09-30/post-film-review-01/grass-palette-off-restored-12.png",
+      "pngSha256": "84bf41d56237ab56dd4ab3e2dd949f6a41f7c6c24962aac9bbbac1bd563228d1",
+      "timeSeconds": 12,
+      "dimensions": [
+        640,
+        360
+      ],
+      "linearMainOutput": {
+        "enabled": false,
+        "sampleScale": 1,
+        "requestedSampleScale": 1,
+        "supported": null,
+        "supportError": null,
+        "initialized": false,
+        "width": 0,
+        "height": 0,
+        "samples": 4,
+        "framebufferValidated": false,
+        "format": "RGBA16F",
+        "colorSpace": "srgb-linear",
+        "resolveDrawsPerFrame": 0,
+        "disposed": false
+      },
+      "captureMilliseconds": 32383
+    }
+  ],
+  "comparisons": [
+    {
+      "a": "grass-palette-off-12",
+      "b": "grass-palette-on-12",
+      "differentPixels": 5926,
+      "differentChannelValues": 17778,
+      "maxChannelDelta": 84,
+      "meanAbsoluteRGBA": 0.4368391927083333,
+      "changedBoundsInclusive": [
+        142,
+        7,
+        639,
+        199
+      ]
+    },
+    {
+      "a": "grass-palette-off-12",
+      "b": "grass-palette-off-restored-12",
+      "differentPixels": 0,
+      "differentChannelValues": 0,
+      "maxChannelDelta": 0,
+      "meanAbsoluteRGBA": 0.0,
+      "changedBoundsInclusive": null
+    }
+  ],
+  "observations": [
+    {
+      "regionXYInclusive": [
+        330,
+        175,
+        639,
+        199
+      ],
+      "finding": "OFF has a conspicuous pale yellow-green dotted fringe against gray sand. ON gives subdued green understory that connects better to tree shade; blades remain visible."
+    },
+    {
+      "regionXYInclusive": [
+        190,
+        175,
+        330,
+        189
+      ],
+      "finding": "Smaller central clumps are less chalky without a visible black void, halo or coverage change."
+    }
+  ],
+  "decisionLimits": [
+    "Tree canopy stipple and the smooth pale cliff remain unresolved.",
+    "Sky and water are unchanged in this pair.",
+    "Root canonical combined profile may use grassPalette=1 only after the separate combined-profile decision; this review makes no source/default edit."
+  ]
+}

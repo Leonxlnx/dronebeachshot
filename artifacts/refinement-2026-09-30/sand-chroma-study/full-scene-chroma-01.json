@@ -1,0 +1,69 @@
+{
+  "review": "full-scene-chroma-01",
+  "decision": "accept sandChroma=1 as bounded color improvement",
+  "reviewers": [
+    "water_refine independent review",
+    "root agreement"
+  ],
+  "sourceIdentity": "5b3479529a796233889fd2de92d044f0aba207d73933c932ccb34c85b495e248",
+  "dimensions": [
+    640,
+    360
+  ],
+  "kind": "actual production intermediate still review, not final capture",
+  "pairs": [
+    {
+      "before": {
+        "path": "artifacts/refinement-2026-09-30/post-film-review-01/shore-old-sand.png",
+        "sha256": "fed2e1c15abbc8c0ea259c9a1433615a306ac9750169c697a4becc475a489bb9",
+        "bytes": 560925,
+        "time": 10.5
+      },
+      "after": {
+        "path": "artifacts/refinement-2026-09-30/post-film-review-01/shore-warm-sand.png",
+        "sha256": "553f86f32c7e422af0ab51c845c105a796f94bf2581579a1d8e8f32c1fa22802",
+        "bytes": 562230,
+        "time": 10.5
+      },
+      "effectiveProfileDifferences": [
+        {
+          "field": "surfaceStudy.sandChroma",
+          "before": 0,
+          "after": 1
+        }
+      ]
+    },
+    {
+      "before": {
+        "path": "artifacts/refinement-2026-09-30/post-film-review-01/sunset-old-sand.png",
+        "sha256": "82830c7f874585811326376d9ad2a117d3f37fa26c2074298067313e76da6bb5",
+        "bytes": 433057,
+        "time": 19.5
+      },
+      "after": {
+        "path": "artifacts/refinement-2026-09-30/post-film-review-01/sunset-warm-sand.png",
+        "sha256": "2ee5c1dfb111c35773be4e6316755034fc91d1b1e14ada621efad7f486a5dc71",
+        "bytes": 432977,
+        "time": 19.5
+      },
+      "effectiveProfileDifferences": [
+        {
+          "field": "surfaceStudy.sandChroma",
+          "before": 0,
+          "after": 1
+        }
+      ]
+    }
+  ],
+  "observations": {
+    "shore": "Foreground beach shifts from gray/taupe to restrained warm sand; visible shallow bottom has subtly warmer separation from blue-green water. No obvious orange cast or artificial brightness.",
+    "sunset": "Thin distant beach only subtly warmer at native640x360; no visible yellow fringe or distracting discontinuity."
+  },
+  "limits": [
+    "Road-like glossy swash remains; this acceptance concerns sand color only.",
+    "Two static views at640x360, no motion or final-resolution acceptance.",
+    "Sunset beach occupies few pixels and offers weak independent positive evidence.",
+    "Not calibrated geological reflectance or a global scene grade."
+  ],
+  "profileSource": "artifacts/refinement-2026-09-30/post-film-effective-profiles.json"
+}

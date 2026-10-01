@@ -1,0 +1,356 @@
+{
+  "kind": "actual-full-scene-static-art-review",
+  "sourceIdentity": "5b3479529a796233889fd2de92d044f0aba207d73933c932ccb34c85b495e248",
+  "distEntry": "assets/index-Cv_z3WVV.js",
+  "distEntrySha256": "0d3db1ab36d8f141dea8b9ba969ff5881177edbc5c8ea5c6cc27a053852da6b4",
+  "dimensions": [
+    640,
+    360
+  ],
+  "backend": "software",
+  "captureManifest": "artifacts/refinement-2026-09-30/post-film-review-01/manifest.json",
+  "timesSeconds": [
+    10.5,
+    10.75
+  ],
+  "decisions": {
+    "flatReflection": "REJECT: sharp bright horizontal slits break optical continuity.",
+    "waveReflection": "REJECT: distortion improves the flat appearance but prominent parallel water bands remain at both poses.",
+    "sandFilmDrying": "UNCLEAR: at most a subtle reduction in the polished transition; the broad smooth gray ribbon remains.",
+    "combined": "REJECT because reflection remains visibly defective."
+  },
+  "observations": [
+    {
+      "view": "shore",
+      "regionXYInclusive": [
+        0,
+        184,
+        515,
+        265
+      ],
+      "finding": "Flat reflection produces sharp horizontal bright slits. Wave distortion bends/breaks them but still reads as parallel contour bands rather than a coherent reflected shoreline."
+    },
+    {
+      "view": "nearby",
+      "regionXYInclusive": [
+        0,
+        185,
+        560,
+        280
+      ],
+      "finding": "The reflection banding persists at 10.75 seconds; this is not unique to the 10.5-second wave phase."
+    },
+    {
+      "view": "shore-film-only",
+      "regionXYInclusive": [
+        520,
+        214,
+        639,
+        330
+      ],
+      "finding": "At most a subtle less-polished sand transition; no obvious new defect, but no decisive realism improvement. The broad smooth gray ribbon remains."
+    }
+  ],
+  "frames": [
+    {
+      "label": "shore-off",
+      "png": "artifacts/refinement-2026-09-30/post-film-review-01/shore-off.png",
+      "pngSha256": "fed2e1c15abbc8c0ea259c9a1433615a306ac9750169c697a4becc475a489bb9",
+      "timeSeconds": 10.5,
+      "camera": [
+        -36.98060456829655,
+        4.922138347995213,
+        84.31258981306148
+      ],
+      "settings": {
+        "coastalReflection": false,
+        "coastalReflectionDistortion": 1,
+        "sandFilmDrying": 0
+      },
+      "actualReflectionState": {
+        "enabled": false,
+        "ready": false,
+        "initialized": false,
+        "width": 0,
+        "height": 0,
+        "samples": 4,
+        "distortion": 1,
+        "renders": 0,
+        "failures": 0
+      }
+    },
+    {
+      "label": "shore-reflection-flat",
+      "png": "artifacts/refinement-2026-09-30/post-film-review-01/shore-reflection-flat.png",
+      "pngSha256": "ee93420dd4a12cb1868d8dba06828d0a596140c216c1c042fd7d92064568cd7d",
+      "timeSeconds": 10.5,
+      "camera": [
+        -36.98060456829655,
+        4.922138347995213,
+        84.31258981306148
+      ],
+      "settings": {
+        "coastalReflection": true,
+        "coastalReflectionDistortion": 0,
+        "sandFilmDrying": 0
+      },
+      "actualReflectionState": {
+        "enabled": true,
+        "ready": true,
+        "initialized": true,
+        "width": 320,
+        "height": 180,
+        "samples": 4,
+        "distortion": 0,
+        "renders": 1,
+        "failures": 0
+      }
+    },
+    {
+      "label": "shore-reflection-wave",
+      "png": "artifacts/refinement-2026-09-30/post-film-review-01/shore-reflection-wave.png",
+      "pngSha256": "c551211ca3cd64513e65b551399508cdb9d83743a86d96352cf391896e07f501",
+      "timeSeconds": 10.5,
+      "camera": [
+        -36.98060456829655,
+        4.922138347995213,
+        84.31258981306148
+      ],
+      "settings": {
+        "coastalReflection": true,
+        "coastalReflectionDistortion": 1,
+        "sandFilmDrying": 0
+      },
+      "actualReflectionState": {
+        "enabled": true,
+        "ready": true,
+        "initialized": true,
+        "width": 320,
+        "height": 180,
+        "samples": 4,
+        "distortion": 1,
+        "renders": 2,
+        "failures": 0
+      }
+    },
+    {
+      "label": "shore-film-only",
+      "png": "artifacts/refinement-2026-09-30/post-film-review-01/shore-film-only.png",
+      "pngSha256": "771b1ff49725b2f83d9dbfd784a00316f486717d56dfdf955b6e9827e2bddf6f",
+      "timeSeconds": 10.5,
+      "camera": [
+        -36.98060456829655,
+        4.922138347995213,
+        84.31258981306148
+      ],
+      "settings": {
+        "coastalReflection": false,
+        "coastalReflectionDistortion": 1,
+        "sandFilmDrying": 1
+      },
+      "actualReflectionState": {
+        "enabled": false,
+        "ready": false,
+        "initialized": true,
+        "width": 320,
+        "height": 180,
+        "samples": 4,
+        "distortion": 1,
+        "renders": 2,
+        "failures": 0
+      }
+    },
+    {
+      "label": "shore-combined",
+      "png": "artifacts/refinement-2026-09-30/post-film-review-01/shore-combined.png",
+      "pngSha256": "e84199a35384f3218b48e61ed26a27b1e230259cfc682702496789b63c064d24",
+      "timeSeconds": 10.5,
+      "camera": [
+        -36.98060456829655,
+        4.922138347995213,
+        84.31258981306148
+      ],
+      "settings": {
+        "coastalReflection": true,
+        "coastalReflectionDistortion": 1,
+        "sandFilmDrying": 1
+      },
+      "actualReflectionState": {
+        "enabled": true,
+        "ready": true,
+        "initialized": true,
+        "width": 320,
+        "height": 180,
+        "samples": 4,
+        "distortion": 1,
+        "renders": 3,
+        "failures": 0
+      }
+    },
+    {
+      "label": "nearby-off",
+      "png": "artifacts/refinement-2026-09-30/post-film-review-01/nearby-off.png",
+      "pngSha256": "79efee5313bcf985093fc50a1129bec5aebe6930e2c210c3166b84f531f421e8",
+      "timeSeconds": 10.75,
+      "camera": [
+        -27.044043283726065,
+        4.81755618508428,
+        85.79036071899104
+      ],
+      "settings": {
+        "coastalReflection": false,
+        "coastalReflectionDistortion": 1,
+        "sandFilmDrying": 0
+      },
+      "actualReflectionState": {
+        "enabled": false,
+        "ready": false,
+        "initialized": true,
+        "width": 320,
+        "height": 180,
+        "samples": 4,
+        "distortion": 1,
+        "renders": 3,
+        "failures": 0
+      }
+    },
+    {
+      "label": "nearby-combined",
+      "png": "artifacts/refinement-2026-09-30/post-film-review-01/nearby-combined.png",
+      "pngSha256": "30469e5b3db552cdd7c5a61cbfa1918c82dd1619a5ba1e0b20b3e26e638a161c",
+      "timeSeconds": 10.75,
+      "camera": [
+        -27.044043283726065,
+        4.81755618508428,
+        85.79036071899104
+      ],
+      "settings": {
+        "coastalReflection": true,
+        "coastalReflectionDistortion": 1,
+        "sandFilmDrying": 1
+      },
+      "actualReflectionState": {
+        "enabled": true,
+        "ready": true,
+        "initialized": true,
+        "width": 320,
+        "height": 180,
+        "samples": 4,
+        "distortion": 1,
+        "renders": 4,
+        "failures": 0
+      }
+    },
+    {
+      "label": "shore-off-restored",
+      "png": "artifacts/refinement-2026-09-30/post-film-review-01/shore-off-restored.png",
+      "pngSha256": "fed2e1c15abbc8c0ea259c9a1433615a306ac9750169c697a4becc475a489bb9",
+      "timeSeconds": 10.5,
+      "camera": [
+        -36.98060456829655,
+        4.922138347995213,
+        84.31258981306148
+      ],
+      "settings": {
+        "coastalReflection": false,
+        "coastalReflectionDistortion": 1,
+        "sandFilmDrying": 0
+      },
+      "actualReflectionState": {
+        "enabled": false,
+        "ready": false,
+        "initialized": true,
+        "width": 320,
+        "height": 180,
+        "samples": 4,
+        "distortion": 1,
+        "renders": 4,
+        "failures": 0
+      }
+    }
+  ],
+  "pixelComparisons": [
+    {
+      "a": "shore-off",
+      "b": "shore-reflection-flat",
+      "differentPixels": 76491,
+      "differentChannelValues": 223032,
+      "maxChannelDelta": 90,
+      "changedBoundsInclusive": [
+        0,
+        180,
+        527,
+        359
+      ]
+    },
+    {
+      "a": "shore-reflection-flat",
+      "b": "shore-reflection-wave",
+      "differentPixels": 75009,
+      "differentChannelValues": 212662,
+      "maxChannelDelta": 98,
+      "changedBoundsInclusive": [
+        0,
+        180,
+        527,
+        359
+      ]
+    },
+    {
+      "a": "shore-off",
+      "b": "shore-film-only",
+      "differentPixels": 14642,
+      "differentChannelValues": 32397,
+      "maxChannelDelta": 23,
+      "changedBoundsInclusive": [
+        1,
+        179,
+        639,
+        359
+      ]
+    },
+    {
+      "a": "shore-reflection-wave",
+      "b": "shore-combined",
+      "differentPixels": 14665,
+      "differentChannelValues": 32442,
+      "maxChannelDelta": 23,
+      "changedBoundsInclusive": [
+        1,
+        179,
+        639,
+        359
+      ]
+    },
+    {
+      "a": "nearby-off",
+      "b": "nearby-combined",
+      "differentPixels": 66928,
+      "differentChannelValues": 191879,
+      "maxChannelDelta": 74,
+      "changedBoundsInclusive": [
+        0,
+        179,
+        639,
+        359
+      ]
+    },
+    {
+      "a": "shore-off",
+      "b": "shore-off-restored",
+      "differentPixels": 0,
+      "differentChannelValues": 0,
+      "maxChannelDelta": 0,
+      "changedBoundsInclusive": null
+    }
+  ],
+  "pixelMethod": "PNG decoded to uint8 RGBA with Pillow; exact channel comparisons. PNG SHA256 verifies file provenance against the capture manifest and is not substituted for restoration measurement.",
+  "limits": [
+    "This is an actual-image diagnosis, not a shader-cause finding or source-fix acceptance.",
+    "The 10.75 combined pair changes reflection and film together and cannot isolate film value.",
+    "Two stills do not establish temporal flicker behavior.",
+    "No mean-luminance or pixel-count quality metric is used.",
+    "Reflection ready/state checks establish that the intended pass ran, not optical quality.",
+    "No production settings were edited or accepted by this proof."
+  ]
+}

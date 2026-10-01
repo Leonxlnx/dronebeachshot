@@ -1,0 +1,210 @@
+{
+  "kind": "actual-full-scene-static-review",
+  "sourceIdentity": "5b3479529a796233889fd2de92d044f0aba207d73933c932ccb34c85b495e248",
+  "distEntry": "assets/index-Cv_z3WVV.js",
+  "distEntrySha256": "0d3db1ab36d8f141dea8b9ba969ff5881177edbc5c8ea5c6cc27a053852da6b4",
+  "captureManifest": "artifacts/refinement-2026-09-30/post-film-review-01/manifest.json",
+  "backend": "software",
+  "pixelMethod": "Decode PNG with Pillow to RGBA; compare uint8 channels exactly. PNG SHA256 records provenance, not pixel restoration evidence.",
+  "limits": [
+    "Single static pose per study; no temporal flicker conclusion.",
+    "Capture milliseconds are unsynchronized render/export durations, not a performance benchmark.",
+    "A narrow study acceptance does not establish 8/10 realism or completion of the environment."
+  ],
+  "decisions": {
+    "linear1xVersusNative": "UNCLEAR standalone art gain; minor leaf-highlight differences leave the main stipple problem.",
+    "linear2xVersusLinear1x": "ACCEPT as improved sampling for this still; broader scene acceptance remains bounded by the observed pose."
+  },
+  "frames": [
+    {
+      "label": "near-crown-native",
+      "png": "artifacts/refinement-2026-09-30/post-film-review-01/near-crown-native.png",
+      "pngSha256": "a0c69d3010a56aab25bd8d5a30cc09d01d1487379286e42ba1d8961f1d66477b",
+      "timeSeconds": 4.083333333333333,
+      "dimensions": [
+        640,
+        360
+      ],
+      "linearMainOutput": {
+        "enabled": false,
+        "sampleScale": 1,
+        "requestedSampleScale": 1,
+        "supported": null,
+        "supportError": null,
+        "initialized": false,
+        "width": 0,
+        "height": 0,
+        "samples": 4,
+        "framebufferValidated": false,
+        "format": "RGBA16F",
+        "colorSpace": "srgb-linear",
+        "resolveDrawsPerFrame": 0,
+        "disposed": false
+      },
+      "captureMilliseconds": 25396
+    },
+    {
+      "label": "near-crown-linear-1x",
+      "png": "artifacts/refinement-2026-09-30/post-film-review-01/near-crown-linear-1x.png",
+      "pngSha256": "7e21900cc3280d68b27571d0d7d6f11aadfd56cb773f18282e3fc2edb7a1cc8d",
+      "timeSeconds": 4.083333333333333,
+      "dimensions": [
+        640,
+        360
+      ],
+      "linearMainOutput": {
+        "enabled": true,
+        "sampleScale": 1,
+        "requestedSampleScale": 1,
+        "supported": true,
+        "supportError": null,
+        "initialized": true,
+        "width": 640,
+        "height": 360,
+        "samples": 4,
+        "framebufferValidated": true,
+        "format": "RGBA16F",
+        "colorSpace": "srgb-linear",
+        "resolveDrawsPerFrame": 1,
+        "disposed": false
+      },
+      "captureMilliseconds": 29673
+    },
+    {
+      "label": "near-crown-linear-2x",
+      "png": "artifacts/refinement-2026-09-30/post-film-review-01/near-crown-linear-2x.png",
+      "pngSha256": "c5d2769133266ed54f8a58a52bd2dca26041a4f98713c12e39c70584b07dcdf0",
+      "timeSeconds": 4.083333333333333,
+      "dimensions": [
+        640,
+        360
+      ],
+      "linearMainOutput": {
+        "enabled": true,
+        "sampleScale": 2,
+        "requestedSampleScale": 2,
+        "supported": true,
+        "supportError": null,
+        "initialized": true,
+        "width": 1280,
+        "height": 720,
+        "samples": 4,
+        "framebufferValidated": true,
+        "format": "RGBA16F",
+        "colorSpace": "srgb-linear",
+        "resolveDrawsPerFrame": 1,
+        "disposed": false
+      },
+      "captureMilliseconds": 31969
+    },
+    {
+      "label": "near-crown-native-restored",
+      "png": "artifacts/refinement-2026-09-30/post-film-review-01/near-crown-native-restored.png",
+      "pngSha256": "a0c69d3010a56aab25bd8d5a30cc09d01d1487379286e42ba1d8961f1d66477b",
+      "timeSeconds": 4.083333333333333,
+      "dimensions": [
+        640,
+        360
+      ],
+      "linearMainOutput": {
+        "enabled": false,
+        "sampleScale": 1,
+        "requestedSampleScale": 1,
+        "supported": true,
+        "supportError": null,
+        "initialized": true,
+        "width": 1280,
+        "height": 720,
+        "samples": 4,
+        "framebufferValidated": true,
+        "format": "RGBA16F",
+        "colorSpace": "srgb-linear",
+        "resolveDrawsPerFrame": 0,
+        "disposed": false
+      },
+      "captureMilliseconds": 25644
+    }
+  ],
+  "comparisons": [
+    {
+      "a": "near-crown-native",
+      "b": "near-crown-linear-1x",
+      "differentPixels": 85974,
+      "differentChannelValues": 172316,
+      "maxChannelDelta": 60,
+      "meanAbsoluteRGBA": 1.1595692274305556,
+      "changedBoundsInclusive": [
+        0,
+        0,
+        639,
+        359
+      ]
+    },
+    {
+      "a": "near-crown-linear-1x",
+      "b": "near-crown-linear-2x",
+      "differentPixels": 196472,
+      "differentChannelValues": 448101,
+      "maxChannelDelta": 169,
+      "meanAbsoluteRGBA": 3.775373263888889,
+      "changedBoundsInclusive": [
+        0,
+        0,
+        639,
+        359
+      ]
+    },
+    {
+      "a": "near-crown-native",
+      "b": "near-crown-native-restored",
+      "differentPixels": 0,
+      "differentChannelValues": 0,
+      "maxChannelDelta": 0,
+      "meanAbsoluteRGBA": 0.0,
+      "changedBoundsInclusive": null
+    }
+  ],
+  "observations": [
+    {
+      "regionXYInclusive": [
+        0,
+        110,
+        320,
+        310
+      ],
+      "finding": "2x reduces coarse yellow leaf speckle and makes left/foreground crowns more continuous without visible loss of trunk/gap structure."
+    },
+    {
+      "regionXYInclusive": [
+        220,
+        230,
+        520,
+        359
+      ],
+      "finding": "Lower central crown edges and interiors become finer; no broad coverage collapse or whole-image blur."
+    },
+    {
+      "regionXYInclusive": [
+        240,
+        150,
+        610,
+        254
+      ],
+      "finding": "Curved breaker band becomes narrower, more finely fragmented and less smeared. No visible refraction misregistration or new outline halo; existing regular foam lanes remain procedural."
+    },
+    {
+      "regionXYInclusive": [
+        80,
+        0,
+        310,
+        140
+      ],
+      "finding": "Water glints resolve finer, confirming that this is not a leaf-only change."
+    }
+  ],
+  "decisionLimits": [
+    "The 2x result changes water/foam derivative sampling as well as foliage.",
+    "Restoration sets enabled=false and effective scale1; the initialized1280x720 target remains cached, which does not imply failed restoration.",
+    "One static pose cannot establish reduced motion shimmer, acceptable runtime cost or complete full-route visual quality."
+  ]
+}

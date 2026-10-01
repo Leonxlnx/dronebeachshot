@@ -1,0 +1,454 @@
+{
+  "kind": "actual-full-scene-static-art-review",
+  "sourceIdentity": "5b3479529a796233889fd2de92d044f0aba207d73933c932ccb34c85b495e248",
+  "distEntry": "assets/index-Cv_z3WVV.js",
+  "distEntrySha256": "0d3db1ab36d8f141dea8b9ba969ff5881177edbc5c8ea5c6cc27a053852da6b4",
+  "dimensions": [
+    640,
+    360
+  ],
+  "backend": "software",
+  "captureManifest": "artifacts/refinement-2026-09-30/post-film-review-01/manifest.json",
+  "reviewedFrameCount": 18,
+  "timesSeconds": [
+    0,
+    10.5,
+    19.5
+  ],
+  "selectedSettings": {
+    "cloudCoverage": 0.4,
+    "cloudMorphology": true
+  },
+  "candidateDecisions": [
+    {
+      "coverage": 0.9,
+      "morphology": false,
+      "decision": "REJECT for selected environment profile",
+      "reason": "Heavy connected ceiling and repetitive rounded lobes; baseline is an evidence control."
+    },
+    {
+      "coverage": 0.65,
+      "morphology": false,
+      "decision": "REJECT for selected environment profile",
+      "reason": "Reduced density does not fix lobe organization; sunset remains busy."
+    },
+    {
+      "coverage": 0.4,
+      "morphology": false,
+      "decision": "REJECT",
+      "reason": "Most conspicuous busy popcorn fragmentation, especially at sunset."
+    },
+    {
+      "coverage": 0.9,
+      "morphology": true,
+      "decision": "REJECT for selected environment profile",
+      "reason": "Broader directional structure is an improvement, but the smooth dark roof remains too heavy at sunset."
+    },
+    {
+      "coverage": 0.65,
+      "morphology": true,
+      "decision": "ACCEPT as denser fallback; ranked second",
+      "reason": "More organized directional cloud masses, but more overhead bulk than the selected0.4 setting."
+    },
+    {
+      "coverage": 0.4,
+      "morphology": true,
+      "decision": "ACCEPT; selected across all three poses",
+      "reason": "Cleaner separation and blue openings while retaining cloud volume, sun framing and a coherent horizon."
+    }
+  ],
+  "observations": [
+    {
+      "pose": "opening",
+      "regionXYInclusive": [
+        0,
+        0,
+        639,
+        54
+      ],
+      "finding": "The sun remains cloud-framed. The selected setting breaks up the heavy roof without the many similarly sized fragments of0.4 OFF."
+    },
+    {
+      "pose": "shore",
+      "regionXYInclusive": [
+        0,
+        0,
+        205,
+        115
+      ],
+      "finding": "Distinct directional groups remain above the left ridge with more blue separation; the sky is not empty."
+    },
+    {
+      "pose": "sunset",
+      "regionXYInclusive": [
+        0,
+        0,
+        240,
+        135
+      ],
+      "finding": "Selected0.4 ON opens more blue above the left hills than0.65 ON while keeping substantial illuminated cloud volume."
+    },
+    {
+      "pose": "sunset",
+      "regionXYInclusive": [
+        415,
+        175,
+        639,
+        205
+      ],
+      "finding": "The low bank is less solid; the sun and water reflection remain compositionally consistent."
+    }
+  ],
+  "frames": [
+    {
+      "label": "opening-baseline",
+      "png": "artifacts/refinement-2026-09-30/post-film-review-01/opening-baseline.png",
+      "pngSha256": "a99c969227856ac9d0886639bfbd29303e26364fc23bea8a6caa9ce55ee406c6",
+      "timeSeconds": 0,
+      "camera": [
+        -126,
+        451.5217757946498,
+        350
+      ],
+      "settings": {
+        "cloudCoverage": 0.9,
+        "cloudMorphology": false
+      }
+    },
+    {
+      "label": "opening-clearer-clouds",
+      "png": "artifacts/refinement-2026-09-30/post-film-review-01/opening-clearer-clouds.png",
+      "pngSha256": "997f0fc6b42ca121bf6dc6721ebf96e5ad1a957483f568007387c34e301ddce2",
+      "timeSeconds": 0,
+      "camera": [
+        -126,
+        451.5217757946498,
+        350
+      ],
+      "settings": {
+        "cloudCoverage": 0.65,
+        "cloudMorphology": false
+      }
+    },
+    {
+      "label": "opening-cloud-coverage-04",
+      "png": "artifacts/refinement-2026-09-30/post-film-review-01/opening-cloud-coverage-04.png",
+      "pngSha256": "d33a3e6080f03488030826542ea1e866db6ae7c516dfb519aef4f4ab6c3e1094",
+      "timeSeconds": 0,
+      "camera": [
+        -126,
+        451.5217757946498,
+        350
+      ],
+      "settings": {
+        "cloudCoverage": 0.4,
+        "cloudMorphology": false
+      }
+    },
+    {
+      "label": "opening-cloud-morphology-09",
+      "png": "artifacts/refinement-2026-09-30/post-film-review-01/opening-cloud-morphology-09.png",
+      "pngSha256": "e4e065334e1c255f5e854afb8ff2235fb54d7f255fb97b804847f062a49879a2",
+      "timeSeconds": 0,
+      "camera": [
+        -126,
+        451.5217757946498,
+        350
+      ],
+      "settings": {
+        "cloudCoverage": 0.9,
+        "cloudMorphology": true
+      }
+    },
+    {
+      "label": "opening-cloud-morphology-065",
+      "png": "artifacts/refinement-2026-09-30/post-film-review-01/opening-cloud-morphology-065.png",
+      "pngSha256": "1d7e2b9feb5e03a11aa2db6d06648ee3d3dd19b90713f2e361dd885d5d402bda",
+      "timeSeconds": 0,
+      "camera": [
+        -126,
+        451.5217757946498,
+        350
+      ],
+      "settings": {
+        "cloudCoverage": 0.65,
+        "cloudMorphology": true
+      }
+    },
+    {
+      "label": "opening-cloud-morphology-04",
+      "png": "artifacts/refinement-2026-09-30/post-film-review-01/opening-cloud-morphology-04.png",
+      "pngSha256": "7f686b0a895f9734857dc55f1eec754f735676d482c820a52313df0874c094be",
+      "timeSeconds": 0,
+      "camera": [
+        -126,
+        451.5217757946498,
+        350
+      ],
+      "settings": {
+        "cloudCoverage": 0.4,
+        "cloudMorphology": true
+      }
+    },
+    {
+      "label": "shore-old-sand",
+      "png": "artifacts/refinement-2026-09-30/post-film-review-01/shore-old-sand.png",
+      "pngSha256": "fed2e1c15abbc8c0ea259c9a1433615a306ac9750169c697a4becc475a489bb9",
+      "timeSeconds": 10.5,
+      "camera": [
+        -36.98060456829655,
+        4.922138347995213,
+        84.31258981306148
+      ],
+      "settings": {
+        "cloudCoverage": 0.9,
+        "cloudMorphology": false
+      }
+    },
+    {
+      "label": "shore-clearer-clouds",
+      "png": "artifacts/refinement-2026-09-30/post-film-review-01/shore-clearer-clouds.png",
+      "pngSha256": "9052d1223f5fe4eef71bb25555f56d25082304d9c17362c00f023089496964e7",
+      "timeSeconds": 10.5,
+      "camera": [
+        -36.98060456829655,
+        4.922138347995213,
+        84.31258981306148
+      ],
+      "settings": {
+        "cloudCoverage": 0.65,
+        "cloudMorphology": false
+      }
+    },
+    {
+      "label": "shore-cloud-coverage-04",
+      "png": "artifacts/refinement-2026-09-30/post-film-review-01/shore-cloud-coverage-04.png",
+      "pngSha256": "c52a7e4e4721d1533689869a865d72386b7ebaa3ef0ddfbf86c6affd1aab3234",
+      "timeSeconds": 10.5,
+      "camera": [
+        -36.98060456829655,
+        4.922138347995213,
+        84.31258981306148
+      ],
+      "settings": {
+        "cloudCoverage": 0.4,
+        "cloudMorphology": false
+      }
+    },
+    {
+      "label": "shore-cloud-morphology-09",
+      "png": "artifacts/refinement-2026-09-30/post-film-review-01/shore-cloud-morphology-09.png",
+      "pngSha256": "48f51865e93205438b795cb1bf090e7abc767d80896eb201764544f6d530d2d2",
+      "timeSeconds": 10.5,
+      "camera": [
+        -36.98060456829655,
+        4.922138347995213,
+        84.31258981306148
+      ],
+      "settings": {
+        "cloudCoverage": 0.9,
+        "cloudMorphology": true
+      }
+    },
+    {
+      "label": "shore-cloud-morphology-065",
+      "png": "artifacts/refinement-2026-09-30/post-film-review-01/shore-cloud-morphology-065.png",
+      "pngSha256": "0f4929e4b919343b30c5aed6685014473b3651f141a1cb46b03c7d5237692c33",
+      "timeSeconds": 10.5,
+      "camera": [
+        -36.98060456829655,
+        4.922138347995213,
+        84.31258981306148
+      ],
+      "settings": {
+        "cloudCoverage": 0.65,
+        "cloudMorphology": true
+      }
+    },
+    {
+      "label": "shore-cloud-morphology-04",
+      "png": "artifacts/refinement-2026-09-30/post-film-review-01/shore-cloud-morphology-04.png",
+      "pngSha256": "bf3bdb517972b1f2368195307cf6888bae353911ff4947ba5b10ee3d91ca977d",
+      "timeSeconds": 10.5,
+      "camera": [
+        -36.98060456829655,
+        4.922138347995213,
+        84.31258981306148
+      ],
+      "settings": {
+        "cloudCoverage": 0.4,
+        "cloudMorphology": true
+      }
+    },
+    {
+      "label": "sunset-old-sand",
+      "png": "artifacts/refinement-2026-09-30/post-film-review-01/sunset-old-sand.png",
+      "pngSha256": "82830c7f874585811326376d9ad2a117d3f37fa26c2074298067313e76da6bb5",
+      "timeSeconds": 19.5,
+      "camera": [
+        85.95200008007154,
+        5.7945112973533766,
+        -41.677354028279616
+      ],
+      "settings": {
+        "cloudCoverage": 0.9,
+        "cloudMorphology": false
+      }
+    },
+    {
+      "label": "sunset-clearer-clouds",
+      "png": "artifacts/refinement-2026-09-30/post-film-review-01/sunset-clearer-clouds.png",
+      "pngSha256": "fd9ee003b17649266d653da801e55367b99c16e8978cd0403b280f54987f4d03",
+      "timeSeconds": 19.5,
+      "camera": [
+        85.95200008007154,
+        5.7945112973533766,
+        -41.677354028279616
+      ],
+      "settings": {
+        "cloudCoverage": 0.65,
+        "cloudMorphology": false
+      }
+    },
+    {
+      "label": "sunset-cloud-coverage-04",
+      "png": "artifacts/refinement-2026-09-30/post-film-review-01/sunset-cloud-coverage-04.png",
+      "pngSha256": "e01733342e1ccb2f52e2bc8b5191497162ef21b80f88764879bb96b4a8283f54",
+      "timeSeconds": 19.5,
+      "camera": [
+        85.95200008007154,
+        5.7945112973533766,
+        -41.677354028279616
+      ],
+      "settings": {
+        "cloudCoverage": 0.4,
+        "cloudMorphology": false
+      }
+    },
+    {
+      "label": "sunset-cloud-morphology-09",
+      "png": "artifacts/refinement-2026-09-30/post-film-review-01/sunset-cloud-morphology-09.png",
+      "pngSha256": "72561b2e12e88c75f512eaa3013f7ad397432266de59244093561057a704f535",
+      "timeSeconds": 19.5,
+      "camera": [
+        85.95200008007154,
+        5.7945112973533766,
+        -41.677354028279616
+      ],
+      "settings": {
+        "cloudCoverage": 0.9,
+        "cloudMorphology": true
+      }
+    },
+    {
+      "label": "sunset-cloud-morphology-065",
+      "png": "artifacts/refinement-2026-09-30/post-film-review-01/sunset-cloud-morphology-065.png",
+      "pngSha256": "35eaec11fa7b883b7e5169e954b61579526b4be062c9ca8ad27d9f69d6a2f248",
+      "timeSeconds": 19.5,
+      "camera": [
+        85.95200008007154,
+        5.7945112973533766,
+        -41.677354028279616
+      ],
+      "settings": {
+        "cloudCoverage": 0.65,
+        "cloudMorphology": true
+      }
+    },
+    {
+      "label": "sunset-cloud-morphology-04",
+      "png": "artifacts/refinement-2026-09-30/post-film-review-01/sunset-cloud-morphology-04.png",
+      "pngSha256": "967d215a9d0ae03825a889104265576da8f3fe1c3ddfe08e67d761c0dc112201",
+      "timeSeconds": 19.5,
+      "camera": [
+        85.95200008007154,
+        5.7945112973533766,
+        -41.677354028279616
+      ],
+      "settings": {
+        "cloudCoverage": 0.4,
+        "cloudMorphology": true
+      }
+    }
+  ],
+  "isolatedMorphologyPairs": [
+    {
+      "off": "opening-baseline",
+      "on": "opening-cloud-morphology-09",
+      "coverage": 0.9,
+      "timeSeconds": 0,
+      "onlyChangedSetting": "lighting.cloudMorphology"
+    },
+    {
+      "off": "opening-clearer-clouds",
+      "on": "opening-cloud-morphology-065",
+      "coverage": 0.65,
+      "timeSeconds": 0,
+      "onlyChangedSetting": "lighting.cloudMorphology"
+    },
+    {
+      "off": "opening-cloud-coverage-04",
+      "on": "opening-cloud-morphology-04",
+      "coverage": 0.4,
+      "timeSeconds": 0,
+      "onlyChangedSetting": "lighting.cloudMorphology"
+    },
+    {
+      "off": "shore-old-sand",
+      "on": "shore-cloud-morphology-09",
+      "coverage": 0.9,
+      "timeSeconds": 10.5,
+      "onlyChangedSetting": "lighting.cloudMorphology"
+    },
+    {
+      "off": "shore-clearer-clouds",
+      "on": "shore-cloud-morphology-065",
+      "coverage": 0.65,
+      "timeSeconds": 10.5,
+      "onlyChangedSetting": "lighting.cloudMorphology"
+    },
+    {
+      "off": "shore-cloud-coverage-04",
+      "on": "shore-cloud-morphology-04",
+      "coverage": 0.4,
+      "timeSeconds": 10.5,
+      "onlyChangedSetting": "lighting.cloudMorphology"
+    },
+    {
+      "off": "sunset-old-sand",
+      "on": "sunset-cloud-morphology-09",
+      "coverage": 0.9,
+      "timeSeconds": 19.5,
+      "onlyChangedSetting": "lighting.cloudMorphology"
+    },
+    {
+      "off": "sunset-clearer-clouds",
+      "on": "sunset-cloud-morphology-065",
+      "coverage": 0.65,
+      "timeSeconds": 19.5,
+      "onlyChangedSetting": "lighting.cloudMorphology"
+    },
+    {
+      "off": "sunset-cloud-coverage-04",
+      "on": "sunset-cloud-morphology-04",
+      "coverage": 0.4,
+      "timeSeconds": 19.5,
+      "onlyChangedSetting": "lighting.cloudMorphology"
+    }
+  ],
+  "validation": {
+    "pngHashesMatchManifest": true,
+    "allSourceIdentitiesMatch": true,
+    "sameCameraWithinEachPose": true,
+    "allNonCloudSettingsExactlyBaseline": true,
+    "exposureAndPaletteUnchanged": true,
+    "manifestErrorsAtReview": []
+  },
+  "limits": [
+    "Morphology ON still has soft, somewhat swept/stylized lobes, especially in the sunset upper-right.",
+    "This is a bounded shape/composition improvement, not photorealism or8/10 acceptance.",
+    "The selected cloud profile remains subject to final combined settings and other views; no production default is edited by this review.",
+    "Three static poses do not establish temporal behavior or all-route consistency.",
+    "No mean-luminance metric is used as a quality proxy; PNG hashes establish provenance only."
+  ]
+}

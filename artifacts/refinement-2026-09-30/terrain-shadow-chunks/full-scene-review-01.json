@@ -1,0 +1,125 @@
+{
+  "sourceIdentity": "5b3479529a796233889fd2de92d044f0aba207d73933c932ccb34c85b495e248",
+  "width": 640,
+  "height": 360,
+  "captureSucceeded": true,
+  "rows": [
+    {
+      "view": "terrain-shadow-off",
+      "sha256": "fed2e1c15abbc8c0ea259c9a1433615a306ac9750169c697a4becc475a489bb9",
+      "differentPixelsFromOff": 0,
+      "maxChannelDelta": 0,
+      "phasesMs": {
+        "cameraAndGroundCover": 8.600000001490116,
+        "atmosphere": 2101.60000000149,
+        "forestSelection": 45.5,
+        "refractionAndSunShadow": 12097.10000000149,
+        "coastalReflection": 7.600000001490116,
+        "mainColor": 22587.10000000149
+      },
+      "shadowStudy": {
+        "mapSize": 2048,
+        "normalBias": 0.25,
+        "bias": -4e-05,
+        "remoteFit": false,
+        "remoteCasters": false,
+        "remoteBatches": 83,
+        "remoteInstances": 29109,
+        "remoteCasterBoundsMaxNdc": null,
+        "terrainChunks": false,
+        "terrainShadowSourceTriangles": 1629600,
+        "terrainShadowChunks": 0,
+        "terrainShadowSubmittedTriangles": null,
+        "terrainShadowSubmittedChunks": null
+      }
+    },
+    {
+      "view": "terrain-shadow-on",
+      "sha256": "fed2e1c15abbc8c0ea259c9a1433615a306ac9750169c697a4becc475a489bb9",
+      "differentPixelsFromOff": 0,
+      "maxChannelDelta": 0,
+      "phasesMs": {
+        "cameraAndGroundCover": 5.899999998509884,
+        "atmosphere": 0.7999999970197678,
+        "forestSelection": 9.200000002980232,
+        "refractionAndSunShadow": 12281.29999999702,
+        "coastalReflection": 5.899999998509884,
+        "mainColor": 22028
+      },
+      "shadowStudy": {
+        "mapSize": 2048,
+        "normalBias": 0.25,
+        "bias": -4e-05,
+        "remoteFit": false,
+        "remoteCasters": false,
+        "remoteBatches": 83,
+        "remoteInstances": 29109,
+        "remoteCasterBoundsMaxNdc": null,
+        "terrainChunks": true,
+        "terrainShadowSourceTriangles": 1629600,
+        "terrainShadowChunks": 932,
+        "terrainShadowSubmittedTriangles": 214458,
+        "terrainShadowSubmittedChunks": 10
+      }
+    },
+    {
+      "view": "terrain-shadow-on-repeat",
+      "sha256": "fed2e1c15abbc8c0ea259c9a1433615a306ac9750169c697a4becc475a489bb9",
+      "differentPixelsFromOff": 0,
+      "maxChannelDelta": 0,
+      "phasesMs": {
+        "cameraAndGroundCover": 7.200000002980232,
+        "atmosphere": 0.29999999701976776,
+        "forestSelection": 10.300000004470348,
+        "refractionAndSunShadow": 12675.5,
+        "coastalReflection": 11.299999997019768,
+        "mainColor": 23388.29999999702
+      },
+      "shadowStudy": {
+        "mapSize": 2048,
+        "normalBias": 0.25,
+        "bias": -4e-05,
+        "remoteFit": false,
+        "remoteCasters": false,
+        "remoteBatches": 83,
+        "remoteInstances": 29109,
+        "remoteCasterBoundsMaxNdc": null,
+        "terrainChunks": true,
+        "terrainShadowSourceTriangles": 1629600,
+        "terrainShadowChunks": 932,
+        "terrainShadowSubmittedTriangles": 214458,
+        "terrainShadowSubmittedChunks": 10
+      }
+    },
+    {
+      "view": "terrain-shadow-off-restored",
+      "sha256": "fed2e1c15abbc8c0ea259c9a1433615a306ac9750169c697a4becc475a489bb9",
+      "differentPixelsFromOff": 0,
+      "maxChannelDelta": 0,
+      "phasesMs": {
+        "cameraAndGroundCover": 13.699999995529652,
+        "atmosphere": 2.5,
+        "forestSelection": 25.899999998509884,
+        "refractionAndSunShadow": 14395.40000000596,
+        "coastalReflection": 8.399999998509884,
+        "mainColor": 21380.70000000298
+      },
+      "shadowStudy": {
+        "mapSize": 2048,
+        "normalBias": 0.25,
+        "bias": -4e-05,
+        "remoteFit": false,
+        "remoteCasters": false,
+        "remoteBatches": 83,
+        "remoteInstances": 29109,
+        "remoteCasterBoundsMaxNdc": null,
+        "terrainChunks": false,
+        "terrainShadowSourceTriangles": 1629600,
+        "terrainShadowChunks": 932,
+        "terrainShadowSubmittedTriangles": null,
+        "terrainShadowSubmittedChunks": null
+      }
+    }
+  ],
+  "decision": "Leave terrainChunks disabled. All four images match exactly. Refraction/shadow timings show no decisive gain in this bounded sample; atmosphere cache differs on the first frame. This is not a benchmark or whole-flight proof."
+}
