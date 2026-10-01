@@ -1,0 +1,21 @@
+{
+  "builtAt": "2026-10-01T09:58:20.273Z",
+  "sourceIdentity": "2721cc2c50655dcfcf593925edd9322fc73ed56d75d540625161b8c13c53f5ce",
+  "entry": "/assets/index-DnKy9fii.js",
+  "bundleSHA256": "229a4b05b8b6e22c5c63e05d1029135eb90adf45db68eb93de34cda41603d1c1",
+  "profile": "profiles/last-light-bay.json",
+  "profileSHA256": "c52fde34e833e3e7a50865a3960e5a5a970373f46418647a76c8583c6877d8d2",
+  "baselineCommit": "4f773c7",
+  "change": "Primary visible/reflected cloud march nominal step30\u219215 metres, unchanged12\u2013512 sample caps and directional cloud-shadow march",
+  "viewport": [
+    1280,
+    720
+  ],
+  "times": [
+    10.5,
+    19.5
+  ],
+  "acceptanceAtBuild": "Matched sky crop supports15m; full-scene verification pending",
+  "subsequentReview": "artifacts/refinement-2026-09-30/final-environment-review/cloud-15m-art-review.json",
+  "subsequentReviewDecision": "Accepted targeted cloud-contour correction in two actual1280x720 stills; no full-flight or8/10 acceptance."
+}

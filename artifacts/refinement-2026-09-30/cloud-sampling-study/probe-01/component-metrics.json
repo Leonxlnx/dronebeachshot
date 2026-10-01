@@ -1,0 +1,719 @@
+{
+  "method": {
+    "raw": "Little-endian IEEE 754 half RGBA, reshaped 128\u00d7256, bottom row first; flipped to top origin before analysis. RGB is linear radiance; A is cloud transmittance.",
+    "luminanceWeights": [
+      0.2126,
+      0.7152,
+      0.0722
+    ],
+    "highpass": "center row - 0.5*(previous row + next row)",
+    "frequencyPower": "Remove each column mean, apply a vertical Hanning window, take rFFT along rows, sum squared magnitude for cycles/pixel >= 0.2, and divide by column count. Compare only the same ROI.",
+    "limitation": "High-frequency power includes genuine edges; this is comparative component evidence, not a quality score."
+  },
+  "baselineFidelity": {
+    "fixedTop84Rows": {
+      "pixels": 21504,
+      "changedPixels": 0,
+      "maximumChannelDelta": 0.0,
+      "exactRGBMatch": true
+    },
+    "top96Rows": {
+      "changedPixels": 104,
+      "reason": "Tree tips begin at local row84; the top96 assumption was too broad."
+    },
+    "wholeCrop": {
+      "changedPixels": 1742,
+      "mismatchBoundsXYXY": [
+        143,
+        84,
+        255,
+        127
+      ]
+    }
+  },
+  "constantLightTransmittanceBitExact": true,
+  "regions": {
+    "unoccludedTop84": {
+      "boxLocalXYXY": [
+        0,
+        0,
+        256,
+        84
+      ],
+      "variants": {
+        "step-30": {
+          "linearLuminance": {
+            "mean": 0.3323933159743036,
+            "verticalHighpassMAE": 0.009418307825414146,
+            "verticalHighpassRMS": 0.015486950222815876,
+            "verticalHighpassAbs95": 0.03325085693359379,
+            "verticalFrequencyOverPoint2Power": 0.1472464356637206
+          },
+          "transmittance": {
+            "mean": 0.5251802253936019,
+            "verticalHighpassMAE": 0.0140308843153279,
+            "verticalHighpassRMS": 0.025584821719887744,
+            "verticalHighpassAbs95": 0.0521240234375,
+            "verticalFrequencyOverPoint2Power": 0.460298114695185
+          },
+          "displayLuminance": {
+            "mean": 169.3045597842262,
+            "verticalHighpassMAE": 1.760827010289634,
+            "verticalHighpassRMS": 3.0142953395580787,
+            "verticalHighpassAbs95": 6.2105999999999995,
+            "verticalFrequencyOverPoint2Power": 5581.427719565239
+          },
+          "meanRGBA": [
+            0.34029269502276466,
+            0.32947035630544025,
+            0.33808712164560956,
+            0.5251802253936019
+          ],
+          "transmittanceMinimum": 0.006195068359375
+        },
+        "step-15": {
+          "linearLuminance": {
+            "mean": 0.3323851746780531,
+            "verticalHighpassMAE": 0.003606710021088763,
+            "verticalHighpassRMS": 0.008435582750831852,
+            "verticalHighpassAbs95": 0.012718666992187483,
+            "verticalFrequencyOverPoint2Power": 0.04929835327963461
+          },
+          "transmittance": {
+            "mean": 0.5248930330077807,
+            "verticalHighpassMAE": 0.006027330530852806,
+            "verticalHighpassRMS": 0.01629866024949642,
+            "verticalHighpassAbs95": 0.023681640625,
+            "verticalFrequencyOverPoint2Power": 0.2082604628626301
+          },
+          "displayLuminance": {
+            "mean": 169.3280533389137,
+            "verticalHighpassMAE": 0.7242384193978662,
+            "verticalHighpassRMS": 1.6693887185605116,
+            "verticalHighpassAbs95": 2.427800000000019,
+            "verticalFrequencyOverPoint2Power": 2099.857582825512
+          },
+          "meanRGBA": [
+            0.34029934235981535,
+            0.32946023486909415,
+            0.33805504867008757,
+            0.5248930330077807
+          ],
+          "transmittanceMinimum": 0.007045745849609375
+        },
+        "step-7p5": {
+          "linearLuminance": {
+            "mean": 0.3323873339857374,
+            "verticalHighpassMAE": 0.002789875996403578,
+            "verticalHighpassRMS": 0.007857140310201391,
+            "verticalHighpassAbs95": 0.010158659057617198,
+            "verticalFrequencyOverPoint2Power": 0.04184694071080021
+          },
+          "transmittance": {
+            "mean": 0.5248402605454127,
+            "verticalHighpassMAE": 0.004816974626808632,
+            "verticalHighpassRMS": 0.01539738256106331,
+            "verticalHighpassAbs95": 0.019287109375,
+            "verticalFrequencyOverPoint2Power": 0.17699241812031974
+          },
+          "displayLuminance": {
+            "mean": 169.33350277157737,
+            "verticalHighpassMAE": 0.5868743759527446,
+            "verticalHighpassRMS": 1.5500163407535392,
+            "verticalHighpassAbs95": 1.9619000000000142,
+            "verticalFrequencyOverPoint2Power": 1797.8092802159345
+          },
+          "meanRGBA": [
+            0.340307423046657,
+            0.32946126801627024,
+            0.33805092743464876,
+            0.5248402605454127
+          ],
+          "transmittanceMinimum": 0.00750732421875
+        },
+        "constant-light": {
+          "linearLuminance": {
+            "mean": 0.46239933500062846,
+            "verticalHighpassMAE": 0.007376847510803036,
+            "verticalHighpassRMS": 0.013497610800186677,
+            "verticalHighpassAbs95": 0.02707150268554679,
+            "verticalFrequencyOverPoint2Power": 0.12854933611934447
+          },
+          "transmittance": {
+            "mean": 0.5251802253936019,
+            "verticalHighpassMAE": 0.0140308843153279,
+            "verticalHighpassRMS": 0.025584821719887744,
+            "verticalHighpassAbs95": 0.0521240234375,
+            "verticalFrequencyOverPoint2Power": 0.460298114695185
+          },
+          "displayLuminance": {
+            "mean": 186.1124240048363,
+            "verticalHighpassMAE": 1.1292347370426832,
+            "verticalHighpassRMS": 2.5395801493086934,
+            "verticalHighpassAbs95": 4.600870000000018,
+            "verticalFrequencyOverPoint2Power": 4248.962578652522
+          },
+          "meanRGBA": [
+            0.5082311857314337,
+            0.45339425404866535,
+            0.4166456290653774,
+            0.5251802253936019
+          ],
+          "transmittanceMinimum": 0.006195068359375
+        },
+        "full-cell-footprint": {
+          "linearLuminance": {
+            "mean": 0.3324400599525088,
+            "verticalHighpassMAE": 0.009423006403155442,
+            "verticalHighpassRMS": 0.015492919131912497,
+            "verticalHighpassAbs95": 0.03329080566406251,
+            "verticalFrequencyOverPoint2Power": 0.14739728200003638
+          },
+          "transmittance": {
+            "mean": 0.5249678072120462,
+            "verticalHighpassMAE": 0.014034090972528225,
+            "verticalHighpassRMS": 0.025584479142835168,
+            "verticalHighpassAbs95": 0.0517578125,
+            "verticalFrequencyOverPoint2Power": 0.46011824408847846
+          },
+          "displayLuminance": {
+            "mean": 169.31742547433035,
+            "verticalHighpassMAE": 1.7609496951219512,
+            "verticalHighpassRMS": 3.018742327828993,
+            "verticalHighpassAbs95": 6.238999999999995,
+            "verticalFrequencyOverPoint2Power": 5592.908389527383
+          },
+          "meanRGBA": [
+            0.3403673569361369,
+            0.32951280048915316,
+            0.3380942514964512,
+            0.5249678072120462
+          ],
+          "transmittanceMinimum": 0.006195068359375
+        }
+      }
+    },
+    "lobeA": {
+      "boxLocalXYXY": [
+        10,
+        4,
+        70,
+        43
+      ],
+      "variants": {
+        "step-30": {
+          "linearLuminance": {
+            "mean": 0.4600294757966913,
+            "verticalHighpassMAE": 0.010764942890888935,
+            "verticalHighpassRMS": 0.013445697039021248,
+            "verticalHighpassAbs95": 0.02669877929687497,
+            "verticalFrequencyOverPoint2Power": 0.022238102178421735
+          },
+          "transmittance": {
+            "mean": 0.21374861562353933,
+            "verticalHighpassMAE": 0.013668211515959318,
+            "verticalHighpassRMS": 0.01817354466117776,
+            "verticalHighpassAbs95": 0.0382080078125,
+            "verticalFrequencyOverPoint2Power": 0.04297742304383594
+          },
+          "displayLuminance": {
+            "mean": 193.48887931623932,
+            "verticalHighpassMAE": 1.4619221171171166,
+            "verticalHighpassRMS": 1.9435052579015557,
+            "verticalHighpassAbs95": 4.214205000000028,
+            "verticalFrequencyOverPoint2Power": 426.2367718530358
+          },
+          "meanRGBA": [
+            0.5255698179587339,
+            0.44807040222689637,
+            0.38550388955662396,
+            0.21374861562353933
+          ],
+          "transmittanceMinimum": 0.0090484619140625
+        },
+        "step-15": {
+          "linearLuminance": {
+            "mean": 0.4598633319978632,
+            "verticalHighpassMAE": 0.0031123307511613176,
+            "verticalHighpassRMS": 0.0042825736676842625,
+            "verticalHighpassAbs95": 0.008355914306640594,
+            "verticalFrequencyOverPoint2Power": 0.0022774589561937015
+          },
+          "transmittance": {
+            "mean": 0.21332584935375767,
+            "verticalHighpassMAE": 0.003591905198655687,
+            "verticalHighpassRMS": 0.00523340207531986,
+            "verticalHighpassAbs95": 0.01025390625,
+            "verticalFrequencyOverPoint2Power": 0.005801593593390177
+          },
+          "displayLuminance": {
+            "mean": 193.47211897435895,
+            "verticalHighpassMAE": 0.4781117567567565,
+            "verticalHighpassRMS": 0.6500370815652821,
+            "verticalHighpassAbs95": 1.3593050000000082,
+            "verticalFrequencyOverPoint2Power": 56.201161949580595
+          },
+          "meanRGBA": [
+            0.5253817566439637,
+            0.44790884164663464,
+            0.3853568835136218,
+            0.21332584935375767
+          ],
+          "transmittanceMinimum": 0.0089874267578125
+        },
+        "step-7p5": {
+          "linearLuminance": {
+            "mean": 0.4598649487617688,
+            "verticalHighpassMAE": 0.0019498022625897384,
+            "verticalHighpassRMS": 0.003320515235727083,
+            "verticalHighpassAbs95": 0.0065396154785156485,
+            "verticalFrequencyOverPoint2Power": 0.0011122392552930212
+          },
+          "transmittance": {
+            "mean": 0.21324737744453626,
+            "verticalHighpassMAE": 0.002012696137299409,
+            "verticalHighpassRMS": 0.0037307073301545124,
+            "verticalHighpassAbs95": 0.007080078125,
+            "verticalFrequencyOverPoint2Power": 0.0030492142529372685
+          },
+          "displayLuminance": {
+            "mean": 193.48255897435897,
+            "verticalHighpassMAE": 0.3406000450450461,
+            "verticalHighpassRMS": 0.4938178814325411,
+            "verticalHighpassAbs95": 0.9638999999999953,
+            "verticalFrequencyOverPoint2Power": 31.237389565784603
+          },
+          "meanRGBA": [
+            0.5253878079927885,
+            0.4479095719818376,
+            0.3853542230068109,
+            0.21324737744453626
+          ],
+          "transmittanceMinimum": 0.01003265380859375
+        },
+        "constant-light": {
+          "linearLuminance": {
+            "mean": 0.6240416649555955,
+            "verticalHighpassMAE": 0.007183983726157797,
+            "verticalHighpassRMS": 0.009550841208073809,
+            "verticalHighpassAbs95": 0.01992050781249992,
+            "verticalFrequencyOverPoint2Power": 0.01196198182121583
+          },
+          "transmittance": {
+            "mean": 0.21374861562353933,
+            "verticalHighpassMAE": 0.013668211515959318,
+            "verticalHighpassRMS": 0.01817354466117776,
+            "verticalHighpassAbs95": 0.0382080078125,
+            "verticalFrequencyOverPoint2Power": 0.04297742304383594
+          },
+          "displayLuminance": {
+            "mean": 209.99668316239317,
+            "verticalHighpassMAE": 0.6295369369369368,
+            "verticalHighpassRMS": 0.9027512321127462,
+            "verticalHighpassAbs95": 1.8531300000000066,
+            "verticalFrequencyOverPoint2Power": 120.68333906652688
+          },
+          "meanRGBA": [
+            0.7374312441573184,
+            0.6044115376268696,
+            0.4846073509281517,
+            0.21374861562353933
+          ],
+          "transmittanceMinimum": 0.0090484619140625
+        },
+        "full-cell-footprint": {
+          "linearLuminance": {
+            "mean": 0.4600009219855936,
+            "verticalHighpassMAE": 0.010764880541552295,
+            "verticalHighpassRMS": 0.01344899011230887,
+            "verticalHighpassAbs95": 0.026560891113281287,
+            "verticalFrequencyOverPoint2Power": 0.022213734176207908
+          },
+          "transmittance": {
+            "mean": 0.21382486066247663,
+            "verticalHighpassMAE": 0.013667627283044763,
+            "verticalHighpassRMS": 0.018174540083597958,
+            "verticalHighpassAbs95": 0.03857727050781248,
+            "verticalFrequencyOverPoint2Power": 0.04291127682530636
+          },
+          "displayLuminance": {
+            "mean": 193.4887228205128,
+            "verticalHighpassMAE": 1.4566271171171168,
+            "verticalHighpassRMS": 1.9390534553517889,
+            "verticalHighpassAbs95": 4.212600000000011,
+            "verticalFrequencyOverPoint2Power": 423.8292124899674
+          },
+          "meanRGBA": [
+            0.5255258935129541,
+            0.44804478832799144,
+            0.38549147385817306,
+            0.21382486066247663
+          ],
+          "transmittanceMinimum": 0.00904083251953125
+        }
+      }
+    },
+    "lobeB": {
+      "boxLocalXYXY": [
+        135,
+        34,
+        200,
+        62
+      ],
+      "variants": {
+        "step-30": {
+          "linearLuminance": {
+            "mean": 0.3993749494145991,
+            "verticalHighpassMAE": 0.009818377439961631,
+            "verticalHighpassRMS": 0.01334593076767992,
+            "verticalHighpassAbs95": 0.027194133300781242,
+            "verticalFrequencyOverPoint2Power": 0.010952102299282443
+          },
+          "transmittance": {
+            "mean": 0.4314244700002146,
+            "verticalHighpassMAE": 0.01527810181386372,
+            "verticalHighpassRMS": 0.021144108307230274,
+            "verticalHighpassAbs95": 0.03594055175781248,
+            "verticalFrequencyOverPoint2Power": 0.02150993498291314
+          },
+          "displayLuminance": {
+            "mean": 184.79284813186814,
+            "verticalHighpassMAE": 1.7609428402366876,
+            "verticalHighpassRMS": 2.811374921092302,
+            "verticalHighpassAbs95": 5.797485000000012,
+            "verticalFrequencyOverPoint2Power": 399.61417751659184
+          },
+          "meanRGBA": [
+            0.43377175802712914,
+            0.39228850983001373,
+            0.3682871388865041,
+            0.4314244700002146
+          ],
+          "transmittanceMinimum": 0.059967041015625
+        },
+        "step-15": {
+          "linearLuminance": {
+            "mean": 0.3992681899253091,
+            "verticalHighpassMAE": 0.004199604268271542,
+            "verticalHighpassRMS": 0.006825556379988738,
+            "verticalHighpassAbs95": 0.012460162353515616,
+            "verticalFrequencyOverPoint2Power": 0.0007942562289937439
+          },
+          "transmittance": {
+            "mean": 0.430810546875,
+            "verticalHighpassMAE": 0.006308416784162352,
+            "verticalHighpassRMS": 0.011707334935731768,
+            "verticalHighpassAbs95": 0.022729492187499978,
+            "verticalFrequencyOverPoint2Power": 0.0018744747050743974
+          },
+          "displayLuminance": {
+            "mean": 184.8143664835165,
+            "verticalHighpassMAE": 0.8062752662721898,
+            "verticalHighpassRMS": 1.41933899283013,
+            "verticalHighpassAbs95": 2.6943550000000087,
+            "verticalFrequencyOverPoint2Power": 46.933158486673975
+          },
+          "meanRGBA": [
+            0.4336686019059066,
+            0.3921818659855769,
+            0.36816862336881867,
+            0.430810546875
+          ],
+          "transmittanceMinimum": 0.0648193359375
+        },
+        "step-7p5": {
+          "linearLuminance": {
+            "mean": 0.3991558672223772,
+            "verticalHighpassMAE": 0.0031304868438540123,
+            "verticalHighpassRMS": 0.0062791750033363335,
+            "verticalHighpassAbs95": 0.01171566162109375,
+            "verticalFrequencyOverPoint2Power": 0.00035912744472931435
+          },
+          "transmittance": {
+            "mean": 0.43089539244934755,
+            "verticalHighpassMAE": 0.00464080268814719,
+            "verticalHighpassRMS": 0.01103907401389499,
+            "verticalHighpassAbs95": 0.020263671875,
+            "verticalFrequencyOverPoint2Power": 0.0009057122470709857
+          },
+          "displayLuminance": {
+            "mean": 184.79508230769233,
+            "verticalHighpassMAE": 0.6802200591715988,
+            "verticalHighpassRMS": 1.3142058122233586,
+            "verticalHighpassAbs95": 2.6031299999999944,
+            "verticalFrequencyOverPoint2Power": 26.21210527988103
+          },
+          "meanRGBA": [
+            0.4335211114569025,
+            0.39207481971153846,
+            0.36810758821256867,
+            0.43089539244934755
+          ],
+          "transmittanceMinimum": 0.0662841796875
+        },
+        "constant-light": {
+          "linearLuminance": {
+            "mean": 0.5099876259738796,
+            "verticalHighpassMAE": 0.008038341180022649,
+            "verticalHighpassRMS": 0.011198065639835473,
+            "verticalHighpassAbs95": 0.019292623901367146,
+            "verticalFrequencyOverPoint2Power": 0.005940570044724649
+          },
+          "transmittance": {
+            "mean": 0.4314244700002146,
+            "verticalHighpassMAE": 0.01527810181386372,
+            "verticalHighpassRMS": 0.021144108307230274,
+            "verticalHighpassAbs95": 0.03594055175781248,
+            "verticalFrequencyOverPoint2Power": 0.02150993498291314
+          },
+          "displayLuminance": {
+            "mean": 198.06630538461536,
+            "verticalHighpassMAE": 1.0804079289940833,
+            "verticalHighpassRMS": 2.0902125514635728,
+            "verticalHighpassAbs95": 3.036609999999987,
+            "verticalFrequencyOverPoint2Power": 153.54596422138533
+          },
+          "meanRGBA": [
+            0.5766618330400068,
+            0.49772513253348216,
+            0.4351288847870879,
+            0.4314244700002146
+          ],
+          "transmittanceMinimum": 0.059967041015625
+        },
+        "full-cell-footprint": {
+          "linearLuminance": {
+            "mean": 0.3993376966807606,
+            "verticalHighpassMAE": 0.009860480494753144,
+            "verticalHighpassRMS": 0.013373701680978855,
+            "verticalHighpassAbs95": 0.027015229492187535,
+            "verticalFrequencyOverPoint2Power": 0.011010290992368513
+          },
+          "transmittance": {
+            "mean": 0.43139742337740383,
+            "verticalHighpassMAE": 0.015332663270848743,
+            "verticalHighpassRMS": 0.02118236279454011,
+            "verticalHighpassAbs95": 0.03592834472656249,
+            "verticalFrequencyOverPoint2Power": 0.021609767610181557
+          },
+          "displayLuminance": {
+            "mean": 184.7791368131868,
+            "verticalHighpassMAE": 1.7591359171597647,
+            "verticalHighpassRMS": 2.817365831636387,
+            "verticalHighpassAbs95": 5.816000000000012,
+            "verticalFrequencyOverPoint2Power": 402.3601688067034
+          },
+          "meanRGBA": [
+            0.4337286980597527,
+            0.39225242530906596,
+            0.3682554140195742,
+            0.43139742337740383
+          ],
+          "transmittanceMinimum": 0.0599365234375
+        }
+      }
+    },
+    "upperInterior": {
+      "boxLocalXYXY": [
+        25,
+        9,
+        55,
+        34
+      ],
+      "variants": {
+        "step-30": {
+          "linearLuminance": {
+            "mean": 0.5308373723307291,
+            "verticalHighpassMAE": 0.010717558593750003,
+            "verticalHighpassRMS": 0.013228849831681901,
+            "verticalHighpassAbs95": 0.025025443115234355,
+            "verticalFrequencyOverPoint2Power": 0.009020884032722398
+          },
+          "transmittance": {
+            "mean": 0.17595444742838542,
+            "verticalHighpassMAE": 0.015372245899145154,
+            "verticalHighpassRMS": 0.01899262541631481,
+            "verticalHighpassAbs95": 0.03784484863281247,
+            "verticalFrequencyOverPoint2Power": 0.01972886911191968
+          },
+          "displayLuminance": {
+            "mean": 202.2348408,
+            "verticalHighpassMAE": 1.149621304347825,
+            "verticalHighpassRMS": 1.5342384491893726,
+            "verticalHighpassAbs95": 3.3916999999999886,
+            "verticalFrequencyOverPoint2Power": 111.86215499612675
+          },
+          "meanRGBA": [
+            0.6195068359375,
+            0.5151953125,
+            0.4246888020833333,
+            0.17595444742838542
+          ],
+          "transmittanceMinimum": 0.017974853515625
+        },
+        "step-15": {
+          "linearLuminance": {
+            "mean": 0.5308146395182292,
+            "verticalHighpassMAE": 0.0029830575605751847,
+            "verticalHighpassRMS": 0.004081519366076111,
+            "verticalHighpassAbs95": 0.008429393310546889,
+            "verticalFrequencyOverPoint2Power": 0.0008215126855130287
+          },
+          "transmittance": {
+            "mean": 0.1756036580403646,
+            "verticalHighpassMAE": 0.0036412999249886774,
+            "verticalHighpassRMS": 0.0048677710698257935,
+            "verticalHighpassAbs95": 0.009477233886718749,
+            "verticalFrequencyOverPoint2Power": 0.0020468174758923826
+          },
+          "displayLuminance": {
+            "mean": 202.22982106666663,
+            "verticalHighpassMAE": 0.41171869565217345,
+            "verticalHighpassRMS": 0.560552009235513,
+            "verticalHighpassAbs95": 1.0,
+            "verticalFrequencyOverPoint2Power": 15.001939286176752
+          },
+          "meanRGBA": [
+            0.619494140625,
+            0.5151725260416666,
+            0.4246370442708333,
+            0.1756036580403646
+          ],
+          "transmittanceMinimum": 0.018341064453125
+        },
+        "step-7p5": {
+          "linearLuminance": {
+            "mean": 0.5307943529947916,
+            "verticalHighpassMAE": 0.0018422803088202007,
+            "verticalHighpassRMS": 0.0030857907801051395,
+            "verticalHighpassAbs95": 0.006878426513671944,
+            "verticalFrequencyOverPoint2Power": 0.000345587664288456
+          },
+          "transmittance": {
+            "mean": 0.17549796549479166,
+            "verticalHighpassMAE": 0.001809073185575181,
+            "verticalHighpassRMS": 0.0030044877491708995,
+            "verticalHighpassAbs95": 0.005859375,
+            "verticalFrequencyOverPoint2Power": 0.0006727190149755376
+          },
+          "displayLuminance": {
+            "mean": 202.22509306666663,
+            "verticalHighpassMAE": 0.3226786956521741,
+            "verticalHighpassRMS": 0.45764315515887366,
+            "verticalHighpassAbs95": 0.9277999999999906,
+            "verticalFrequencyOverPoint2Power": 10.056591626501021
+          },
+          "meanRGBA": [
+            0.6194684244791666,
+            0.5151536458333333,
+            0.42461881510416666,
+            0.17549796549479166
+          ],
+          "transmittanceMinimum": 0.018524169921875
+        },
+        "constant-light": {
+          "linearLuminance": {
+            "mean": 0.6438592119791666,
+            "verticalHighpassMAE": 0.008125421054121382,
+            "verticalHighpassRMS": 0.010034637435880013,
+            "verticalHighpassAbs95": 0.019926186523437424,
+            "verticalFrequencyOverPoint2Power": 0.005511042285697973
+          },
+          "transmittance": {
+            "mean": 0.17595444742838542,
+            "verticalHighpassMAE": 0.015372245899145154,
+            "verticalHighpassRMS": 0.01899262541631481,
+            "verticalHighpassAbs95": 0.03784484863281247,
+            "verticalFrequencyOverPoint2Power": 0.01972886911191968
+          },
+          "displayLuminance": {
+            "mean": 212.68939946666666,
+            "verticalHighpassMAE": 0.6244531884057948,
+            "verticalHighpassRMS": 0.7942741231892881,
+            "verticalHighpassAbs95": 1.4999999999999716,
+            "verticalFrequencyOverPoint2Power": 35.93891976874991
+          },
+          "meanRGBA": [
+            0.7654934895833333,
+            0.62293359375,
+            0.49298046875,
+            0.17595444742838542
+          ],
+          "transmittanceMinimum": 0.017974853515625
+        },
+        "full-cell-footprint": {
+          "linearLuminance": {
+            "mean": 0.5308195587890625,
+            "verticalHighpassMAE": 0.010718450096240943,
+            "verticalHighpassRMS": 0.013231866316540683,
+            "verticalHighpassAbs95": 0.02512147827148433,
+            "verticalFrequencyOverPoint2Power": 0.009017352866209274
+          },
+          "transmittance": {
+            "mean": 0.17600626627604166,
+            "verticalHighpassMAE": 0.015378139329993207,
+            "verticalHighpassRMS": 0.01900624040586853,
+            "verticalHighpassAbs95": 0.03760070800781247,
+            "verticalFrequencyOverPoint2Power": 0.019743653668945257
+          },
+          "displayLuminance": {
+            "mean": 202.23341119999998,
+            "verticalHighpassMAE": 1.1428182608695638,
+            "verticalHighpassRMS": 1.523439130645726,
+            "verticalHighpassAbs95": 3.322839999999993,
+            "verticalFrequencyOverPoint2Power": 110.65492364492951
+          },
+          "meanRGBA": [
+            0.61946875,
+            0.5151829427083333,
+            0.4246767578125,
+            0.17600626627604166
+          ],
+          "transmittanceMinimum": 0.0179901123046875
+        }
+      }
+    }
+  },
+  "step15HighFrequencyReductionPercent": {
+    "lobeA": {
+      "linearLuminance": 89.75875307199736,
+      "transmittance": 86.50083419968504
+    },
+    "lobeB": {
+      "linearLuminance": 92.7479107911019,
+      "transmittance": 91.28553988394931
+    }
+  },
+  "comparisonToCappedFineVariantTop84": {
+    "step-30": {
+      "rawMeanAbsoluteRGBA": [
+        0.00777719985871088,
+        0.0054785580862136115,
+        0.003148453576224191,
+        0.008371061689796903
+      ],
+      "displayMeanAbsoluteRGB": 0.9988994295634921,
+      "displayRMSRGB": 1.863152883065317
+    },
+    "step-15": {
+      "rawMeanAbsoluteRGBA": [
+        0.0026545212382362003,
+        0.0018607548304966518,
+        0.0010532878694080171,
+        0.002957072641168322
+      ],
+      "displayMeanAbsoluteRGB": 0.3492838541666667,
+      "displayRMSRGB": 0.8023731696492699
+    },
+    "full-cell-footprint": {
+      "rawMeanAbsoluteRGBA": [
+        0.007831142062232607,
+        0.005514462788899739,
+        0.0031666982741582962,
+        0.00845277149762426
+      ],
+      "displayMeanAbsoluteRGB": 1.0084480406746033,
+      "displayRMSRGB": 1.875731504132518
+    }
+  }
+}

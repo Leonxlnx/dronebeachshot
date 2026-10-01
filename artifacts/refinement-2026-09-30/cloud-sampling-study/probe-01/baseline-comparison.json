@@ -1,0 +1,19 @@
+{
+  "reference": {
+    "file": "artifacts/refinement-2026-09-30/final-environment-review/capture/coast-refined-10_5.png",
+    "sha256": "6bd5ca6553f43a43574bc8634bfa6227a79b2e917a527f6d4ebdbff3fcaa9f34",
+    "width": 1280,
+    "height": 720
+  },
+  "dimensions": [
+    256,
+    128
+  ],
+  "changedPixels": 1742,
+  "pixelsAbove2": 1742,
+  "maximumChannelDelta": 165,
+  "meanAbsoluteRGBDelta": 4.42822265625,
+  "rootMeanSquareRGBDelta": 22.013170403736904,
+  "exactRGBMatch": false,
+  "method": "Pillow decoded RGB8, exact 1280x720 full-scene crop x220,y0,width256,height128; no scaling"
+}

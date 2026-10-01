@@ -1,0 +1,184 @@
+{
+  "kind": "actual-cloud-15m-final-candidate-static-art-review",
+  "decision": "ACCEPT the targeted cloud primary-sampling correction in the reviewed shoreline and sunset views",
+  "sourceIdentity": "2721cc2c50655dcfcf593925edd9322fc73ed56d75d540625161b8c13c53f5ce",
+  "previous30mSourceIdentity": "301d9c4541e7b48f82d7166345cd39f3ebc7b3fba4140549f0ab3d997a6b095f",
+  "captureManifest": "artifacts/refinement-2026-09-30/final-environment-review/cloud-15m/manifest.json",
+  "captureSucceeded": true,
+  "manifestErrors": [],
+  "dimensions": [
+    1280,
+    720
+  ],
+  "backend": "software",
+  "timesSeconds": [
+    10.5,
+    19.5
+  ],
+  "observations": [
+    {
+      "view": "coast10.5",
+      "regionXYInclusive": [
+        220,
+        0,
+        485,
+        150
+      ],
+      "finding": "The conspicuous fine repeated lines in the previous bright lobes are now largely absent. Light gradients are visibly smoother without loss of the chosen cloud composition."
+    },
+    {
+      "view": "coast10.5",
+      "finding": "Retained sand variation, corrected water reflection and young woodland remain coherent; no obvious new scene seam or hard reflection slit is visible."
+    },
+    {
+      "view": "sunset19.5",
+      "finding": "Composition, sun/reflection alignment and coastline remain stable, with no obvious new reflection artifact or seam. Cloud contours are less conspicuous while the broader soft/swept morphology remains."
+    }
+  ],
+  "frames": [
+    {
+      "label": "coast-refined-10_5",
+      "png": "artifacts/refinement-2026-09-30/final-environment-review/cloud-15m/coast-refined-10_5.png",
+      "pngSha256": "065870a2cd0420782ffcc35729d5e0b04a2048e896f3620dd20d77d5d44fc94f",
+      "timeSeconds": 10.5,
+      "camera": [
+        -36.98060456829655,
+        4.922138347995213,
+        84.31258981306148
+      ],
+      "coreTreeCount": 14016,
+      "linearMainOutput": {
+        "enabled": true,
+        "sampleScale": 1,
+        "requestedSampleScale": 1,
+        "supported": true,
+        "supportError": null,
+        "initialized": true,
+        "width": 1280,
+        "height": 720,
+        "samples": 4,
+        "framebufferValidated": true,
+        "format": "RGBA16F",
+        "colorSpace": "srgb-linear",
+        "resolveDrawsPerFrame": 1,
+        "disposed": false
+      },
+      "coastalReflection": {
+        "enabled": true,
+        "initialized": true,
+        "supported": true,
+        "supportError": null,
+        "width": 640,
+        "height": 360,
+        "scale": 0.5,
+        "samples": 4,
+        "format": "RGBA16F",
+        "resolvedDepth": true,
+        "alphaIsCoverage": false,
+        "distortion": 1,
+        "ready": true,
+        "renders": 1,
+        "failures": 0,
+        "skippedBelowSea": 0,
+        "lastDrawCalls": 456,
+        "lastTriangles": 7028223,
+        "disposed": false
+      },
+      "islandResponseEnabled": true
+    },
+    {
+      "label": "sunset-refined-19_5",
+      "png": "artifacts/refinement-2026-09-30/final-environment-review/cloud-15m/sunset-refined-19_5.png",
+      "pngSha256": "1d7a505b0a522ce18bbff836f3205bde1665adee98b443ec5a1d5a8e0a470140",
+      "timeSeconds": 19.5,
+      "camera": [
+        85.95200008007154,
+        5.7945112973533766,
+        -41.677354028279616
+      ],
+      "coreTreeCount": 14016,
+      "linearMainOutput": {
+        "enabled": true,
+        "sampleScale": 1,
+        "requestedSampleScale": 1,
+        "supported": true,
+        "supportError": null,
+        "initialized": true,
+        "width": 1280,
+        "height": 720,
+        "samples": 4,
+        "framebufferValidated": true,
+        "format": "RGBA16F",
+        "colorSpace": "srgb-linear",
+        "resolveDrawsPerFrame": 1,
+        "disposed": false
+      },
+      "coastalReflection": {
+        "enabled": true,
+        "initialized": true,
+        "supported": true,
+        "supportError": null,
+        "width": 640,
+        "height": 360,
+        "scale": 0.5,
+        "samples": 4,
+        "format": "RGBA16F",
+        "resolvedDepth": true,
+        "alphaIsCoverage": false,
+        "distortion": 1,
+        "ready": true,
+        "renders": 2,
+        "failures": 0,
+        "skippedBelowSea": 0,
+        "lastDrawCalls": 260,
+        "lastTriangles": 3625063,
+        "disposed": false
+      },
+      "islandResponseEnabled": true
+    }
+  ],
+  "comparisons": [
+    {
+      "previousPng": "artifacts/refinement-2026-09-30/final-environment-review/capture/coast-refined-10_5.png",
+      "previousPngSha256": "6bd5ca6553f43a43574bc8634bfa6227a79b2e917a527f6d4ebdbff3fcaa9f34",
+      "currentLabel": "coast-refined-10_5",
+      "sameCameraTimeDimensions": true,
+      "differentPixels": 59615,
+      "maxChannelDelta": 50,
+      "changedBoundsInclusive": [
+        0,
+        0,
+        1279,
+        719
+      ]
+    },
+    {
+      "previousPng": "artifacts/refinement-2026-09-30/final-environment-review/capture/sunset-refined-19_5.png",
+      "previousPngSha256": "afe3b1e9bd06486cdb8e2815d57d0ab36c61ec0a61a84d9fbd2c66ddb3bcceb8",
+      "currentLabel": "sunset-refined-19_5",
+      "sameCameraTimeDimensions": true,
+      "differentPixels": 109922,
+      "maxChannelDelta": 17,
+      "changedBoundsInclusive": [
+        0,
+        0,
+        1279,
+        719
+      ]
+    }
+  ],
+  "pixelMethod": "Pillow decodes PNG to uint8 RGBA. Pixel differences document changed output, not quality; PNG hashes are verified against each manifest for provenance.",
+  "supersedesFinding": {
+    "review": "artifacts/refinement-2026-09-30/final-environment-review/art-review.json",
+    "finding": "The earlier30m build did not visually remove conspicuous cloud lines; the15m pair now supports targeted visual acceptance."
+  },
+  "limits": [
+    "Largely removed is a visual statement at1280x720; it is not a claim of zero residual aliasing at every pixel, pose or resolution.",
+    "Clouds retain soft/stylized shapes, the cliff remains simplified, and the wet-band shape remains broad and smooth.",
+    "Main output is linear sampleScale1 at1280x720, not an internal2x resolve at that output size.",
+    "Two static views do not establish motion quality, full-route consistency or runtime performance.",
+    "No restored frame is present in this two-frame study; no restoration claim is made.",
+    "This targeted acceptance does not establish8/10 realism or overall finished-environment quality.",
+    "No GPU capture, production code or settings were changed by this reviewer."
+  ]
+}

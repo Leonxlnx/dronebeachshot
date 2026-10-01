@@ -2652,6 +2652,114 @@
           "sha256": "55466393a64857ea722a617f24743eabe132be3d877ef4db76a7c1af7c4f7a50"
         }
       ]
+    },
+    {
+      "start": "2026-10-01T08:59:06.258Z",
+      "category": "implementation",
+      "description": "Integrate reviewed scene appearance and coastal woodland while correcting bounded reflection artifacts",
+      "proofs": [
+        {
+          "at": "2026-10-01T09:15:02.450Z",
+          "files": [
+            {
+              "path": "src/app/canonical-look.ts",
+              "sha256": "534da4803ec35750493cd063fc16d40dd8dc841008bfe258f91618e4ec8a317e"
+            },
+            {
+              "path": "src/render/coastal-reflection-filter.ts",
+              "sha256": "2597747471b4763f1023d0f9664b627074f7682d4cf1bd3ce2357c8663107424"
+            },
+            {
+              "path": "src/world/coastal-young-woodland.ts",
+              "sha256": "deed2c3d903fae726a8d1967d8683a81671975fd19826b5617502d65756adc99"
+            },
+            {
+              "path": "artifacts/refinement-2026-09-30/browser-runtime-recovery.json",
+              "sha256": "05479838e841df5818cffb846c287850fb40cbbbe7894ed4dd042ca895fa08cc"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-01T09:21:49.588Z",
+          "files": [
+            {
+              "path": "artifacts/refinement-2026-09-30/coastal-reflection/footprint-full-scene-02/manifest.json",
+              "sha256": "f1508b4014d6fa3b53d8117a263d6879860ce7721007517638aff82acea891b7"
+            },
+            {
+              "path": "artifacts/refinement-2026-09-30/coastal-young-woodland/trial01-build-verification.json",
+              "sha256": "cd3217c4c87d34f04793e67a950968a2019294b6d0b302028f2c6b72a85c9f41"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-01T09:28:18.992Z",
+          "files": [
+            {
+              "path": "artifacts/refinement-2026-09-30/coastal-reflection/full-scene-art-review-02.json",
+              "sha256": "0f72a5331ea8affe2f7c1be47c1266b61f9d18b8a7f802a50e923145d1e30c96"
+            },
+            {
+              "path": "artifacts/refinement-2026-09-30/coastal-young-woodland/trial02-build-verification.json",
+              "sha256": "642ba45b5f5f63d09f48ce7fcdf3e3b1fa7f2faac192e374017098225be82db4"
+            },
+            {
+              "path": "profiles/last-light-bay.json",
+              "sha256": "c52fde34e833e3e7a50865a3960e5a5a970373f46418647a76c8583c6877d8d2"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-01T09:35:05.064Z",
+          "files": [
+            {
+              "path": "artifacts/refinement-2026-09-30/coastal-young-woodland/trial02-on/manifest.json",
+              "sha256": "f0d4e057972620a5d3a024bf96833c6c85d0b28e365f89b23b517a9be0d7d226"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-01T09:40:05.059Z",
+          "files": [
+            {
+              "path": "artifacts/refinement-2026-09-30/final-environment-review/build.json",
+              "sha256": "fa5f4e7ef3287804611c19995bb0a983f29cdb8156c4a01367d493c81598044f"
+            },
+            {
+              "path": "src/world/atmosphere.ts",
+              "sha256": "8062216960907d9e2de8bd808366860d3d8f7d22ec5374dcdcdbe45e30e8967b"
+            },
+            {
+              "path": "src/render/ground-materials.ts",
+              "sha256": "115a0fb929f1327e5e7048a4381e2a564429bdf09027ad98554006d257b2e6f2"
+            }
+          ]
+        }
+      ],
+      "end": "2026-10-01T10:08:02.623Z",
+      "seconds": 4136.365,
+      "evidence": [
+        {
+          "path": "artifacts/refinement-2026-09-30/final-environment-review/cloud-15m/manifest.json",
+          "sha256": "5b576f3353b5391dd372d4039d811ffe635cf1294ade83d6d6d86f929a9697af"
+        },
+        {
+          "path": "artifacts/refinement-2026-09-30/final-environment-review/cloud-15m-art-review.json",
+          "sha256": "e38b01a98dd58b3bc859702e2f542752522df884482e175133463e2baf78da1d"
+        },
+        {
+          "path": "artifacts/refinement-2026-09-30/final-environment-review/cloud-15m-source-checks.json",
+          "sha256": "7e279ea45355a88703a5e2743890439fed3f7635b17fab490555300a94bfa596"
+        },
+        {
+          "path": "profiles/last-light-bay.json",
+          "sha256": "c52fde34e833e3e7a50865a3960e5a5a970373f46418647a76c8583c6877d8d2"
+        },
+        {
+          "path": "docs/continuation/2026-10-01-local-render-handoff.md",
+          "sha256": "5069a66df4f4ed6943ad01cd01a0c351635eccc68f72b8a5ae5bb1adc738649c"
+        }
+      ]
     }
   ],
   "cycles": [],
@@ -2668,90 +2776,7 @@
       "creditedSeconds": 0
     }
   ],
-  "open": {
-    "start": "2026-10-01T08:59:06.258Z",
-    "category": "implementation",
-    "description": "Integrate reviewed scene appearance and coastal woodland while correcting bounded reflection artifacts",
-    "proofs": [
-      {
-        "at": "2026-10-01T09:15:02.450Z",
-        "files": [
-          {
-            "path": "src/app/canonical-look.ts",
-            "sha256": "534da4803ec35750493cd063fc16d40dd8dc841008bfe258f91618e4ec8a317e"
-          },
-          {
-            "path": "src/render/coastal-reflection-filter.ts",
-            "sha256": "2597747471b4763f1023d0f9664b627074f7682d4cf1bd3ce2357c8663107424"
-          },
-          {
-            "path": "src/world/coastal-young-woodland.ts",
-            "sha256": "deed2c3d903fae726a8d1967d8683a81671975fd19826b5617502d65756adc99"
-          },
-          {
-            "path": "artifacts/refinement-2026-09-30/browser-runtime-recovery.json",
-            "sha256": "05479838e841df5818cffb846c287850fb40cbbbe7894ed4dd042ca895fa08cc"
-          }
-        ]
-      },
-      {
-        "at": "2026-10-01T09:21:49.588Z",
-        "files": [
-          {
-            "path": "artifacts/refinement-2026-09-30/coastal-reflection/footprint-full-scene-02/manifest.json",
-            "sha256": "f1508b4014d6fa3b53d8117a263d6879860ce7721007517638aff82acea891b7"
-          },
-          {
-            "path": "artifacts/refinement-2026-09-30/coastal-young-woodland/trial01-build-verification.json",
-            "sha256": "cd3217c4c87d34f04793e67a950968a2019294b6d0b302028f2c6b72a85c9f41"
-          }
-        ]
-      },
-      {
-        "at": "2026-10-01T09:28:18.992Z",
-        "files": [
-          {
-            "path": "artifacts/refinement-2026-09-30/coastal-reflection/full-scene-art-review-02.json",
-            "sha256": "0f72a5331ea8affe2f7c1be47c1266b61f9d18b8a7f802a50e923145d1e30c96"
-          },
-          {
-            "path": "artifacts/refinement-2026-09-30/coastal-young-woodland/trial02-build-verification.json",
-            "sha256": "642ba45b5f5f63d09f48ce7fcdf3e3b1fa7f2faac192e374017098225be82db4"
-          },
-          {
-            "path": "profiles/last-light-bay.json",
-            "sha256": "c52fde34e833e3e7a50865a3960e5a5a970373f46418647a76c8583c6877d8d2"
-          }
-        ]
-      },
-      {
-        "at": "2026-10-01T09:35:05.064Z",
-        "files": [
-          {
-            "path": "artifacts/refinement-2026-09-30/coastal-young-woodland/trial02-on/manifest.json",
-            "sha256": "f0d4e057972620a5d3a024bf96833c6c85d0b28e365f89b23b517a9be0d7d226"
-          }
-        ]
-      },
-      {
-        "at": "2026-10-01T09:40:05.059Z",
-        "files": [
-          {
-            "path": "artifacts/refinement-2026-09-30/final-environment-review/build.json",
-            "sha256": "fa5f4e7ef3287804611c19995bb0a983f29cdb8156c4a01367d493c81598044f"
-          },
-          {
-            "path": "src/world/atmosphere.ts",
-            "sha256": "8062216960907d9e2de8bd808366860d3d8f7d22ec5374dcdcdbe45e30e8967b"
-          },
-          {
-            "path": "src/render/ground-materials.ts",
-            "sha256": "115a0fb929f1327e5e7048a4381e2a564429bdf09027ad98554006d257b2e6f2"
-          }
-        ]
-      }
-    ]
-  },
+  "open": null,
   "nativeVisualCycles": [
     {
       "iteration": "01",
@@ -2809,13 +2834,27 @@
     "note": "Actual three1920px native views reviewed. Source canopy visibility, refined cloud sampling,42deg camera framing, stable separate shadow/camera buffers, stone repetition correction and swash front fade accepted as narrow fixes. Macro geology, ecological structure, water/sky/sand art and final browser gates remain open."
   },
   "latestBrowserContinuation": {
-    "review": "docs/continuation/2026-10-01-root-review.md",
+    "review": "docs/continuation/2026-10-01-screenshot-refinement.md",
     "renderer": "Chromium WebGL2 / ANGLE Vulkan SwiftShader / 4x MSAA",
     "graphicsAvailable": true,
     "consumerPerformanceVerified": false,
     "progressVideoComplete": false,
     "qualityTargetAccepted": false,
-    "recoveredCapture": "artifacts/refinement-2026-09-30/candidate-07-recovered-review-retry2/manifest.json",
-    "sourceRecoveryVerified": true
+    "sourceIdentity": "2721cc2c50655dcfcf593925edd9322fc73ed56d75d540625161b8c13c53f5ce",
+    "captureManifest": "artifacts/refinement-2026-09-30/final-environment-review/cloud-15m/manifest.json",
+    "artReview": "artifacts/refinement-2026-09-30/final-environment-review/cloud-15m-art-review.json",
+    "sourceChecks": "artifacts/refinement-2026-09-30/final-environment-review/cloud-15m-source-checks.json",
+    "profile": "profiles/last-light-bay.json",
+    "localHandoff": "docs/continuation/2026-10-01-local-render-handoff.md",
+    "sourceRecoveryVerified": true,
+    "actualFinalStills": 2,
+    "finalStillResolution": [
+      1280,
+      720
+    ],
+    "ordinaryAppFunctionalChecksPassed": 3,
+    "ordinaryAppImageReadbackCompleted": false,
+    "cloudVideoCancelledByUser": true,
+    "publishingAuthorization": "Fresh direct user instruction to push completed refinement checkpoint to main and provide local-render prompt; unfinished global gates are not marked complete."
   }
 }

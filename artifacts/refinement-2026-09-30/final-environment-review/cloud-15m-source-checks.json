@@ -1,0 +1,32 @@
+{
+  "at": "2026-10-01T10:01:12.859Z",
+  "sourceIdentity": "2721cc2c50655dcfcf593925edd9322fc73ed56d75d540625161b8c13c53f5ce",
+  "sourceCheck": {
+    "passed": true,
+    "files": 101
+  },
+  "tests": {
+    "command": "npm test",
+    "total": 143,
+    "passed": 143,
+    "failed": 0,
+    "logSHA256": "796cba3b07427e0bd312833eb0048c737ac034c3db7f7a34166bbe2e29fb34e7"
+  },
+  "build": {
+    "passed": true,
+    "assetChecks": 43,
+    "typeScript": true,
+    "entry": "index-DnKy9fii.js"
+  },
+  "ordinaryApp": {
+    "source": "301d9c4541e7b48f82d7166345cd39f3ebc7b3fba4140549f0ab3d997a6b095f",
+    "functionalChecksPassed": 3,
+    "imageReadbackCompleted": false,
+    "reason": "Software PNG readback timeout180s after real ordinary-app warmup; no browser/load errors",
+    "evidence": "../ordinary-app-01/ordinary-app-verification.json"
+  },
+  "limitations": [
+    "Consumer GPU/OS execution and complete-flight motion remain unverified.",
+    "No final8/10 art acceptance or completed24h/media gates is claimed."
+  ]
+}

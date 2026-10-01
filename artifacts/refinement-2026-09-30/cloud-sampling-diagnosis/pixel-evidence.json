@@ -1,0 +1,152 @@
+{
+  "scope": "Numerical inspection only; no images edited or GPU used",
+  "current": {
+    "file": "artifacts/refinement-2026-09-30/final-environment-review/capture/coast-refined-10_5.png",
+    "sha256": "6bd5ca6553f43a43574bc8634bfa6227a79b2e917a527f6d4ebdbff3fcaa9f34"
+  },
+  "previous": {
+    "file": "artifacts/refinement-2026-09-30/coastal-young-woodland/trial02-on/young-woodland-on-10_5.png",
+    "sha256": "05072e18f8f286028e0f9ddaae5433cdc315294c9b324fb408218c8a61e710c9"
+  },
+  "size": [
+    1280,
+    720
+  ],
+  "alphaValues": [
+    255
+  ],
+  "regions": [
+    {
+      "boxXYXY": [
+        230,
+        4,
+        290,
+        43
+      ],
+      "meanAbsoluteRGBChange": 0.5111111111111111,
+      "displayLuminanceVerticalHighpassMeanAbs": 1.4619221171171166,
+      "previousHighpassMeanAbs": 1.4254309459459455,
+      "highpassCorrelationWithPrevious": 0.8091038971050694,
+      "highpassAbs95": 4.214205000000028,
+      "highpassAbs99": 5.48466200000001,
+      "opposingGradientOverOneCodeSquaredFraction": 0.31036036036036035
+    },
+    {
+      "boxXYXY": [
+        355,
+        34,
+        420,
+        62
+      ],
+      "meanAbsoluteRGBChange": 0.6472527472527473,
+      "displayLuminanceVerticalHighpassMeanAbs": 1.7609428402366876,
+      "previousHighpassMeanAbs": 1.593599230769231,
+      "highpassCorrelationWithPrevious": 0.5098574159292956,
+      "highpassAbs95": 5.797485000000012,
+      "highpassAbs99": 10.685191999999985,
+      "opposingGradientOverOneCodeSquaredFraction": 0.2804733727810651
+    },
+    {
+      "boxXYXY": [
+        70,
+        91,
+        150,
+        125
+      ],
+      "meanAbsoluteRGBChange": 0.3946078431372549,
+      "displayLuminanceVerticalHighpassMeanAbs": 1.3686612890624994,
+      "previousHighpassMeanAbs": 1.3209158984375,
+      "highpassCorrelationWithPrevious": 0.8264070911958467,
+      "highpassAbs95": 5.1063000000000045,
+      "highpassAbs99": 7.242447999999976,
+      "opposingGradientOverOneCodeSquaredFraction": 0.18046875
+    },
+    {
+      "boxXYXY": [
+        130,
+        15,
+        200,
+        55
+      ],
+      "meanAbsoluteRGBChange": 0.16071428571428573,
+      "displayLuminanceVerticalHighpassMeanAbs": 0.3042349248120293,
+      "previousHighpassMeanAbs": 0.3167018796992473,
+      "highpassCorrelationWithPrevious": 0.5668927934680831,
+      "highpassAbs95": 1.6782049999999664,
+      "highpassAbs99": 4.174499999999995,
+      "opposingGradientOverOneCodeSquaredFraction": 0.02669172932330827
+    }
+  ],
+  "example": {
+    "columnX": 260,
+    "rowsY": [
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50
+    ],
+    "RGB": [
+      [
+        193,
+        186,
+        181
+      ],
+      [
+        199,
+        191,
+        184
+      ],
+      [
+        198,
+        191,
+        184
+      ],
+      [
+        193,
+        186,
+        181
+      ],
+      [
+        198,
+        191,
+        184
+      ],
+      [
+        201,
+        193,
+        185
+      ],
+      [
+        196,
+        189,
+        183
+      ],
+      [
+        200,
+        193,
+        186
+      ],
+      [
+        202,
+        194,
+        187
+      ],
+      [
+        197,
+        190,
+        185
+      ]
+    ]
+  },
+  "interpretation": [
+    "The visible repeated contour residual persists after stable primary quadrature; this is not a visual pass.",
+    "Simple final 8-bit rounding of a smooth gradient can contribute at most one display code to y - (y_previous+y_next)/2. Several measured cloud residuals exceed that bound substantially; output quantization alone is insufficient.",
+    "Natural cloud edges also contribute to this statistic; it is not an artifact quality score or exact attribution. Raw RGB/transmittance matched-crop rendering is required to distinguish density, sunlight integration and stored-noise precision."
+  ]
+}

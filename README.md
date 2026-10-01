@@ -27,15 +27,19 @@ narrow acceptance of 16 additional young woodland trees. That addition is now
 enabled; the original 14,000-tree cohort is unchanged. The gain is modest and
 does not establish full-route or motion acceptance.
 
-The latest candidate stabilizes the primary cloud integration grid and retains
-already mip-filtered sand albedo instead of fading its variation out a second
-time. Its TypeScript/Vite build, 43 asset checks and all 143 tests passed. Actual
-1280×720 shore and sunset images accept the retained sand detail as a bounded
-improvement. Fine cloud contours remain visible, so their removal is not
-accepted; a focused sky-only diagnosis is in progress. The normal app passed
-startup defaults, study-access and low/high quality-switch checks, but its final
-software PNG readback exceeded the 180-second test deadline. That smoke run is
-recorded as incomplete, not a full pass.
+The final cloud correction uses 15 m primary integration spacing after the
+earlier stable 30 m grid left visible contours. Two completed 1280×720 shoreline
+and sunset views independently accept this targeted correction: the conspicuous
+repeated lines are largely absent while the chosen composition remains intact.
+Retained mip-filtered sand detail, corrected reflection and young woodland stay
+coherent. This is bounded still-image acceptance, not proof of temporal quality.
+The final source passed checks across 101 source files, all 143 tests, 43 asset
+checks, TypeScript and the Vite build.
+
+On the preceding source, the normal app passed startup defaults, study-access
+and low/high quality-switch checks, but its software PNG readback exceeded the
+180-second deadline. That smoke run remains incomplete; no completed ordinary-
+app image check or laptop hardware result is claimed.
 
 The user cancelled further cloud video rendering in favour of environment work
 and screenshots. The interrupted 24-fps prefix is preserved; no completed movie
@@ -44,8 +48,8 @@ for four hardware screenshots followed by a 20-second 1440p60 master and 1080p60
 copy. Hardware mode rejects known software renderers and supports verified PNG
 checkpoint resume. Actual laptop hardware and OS execution remain unverified.
 
-The cliff's broad smooth faces, the wet-sand ribbon and some procedural water/
-canopy structure still limit realism. This is a refinement checkpoint, not an
+The cliff's broad smooth faces, the wet-sand ribbon, soft stylized clouds and
+some procedural water/canopy structure still limit realism. This is a refinement checkpoint, not an
 8/10 acceptance, final gallery or completed media delivery. `npm run verify`
 intentionally remains separate from source/build checks and will fail while
 those final project gates are unfinished. See the

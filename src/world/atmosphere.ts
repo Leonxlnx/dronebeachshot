@@ -20,10 +20,10 @@ float pixelAngle=max(length(dFdx(ray)),length(dFdy(ray)));
 vec2 interval=cloudSegment(uEye,ray);
 if(interval.y>interval.x){
  float span=interval.y-interval.x;
- // Keep interior cells fixed as a ray's span crosses a 30 m boundary. Only
+ // Keep interior cells fixed as a ray's span crosses a 15 m boundary. Only
  // its clipped tail changes; ceil-based repartition moved every sample and
  // can produce elevation contours. Short/long rays retain 12/512 cells.
- float stepLen=clamp(30.,span/512.,span/12.);float trans=1.;vec3 cloudLight=vec3(0.);
+ float stepLen=clamp(15.,span/512.,span/12.);float trans=1.;vec3 cloudLight=vec3(0.);
  for(int i=0;i<512;i++){
   float begin=float(i)*stepLen;if(begin>=span)break;
   float end=min(begin+stepLen,span),cellLength=end-begin;

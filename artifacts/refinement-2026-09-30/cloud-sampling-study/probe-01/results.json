@@ -1,0 +1,862 @@
+{
+  "ok": true,
+  "scope": "Production visible atmosphere plus production RGBA16F MSAA4 linear-main resolve, exact cropped full-resolution rays; fixture-only integration variants",
+  "config": {
+    "width": 256,
+    "height": 128,
+    "time": 10.5,
+    "crop": {
+      "fullWidth": 1280,
+      "fullHeight": 720,
+      "x": 220,
+      "y": 0
+    },
+    "variants": [
+      {
+        "name": "step-30",
+        "stepMeters": 30,
+        "constantIllumination": false,
+        "footprintFactor": 0.5
+      },
+      {
+        "name": "step-15",
+        "stepMeters": 15,
+        "constantIllumination": false,
+        "footprintFactor": 0.5
+      },
+      {
+        "name": "step-7p5",
+        "stepMeters": 7.5,
+        "constantIllumination": false,
+        "footprintFactor": 0.5
+      },
+      {
+        "name": "constant-light",
+        "stepMeters": 30,
+        "constantIllumination": true,
+        "footprintFactor": 0.5
+      },
+      {
+        "name": "full-cell-footprint",
+        "stepMeters": 30,
+        "constantIllumination": false,
+        "footprintFactor": 1
+      },
+      {
+        "name": "step-30-restore",
+        "stepMeters": 30,
+        "constantIllumination": false,
+        "footprintFactor": 0.5
+      }
+    ],
+    "reference": {
+      "file": "artifacts/refinement-2026-09-30/final-environment-review/capture/coast-refined-10_5.png",
+      "sha256": "6bd5ca6553f43a43574bc8634bfa6227a79b2e917a527f6d4ebdbff3fcaa9f34",
+      "width": 1280,
+      "height": 720
+    },
+    "lighting": {
+      "cloudCoverage": 0.4,
+      "cloudFogDensity": 0.00004,
+      "cloudMorphology": true,
+      "environmentIntensity": 0.55,
+      "exposure": 1.08,
+      "fogDensity": 0.000065,
+      "groundColor": "#365842",
+      "skyColor": "#a1c9ed",
+      "skyIntensity": 0.48,
+      "sunColor": "#ffdfb6",
+      "sunIntensity": 4.8
+    },
+    "linearMainOutput": true,
+    "linearMainSampleScale": 1,
+    "profileFile": "profiles/last-light-bay.json",
+    "profileSHA256": "c52fde34e833e3e7a50865a3960e5a5a970373f46418647a76c8583c6877d8d2",
+    "diagnosis": {
+      "detailBaseTexelMeters": 9.765625,
+      "nominalHalfCellDetailLOD": 0.6191782160590692,
+      "nominalFullCellDetailLOD": 1.619178216059069,
+      "meaning": "Full-cell variant tests a primary sample-spacing/mip-footprint mismatch. Constant illumination isolates density/support from the secondary light march."
+    },
+    "guards": {
+      "memoryMetric": "working",
+      "startLimit": 7516192768,
+      "stopLimit": 7784628224,
+      "deadlineMilliseconds": 120000
+    }
+  },
+  "camera": {
+    "position": [
+      -36.98060456829655,
+      4.922138347995213,
+      84.31258981306148
+    ],
+    "target": [
+      62.73739496866593,
+      3.9221383479952134,
+      76.80788673123645
+    ],
+    "quaternion": [
+      -0.0036171507926032625,
+      -0.6800479959871121,
+      -0.003452453300114362,
+      0.7331505438450324
+    ],
+    "up": [
+      0.0019010236688206533,
+      0.9999981930528727,
+      0
+    ],
+    "fov": 42,
+    "aspect": 1.7777777777777777,
+    "near": 0.4,
+    "far": 22000,
+    "view": {
+      "enabled": true,
+      "fullWidth": 1280,
+      "fullHeight": 720,
+      "offsetX": 220,
+      "offsetY": 0,
+      "width": 256,
+      "height": 128
+    },
+    "maximumRayError": 1.8107189559191205e-15
+  },
+  "sun": {
+    "direction": [
+      -0.37965372389340435,
+      0.10490431844423015,
+      -0.9191616473208737
+    ],
+    "linearColor": [
+      1,
+      0.7379104087672317,
+      0.46778379610254284
+    ],
+    "intensity": 4.8
+  },
+  "morphology": true,
+  "renderer": {
+    "threeRevision": "185",
+    "contextFallback": false,
+    "drawingBuffer": [
+      256,
+      128
+    ],
+    "canvasAntialias": true,
+    "canvasSamples": 4,
+    "toneMapping": 4,
+    "outputColorSpace": "srgb"
+  },
+  "creationMilliseconds": 283.19999999552965,
+  "probeMilliseconds": 8193.69999999553,
+  "rows": [
+    {
+      "name": "step-30",
+      "stepMeters": 30,
+      "constantIllumination": false,
+      "footprintFactor": 0.5,
+      "fixtureFragmentSHA256": "f9b12f00642ef3a180d4809004c38b819f8feb999d1a325a0d6f4d51c498b0df",
+      "displayRGBA8SHA256": "4a6ab6f44bef61415a85c982c4a2876c67a99b253b694ea77713f03adceaa100",
+      "linearRGBA16FSHA256": "0466fda73600d1e04c1cfa37b4323d39c88f47575229e7cbfd5c513515d65cb8",
+      "rawBytes": 262144,
+      "rawFormat": "RGBA16F little-endian, bottom row first, RGB linear sRGB radiance; A cloud transmittance",
+      "renderReadbackMilliseconds": 1204.5,
+      "fence": {
+        "method": "webgl2-fence",
+        "milliseconds": 920.5,
+        "polls": 149
+      },
+      "alphaFailures": 0,
+      "displayRGBRange": [
+        102,
+        225
+      ],
+      "linear": {
+        "finite": true,
+        "channels": [
+          {
+            "min": 0.11383056640625,
+            "max": 0.873046875,
+            "mean": 0.3175095748156309
+          },
+          {
+            "min": 0.1448974609375,
+            "max": 0.69775390625,
+            "mean": 0.3195027559995651
+          },
+          {
+            "min": 0.18603515625,
+            "max": 0.53466796875,
+            "mean": 0.34149206057190895
+          },
+          {
+            "min": 0.006195068359375,
+            "max": 1,
+            "mean": 0.622787551372312
+          }
+        ]
+      },
+      "sampleBudget": {
+        "method": "Double-precision center rays through the exact crop camera; theoretical cells before density skip and transmittance early exit, not GPU invocation counts",
+        "pixels": 32768,
+        "cloudIntervalRays": 32768,
+        "cappedRays": 0,
+        "shortRays": 0,
+        "spanMeters": {
+          "min": 3633.52163882135,
+          "max": 5899.9719830173,
+          "mean": 4557.580931236197
+        },
+        "cellMeters": {
+          "min": 30,
+          "max": 30,
+          "mean": 30
+        },
+        "theoreticalCells": {
+          "min": 122,
+          "max": 197,
+          "mean": 152.41986083984375
+        }
+      },
+      "drawCalls": 2,
+      "triangles": 961,
+      "linearMain": {
+        "enabled": true,
+        "sampleScale": 1,
+        "requestedSampleScale": 1,
+        "supported": true,
+        "supportError": null,
+        "initialized": true,
+        "width": 256,
+        "height": 128,
+        "samples": 4,
+        "framebufferValidated": true,
+        "format": "RGBA16F",
+        "colorSpace": "srgb-linear",
+        "resolveDrawsPerFrame": 1,
+        "disposed": false
+      }
+    },
+    {
+      "name": "step-15",
+      "stepMeters": 15,
+      "constantIllumination": false,
+      "footprintFactor": 0.5,
+      "fixtureFragmentSHA256": "7a8f7921b37a86ec6ae09dc106036e4e5f4d7b887dd18b73e340bc9b2aef3050",
+      "displayRGBA8SHA256": "d11a49919de3262e204e2c84a1b64a8c24580f328c91d83238b4929dd2f89905",
+      "linearRGBA16FSHA256": "efdd342ab871dbfb673cb45c122dbcbf2c608880d543f813e82e735630fae0d8",
+      "rawBytes": 262144,
+      "rawFormat": "RGBA16F little-endian, bottom row first, RGB linear sRGB radiance; A cloud transmittance",
+      "renderReadbackMilliseconds": 1424.8999999985099,
+      "fence": {
+        "method": "webgl2-fence",
+        "milliseconds": 1218.7000000029802,
+        "polls": 190
+      },
+      "alphaFailures": 0,
+      "displayRGBRange": [
+        103,
+        224
+      ],
+      "linear": {
+        "finite": true,
+        "channels": [
+          {
+            "min": 0.11566162109375,
+            "max": 0.87255859375,
+            "mean": 0.3175667989999056
+          },
+          {
+            "min": 0.146728515625,
+            "max": 0.69677734375,
+            "mean": 0.3195330798625946
+          },
+          {
+            "min": 0.187255859375,
+            "max": 0.53466796875,
+            "mean": 0.3414911814033985
+          },
+          {
+            "min": 0.007045745849609375,
+            "max": 1,
+            "mean": 0.6225544319022447
+          }
+        ]
+      },
+      "sampleBudget": {
+        "method": "Double-precision center rays through the exact crop camera; theoretical cells before density skip and transmittance early exit, not GPU invocation counts",
+        "pixels": 32768,
+        "cloudIntervalRays": 32768,
+        "cappedRays": 0,
+        "shortRays": 0,
+        "spanMeters": {
+          "min": 3633.52163882135,
+          "max": 5899.9719830173,
+          "mean": 4557.580931236197
+        },
+        "cellMeters": {
+          "min": 15,
+          "max": 15,
+          "mean": 15
+        },
+        "theoreticalCells": {
+          "min": 243,
+          "max": 394,
+          "mean": 304.33892822265625
+        }
+      },
+      "drawCalls": 2,
+      "triangles": 961,
+      "linearMain": {
+        "enabled": true,
+        "sampleScale": 1,
+        "requestedSampleScale": 1,
+        "supported": true,
+        "supportError": null,
+        "initialized": true,
+        "width": 256,
+        "height": 128,
+        "samples": 4,
+        "framebufferValidated": true,
+        "format": "RGBA16F",
+        "colorSpace": "srgb-linear",
+        "resolveDrawsPerFrame": 1,
+        "disposed": false
+      }
+    },
+    {
+      "name": "step-7p5",
+      "stepMeters": 7.5,
+      "constantIllumination": false,
+      "footprintFactor": 0.5,
+      "fixtureFragmentSHA256": "f428a2d7046bb3960b2e35142a5e82edca9e20fb98f8c3c1e295d4cd86aca4d3",
+      "displayRGBA8SHA256": "b33a117aca3e4362c5217e0a838f02a241bc975c5ff0726c25c5a05e94ee71f5",
+      "linearRGBA16FSHA256": "b074e8ef8aeb327a2524947d80c39506b9510234f89e93c57d7dab833c274fab",
+      "rawBytes": 262144,
+      "rawFormat": "RGBA16F little-endian, bottom row first, RGB linear sRGB radiance; A cloud transmittance",
+      "renderReadbackMilliseconds": 2383,
+      "fence": {
+        "method": "webgl2-fence",
+        "milliseconds": 2179.89999999851,
+        "polls": 236
+      },
+      "alphaFailures": 0,
+      "displayRGBRange": [
+        104,
+        224
+      ],
+      "linear": {
+        "finite": true,
+        "channels": [
+          {
+            "min": 0.1171875,
+            "max": 0.87109375,
+            "mean": 0.3175867572426796
+          },
+          {
+            "min": 0.147216796875,
+            "max": 0.6953125,
+            "mean": 0.31954342499375343
+          },
+          {
+            "min": 0.187744140625,
+            "max": 0.53369140625,
+            "mean": 0.3414934389293194
+          },
+          {
+            "min": 0.00750732421875,
+            "max": 1,
+            "mean": 0.6225049239583313
+          }
+        ]
+      },
+      "sampleBudget": {
+        "method": "Double-precision center rays through the exact crop camera; theoretical cells before density skip and transmittance early exit, not GPU invocation counts",
+        "pixels": 32768,
+        "cloudIntervalRays": 32768,
+        "cappedRays": 30015,
+        "shortRays": 0,
+        "spanMeters": {
+          "min": 3633.52163882135,
+          "max": 5899.9719830173,
+          "mean": 4557.580931236197
+        },
+        "cellMeters": {
+          "min": 7.5,
+          "max": 11.523382779330664,
+          "mean": 8.914097931701146
+        },
+        "theoreticalCells": {
+          "min": 485,
+          "max": 512,
+          "mean": 511.1832275390625
+        }
+      },
+      "drawCalls": 2,
+      "triangles": 961,
+      "linearMain": {
+        "enabled": true,
+        "sampleScale": 1,
+        "requestedSampleScale": 1,
+        "supported": true,
+        "supportError": null,
+        "initialized": true,
+        "width": 256,
+        "height": 128,
+        "samples": 4,
+        "framebufferValidated": true,
+        "format": "RGBA16F",
+        "colorSpace": "srgb-linear",
+        "resolveDrawsPerFrame": 1,
+        "disposed": false
+      }
+    },
+    {
+      "name": "constant-light",
+      "stepMeters": 30,
+      "constantIllumination": true,
+      "footprintFactor": 0.5,
+      "fixtureFragmentSHA256": "3f6924a3d777fd9e1539818b74bef597f4b4cc22e1ee748ed68fcaaf88133a96",
+      "displayRGBA8SHA256": "16e845daa9945c31356e2cbe1a5190fdd55b43fb2f13a81bf41c42f9746aa385",
+      "linearRGBA16FSHA256": "eb4cd7781e2bc7e9d2b74a9f13b7c5e25becf00329a3026bf7bdc377c835ed41",
+      "rawBytes": 262144,
+      "rawFormat": "RGBA16F little-endian, bottom row first, RGB linear sRGB radiance; A cloud transmittance",
+      "renderReadbackMilliseconds": 498.30000000447035,
+      "fence": {
+        "method": "webgl2-fence",
+        "milliseconds": 338,
+        "polls": 39
+      },
+      "alphaFailures": 0,
+      "displayRGBRange": [
+        119,
+        226
+      ],
+      "linear": {
+        "finite": true,
+        "channels": [
+          {
+            "min": 0.1407470703125,
+            "max": 0.900390625,
+            "mean": 0.44094523414969444
+          },
+          {
+            "min": 0.2042236328125,
+            "max": 0.71826171875,
+            "mean": 0.41058701649308205
+          },
+          {
+            "min": 0.29443359375,
+            "max": 0.548828125,
+            "mean": 0.39923281222581863
+          },
+          {
+            "min": 0.006195068359375,
+            "max": 1,
+            "mean": 0.622787551372312
+          }
+        ]
+      },
+      "sampleBudget": {
+        "method": "Double-precision center rays through the exact crop camera; theoretical cells before density skip and transmittance early exit, not GPU invocation counts",
+        "pixels": 32768,
+        "cloudIntervalRays": 32768,
+        "cappedRays": 0,
+        "shortRays": 0,
+        "spanMeters": {
+          "min": 3633.52163882135,
+          "max": 5899.9719830173,
+          "mean": 4557.580931236197
+        },
+        "cellMeters": {
+          "min": 30,
+          "max": 30,
+          "mean": 30
+        },
+        "theoreticalCells": {
+          "min": 122,
+          "max": 197,
+          "mean": 152.41986083984375
+        }
+      },
+      "drawCalls": 2,
+      "triangles": 961,
+      "linearMain": {
+        "enabled": true,
+        "sampleScale": 1,
+        "requestedSampleScale": 1,
+        "supported": true,
+        "supportError": null,
+        "initialized": true,
+        "width": 256,
+        "height": 128,
+        "samples": 4,
+        "framebufferValidated": true,
+        "format": "RGBA16F",
+        "colorSpace": "srgb-linear",
+        "resolveDrawsPerFrame": 1,
+        "disposed": false
+      }
+    },
+    {
+      "name": "full-cell-footprint",
+      "stepMeters": 30,
+      "constantIllumination": false,
+      "footprintFactor": 1,
+      "fixtureFragmentSHA256": "a61faed403e1e1b8d3d90c4c11535982e0cbe1745429a7d5f9f822d1ff7383e5",
+      "displayRGBA8SHA256": "db2a8f557bb1ab5f73456e090fe4961ce31d036cc4cb183bfb3a9cb7c1dba584",
+      "linearRGBA16FSHA256": "b59d380ceb9e1610c0bdf4455a4daa294d455c18af453e711a89f607118fe5bd",
+      "rawBytes": 262144,
+      "rawFormat": "RGBA16F little-endian, bottom row first, RGB linear sRGB radiance; A cloud transmittance",
+      "renderReadbackMilliseconds": 1059.3999999985099,
+      "fence": {
+        "method": "webgl2-fence",
+        "milliseconds": 802.8999999985099,
+        "polls": 120
+      },
+      "alphaFailures": 0,
+      "displayRGBRange": [
+        102,
+        225
+      ],
+      "linear": {
+        "finite": true,
+        "channels": [
+          {
+            "min": 0.11383056640625,
+            "max": 0.873046875,
+            "mean": 0.3175094686448574
+          },
+          {
+            "min": 0.1448974609375,
+            "max": 0.69775390625,
+            "mean": 0.31949298828840256
+          },
+          {
+            "min": 0.18603515625,
+            "max": 0.53466796875,
+            "mean": 0.34147079661488533
+          },
+          {
+            "min": 0.006195068359375,
+            "max": 1,
+            "mean": 0.6226631639292464
+          }
+        ]
+      },
+      "sampleBudget": {
+        "method": "Double-precision center rays through the exact crop camera; theoretical cells before density skip and transmittance early exit, not GPU invocation counts",
+        "pixels": 32768,
+        "cloudIntervalRays": 32768,
+        "cappedRays": 0,
+        "shortRays": 0,
+        "spanMeters": {
+          "min": 3633.52163882135,
+          "max": 5899.9719830173,
+          "mean": 4557.580931236197
+        },
+        "cellMeters": {
+          "min": 30,
+          "max": 30,
+          "mean": 30
+        },
+        "theoreticalCells": {
+          "min": 122,
+          "max": 197,
+          "mean": 152.41986083984375
+        }
+      },
+      "drawCalls": 2,
+      "triangles": 961,
+      "linearMain": {
+        "enabled": true,
+        "sampleScale": 1,
+        "requestedSampleScale": 1,
+        "supported": true,
+        "supportError": null,
+        "initialized": true,
+        "width": 256,
+        "height": 128,
+        "samples": 4,
+        "framebufferValidated": true,
+        "format": "RGBA16F",
+        "colorSpace": "srgb-linear",
+        "resolveDrawsPerFrame": 1,
+        "disposed": false
+      }
+    },
+    {
+      "name": "step-30-restore",
+      "stepMeters": 30,
+      "constantIllumination": false,
+      "footprintFactor": 0.5,
+      "fixtureFragmentSHA256": "f9b12f00642ef3a180d4809004c38b819f8feb999d1a325a0d6f4d51c498b0df",
+      "displayRGBA8SHA256": "4a6ab6f44bef61415a85c982c4a2876c67a99b253b694ea77713f03adceaa100",
+      "linearRGBA16FSHA256": "0466fda73600d1e04c1cfa37b4323d39c88f47575229e7cbfd5c513515d65cb8",
+      "rawBytes": 262144,
+      "rawFormat": "RGBA16F little-endian, bottom row first, RGB linear sRGB radiance; A cloud transmittance",
+      "renderReadbackMilliseconds": 1017.8999999985099,
+      "fence": {
+        "method": "webgl2-fence",
+        "milliseconds": 846.6999999955297,
+        "polls": 56
+      },
+      "alphaFailures": 0,
+      "displayRGBRange": [
+        102,
+        225
+      ],
+      "linear": {
+        "finite": true,
+        "channels": [
+          {
+            "min": 0.11383056640625,
+            "max": 0.873046875,
+            "mean": 0.3175095748156309
+          },
+          {
+            "min": 0.1448974609375,
+            "max": 0.69775390625,
+            "mean": 0.3195027559995651
+          },
+          {
+            "min": 0.18603515625,
+            "max": 0.53466796875,
+            "mean": 0.34149206057190895
+          },
+          {
+            "min": 0.006195068359375,
+            "max": 1,
+            "mean": 0.622787551372312
+          }
+        ]
+      },
+      "sampleBudget": {
+        "method": "Double-precision center rays through the exact crop camera; theoretical cells before density skip and transmittance early exit, not GPU invocation counts",
+        "pixels": 32768,
+        "cloudIntervalRays": 32768,
+        "cappedRays": 0,
+        "shortRays": 0,
+        "spanMeters": {
+          "min": 3633.52163882135,
+          "max": 5899.9719830173,
+          "mean": 4557.580931236197
+        },
+        "cellMeters": {
+          "min": 30,
+          "max": 30,
+          "mean": 30
+        },
+        "theoreticalCells": {
+          "min": 122,
+          "max": 197,
+          "mean": 152.41986083984375
+        }
+      },
+      "drawCalls": 2,
+      "triangles": 961,
+      "linearMain": {
+        "enabled": true,
+        "sampleScale": 1,
+        "requestedSampleScale": 1,
+        "supported": true,
+        "supportError": null,
+        "initialized": true,
+        "width": 256,
+        "height": 128,
+        "samples": 4,
+        "framebufferValidated": true,
+        "format": "RGBA16F",
+        "colorSpace": "srgb-linear",
+        "resolveDrawsPerFrame": 1,
+        "disposed": false
+      }
+    }
+  ],
+  "restoration": {
+    "display": {
+      "changedPixels": 0,
+      "maximumComponentDelta": 0,
+      "meanAbsoluteComponentDelta": 0
+    },
+    "rawHalfBits": {
+      "changedPixels": 0,
+      "maximumComponentDelta": 0,
+      "meanAbsoluteComponentDelta": 0
+    }
+  },
+  "differences": [
+    {
+      "name": "step-15",
+      "display": {
+        "changedPixels": 18274,
+        "maximumComponentDelta": 50,
+        "meanAbsoluteComponentDelta": 0.92474365234375
+      },
+      "rawHalfBits": {
+        "changedPixels": 22516,
+        "maximumComponentDelta": 1090,
+        "meanAbsoluteComponentDelta": 28.000144958496094
+      }
+    },
+    {
+      "name": "step-7p5",
+      "display": {
+        "changedPixels": 18633,
+        "maximumComponentDelta": 37,
+        "meanAbsoluteComponentDelta": 0.85015869140625
+      },
+      "rawHalfBits": {
+        "changedPixels": 22608,
+        "maximumComponentDelta": 827,
+        "meanAbsoluteComponentDelta": 25.79743194580078
+      }
+    },
+    {
+      "name": "constant-light",
+      "display": {
+        "changedPixels": 15466,
+        "maximumComponentDelta": 119,
+        "meanAbsoluteComponentDelta": 11.84503173828125
+      },
+      "rawHalfBits": {
+        "changedPixels": 16102,
+        "maximumComponentDelta": 2846,
+        "meanAbsoluteComponentDelta": 228.8204116821289
+      }
+    },
+    {
+      "name": "full-cell-footprint",
+      "display": {
+        "changedPixels": 5376,
+        "maximumComponentDelta": 4,
+        "meanAbsoluteComponentDelta": 0.084625244140625
+      },
+      "rawHalfBits": {
+        "changedPixels": 18146,
+        "maximumComponentDelta": 97,
+        "meanAbsoluteComponentDelta": 2.0513381958007812
+      }
+    }
+  ],
+  "compiledPrograms": [
+    {
+      "name": "step-30",
+      "defines": {
+        "BAY_CLOUD_WIND_BANKS": 1
+      },
+      "fragmentSHA256": "f37e1efcbab4873d597de5fdd9840d6884cb1eb3587357168317c9d1695c7a68"
+    },
+    {
+      "name": "step-15",
+      "defines": {
+        "BAY_CLOUD_WIND_BANKS": 1
+      },
+      "fragmentSHA256": "87f74b8860e497074b8d753b52b6f3aa4b03a9619fadd9322856092b113203be"
+    },
+    {
+      "name": "step-7p5",
+      "defines": {
+        "BAY_CLOUD_WIND_BANKS": 1
+      },
+      "fragmentSHA256": "5c06721b6ad0da3327cd6604e50025ca1937ef2134bd6e624182c33fd6b1655c"
+    },
+    {
+      "name": "constant-light",
+      "defines": {
+        "BAY_CLOUD_WIND_BANKS": 1
+      },
+      "fragmentSHA256": "dcbe7519c8efa86cf24ad093e9c5c567eb130ad49b5cd97e8241627427de34f9"
+    },
+    {
+      "name": "full-cell-footprint",
+      "defines": {
+        "BAY_CLOUD_WIND_BANKS": 1
+      },
+      "fragmentSHA256": "b01ca22514313e6bafb4d49fa7f9d36435e974b0af7523d31cccf3ddb1d3711a"
+    }
+  ],
+  "originalFragmentSHA256": "f9b12f00642ef3a180d4809004c38b819f8feb999d1a325a0d6f4d51c498b0df",
+  "unusedLightingUpdates": {
+    "cubeUpdates": 0,
+    "shadowUpdates": 0
+  },
+  "shaderErrors": [],
+  "limitations": [
+    "Sky-only crop omits scene occlusion, water, reflection, cloud-shadow and PMREM updates; compare only unobstructed sky pixels.",
+    "uStoreTransmittance=1 changes alpha only; the production linear-main output resolves the same RGB and the exported PNG alpha is sealed opaque.",
+    "15/7.5m variants keep the 512-cell budget, so capped rays may share larger cell lengths instead of requested nominal spacing.",
+    "Constant illumination1 and doubled cell-footprint are diagnostic controls, not proposed production looks.",
+    "Camera center-ray statistics exclude density skips and early transmittance termination and are not GPU loop timing.",
+    "Current source is hashed in frozen preparation; historical full-scene pixel identity is not assumed."
+  ],
+  "fullSceneBaselineComparison": {
+    "reference": {
+      "file": "artifacts/refinement-2026-09-30/final-environment-review/capture/coast-refined-10_5.png",
+      "sha256": "6bd5ca6553f43a43574bc8634bfa6227a79b2e917a527f6d4ebdbff3fcaa9f34",
+      "width": 1280,
+      "height": 720
+    },
+    "dimensions": [
+      256,
+      128
+    ],
+    "changedPixels": 1742,
+    "pixelsAbove2": 1742,
+    "maximumChannelDelta": 165,
+    "meanAbsoluteRGBDelta": 4.42822265625,
+    "rootMeanSquareRGBDelta": 22.013170403736904,
+    "exactRGBMatch": false,
+    "method": "Pillow decoded RGB8, exact 1280x720 full-scene crop x220,y0,width256,height128; no scaling"
+  },
+  "sourceHashes": {
+    "profiles/last-light-bay.json": "c52fde34e833e3e7a50865a3960e5a5a970373f46418647a76c8583c6877d8d2",
+    "artifacts/refinement-2026-09-30/final-environment-review/capture/coast-refined-10_5.png": "6bd5ca6553f43a43574bc8634bfa6227a79b2e917a527f6d4ebdbff3fcaa9f34",
+    "scripts/control/cloud-sampling-probe-page.mjs": "a1f7c53a67d90e40cf52f45af411e0262f6394cd7a20705370b1c49d08d9fd8d",
+    "node_modules/three/build/three.module.js": "bbf5ed13fe4373f5bd38b14ea8e62e9f157327da5638edc6d3863e08b167c9c7",
+    "node_modules/three/build/three.core.js": "3718df126d69c125362a03340913204470d8c50238605150e57f808840fb7759",
+    "src/render/engine.ts": "530dd0981d93d7c7572028bed65f168195281a795cdf0b499c5ef16914aaccad",
+    "src/render/linear-main-output.ts": "45f9456394507e8d9c6a0e05286dd8fc71acea50080cdad9b72b288639570c9d",
+    "src/world/atmosphere.ts": "8062216960907d9e2de8bd808366860d3d8f7d22ec5374dcdcdbe45e30e8967b",
+    "src/world/cloud-noise.ts": "75756416f58e8cb1c25f34e2e51960532e7f2155535656f300b4648016eb15b1",
+    "src/render/aerial-perspective.ts": "4b2270d5b5ba86927d9006e1e825ebc1d153c4139208e0e79fcc6935901c748c",
+    "src/render/coastal-reflection.ts": "d5a0a7167fa797b58ea935f510410901e119ba23d32ee3dc63e891125a9fd21b",
+    "src/render/materials.ts": "24694202443318f0ff076e03853d4e222b2f95e318e107e0349cbec7097e1a6a",
+    "src/world/weather.ts": "d38c3292ed627e63178815e8232325e7a9f3b9480bbc9115813ea5f06915da33",
+    "src/world/habitat.ts": "c4599e693e07a45f6cdfeae4c7a930fa8550fb6e553c52b9d82c33a36f98a21c",
+    "src/world/math.ts": "6f9f3918d8faf1d2a22e53f44da725b14ea7750db3722b2aa1c50a7967df8c4b",
+    "src/world/terrain-fractures.ts": "ebce2e7167cab9113c431bb1f4ad802312dfbb34bcc3f0d8e5bd9ea8935e16c8",
+    "src/world/principal-face-planes.ts": "91afc6ff752c39bb5b312c61df10a118247f89b6a052679445c8df899370c4b0",
+    "src/world/broad-recess-planes.ts": "41e99d8961dff6e5eb51ccff6aad03867bbccedff81c5b4a1d06732c4ecbd0ba",
+    "src/world/east-spur.ts": "a5181a90570275b81bdb30d7721833e9c124107ccd15ae026b2f3e9f82a87f1b",
+    "src/render/refraction.ts": "b1997a145c0d3870f5af33056d475fbe294907edf1d983f8e24b9a54813be304",
+    "src/world/clouds.ts": "de4f1760b87b12c938fffaad72d106cf5255bd3c6cf2e9ebcd80f8bbbe7aecb8",
+    "src/world/cloud-morphology.ts": "e8294521128b2a63327243bc16452505704b753304e614c0c440f656ac7c7707",
+    "src/render/sky-lighting.ts": "2d8d3be053b16c1bf3a1d807c31cfceb004aee9175265fd3be8624c4aa40fb81",
+    "src/camera/cinematic.ts": "b150d04543dbee3a5c17feea537cc15623dccdde48e6d272e6a88a109186bf9e",
+    "src/camera/opening-gaze.ts": "0cc7b3576cd157c8cf347d1741a70759ccb2fad12757c27da76ff8f8ae077a40",
+    "src/camera/final-glide.ts": "c7fcb4169d00d17633975c82ed5ae97b41d8931eaffbb80ec67b858c7f37429e",
+    "src/world/terrain-surface.ts": "47a6a59021a5b7d56f3f0d3eb525c41e02626c753fe7fbe5eb8462e5ec9ea15b",
+    "src/render/profiling-sync.ts": "b94dd23cffb33cab4d302794189a947ca82e54edb5fba1d655ba4c7898f4c651",
+    "scripts/control/check-cloud-sampling-browser.mjs": "d2837afbd6def7496fe955a96469fb0cd277dbb94ea04c9bba1a62f6e9143a9e",
+    "scripts/control/progress-memory.mjs": "b036a57baf33c52c87d8d1400ccfad0f126cc91c46646405565aecced94d5007"
+  },
+  "errors": [],
+  "requests": [],
+  "driver": {
+    "nodeVersion": "v24.19.0",
+    "execArgv": [],
+    "runPrepared": true,
+    "typescriptImported": false,
+    "sourceSHA256": "d2837afbd6def7496fe955a96469fb0cd277dbb94ea04c9bba1a62f6e9143a9e",
+    "memoryAtPreflight": {
+      "rss": 118624256,
+      "heapTotal": 77340672,
+      "heapUsed": 55288952,
+      "external": 6564141,
+      "arrayBuffers": 2593704
+    }
+  },
+  "wallMilliseconds": 10096
+}

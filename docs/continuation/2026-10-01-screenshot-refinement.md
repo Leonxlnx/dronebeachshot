@@ -77,13 +77,14 @@ corrections are implemented:
   normal-grain filtering remain; palette, roughness and literal wet-band width
   are unchanged.
 
-The final candidate's TypeScript/Vite production build passed, with source
+The earlier stable-30 m candidate's TypeScript/Vite production build passed, with source
 identity `301d9c4541e7b48f82d7166345cd39f3ebc7b3fba4140549f0ab3d997a6b095f`
 and entry `index-D4RZMWwx.js`. The build record and explicit 10.5/19.5-second plan
 are in `artifacts/refinement-2026-09-30/final-environment-review/`. Both actual 1280×720 captures completed without browser/load errors. Root and
-independent review accept the retained sand detail, with no conspicuous new
-tile seam. The cloud contours are still visible; their removal is not accepted.
-A small sky-only diagnosis is in progress. Source checking passed 101 files,
+independent review accepted the retained sand detail, with no conspicuous new
+tile seam. Its cloud contours remained visible; contour removal was not accepted
+at this stage. A subsequent sky-only diagnosis isolated the primary sampling
+spacing. Source checking passed 101 files,
 all 143 automated tests passed, and all 43 asset checksum checks passed.
 `final-environment-review/source-checks.json` and `art-review.json` record the
 exact source and decisions.
@@ -96,10 +97,30 @@ work. The manifest has no browser/load errors, but the harness reports
 `verified:false`; this is not a completed image smoke or performance pass.
 See `ordinary-app-01/ordinary-app-verification.json`.
 
-The targeted sky review must establish the remaining cloud-contour cause.
-The still comparison does not establish temporal shimmer behavior. These
-changes cannot themselves resolve the cliff's large smooth shape or the width
-of the wet ribbon. Overall 8/10 and complete-flight acceptance remain open.
+The final source is
+`2721cc2c50655dcfcf593925edd9322fc73ed56d75d540625161b8c13c53f5ce`, with
+entry `index-DnKy9fii.js`. Its nominal primary visible/reflected cloud spacing is
+15 m, retaining the 12–512 sample limits and unchanged directional cloud-shadow
+integration. Both actual 1280×720 frames at 10.5 and 19.5 seconds completed
+without reported errors. Independent review accepts the targeted correction:
+the conspicuous repeated shoreline cloud lines are largely absent, with smoother
+light gradients and preserved composition. Sunset retains sun/reflection
+alignment without an obvious new seam. Sand detail, reflection and woodland
+remain coherent. See `final-environment-review/cloud-15m/manifest.json` and
+`cloud-15m-art-review.{json,md}` for matched control/current states and hashes.
+
+Final verification again passed 101 source-file checks, all 143 tests, all 43
+asset checksum checks, TypeScript and Vite. The current source identity and
+results are recorded in `final-environment-review/cloud-15m-source-checks.json`.
+The three ordinary-app functional checks above remain evidence from source
+`301d9c…`; its timed-out PNG readback is not upgraded to a completed smoke test
+by the new profile-driven stills.
+
+The clouds still have soft, somewhat stylized forms. Two stills do not establish
+zero aliasing everywhere, temporal shimmer behavior, performance or full-route
+consistency, and no restored frame is claimed for this final pair. The cliff's
+large smooth shape and broad wet ribbon remain unresolved. Overall 8/10 and
+complete-flight acceptance remain open.
 
 In the 47-frame series, the grass-palette OFF PNG at 12s is also byte-identical
 to the old film's frame 288. Its statistics record 18 closed orphan
@@ -128,7 +149,7 @@ and 1080p60 copy. Its profile path is `profiles/last-light-bay.json`, with linea
 1× internal samples at master resolution. The selected profile includes corrected wave reflection and all accepted
 color/cloud settings. The new focused tests are registered in the package test command.
 
-Review the final candidate screenshots and ordinary-app smoke result, record
-the completed test outcome, then package the reviewed checkpoint for the
-already-authorized main push. No fresh remote-head verification or completed
-push is asserted by this document.
+The final bounded still review and source/test/build results are complete; the
+ordinary-app image smoke remains incomplete as described above. Package this
+reviewed checkpoint for the already-authorized main push. No fresh remote-head
+verification or completed push is asserted by this document.

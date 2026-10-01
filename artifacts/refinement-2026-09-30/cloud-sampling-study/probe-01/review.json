@@ -1,0 +1,145 @@
+{
+  "decision": "Select 15 m nominal primary spacing for the next full-scene comparison; the actual crop visibly removes conspicuous repeated lines.",
+  "historicalBaseline": {
+    "commit": "4f773c7",
+    "sourceIdentity": "301d9c4541e7b48f82d7166345cd39f3ebc7b3fba4140549f0ab3d997a6b095f",
+    "atmosphereSHA256": "8062216960907d9e2de8bd808366860d3d8f7d22ec5374dcdcdbe45e30e8967b",
+    "referencePNG": "artifacts/refinement-2026-09-30/final-environment-review/capture/coast-refined-10_5.png",
+    "referencePNGSHA256": "6bd5ca6553f43a43574bc8634bfa6227a79b2e917a527f6d4ebdbff3fcaa9f34",
+    "frozenProbeSHA256": "157a0b361c1a261d1bebcb91fecc74f57d392bdaaba08babce4371c890cca5b7"
+  },
+  "candidate": {
+    "sourceIdentityReportedByRoot": "2721cc2c50655dcfcf593925edd9322fc73ed56d75d540625161b8c13c53f5ce",
+    "change": "Only nominal visible/cube primary spacing changes from 30 to 15 m, retaining 12\u2013512 cells. No density, light, noise, shadow, output, dither, or grading change.",
+    "fullSceneStatus": "Shore 10.5 / sunset 19.5 comparison launched by root; this review contains no result from that pending capture."
+  },
+  "fidelity": {
+    "fixedTop84Rows": {
+      "pixels": 21504,
+      "changedPixels": 0,
+      "maximumChannelDelta": 0.0,
+      "exactRGBMatch": true
+    },
+    "top96Rows": {
+      "changedPixels": 104,
+      "reason": "Tree tips begin at local row84; the top96 assumption was too broad."
+    },
+    "wholeCrop": {
+      "changedPixels": 1742,
+      "mismatchBoundsXYXY": [
+        143,
+        84,
+        255,
+        127
+      ]
+    }
+  },
+  "componentConclusion": {
+    "constantIlluminationTransmittanceBitExact": true,
+    "step15HighFrequencyReductionPercent": {
+      "lobeA": {
+        "linearLuminance": 89.75875307199736,
+        "transmittance": 86.50083419968504
+      },
+      "lobeB": {
+        "linearLuminance": 92.7479107911019,
+        "transmittance": 91.28553988394931
+      }
+    },
+    "lobeBMinimumBaselineTransmittance": 0.059967041015625,
+    "interpretation": "Repeated lines exist in transmittance even with constant illumination. Finer primary sampling suppresses radiance and transmittance oscillations. Lobe B is well above the 0.008 early-exit cutoff. Primary density quadrature is a demonstrated contributor; secondary light and output quantization alone are insufficient.",
+    "fullCellFootprint": "No meaningful improvement in the selected lobes.",
+    "fineVariant": "7.5 m nominal further reduces residual metrics but adds little obvious visual benefit over 15 m; 91.6% of crop rays hit the 512-cell cap."
+  },
+  "cost": {
+    "scope": "One tiny 256\u00d7128 source fixture, including compilation/readback; not a full-flight performance claim.",
+    "rows": [
+      {
+        "name": "step-30",
+        "renderReadbackMilliseconds": 1204.5,
+        "theoreticalCells": {
+          "min": 122,
+          "max": 197,
+          "mean": 152.41986083984375
+        },
+        "cappedRays": 0
+      },
+      {
+        "name": "step-15",
+        "renderReadbackMilliseconds": 1424.8999999985099,
+        "theoreticalCells": {
+          "min": 243,
+          "max": 394,
+          "mean": 304.33892822265625
+        },
+        "cappedRays": 0
+      },
+      {
+        "name": "step-7p5",
+        "renderReadbackMilliseconds": 2383,
+        "theoreticalCells": {
+          "min": 485,
+          "max": 512,
+          "mean": 511.1832275390625
+        },
+        "cappedRays": 30015
+      },
+      {
+        "name": "constant-light",
+        "renderReadbackMilliseconds": 498.30000000447035,
+        "theoreticalCells": {
+          "min": 122,
+          "max": 197,
+          "mean": 152.41986083984375
+        },
+        "cappedRays": 0
+      },
+      {
+        "name": "full-cell-footprint",
+        "renderReadbackMilliseconds": 1059.3999999985099,
+        "theoreticalCells": {
+          "min": 122,
+          "max": 197,
+          "mean": 152.41986083984375
+        },
+        "cappedRays": 0
+      },
+      {
+        "name": "step-30-restore",
+        "renderReadbackMilliseconds": 1017.8999999985099,
+        "theoreticalCells": {
+          "min": 122,
+          "max": 197,
+          "mean": 152.41986083984375
+        },
+        "cappedRays": 0
+      }
+    ]
+  },
+  "restoration": {
+    "display": {
+      "changedPixels": 0,
+      "maximumComponentDelta": 0,
+      "meanAbsoluteComponentDelta": 0
+    },
+    "rawHalfBits": {
+      "changedPixels": 0,
+      "maximumComponentDelta": 0,
+      "meanAbsoluteComponentDelta": 0
+    }
+  },
+  "evidenceFiles": [
+    "results.json",
+    "frames.json",
+    "baseline-comparison.json",
+    "component-metrics.json",
+    "memory.json"
+  ],
+  "imageReview": [
+    "step-30.png",
+    "step-15.png",
+    "step-7p5.png",
+    "constant-light.png",
+    "full-cell-footprint.png"
+  ]
+}

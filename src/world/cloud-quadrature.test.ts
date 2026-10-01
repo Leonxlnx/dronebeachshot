@@ -4,8 +4,8 @@ import assert from 'node:assert/strict';
 // Numerical model of the visible/cube shader's deterministic partition. These
 // checks establish its integration properties, not a rendered-cloud verdict.
 type Cell={begin:number;end:number;midpoint:number;length:number};
-function cells(span:number,legacy=false):Cell[]{
- const step=legacy?span/Math.max(12,Math.min(512,Math.ceil(span/30))):Math.max(span/512,Math.min(30,span/12));
+function cells(span:number,legacy=false,nominalStep=15):Cell[]{
+ const step=legacy?span/Math.max(12,Math.min(512,Math.ceil(span/nominalStep))):Math.max(span/512,Math.min(nominalStep,span/12));
  const result:Cell[]=[];
  for(let i=0;i<512;i++){
   const begin=i*step;if(begin>=span)break;
@@ -14,12 +14,12 @@ function cells(span:number,legacy=false):Cell[]{
  }
  return result;
 }
-const integral=(span:number,density:(position:number)=>number,legacy=false)=>
- cells(span,legacy).reduce((sum,cell)=>sum+density(cell.midpoint)*cell.length,0);
+const integral=(span:number,density:(position:number)=>number,legacy=false,nominalStep=15)=>
+ cells(span,legacy,nominalStep).reduce((sum,cell)=>sum+density(cell.midpoint)*cell.length,0);
 function close(actual:number,expected:number,tolerance=1e-9){assert.ok(Math.abs(actual-expected)<=tolerance,`${actual} != ${expected}`);}
 
 test('cloud primary cells partition the entire ray within the existing sample budget',()=>{
- for(const span of [1e-7,.13,7,359.999999,360,360.000001,390,390.000001,1275,15359.999999,15360,15360.000001,50000,72000]){
+ for(const span of [1e-7,.13,7,179.999999,180,180.000001,195,195.000001,1275,7679.999999,7680,7680.000001,50000,72000]){
   const partition=cells(span);
   assert.ok(partition.length>=12&&partition.length<=512);
   close(partition[0].begin,0);close(partition.at(-1)!.end,span,span*1e-12);
@@ -51,12 +51,12 @@ test('adding a tail cell is continuous; the old ceil repartition fails the same 
  const density=(x:number)=>.04+.32*Math.exp(-(((x-137)/9)**2))+.1*Math.exp(-(((x-379)/22)**2));
  const epsilon=1e-6;
  for(let count=12;count<=512;count++){
-  const boundary=count*30;
+  const boundary=count*15;
   const delta=Math.abs(integral(boundary+epsilon,density)-integral(boundary-epsilon,density));
   assert.ok(delta<1e-6,`Unexpected integration jump at ${boundary} m: ${delta}`);
  }
  // A smooth bounded fixture with fine lobes is deliberately sensitive to
  // moving all sample centers. This diagnoses continuity, not absolute accuracy.
- const oldJump=Math.abs(integral(600+epsilon,density,true)-integral(600-epsilon,density,true));
+ const oldJump=Math.abs(integral(600+epsilon,density,true,30)-integral(600-epsilon,density,true,30));
  assert.ok(oldJump>1,'The negative control must detect the old repartition jump');
 });
