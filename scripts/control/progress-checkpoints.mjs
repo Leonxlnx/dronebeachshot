@@ -16,11 +16,12 @@ const same=(a,b)=>JSON.stringify(canonical(a))===JSON.stringify(canonical(b));
 const plain=value=>value!==null&&typeof value==='object'&&!Array.isArray(value);
 export function validateProfile(profile){
  if(!plain(profile))throw Error('Settings profile must be a JSON object');
- const objectKeys=['lighting','surfaceStudy','shadowStudy'],booleanKeys=['culling','oceanCulling','farCrownCoverage','farCrownBlending','linearMainOutput','profiling','coastalUnderstory'];
+ const objectKeys=['lighting','surfaceStudy','shadowStudy'],booleanKeys=['culling','oceanCulling','farCrownCoverage','farCrownBlending','islandDirectResponse','linearMainOutput','profiling','coastalUnderstory'];
  for(const [key,value]of Object.entries(profile)){
   if(objectKeys.includes(key)){if(!plain(value))throw Error('Invalid '+key+' settings');}
   else if(booleanKeys.includes(key)){if(typeof value!=='boolean')throw Error('Invalid '+key+' setting');}
   else if(key==='debug'){if(!Number.isInteger(value)||value<0||value>12)throw Error('Invalid debug setting');}
+  else if(key==='linearMainSampleScale'){if(value!==1&&value!==2)throw Error('Invalid linear main sample scale');}
   else throw Error('Unknown capture setting: '+key);
  }
  return canonical(profile);

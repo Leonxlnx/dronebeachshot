@@ -2,6 +2,8 @@ import {renderedTerrainHeight,renderedTerrainHeightBeforePrincipalFace} from './
 import {rng,terrainSlopeBeforePrincipalFace,shoreDistance} from './math.ts';
 import {habitatAtBeforePrincipalFace} from './habitat.ts';
 import {pathPosition} from '../camera/cinematic.ts';
+import {EAST_SPUR_STUDY_ENABLED} from './east-spur.ts';
+import {eastSpurExcludesTree} from './east-spur-ecology.ts';
 export type Placement={x:number,y:number,z:number,scale:number,angle:number,variant:number,family:number,exposure:number,moisture:number};
 const flightSamples=Array.from({length:601},(_,i)=>pathPosition(i/30));
 export function treePlacementsBeforePrincipalFace(){
@@ -25,7 +27,9 @@ export function treePlacementsBeforePrincipalFace(){
  return placements;
 }
 
-// Keep the reviewed cohort and every random identity stable. Only the actual
-// root height follows the local terrain edit; no rejection/refill moves trees
-// elsewhere. Steep-face/basal support is a separate explicit geometry review.
-export function treePlacements(){return treePlacementsBeforePrincipalFace().map(tree=>({...tree,y:renderedTerrainHeight(tree.x,tree.z)-.06}))}
+// Keep reviewed random identities and relative order. The default-off spur
+// additionally omits its source-audited local unsupported roots; never refill.
+// All retained roots follow the actual Float32 triangle terrain.
+export function treePlacements(){return treePlacementsBeforePrincipalFace()
+ .filter((tree,index)=>!EAST_SPUR_STUDY_ENABLED||!eastSpurExcludesTree(index,tree.x,tree.z))
+ .map(tree=>({...tree,y:renderedTerrainHeight(tree.x,tree.z)-.06}))}

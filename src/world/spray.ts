@@ -36,10 +36,14 @@ export function createRockSpray(field:CoastalField){
  #include <tonemapping_fragment>
  #include <colorspace_fragment>
  }`)});
- const points=new THREE.Points(geometry,material),bufferSize=new THREE.Vector2();
+ const points=new THREE.Points(geometry,material),bufferSize=new THREE.Vector2(),activeViewport=new THREE.Vector4();
  let graphicsContext:WebGLRenderingContext|WebGL2RenderingContext|undefined;
  points.onBeforeRender=renderer=>{
-  renderer.getDrawingBufferSize(bufferSize);material.uniforms.uBufferHeight.value=bufferSize.y;
+  if(renderer.getRenderTarget()){
+   renderer.getCurrentViewport(activeViewport);material.uniforms.uBufferHeight.value=activeViewport.w;
+  }else{
+   renderer.getDrawingBufferSize(bufferSize);material.uniforms.uBufferHeight.value=bufferSize.y;
+  }
   const gl=renderer.getContext();
   if(graphicsContext!==gl){graphicsContext=gl;material.uniforms.uPointLimit.value=gl.getParameter(gl.ALIASED_POINT_SIZE_RANGE)[1]}
  };

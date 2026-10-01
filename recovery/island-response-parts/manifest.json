@@ -1,0 +1,25 @@
+{
+  "sha256": "f93b6e0676f2140bd9b3b5880cd0dcb9fe7df6819a23484426f0ceeed5e78c8b",
+  "parts": [
+    {
+      "path": "island-response-parts/island-response.zip.part000",
+      "size": 1048576,
+      "sha256": "ae6871da241c0077191d8ae290fa146e30e99090502866048aed3fafc1763b17"
+    },
+    {
+      "path": "island-response-parts/island-response.zip.part001",
+      "size": 1048576,
+      "sha256": "7390e4aa502d2c1a2542dd85cd1873f430c3a5beedcb91244433e6a7827f9ad2"
+    },
+    {
+      "path": "island-response-parts/island-response.zip.part002",
+      "size": 1048576,
+      "sha256": "bdb5c9d42dee65cca1682706997fd9220a33ba80f316cad0e8bcc7a1a3972076"
+    },
+    {
+      "path": "island-response-parts/island-response.zip.part003",
+      "size": 567550,
+      "sha256": "cb733f259f6f668c64942722a996b80e854bd0e715b4d5914d1c7758eaab04d5"
+    }
+  ]
+}

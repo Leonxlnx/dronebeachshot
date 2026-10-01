@@ -1,0 +1,2213 @@
+{
+  "reason": "Unrelated shared math.ts changed after browser imports; fail-fast source check closed first context before a new checkpoint",
+  "firstAttemptWallMilliseconds": 183968,
+  "retainedLayerCount": 48,
+  "retainedLayers": [
+    {
+      "view": 0,
+      "sun": 0,
+      "layer": 0,
+      "renderMilliseconds": 6171.5,
+      "sourceRenderSize": 1024,
+      "coverageSHA256": "950783b523817f70c3c71453eb793e671d5d1891251d067357516eee3c1e8e29",
+      "oldArea": 5196.945098039255,
+      "newArea": 5216.28125,
+      "newToOldCoverageArea": 1.0037206765890292,
+      "absoluteCoverageError": 214.83713235294266,
+      "absoluteCoverageErrorFraction": 0.0413391190978712,
+      "newCoverageOutsideOldSupport": 2.0625,
+      "oldCoverageOutsideNewSupport": 1.8666666666666654,
+      "sourceRGBIntegral": [
+        19.29583475459367,
+        19.265888776630163,
+        8.60122258681804
+      ],
+      "oldAlphaConditionalRGBIntegral": [
+        19.239225445730007,
+        19.20071218811141,
+        8.591769784649284
+      ],
+      "oldAlphaToOwnAlphaLuminance": 0.9967932616345202,
+      "rawFile": {
+        "name": "source-raw-view00-sun0.rgba16f",
+        "bytes": 8388608,
+        "sha256": "a5bf0a714f0ea04195bec52021c04b15d6738e7190a4e05e71c4731e3bfcd969",
+        "storedName": "source-raw-view00-sun0.rgba16f.gz",
+        "storedBytes": 635399,
+        "storedSHA256": "ab1bf62a635b8e6758b09d892fcdf96927ab00b93808867db5881d5f92656abb"
+      },
+      "cellFile": {
+        "name": "response256-view00-sun0.rgba16f",
+        "bytes": 524288,
+        "sha256": "cd73228d9bbea1a9bcc5cc11a558d046972341b334421ac6abbc588d10f077d7"
+      },
+      "smallFile": {
+        "name": "response128-view00-sun0.rgba16f",
+        "bytes": 131072,
+        "sha256": "7af96523ee8551e045ab29e764c050870596bd9c393961d98496c482431a09a3"
+      }
+    },
+    {
+      "view": 1,
+      "sun": 0,
+      "layer": 1,
+      "renderMilliseconds": 3182.300000000745,
+      "sourceRenderSize": 1024,
+      "coverageSHA256": "6c73704615826250f0df3f71ee3f078a532db81b1b24eb191150a7c788e775a5",
+      "oldArea": 5308.956862745195,
+      "newArea": 5318.828125,
+      "newToOldCoverageArea": 1.0018593600419086,
+      "absoluteCoverageError": 223.3632965686297,
+      "absoluteCoverageErrorFraction": 0.04207291608188568,
+      "newCoverageOutsideOldSupport": 1.390625,
+      "oldCoverageOutsideNewSupport": 1.254901960784313,
+      "sourceRGBIntegral": [
+        12.111352975480258,
+        12.154687204398215,
+        5.24268863722682
+      ],
+      "oldAlphaConditionalRGBIntegral": [
+        12.086975157391235,
+        12.12789377683938,
+        5.237461549615864
+      ],
+      "oldAlphaToOwnAlphaLuminance": 0.9978772221720239,
+      "rawFile": {
+        "name": "source-raw-view01-sun0.rgba16f",
+        "bytes": 8388608,
+        "sha256": "7938022c841989d3f774aa1af02c0e506db20d91e6938bd00880f97e5430d3d6",
+        "storedName": "source-raw-view01-sun0.rgba16f.gz",
+        "storedBytes": 577915,
+        "storedSHA256": "41d59378741298cfd67db518a965d89a1c8a6806a09d8c99ead82838b0b7069f"
+      },
+      "cellFile": {
+        "name": "response256-view01-sun0.rgba16f",
+        "bytes": 524288,
+        "sha256": "bc8d00b91f526813e635a943214495c7c4bcd5c69546a2fdd5322982c821bbfa"
+      },
+      "smallFile": {
+        "name": "response128-view01-sun0.rgba16f",
+        "bytes": 131072,
+        "sha256": "a3c7bdfe11585d49c0820c0791dfd371469859ebe261c274fe79caab21fda4d2"
+      }
+    },
+    {
+      "view": 2,
+      "sun": 0,
+      "layer": 2,
+      "renderMilliseconds": 3465.5,
+      "sourceRenderSize": 1024,
+      "coverageSHA256": "be0ce20249d753258bcdb77c7d8dd4fa1a24d1b19f1ac34a420ba1cbb187e7b8",
+      "oldArea": 5166.870588235335,
+      "newArea": 5184.359375,
+      "newToOldCoverageArea": 1.003384792877237,
+      "absoluteCoverageError": 243.28731617647267,
+      "absoluteCoverageErrorFraction": 0.0470860092239244,
+      "newCoverageOutsideOldSupport": 2.296875,
+      "oldCoverageOutsideNewSupport": 1.7098039215686265,
+      "sourceRGBIntegral": [
+        4.696355803869665,
+        4.772123175673187,
+        1.902286497876048
+      ],
+      "oldAlphaConditionalRGBIntegral": [
+        4.6781244361671,
+        4.752327967487206,
+        1.8972866774858448
+      ],
+      "oldAlphaToOwnAlphaLuminance": 0.9959561957348247,
+      "rawFile": {
+        "name": "source-raw-view02-sun0.rgba16f",
+        "bytes": 8388608,
+        "sha256": "f555e65df00dc0efae04c5c70f8a8f122b3a2e03d28368a7c4daba6a19312c76",
+        "storedName": "source-raw-view02-sun0.rgba16f.gz",
+        "storedBytes": 489836,
+        "storedSHA256": "4a9416260e4b876f2e40c4f17f4c51a62f586f4c94426e2b7f464ad3bd36e10a"
+      },
+      "cellFile": {
+        "name": "response256-view02-sun0.rgba16f",
+        "bytes": 524288,
+        "sha256": "83ddd0f9d8d7560ccfa58f20af54fe82e5c99f95d99c5e332d7cefb56f8a1ebf"
+      },
+      "smallFile": {
+        "name": "response128-view02-sun0.rgba16f",
+        "bytes": 131072,
+        "sha256": "5048928da012bcf557de3a069c3260f0c4555b753aa4f4bafc7b827ebdcddf8b"
+      }
+    },
+    {
+      "view": 3,
+      "sun": 0,
+      "layer": 3,
+      "renderMilliseconds": 3142,
+      "sourceRenderSize": 1024,
+      "coverageSHA256": "d84b94da7859bfc74a24a6d3374afe026655304b169d46b7f197a6947808250d",
+      "oldArea": 5144.913725490201,
+      "newArea": 5159.65625,
+      "newToOldCoverageArea": 1.0028654561177106,
+      "absoluteCoverageError": 218.09362745098102,
+      "absoluteCoverageErrorFraction": 0.04239014278712737,
+      "newCoverageOutsideOldSupport": 2.28125,
+      "oldCoverageOutsideNewSupport": 1.427450980392156,
+      "sourceRGBIntegral": [
+        2.154869173653424,
+        2.266139912419021,
+        0.8501010350883007
+      ],
+      "oldAlphaConditionalRGBIntegral": [
+        2.1438406405358768,
+        2.2535762516457796,
+        0.8468086375692742
+      ],
+      "oldAlphaToOwnAlphaLuminance": 0.9945950564573869,
+      "rawFile": {
+        "name": "source-raw-view03-sun0.rgba16f",
+        "bytes": 8388608,
+        "sha256": "00acc194c3912afa0bc367215fae5626a1ea51075825e55f26301462078e388e",
+        "storedName": "source-raw-view03-sun0.rgba16f.gz",
+        "storedBytes": 419408,
+        "storedSHA256": "cb312e8ce0462bfc417ae092630e4d66402d03813a1e758992405d2fe7285348"
+      },
+      "cellFile": {
+        "name": "response256-view03-sun0.rgba16f",
+        "bytes": 524288,
+        "sha256": "72d59058c245c9ab959846a147b6a4c0e9430aae21e2e1d1652f3b0b837c507e"
+      },
+      "smallFile": {
+        "name": "response128-view03-sun0.rgba16f",
+        "bytes": 131072,
+        "sha256": "86d9e46a6ac592e41af4d38d4b38431bca87d72d14441036db4b2105672ed927"
+      }
+    },
+    {
+      "view": 4,
+      "sun": 0,
+      "layer": 4,
+      "renderMilliseconds": 3009.39999999851,
+      "sourceRenderSize": 1024,
+      "coverageSHA256": "b0159321102d0f8b4e3b1fc29e4466944154a41e866af76bbbf9b711d293c623",
+      "oldArea": 5198.9803921569,
+      "newArea": 5213.5,
+      "newToOldCoverageArea": 1.0027927798814176,
+      "absoluteCoverageError": 219.568872549021,
+      "absoluteCoverageErrorFraction": 0.04223306417547932,
+      "newCoverageOutsideOldSupport": 1.921875,
+      "oldCoverageOutsideNewSupport": 1.7568627450980374,
+      "sourceRGBIntegral": [
+        2.130746935494244,
+        2.2920775236561894,
+        0.8148616505786777
+      ],
+      "oldAlphaConditionalRGBIntegral": [
+        2.117757617954872,
+        2.277859625045705,
+        0.8102685033153105
+      ],
+      "oldAlphaToOwnAlphaLuminance": 0.993834945192812,
+      "rawFile": {
+        "name": "source-raw-view04-sun0.rgba16f",
+        "bytes": 8388608,
+        "sha256": "f06254bb97cfa55aa4e417c7a4444b4d819e6b374c58eea6af049a2355b4ca05",
+        "storedName": "source-raw-view04-sun0.rgba16f.gz",
+        "storedBytes": 397594,
+        "storedSHA256": "aa632bd88707c9357e5c7472ea42d6a82de1c4b18d9eb541efee7f6c3da074be"
+      },
+      "cellFile": {
+        "name": "response256-view04-sun0.rgba16f",
+        "bytes": 524288,
+        "sha256": "5c4b0f975b271af5c45a4a26b0c5fe76710ae1020a814dd34a04e4a671be23f0"
+      },
+      "smallFile": {
+        "name": "response128-view04-sun0.rgba16f",
+        "bytes": 131072,
+        "sha256": "64fd83c79f4fb0bbcc0098b02557608827ee267f43e8c9baaf9eceabd7e940ea"
+      }
+    },
+    {
+      "view": 5,
+      "sun": 0,
+      "layer": 5,
+      "renderMilliseconds": 3391.39999999851,
+      "sourceRenderSize": 1024,
+      "coverageSHA256": "8a818d5e809bc5933c5ee66bce4f40e9d4909a68b6443e8392fbbf1a790e3178",
+      "oldArea": 5311.2901960785275,
+      "newArea": 5321.34375,
+      "newToOldCoverageArea": 1.0018928647372527,
+      "absoluteCoverageError": 226.69044117647192,
+      "absoluteCoverageErrorFraction": 0.042680861487072154,
+      "newCoverageOutsideOldSupport": 1.28125,
+      "oldCoverageOutsideNewSupport": 1.2392156862745094,
+      "sourceRGBIntegral": [
+        2.323692268691957,
+        2.45246266387403,
+        0.9072685614228249
+      ],
+      "oldAlphaConditionalRGBIntegral": [
+        2.317541633489011,
+        2.445680043762121,
+        0.9054911038341424
+      ],
+      "oldAlphaToOwnAlphaLuminance": 0.9972825482119305,
+      "rawFile": {
+        "name": "source-raw-view05-sun0.rgba16f",
+        "bytes": 8388608,
+        "sha256": "ac0698240d64f1a226c0b2d210d1d04a1aa898990dc966df75e5d8d49e4e1332",
+        "storedName": "source-raw-view05-sun0.rgba16f.gz",
+        "storedBytes": 430399,
+        "storedSHA256": "970f2b9f75f01014113fbc804470d863a03d2c7322a41c94a42684ae8ffe47b8"
+      },
+      "cellFile": {
+        "name": "response256-view05-sun0.rgba16f",
+        "bytes": 524288,
+        "sha256": "5066c2a5bd6c7d765a7d7d764a78cab1a0739d75cfc49f4e05d8cb3aa73ee718"
+      },
+      "smallFile": {
+        "name": "response128-view05-sun0.rgba16f",
+        "bytes": 131072,
+        "sha256": "ee83a9b664cf686548fc8be1614b2aaffc748f9f442af770e574c988aaffaddc"
+      }
+    },
+    {
+      "view": 6,
+      "sun": 0,
+      "layer": 6,
+      "renderMilliseconds": 3670,
+      "sourceRenderSize": 1024,
+      "coverageSHA256": "0aa04b0870fa3f5728c6a2fedcd99cee678366de0f26d02ff60495c0df94a892",
+      "oldArea": 5161.674509803965,
+      "newArea": 5180.875,
+      "newToOldCoverageArea": 1.0037198180860816,
+      "absoluteCoverageError": 243.86066176470854,
+      "absoluteCoverageErrorFraction": 0.0472444865133447,
+      "newCoverageOutsideOldSupport": 2.109375,
+      "oldCoverageOutsideNewSupport": 1.5529411764705874,
+      "sourceRGBIntegral": [
+        5.250249697826803,
+        5.262819114141166,
+        2.4169181073084474
+      ],
+      "oldAlphaConditionalRGBIntegral": [
+        5.233580896409389,
+        5.243244110185941,
+        2.4144750554513283
+      ],
+      "oldAlphaToOwnAlphaLuminance": 0.9964942897309209,
+      "rawFile": {
+        "name": "source-raw-view06-sun0.rgba16f",
+        "bytes": 8388608,
+        "sha256": "3e2dc2c036aad33edcc407cc3712909edc75bf25f63b1e9ad83da462112f2ebb",
+        "storedName": "source-raw-view06-sun0.rgba16f.gz",
+        "storedBytes": 503910,
+        "storedSHA256": "513240f085e69591197df2989522a6a18c8239e0d3ff92641252abb140cd6c78"
+      },
+      "cellFile": {
+        "name": "response256-view06-sun0.rgba16f",
+        "bytes": 524288,
+        "sha256": "ef75e40ae07d943fa8812fb2dd6d0d3a5569bf498a8d8710cb080d22575c7a94"
+      },
+      "smallFile": {
+        "name": "response128-view06-sun0.rgba16f",
+        "bytes": 131072,
+        "sha256": "1585484d5d96d115b148d8a08cca975c17cfcefe19ad010fe710c21ac6f60d38"
+      }
+    },
+    {
+      "view": 7,
+      "sun": 0,
+      "layer": 7,
+      "renderMilliseconds": 4208.900000002235,
+      "sourceRenderSize": 1024,
+      "coverageSHA256": "2a48d33f631218a9d5f597fb533a4970c6cd0628170c50c34d00366d62675b83",
+      "oldArea": 5142.050980392149,
+      "newArea": 5160.78125,
+      "newToOldCoverageArea": 1.0036425678545924,
+      "absoluteCoverageError": 217.68345588235468,
+      "absoluteCoverageErrorFraction": 0.042333974655722584,
+      "newCoverageOutsideOldSupport": 2.25,
+      "oldCoverageOutsideNewSupport": 1.4117647058823521,
+      "sourceRGBIntegral": [
+        12.613768785260618,
+        12.571153461933136,
+        5.792220686562359
+      ],
+      "oldAlphaConditionalRGBIntegral": [
+        12.57497448150395,
+        12.528847349883248,
+        5.783902301004585
+      ],
+      "oldAlphaToOwnAlphaLuminance": 0.9967656672741398,
+      "rawFile": {
+        "name": "source-raw-view07-sun0.rgba16f",
+        "bytes": 8388608,
+        "sha256": "e5bf920336630f1ba7183ed03a8e149dd8b8254ca71af764fca62d44e6784866",
+        "storedName": "source-raw-view07-sun0.rgba16f.gz",
+        "storedBytes": 582925,
+        "storedSHA256": "ad7a3d74556abfb25aba4ca51aff38213422128ae299fc27424bc8cf4187d911"
+      },
+      "cellFile": {
+        "name": "response256-view07-sun0.rgba16f",
+        "bytes": 524288,
+        "sha256": "5a9cdc2731de076bf7e75db7c1f1a6818bd9be8a164b80fa36c1b9435a75d7f2"
+      },
+      "smallFile": {
+        "name": "response128-view07-sun0.rgba16f",
+        "bytes": 131072,
+        "sha256": "077ebe155474a3df9e6ec92d007b804ca46b740a6a30f02dccecdd00509153fb"
+      }
+    },
+    {
+      "view": 8,
+      "sun": 0,
+      "layer": 8,
+      "renderMilliseconds": 3642.699999999255,
+      "sourceRenderSize": 1024,
+      "coverageSHA256": "515b2246fecd63c6f3c108511ef3b7a1411273dd9944eb21fd3d17eb9c6f7f91",
+      "oldArea": 5272.847058823515,
+      "newArea": 5290.9375,
+      "newToOldCoverageArea": 1.0034308677977324,
+      "absoluteCoverageError": 281.5613970588257,
+      "absoluteCoverageErrorFraction": 0.05339836219745166,
+      "newCoverageOutsideOldSupport": 1.859375,
+      "oldCoverageOutsideNewSupport": 2.494117647058821,
+      "sourceRGBIntegral": [
+        12.24935656785965,
+        12.68709090910852,
+        4.558563590049744
+      ],
+      "oldAlphaConditionalRGBIntegral": [
+        12.22506764890669,
+        12.660368858823672,
+        4.553925592964505
+      ],
+      "oldAlphaToOwnAlphaLuminance": 0.9979503628966865,
+      "rawFile": {
+        "name": "source-raw-view08-sun0.rgba16f",
+        "bytes": 8388608,
+        "sha256": "ce9e55e4b72ba6e8619715a672e7166d9c54ffaaee2439a0d90cc2934b86ee71",
+        "storedName": "source-raw-view08-sun0.rgba16f.gz",
+        "storedBytes": 624571,
+        "storedSHA256": "bfb70315c373d1c20b7e2c96718fb4caf13524eae586ab8786f634bc13e2cc0a"
+      },
+      "cellFile": {
+        "name": "response256-view08-sun0.rgba16f",
+        "bytes": 524288,
+        "sha256": "0a6aeeb51dfe614df33e0126026617103423af8f0c0d4671ba3670c36c1a1e5f"
+      },
+      "smallFile": {
+        "name": "response128-view08-sun0.rgba16f",
+        "bytes": 131072,
+        "sha256": "df802b5192a5ea17d8e7545b84240894e3e97d572deab80028a7a31d4a1e4c8b"
+      }
+    },
+    {
+      "view": 9,
+      "sun": 0,
+      "layer": 9,
+      "renderMilliseconds": 3349.39999999851,
+      "sourceRenderSize": 1024,
+      "coverageSHA256": "8e7845588246812b46f4ef21a6cacb0fea03001ebfd4ecf825e0159cc27627e2",
+      "oldArea": 5316.796078431349,
+      "newArea": 5343.234375,
+      "newToOldCoverageArea": 1.0049725993208396,
+      "absoluteCoverageError": 289.14234068627695,
+      "absoluteCoverageErrorFraction": 0.05438281559438417,
+      "newCoverageOutsideOldSupport": 2.765625,
+      "oldCoverageOutsideNewSupport": 2.337254901960783,
+      "sourceRGBIntegral": [
+        9.687553513795137,
+        9.973315036855638,
+        3.707789476029575
+      ],
+      "oldAlphaConditionalRGBIntegral": [
+        9.636494823895442,
+        9.916159131151078,
+        3.6958698669226875
+      ],
+      "oldAlphaToOwnAlphaLuminance": 0.994440537622854,
+      "rawFile": {
+        "name": "source-raw-view09-sun0.rgba16f",
+        "bytes": 8388608,
+        "sha256": "745c63dd7965f87c594a371334914b49b2d48ea37312a7abb81bf3c675eebead",
+        "storedName": "source-raw-view09-sun0.rgba16f.gz",
+        "storedBytes": 610351,
+        "storedSHA256": "2fdee0395c9f9730344a11b5316e36d3bd4c0ff78c32ca3d4e23c7b42d2d9fb3"
+      },
+      "cellFile": {
+        "name": "response256-view09-sun0.rgba16f",
+        "bytes": 524288,
+        "sha256": "150aaf1a50527c5b714191c49e110a5ce0d2644f2433600fbb404665d3d8773f"
+      },
+      "smallFile": {
+        "name": "response128-view09-sun0.rgba16f",
+        "bytes": 131072,
+        "sha256": "c2a122c995f88d1b21284af90ae6f5405419979ffbf1c4155e6f3f2aafd8f0e2"
+      }
+    },
+    {
+      "view": 10,
+      "sun": 0,
+      "layer": 10,
+      "renderMilliseconds": 3342.39999999851,
+      "sourceRenderSize": 1024,
+      "coverageSHA256": "a683c26b3ab973129abfbaa8800ba870dac575a54cd75354c1ff4357ffe95603",
+      "oldArea": 5876.756862745139,
+      "newArea": 5892.09375,
+      "newToOldCoverageArea": 1.0026097535788978,
+      "absoluteCoverageError": 300.5932598039253,
+      "absoluteCoverageErrorFraction": 0.05114951440470396,
+      "newCoverageOutsideOldSupport": 2.5625,
+      "oldCoverageOutsideNewSupport": 1.9921568627450967,
+      "sourceRGBIntegral": [
+        5.19383704662323,
+        5.3581391694024205,
+        2.0031655617058277
+      ],
+      "oldAlphaConditionalRGBIntegral": [
+        5.179491134779618,
+        5.342399612056796,
+        1.999104030724101
+      ],
+      "oldAlphaToOwnAlphaLuminance": 0.997126515670764,
+      "rawFile": {
+        "name": "source-raw-view10-sun0.rgba16f",
+        "bytes": 8388608,
+        "sha256": "3e914ecc208d9ee9f706d4130af73ac863814b590fa2f2100a80f8843b46b28e",
+        "storedName": "source-raw-view10-sun0.rgba16f.gz",
+        "storedBytes": 578345,
+        "storedSHA256": "3d47e85eea2d727c80d81e7beab3d7844292911950ecc22ee7ed4c3a65d644bc"
+      },
+      "cellFile": {
+        "name": "response256-view10-sun0.rgba16f",
+        "bytes": 524288,
+        "sha256": "b597a8a126ce6787258656fb9c0644d720584bdccf4dba72b37c57f59da38706"
+      },
+      "smallFile": {
+        "name": "response128-view10-sun0.rgba16f",
+        "bytes": 131072,
+        "sha256": "c0774a77e81c879ae477b918285ae6b31406b64122cbdb4da22cd0003a991fa8"
+      }
+    },
+    {
+      "view": 11,
+      "sun": 0,
+      "layer": 11,
+      "renderMilliseconds": 3439.400000002235,
+      "sourceRenderSize": 1024,
+      "coverageSHA256": "4474d5bc887d8d61a9fb24d7cf73f3be3e54898d089d53909f75a210867e45e5",
+      "oldArea": 6157.380392156946,
+      "newArea": 6175.890625,
+      "newToOldCoverageArea": 1.003006186342918,
+      "absoluteCoverageError": 320.9186887254938,
+      "absoluteCoverageErrorFraction": 0.052119354057493135,
+      "newCoverageOutsideOldSupport": 2.0625,
+      "oldCoverageOutsideNewSupport": 2.2588235294117625,
+      "sourceRGBIntegral": [
+        3.1509526427835226,
+        3.325883036479354,
+        1.2028057565912604
+      ],
+      "oldAlphaConditionalRGBIntegral": [
+        3.134062602936463,
+        3.307316938090862,
+        1.1969844898922721
+      ],
+      "oldAlphaToOwnAlphaLuminance": 0.9944856940754134,
+      "rawFile": {
+        "name": "source-raw-view11-sun0.rgba16f",
+        "bytes": 8388608,
+        "sha256": "2877a33cb54ac7f8154acab51c9dac53b78a6981c47352d1c77abfc4aea8c1fa",
+        "storedName": "source-raw-view11-sun0.rgba16f.gz",
+        "storedBytes": 568313,
+        "storedSHA256": "92b3f390177de1f246438b22e9f2f70e732609667cb12b94abac5830787bf587"
+      },
+      "cellFile": {
+        "name": "response256-view11-sun0.rgba16f",
+        "bytes": 524288,
+        "sha256": "dad8cc3385f179fa206f7a38081d5db5308f3949636cd3b84a358afb69341479"
+      },
+      "smallFile": {
+        "name": "response128-view11-sun0.rgba16f",
+        "bytes": 131072,
+        "sha256": "0626d4981bb09d561e0770642ba497506aa28b42ea1d5579e155c0ecfc7a0fbf"
+      }
+    },
+    {
+      "view": 12,
+      "sun": 0,
+      "layer": 12,
+      "renderMilliseconds": 2959.300000000745,
+      "sourceRenderSize": 1024,
+      "coverageSHA256": "064d3b33eb31e491d9ef7d23c5af3c8b6ee460e0fb8f16f5f2f32f400be15c80",
+      "oldArea": 6312.741176470723,
+      "newArea": 6330.234375,
+      "newToOldCoverageArea": 1.00277109389412,
+      "absoluteCoverageError": 323.6056985294144,
+      "absoluteCoverageErrorFraction": 0.051262310537232146,
+      "newCoverageOutsideOldSupport": 2.171875,
+      "oldCoverageOutsideNewSupport": 2.5411764705882325,
+      "sourceRGBIntegral": [
+        2.8852679384872317,
+        3.0747976545244455,
+        1.1058199666440487
+      ],
+      "oldAlphaConditionalRGBIntegral": [
+        2.868800282380879,
+        3.056539086958783,
+        1.1006006092864822
+      ],
+      "oldAlphaToOwnAlphaLuminance": 0.994144406043793,
+      "rawFile": {
+        "name": "source-raw-view12-sun0.rgba16f",
+        "bytes": 8388608,
+        "sha256": "8fa66a5d6ac90634e8b2f1e21f3afe411571894783293297a7726e3d37f00bf4",
+        "storedName": "source-raw-view12-sun0.rgba16f.gz",
+        "storedBytes": 558032,
+        "storedSHA256": "9eb6bb83d8555ee5196655b725c42a299030e8770d3a1b6a80246f7cd44c56a2"
+      },
+      "cellFile": {
+        "name": "response256-view12-sun0.rgba16f",
+        "bytes": 524288,
+        "sha256": "18ae8fa9ba099d713e914971e72df0264c2698d5bd5d19c2a2b64aef0f5355c4"
+      },
+      "smallFile": {
+        "name": "response128-view12-sun0.rgba16f",
+        "bytes": 131072,
+        "sha256": "afed0a55632faa74c40f4a40a3eb7855e4205c7ccdc916f0455f252e9b3e5969"
+      }
+    },
+    {
+      "view": 13,
+      "sun": 0,
+      "layer": 13,
+      "renderMilliseconds": 3112,
+      "sourceRenderSize": 1024,
+      "coverageSHA256": "d5f7038e2cd1e5bdcfdea3c5d5e1bb7b4afded9ba64a1e329dd4313659f62710",
+      "oldArea": 6451.211764705968,
+      "newArea": 6475.484375,
+      "newToOldCoverageArea": 1.0037624885338325,
+      "absoluteCoverageError": 339.58253676471,
+      "absoluteCoverageErrorFraction": 0.05263856607878496,
+      "newCoverageOutsideOldSupport": 2.265625,
+      "oldCoverageOutsideNewSupport": 2.180392156862743,
+      "sourceRGBIntegral": [
+        3.2111032074317336,
+        3.389960347674787,
+        1.222888465039432
+      ],
+      "oldAlphaConditionalRGBIntegral": [
+        3.194548874121542,
+        3.371747434699863,
+        1.2176322701840252
+      ],
+      "oldAlphaToOwnAlphaLuminance": 0.9947034991935645,
+      "rawFile": {
+        "name": "source-raw-view13-sun0.rgba16f",
+        "bytes": 8388608,
+        "sha256": "5a26beb1649b7e3606c0c80038109ebe69677520a83199eb041f739379bf4355",
+        "storedName": "source-raw-view13-sun0.rgba16f.gz",
+        "storedBytes": 588263,
+        "storedSHA256": "74c6e955f1a441a944e3dde681eb0cc1b4e8005d01d2ac9fdacf3ec44b1e8b8e"
+      },
+      "cellFile": {
+        "name": "response256-view13-sun0.rgba16f",
+        "bytes": 524288,
+        "sha256": "cf89deb8e4304a864c50ddcb2f115587df012a1f4e024e64152186f4e9d95807"
+      },
+      "smallFile": {
+        "name": "response128-view13-sun0.rgba16f",
+        "bytes": 131072,
+        "sha256": "8fab03fb0f0a8385578e4244459abcc4592e2d1a211a07495be744ba56d32012"
+      }
+    },
+    {
+      "view": 14,
+      "sun": 0,
+      "layer": 14,
+      "renderMilliseconds": 3570.39999999851,
+      "sourceRenderSize": 1024,
+      "coverageSHA256": "ee6e33d8a68556a8e6665aa95c9818c01e641b6e33e40444a7c3496b687c1207",
+      "oldArea": 6169.494117647173,
+      "newArea": 6187.53125,
+      "newToOldCoverageArea": 1.0029235998947197,
+      "absoluteCoverageError": 329.5729166666715,
+      "absoluteCoverageErrorFraction": 0.05341976349794446,
+      "newCoverageOutsideOldSupport": 2.296875,
+      "oldCoverageOutsideNewSupport": 2.7607843137254857,
+      "sourceRGBIntegral": [
+        5.376348621211946,
+        5.544516611844301,
+        2.080612980760634
+      ],
+      "oldAlphaConditionalRGBIntegral": [
+        5.358200147388213,
+        5.525553601631177,
+        2.073429202630831
+      ],
+      "oldAlphaToOwnAlphaLuminance": 0.9965886092204194,
+      "rawFile": {
+        "name": "source-raw-view14-sun0.rgba16f",
+        "bytes": 8388608,
+        "sha256": "7666744d4daffe46369c378f71dd2745302f9e862ea58b5a0534848a3254b1f4",
+        "storedName": "source-raw-view14-sun0.rgba16f.gz",
+        "storedBytes": 623986,
+        "storedSHA256": "1f5a757efb83c1d23ac65110e74dcbd7c513ac99c7cb2e17c4bcddad8320516c"
+      },
+      "cellFile": {
+        "name": "response256-view14-sun0.rgba16f",
+        "bytes": 524288,
+        "sha256": "d1480fb245c76ea272d032aba96ca7fd33843519050dfb5db3591515923f5e29"
+      },
+      "smallFile": {
+        "name": "response128-view14-sun0.rgba16f",
+        "bytes": 131072,
+        "sha256": "a482a8772c08aaaf8fcd1200100cb46b73e6db51bfda85d79368a4fc733ca40e"
+      }
+    },
+    {
+      "view": 15,
+      "sun": 0,
+      "layer": 15,
+      "renderMilliseconds": 3261.800000000745,
+      "sourceRenderSize": 1024,
+      "coverageSHA256": "743d113898164d5c8fefc4a7119d5aa8075f91511177f80f4da1e0b8176cda5b",
+      "oldArea": 5622.243137254918,
+      "newArea": 5637.015625,
+      "newToOldCoverageArea": 1.0026275078086173,
+      "absoluteCoverageError": 311.6543504901976,
+      "absoluteCoverageErrorFraction": 0.055432385772338555,
+      "newCoverageOutsideOldSupport": 2.515625,
+      "oldCoverageOutsideNewSupport": 2.6196078431372523,
+      "sourceRGBIntegral": [
+        9.739472112618387,
+        10.011288003064692,
+        3.7675630021840334
+      ],
+      "oldAlphaConditionalRGBIntegral": [
+        9.716419718666934,
+        9.984909036798014,
+        3.7658323098751145
+      ],
+      "oldAlphaToOwnAlphaLuminance": 0.9974857541466374,
+      "rawFile": {
+        "name": "source-raw-view15-sun0.rgba16f",
+        "bytes": 8388608,
+        "sha256": "7471c0f4e96a6a4971ced94689e26d220df4c60c6f7b50bd91e7ba448fdaabdb",
+        "storedName": "source-raw-view15-sun0.rgba16f.gz",
+        "storedBytes": 639629,
+        "storedSHA256": "4c37d28bbfe4dc3e1d071cec155047d07f4be6b3ba2456aacbab5ceafb07363a"
+      },
+      "cellFile": {
+        "name": "response256-view15-sun0.rgba16f",
+        "bytes": 524288,
+        "sha256": "f69441dfff590a000c5b89476754c8f4d02d55fa5ceb2a62bb30840fb0456a46"
+      },
+      "smallFile": {
+        "name": "response128-view15-sun0.rgba16f",
+        "bytes": 131072,
+        "sha256": "8c58e0c65317ba10049873247a31073902743d17db555d8c88a430030ca261a0"
+      }
+    },
+    {
+      "view": 16,
+      "sun": 0,
+      "layer": 16,
+      "renderMilliseconds": 3626.2000000029802,
+      "sourceRenderSize": 1024,
+      "coverageSHA256": "b9638cbf8feb229b78a31b2cc656f3939299c2273b1534b354ec8bd4001f4f93",
+      "oldArea": 6109.058823529417,
+      "newArea": 6133.390625,
+      "newToOldCoverageArea": 1.003982905087911,
+      "absoluteCoverageError": 374.75937500000316,
+      "absoluteCoverageErrorFraction": 0.061344862740000845,
+      "newCoverageOutsideOldSupport": 3.75,
+      "oldCoverageOutsideNewSupport": 3.513725490196074,
+      "sourceRGBIntegral": [
+        7.773820704780519,
+        8.116009208373725,
+        2.7009382965043187
+      ],
+      "oldAlphaConditionalRGBIntegral": [
+        7.7357284949895595,
+        8.073407406586877,
+        2.6926572618350537
+      ],
+      "oldAlphaToOwnAlphaLuminance": 0.994881911968154,
+      "rawFile": {
+        "name": "source-raw-view16-sun0.rgba16f",
+        "bytes": 8388608,
+        "sha256": "6b2aa104d24f213fe9b52c0f8a7a4ce87a37cb8da7d5bd733f4a4e393d7d4144",
+        "storedName": "source-raw-view16-sun0.rgba16f.gz",
+        "storedBytes": 678871,
+        "storedSHA256": "661592e5e0189f7417d5ebc76ae5e7b51d09c7c3cad2e513c9a4e7ecdab0dccc"
+      },
+      "cellFile": {
+        "name": "response256-view16-sun0.rgba16f",
+        "bytes": 524288,
+        "sha256": "f0a8367f4040e95eedfc9765474d17fa285b44a70c1bf526f36a3d1f10008a74"
+      },
+      "smallFile": {
+        "name": "response128-view16-sun0.rgba16f",
+        "bytes": 131072,
+        "sha256": "10e839128a68739dd6601bc09494c09a7324057e032c8f87a5f70bef3ad07e16"
+      }
+    },
+    {
+      "view": 17,
+      "sun": 0,
+      "layer": 17,
+      "renderMilliseconds": 4254.60000000149,
+      "sourceRenderSize": 1024,
+      "coverageSHA256": "15f0f5b8286cde93645b1877b0b646ae43b112e929724e9a6fc152ab6cc6cc46",
+      "oldArea": 6173.6784313725975,
+      "newArea": 6200.3125,
+      "newToOldCoverageArea": 1.004314132801614,
+      "absoluteCoverageError": 381.1564950980464,
+      "absoluteCoverageErrorFraction": 0.06173896151784239,
+      "newCoverageOutsideOldSupport": 4,
+      "oldCoverageOutsideNewSupport": 2.854901960784309,
+      "sourceRGBIntegral": [
+        7.092794470489025,
+        7.413995369337499,
+        2.477554714307189
+      ],
+      "oldAlphaConditionalRGBIntegral": [
+        7.056305149161133,
+        7.3746347002355455,
+        2.4690394742160633
+      ],
+      "oldAlphaToOwnAlphaLuminance": 0.9947744128821292,
+      "rawFile": {
+        "name": "source-raw-view17-sun0.rgba16f",
+        "bytes": 8388608,
+        "sha256": "3672be441be033bd882a4ad28abcfed6622114b5d6469f5be74a5ca44752bfa9",
+        "storedName": "source-raw-view17-sun0.rgba16f.gz",
+        "storedBytes": 677443,
+        "storedSHA256": "95e13189b84081cdea8d051138171737cd78302495c7c07d1567550c4ebb54eb"
+      },
+      "cellFile": {
+        "name": "response256-view17-sun0.rgba16f",
+        "bytes": 524288,
+        "sha256": "bf0f80b7c40d52296734a2051225b2be53dfcc302ed1d467ea50f905914f6a01"
+      },
+      "smallFile": {
+        "name": "response128-view17-sun0.rgba16f",
+        "bytes": 131072,
+        "sha256": "3bafbdb3a64b0d57e1de0781280ae99ad7b58849756e5dc728631705abacdd97"
+      }
+    },
+    {
+      "view": 18,
+      "sun": 0,
+      "layer": 18,
+      "renderMilliseconds": 3192.300000000745,
+      "sourceRenderSize": 1024,
+      "coverageSHA256": "533aa0ab5ea7e419447fee7efeea8d7a3c46e6d203c0992c74fe8caabc46e2f0",
+      "oldArea": 6278.894117647113,
+      "newArea": 6311.265625,
+      "newToOldCoverageArea": 1.0051556065043215,
+      "absoluteCoverageError": 376.99528186275126,
+      "absoluteCoverageErrorFraction": 0.06004166893071013,
+      "newCoverageOutsideOldSupport": 3.703125,
+      "oldCoverageOutsideNewSupport": 3.6392156862745035,
+      "sourceRGBIntegral": [
+        5.639221833087504,
+        5.9262897446751595,
+        1.9496242934837937
+      ],
+      "oldAlphaConditionalRGBIntegral": [
+        5.598209196515767,
+        5.881897192079695,
+        1.940699732248603
+      ],
+      "oldAlphaToOwnAlphaLuminance": 0.9926295924780016,
+      "rawFile": {
+        "name": "source-raw-view18-sun0.rgba16f",
+        "bytes": 8388608,
+        "sha256": "0cb59ed11638d54a3e4e4f168c02cf9e77acb74b23c7f9591262ed60cdc33835",
+        "storedName": "source-raw-view18-sun0.rgba16f.gz",
+        "storedBytes": 671965,
+        "storedSHA256": "6b8f3d06646e616a1895c4063e68c5e634dd550db41b7d34f0c7464c5a243454"
+      },
+      "cellFile": {
+        "name": "response256-view18-sun0.rgba16f",
+        "bytes": 524288,
+        "sha256": "421f640013482b360a590bf0718ecd4b6665417800e15126d302e76532addbe9"
+      },
+      "smallFile": {
+        "name": "response128-view18-sun0.rgba16f",
+        "bytes": 131072,
+        "sha256": "e4cc15221bc03239aac071900975006b5417ac16bec5375803aa45eadd136819"
+      }
+    },
+    {
+      "view": 19,
+      "sun": 0,
+      "layer": 19,
+      "renderMilliseconds": 4130.599999997765,
+      "sourceRenderSize": 1024,
+      "coverageSHA256": "c96b1b6214906f3a66271dab1ad7a489bd13ae9552ca5b4ba4ae5a62291987d2",
+      "oldArea": 6426.321568627488,
+      "newArea": 6444.0625,
+      "newToOldCoverageArea": 1.002760666608892,
+      "absoluteCoverageError": 385.17732843137725,
+      "absoluteCoverageErrorFraction": 0.05993745011326007,
+      "newCoverageOutsideOldSupport": 3.03125,
+      "oldCoverageOutsideNewSupport": 3.5764705882352885,
+      "sourceRGBIntegral": [
+        4.449843183159828,
+        4.7057483941316605,
+        1.5387175753712654
+      ],
+      "oldAlphaConditionalRGBIntegral": [
+        4.438409649436711,
+        4.692730780676362,
+        1.5356537528755287
+      ],
+      "oldAlphaToOwnAlphaLuminance": 0.9972952677077935,
+      "rawFile": {
+        "name": "source-raw-view19-sun0.rgba16f",
+        "bytes": 8388608,
+        "sha256": "a72ab8e5b538f00490a9979049f4fc4f974809171ba00baf5877d840c89b152f",
+        "storedName": "source-raw-view19-sun0.rgba16f.gz",
+        "storedBytes": 658932,
+        "storedSHA256": "341ff08bace227bde3200ce0e39172b57773d3b97d44e55ed1eeae29d1e18c1c"
+      },
+      "cellFile": {
+        "name": "response256-view19-sun0.rgba16f",
+        "bytes": 524288,
+        "sha256": "0b7cd23cae36209d6d82a2ae602ab7656c52c0a13ff167f137c07fb76a9a7179"
+      },
+      "smallFile": {
+        "name": "response128-view19-sun0.rgba16f",
+        "bytes": 131072,
+        "sha256": "58115a1e7cfbfce5d80af7c954d0f869cf21de73f95a60c247500f1381c07f50"
+      }
+    },
+    {
+      "view": 20,
+      "sun": 0,
+      "layer": 20,
+      "renderMilliseconds": 3742.5,
+      "sourceRenderSize": 1024,
+      "coverageSHA256": "8e4bd67d29e1d31e74361a9432270f2dde1e194510278c2e8fd877fcd6da4054",
+      "oldArea": 6548.152941176585,
+      "newArea": 6573.953125,
+      "newToOldCoverageArea": 1.0039400704374475,
+      "absoluteCoverageError": 382.46072303922125,
+      "absoluteCoverageErrorFraction": 0.0584074206077569,
+      "newCoverageOutsideOldSupport": 3.296875,
+      "oldCoverageOutsideNewSupport": 2.5882352941176436,
+      "sourceRGBIntegral": [
+        4.084880032576621,
+        4.325062554329634,
+        1.4357538791373372
+      ],
+      "oldAlphaConditionalRGBIntegral": [
+        4.061133166656143,
+        4.297952145359726,
+        1.4292777371709535
+      ],
+      "oldAlphaToOwnAlphaLuminance": 0.9938737696883253,
+      "rawFile": {
+        "name": "source-raw-view20-sun0.rgba16f",
+        "bytes": 8388608,
+        "sha256": "5eee4d3898857b16f0bd762d22e4da2f8e70d09bcd950d310400ce0811060ccd",
+        "storedName": "source-raw-view20-sun0.rgba16f.gz",
+        "storedBytes": 652812,
+        "storedSHA256": "caa39962d77757c2f0d9dec4719c6ce1a39a7785c2d356a5904d5e5effab9baa"
+      },
+      "cellFile": {
+        "name": "response256-view20-sun0.rgba16f",
+        "bytes": 524288,
+        "sha256": "1cd39aef8b1ce30417dfd72156f1c246c994612cce01ce3fee7803ac660819b1"
+      },
+      "smallFile": {
+        "name": "response128-view20-sun0.rgba16f",
+        "bytes": 131072,
+        "sha256": "5b475d45868ba658e68427e740716981e167e624de64ecefc1297c2456648126"
+      }
+    },
+    {
+      "view": 21,
+      "sun": 0,
+      "layer": 21,
+      "renderMilliseconds": 3579.599999997765,
+      "sourceRenderSize": 1024,
+      "coverageSHA256": "223f5bede5a976e4e1b879fef0d76512e5d8fe27e71be5769bf87597e5f895d7",
+      "oldArea": 6394.243137254991,
+      "newArea": 6409.1875,
+      "newToOldCoverageArea": 1.0023371589763201,
+      "absoluteCoverageError": 370.5258578431427,
+      "absoluteCoverageErrorFraction": 0.05794678899279504,
+      "newCoverageOutsideOldSupport": 2.890625,
+      "oldCoverageOutsideNewSupport": 3.41960784313725,
+      "sourceRGBIntegral": [
+        4.27260640822351,
+        4.533196446485817,
+        1.4638861864805222
+      ],
+      "oldAlphaConditionalRGBIntegral": [
+        4.262177483168436,
+        4.52054333163031,
+        1.4618774267968735
+      ],
+      "oldAlphaToOwnAlphaLuminance": 0.9973187927451627,
+      "rawFile": {
+        "name": "source-raw-view21-sun0.rgba16f",
+        "bytes": 8388608,
+        "sha256": "6af31bf63caca9bc459150eadd1fbb94ecfa4ad3593b25bcd4339306a71e822a",
+        "storedName": "source-raw-view21-sun0.rgba16f.gz",
+        "storedBytes": 652345,
+        "storedSHA256": "a12f6f7338d6b3bdc616fa93aa7b24b730052d30645d30276b962a79c4a60869"
+      },
+      "cellFile": {
+        "name": "response256-view21-sun0.rgba16f",
+        "bytes": 524288,
+        "sha256": "3a53d17722c222a8ad07e6e59b9626213172b1e09b9475c74fd0620d0fe52c15"
+      },
+      "smallFile": {
+        "name": "response128-view21-sun0.rgba16f",
+        "bytes": 131072,
+        "sha256": "8c794e0cea105f39ab145ac6c4279458c9d7464e5864257e2cfff513e843eadf"
+      }
+    },
+    {
+      "view": 22,
+      "sun": 0,
+      "layer": 22,
+      "renderMilliseconds": 3861.300000000745,
+      "sourceRenderSize": 1024,
+      "coverageSHA256": "5773c46626d287a84a39fe95e1ed19079b8f27cc1d545aabb01064da6f476b4c",
+      "oldArea": 6273.1215686274945,
+      "newArea": 6303.734375,
+      "newToOldCoverageArea": 1.00487999571467,
+      "absoluteCoverageError": 381.05055147059284,
+      "absoluteCoverageErrorFraction": 0.06074337111148373,
+      "newCoverageOutsideOldSupport": 3.328125,
+      "oldCoverageOutsideNewSupport": 4.078431372549013,
+      "sourceRGBIntegral": [
+        5.408778687007725,
+        5.707564443349838,
+        1.8414536220952868
+      ],
+      "oldAlphaConditionalRGBIntegral": [
+        5.3778264413862615,
+        5.671662783213381,
+        1.8354648217572986
+      ],
+      "oldAlphaToOwnAlphaLuminance": 0.9939067552207895,
+      "rawFile": {
+        "name": "source-raw-view22-sun0.rgba16f",
+        "bytes": 8388608,
+        "sha256": "26a551d90d6650723344f1975f6ce7a2e60aa85d6b8db44dcc7b25cbd0fdede7",
+        "storedName": "source-raw-view22-sun0.rgba16f.gz",
+        "storedBytes": 667048,
+        "storedSHA256": "9afdb5271d2d180af0a662b3c284e1ea7a3e38c18d01c2f2c0d8f015a9b61db7"
+      },
+      "cellFile": {
+        "name": "response256-view22-sun0.rgba16f",
+        "bytes": 524288,
+        "sha256": "fa4e90ed1694b6fe785cf665fb80beeb0f0d679e19f028409be2b2a13d6703da"
+      },
+      "smallFile": {
+        "name": "response128-view22-sun0.rgba16f",
+        "bytes": 131072,
+        "sha256": "02fe53b5562fc6bfb425d9f83e69f713b647b53cb8ad6ff0f1995ca9d39d4589"
+      }
+    },
+    {
+      "view": 23,
+      "sun": 0,
+      "layer": 23,
+      "renderMilliseconds": 3333.900000002235,
+      "sourceRenderSize": 1024,
+      "coverageSHA256": "b5236d3a742eaad0641d647768a294e4019b135a93b107958ce10f109ee18b6d",
+      "oldArea": 6193.313725490222,
+      "newArea": 6208.078125,
+      "newToOldCoverageArea": 1.002383925659863,
+      "absoluteCoverageError": 382.8973651960849,
+      "absoluteCoverageErrorFraction": 0.061824312826293526,
+      "newCoverageOutsideOldSupport": 3.640625,
+      "oldCoverageOutsideNewSupport": 3.450980392156858,
+      "sourceRGBIntegral": [
+        7.038536791689694,
+        7.371975274756551,
+        2.4551663966849446
+      ],
+      "oldAlphaConditionalRGBIntegral": [
+        7.025433630172823,
+        7.3575310964261424,
+        2.451827752650539
+      ],
+      "oldAlphaToOwnAlphaLuminance": 0.9980770111703977,
+      "rawFile": {
+        "name": "source-raw-view23-sun0.rgba16f",
+        "bytes": 8388608,
+        "sha256": "395e1d4800df0b64cad4d08c0d514e6817e493dd704a2f515edc5a928d09989b",
+        "storedName": "source-raw-view23-sun0.rgba16f.gz",
+        "storedBytes": 682401,
+        "storedSHA256": "565b808a19c34dd87ac4db3f198012f6d2c2070b41c16bdcbc38c2f5fbf9bd51"
+      },
+      "cellFile": {
+        "name": "response256-view23-sun0.rgba16f",
+        "bytes": 524288,
+        "sha256": "f4489b49ead604f1ac329ba5f8ff27defae596868c9689cca39feb71675668c2"
+      },
+      "smallFile": {
+        "name": "response128-view23-sun0.rgba16f",
+        "bytes": 131072,
+        "sha256": "06935f919248f261fc85cd8e0f23ceaa0fdcb308e891a2c999e3995062ae0491"
+      }
+    },
+    {
+      "view": 0,
+      "sun": 1,
+      "layer": 24,
+      "renderMilliseconds": 3799.900000002235,
+      "sourceRenderSize": 1024,
+      "coverageSHA256": "950783b523817f70c3c71453eb793e671d5d1891251d067357516eee3c1e8e29",
+      "oldArea": 5196.945098039255,
+      "newArea": 5216.28125,
+      "newToOldCoverageArea": 1.0037206765890292,
+      "absoluteCoverageError": 214.83713235294266,
+      "absoluteCoverageErrorFraction": 0.0413391190978712,
+      "newCoverageOutsideOldSupport": 2.0625,
+      "oldCoverageOutsideNewSupport": 1.8666666666666654,
+      "sourceRGBIntegral": [
+        12.158043576404452,
+        12.176472106017172,
+        5.268414536491036
+      ],
+      "oldAlphaConditionalRGBIntegral": [
+        12.109775825973262,
+        12.121730281502662,
+        5.259305503133027
+      ],
+      "oldAlphaToOwnAlphaLuminance": 0.9957108412640834,
+      "rawFile": {
+        "name": "source-raw-view00-sun1.rgba16f",
+        "bytes": 8388608,
+        "sha256": "b7e3db1412a92292a5f923c296d7389c03a209734a3901965bf25138d66e88eb",
+        "storedName": "source-raw-view00-sun1.rgba16f.gz",
+        "storedBytes": 585420,
+        "storedSHA256": "a8c3c48d710a13a9fc0e4a086a80fa433af8a72f15f3aac5b6ad32f11a7d509e"
+      },
+      "cellFile": {
+        "name": "response256-view00-sun1.rgba16f",
+        "bytes": 524288,
+        "sha256": "58afc5ba50b9006dcf37c1956c034d3137d0aa034d0a655bac7db9ea35ffb340"
+      },
+      "smallFile": {
+        "name": "response128-view00-sun1.rgba16f",
+        "bytes": 131072,
+        "sha256": "43f86ddb8b07382255fd01ca941b8e07647863a8b00a536279ea07e913c7a1b0"
+      }
+    },
+    {
+      "view": 1,
+      "sun": 1,
+      "layer": 25,
+      "renderMilliseconds": 3881,
+      "sourceRenderSize": 1024,
+      "coverageSHA256": "6c73704615826250f0df3f71ee3f078a532db81b1b24eb191150a7c788e775a5",
+      "oldArea": 5308.956862745195,
+      "newArea": 5318.828125,
+      "newToOldCoverageArea": 1.0018593600419086,
+      "absoluteCoverageError": 223.3632965686297,
+      "absoluteCoverageErrorFraction": 0.04207291608188568,
+      "newCoverageOutsideOldSupport": 1.390625,
+      "oldCoverageOutsideNewSupport": 1.254901960784313,
+      "sourceRGBIntegral": [
+        18.772458786144853,
+        18.637878941372037,
+        7.8976056929677725
+      ],
+      "oldAlphaConditionalRGBIntegral": [
+        18.73810947171762,
+        18.600222229398106,
+        7.892597957406336
+      ],
+      "oldAlphaToOwnAlphaLuminance": 0.9980662780042833,
+      "rawFile": {
+        "name": "source-raw-view01-sun1.rgba16f",
+        "bytes": 8388608,
+        "sha256": "513dd9da3cbc0f4ae5b2cd3f06b774394e4e35fbd3ba99c85da81328679a3e69",
+        "storedName": "source-raw-view01-sun1.rgba16f.gz",
+        "storedBytes": 648431,
+        "storedSHA256": "709b6f088c1a267dfa9f86d1618ce8e9bfdf469783e921a986dc930e61a35909"
+      },
+      "cellFile": {
+        "name": "response256-view01-sun1.rgba16f",
+        "bytes": 524288,
+        "sha256": "0539c509976fe77a915d2e11e5ee36bc9e8fda896882db94512ea7cd30124f31"
+      },
+      "smallFile": {
+        "name": "response128-view01-sun1.rgba16f",
+        "bytes": 131072,
+        "sha256": "446b9edb706e03ba8f269ef3900855f4f0c3d27494109ab2ec9388f2d343472b"
+      }
+    },
+    {
+      "view": 2,
+      "sun": 1,
+      "layer": 26,
+      "renderMilliseconds": 4384.300000000745,
+      "sourceRenderSize": 1024,
+      "coverageSHA256": "be0ce20249d753258bcdb77c7d8dd4fa1a24d1b19f1ac34a420ba1cbb187e7b8",
+      "oldArea": 5166.870588235335,
+      "newArea": 5184.359375,
+      "newToOldCoverageArea": 1.003384792877237,
+      "absoluteCoverageError": 243.28731617647267,
+      "absoluteCoverageErrorFraction": 0.0470860092239244,
+      "newCoverageOutsideOldSupport": 2.296875,
+      "oldCoverageOutsideNewSupport": 1.7098039215686265,
+      "sourceRGBIntegral": [
+        11.609351457096636,
+        11.53412086237222,
+        4.769328702241182
+      ],
+      "oldAlphaConditionalRGBIntegral": [
+        11.5800510109892,
+        11.500808426928137,
+        4.763840524931977
+      ],
+      "oldAlphaToOwnAlphaLuminance": 0.9972472057977417,
+      "rawFile": {
+        "name": "source-raw-view02-sun1.rgba16f",
+        "bytes": 8388608,
+        "sha256": "82bc4101f182edb68ce3142ef54db448b647090170db6d075c0b34117c5bf0d9",
+        "storedName": "source-raw-view02-sun1.rgba16f.gz",
+        "storedBytes": 593618,
+        "storedSHA256": "8516ceeb18ee39b40b51496bb253c195b9ff9624bc3360041abbac050dd92063"
+      },
+      "cellFile": {
+        "name": "response256-view02-sun1.rgba16f",
+        "bytes": 524288,
+        "sha256": "cfd58a55228477bc2a2bfc66d8d582cb3858de27df6f3e799c454fa4eea37a2c"
+      },
+      "smallFile": {
+        "name": "response128-view02-sun1.rgba16f",
+        "bytes": 131072,
+        "sha256": "13057993aa020bff58d90431443753a30c9dc56bb2d4a73c08b288df3ff3e9ae"
+      }
+    },
+    {
+      "view": 3,
+      "sun": 1,
+      "layer": 27,
+      "renderMilliseconds": 3377.39999999851,
+      "sourceRenderSize": 1024,
+      "coverageSHA256": "d84b94da7859bfc74a24a6d3374afe026655304b169d46b7f197a6947808250d",
+      "oldArea": 5144.913725490201,
+      "newArea": 5159.65625,
+      "newToOldCoverageArea": 1.0028654561177106,
+      "absoluteCoverageError": 218.09362745098102,
+      "absoluteCoverageErrorFraction": 0.04239014278712737,
+      "newCoverageOutsideOldSupport": 2.28125,
+      "oldCoverageOutsideNewSupport": 1.427450980392156,
+      "sourceRGBIntegral": [
+        5.179463051259518,
+        5.137893657200038,
+        2.155196842737496
+      ],
+      "oldAlphaConditionalRGBIntegral": [
+        5.168164394956181,
+        5.125765642601649,
+        2.1531726279865775
+      ],
+      "oldAlphaToOwnAlphaLuminance": 0.9977243292324617,
+      "rawFile": {
+        "name": "source-raw-view03-sun1.rgba16f",
+        "bytes": 8388608,
+        "sha256": "90eec225dcd1c1fda39ab4255aa06c06334d1b3865ad203732ec07b82db9ae2a",
+        "storedName": "source-raw-view03-sun1.rgba16f.gz",
+        "storedBytes": 503513,
+        "storedSHA256": "41b0c3df490af72d34e77c95f2a09021e2d0f6c6b52ea38032918feccb750c08"
+      },
+      "cellFile": {
+        "name": "response256-view03-sun1.rgba16f",
+        "bytes": 524288,
+        "sha256": "49547a80c930abe99ba782e2bf2b88ecc88ac5698bdd4740ea6afaeed9088bb8"
+      },
+      "smallFile": {
+        "name": "response128-view03-sun1.rgba16f",
+        "bytes": 131072,
+        "sha256": "66040a5891bfb8c71c25c457c757774ee3d017df54bb37fee76d362969578a3c"
+      }
+    },
+    {
+      "view": 4,
+      "sun": 1,
+      "layer": 28,
+      "renderMilliseconds": 3536.599999997765,
+      "sourceRenderSize": 1024,
+      "coverageSHA256": "b0159321102d0f8b4e3b1fc29e4466944154a41e866af76bbbf9b711d293c623",
+      "oldArea": 5198.9803921569,
+      "newArea": 5213.5,
+      "newToOldCoverageArea": 1.0027927798814176,
+      "absoluteCoverageError": 219.568872549021,
+      "absoluteCoverageErrorFraction": 0.04223306417547932,
+      "newCoverageOutsideOldSupport": 1.921875,
+      "oldCoverageOutsideNewSupport": 1.7568627450980374,
+      "sourceRGBIntegral": [
+        2.4528905395418406,
+        2.576598884537816,
+        0.963111624121666
+      ],
+      "oldAlphaConditionalRGBIntegral": [
+        2.4391321542876905,
+        2.561545627173219,
+        0.9584448017834368
+      ],
+      "oldAlphaToOwnAlphaLuminance": 0.9942361575329847,
+      "rawFile": {
+        "name": "source-raw-view04-sun1.rgba16f",
+        "bytes": 8388608,
+        "sha256": "097d34c3aaadad0a26f2897d812751282f80370abd89469e1179b0a5a4eabaa6",
+        "storedName": "source-raw-view04-sun1.rgba16f.gz",
+        "storedBytes": 435430,
+        "storedSHA256": "38d253cd78b773235bc87ac2abbf272fe0f99a3506cba038bf8f82e574729eb4"
+      },
+      "cellFile": {
+        "name": "response256-view04-sun1.rgba16f",
+        "bytes": 524288,
+        "sha256": "8912c242896b15c86785aa22712d224bf6359c9d3384949b93898698725d6f40"
+      },
+      "smallFile": {
+        "name": "response128-view04-sun1.rgba16f",
+        "bytes": 131072,
+        "sha256": "a6b02334c0ce4283f8ab34d9c021d620ef5720a38dd197b53c1bcf6873552f59"
+      }
+    },
+    {
+      "view": 5,
+      "sun": 1,
+      "layer": 29,
+      "renderMilliseconds": 4092.39999999851,
+      "sourceRenderSize": 1024,
+      "coverageSHA256": "8a818d5e809bc5933c5ee66bce4f40e9d4909a68b6443e8392fbbf1a790e3178",
+      "oldArea": 5311.2901960785275,
+      "newArea": 5321.34375,
+      "newToOldCoverageArea": 1.0018928647372527,
+      "absoluteCoverageError": 226.69044117647192,
+      "absoluteCoverageErrorFraction": 0.042680861487072154,
+      "newCoverageOutsideOldSupport": 1.28125,
+      "oldCoverageOutsideNewSupport": 1.2392156862745094,
+      "sourceRGBIntegral": [
+        2.301720063202083,
+        2.4877223381772637,
+        0.8741389559581876
+      ],
+      "oldAlphaConditionalRGBIntegral": [
+        2.2939162845330134,
+        2.479563094412267,
+        0.8717492553537267
+      ],
+      "oldAlphaToOwnAlphaLuminance": 0.9967117619153786,
+      "rawFile": {
+        "name": "source-raw-view05-sun1.rgba16f",
+        "bytes": 8388608,
+        "sha256": "11a352a67a707f1ae4653bc89d0cd87ce85f3168777b1f854c2ebc7ec5001073",
+        "storedName": "source-raw-view05-sun1.rgba16f.gz",
+        "storedBytes": 408960,
+        "storedSHA256": "372f921ddbfffa70807c08e41bd8a00318d1e0d170464d118253bebfcea50f57"
+      },
+      "cellFile": {
+        "name": "response256-view05-sun1.rgba16f",
+        "bytes": 524288,
+        "sha256": "7bdf53c8b533289fc9b6c6e9adeaaea3abdca4598bc3722808785dd6d008221f"
+      },
+      "smallFile": {
+        "name": "response128-view05-sun1.rgba16f",
+        "bytes": 131072,
+        "sha256": "d8836cee7a1fe7ff89d93bed737d88d1358187b50fbb6b393a9c04a15abd730b"
+      }
+    },
+    {
+      "view": 6,
+      "sun": 1,
+      "layer": 30,
+      "renderMilliseconds": 2912.10000000149,
+      "sourceRenderSize": 1024,
+      "coverageSHA256": "0aa04b0870fa3f5728c6a2fedcd99cee678366de0f26d02ff60495c0df94a892",
+      "oldArea": 5161.674509803965,
+      "newArea": 5180.875,
+      "newToOldCoverageArea": 1.0037198180860816,
+      "absoluteCoverageError": 243.86066176470854,
+      "absoluteCoverageErrorFraction": 0.0472444865133447,
+      "newCoverageOutsideOldSupport": 2.109375,
+      "oldCoverageOutsideNewSupport": 1.5529411764705874,
+      "sourceRGBIntegral": [
+        2.5300192441791296,
+        2.665684036910534,
+        1.0319440085440874
+      ],
+      "oldAlphaConditionalRGBIntegral": [
+        2.5169428304837678,
+        2.65084801090073,
+        1.027938832766131
+      ],
+      "oldAlphaToOwnAlphaLuminance": 0.9945690488466893,
+      "rawFile": {
+        "name": "source-raw-view06-sun1.rgba16f",
+        "bytes": 8388608,
+        "sha256": "fcd0d730ca9111d7de0de29a319c8a253ba49c1c537e44fa2ca75aaeebad792e",
+        "storedName": "source-raw-view06-sun1.rgba16f.gz",
+        "storedBytes": 455684,
+        "storedSHA256": "1ee227354229d9921b5f9fd73073c244506bf2b752613dab8ed1dec94deb1992"
+      },
+      "cellFile": {
+        "name": "response256-view06-sun1.rgba16f",
+        "bytes": 524288,
+        "sha256": "38b2b5933dd85cf67771a084ce9b648eb18871bd83d63db0396fa1ce8f945a22"
+      },
+      "smallFile": {
+        "name": "response128-view06-sun1.rgba16f",
+        "bytes": 131072,
+        "sha256": "f2a9e74df98631f33a108de1420d1fbad37e3c39ec90598dbfe10b7df75dd9dc"
+      }
+    },
+    {
+      "view": 7,
+      "sun": 1,
+      "layer": 31,
+      "renderMilliseconds": 3539.699999999255,
+      "sourceRenderSize": 1024,
+      "coverageSHA256": "2a48d33f631218a9d5f597fb533a4970c6cd0628170c50c34d00366d62675b83",
+      "oldArea": 5142.050980392149,
+      "newArea": 5160.78125,
+      "newToOldCoverageArea": 1.0036425678545924,
+      "absoluteCoverageError": 217.68345588235468,
+      "absoluteCoverageErrorFraction": 0.042333974655722584,
+      "newCoverageOutsideOldSupport": 2.25,
+      "oldCoverageOutsideNewSupport": 1.4117647058823521,
+      "sourceRGBIntegral": [
+        5.484227137640119,
+        5.52525557205081,
+        2.418468661606312
+      ],
+      "oldAlphaConditionalRGBIntegral": [
+        5.4665078344833775,
+        5.506365479308494,
+        2.414696391288522
+      ],
+      "oldAlphaToOwnAlphaLuminance": 0.9966838743587866,
+      "rawFile": {
+        "name": "source-raw-view07-sun1.rgba16f",
+        "bytes": 8388608,
+        "sha256": "cb5756c6dfdc07019bd898ccf60f7ef4dad5c8b8c61925588814a2ff1ed22690",
+        "storedName": "source-raw-view07-sun1.rgba16f.gz",
+        "storedBytes": 513788,
+        "storedSHA256": "1650136c538cbaa3691563e4141905989d41a5a6b04d0df899b15fe48a5b1a74"
+      },
+      "cellFile": {
+        "name": "response256-view07-sun1.rgba16f",
+        "bytes": 524288,
+        "sha256": "c8e8bcfd7101f33ec151cc7404dde13f72c6b2648665ba865e49aca844e805d7"
+      },
+      "smallFile": {
+        "name": "response128-view07-sun1.rgba16f",
+        "bytes": 131072,
+        "sha256": "a10cc6a667a969f777c2b2079e540063c6c2de46cb8094ff847bd618381407ba"
+      }
+    },
+    {
+      "view": 8,
+      "sun": 1,
+      "layer": 32,
+      "renderMilliseconds": 3696.5,
+      "sourceRenderSize": 1024,
+      "coverageSHA256": "515b2246fecd63c6f3c108511ef3b7a1411273dd9944eb21fd3d17eb9c6f7f91",
+      "oldArea": 5272.847058823515,
+      "newArea": 5290.9375,
+      "newToOldCoverageArea": 1.0034308677977324,
+      "absoluteCoverageError": 281.5613970588257,
+      "absoluteCoverageErrorFraction": 0.05339836219745166,
+      "newCoverageOutsideOldSupport": 1.859375,
+      "oldCoverageOutsideNewSupport": 2.494117647058821,
+      "sourceRGBIntegral": [
+        9.27328003756702,
+        9.624055325984955,
+        3.352032301016152
+      ],
+      "oldAlphaConditionalRGBIntegral": [
+        9.250556814188943,
+        9.59948787240302,
+        3.3464269082082234
+      ],
+      "oldAlphaToOwnAlphaLuminance": 0.997492886565101,
+      "rawFile": {
+        "name": "source-raw-view08-sun1.rgba16f",
+        "bytes": 8388608,
+        "sha256": "f74dae65bce97dcff323bcddb4523eb7ed7ed7fc706822e11a53d96b471a1613",
+        "storedName": "source-raw-view08-sun1.rgba16f.gz",
+        "storedBytes": 612928,
+        "storedSHA256": "5f6e18fda3fa1ab8d2ad30ccfa3be54e61c9f1e3af29a32291d5ed2e7c545d42"
+      },
+      "cellFile": {
+        "name": "response256-view08-sun1.rgba16f",
+        "bytes": 524288,
+        "sha256": "199b136a3437ad67d74bc0744508ffe1f5e5f1c76e430421cfa46b254d668776"
+      },
+      "smallFile": {
+        "name": "response128-view08-sun1.rgba16f",
+        "bytes": 131072,
+        "sha256": "e74b9586837c1268c1ea7cb28486280c92f579f97e4bf7edce9506bf946ba3b7"
+      }
+    },
+    {
+      "view": 9,
+      "sun": 1,
+      "layer": 33,
+      "renderMilliseconds": 3742.099999997765,
+      "sourceRenderSize": 1024,
+      "coverageSHA256": "8e7845588246812b46f4ef21a6cacb0fea03001ebfd4ecf825e0159cc27627e2",
+      "oldArea": 5316.796078431349,
+      "newArea": 5343.234375,
+      "newToOldCoverageArea": 1.0049725993208396,
+      "absoluteCoverageError": 289.14234068627695,
+      "absoluteCoverageErrorFraction": 0.05438281559438417,
+      "newCoverageOutsideOldSupport": 2.765625,
+      "oldCoverageOutsideNewSupport": 2.337254901960783,
+      "sourceRGBIntegral": [
+        12.859824701212347,
+        13.213222832418978,
+        4.8365015825256705
+      ],
+      "oldAlphaConditionalRGBIntegral": [
+        12.803643886841067,
+        13.147955046060646,
+        4.825263155273944
+      ],
+      "oldAlphaToOwnAlphaLuminance": 0.9952578316550095,
+      "rawFile": {
+        "name": "source-raw-view09-sun1.rgba16f",
+        "bytes": 8388608,
+        "sha256": "a4ebf18bc335aeee8678852415c49f13a19b4cf2b3ae7535ab4be1ed0c396590",
+        "storedName": "source-raw-view09-sun1.rgba16f.gz",
+        "storedBytes": 642252,
+        "storedSHA256": "fe15ac58058c30e80c1c5d00766faf46ec5227b532c7599c00d0439e133b0560"
+      },
+      "cellFile": {
+        "name": "response256-view09-sun1.rgba16f",
+        "bytes": 524288,
+        "sha256": "659b2395ab4612fe084e36826c209c800f687045e731478c4144d06315082dcb"
+      },
+      "smallFile": {
+        "name": "response128-view09-sun1.rgba16f",
+        "bytes": 131072,
+        "sha256": "141a38808b7cee6fedb47a47232cec4050925f1b47c5c6959fdcfcdecca379f1"
+      }
+    },
+    {
+      "view": 10,
+      "sun": 1,
+      "layer": 34,
+      "renderMilliseconds": 4328.10000000149,
+      "sourceRenderSize": 1024,
+      "coverageSHA256": "a683c26b3ab973129abfbaa8800ba870dac575a54cd75354c1ff4357ffe95603",
+      "oldArea": 5876.756862745139,
+      "newArea": 5892.09375,
+      "newToOldCoverageArea": 1.0026097535788978,
+      "absoluteCoverageError": 300.5932598039253,
+      "absoluteCoverageErrorFraction": 0.05114951440470396,
+      "newCoverageOutsideOldSupport": 2.5625,
+      "oldCoverageOutsideNewSupport": 1.9921568627450967,
+      "sourceRGBIntegral": [
+        10.717999846674502,
+        10.80047357454896,
+        4.223481349647045
+      ],
+      "oldAlphaConditionalRGBIntegral": [
+        10.689832553669433,
+        10.76967091566612,
+        4.2171781029393784
+      ],
+      "oldAlphaToOwnAlphaLuminance": 0.9972377474496356,
+      "rawFile": {
+        "name": "source-raw-view10-sun1.rgba16f",
+        "bytes": 8388608,
+        "sha256": "83a15bfdc66c73d4978cf118a202855369591c6d4ba28ab1f4d7d1f476940f57",
+        "storedName": "source-raw-view10-sun1.rgba16f.gz",
+        "storedBytes": 659315,
+        "storedSHA256": "03cbc97878431583bba7ae7ea9c1113c80153645cae6451cc1409910bd906811"
+      },
+      "cellFile": {
+        "name": "response256-view10-sun1.rgba16f",
+        "bytes": 524288,
+        "sha256": "c0b6753cb4f4f62519329acb7277e84f4247cfa7be84726ad38f30936b6a5d8e"
+      },
+      "smallFile": {
+        "name": "response128-view10-sun1.rgba16f",
+        "bytes": 131072,
+        "sha256": "97bff0020f75e57c81cc246f2204d29a0f671b52ae9100957550984f77035d49"
+      }
+    },
+    {
+      "view": 11,
+      "sun": 1,
+      "layer": 35,
+      "renderMilliseconds": 3719.900000002235,
+      "sourceRenderSize": 1024,
+      "coverageSHA256": "4474d5bc887d8d61a9fb24d7cf73f3be3e54898d089d53909f75a210867e45e5",
+      "oldArea": 6157.380392156946,
+      "newArea": 6175.890625,
+      "newToOldCoverageArea": 1.003006186342918,
+      "absoluteCoverageError": 320.9186887254938,
+      "absoluteCoverageErrorFraction": 0.052119354057493135,
+      "newCoverageOutsideOldSupport": 2.0625,
+      "oldCoverageOutsideNewSupport": 2.2588235294117625,
+      "sourceRGBIntegral": [
+        5.885713937692344,
+        6.017012854106724,
+        2.2524677328765392
+      ],
+      "oldAlphaConditionalRGBIntegral": [
+        5.861358964695591,
+        5.990499068787266,
+        2.2463659999672974
+      ],
+      "oldAlphaToOwnAlphaLuminance": 0.995700579314733,
+      "rawFile": {
+        "name": "source-raw-view11-sun1.rgba16f",
+        "bytes": 8388608,
+        "sha256": "e34fa6a987dce3f9a4e3c49ee8ccc91ddf04bdb17cf6de1bdf522887dd1d29db",
+        "storedName": "source-raw-view11-sun1.rgba16f.gz",
+        "storedBytes": 636287,
+        "storedSHA256": "c16ef6dc3c6ea77f80c39fba646997a551907a3d9730488d658f1ed2e67eefb3"
+      },
+      "cellFile": {
+        "name": "response256-view11-sun1.rgba16f",
+        "bytes": 524288,
+        "sha256": "e3b11be6aa132b1e5a2644c782b5e98ffad058bebfe6144c4de618f14dfc04ee"
+      },
+      "smallFile": {
+        "name": "response128-view11-sun1.rgba16f",
+        "bytes": 131072,
+        "sha256": "69fe769e7ef4de0d4cca6c48b0bc8231196f1ec0422de2a5f632f9b70aa3d237"
+      }
+    },
+    {
+      "view": 12,
+      "sun": 1,
+      "layer": 36,
+      "renderMilliseconds": 3851.699999999255,
+      "sourceRenderSize": 1024,
+      "coverageSHA256": "064d3b33eb31e491d9ef7d23c5af3c8b6ee460e0fb8f16f5f2f32f400be15c80",
+      "oldArea": 6312.741176470723,
+      "newArea": 6330.234375,
+      "newToOldCoverageArea": 1.00277109389412,
+      "absoluteCoverageError": 323.6056985294144,
+      "absoluteCoverageErrorFraction": 0.051262310537232146,
+      "newCoverageOutsideOldSupport": 2.171875,
+      "oldCoverageOutsideNewSupport": 2.5411764705882325,
+      "sourceRGBIntegral": [
+        3.2932680267840624,
+        3.4817254561930895,
+        1.2281868737190962
+      ],
+      "oldAlphaConditionalRGBIntegral": [
+        3.2772797216070577,
+        3.463710651263943,
+        1.2240321729169321
+      ],
+      "oldAlphaToOwnAlphaLuminance": 0.9949425115560689,
+      "rawFile": {
+        "name": "source-raw-view12-sun1.rgba16f",
+        "bytes": 8388608,
+        "sha256": "91d59749054f08c2395bccd081740a5e8588a6c455ed2c165b02fd36a8d37d92",
+        "storedName": "source-raw-view12-sun1.rgba16f.gz",
+        "storedBytes": 584191,
+        "storedSHA256": "4d1e57bfbacf811d14f600ad3c85bdbf4da88a61be4bbc5deea031f753a71e79"
+      },
+      "cellFile": {
+        "name": "response256-view12-sun1.rgba16f",
+        "bytes": 524288,
+        "sha256": "a6f188d64eaa879ca328141b5237c3b53ce10c024df5106853080167dcb9c059"
+      },
+      "smallFile": {
+        "name": "response128-view12-sun1.rgba16f",
+        "bytes": 131072,
+        "sha256": "e494d562f1b984b8c7dca9da5935884b0da9326767daceeaff01ffc47b63f8d1"
+      }
+    },
+    {
+      "view": 13,
+      "sun": 1,
+      "layer": 37,
+      "renderMilliseconds": 4193.099999997765,
+      "sourceRenderSize": 1024,
+      "coverageSHA256": "d5f7038e2cd1e5bdcfdea3c5d5e1bb7b4afded9ba64a1e329dd4313659f62710",
+      "oldArea": 6451.211764705968,
+      "newArea": 6475.484375,
+      "newToOldCoverageArea": 1.0037624885338325,
+      "absoluteCoverageError": 339.58253676471,
+      "absoluteCoverageErrorFraction": 0.05263856607878496,
+      "newCoverageOutsideOldSupport": 2.265625,
+      "oldCoverageOutsideNewSupport": 2.180392156862743,
+      "sourceRGBIntegral": [
+        2.981455952860415,
+        3.1791876647621393,
+        1.1384381204843521
+      ],
+      "oldAlphaConditionalRGBIntegral": [
+        2.9627606445887,
+        3.158442383111936,
+        1.1324850103789201
+      ],
+      "oldAlphaToOwnAlphaLuminance": 0.9935643145300717,
+      "rawFile": {
+        "name": "source-raw-view13-sun1.rgba16f",
+        "bytes": 8388608,
+        "sha256": "cf0950169fc6bfdc67038817c217a4cc08484df600a9a5fb00666b0f8dac6a55",
+        "storedName": "source-raw-view13-sun1.rgba16f.gz",
+        "storedBytes": 571738,
+        "storedSHA256": "eb2ba09e3ea1b3728497880ad59b5b1389c671f24e67edfc5e3e938db36ecf64"
+      },
+      "cellFile": {
+        "name": "response256-view13-sun1.rgba16f",
+        "bytes": 524288,
+        "sha256": "de355242661523a403cae1085893f1d03199fe0a672609f1cd46e8536cac30ea"
+      },
+      "smallFile": {
+        "name": "response128-view13-sun1.rgba16f",
+        "bytes": 131072,
+        "sha256": "f0a228e117a0e12035a2eac57b04f7a57c20533ded62a7e77538bed7616d9a91"
+      }
+    },
+    {
+      "view": 14,
+      "sun": 1,
+      "layer": 38,
+      "renderMilliseconds": 3074,
+      "sourceRenderSize": 1024,
+      "coverageSHA256": "ee6e33d8a68556a8e6665aa95c9818c01e641b6e33e40444a7c3496b687c1207",
+      "oldArea": 6169.494117647173,
+      "newArea": 6187.53125,
+      "newToOldCoverageArea": 1.0029235998947197,
+      "absoluteCoverageError": 329.5729166666715,
+      "absoluteCoverageErrorFraction": 0.05341976349794446,
+      "newCoverageOutsideOldSupport": 2.296875,
+      "oldCoverageOutsideNewSupport": 2.7607843137254857,
+      "sourceRGBIntegral": [
+        3.1735026109963655,
+        3.3458263743668795,
+        1.205004010349512
+      ],
+      "oldAlphaConditionalRGBIntegral": [
+        3.157338906356151,
+        3.3290541670814187,
+        1.1990645071789012
+      ],
+      "oldAlphaToOwnAlphaLuminance": 0.9949722301051731,
+      "rawFile": {
+        "name": "source-raw-view14-sun1.rgba16f",
+        "bytes": 8388608,
+        "sha256": "0fd9fb26006ea4757754b87e0aec391430807b729ecbbb0b7cc1f9287faad16b",
+        "storedName": "source-raw-view14-sun1.rgba16f.gz",
+        "storedBytes": 575753,
+        "storedSHA256": "64dde820ddf368973f7e7c5a1fc924b816e25fb3ca5b4eb2714f25ec15d17cce"
+      },
+      "cellFile": {
+        "name": "response256-view14-sun1.rgba16f",
+        "bytes": 524288,
+        "sha256": "3d9cf5265c9c321b551ede5b8a4217422642fa9e88db549bcd798a5dde68941f"
+      },
+      "smallFile": {
+        "name": "response128-view14-sun1.rgba16f",
+        "bytes": 131072,
+        "sha256": "e6d3a34e1b3d186bfb981e02c39346124220f1245534040f4392bbb44e087979"
+      }
+    },
+    {
+      "view": 15,
+      "sun": 1,
+      "layer": 39,
+      "renderMilliseconds": 3421.400000002235,
+      "sourceRenderSize": 1024,
+      "coverageSHA256": "743d113898164d5c8fefc4a7119d5aa8075f91511177f80f4da1e0b8176cda5b",
+      "oldArea": 5622.243137254918,
+      "newArea": 5637.015625,
+      "newToOldCoverageArea": 1.0026275078086173,
+      "absoluteCoverageError": 311.6543504901976,
+      "absoluteCoverageErrorFraction": 0.055432385772338555,
+      "newCoverageOutsideOldSupport": 2.515625,
+      "oldCoverageOutsideNewSupport": 2.6196078431372523,
+      "sourceRGBIntegral": [
+        5.2174168936908245,
+        5.410381862893701,
+        1.9241808410733938
+      ],
+      "oldAlphaConditionalRGBIntegral": [
+        5.198174203856507,
+        5.389396245364062,
+        1.9201166473053917
+      ],
+      "oldAlphaToOwnAlphaLuminance": 0.9962105009294183,
+      "rawFile": {
+        "name": "source-raw-view15-sun1.rgba16f",
+        "bytes": 8388608,
+        "sha256": "55b9933dfd4a17ba41539952558f76395d1083d1d0295c727b54ac0ac4098a77",
+        "storedName": "source-raw-view15-sun1.rgba16f.gz",
+        "storedBytes": 603534,
+        "storedSHA256": "eb99bf067c7aca6ac22ef20b58c1c7af08593b976ac949c749d316fda7c6bb9f"
+      },
+      "cellFile": {
+        "name": "response256-view15-sun1.rgba16f",
+        "bytes": 524288,
+        "sha256": "6df1874a67d27d6ab1ccd5e17c17bc6834a7341b7c309af0f67703439dec538e"
+      },
+      "smallFile": {
+        "name": "response128-view15-sun1.rgba16f",
+        "bytes": 131072,
+        "sha256": "a7b7a18d7d9a38d39701a867522d973521f93d8b082e06594471acdaf8083cb5"
+      }
+    },
+    {
+      "view": 16,
+      "sun": 1,
+      "layer": 40,
+      "renderMilliseconds": 3348.300000000745,
+      "sourceRenderSize": 1024,
+      "coverageSHA256": "b9638cbf8feb229b78a31b2cc656f3939299c2273b1534b354ec8bd4001f4f93",
+      "oldArea": 6109.058823529417,
+      "newArea": 6133.390625,
+      "newToOldCoverageArea": 1.003982905087911,
+      "absoluteCoverageError": 374.75937500000316,
+      "absoluteCoverageErrorFraction": 0.061344862740000845,
+      "newCoverageOutsideOldSupport": 3.75,
+      "oldCoverageOutsideNewSupport": 3.513725490196074,
+      "sourceRGBIntegral": [
+        7.269371902570128,
+        7.575251849368215,
+        2.4909731838852167
+      ],
+      "oldAlphaConditionalRGBIntegral": [
+        7.2341222826892695,
+        7.535428955268337,
+        2.4834703652289973
+      ],
+      "oldAlphaToOwnAlphaLuminance": 0.9948878052730593,
+      "rawFile": {
+        "name": "source-raw-view16-sun1.rgba16f",
+        "bytes": 8388608,
+        "sha256": "e6937ff989a0d6daa8727090146fffaad607fc8db208c944346c809e2300b674",
+        "storedName": "source-raw-view16-sun1.rgba16f.gz",
+        "storedBytes": 681930,
+        "storedSHA256": "8cbc875686d13330486e6cf058a42e630208f6a0bd75d1940a42feedb959d899"
+      },
+      "cellFile": {
+        "name": "response256-view16-sun1.rgba16f",
+        "bytes": 524288,
+        "sha256": "ef2d85b3f059db9befe4b55915105e84b6b5e65fbf0c0131f3404da4092a45a8"
+      },
+      "smallFile": {
+        "name": "response128-view16-sun1.rgba16f",
+        "bytes": 131072,
+        "sha256": "a698aa76700f410775d9fa761385edda929b07da887dd1610ab95a38c4a3d24f"
+      }
+    },
+    {
+      "view": 17,
+      "sun": 1,
+      "layer": 41,
+      "renderMilliseconds": 3678.7000000029802,
+      "sourceRenderSize": 1024,
+      "coverageSHA256": "15f0f5b8286cde93645b1877b0b646ae43b112e929724e9a6fc152ab6cc6cc46",
+      "oldArea": 6173.6784313725975,
+      "newArea": 6200.3125,
+      "newToOldCoverageArea": 1.004314132801614,
+      "absoluteCoverageError": 381.1564950980464,
+      "absoluteCoverageErrorFraction": 0.06173896151784239,
+      "newCoverageOutsideOldSupport": 4,
+      "oldCoverageOutsideNewSupport": 2.854901960784309,
+      "sourceRGBIntegral": [
+        8.375219096429646,
+        8.661345077678561,
+        2.9759256904944777
+      ],
+      "oldAlphaConditionalRGBIntegral": [
+        8.3273678371538,
+        8.610675840336702,
+        2.9638761567556973
+      ],
+      "oldAlphaToOwnAlphaLuminance": 0.9942269066740524,
+      "rawFile": {
+        "name": "source-raw-view17-sun1.rgba16f",
+        "bytes": 8388608,
+        "sha256": "3cbdc14cd67676479d4eb4a7eb76d4b4c5aebca3daf4f74c8e2dff9b19f28a9b",
+        "storedName": "source-raw-view17-sun1.rgba16f.gz",
+        "storedBytes": 698720,
+        "storedSHA256": "39bb82df4fbc64f217a93770b0ea1d009617f41753ea603bea3c197444255711"
+      },
+      "cellFile": {
+        "name": "response256-view17-sun1.rgba16f",
+        "bytes": 524288,
+        "sha256": "bf1918fd995adbb2094eadd59379d1762e9d2aeac27b972f6d937ed69c63ed2f"
+      },
+      "smallFile": {
+        "name": "response128-view17-sun1.rgba16f",
+        "bytes": 131072,
+        "sha256": "dc0f55f70944c9442913144e187e7a5a2005efff38bfdca23889759e33211179"
+      }
+    },
+    {
+      "view": 18,
+      "sun": 1,
+      "layer": 42,
+      "renderMilliseconds": 3530.199999999255,
+      "sourceRenderSize": 1024,
+      "coverageSHA256": "533aa0ab5ea7e419447fee7efeea8d7a3c46e6d203c0992c74fe8caabc46e2f0",
+      "oldArea": 6278.894117647113,
+      "newArea": 6311.265625,
+      "newToOldCoverageArea": 1.0051556065043215,
+      "absoluteCoverageError": 376.99528186275126,
+      "absoluteCoverageErrorFraction": 0.06004166893071013,
+      "newCoverageOutsideOldSupport": 3.703125,
+      "oldCoverageOutsideNewSupport": 3.6392156862745035,
+      "sourceRGBIntegral": [
+        7.578108229674399,
+        7.867800772190094,
+        2.654157631099224
+      ],
+      "oldAlphaConditionalRGBIntegral": [
+        7.531982262852734,
+        7.817875647112844,
+        2.643553995760705
+      ],
+      "oldAlphaToOwnAlphaLuminance": 0.9937712330336984,
+      "rawFile": {
+        "name": "source-raw-view18-sun1.rgba16f",
+        "bytes": 8388608,
+        "sha256": "697101945e3afc6ba9c33591917c50f9cd22247b134687927e24258c258e26bf",
+        "storedName": "source-raw-view18-sun1.rgba16f.gz",
+        "storedBytes": 703769,
+        "storedSHA256": "69a223afbf158def16e4dbda41e85250e95645d9129ecf963fc3707af126c140"
+      },
+      "cellFile": {
+        "name": "response256-view18-sun1.rgba16f",
+        "bytes": 524288,
+        "sha256": "af14a174ddf6af52b82f2527fc8563a7349cd9c023dc3bf6c1d7cb7de7e796e1"
+      },
+      "smallFile": {
+        "name": "response128-view18-sun1.rgba16f",
+        "bytes": 131072,
+        "sha256": "b607d1003f87a75e31475291589d497bf5d3c86439cc53cdef8016bba9edadd2"
+      }
+    },
+    {
+      "view": 19,
+      "sun": 1,
+      "layer": 43,
+      "renderMilliseconds": 3580.599999997765,
+      "sourceRenderSize": 1024,
+      "coverageSHA256": "c96b1b6214906f3a66271dab1ad7a489bd13ae9552ca5b4ba4ae5a62291987d2",
+      "oldArea": 6426.321568627488,
+      "newArea": 6444.0625,
+      "newToOldCoverageArea": 1.002760666608892,
+      "absoluteCoverageError": 385.17732843137725,
+      "absoluteCoverageErrorFraction": 0.05993745011326007,
+      "newCoverageOutsideOldSupport": 3.03125,
+      "oldCoverageOutsideNewSupport": 3.5764705882352885,
+      "sourceRGBIntegral": [
+        5.792024027556181,
+        6.071096367202699,
+        1.9732374977320433
+      ],
+      "oldAlphaConditionalRGBIntegral": [
+        5.780204310985246,
+        6.057018264628661,
+        1.9695317020958327
+      ],
+      "oldAlphaToOwnAlphaLuminance": 0.9977520445161675,
+      "rawFile": {
+        "name": "source-raw-view19-sun1.rgba16f",
+        "bytes": 8388608,
+        "sha256": "2168b46e8dbe974fee680471eb5fd4f1f4c92d69eeccb2cc092b5649b1d4e37d",
+        "storedName": "source-raw-view19-sun1.rgba16f.gz",
+        "storedBytes": 686188,
+        "storedSHA256": "bc19cec08ab8b742446a83382fe1e542197c0d5aef7e8fa347523e88ed4b8c08"
+      },
+      "cellFile": {
+        "name": "response256-view19-sun1.rgba16f",
+        "bytes": 524288,
+        "sha256": "e6fdacee4ebf2a80bbc66c8712acbb5547005421dcdc75c37eb8ea16fdab3b33"
+      },
+      "smallFile": {
+        "name": "response128-view19-sun1.rgba16f",
+        "bytes": 131072,
+        "sha256": "91727f3ca174c0c68f622bb8eca465e2be8d8fbeb103712b5091eff436cfbf6a"
+      }
+    },
+    {
+      "view": 20,
+      "sun": 1,
+      "layer": 44,
+      "renderMilliseconds": 3782.39999999851,
+      "sourceRenderSize": 1024,
+      "coverageSHA256": "8e4bd67d29e1d31e74361a9432270f2dde1e194510278c2e8fd877fcd6da4054",
+      "oldArea": 6548.152941176585,
+      "newArea": 6573.953125,
+      "newToOldCoverageArea": 1.0039400704374475,
+      "absoluteCoverageError": 382.46072303922125,
+      "absoluteCoverageErrorFraction": 0.0584074206077569,
+      "newCoverageOutsideOldSupport": 3.296875,
+      "oldCoverageOutsideNewSupport": 2.5882352941176436,
+      "sourceRGBIntegral": [
+        4.555393683724105,
+        4.813716224394739,
+        1.5614554081112146
+      ],
+      "oldAlphaConditionalRGBIntegral": [
+        4.527623380079188,
+        4.782636788260913,
+        1.5538730321663325
+      ],
+      "oldAlphaToOwnAlphaLuminance": 0.9936605811997344,
+      "rawFile": {
+        "name": "source-raw-view20-sun1.rgba16f",
+        "bytes": 8388608,
+        "sha256": "d8aa0d8703c18d9ecd241d8b69e95fcbe4ab32f90da35374fbcc4e4e128b407e",
+        "storedName": "source-raw-view20-sun1.rgba16f.gz",
+        "storedBytes": 663524,
+        "storedSHA256": "2830ed9723164bb629066ef47ecf5470b4f70e1ffbaff19024fb98f3e5ea75d8"
+      },
+      "cellFile": {
+        "name": "response256-view20-sun1.rgba16f",
+        "bytes": 524288,
+        "sha256": "2d94aa63ecddb6b7115e92d35929f62aa731108d65e0312d277bbc81f2598ab7"
+      },
+      "smallFile": {
+        "name": "response128-view20-sun1.rgba16f",
+        "bytes": 131072,
+        "sha256": "ba16f757ef423b96480320eb6e0f252f8d59f590e4f25397838ba6a720f877a8"
+      }
+    },
+    {
+      "view": 21,
+      "sun": 1,
+      "layer": 45,
+      "renderMilliseconds": 4211.39999999851,
+      "sourceRenderSize": 1024,
+      "coverageSHA256": "223f5bede5a976e4e1b879fef0d76512e5d8fe27e71be5769bf87597e5f895d7",
+      "oldArea": 6394.243137254991,
+      "newArea": 6409.1875,
+      "newToOldCoverageArea": 1.0023371589763201,
+      "absoluteCoverageError": 370.5258578431427,
+      "absoluteCoverageErrorFraction": 0.05794678899279504,
+      "newCoverageOutsideOldSupport": 2.890625,
+      "oldCoverageOutsideNewSupport": 3.41960784313725,
+      "sourceRGBIntegral": [
+        4.108408018946648,
+        4.356576716527343,
+        1.4161001378670335
+      ],
+      "oldAlphaConditionalRGBIntegral": [
+        4.093538765006804,
+        4.339028341637633,
+        1.4120010615884342
+      ],
+      "oldAlphaToOwnAlphaLuminance": 0.9960875715407634,
+      "rawFile": {
+        "name": "source-raw-view21-sun1.rgba16f",
+        "bytes": 8388608,
+        "sha256": "aac1c211b96e1756bd505b3fa88a9fe0086f9030617e6b0d929c037996173459",
+        "storedName": "source-raw-view21-sun1.rgba16f.gz",
+        "storedBytes": 648744,
+        "storedSHA256": "49e2ca39f23b21bc9fafe8d0b032014a290cea4b7893dfaf6e34a7eff12f777a"
+      },
+      "cellFile": {
+        "name": "response256-view21-sun1.rgba16f",
+        "bytes": 524288,
+        "sha256": "d0dae5dad5fcc0629629f8cf6ad8b45a6180ce08352591867b65952347f16d50"
+      },
+      "smallFile": {
+        "name": "response128-view21-sun1.rgba16f",
+        "bytes": 131072,
+        "sha256": "6ab23ee070433f24c5dcae7e862c7d8e740544b255bdcf9a297d25deec370205"
+      }
+    },
+    {
+      "view": 22,
+      "sun": 1,
+      "layer": 46,
+      "renderMilliseconds": 3719.199999999255,
+      "sourceRenderSize": 1024,
+      "coverageSHA256": "5773c46626d287a84a39fe95e1ed19079b8f27cc1d545aabb01064da6f476b4c",
+      "oldArea": 6273.1215686274945,
+      "newArea": 6303.734375,
+      "newToOldCoverageArea": 1.00487999571467,
+      "absoluteCoverageError": 381.05055147059284,
+      "absoluteCoverageErrorFraction": 0.06074337111148373,
+      "newCoverageOutsideOldSupport": 3.328125,
+      "oldCoverageOutsideNewSupport": 4.078431372549013,
+      "sourceRGBIntegral": [
+        4.341424408368766,
+        4.595779225230217,
+        1.460601287893951
+      ],
+      "oldAlphaConditionalRGBIntegral": [
+        4.308628773492272,
+        4.560068248805257,
+        1.4518903837533288
+      ],
+      "oldAlphaToOwnAlphaLuminance": 0.9923200159490853,
+      "rawFile": {
+        "name": "source-raw-view22-sun1.rgba16f",
+        "bytes": 8388608,
+        "sha256": "18c821f15fac604f217a3aa0a688b1743162b32101a9d554fe55b5f4bf8baf8e",
+        "storedName": "source-raw-view22-sun1.rgba16f.gz",
+        "storedBytes": 646806,
+        "storedSHA256": "841694c3425221cfa62d829905f3e869f2b85b886ac961313023cf80a1d4509a"
+      },
+      "cellFile": {
+        "name": "response256-view22-sun1.rgba16f",
+        "bytes": 524288,
+        "sha256": "3695b2b8927e5ca7e1927affac0341876168cecd22bd2ec9216a5c8aa89970a2"
+      },
+      "smallFile": {
+        "name": "response128-view22-sun1.rgba16f",
+        "bytes": 131072,
+        "sha256": "0fd7c7b3261c3e5659fe8891ba8bdd4149bd03b1fe61982edd975180235de650"
+      }
+    },
+    {
+      "view": 23,
+      "sun": 1,
+      "layer": 47,
+      "renderMilliseconds": 3297.39999999851,
+      "sourceRenderSize": 1024,
+      "coverageSHA256": "b5236d3a742eaad0641d647768a294e4019b135a93b107958ce10f109ee18b6d",
+      "oldArea": 6193.313725490222,
+      "newArea": 6208.078125,
+      "newToOldCoverageArea": 1.002383925659863,
+      "absoluteCoverageError": 382.8973651960849,
+      "absoluteCoverageErrorFraction": 0.061824312826293526,
+      "newCoverageOutsideOldSupport": 3.640625,
+      "oldCoverageOutsideNewSupport": 3.450980392156858,
+      "sourceRGBIntegral": [
+        5.5998866548761725,
+        5.878866150975227,
+        1.9095988078042865
+      ],
+      "oldAlphaConditionalRGBIntegral": [
+        5.582914261170312,
+        5.8602355751031725,
+        1.9051382065275064
+      ],
+      "oldAlphaToOwnAlphaLuminance": 0.9968814286578935,
+      "rawFile": {
+        "name": "source-raw-view23-sun1.rgba16f",
+        "bytes": 8388608,
+        "sha256": "4d52afa4542179b1ac3f3013a45eef052f29dbaec94871f2f053c392d471fe9f",
+        "storedName": "source-raw-view23-sun1.rgba16f.gz",
+        "storedBytes": 664780,
+        "storedSHA256": "845c0e52a12fa0ecea327cc972e47449e482adc8fd611e3aeee35afdd89011cb"
+      },
+      "cellFile": {
+        "name": "response256-view23-sun1.rgba16f",
+        "bytes": 524288,
+        "sha256": "81e4db4985115ca58b20cd04ab09bb4fa97572423a7c6117f26fc7b8649ddb38"
+      },
+      "smallFile": {
+        "name": "response128-view23-sun1.rgba16f",
+        "bytes": 131072,
+        "sha256": "1a96e603a10863739ca1a0124831a7b8d42d13e8939aa0b9f4426a6046ba5fb1"
+      }
+    }
+  ],
+  "retainedRecordsSHA256": "af5927a11527a64fb8d69cf7ac7a70062bf92adb000d10e5e476587d67c19d94",
+  "sourceRecovery": "Exact math.ts bytes recovered from git657b5c87d05139ec13a4c199c9ccfdabbd5cbd45; all33 dependency hashes match original contract",
+  "resumeRoot": "/workspace/scratch/ff8fac50118b/dronebeachshot/artifacts/refinement-2026-09-30/normal-response-audit/island-response-1024/authoring-source",
+  "resumeChanges": "None to driver/browser/source shaders/sampling contract; source path only changed",
+  "boundsUnchanged": {
+    "startGiB": 6,
+    "stopGiB": 7.25,
+    "pageMilliseconds": 480000,
+    "totalMilliseconds": 600000
+  },
+  "complete": true,
+  "completedLayers": 192,
+  "original48RecordsPreserved": true,
+  "attempts": [
+    {
+      "record": "attempt01-memory.json",
+      "wallMilliseconds": 184029,
+      "memoryBeforeGiB": 5.47314453125,
+      "memoryAfterGiB": 5.799568176269531,
+      "peakGiB": 6.607456207275391
+    },
+    {
+      "record": "attempt02-memory.json",
+      "wallMilliseconds": 482589,
+      "memoryBeforeGiB": 5.596691131591797,
+      "memoryAfterGiB": 6.118343353271484,
+      "peakGiB": 6.912441253662109
+    },
+    {
+      "record": "attempt03-memory.json",
+      "wallMilliseconds": 81532,
+      "memoryBeforeGiB": 5.855182647705078,
+      "memoryAfterGiB": 6.521747589111328,
+      "peakGiB": 7.306636810302734
+    },
+    {
+      "record": "memory.json",
+      "wallMilliseconds": 20013,
+      "memoryBeforeGiB": 5.775318145751953,
+      "memoryAfterGiB": 6.129718780517578,
+      "peakGiB": 7.09503173828125
+    }
+  ],
+  "successfulContextWallMilliseconds": 19969,
+  "allContextWallMilliseconds": 768163,
+  "finalPayloadSHA256": "9f1e04acf3995292adb4a7bba6c28ba28088cd37a3e7e90374a4fac3d564f63f",
+  "runtimeAssets": [
+    {
+      "creator": "Rico Cilliers; Rob Tuytel; derived response bake authored for Last Light Bay",
+      "sourcePage": "https://polyhaven.com/a/island_tree_02",
+      "sourceDownload": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/1k/island_tree_02/island_tree_02_1k.gltf",
+      "license": "CC0-1.0",
+      "attribution": "Optional; retained in docs/ASSET_LICENSES.md",
+      "downloadDate": "2026-09-05",
+      "name": "Island Tree02 source direct-diffuse response study",
+      "path": "public/assets/studies/island-response/island-direct-response.rgba16f",
+      "bytes": 25165824,
+      "sha256": "9f1e04acf3995292adb4a7bba6c28ba28088cd37a3e7e90374a4fac3d564f63f",
+      "derivedFrom": "public/assets/models/island-tree-near.glb",
+      "derivedFromSHA256": "c81e6ece28b7646aa59f2c2c68142619b2790d0db62c5d829278fec92e4373d7",
+      "authoringDate": "2026-10-01",
+      "modifications": "Inspection-only source-derived unit-white-sun direct diffuse; actual source albedo, normal maps, cutout geometry, self-shadow and transmission included once;24views x8relativeSun azimuths,6.021653966degree elevation;1024px source4xMSAA ->256px4x area ->128px2x area;premultiplied RGB/coverage RGBA16F;runtime conditional RGB uses unchanged existing alpha;defaultOFF.",
+      "dimensions": [
+        128,
+        128,
+        192
+      ],
+      "format": "RGBA16F",
+      "layout": "sun-major-view-major-bottom-first"
+    },
+    {
+      "creator": "Rico Cilliers; Rob Tuytel; derived response bake authored for Last Light Bay",
+      "sourcePage": "https://polyhaven.com/a/island_tree_02",
+      "sourceDownload": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/1k/island_tree_02/island_tree_02_1k.gltf",
+      "license": "CC0-1.0",
+      "attribution": "Optional; retained in docs/ASSET_LICENSES.md",
+      "downloadDate": "2026-09-05",
+      "name": "Island Tree02 direct-response study recipe",
+      "path": "public/assets/studies/island-response/response-manifest.json",
+      "bytes": 335275,
+      "sha256": "1935e1b8bd002959861fb97b768f8e9e184a71e08a5906f5eaa5987e65144601",
+      "derivedFrom": "public/assets/models/island-tree-near.glb",
+      "derivedFromSHA256": "c81e6ece28b7646aa59f2c2c68142619b2790d0db62c5d829278fec92e4373d7",
+      "authoringDate": "2026-10-01",
+      "modifications": "Inspection-only source-derived unit-white-sun direct diffuse; actual source albedo, normal maps, cutout geometry, self-shadow and transmission included once;24views x8relativeSun azimuths,6.021653966degree elevation;1024px source4xMSAA ->256px4x area ->128px2x area;premultiplied RGB/coverage RGBA16F;runtime conditional RGB uses unchanged existing alpha;defaultOFF."
+    }
+  ],
+  "finalValidation": {
+    "all192RawIntegrationDifferentHalfWords": 0,
+    "productionParser": true,
+    "fullSerialAudit": "../island-response-artifact-review.json"
+  },
+  "heldBeforeLaunch": "launch-held.json",
+  "note": "Allmemory/time guards unchanged; failed contexts closed and resumed only missing layers. No production visual/default acceptance."
+}

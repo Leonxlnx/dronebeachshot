@@ -1,0 +1,182 @@
+{
+  "defaultOffExact": true,
+  "core": {
+    "original": 14000,
+    "retained": 13954,
+    "omitted": 46,
+    "changedY": 20
+  },
+  "floor": {
+    "roots": {
+      "selected": 600,
+      "retained": 596,
+      "omitted": [
+        {
+          "sourceOrdinal": 180,
+          "treeOrdinal": 2114,
+          "local": true,
+          "omitted": true,
+          "reason": "Owning core tree omitted"
+        },
+        {
+          "sourceOrdinal": 181,
+          "treeOrdinal": 2114,
+          "local": true,
+          "omitted": true,
+          "reason": "Owning core tree omitted"
+        },
+        {
+          "sourceOrdinal": 182,
+          "treeOrdinal": 2114,
+          "local": false,
+          "omitted": true,
+          "reason": "Owning core tree omitted"
+        },
+        {
+          "sourceOrdinal": 183,
+          "treeOrdinal": 2114,
+          "local": false,
+          "omitted": true,
+          "reason": "Owning core tree omitted"
+        }
+      ],
+      "localRetained": 12,
+      "outsideByteExact": 584
+    },
+    "litter": {
+      "selected": 3695,
+      "retained": 3690,
+      "omitted": [
+        {
+          "sourceOrdinal": 95,
+          "local": true,
+          "omitted": true
+        },
+        {
+          "sourceOrdinal": 572,
+          "local": true,
+          "omitted": true
+        },
+        {
+          "sourceOrdinal": 590,
+          "local": true,
+          "omitted": true
+        },
+        {
+          "sourceOrdinal": 1482,
+          "local": true,
+          "omitted": true
+        },
+        {
+          "sourceOrdinal": 2115,
+          "local": true,
+          "omitted": true
+        }
+      ],
+      "localRetained": 15,
+      "outsideByteExact": 3675
+    },
+    "seedlings": {
+      "selected": 889,
+      "retained": 887,
+      "omitted": [
+        {
+          "sourceOrdinal": 164,
+          "local": true,
+          "omitted": true
+        },
+        {
+          "sourceOrdinal": 357,
+          "local": true,
+          "omitted": true
+        }
+      ],
+      "localRetained": 5,
+      "outsideByteExact": 882
+    }
+  },
+  "structure": {
+    "structure": {
+      "counts": {
+        "shrubs": 267,
+        "snags": 24,
+        "leafSurfaces": 23400
+      },
+      "referenceCounts": {
+        "shrubs": 267,
+        "snags": 24,
+        "coastalShrubs": 0
+      },
+      "outsideExactInstances": 582,
+      "localRetainedInstances": 0,
+      "localRecords": []
+    },
+    "coastal": {
+      "counts": {
+        "shrubs": 419,
+        "snags": 24,
+        "leafSurfaces": 36575
+      },
+      "referenceCounts": {
+        "shrubs": 420,
+        "snags": 24,
+        "coastalShrubs": 153
+      },
+      "outsideExactInstances": 878,
+      "localRetainedInstances": 8,
+      "localRecords": [
+        {
+          "sourceOrdinal": 293,
+          "kind": "shrub",
+          "x": 161.39263593684882,
+          "z": 97.31472468238755,
+          "oldY": 5.993591727535823,
+          "y": 5.993591727535823,
+          "maximumBasalGap": -0.2098141787543275,
+          "omitted": false
+        },
+        {
+          "sourceOrdinal": 299,
+          "kind": "shrub",
+          "x": 152.58444919949397,
+          "z": 106.24472195999661,
+          "oldY": 7.31487517801626,
+          "y": 7.31487517801626,
+          "maximumBasalGap": -0.16863105965011727,
+          "omitted": false
+        },
+        {
+          "sourceOrdinal": 302,
+          "kind": "shrub",
+          "x": 160.58363684406504,
+          "z": 100.26628887004713,
+          "oldY": 7.154154720716217,
+          "y": 7.154154720716217,
+          "maximumBasalGap": -0.21548723678611292,
+          "omitted": false
+        },
+        {
+          "sourceOrdinal": 305,
+          "kind": "shrub",
+          "x": 157.01554502313957,
+          "z": 105.65529233671549,
+          "oldY": 8.837334704670049,
+          "y": 8.907444621501751,
+          "maximumBasalGap": -0.20806256485771435,
+          "omitted": true,
+          "reason": "Current local slope fails original eligibility"
+        },
+        {
+          "sourceOrdinal": 327,
+          "kind": "shrub",
+          "x": 154.35355742601678,
+          "z": 104.80196067249352,
+          "oldY": 7.1740383095127935,
+          "y": 7.1740383095127935,
+          "maximumBasalGap": -0.14752887560916061,
+          "omitted": false
+        }
+      ]
+    }
+  }
+}

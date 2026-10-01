@@ -1,0 +1,12 @@
+{
+  "enabled": true,
+  "changedCoreGridVertices": 1160,
+  "maxUplift": 32.000000000000014,
+  "minChangedShore": 45.15416604634578,
+  "routeSamples": 1201,
+  "protectedCoastExact": true,
+  "summitExact": true,
+  "workerHeightSamples": 3036,
+  "workerScope": "Source height and Float32 surface imports; not coastal atlas/GPU verification",
+  "visualAcceptance": false
+}

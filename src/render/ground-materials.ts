@@ -11,6 +11,9 @@ export const stoneBeddingAligned={value:1};
 export const sandRippleStrength={value:.2};
 // Reversible screen-frequency filter study; control remains off until visual review.
 export const sandRippleFilter={value:0};
+// Reversible source-chroma study. Both endpoints have nearly identical linear
+// luminance; this restores restrained warm sand color without lifting exposure.
+export const sandChroma={value:0};
 export const rockWeatheringStrength={value:0};
 // Inspection study: 0 original, 1 explicit gradients, 2 exact-zero pruning.
 export const groundLayerPruning={value:0};
@@ -107,9 +110,9 @@ export function createGroundMaterial(t:Textures,allowLayerPruning=false){
  const layerPruningMode=allowLayerPruning?groundLayerPruning:{value:0};
  const material=new THREE.MeshStandardMaterial({color:0xffffff,roughness:1,vertexColors:true});
  material.onBeforeCompile=shader=>{
-  attachWorld(shader);Object.assign(shader.uniforms,{uHabitat:habitatUniform,uTime:worldTime,uMineralRelief:mineralReliefStrength,uStoneBeddingAligned:stoneBeddingAligned,uSandRipple:sandRippleStrength,uSandRippleFilter:sandRippleFilter,uRockWeathering:rockWeatheringStrength,uGroundLayerPruning:layerPruningMode,uDebug:debugMode,uRock:{value:t.rock},uRockN:{value:t.rockNormal},uRockARM:{value:t.rockARM},uSand:{value:t.sand},uSandN:{value:t.sandNormal},uSandARM:{value:t.sandARM},uSoil:{value:t.soil},uSoilN:{value:t.soilNormal},uSoilARM:{value:t.soilARM},uMoss:{value:t.moss},uMossN:{value:t.mossNormal},uMossARM:{value:t.mossARM}});
+  attachWorld(shader);Object.assign(shader.uniforms,{uHabitat:habitatUniform,uTime:worldTime,uMineralRelief:mineralReliefStrength,uStoneBeddingAligned:stoneBeddingAligned,uSandRipple:sandRippleStrength,uSandRippleFilter:sandRippleFilter,uSandChroma:sandChroma,uRockWeathering:rockWeatheringStrength,uGroundLayerPruning:layerPruningMode,uDebug:debugMode,uRock:{value:t.rock},uRockN:{value:t.rockNormal},uRockARM:{value:t.rockARM},uSand:{value:t.sand},uSandN:{value:t.sandNormal},uSandARM:{value:t.sandARM},uSoil:{value:t.soil},uSoilN:{value:t.soilNormal},uSoilARM:{value:t.soilARM},uMoss:{value:t.moss},uMossN:{value:t.mossNormal},uMossARM:{value:t.mossARM}});
   shader.fragmentShader=shader.fragmentShader.replace('#include <common>',`#include <common>
- varying vec3 vGroundWorld,vGroundNormal;uniform float uTime,uMineralRelief,uStoneBeddingAligned,uSandRipple,uSandRippleFilter,uRockWeathering;uniform float uDebug,uGroundLayerPruning;
+ varying vec3 vGroundWorld,vGroundNormal;uniform float uTime,uMineralRelief,uStoneBeddingAligned,uSandRipple,uSandRippleFilter,uSandChroma,uRockWeathering;uniform float uDebug,uGroundLayerPruning;
  uniform sampler2D uRock,uRockN,uRockARM,uSand,uSandN,uSandARM,uSoil,uSoilN,uSoilARM,uMoss,uMossN,uMossARM;
  ${noiseGLSL}${shorelineGLSL}${coastalGLSL}${habitatGLSL}${projection}${groundLayerProjection}`)
   .replace('#include <map_fragment>',`#include <map_fragment>
@@ -153,7 +156,7 @@ export function createGroundMaterial(t:Textures,allowLayerPruning=false){
  // view retains the detail it can actually resolve.
  float sandFootprint=max(length(dFdx(gp.xz)),length(dFdy(gp.xz)));
  float sandGrain=1.-smoothstep(.025,.18,sandFootprint);
- sand=vec3(.58,.54,.445)*mix(1.,clamp(sandLuminance/.123,.62,1.38),sandGrain);
+ sand=mix(vec3(.58,.54,.445),vec3(.64,.53,.37),uSandChroma)*mix(1.,clamp(sandLuminance/.123,.62,1.38),sandGrain);
  vec3 ground=mix(soil,stone,cliff);ground=mix(ground,living,moss*.76);ground=mix(ground,sand,sediment);
  float macro=.91+.18*fbm(gp.xz*.027),wet=sandWetness(gp.x,d,uTime);
  // Darkening is bounded. Shaded ground must remain readable under sky fill.

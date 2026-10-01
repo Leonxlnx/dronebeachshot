@@ -6,8 +6,9 @@ import crypto from 'node:crypto';
 import ts from 'typescript';
 import {chromium} from 'playwright';
 
-const root=path.resolve(fileURLToPath(new URL('../../',import.meta.url))),output=path.join(root,'artifacts/refinement-2026-09-30/terrain-shadow-chunks/browser-02');
+const root=path.resolve(fileURLToPath(new URL('../../',import.meta.url))),output=path.resolve(root,process.argv.find(value=>value.startsWith('out='))?.slice(4)??'artifacts/refinement-2026-09-30/terrain-shadow-chunks/browser-03');
 await fs.mkdir(output,{recursive:true});
+try{await fs.access(path.join(output,'results.json'));throw Error('Completed probe output exists; choose a new out= directory');}catch(error){if(error.code!=='ENOENT')throw error;}
 const memory=async()=>Number((await fs.readFile('/sys/fs/cgroup/memory.current','utf8')).trim());
 const before=await memory();if(before>=6*1024**3)throw Error('Hold tiny terrain probe: current memory is at least6GiB');
 const html='<!doctype html><meta charset="utf-8"><link rel="icon" href="data:,"><canvas id="world"></canvas><script type="importmap">{"imports":{"three":"/three.module.js","three/addons/":"/addons/"}}</script><script type="module" src="/scripts/control/terrain-shadow-chunks-probe-page.mjs"></script>';

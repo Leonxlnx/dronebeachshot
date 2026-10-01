@@ -5,6 +5,7 @@ import {alphaWeightedColorTexture} from '../render/alpha-weighted-color';
 import {prepareTreeMaterial} from '../render/vegetation-material';
 import {excludeAboveWaterInstancesFromRefraction} from '../render/refraction';
 import {registerFarCrownBlendingMesh} from '../render/far-crown-blending';
+import {registerIslandDirectResponseMaterial} from '../render/island-direct-response';
 
 export type TreeImpostorMetadata={
  family:number;center:number[];halfSize:number;
@@ -102,6 +103,7 @@ export function createTreeImpostor(metadata:TreeImpostorMetadata,
  material.userData.sharedShaderTextures=[filteredNormals];
  bindImpostor(material,true);bindImpostor(depth,false);
  if(visibility)bindSourceSunVisibility(material,visibility,solarDirection);
+ if(visibility)registerIslandDirectResponseMaterial(material,metadata);
  const mesh=new THREE.InstancedMesh(geometry,material,count);mesh.name='tree-impostor-family-'+metadata.family;
  mesh.customDepthMaterial=depth;mesh.castShadow=true;mesh.receiveShadow=true;
  excludeAboveWaterInstancesFromRefraction(mesh);

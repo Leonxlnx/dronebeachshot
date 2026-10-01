@@ -48,8 +48,8 @@ function disposePartition(geometry:THREE.BufferGeometry){
 
 /** Inspection-only, lazy study. Normal rendering keeps the original mesh. On
  * enable, its shadow triangles move into bounded children; main/refraction
- * geometry and materials remain the original objects. Children have an empty
- * draw range outside the real sun pass and never submit a colour triangle.
+ * geometry and materials remain the original objects. Children are armed only
+ * for the one visible sun's next shadow pass, then removed from camera layers.
  */
 export function createTerrainShadowChunkStudy(source:THREE.Mesh,cellSize=512){
  if(source instanceof THREE.InstancedMesh||source instanceof THREE.SkinnedMesh||Array.isArray(source.material))
@@ -68,10 +68,10 @@ export function createTerrainShadowChunkStudy(source:THREE.Mesh,cellSize=512){
     const count=geometry.index!.count,mesh=new THREE.Mesh(geometry,source.material);
     mesh.name=geometry.name;mesh.castShadow=originalCaster;mesh.receiveShadow=false;
     mesh.customDepthMaterial=source.customDepthMaterial;mesh.customDistanceMaterial=source.customDistanceMaterial;
-    mesh.layers.mask=source.layers.mask;geometry.setDrawRange(0,0);
+    mesh.layers.mask=0;geometry.setDrawRange(0,0);
     mesh.onBeforeRender=()=>{geometry.setDrawRange(0,0);};
     mesh.onBeforeShadow=()=>{geometry.setDrawRange(0,count);submittedTriangles+=count/3;submittedChunks++;};
-    mesh.onAfterShadow=()=>{geometry.setDrawRange(0,0);};
+    mesh.onAfterShadow=()=>{geometry.setDrawRange(0,0);mesh.layers.mask=0;};
     group.add(mesh);meshes.push(mesh);
    }
    source.add(group);
@@ -83,10 +83,35 @@ export function createTerrainShadowChunkStudy(source:THREE.Mesh,cellSize=512){
   submittedTriangles=submittedChunks=0;
   if(!enabled)return;
   for(const mesh of meshes){
-   mesh.layers.mask=source.layers.mask;mesh.material=source.material;
+   mesh.layers.mask=0;mesh.material=source.material;
    mesh.customDepthMaterial=source.customDepthMaterial;mesh.customDistanceMaterial=source.customDistanceMaterial;
    mesh.geometry.setDrawRange(0,0);
   }
+ }
+ function prepareSunShadow(renderer:THREE.WebGLRenderer,scene:THREE.Scene,camera:THREE.Camera,sun:THREE.DirectionalLight){
+  beginFrame();
+  if(!enabled||!originalCaster||!renderer.shadowMap.enabled
+   ||!renderer.shadowMap.autoUpdate&&!renderer.shadowMap.needsUpdate)return;
+  // This study serves the application's one PCF sun. A second shadow light
+  // would need its own re-arm point, so reject rather than omit its geometry.
+  if(renderer.shadowMap.type!==THREE.PCFShadowMap)throw Error('Terrain shadow partition requires the PCF sun pass');
+  const lights:THREE.Light[]=[];
+  scene.traverseVisible(object=>{if(object instanceof THREE.Light&&object.castShadow&&object.layers.test(camera.layers))lights.push(object);});
+  if(!lights.length)return;
+  if(lights.length!==1||lights[0]!==sun)throw Error('Terrain shadow partition requires one visible shadow-casting sun');
+  if(!sun.shadow.autoUpdate&&!sun.shadow.needsUpdate)return;
+  for(let parent:THREE.Object3D|null=source;parent;parent=parent.parent)if(!parent.visible)return;
+  if(!source.layers.test(camera.layers)||!(source.material as THREE.Material).visible)return;
+  source.updateWorldMatrix(true,true);sun.updateWorldMatrix(true,false);sun.target.updateWorldMatrix(true,false);
+  sun.shadow.camera.updateProjectionMatrix();sun.shadow.updateMatrices(sun);
+  const frustum=sun.shadow.getFrustum();
+  for(const mesh of meshes)if(frustum.intersectsObject(mesh))mesh.layers.mask=source.layers.mask;
+ }
+ function finishSunShadow(){
+  // Also disarm on exceptions or skipped renderer work. In Three185 camera
+  // renderObjects rechecks layers after the shadow pass, avoiding even the
+  // zero-count colour draw calls that empty geometry alone still incurs.
+  for(const mesh of meshes){mesh.layers.mask=0;mesh.geometry.setDrawRange(0,0);}
  }
  function dispose(){
   if(disposed)return;
@@ -95,5 +120,5 @@ export function createTerrainShadowChunkStudy(source:THREE.Mesh,cellSize=512){
   meshes.length=0;disposed=true;enabled=false;
  }
  group.visible=false;
- return {get,set,beginFrame,dispose};
+ return {get,set,beginFrame,prepareSunShadow,finishSunShadow,dispose};
 }

@@ -1,7 +1,10 @@
 import * as THREE from 'three';
-import { rng, noise, terrainSlope, shoreDistance, shoreZ } from './math';
-import { habitatAt } from './habitat';
-import { renderedTerrainHeight } from './terrain-surface';
+import { rng, noise, terrainSlope, terrainSlopeBeforePrincipalFace, shoreDistance, shoreZ } from './math';
+import { habitatAt, habitatAtBeforePrincipalFace } from './habitat';
+import { renderedTerrainHeight, renderedTerrainHeightBeforePrincipalFace } from './terrain-surface';
+import { EAST_SPUR_STUDY_ENABLED } from './east-spur';
+import { eastSpurTouchesBounds } from './east-spur-local-support';
+import { treePlacementsBeforePrincipalFace } from './ecology';
 import { pathPosition } from '../camera/cinematic';
 import { windMaterial, type Textures } from '../render/materials';
 
@@ -216,7 +219,11 @@ export function createForestStructure(textures: Textures, liveTrees:readonly {x:
   const snagShapes = Array.from({ length: 3 }, (_, i) => snagShape(i));
   // Same 20-second route and 1/30-second sampling convention used by ecology.ts.
   const flight = Array.from({ length: 601 }, (_, i) => pathPosition(i / 30));
-  const placements: PlantPlacement[] = [];
+  let placements: PlantPlacement[] = [];
+  const selectionSlope=EAST_SPUR_STUDY_ENABLED?terrainSlopeBeforePrincipalFace:terrainSlope;
+  const selectionHabitat=EAST_SPUR_STUDY_ENABLED?habitatAtBeforePrincipalFace:habitatAt;
+  const selectionHeight=EAST_SPUR_STUDY_ENABLED?renderedTerrainHeightBeforePrincipalFace:renderedTerrainHeight;
+  const selectionTrees=EAST_SPUR_STUDY_ENABLED?treePlacementsBeforePrincipalFace():liveTrees;
   const coastalSampling = options.coastalSampling ?? COASTAL_SHRUB_SAMPLING_STUDY_ENABLED;
   const stats: ForestStructureStats = { seed: SEED, shrubs: 0, snags: 0, leafSurfaces: 0,
     drawCalls: 0, instancedTriangles: 0, sourceTriangles: 0, routeRejected: 0, spacingRejected: 0,
@@ -224,7 +231,7 @@ export function createForestStructure(textures: Textures, liveTrees:readonly {x:
     buildMilliseconds: 0, maxShrubHeight: 0, maxSnagHeight: 0 };
 
   const trunkCells=new Map<string,{x:number,z:number,scale:number}[]>();
-  for(const tree of liveTrees){const key=Math.floor(tree.x/16)+','+Math.floor(tree.z/16);const list=trunkCells.get(key)||[];list.push(tree);trunkCells.set(key,list)}
+  for(const tree of selectionTrees){const key=Math.floor(tree.x/16)+','+Math.floor(tree.z/16);const list=trunkCells.get(key)||[];list.push(tree);trunkCells.set(key,list)}
   function liveTrunkTooClose(x:number,z:number,kind:Kind){
     const cx=Math.floor(x/16),cz=Math.floor(z/16);
     for(let zc=cz-1;zc<=cz+1;zc++)for(let xc=cx-1;xc<=cx+1;xc++)for(const tree of trunkCells.get(xc+','+zc)||[]){
@@ -235,7 +242,7 @@ export function createForestStructure(textures: Textures, liveTrees:readonly {x:
   function place(kind: Kind, x: number, z: number, habitat: Habitat, variant: number, scale: number, rotationRandom=random): boolean {
     if(liveTrunkTooClose(x,z,kind)){stats.spacingRejected++;return false}
     const shape = kind === 'shrub' ? shrubShapes[variant] : snagShapes[variant];
-    const y = renderedTerrainHeight(x, z) - 0.055;
+    const y = selectionHeight(x, z) - 0.055;
     const radius = shape.radius * scale, height = shape.height * scale;
     if (flight.some(p => p.y > y - 1.5 && p.y < y + height + 2.5 && Math.hypot(p.x - x, p.z - z) < radius + 2.2)) {
       stats.routeRejected++; return false;
@@ -254,8 +261,8 @@ export function createForestStructure(textures: Textures, liveTrees:readonly {x:
   for (let i = 0; i < 14000 && stats.snags < SNAG_TARGET; i++) {
     stats.snagAttempts++;
     const x = (random() - 0.5) * 940, z = -75 + random() * 690, d = shoreDistance(x, z);
-    if (d < 58 || d > 235 || terrainSlope(x, z) > 0.85) continue;
-    const habitat = habitatAt(x, z);
+    if (d < 58 || d > 235 || selectionSlope(x, z) > 0.85) continue;
+    const habitat = selectionHabitat(x, z);
     if (habitat.soil < 0.34 || habitat.canopy < 0.24 || habitat.exposure < 0.24 ||
         noise(x * 0.034 + 11, z * 0.034) < 0.38 || random() > 0.2 + habitat.exposure * 0.52) continue;
     const variant = Math.floor(random() * snagShapes.length), scale = 0.76 + random() * 0.39;
@@ -264,8 +271,8 @@ export function createForestStructure(textures: Textures, liveTrees:readonly {x:
   function tryShrub(x:number,z:number,candidateRandom:()=>number){
     stats.shrubAttempts++;
     const d = shoreDistance(x, z);
-    if (d < 31 || d > 260 || terrainSlope(x, z) > 0.82) return false;
-    const habitat = habitatAt(x, z), clump = noise(x * 0.033 + 29, z * 0.033 - 14);
+    if (d < 31 || d > 260 || selectionSlope(x, z) > 0.82) return false;
+    const habitat = selectionHabitat(x, z), clump = noise(x * 0.033 + 29, z * 0.033 - 14);
     if (habitat.soil < 0.28 || habitat.moisture < 0.38 || clump < 0.40) return false;
     const density = (0.18 + habitat.soil * 0.43 + habitat.moisture * 0.31) * (0.88 - habitat.canopy * 0.27);
     if (candidateRandom() > density) return false;
@@ -300,6 +307,40 @@ export function createForestStructure(textures: Textures, liveTrees:readonly {x:
     }
   }
 
+  // Preserve all original selection draws, caps, spacing and trunk blockers.
+  // Refit/omit only afterward, retaining source ordinals rather than packed IDs.
+  const referencePlacements=placements,sourceOrdinal=new Map(referencePlacements.map((p,index)=>[p,index]));
+  const referenceCounts={shrubs:stats.shrubs,snags:stats.snags,coastalShrubs:stats.coastalShrubs};
+  const coastalStart=placements.length-stats.coastalShrubs;
+  const localRecords:{sourceOrdinal:number,kind:Kind,x:number,z:number,oldY:number,y:number,maximumBasalGap:number|null,omitted:boolean,reason?:string}[]=[];
+  if(EAST_SPUR_STUDY_ENABLED){
+    const object=new THREE.Object3D(),point=new THREE.Vector3();
+    placements=placements.flatMap((p,index)=>{
+      if(!eastSpurTouchesBounds(p.x-p.radius,p.x+p.radius,p.z-p.radius,p.z+p.radius))return[p];
+      const current={...p,y:renderedTerrainHeight(p.x,p.z)-.055},h=habitatAt(p.x,p.z),slope=terrainSlope(p.x,p.z);
+      let reason:string|undefined;
+      if(slope>(p.kind==='shrub'?.82:.85))reason='Current local slope fails original eligibility';
+      else if(p.kind==='shrub'?(h.soil<.28||h.moisture<.38):(h.soil<.34||h.canopy<.24||h.exposure<.24))reason='Current local habitat fails original eligibility';
+      else if(flight.some(q=>q.y>current.y-1.5&&q.y<current.y+p.height+2.5&&Math.hypot(q.x-p.x,q.z-p.z)<p.radius+2.2))reason='Refitted local plant intersects route';
+      const shape=p.kind==='shrub'?shrubShapes[p.variant]:snagShapes[p.variant],position=shape.wood.attributes.position;
+      object.position.set(p.x,current.y,p.z);object.rotation.set(0,p.angle,0);object.scale.setScalar(p.scale);object.updateMatrix();
+      // Match the Float32 transform stored in the eventual instance buffer.
+      const matrix=new THREE.Matrix4().fromArray(new Float32Array(object.matrix.elements));let maximumBasalGap=-Infinity,basalVertices=0;
+      for(let v=0;v<position.count;v++){
+        if(position.getY(v)>=(p.kind==='shrub'?-.12:-.3))continue;
+        point.fromBufferAttribute(position,v).applyMatrix4(matrix);basalVertices++;
+        maximumBasalGap=Math.max(maximumBasalGap,point.y-renderedTerrainHeight(point.x,point.z));
+      }
+      if(!basalVertices)throw Error('Forest structure source basal footprint is empty');
+      if(!reason&&maximumBasalGap>.1)reason='Current source basal wood lacks support';
+      localRecords.push({sourceOrdinal:index,kind:p.kind,x:p.x,z:p.z,oldY:p.y,y:current.y,maximumBasalGap,omitted:!!reason,...(reason?{reason}:{})});
+      if(reason)return[];sourceOrdinal.set(current,index);return[current];
+    });
+    stats.shrubs=placements.filter(p=>p.kind==='shrub').length;stats.snags=placements.filter(p=>p.kind==='snag').length;
+    stats.coastalShrubs=placements.filter(p=>sourceOrdinal.get(p)!>=coastalStart).length;
+  }
+  group.userData.eastSpurCohort={referenceCounts,sourceOrdinals:placements.map(p=>sourceOrdinal.get(p)!),localRecords};
+
   const shrubWood = windMaterial(0xffffff, true, textures); shrubWood.vertexColors = true;
   const shrubLeaves = windMaterial(0xffffff); shrubLeaves.roughness = 0.83;
   const snagWood = new THREE.MeshStandardMaterial({ map: textures.bark, normalMap: textures.barkNormal,
@@ -326,6 +367,7 @@ export function createForestStructure(textures: Textures, liveTrees:readonly {x:
       else stats.maxSnagHeight = Math.max(stats.maxSnagHeight, p.height);
     });
     for (const mesh of [wood, other]) {
+      mesh.userData.sourceOrdinals=matching.map(p=>sourceOrdinal.get(p)!);
       mesh.castShadow = true; mesh.receiveShadow = true; mesh.instanceMatrix.needsUpdate = true;
       if (mesh.instanceColor) mesh.instanceColor.needsUpdate = true;
       mesh.computeBoundingBox(); mesh.computeBoundingSphere();

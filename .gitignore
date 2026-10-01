@@ -9,6 +9,8 @@ public/assets/impostors/
 public/assets/models/
 public/assets/rocks/
 public/assets/textures/
+public/assets/studies/
+dist-east-spur-study-*/
 
 # New diagnostic images remain private pending explicit publication approval.
 /artifacts/phase2/**/*.png

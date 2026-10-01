@@ -13,6 +13,10 @@ function floorFloat32(value:number){roundingFloat[0]=value;if(roundingFloat[0]>v
  * decrease. Offshore rocks are assembled afterwards and never enter this pass.
  */
 export function refitRockCohort(geology:THREE.Group,trees:readonly Placement[],referenceTrees:readonly Placement[]){
+ const referenceByXZ=new Map<string,{tree:Placement,index:number}>();
+ for(const [index,tree] of referenceTrees.entries()){const key=tree.x+','+tree.z;if(referenceByXZ.has(key))throw Error('Duplicate reference rock-root X/Z identity');referenceByXZ.set(key,{tree,index})}
+ const currentKeys=new Set<string>();
+ const rootIdentities=trees.map(tree=>{const key=tree.x+','+tree.z;if(currentKeys.has(key))throw Error('Duplicate current rock-root X/Z identity');currentKeys.add(key);const original=referenceByXZ.get(key);if(!original)throw Error('Current rock-root identity is absent from reference cohort');return original});
  const matrix=new THREE.Matrix4(),world=new THREE.Matrix4(),point=new THREE.Vector3(),box=new THREE.Box3();
  const records:RefitRecord[]=[];let instances=0,untouched=0;
  geology.updateMatrixWorld(true);
@@ -36,7 +40,7 @@ export function refitRockCohort(geology:THREE.Group,trees:readonly Placement[],r
    // of its sampled source vertices lie over changed terrain.
    let changedRootTouches=false;
    if(member.kind==='inland-scan')for(let i=0;i<trees.length;i++){
-    const tree=trees[i];if(tree.y===referenceTrees[i]?.y)continue;
+    const tree=trees[i];if(tree.y===rootIdentities[i].tree.y)continue;
     const radius=2.75*tree.scale,dx=Math.max(box.min.x-tree.x,0,tree.x-box.max.x),dz=Math.max(box.min.z-tree.z,0,tree.z-box.max.z);
     if(dx*dx+dz*dz<=radius*radius){changedRootTouches=true;break;}
    }
@@ -56,7 +60,7 @@ export function refitRockCohort(geology:THREE.Group,trees:readonly Placement[],r
       const tree=trees[i],radius=2.75*tree.scale,dx=Math.max(box.min.x-tree.x,0,tree.x-box.max.x),dz=Math.max(box.min.z-tree.z,0,tree.z-box.max.z);
       if(dx*dx+dz*dz>radius*radius)continue;
       const limit=tree.y-.4-box.max.y;
-      if(limit<shift){rootConstraints.push({tree:i,loweredBy:shift-limit});shift=limit;}
+      if(limit<shift){rootConstraints.push({tree:rootIdentities[i].index,loweredBy:shift-limit});shift=limit;}
      }
     }
    }

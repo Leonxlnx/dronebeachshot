@@ -1,0 +1,250 @@
+[
+  {
+    "view": 0,
+    "label": "opening-baseline",
+    "islandDirectResponse": false,
+    "farCrownBlending": false,
+    "surfaceStudy": {
+      "sandChroma": 0
+    },
+    "shadowStudy": {
+      "terrainChunks": false
+    }
+  },
+  {
+    "view": 0,
+    "label": "opening-response",
+    "islandDirectResponse": true,
+    "farCrownBlending": false,
+    "surfaceStudy": {
+      "sandChroma": 0
+    },
+    "shadowStudy": {
+      "terrainChunks": false
+    }
+  },
+  {
+    "view": 0,
+    "label": "opening-blend",
+    "islandDirectResponse": false,
+    "farCrownBlending": true,
+    "surfaceStudy": {
+      "sandChroma": 0
+    },
+    "shadowStudy": {
+      "terrainChunks": false
+    }
+  },
+  {
+    "view": 0,
+    "label": "opening-combined",
+    "islandDirectResponse": true,
+    "farCrownBlending": true,
+    "surfaceStudy": {
+      "sandChroma": 0
+    },
+    "shadowStudy": {
+      "terrainChunks": false
+    }
+  },
+  {
+    "view": 5,
+    "label": "descent-baseline",
+    "islandDirectResponse": false,
+    "farCrownBlending": false,
+    "surfaceStudy": {
+      "sandChroma": 0
+    },
+    "shadowStudy": {
+      "terrainChunks": false
+    }
+  },
+  {
+    "view": 5,
+    "label": "descent-response",
+    "islandDirectResponse": true,
+    "farCrownBlending": false,
+    "surfaceStudy": {
+      "sandChroma": 0
+    },
+    "shadowStudy": {
+      "terrainChunks": false
+    }
+  },
+  {
+    "view": 5,
+    "label": "descent-blend",
+    "islandDirectResponse": false,
+    "farCrownBlending": true,
+    "surfaceStudy": {
+      "sandChroma": 0
+    },
+    "shadowStudy": {
+      "terrainChunks": false
+    }
+  },
+  {
+    "view": 5,
+    "label": "descent-combined",
+    "islandDirectResponse": true,
+    "farCrownBlending": true,
+    "surfaceStudy": {
+      "sandChroma": 0
+    },
+    "shadowStudy": {
+      "terrainChunks": false
+    }
+  },
+  {
+    "view": 10.5,
+    "label": "shore-old-sand",
+    "islandDirectResponse": false,
+    "farCrownBlending": false,
+    "surfaceStudy": {
+      "sandChroma": 0
+    },
+    "shadowStudy": {
+      "terrainChunks": false
+    }
+  },
+  {
+    "view": 10.5,
+    "label": "shore-warm-sand",
+    "islandDirectResponse": false,
+    "farCrownBlending": false,
+    "surfaceStudy": {
+      "sandChroma": 1
+    },
+    "shadowStudy": {
+      "terrainChunks": false
+    }
+  },
+  {
+    "view": 19.5,
+    "label": "sunset-old-sand",
+    "islandDirectResponse": false,
+    "farCrownBlending": false,
+    "surfaceStudy": {
+      "sandChroma": 0
+    },
+    "shadowStudy": {
+      "terrainChunks": false
+    }
+  },
+  {
+    "view": 19.5,
+    "label": "sunset-warm-sand",
+    "islandDirectResponse": false,
+    "farCrownBlending": false,
+    "surfaceStudy": {
+      "sandChroma": 1
+    },
+    "shadowStudy": {
+      "terrainChunks": false
+    }
+  },
+  {
+    "view": 10.5,
+    "label": "terrain-shadow-off",
+    "islandDirectResponse": false,
+    "farCrownBlending": false,
+    "surfaceStudy": {
+      "sandChroma": 0
+    },
+    "shadowStudy": {
+      "terrainChunks": false
+    }
+  },
+  {
+    "view": 10.5,
+    "label": "terrain-shadow-on",
+    "islandDirectResponse": false,
+    "farCrownBlending": false,
+    "surfaceStudy": {
+      "sandChroma": 0
+    },
+    "shadowStudy": {
+      "terrainChunks": true
+    }
+  },
+  {
+    "view": 10.5,
+    "label": "terrain-shadow-on-repeat",
+    "islandDirectResponse": false,
+    "farCrownBlending": false,
+    "surfaceStudy": {
+      "sandChroma": 0
+    },
+    "shadowStudy": {
+      "terrainChunks": true
+    }
+  },
+  {
+    "view": 10.5,
+    "label": "terrain-shadow-off-restored",
+    "islandDirectResponse": false,
+    "farCrownBlending": false,
+    "surfaceStudy": {
+      "sandChroma": 0
+    },
+    "shadowStudy": {
+      "terrainChunks": false
+    }
+  },
+  {
+    "view": 4.083333333333333,
+    "label": "near-crown-native",
+    "linearMainOutput": false,
+    "linearMainSampleScale": 1,
+    "islandDirectResponse": false,
+    "farCrownBlending": false,
+    "surfaceStudy": {
+      "sandChroma": 0
+    },
+    "shadowStudy": {
+      "terrainChunks": false
+    }
+  },
+  {
+    "view": 4.083333333333333,
+    "label": "near-crown-linear-1x",
+    "linearMainOutput": true,
+    "linearMainSampleScale": 1,
+    "islandDirectResponse": false,
+    "farCrownBlending": false,
+    "surfaceStudy": {
+      "sandChroma": 0
+    },
+    "shadowStudy": {
+      "terrainChunks": false
+    }
+  },
+  {
+    "view": 4.083333333333333,
+    "label": "near-crown-linear-2x",
+    "linearMainOutput": true,
+    "linearMainSampleScale": 2,
+    "islandDirectResponse": false,
+    "farCrownBlending": false,
+    "surfaceStudy": {
+      "sandChroma": 0
+    },
+    "shadowStudy": {
+      "terrainChunks": false
+    }
+  },
+  {
+    "view": 4.083333333333333,
+    "label": "near-crown-native-restored",
+    "linearMainOutput": false,
+    "linearMainSampleScale": 1,
+    "islandDirectResponse": false,
+    "farCrownBlending": false,
+    "surfaceStudy": {
+      "sandChroma": 0
+    },
+    "shadowStudy": {
+      "terrainChunks": false
+    }
+  }
+]

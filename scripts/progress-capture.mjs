@@ -2,6 +2,7 @@
  * node scripts/progress-capture.mjs [video] width=768 [height=432] out=...
  * Still plans: plan=entries.json, or views=0,6,10.5,19.5
  * Video: fps=24 duration=20 start=0 profile=settings.json [resume]
+ * Optional guard: memoryStartMiB=6144 memoryLimitMiB=7424
  * A video pins its first dist bundle. Resume validates every committed PNG and
  * replays it into a fresh encoder before rendering the missing suffix.
  */
@@ -15,13 +16,14 @@ import {withDeadline,writeEncoderFrame} from './control/capture-run.mjs';
 import {acquireCaptureLock,makeVideoContract,openVideoCheckpoint,validateProfile,validateTimeline,writeAtomic,writeAtomicJson} from './control/progress-checkpoints.mjs';
 import {trackCaptureRequests} from './control/progress-network.mjs';
 import {captureGlbManifest,installCaptureGlbFetch} from './control/progress-glb-fetch.mjs';
+import {createCaptureMemoryGuard,validateCaptureMemoryLimits} from './control/progress-memory.mjs';
 
 const projectRoot=fileURLToPath(new URL('../',import.meta.url));
 const settingMethods={lighting:'setLighting',surfaceStudy:'setSurfaceStudy',shadowStudy:'setShadowStudy',
- culling:'setGroundCulling',oceanCulling:'setOceanCulling',debug:'setDebug',farCrownCoverage:'setFarCrownCoverage',
- farCrownBlending:'setFarCrownBlending',linearMainOutput:'setLinearMainOutput',profiling:'setFrameProfiling',coastalUnderstory:'setCoastalUnderstory'};
+ culling:'setGroundCulling',oceanCulling:'setOceanCulling',debug:'setDebug',farCrownCoverage:'setFarCrownCoverage',islandDirectResponse:'setIslandDirectResponseStudy',
+ farCrownBlending:'setFarCrownBlending',linearMainOutput:'setLinearMainOutput',linearMainSampleScale:'setLinearMainSampleScale',profiling:'setFrameProfiling',coastalUnderstory:'setCoastalUnderstory'};
 const settingsOf=entry=>Object.fromEntries(Object.entries(entry).filter(([key])=>key!=='view'&&key!=='label'));
-const supportedArguments=new Set(['width','height','out','dist','plan','views','times','fps','duration','start','profile','writeTimeout','exitTimeout','readyTimeout','networkTimeout','resume','video']);
+const supportedArguments=new Set(['width','height','out','dist','plan','views','times','fps','duration','start','profile','writeTimeout','exitTimeout','readyTimeout','networkTimeout','memoryStartMiB','memoryLimitMiB','resume','video']);
 export function parseOptions(argv,root=projectRoot){
  const args={};let video=false,resume=false;
  for(const item of argv){
@@ -43,6 +45,7 @@ export function parseOptions(argv,root=projectRoot){
   dist:resolve(args.dist??'dist'),fps:Number(args.fps??24),duration:Number(args.duration??20),start:Number(args.start??0),profile,
   writeTimeout:Number(args.writeTimeout??120000),exitTimeout:Number(args.exitTimeout??120000),readyTimeout:Number(args.readyTimeout??300000),networkTimeout:Number(args.networkTimeout??30000)};
  for(const key of ['writeTimeout','exitTimeout','readyTimeout','networkTimeout'])if(!Number.isFinite(options[key])||options[key]<=0)throw Error('Invalid '+key);
+ Object.assign(options,validateCaptureMemoryLimits(args.memoryStartMiB,args.memoryLimitMiB));
  if(video)options.contract=makeVideoContract({...options,timeline});
  else{if(resume)throw Error('Resume is supported for video checkpoints only');options.timeline=validateTimeline(timeline??[0,6,10.5,19.5].map(view=>({view})));}
  return options;
@@ -68,14 +71,21 @@ async function serveBundle(directory,diagnostics={}){
 function captureStatus(output,stage,{name,...counts}={}){
  if(output)writeAtomicJson(path.join(output,'capture-status.json'),{stage,...(name===undefined?{}:{name}),timestamp:new Date().toISOString(),...counts});
 }
-async function browserCapture({directory,output,width,height,readyTimeout,networkTimeout=30000,errors,failedRequests,diagnostics={}}){
+export async function browserCapture({directory,output,width,height,readyTimeout,networkTimeout=30000,islandResponseNeeded=false,memoryStartMiB,memoryLimitMiB,errors,failedRequests,diagnostics={}},
+ {launchBrowser=async options=>{const {chromium}=await import('playwright');return chromium.launch(options);},serve=serveBundle,memoryDependencies}={}){
  let startup=true;
  const stage=(name,{persist=startup,frameName}={})=>{
   diagnostics.stage=name;const history=diagnostics.stageHistory??=[];history.push({stage:name,at:new Date().toISOString()});if(history.length>64)history.shift();
   if(persist)captureStatus(output,name,{name:frameName,errorCount:errors.length,failedRequestCount:failedRequests.length});
  };
- stage('serve-bundle');const server=await serveBundle(directory,diagnostics);let browser,context,page,requests;
+ const memory=createCaptureMemoryGuard({memoryStartMiB,memoryLimitMiB,diagnostics,getStage:()=>diagnostics.stage},memoryDependencies);
+ stage('serve-bundle');const server=await serve(directory,diagnostics);let browser,context,page,requests;
+ async function close(){
+  diagnostics.closing=true;memory.stop();
+  try{await context?.close();}finally{try{await browser?.close();}finally{try{await memory.finish();}finally{requests?.dispose();await server.close();}}}
+ }
  async function diagnose(error){
+  error=memory.error??error;
   diagnostics.failingStage??=diagnostics.stage;diagnostics.failure=String(error);diagnostics.activeRequests=requests?.snapshot()??[];
   if(!page){diagnostics.pageSnapshot={unavailable:'Browser page not created'};return;}
   try{
@@ -94,10 +104,11 @@ async function browserCapture({directory,output,width,height,readyTimeout,networ
  }
  try{
   stage('hash-served-glbs');diagnostics.glbInventory=captureGlbManifest(directory);
+  if(memoryStartMiB!==undefined){stage('memory-preflight');memory.preflight();}
   stage('launch-browser');
-  const {chromium}=await import('playwright');
-  browser=await chromium.launch({executablePath:process.env.BAY_BROWSER_EXECUTABLE,headless:true,timeout:120000,
+  browser=await launchBrowser({executablePath:process.env.BAY_BROWSER_EXECUTABLE,headless:true,timeout:120000,
    args:['--no-sandbox','--disable-dev-shm-usage','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader','--force-color-profile=srgb']});
+  memory.attachBrowser(browser);memory.assertHealthy();
   context=await browser.newContext({viewport:{width,height},deviceScaleFactor:1,reducedMotion:'reduce'});
   page=await context.newPage();page.setDefaultTimeout(0);
   let startupFailure;
@@ -121,11 +132,23 @@ async function browserCapture({directory,output,width,height,readyTimeout,networ
   const build=await page.evaluate(()=>window.lastLightBay?.build);
   if(build?.production!==true||!/^[a-f0-9]{64}$/.test(build.sourceIdentity??''))throw Error('Loaded page is not a verified production build');
   const healthy=async()=>{
+   memory.assertHealthy();
    await assertCaptureHealthy(page,errors,failedRequests,build.sourceIdentity);
    diagnostics.glbDelivery=await page.evaluate(()=>globalThis.__bayCaptureGlbDelivery??null);
    if(diagnostics.glbDelivery?.version!==1||diagnostics.glbDelivery.failures.length)throw Error('Capture GLB delivery verification failed: '+JSON.stringify(diagnostics.glbDelivery));
   };
   stage('health-before-network-drain');await healthy();
+  if(islandResponseNeeded){
+   stage('preload-island-response');
+   await withDeadline(page.evaluate(async()=>{
+    const api=window.lastLightBay;
+    if(typeof api.loadIslandDirectResponseStudy!=='function')throw Error('Island response preload API unavailable');
+    await api.loadIslandDirectResponseStudy('/assets/studies/island-response/response-manifest.json');
+    const state=api.getIslandDirectResponseStudy();
+    if(!state.ready||state.enabled)throw Error('Island response must preload ready and disabled');
+   }),readyTimeout,'Island response preload');
+   await healthy();
+  }
   // Scene readiness can precede delivery of the browser's requestfinished
   // events. Do not cut off a still-active request by switching offline early.
   stage('network-drain');await requests.waitForIdle({timeoutMs:networkTimeout});await healthy();
@@ -135,7 +158,7 @@ async function browserCapture({directory,output,width,height,readyTimeout,networ
   stage('graphics-state');
   const graphics=await page.evaluate(()=>{const gl=document.getElementById('world').getContext('webgl2'),extension=gl.getExtension('WEBGL_debug_renderer_info');return{version:gl.getParameter(gl.VERSION),renderer:extension?gl.getParameter(extension.UNMASKED_RENDERER_WEBGL):gl.getParameter(gl.RENDERER),samples:gl.getParameter(gl.SAMPLES)};});
   stage('capture-ready');startup=false;
-  return {build,graphics,offlineAfterLoad:true,healthy,diagnose,
+  return {build,graphics,offlineAfterLoad:true,healthy,diagnose,get failure(){return memory.error;},
    async applySettings(settings){
     stage('apply-settings');
     validateProfile(settings);
@@ -157,15 +180,20 @@ async function browserCapture({directory,output,width,height,readyTimeout,networ
       capturePageMilliseconds:{action:Number.isFinite(number)?'renderAt':'setCamera',render:renderFinished-renderStarted,pngExport:exportFinished-exportStarted},
       ...(typeof api.getShadowStudy==='function'?{shadowStudy:api.getShadowStudy()}:{}),
       ...(typeof api.getLinearMainOutput==='function'?{linearMainOutput:api.getLinearMainOutput()}:{}),
+      ...(typeof api.getIslandDirectResponseStudy==='function'?{islandDirectResponse:api.getIslandDirectResponseStudy()}:{}),
      },dataURL};
     },entry);
     stage('frame-health-after');await healthy();
     if(!result.dataURL.startsWith('data:image/png;base64,'))throw Error('Canvas did not produce a PNG');
     return{stats:result.stats,bytes:Buffer.from(result.dataURL.slice('data:image/png;base64,'.length),'base64')};
    },
-   async close(){diagnostics.closing=true;try{await context.close();}finally{try{await browser.close();}finally{requests?.dispose();await server.close();}}},
+   close,
   };
- }catch(error){await diagnose(error);diagnostics.closing=true;try{await context?.close();}finally{try{await browser?.close();}finally{requests?.dispose();await server.close();}}throw error;}
+ }catch(error){
+  const failure=memory.error??error;await diagnose(failure);
+  try{await close();}catch(cleanupError){(diagnostics.cleanupErrors??=[]).push(String(cleanupError));}
+  throw failure;
+ }
 }
 
 function createEncoder(options,spawnEncoder){
@@ -219,7 +247,8 @@ export async function runProgressCapture(options,{captureFactory=browserCapture,
      if(!capture){
       // Await startup completely even if the encoder exits: no orphan browser
       // promise may escape cleanup. Already saved frames remain reusable.
-      capture=await captureFactory({directory:checkpoint.bundle,...options,errors,failedRequests,diagnostics});
+      capture=await captureFactory({directory:checkpoint.bundle,...options,errors,failedRequests,diagnostics,
+       islandResponseNeeded:[options.contract.profile,...timeline].some(settings=>settings.islandDirectResponse===true)});
       checkpoint.bindBuild(capture.build);checkpoint.update({graphics:capture.graphics,offlineAfterLoad:capture.offlineAfterLoad});
       await capture.applySettings(options.contract.profile);
       for(let prior=0;prior<index;prior++)await capture.applySettings(settingsOf(timeline[prior]));
@@ -246,7 +275,8 @@ export async function runProgressCapture(options,{captureFactory=browserCapture,
   const names=options.timeline.map(entry=>entry.label??(Number.isFinite(Number(entry.view))?'flight-'+Number(entry.view).toFixed(3):String(entry.view)));
   if(new Set(names).size!==names.length)throw Error('Still plan would overwrite a frame');
   stillManifest={kind:'intermediate-progress',startedAt:new Date().toISOString(),width:options.width,height:options.height,frames:[],errors,failedRequests,diagnostics,captureSucceeded:false};writeAtomicJson(manifestPath,stillManifest);
-  capture=await captureFactory({directory:options.dist,...options,errors,failedRequests,diagnostics});
+  capture=await captureFactory({directory:options.dist,...options,errors,failedRequests,diagnostics,
+   islandResponseNeeded:[options.profile??{},...options.timeline].some(settings=>settings.islandDirectResponse===true)});
   Object.assign(stillManifest,{build:capture.build,graphics:capture.graphics,offlineAfterLoad:capture.offlineAfterLoad});
   await capture.applySettings(options.profile);
   for(const [index,entry]of options.timeline.entries()){
@@ -261,6 +291,7 @@ export async function runProgressCapture(options,{captureFactory=browserCapture,
   captureStatus(options.output,'complete',{errorCount:errors.length,failedRequestCount:failedRequests.length});
   return{captureSucceeded:true,intermediate:true,output:options.output,frames:stillManifest.frames.length};
  }catch(error){
+  error=capture?.failure??error;
   await capture?.diagnose?.(error);diagnostics.failingStage??=diagnostics.stage??'capture-or-encode';diagnostics.failure??=String(error);
   if(checkpoint||stillManifest)captureStatus(options.output,'failed',{name:diagnostics.failingStage,errorCount:errors.length,failedRequestCount:failedRequests.length});
   if(checkpoint){checkpoint.update({diagnostics});checkpoint.fail(error,{errors,failedRequests});}

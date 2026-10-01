@@ -74,3 +74,54 @@ test('unsupported topology is rejected instead of silently changing the shadow s
  source.setDrawRange(0,Infinity);source.addGroup(0,3,0);assert.throws(()=>partitionTerrainShadowGeometry(source),/ungrouped/);
  source.clearGroups();source.morphAttributes.position=[source.attributes.position];assert.throws(()=>partitionTerrainShadowGeometry(source),/static vertices/);
 });
+
+test('sun pass arms only live light-frustum chunks and consumes their camera layers',()=>{
+ const source=new THREE.Mesh(fixture(),new THREE.MeshStandardMaterial());source.castShadow=true;
+ const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(),sun=new THREE.DirectionalLight();
+ sun.castShadow=true;sun.position.set(0,100,0);sun.target.position.set(0,0,0);
+ Object.assign(sun.shadow.camera,{left:-30,right:30,top:30,bottom:-30,near:1,far:200});
+ scene.add(source,sun,sun.target);
+ const renderer={shadowMap:{enabled:true,autoUpdate:false,needsUpdate:true,type:THREE.PCFShadowMap}} as THREE.WebGLRenderer;
+ const study=createTerrainShadowChunkStudy(source,10);study.set(true);
+ const chunks=source.children[0].children as THREE.Mesh[];
+ study.prepareSunShadow(renderer,scene,camera,sun);
+ const frustum=sun.shadow.getFrustum(),eligible=chunks.filter(mesh=>frustum.intersectsObject(mesh));
+ assert.ok(eligible.length>0);
+ for(const mesh of chunks)assert.equal(mesh.layers.mask,eligible.includes(mesh)?source.layers.mask:0);
+ for(const mesh of eligible){
+  mesh.onBeforeShadow(null as never,null as never,null as never,null as never,null as never,null as never,null as never);
+  mesh.onAfterShadow(null as never,null as never,null as never,null as never,null as never,null as never,null as never);
+ }
+ assert.ok(chunks.every(mesh=>!mesh.layers.test(camera.layers)&&mesh.geometry.drawRange.count===0),'Camera list recheck must skip every proxy');
+ assert.equal(study.get().terrainShadowSubmittedChunks,eligible.length);
+ // A cached-main pass must not accidentally re-arm the already consumed map.
+ renderer.shadowMap.needsUpdate=false;study.prepareSunShadow(renderer,scene,camera,sun);
+ assert.ok(chunks.every(mesh=>mesh.layers.mask===0));
+ renderer.shadowMap.needsUpdate=true;study.prepareSunShadow(renderer,scene,camera,sun);
+ assert.ok(chunks.some(mesh=>mesh.layers.mask!==0),'Every genuine shadow rebuild re-arms its casters');
+ study.finishSunShadow();assert.ok(chunks.every(mesh=>mesh.layers.mask===0));study.dispose();
+});
+
+test('disabled, invisible and skipped sun work never arms proxies; unsupported extra lights fail closed',()=>{
+ const source=new THREE.Mesh(fixture(),new THREE.MeshStandardMaterial());source.castShadow=true;
+ const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(),sun=new THREE.DirectionalLight();sun.castShadow=true;
+ sun.position.set(0,100,0);Object.assign(sun.shadow.camera,{left:-300,right:300,top:300,bottom:-300,near:1,far:300});
+ scene.add(source,sun,sun.target);
+ const renderer={shadowMap:{enabled:true,autoUpdate:false,needsUpdate:true,type:THREE.PCFShadowMap}} as THREE.WebGLRenderer;
+ const study=createTerrainShadowChunkStudy(source,10);study.set(true);const chunks=source.children[0].children as THREE.Mesh[];
+ const prepare=()=>study.prepareSunShadow(renderer,scene,camera,sun);
+ const cleared=()=>assert.ok(chunks.every(mesh=>mesh.layers.mask===0&&mesh.geometry.drawRange.count===0));
+ prepare();assert.ok(chunks.some(mesh=>mesh.layers.mask!==0));
+ renderer.shadowMap.enabled=false;prepare();cleared();renderer.shadowMap.enabled=true;
+ sun.shadow.autoUpdate=false;sun.shadow.needsUpdate=false;prepare();cleared();sun.shadow.autoUpdate=true;
+ sun.visible=false;prepare();cleared();sun.visible=true;
+ sun.layers.set(1);prepare();cleared();sun.layers.set(0);
+ source.material.visible=false;prepare();cleared();source.material.visible=true;
+ source.visible=false;prepare();cleared();source.visible=true;
+ const other=new THREE.DirectionalLight();other.castShadow=true;scene.add(other);
+ assert.throws(prepare,/one visible shadow-casting sun/);cleared();
+ // Even a skipped configured sun must not hide a second light's unsupported pass.
+ sun.shadow.autoUpdate=false;sun.shadow.needsUpdate=false;assert.throws(prepare,/one visible/);cleared();
+ other.removeFromParent();sun.shadow.autoUpdate=true;
+ renderer.shadowMap.type=THREE.VSMShadowMap;assert.throws(prepare,/PCF sun pass/);cleared();study.dispose();
+});

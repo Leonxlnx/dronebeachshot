@@ -1,7 +1,8 @@
 import {terrainFractureCut} from './terrain-fractures';
 import {principalFacePlaneCut,PRINCIPAL_FACE_STUDY_ENABLED} from './principal-face-planes';
 import {broadRecessPlaneCut,BROAD_RECESS_STUDY_ENABLED} from './broad-recess-planes';
-if(PRINCIPAL_FACE_STUDY_ENABLED&&BROAD_RECESS_STUDY_ENABLED)throw new Error('Enable only one terrain face study at a time');
+import {eastSpurUplift,EAST_SPUR_STUDY_ENABLED} from './east-spur';
+if(Number(PRINCIPAL_FACE_STUDY_ENABLED)+Number(BROAD_RECESS_STUDY_ENABLED)+Number(EAST_SPUR_STUDY_ENABLED)>1)throw new Error('Enable only one terrain face study at a time');
 export const SEED=60829;
 export const clamp=(x:number,a=0,b=1)=>Math.max(a,Math.min(b,x));
 export const smooth=(a:number,b:number,x:number)=>{const t=clamp((x-a)/(b-a));return t*t*(3-2*t)};
@@ -126,6 +127,7 @@ function terrainBeforePrincipalFace(x:number,z:number,d:number){
 export function terrainHeightBeforePrincipalFace(x:number,z:number){return terrainBeforePrincipalFace(x,z,shoreDistance(x,z))}
 export function terrainHeight(x:number,z:number){
  const d=shoreDistance(x,z),preceding=terrainBeforePrincipalFace(x,z,d);
+ if(EAST_SPUR_STUDY_ENABLED)return preceding+eastSpurUplift(x,z,d);
  if(BROAD_RECESS_STUDY_ENABLED)return preceding-broadRecessPlaneCut(x,z,preceding,d);
  return PRINCIPAL_FACE_STUDY_ENABLED?preceding-principalFacePlaneCut(x,z,preceding,d):preceding;
 }

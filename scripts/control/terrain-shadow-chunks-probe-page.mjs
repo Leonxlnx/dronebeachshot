@@ -31,8 +31,10 @@ window.runProbe=async()=>{
  const rows=[],images=[];
  function equal(a,b,label){if(a.length!==b.length)throw Error(label+' length');for(let i=0;i<a.length;i++)if(a[i]!==b[i])throw Error(label+' differs at '+i+': '+a[i]+' vs '+b[i]);}
  async function render(enabled,label){
-  study.set(enabled);study.beginFrame();renderer.info.reset();renderer.shadowMap.needsUpdate=true;
-  const start=performance.now();renderer.render(scene,camera);await waitForProfilingFence(gl);
+  study.set(enabled);renderer.info.reset();renderer.shadowMap.needsUpdate=true;
+  const start=performance.now();study.prepareSunShadow(renderer,scene,camera,sun);
+  try{renderer.render(scene,camera);}finally{study.finishSunShadow();}
+  await waitForProfilingFence(gl);
   const renderMilliseconds=performance.now()-start,triangles=renderer.info.render.triangles,calls=renderer.info.render.calls;
   if(errors.length)throw Error(errors.join('\n'));
   const color=new Uint8Array(256*256*4);gl.readPixels(0,0,256,256,gl.RGBA,gl.UNSIGNED_BYTE,color);

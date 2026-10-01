@@ -19,13 +19,23 @@ export function createRefractionPass(renderer:THREE.WebGLRenderer){
  target.depthTexture=new THREE.DepthTexture(1,1,THREE.UnsignedIntType);target.depthTexture.name='opaque-coast-depth';target.depthTexture.minFilter=target.depthTexture.magFilter=THREE.NearestFilter;
  refractionUniforms.uUnderColor.value=target.texture;refractionUniforms.uUnderDepth.value=target.depthTexture;
  const size=new THREE.Vector2();
+ let maximumTargetExtent:number|undefined;
  async function compile(scene:THREE.Scene,camera:THREE.PerspectiveCamera){
   const previous=renderer.getRenderTarget();
   try{renderer.setRenderTarget(target);await renderer.compileAsync(scene,camera)}
   finally{renderer.setRenderTarget(previous)}
  }
- function render(scene:THREE.Scene,camera:THREE.PerspectiveCamera,water:THREE.Object3D,spray:THREE.Object3D){
-  renderer.getDrawingBufferSize(size);if(target.width!==size.x||target.height!==size.y)target.setSize(size.x,size.y);
+ function render(scene:THREE.Scene,camera:THREE.PerspectiveCamera,water:THREE.Object3D,spray:THREE.Object3D,pixelScale:1|2=1){
+  if(pixelScale!==1&&pixelScale!==2)throw Error('Refraction pixel scale must be one or two');
+  renderer.getDrawingBufferSize(size);if(pixelScale===2)size.multiplyScalar(2);
+  if(target.width!==size.x||target.height!==size.y){
+   const gl=renderer.getContext();
+   maximumTargetExtent??=Math.min(renderer.capabilities.maxTextureSize,gl.getParameter(gl.MAX_RENDERBUFFER_SIZE) as number);
+   if(!Number.isFinite(maximumTargetExtent)||!Number.isSafeInteger(size.x)||!Number.isSafeInteger(size.y)
+    ||size.x<1||size.y<1||size.x>maximumTargetExtent||size.y>maximumTargetExtent)
+    throw Error(`Refraction target ${size.x}x${size.y} exceeds the ${maximumTargetExtent}px texture/renderbuffer limit`);
+   target.setSize(size.x,size.y);
+  }
   refractionUniforms.uUnderResolution.value.copy(size);refractionUniforms.uClipPlanes.value.set(camera.near,camera.far);
   const fog=scene.fog instanceof THREE.FogExp2?scene.fog:null,fogDensity=fog?.density;
   const previous=renderer.getRenderTarget(),waterVisible=water.visible,sprayVisible=spray.visible,mode=debugMode.value;

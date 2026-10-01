@@ -1,0 +1,13 @@
+{
+  "ok": true,
+  "manifestSourceSHA256": "c81e6ece28b7646aa59f2c2c68142619b2790d0db62c5d829278fec92e4373d7",
+  "dataSHA256": "9f1e04acf3995292adb4a7bba6c28ba28088cd37a3e7e90374a4fac3d564f63f",
+  "bytes": 25165824,
+  "maxPremultipliedRGB": 0.06097412109375,
+  "width": 128,
+  "height": 128,
+  "depth": 192,
+  "generateMipmaps": true,
+  "studyEnabled": false,
+  "method": "Actual production manifest/payload validator; no GL/texture upload or visual acceptance"
+}

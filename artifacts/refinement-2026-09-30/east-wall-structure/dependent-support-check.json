@@ -1,0 +1,504 @@
+{
+  "scope": "Actual emitted Float32 floor geometry support; approximate family crown-midpoint projection/2m terrain ray for local composition risk only",
+  "floor": [
+    {
+      "kind": "roots",
+      "ordinal": 40,
+      "treeOrdinal": 392,
+      "maximumNewBottomGap": 0.39076431695139036,
+      "maximumIncrease": 0
+    },
+    {
+      "kind": "roots",
+      "ordinal": 41,
+      "treeOrdinal": 392,
+      "maximumNewBottomGap": 0.38684872107114643,
+      "maximumIncrease": 0
+    },
+    {
+      "kind": "roots",
+      "ordinal": 42,
+      "treeOrdinal": 392,
+      "maximumNewBottomGap": 0.38578717032214627,
+      "maximumIncrease": 0
+    },
+    {
+      "kind": "roots",
+      "ordinal": 43,
+      "treeOrdinal": 392,
+      "maximumNewBottomGap": 0.38445804762886837,
+      "maximumIncrease": 0.005921933625359088
+    },
+    {
+      "kind": "roots",
+      "ordinal": 240,
+      "treeOrdinal": 2786,
+      "maximumNewBottomGap": 0.36202235391829163,
+      "maximumIncrease": 0.04216152348089963
+    },
+    {
+      "kind": "roots",
+      "ordinal": 241,
+      "treeOrdinal": 2786,
+      "maximumNewBottomGap": 0.37074022460728884,
+      "maximumIncrease": 0.008829763974063098
+    },
+    {
+      "kind": "roots",
+      "ordinal": 242,
+      "treeOrdinal": 2786,
+      "maximumNewBottomGap": 0.3695815218379721,
+      "maximumIncrease": 0.0031323713483288884
+    },
+    {
+      "kind": "roots",
+      "ordinal": 243,
+      "treeOrdinal": 2786,
+      "maximumNewBottomGap": 0.3660973629448563,
+      "maximumIncrease": 0.0022281818091869354
+    },
+    {
+      "kind": "roots",
+      "ordinal": 536,
+      "treeOrdinal": 6041,
+      "maximumNewBottomGap": 0.436017343075946,
+      "maximumIncrease": 0.0004918647464364767
+    },
+    {
+      "kind": "roots",
+      "ordinal": 537,
+      "treeOrdinal": 6041,
+      "maximumNewBottomGap": 0.4384022867307067,
+      "maximumIncrease": 0.00041986885480582714
+    },
+    {
+      "kind": "roots",
+      "ordinal": 538,
+      "treeOrdinal": 6041,
+      "maximumNewBottomGap": 0.4331638589501381,
+      "maximumIncrease": 0.0007691436912864447
+    },
+    {
+      "kind": "roots",
+      "ordinal": 539,
+      "treeOrdinal": 6041,
+      "maximumNewBottomGap": 0.4355864026583731,
+      "maximumIncrease": 0.0009978297166526318
+    },
+    {
+      "kind": "litter",
+      "ordinal": 87,
+      "maximumGap": 0.10232011151475717
+    },
+    {
+      "kind": "litter",
+      "ordinal": 730,
+      "maximumGap": 0.04628693204033141
+    },
+    {
+      "kind": "litter",
+      "ordinal": 870,
+      "maximumGap": 0.04772633471100107
+    },
+    {
+      "kind": "litter",
+      "ordinal": 882,
+      "maximumGap": 0.07840229147948818
+    },
+    {
+      "kind": "litter",
+      "ordinal": 1058,
+      "maximumGap": 0.07491461544397282
+    },
+    {
+      "kind": "litter",
+      "ordinal": 1408,
+      "maximumGap": 0.11841868278261813
+    },
+    {
+      "kind": "litter",
+      "ordinal": 1682,
+      "maximumGap": 0.06089384651190244
+    },
+    {
+      "kind": "litter",
+      "ordinal": 2058,
+      "maximumGap": 0.07425425737331093
+    },
+    {
+      "kind": "litter",
+      "ordinal": 2155,
+      "maximumGap": 0.04940073708442583
+    },
+    {
+      "kind": "litter",
+      "ordinal": 2330,
+      "maximumGap": 0.1036967528563082
+    },
+    {
+      "kind": "litter",
+      "ordinal": 2426,
+      "maximumGap": 0.08601735043021108
+    },
+    {
+      "kind": "litter",
+      "ordinal": 2657,
+      "maximumGap": 0.11171776956965118
+    },
+    {
+      "kind": "litter",
+      "ordinal": 3011,
+      "maximumGap": 0.07495393522581217
+    },
+    {
+      "kind": "litter",
+      "ordinal": 3041,
+      "maximumGap": 0.0755956831134057
+    },
+    {
+      "kind": "litter",
+      "ordinal": 3151,
+      "maximumGap": 0.10441335964210907
+    },
+    {
+      "kind": "seedlings",
+      "ordinal": 150,
+      "maximumGap": 0.02010513294355576
+    },
+    {
+      "kind": "seedlings",
+      "ordinal": 157,
+      "maximumGap": 0.006541329613241942
+    },
+    {
+      "kind": "seedlings",
+      "ordinal": 158,
+      "maximumGap": 0.0159643591736085
+    },
+    {
+      "kind": "seedlings",
+      "ordinal": 327,
+      "maximumGap": 0.009666433164454702
+    },
+    {
+      "kind": "seedlings",
+      "ordinal": 331,
+      "maximumGap": 0.013540587406282611
+    }
+  ],
+  "coverage": [
+    {
+      "time": 6,
+      "inFrustum": 0,
+      "omittedInFrustum": 0,
+      "omittedTerrainRayClear": 0,
+      "retainedTerrainRayClear": 0,
+      "records": []
+    },
+    {
+      "time": 7.5,
+      "inFrustum": 0,
+      "omittedInFrustum": 0,
+      "omittedTerrainRayClear": 0,
+      "retainedTerrainRayClear": 0,
+      "records": []
+    },
+    {
+      "time": 9,
+      "inFrustum": 12,
+      "omittedInFrustum": 11,
+      "omittedTerrainRayClear": 11,
+      "retainedTerrainRayClear": 1,
+      "records": [
+        {
+          "index": 626,
+          "omitted": true,
+          "x": 447.4288998278362,
+          "y": 71.04489801653092,
+          "terrainRayClear": true
+        },
+        {
+          "index": 1409,
+          "omitted": true,
+          "x": 420.5178777848349,
+          "y": 32.21568919008193,
+          "terrainRayClear": true
+        },
+        {
+          "index": 2114,
+          "omitted": true,
+          "x": 407.63332653074156,
+          "y": 80.89118207318796,
+          "terrainRayClear": true
+        },
+        {
+          "index": 3074,
+          "omitted": true,
+          "x": 419.4253388135405,
+          "y": 95.8348642768058,
+          "terrainRayClear": true
+        },
+        {
+          "index": 5080,
+          "omitted": true,
+          "x": 413.6002156779064,
+          "y": 91.87435546213253,
+          "terrainRayClear": true
+        },
+        {
+          "index": 5940,
+          "omitted": false,
+          "x": 481.0747380419649,
+          "y": 13.233426513813956,
+          "terrainRayClear": true
+        },
+        {
+          "index": 6842,
+          "omitted": true,
+          "x": 468.3179558129493,
+          "y": 33.06568962121189,
+          "terrainRayClear": true
+        },
+        {
+          "index": 6872,
+          "omitted": true,
+          "x": 418.57152297246455,
+          "y": 91.07119427079314,
+          "terrainRayClear": true
+        },
+        {
+          "index": 8419,
+          "omitted": true,
+          "x": 413.6457840544401,
+          "y": 70.97137400117043,
+          "terrainRayClear": true
+        },
+        {
+          "index": 8473,
+          "omitted": true,
+          "x": 415.18716977933104,
+          "y": 35.899152325143376,
+          "terrainRayClear": true
+        },
+        {
+          "index": 13204,
+          "omitted": true,
+          "x": 414.31923848161125,
+          "y": 69.06672599202827,
+          "terrainRayClear": true
+        },
+        {
+          "index": 13260,
+          "omitted": true,
+          "x": 415.0001767087116,
+          "y": 47.56119942448436,
+          "terrainRayClear": true
+        }
+      ]
+    },
+    {
+      "time": 10.5,
+      "inFrustum": 16,
+      "omittedInFrustum": 13,
+      "omittedTerrainRayClear": 12,
+      "retainedTerrainRayClear": 2,
+      "records": [
+        {
+          "index": 626,
+          "omitted": true,
+          "x": 349.7512272486951,
+          "y": 91.41872473866357,
+          "terrainRayClear": true
+        },
+        {
+          "index": 1409,
+          "omitted": true,
+          "x": 319.8251086361493,
+          "y": 53.90870755973735,
+          "terrainRayClear": true
+        },
+        {
+          "index": 2114,
+          "omitted": true,
+          "x": 308.2210121380289,
+          "y": 105.29505815803601,
+          "terrainRayClear": true
+        },
+        {
+          "index": 3074,
+          "omitted": true,
+          "x": 321.2713295095201,
+          "y": 120.47381558869284,
+          "terrainRayClear": true
+        },
+        {
+          "index": 5080,
+          "omitted": true,
+          "x": 314.7199551999385,
+          "y": 116.20330633229432,
+          "terrainRayClear": true
+        },
+        {
+          "index": 5940,
+          "omitted": false,
+          "x": 380.13317190626833,
+          "y": 30.606362637066994,
+          "terrainRayClear": true
+        },
+        {
+          "index": 6842,
+          "omitted": true,
+          "x": 368.7768667114215,
+          "y": 50.713053948781685,
+          "terrainRayClear": true
+        },
+        {
+          "index": 6872,
+          "omitted": true,
+          "x": 319.994045525821,
+          "y": 114.8605303012824,
+          "terrainRayClear": true
+        },
+        {
+          "index": 8361,
+          "omitted": true,
+          "x": 335.40573808965104,
+          "y": 13.122484232521618,
+          "terrainRayClear": true
+        },
+        {
+          "index": 8419,
+          "omitted": true,
+          "x": 314.2573742104463,
+          "y": 94.36771080152349,
+          "terrainRayClear": true
+        },
+        {
+          "index": 8473,
+          "omitted": true,
+          "x": 314.8500531486619,
+          "y": 59.15460248849649,
+          "terrainRayClear": true
+        },
+        {
+          "index": 8585,
+          "omitted": true,
+          "x": 334.68946303744724,
+          "y": 7.935196153998094,
+          "terrainRayClear": false
+        },
+        {
+          "index": 8926,
+          "omitted": false,
+          "x": 348.7371599937844,
+          "y": 10.122633861888382,
+          "terrainRayClear": true
+        },
+        {
+          "index": 12262,
+          "omitted": false,
+          "x": 334.8178615840178,
+          "y": 13.954030033511774,
+          "terrainRayClear": false
+        },
+        {
+          "index": 13204,
+          "omitted": true,
+          "x": 315.05731856724344,
+          "y": 92.78742181541479,
+          "terrainRayClear": true
+        },
+        {
+          "index": 13260,
+          "omitted": true,
+          "x": 314.9162600874698,
+          "y": 70.32570937668038,
+          "terrainRayClear": true
+        }
+      ]
+    },
+    {
+      "time": 12,
+      "inFrustum": 10,
+      "omittedInFrustum": 10,
+      "omittedTerrainRayClear": 10,
+      "retainedTerrainRayClear": 0,
+      "records": [
+        {
+          "index": 626,
+          "omitted": true,
+          "x": 478.4156253134727,
+          "y": 58.900592860123616,
+          "terrainRayClear": true
+        },
+        {
+          "index": 1409,
+          "omitted": true,
+          "x": 418.74728770696856,
+          "y": 11.910711303977774,
+          "terrainRayClear": true
+        },
+        {
+          "index": 2114,
+          "omitted": true,
+          "x": 402.6713637772083,
+          "y": 86.50353433855729,
+          "terrainRayClear": true
+        },
+        {
+          "index": 3074,
+          "omitted": true,
+          "x": 427.0985258836677,
+          "y": 108.0145023821153,
+          "terrainRayClear": true
+        },
+        {
+          "index": 5080,
+          "omitted": true,
+          "x": 415.5122635998687,
+          "y": 101.65505556170716,
+          "terrainRayClear": true
+        },
+        {
+          "index": 6872,
+          "omitted": true,
+          "x": 425.05159975912557,
+          "y": 99.04063978770414,
+          "terrainRayClear": true
+        },
+        {
+          "index": 8419,
+          "omitted": true,
+          "x": 412.0818074480239,
+          "y": 69.91945283750697,
+          "terrainRayClear": true
+        },
+        {
+          "index": 8473,
+          "omitted": true,
+          "x": 409.7462924221984,
+          "y": 22.119398787048837,
+          "terrainRayClear": true
+        },
+        {
+          "index": 13204,
+          "omitted": true,
+          "x": 412.74381789269967,
+          "y": 68.10780039871746,
+          "terrainRayClear": true
+        },
+        {
+          "index": 13260,
+          "omitted": true,
+          "x": 411.14897728325434,
+          "y": 36.36010857639396,
+          "terrainRayClear": true
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "Root-ring test preserves intentional source trunk-end rise; it does not claim every upper tube vertex lies in soil.",
+    "Crown midpoint visibility excludes vegetation/rocks and cannot replace full-scene comparison."
+  ]
+}

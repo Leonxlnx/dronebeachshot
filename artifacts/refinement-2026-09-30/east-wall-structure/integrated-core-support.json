@@ -1,0 +1,2083 @@
+{
+  "method": "Actual emitted original-source basal vertices, node transforms, production normalizations, exact wind/yaw/scale and Float32 instance matrices; actual integrated 2m Float32 triangle surface.",
+  "scope": "Bounded static source-support audit, not continuous wood/soil contact or full-scene visual acceptance",
+  "policy": {
+    "maximumGap": 0.75,
+    "aboveGroundThreshold": 0.3,
+    "minimumAboveFraction": 0.25,
+    "maximumSlope": 3.4
+  },
+  "sourceProof": [
+    {
+      "family": 0,
+      "file": "island-tree-near.glb",
+      "sha256": "c81e6ece28b7646aa59f2c2c68142619b2790d0db62c5d829278fec92e4373d7",
+      "productionScale": 5.294117647058823,
+      "basalVertices": 612,
+      "uniqueBasalVertices": 580,
+      "nodes": [
+        {
+          "index": 0,
+          "name": "island tree near camera",
+          "matrix": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "family": 1,
+      "file": "syringa-tree-near.glb",
+      "sha256": "cb794443092f8b4b7b257c4d86f42e6f2b0ec91a2f95d2d3f34043f0a3b49b07",
+      "productionScale": 3.0723712638923715,
+      "basalVertices": 289,
+      "uniqueBasalVertices": 279,
+      "nodes": [
+        {
+          "index": 0,
+          "name": "Syringa coverage-preserving delivery-near",
+          "matrix": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "family": 2,
+      "file": "palm-tree.glb",
+      "sha256": "5e3f42cc9bd4a52d1e4249184fc8cba7bf87acf91b1403711115acaa7f2ca0f6",
+      "productionScale": 1.910222700460169,
+      "basalVertices": 11,
+      "uniqueBasalVertices": 10,
+      "nodes": [
+        {
+          "index": 0,
+          "name": "Palm Tree v2",
+          "matrix": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      ]
+    }
+  ],
+  "referenceTrees": 14000,
+  "currentTrees": 13954,
+  "affectedFootprints": 66,
+  "retainedAffected": 20,
+  "omitted": [
+    60,
+    626,
+    1043,
+    1294,
+    1409,
+    1742,
+    1893,
+    2114,
+    2902,
+    3019,
+    3074,
+    3187,
+    3327,
+    4030,
+    4720,
+    5080,
+    5197,
+    5866,
+    6020,
+    6023,
+    6362,
+    6777,
+    6798,
+    6842,
+    6867,
+    6872,
+    7046,
+    7062,
+    7405,
+    7419,
+    7606,
+    7937,
+    8361,
+    8419,
+    8473,
+    8585,
+    9039,
+    9716,
+    10466,
+    10617,
+    11014,
+    11553,
+    12765,
+    13204,
+    13260,
+    13867
+  ],
+  "retainedMaximumGap": 0.7471238953905868,
+  "existingLooseFlags": 28,
+  "uncorrectedLooseFlags": 25,
+  "records": [
+    {
+      "omitted": false,
+      "index": 18,
+      "x": 246.5313040651381,
+      "z": 159.0120410732925,
+      "family": 1,
+      "oldY": 160.68821102745284,
+      "newY": 161.76896143006235,
+      "rootRise": 1.0807504026095103,
+      "basalVertices": 279,
+      "footprintTouches": 279,
+      "referenceSlope": 1.2977939314224156,
+      "currentSlope": 1.5374925344047128,
+      "before": {
+        "minimumDelta": -0.3574529732198357,
+        "maximumGap": 0.3493386701919121,
+        "fractionAbove03": 0.03942652329749104,
+        "fractionBelowMinus05": 0
+      },
+      "after": {
+        "minimumDelta": -0.4088817133454654,
+        "maximumGap": 0.42879464080670004,
+        "fractionAbove03": 0.08602150537634409,
+        "fractionBelowMinus05": 0
+      },
+      "flagBefore": false,
+      "flagAfter": false,
+      "newFlag": false
+    },
+    {
+      "omitted": true,
+      "index": 60,
+      "x": 239.634437544737,
+      "z": 167.52891387790442,
+      "family": 0,
+      "oldY": 166.68578089264224,
+      "newY": 169.2606894151424,
+      "rootRise": 2.5749085225001522,
+      "basalVertices": 580,
+      "footprintTouches": 580,
+      "referenceSlope": 1.4246734849360767,
+      "currentSlope": 0.7983555880431884,
+      "before": {
+        "minimumDelta": -2.280201047185386,
+        "maximumGap": 2.4814622269609004,
+        "fractionAbove03": 0.5413793103448276,
+        "fractionBelowMinus05": 0.34655172413793106
+      },
+      "after": {
+        "minimumDelta": -1.1427952280343732,
+        "maximumGap": 1.0859505808206222,
+        "fractionAbove03": 0.5189655172413793,
+        "fractionBelowMinus05": 0.2482758620689655
+      },
+      "flagBefore": true,
+      "flagAfter": false,
+      "newFlag": false
+    },
+    {
+      "omitted": false,
+      "index": 392,
+      "x": 192.8937060176395,
+      "z": 141.13892117515206,
+      "family": 1,
+      "oldY": 86.23863813334322,
+      "newY": 118.23863813334322,
+      "rootRise": 32,
+      "basalVertices": 279,
+      "footprintTouches": 279,
+      "referenceSlope": 1.0046433011897953,
+      "currentSlope": 1.0046433011897953,
+      "before": {
+        "minimumDelta": -0.34109101455293,
+        "maximumGap": 0.4615224940304756,
+        "fractionAbove03": 0.14695340501792115,
+        "fractionBelowMinus05": 0
+      },
+      "after": {
+        "minimumDelta": -0.34109101455293,
+        "maximumGap": 0.4615224940304756,
+        "fractionAbove03": 0.14695340501792115,
+        "fractionBelowMinus05": 0
+      },
+      "flagBefore": false,
+      "flagAfter": false,
+      "newFlag": false
+    },
+    {
+      "omitted": true,
+      "index": 626,
+      "x": 157.49030034057796,
+      "z": 117.5911783427,
+      "family": 0,
+      "oldY": 19.91054892905076,
+      "newY": 20.01554014093533,
+      "rootRise": 0.10499121188457039,
+      "basalVertices": 580,
+      "footprintTouches": 498,
+      "referenceSlope": 1.433504678008464,
+      "currentSlope": 1.2540723511740701,
+      "before": {
+        "minimumDelta": -3.3161534991272887,
+        "maximumGap": 2.8352187301752387,
+        "fractionAbove03": 0.5620689655172414,
+        "fractionBelowMinus05": 0.3396551724137931
+      },
+      "after": {
+        "minimumDelta": -3.957251919351318,
+        "maximumGap": 2.83198890428811,
+        "fractionAbove03": 0.5051724137931034,
+        "fractionBelowMinus05": 0.4051724137931034
+      },
+      "flagBefore": true,
+      "flagAfter": true,
+      "newFlag": false
+    },
+    {
+      "omitted": true,
+      "index": 1043,
+      "x": 203.10436494182795,
+      "z": 136.2630962394178,
+      "family": 0,
+      "oldY": 85.18559146886561,
+      "newY": 117.18559146886561,
+      "rootRise": 32,
+      "basalVertices": 580,
+      "footprintTouches": 580,
+      "referenceSlope": 1.2120704075559388,
+      "currentSlope": 1.2120704075559388,
+      "before": {
+        "minimumDelta": -2.466915996198324,
+        "maximumGap": 1.818696146578219,
+        "fractionAbove03": 0.43275862068965515,
+        "fractionBelowMinus05": 0.44482758620689655
+      },
+      "after": {
+        "minimumDelta": -2.466915996198324,
+        "maximumGap": 1.818696146578219,
+        "fractionAbove03": 0.43275862068965515,
+        "fractionBelowMinus05": 0.44482758620689655
+      },
+      "flagBefore": false,
+      "flagAfter": false,
+      "newFlag": false
+    },
+    {
+      "omitted": true,
+      "index": 1294,
+      "x": 205.84109018091112,
+      "z": 118.01008094102144,
+      "family": 0,
+      "oldY": 65.72873835962719,
+      "newY": 96.5153001159349,
+      "rootRise": 30.78656175630772,
+      "basalVertices": 580,
+      "footprintTouches": 580,
+      "referenceSlope": 1.70690311283353,
+      "currentSlope": 1.4352620193388228,
+      "before": {
+        "minimumDelta": -3.60110682545141,
+        "maximumGap": 3.146901335590968,
+        "fractionAbove03": 0.5465517241379311,
+        "fractionBelowMinus05": 0.35517241379310344
+      },
+      "after": {
+        "minimumDelta": -3.7888884377105967,
+        "maximumGap": 5.32620931248988,
+        "fractionAbove03": 0.5775862068965517,
+        "fractionBelowMinus05": 0.30517241379310345
+      },
+      "flagBefore": true,
+      "flagAfter": true,
+      "newFlag": false
+    },
+    {
+      "omitted": true,
+      "index": 1409,
+      "x": 195.37720093503594,
+      "z": 105.9970192052424,
+      "family": 1,
+      "oldY": 40.27098556667303,
+      "newY": 51.52846571641164,
+      "rootRise": 11.257480149738605,
+      "basalVertices": 279,
+      "footprintTouches": 279,
+      "referenceSlope": 1.8011030046392296,
+      "currentSlope": 3.809488297020657,
+      "before": {
+        "minimumDelta": -0.5273608940554269,
+        "maximumGap": 0.6086944333399131,
+        "fractionAbove03": 0.27598566308243727,
+        "fractionBelowMinus05": 0.0035842293906810036
+      },
+      "after": {
+        "minimumDelta": -0.9529721922596082,
+        "maximumGap": 1.0809229702564167,
+        "fractionAbove03": 0.4157706093189964,
+        "fractionBelowMinus05": 0.24731182795698925
+      },
+      "flagBefore": false,
+      "flagAfter": false,
+      "newFlag": false
+    },
+    {
+      "omitted": false,
+      "index": 1727,
+      "x": 231.52388364542276,
+      "z": 167.31396397575736,
+      "family": 1,
+      "oldY": 162.04120071944527,
+      "newY": 165.1124402062511,
+      "rootRise": 3.071239486805837,
+      "basalVertices": 279,
+      "footprintTouches": 279,
+      "referenceSlope": 0.7100335131038285,
+      "currentSlope": 0.3207043172685494,
+      "before": {
+        "minimumDelta": -0.2941722121539101,
+        "maximumGap": 0.3938131973167174,
+        "fractionAbove03": 0.06451612903225806,
+        "fractionBelowMinus05": 0
+      },
+      "after": {
+        "minimumDelta": -0.21184736007384686,
+        "maximumGap": 0.2990182468910234,
+        "fractionAbove03": 0,
+        "fractionBelowMinus05": 0
+      },
+      "flagBefore": false,
+      "flagAfter": false,
+      "newFlag": false
+    },
+    {
+      "omitted": true,
+      "index": 1742,
+      "x": 184.41652450710535,
+      "z": 151.1820548772812,
+      "family": 1,
+      "oldY": 91.73863983012862,
+      "newY": 95.62495371667814,
+      "rootRise": 3.886313886549516,
+      "basalVertices": 279,
+      "footprintTouches": 279,
+      "referenceSlope": 1.7902236363464852,
+      "currentSlope": 3.4498514737762744,
+      "before": {
+        "minimumDelta": -0.49762124963416454,
+        "maximumGap": 0.5773902589549778,
+        "fractionAbove03": 0.26523297491039427,
+        "fractionBelowMinus05": 0
+      },
+      "after": {
+        "minimumDelta": -0.7930831928276092,
+        "maximumGap": 1.018057950089684,
+        "fractionAbove03": 0.37992831541218636,
+        "fractionBelowMinus05": 0.1827956989247312
+      },
+      "flagBefore": false,
+      "flagAfter": false,
+      "newFlag": false
+    },
+    {
+      "omitted": true,
+      "index": 1893,
+      "x": 216.7517445748672,
+      "z": 173.13240414485335,
+      "family": 0,
+      "oldY": 153.04252947269654,
+      "newY": 153.0877719170777,
+      "rootRise": 0.04524244438115943,
+      "basalVertices": 580,
+      "footprintTouches": 400,
+      "referenceSlope": 2.0057571350631305,
+      "currentSlope": 1.9655010235142363,
+      "before": {
+        "minimumDelta": -3.506321670322933,
+        "maximumGap": 3.0676355511941154,
+        "fractionAbove03": 0.3913793103448276,
+        "fractionBelowMinus05": 0.5103448275862069
+      },
+      "after": {
+        "minimumDelta": -3.4610793607526205,
+        "maximumGap": 2.9598448432041096,
+        "fractionAbove03": 0.3931034482758621,
+        "fractionBelowMinus05": 0.5086206896551724
+      },
+      "flagBefore": true,
+      "flagAfter": true,
+      "newFlag": false
+    },
+    {
+      "omitted": true,
+      "index": 2114,
+      "x": 176.1460832436569,
+      "z": 97.77462990954518,
+      "family": 0,
+      "oldY": 13.572772112054283,
+      "newY": 13.572772112054283,
+      "rootRise": 0,
+      "basalVertices": 580,
+      "footprintTouches": 310,
+      "referenceSlope": 1.0482193647110492,
+      "currentSlope": 1.0482193647110492,
+      "before": {
+        "minimumDelta": -3.0320105424609416,
+        "maximumGap": 1.9728017359038486,
+        "fractionAbove03": 0.42758620689655175,
+        "fractionBelowMinus05": 0.46206896551724136
+      },
+      "after": {
+        "minimumDelta": -3.4879168273849963,
+        "maximumGap": 1.9728017359038486,
+        "fractionAbove03": 0.41724137931034483,
+        "fractionBelowMinus05": 0.4793103448275862
+      },
+      "flagBefore": false,
+      "flagAfter": false,
+      "newFlag": false
+    },
+    {
+      "omitted": false,
+      "index": 2476,
+      "x": 237.84388944040984,
+      "z": 158.59686700627208,
+      "family": 1,
+      "oldY": 156.75210417759058,
+      "newY": 166.99286379824213,
+      "rootRise": 10.240759620651545,
+      "basalVertices": 279,
+      "footprintTouches": 279,
+      "referenceSlope": 1.4859640315658185,
+      "currentSlope": 0.6938759265220185,
+      "before": {
+        "minimumDelta": -0.45203200611877037,
+        "maximumGap": 0.4814290270970787,
+        "fractionAbove03": 0.15770609318996415,
+        "fractionBelowMinus05": 0
+      },
+      "after": {
+        "minimumDelta": -0.2926916406333646,
+        "maximumGap": 0.3595300926729408,
+        "fractionAbove03": 0.025089605734767026,
+        "fractionBelowMinus05": 0
+      },
+      "flagBefore": false,
+      "flagAfter": false,
+      "newFlag": false
+    },
+    {
+      "omitted": false,
+      "index": 2646,
+      "x": 182.299958425574,
+      "z": 129.38988633453846,
+      "family": 1,
+      "oldY": 60.5212504239054,
+      "newY": 92.52124983233122,
+      "rootRise": 31.999999408425822,
+      "basalVertices": 279,
+      "footprintTouches": 279,
+      "referenceSlope": 1.5646763026198232,
+      "currentSlope": 1.564678972249002,
+      "before": {
+        "minimumDelta": -0.4418472877681765,
+        "maximumGap": 0.5929106524867223,
+        "fractionAbove03": 0.2222222222222222,
+        "fractionBelowMinus05": 0
+      },
+      "after": {
+        "minimumDelta": -0.44185107237862553,
+        "maximumGap": 0.5929080998321439,
+        "fractionAbove03": 0.2222222222222222,
+        "fractionBelowMinus05": 0
+      },
+      "flagBefore": false,
+      "flagAfter": false,
+      "newFlag": false
+    },
+    {
+      "omitted": false,
+      "index": 2674,
+      "x": 204.48635871289298,
+      "z": 151.5623682178557,
+      "family": 1,
+      "oldY": 97.51228661547442,
+      "newY": 123.14696837637828,
+      "rootRise": 25.63468176090386,
+      "basalVertices": 279,
+      "footprintTouches": 279,
+      "referenceSlope": 1.9911039832349235,
+      "currentSlope": 1.9792928670495546,
+      "before": {
+        "minimumDelta": -0.6693927823213102,
+        "maximumGap": 0.7112261692749655,
+        "fractionAbove03": 0.3225806451612903,
+        "fractionBelowMinus05": 0.07168458781362007
+      },
+      "after": {
+        "minimumDelta": -0.7499056057082782,
+        "maximumGap": 0.7471238953905868,
+        "fractionAbove03": 0.31899641577060933,
+        "fractionBelowMinus05": 0.06810035842293907
+      },
+      "flagBefore": false,
+      "flagAfter": false,
+      "newFlag": false
+    },
+    {
+      "omitted": false,
+      "index": 2786,
+      "x": 237.3132566572167,
+      "z": 172.13929682970047,
+      "family": 1,
+      "oldY": 169.74932684582097,
+      "newY": 169.84635676959567,
+      "rootRise": 0.09702992377469855,
+      "basalVertices": 279,
+      "footprintTouches": 279,
+      "referenceSlope": 1.0668070489951067,
+      "currentSlope": 1.0152545977085472,
+      "before": {
+        "minimumDelta": -0.3305622698359514,
+        "maximumGap": 0.3507804043640306,
+        "fractionAbove03": 0.02867383512544803,
+        "fractionBelowMinus05": 0
+      },
+      "after": {
+        "minimumDelta": -0.32005890041523344,
+        "maximumGap": 0.31971802724004306,
+        "fractionAbove03": 0.014336917562724014,
+        "fractionBelowMinus05": 0
+      },
+      "flagBefore": false,
+      "flagAfter": false,
+      "newFlag": false
+    },
+    {
+      "omitted": true,
+      "index": 2902,
+      "x": 219.94952345266938,
+      "z": 128.22893045842648,
+      "family": 1,
+      "oldY": 92.91317078202106,
+      "newY": 106.59967113383992,
+      "rootRise": 13.686500351818864,
+      "basalVertices": 279,
+      "footprintTouches": 279,
+      "referenceSlope": 1.6118180910915008,
+      "currentSlope": 3.272567626645362,
+      "before": {
+        "minimumDelta": -0.5328095734697058,
+        "maximumGap": 0.6495605028347171,
+        "fractionAbove03": 0.24731182795698925,
+        "fractionBelowMinus05": 0.010752688172043012
+      },
+      "after": {
+        "minimumDelta": -0.9981306001766086,
+        "maximumGap": 1.08371070040873,
+        "fractionAbove03": 0.4014336917562724,
+        "fractionBelowMinus05": 0.25448028673835127
+      },
+      "flagBefore": false,
+      "flagAfter": false,
+      "newFlag": false
+    },
+    {
+      "omitted": true,
+      "index": 3019,
+      "x": 236.98913385160267,
+      "z": 175.36205012351274,
+      "family": 0,
+      "oldY": 172.1154903820294,
+      "newY": 172.1154903820294,
+      "rootRise": 0,
+      "basalVertices": 580,
+      "footprintTouches": 78,
+      "referenceSlope": 0.672607008298688,
+      "currentSlope": 0.672607008298688,
+      "before": {
+        "minimumDelta": -0.7272522250560485,
+        "maximumGap": 1.1375663914490985,
+        "fractionAbove03": 0.4603448275862069,
+        "fractionBelowMinus05": 0.13620689655172413
+      },
+      "after": {
+        "minimumDelta": -0.7272522250560485,
+        "maximumGap": 1.1121329731504375,
+        "fractionAbove03": 0.4603448275862069,
+        "fractionBelowMinus05": 0.13620689655172413
+      },
+      "flagBefore": false,
+      "flagAfter": false,
+      "newFlag": false
+    },
+    {
+      "omitted": true,
+      "index": 3074,
+      "x": 160.32705813413486,
+      "z": 103.52448500692844,
+      "family": 0,
+      "oldY": 9.111588587459769,
+      "newY": 9.197433138475985,
+      "rootRise": 0.08584455101621558,
+      "basalVertices": 580,
+      "footprintTouches": 580,
+      "referenceSlope": 0.8194957429181116,
+      "currentSlope": 0.8711820891064521,
+      "before": {
+        "minimumDelta": -1.258933741630969,
+        "maximumGap": 0.8686180536833774,
+        "fractionAbove03": 0.3913793103448276,
+        "fractionBelowMinus05": 0.30517241379310345
+      },
+      "after": {
+        "minimumDelta": -1.637204391085934,
+        "maximumGap": 0.9386514318313282,
+        "fractionAbove03": 0.40344827586206894,
+        "fractionBelowMinus05": 0.34655172413793106
+      },
+      "flagBefore": false,
+      "flagAfter": false,
+      "newFlag": false
+    },
+    {
+      "omitted": true,
+      "index": 3187,
+      "x": 226.29845672054216,
+      "z": 175.03300299867988,
+      "family": 0,
+      "oldY": 163.64827506016303,
+      "newY": 163.64827506016303,
+      "rootRise": 0,
+      "basalVertices": 580,
+      "footprintTouches": 200,
+      "referenceSlope": 1.178625708270415,
+      "currentSlope": 1.178625708270415,
+      "before": {
+        "minimumDelta": -2.5386822375536724,
+        "maximumGap": 2.2371504562742928,
+        "fractionAbove03": 0.4879310344827586,
+        "fractionBelowMinus05": 0.3741379310344828
+      },
+      "after": {
+        "minimumDelta": -2.5386822375536724,
+        "maximumGap": 2.2093421186389435,
+        "fractionAbove03": 0.4879310344827586,
+        "fractionBelowMinus05": 0.3741379310344828
+      },
+      "flagBefore": true,
+      "flagAfter": true,
+      "newFlag": false
+    },
+    {
+      "omitted": true,
+      "index": 3327,
+      "x": 191.78278845502064,
+      "z": 152.26068014279008,
+      "family": 0,
+      "oldY": 96.16862390848028,
+      "newY": 114.00196040280719,
+      "rootRise": 17.8333364943269,
+      "basalVertices": 580,
+      "footprintTouches": 580,
+      "referenceSlope": 1.224709389280385,
+      "currentSlope": 2.44026570687309,
+      "before": {
+        "minimumDelta": -2.1911959037580715,
+        "maximumGap": 2.2004047918157,
+        "fractionAbove03": 0.4396551724137931,
+        "fractionBelowMinus05": 0.3586206896551724
+      },
+      "after": {
+        "minimumDelta": -3.022742133930592,
+        "maximumGap": 4.291609185476318,
+        "fractionAbove03": 0.5086206896551724,
+        "fractionBelowMinus05": 0.41724137931034483
+      },
+      "flagBefore": true,
+      "flagAfter": true,
+      "newFlag": false
+    },
+    {
+      "omitted": false,
+      "index": 3630,
+      "x": 207.01103010214865,
+      "z": 120.73311030864716,
+      "family": 1,
+      "oldY": 71.07356270814341,
+      "newY": 101.83880407043466,
+      "rootRise": 30.76524136229125,
+      "basalVertices": 279,
+      "footprintTouches": 279,
+      "referenceSlope": 1.6326591176791705,
+      "currentSlope": 1.478455121474861,
+      "before": {
+        "minimumDelta": -0.38165174107835753,
+        "maximumGap": 0.5320248988516596,
+        "fractionAbove03": 0.15770609318996415,
+        "fractionBelowMinus05": 0
+      },
+      "after": {
+        "minimumDelta": -0.37613501555794926,
+        "maximumGap": 0.487078596516767,
+        "fractionAbove03": 0.14336917562724014,
+        "fractionBelowMinus05": 0
+      },
+      "flagBefore": false,
+      "flagAfter": false,
+      "newFlag": false
+    },
+    {
+      "omitted": true,
+      "index": 4030,
+      "x": 253.497607819736,
+      "z": 167.9700569063425,
+      "family": 0,
+      "oldY": 171.16796814691048,
+      "newY": 171.21672205638941,
+      "rootRise": 0.048753909478932655,
+      "basalVertices": 580,
+      "footprintTouches": 564,
+      "referenceSlope": 0.5322346442269572,
+      "currentSlope": 0.5454217960004417,
+      "before": {
+        "minimumDelta": -0.3798698674793002,
+        "maximumGap": 1.4160894361659757,
+        "fractionAbove03": 0.5258620689655172,
+        "fractionBelowMinus05": 0
+      },
+      "after": {
+        "minimumDelta": -0.4196284999884483,
+        "maximumGap": 1.4547108261272967,
+        "fractionAbove03": 0.5172413793103449,
+        "fractionBelowMinus05": 0
+      },
+      "flagBefore": false,
+      "flagAfter": false,
+      "newFlag": false
+    },
+    {
+      "omitted": true,
+      "index": 4720,
+      "x": 194.8029307415709,
+      "z": 121.31592081859708,
+      "family": 0,
+      "oldY": 60.109193759099064,
+      "newY": 92.1091935324077,
+      "rootRise": 31.999999773308637,
+      "basalVertices": 580,
+      "footprintTouches": 580,
+      "referenceSlope": 1.7148592299390666,
+      "currentSlope": 1.7148565419245485,
+      "before": {
+        "minimumDelta": -3.2137697243278254,
+        "maximumGap": 2.8472261167592734,
+        "fractionAbove03": 0.5448275862068965,
+        "fractionBelowMinus05": 0.3448275862068966
+      },
+      "after": {
+        "minimumDelta": -3.2137671224286066,
+        "maximumGap": 2.8472261167592734,
+        "fractionAbove03": 0.5448275862068965,
+        "fractionBelowMinus05": 0.3448275862068966
+      },
+      "flagBefore": true,
+      "flagAfter": true,
+      "newFlag": false
+    },
+    {
+      "omitted": false,
+      "index": 4792,
+      "x": 253.82311010034755,
+      "z": 171.16691509261727,
+      "family": 0,
+      "oldY": 171.51719491961668,
+      "newY": 171.53617379557778,
+      "rootRise": 0.018978875961096264,
+      "basalVertices": 580,
+      "footprintTouches": 580,
+      "referenceSlope": 0.2142533927401202,
+      "currentSlope": 0.20794582184778343,
+      "before": {
+        "minimumDelta": -0.3222999637335704,
+        "maximumGap": 0.30351420970339404,
+        "fractionAbove03": 0.0034482758620689655,
+        "fractionBelowMinus05": 0
+      },
+      "after": {
+        "minimumDelta": -0.32276314588543187,
+        "maximumGap": 0.2942968057375026,
+        "fractionAbove03": 0,
+        "fractionBelowMinus05": 0
+      },
+      "flagBefore": false,
+      "flagAfter": false,
+      "newFlag": false
+    },
+    {
+      "omitted": true,
+      "index": 5080,
+      "x": 162.61330097913742,
+      "z": 100.32597031444311,
+      "family": 0,
+      "oldY": 8.119744476641008,
+      "newY": 8.124943099511585,
+      "rootRise": 0.005198622870576486,
+      "basalVertices": 580,
+      "footprintTouches": 376,
+      "referenceSlope": 0.811344202519469,
+      "currentSlope": 0.8233314581924422,
+      "before": {
+        "minimumDelta": -1.9380758197851904,
+        "maximumGap": 1.2835065729867496,
+        "fractionAbove03": 0.4086206896551724,
+        "fractionBelowMinus05": 0.4017241379310345
+      },
+      "after": {
+        "minimumDelta": -2.0872902257720938,
+        "maximumGap": 1.28870505168548,
+        "fractionAbove03": 0.4086206896551724,
+        "fractionBelowMinus05": 0.4068965517241379
+      },
+      "flagBefore": false,
+      "flagAfter": false,
+      "newFlag": false
+    },
+    {
+      "omitted": true,
+      "index": 5197,
+      "x": 242.50869204988703,
+      "z": 168.92353495582938,
+      "family": 0,
+      "oldY": 169.92743772417305,
+      "newY": 171.21653048890448,
+      "rootRise": 1.2890927647314356,
+      "basalVertices": 580,
+      "footprintTouches": 580,
+      "referenceSlope": 1.2037452836705749,
+      "currentSlope": 0.73277851580964,
+      "before": {
+        "minimumDelta": -1.9855625999484516,
+        "maximumGap": 2.5423819169366197,
+        "fractionAbove03": 0.43275862068965515,
+        "fractionBelowMinus05": 0.3931034482758621
+      },
+      "after": {
+        "minimumDelta": -1.4026565216414042,
+        "maximumGap": 1.528018686252068,
+        "fractionAbove03": 0.45689655172413796,
+        "fractionBelowMinus05": 0.27413793103448275
+      },
+      "flagBefore": true,
+      "flagAfter": false,
+      "newFlag": false
+    },
+    {
+      "omitted": true,
+      "index": 5866,
+      "x": 194.3748728488572,
+      "z": 129.38599338755012,
+      "family": 0,
+      "oldY": 69.82677341114922,
+      "newY": 101.82677341114922,
+      "rootRise": 32,
+      "basalVertices": 580,
+      "footprintTouches": 580,
+      "referenceSlope": 1.6782623627748758,
+      "currentSlope": 1.6782623627748758,
+      "before": {
+        "minimumDelta": -3.0187895161054996,
+        "maximumGap": 2.8381389555950705,
+        "fractionAbove03": 0.3724137931034483,
+        "fractionBelowMinus05": 0.5137931034482759
+      },
+      "after": {
+        "minimumDelta": -3.0187895161054996,
+        "maximumGap": 2.8381389555950705,
+        "fractionAbove03": 0.3724137931034483,
+        "fractionBelowMinus05": 0.5137931034482759
+      },
+      "flagBefore": true,
+      "flagAfter": true,
+      "newFlag": false
+    },
+    {
+      "omitted": false,
+      "index": 5940,
+      "x": 169.43803718313575,
+      "z": 135.61501802876592,
+      "family": 1,
+      "oldY": 57.216317903002164,
+      "newY": 57.41871489307186,
+      "rootRise": 0.20239699006969403,
+      "basalVertices": 279,
+      "footprintTouches": 279,
+      "referenceSlope": 1.5566426893726903,
+      "currentSlope": 1.2010233410256266,
+      "before": {
+        "minimumDelta": -0.547195894250514,
+        "maximumGap": 0.5588920448308912,
+        "fractionAbove03": 0.24372759856630824,
+        "fractionBelowMinus05": 0.007168458781362007
+      },
+      "after": {
+        "minimumDelta": -0.44571422784515136,
+        "maximumGap": 0.47020343420964394,
+        "fractionAbove03": 0.17921146953405018,
+        "fractionBelowMinus05": 0
+      },
+      "flagBefore": false,
+      "flagAfter": false,
+      "newFlag": false
+    },
+    {
+      "omitted": true,
+      "index": 6020,
+      "x": 181.28227377310395,
+      "z": 130.85406832396984,
+      "family": 0,
+      "oldY": 61.50343331046145,
+      "newY": 92.57282323640253,
+      "rootRise": 31.069389925941074,
+      "basalVertices": 580,
+      "footprintTouches": 580,
+      "referenceSlope": 1.5714004923831426,
+      "currentSlope": 2.3622461740179057,
+      "before": {
+        "minimumDelta": -2.9150144499163915,
+        "maximumGap": 2.7713642416879765,
+        "fractionAbove03": 0.5293103448275862,
+        "fractionBelowMinus05": 0.3603448275862069
+      },
+      "after": {
+        "minimumDelta": -3.4030633302898394,
+        "maximumGap": 2.9483293635536683,
+        "fractionAbove03": 0.5465517241379311,
+        "fractionBelowMinus05": 0.36551724137931035
+      },
+      "flagBefore": true,
+      "flagAfter": true,
+      "newFlag": false
+    },
+    {
+      "omitted": true,
+      "index": 6023,
+      "x": 246.88294059596956,
+      "z": 164.81595430523157,
+      "family": 0,
+      "oldY": 168.49286780343334,
+      "newY": 169.94378265398967,
+      "rootRise": 1.4509148505563303,
+      "basalVertices": 580,
+      "footprintTouches": 580,
+      "referenceSlope": 1.1682009503273545,
+      "currentSlope": 0.9403236636454473,
+      "before": {
+        "minimumDelta": -2.1062901793481217,
+        "maximumGap": 3.259342737676519,
+        "fractionAbove03": 0.4724137931034483,
+        "fractionBelowMinus05": 0.36724137931034484
+      },
+      "after": {
+        "minimumDelta": -1.842142865004007,
+        "maximumGap": 2.363100737538417,
+        "fractionAbove03": 0.4706896551724138,
+        "fractionBelowMinus05": 0.38448275862068965
+      },
+      "flagBefore": true,
+      "flagAfter": true,
+      "newFlag": false
+    },
+    {
+      "omitted": false,
+      "index": 6041,
+      "x": 251.54203921556473,
+      "z": 173.15893027931452,
+      "family": 1,
+      "oldY": 171.7586518695519,
+      "newY": 171.76751996002116,
+      "rootRise": 0.008868090469263734,
+      "basalVertices": 279,
+      "footprintTouches": 279,
+      "referenceSlope": 0.2612661613608622,
+      "currentSlope": 0.2682174407396637,
+      "before": {
+        "minimumDelta": -0.17970648710576143,
+        "maximumGap": 0.24904057226547138,
+        "fractionAbove03": 0,
+        "fractionBelowMinus05": 0
+      },
+      "after": {
+        "minimumDelta": -0.18201122452799723,
+        "maximumGap": 0.25135518559613956,
+        "fractionAbove03": 0,
+        "fractionBelowMinus05": 0
+      },
+      "flagBefore": false,
+      "flagAfter": false,
+      "newFlag": false
+    },
+    {
+      "omitted": true,
+      "index": 6362,
+      "x": 259.08365473151207,
+      "z": 172.53174472600222,
+      "family": 0,
+      "oldY": 167.69838488866503,
+      "newY": 167.69838488866503,
+      "rootRise": 0,
+      "basalVertices": 580,
+      "footprintTouches": 13,
+      "referenceSlope": 1.4255056092328973,
+      "currentSlope": 1.4255056092328973,
+      "before": {
+        "minimumDelta": -1.8579539909045764,
+        "maximumGap": 2.3812984097525316,
+        "fractionAbove03": 0.5,
+        "fractionBelowMinus05": 0.38620689655172413
+      },
+      "after": {
+        "minimumDelta": -1.8579586937253794,
+        "maximumGap": 2.3812984097525316,
+        "fractionAbove03": 0.5,
+        "fractionBelowMinus05": 0.38620689655172413
+      },
+      "flagBefore": true,
+      "flagAfter": true,
+      "newFlag": false
+    },
+    {
+      "omitted": false,
+      "index": 6768,
+      "x": 211.7213818943128,
+      "z": 140.778479129076,
+      "family": 1,
+      "oldY": 96.97115369575923,
+      "newY": 128.97115178894074,
+      "rootRise": 31.999998093181517,
+      "basalVertices": 279,
+      "footprintTouches": 279,
+      "referenceSlope": 1.821274580215589,
+      "currentSlope": 1.8212691873585825,
+      "before": {
+        "minimumDelta": -0.5994105595504351,
+        "maximumGap": 0.6794345280895016,
+        "fractionAbove03": 0.3046594982078853,
+        "fractionBelowMinus05": 0.043010752688172046
+      },
+      "after": {
+        "minimumDelta": -0.5994149373092341,
+        "maximumGap": 0.6794274907112197,
+        "fractionAbove03": 0.3046594982078853,
+        "fractionBelowMinus05": 0.043010752688172046
+      },
+      "flagBefore": false,
+      "flagAfter": false,
+      "newFlag": false
+    },
+    {
+      "omitted": true,
+      "index": 6777,
+      "x": 220.04179887007922,
+      "z": 149.43823982030153,
+      "family": 0,
+      "oldY": 122.83168072234014,
+      "newY": 150.99196393524846,
+      "rootRise": 28.160283212908325,
+      "basalVertices": 580,
+      "footprintTouches": 580,
+      "referenceSlope": 2.665555716701031,
+      "currentSlope": 2.097781859379087,
+      "before": {
+        "minimumDelta": -6.084740705479689,
+        "maximumGap": 4.75429631123086,
+        "fractionAbove03": 0.4810344827586207,
+        "fractionBelowMinus05": 0.4482758620689655
+      },
+      "after": {
+        "minimumDelta": -5.183962777776344,
+        "maximumGap": 3.9344902602589116,
+        "fractionAbove03": 0.45,
+        "fractionBelowMinus05": 0.46551724137931033
+      },
+      "flagBefore": true,
+      "flagAfter": true,
+      "newFlag": false
+    },
+    {
+      "omitted": true,
+      "index": 6798,
+      "x": 176.05334434192628,
+      "z": 148.1470994092524,
+      "family": 0,
+      "oldY": 80.75290336592454,
+      "newY": 80.75290336592454,
+      "rootRise": 0,
+      "basalVertices": 580,
+      "footprintTouches": 109,
+      "referenceSlope": 1.8725338155583306,
+      "currentSlope": 1.8725338155583306,
+      "before": {
+        "minimumDelta": -2.765818231176027,
+        "maximumGap": 3.027969761874914,
+        "fractionAbove03": 0.4689655172413793,
+        "fractionBelowMinus05": 0.3793103448275862
+      },
+      "after": {
+        "minimumDelta": -2.765818231176027,
+        "maximumGap": 3.027969761874914,
+        "fractionAbove03": 0.4689655172413793,
+        "fractionBelowMinus05": 0.3793103448275862
+      },
+      "flagBefore": true,
+      "flagAfter": true,
+      "newFlag": false
+    },
+    {
+      "omitted": false,
+      "index": 6835,
+      "x": 248.2221709098667,
+      "z": 172.91372982785106,
+      "family": 1,
+      "oldY": 172.63404012191052,
+      "newY": 172.66139667177822,
+      "rootRise": 0.027356549867704416,
+      "basalVertices": 279,
+      "footprintTouches": 279,
+      "referenceSlope": 0.37901485598878165,
+      "currentSlope": 0.4036561285024359,
+      "before": {
+        "minimumDelta": -0.18938713967773424,
+        "maximumGap": 0.2291114018420899,
+        "fractionAbove03": 0,
+        "fractionBelowMinus05": 0
+      },
+      "after": {
+        "minimumDelta": -0.195210538884254,
+        "maximumGap": 0.23469741654724885,
+        "fractionAbove03": 0,
+        "fractionBelowMinus05": 0
+      },
+      "flagBefore": false,
+      "flagAfter": false,
+      "newFlag": false
+    },
+    {
+      "omitted": true,
+      "index": 6842,
+      "x": 164.79033717187122,
+      "z": 128.64522516727448,
+      "family": 0,
+      "oldY": 42.183171368733,
+      "newY": 42.76982866351445,
+      "rootRise": 0.5866572947814532,
+      "basalVertices": 580,
+      "footprintTouches": 562,
+      "referenceSlope": 1.8790516649802376,
+      "currentSlope": 2.3808755773822052,
+      "before": {
+        "minimumDelta": -3.9329107849900495,
+        "maximumGap": 3.3775510566842826,
+        "fractionAbove03": 0.4862068965517241,
+        "fractionBelowMinus05": 0.4362068965517241
+      },
+      "after": {
+        "minimumDelta": -5.565127389980894,
+        "maximumGap": 3.6476321717689757,
+        "fractionAbove03": 0.4051724137931034,
+        "fractionBelowMinus05": 0.5051724137931034
+      },
+      "flagBefore": true,
+      "flagAfter": true,
+      "newFlag": false
+    },
+    {
+      "omitted": true,
+      "index": 6867,
+      "x": 255.65903655951843,
+      "z": 172.87250313907862,
+      "family": 0,
+      "oldY": 171.20767289100172,
+      "newY": 171.2084212753012,
+      "rootRise": 0.0007483842994702172,
+      "basalVertices": 580,
+      "footprintTouches": 424,
+      "referenceSlope": 0.38142445837363115,
+      "currentSlope": 0.38194001017649926,
+      "before": {
+        "minimumDelta": -0.3929980841107863,
+        "maximumGap": 1.3724633846687766,
+        "fractionAbove03": 0.4379310344827586,
+        "fractionBelowMinus05": 0
+      },
+      "after": {
+        "minimumDelta": -0.4018818887164457,
+        "maximumGap": 1.373211065332839,
+        "fractionAbove03": 0.4379310344827586,
+        "fractionBelowMinus05": 0
+      },
+      "flagBefore": false,
+      "flagAfter": false,
+      "newFlag": false
+    },
+    {
+      "omitted": true,
+      "index": 6872,
+      "x": 159.82764748623595,
+      "z": 102.81495746225119,
+      "family": 0,
+      "oldY": 8.400323355124574,
+      "newY": 8.434645335571162,
+      "rootRise": 0.034321980446588185,
+      "basalVertices": 580,
+      "footprintTouches": 453,
+      "referenceSlope": 0.8205274460840365,
+      "currentSlope": 0.8946416069335997,
+      "before": {
+        "minimumDelta": -2.0545183553367075,
+        "maximumGap": 1.5172835873553119,
+        "fractionAbove03": 0.3620689655172414,
+        "fractionBelowMinus05": 0.43103448275862066
+      },
+      "after": {
+        "minimumDelta": -2.5390687558065412,
+        "maximumGap": 1.5516063260027728,
+        "fractionAbove03": 0.36551724137931035,
+        "fractionBelowMinus05": 0.4396551724137931
+      },
+      "flagBefore": false,
+      "flagAfter": false,
+      "newFlag": false
+    },
+    {
+      "omitted": true,
+      "index": 7046,
+      "x": 199.78208255488425,
+      "z": 164.28020663559437,
+      "family": 0,
+      "oldY": 111.9100580863827,
+      "newY": 117.1096235129983,
+      "rootRise": 5.199565426615592,
+      "basalVertices": 580,
+      "footprintTouches": 580,
+      "referenceSlope": 2.513577105802559,
+      "currentSlope": 1.7702494926039978,
+      "before": {
+        "minimumDelta": -4.556426479370614,
+        "maximumGap": 4.506682876195384,
+        "fractionAbove03": 0.4827586206896552,
+        "fractionBelowMinus05": 0.42586206896551726
+      },
+      "after": {
+        "minimumDelta": -2.9560483809044342,
+        "maximumGap": 2.6941566846231666,
+        "fractionAbove03": 0.5431034482758621,
+        "fractionBelowMinus05": 0.33620689655172414
+      },
+      "flagBefore": true,
+      "flagAfter": true,
+      "newFlag": false
+    },
+    {
+      "omitted": true,
+      "index": 7062,
+      "x": 179.03231149539351,
+      "z": 137.27091185748577,
+      "family": 1,
+      "oldY": 67.73473124357774,
+      "newY": 84.3280723234945,
+      "rootRise": 16.593341079916755,
+      "basalVertices": 279,
+      "footprintTouches": 279,
+      "referenceSlope": 1.2093353579588981,
+      "currentSlope": 3.745487112928042,
+      "before": {
+        "minimumDelta": -0.37173427830215644,
+        "maximumGap": 0.4254693221420922,
+        "fractionAbove03": 0.0931899641577061,
+        "fractionBelowMinus05": 0
+      },
+      "after": {
+        "minimumDelta": -0.8239993465396083,
+        "maximumGap": 0.8504221939301999,
+        "fractionAbove03": 0.34050179211469533,
+        "fractionBelowMinus05": 0.26523297491039427
+      },
+      "flagBefore": false,
+      "flagAfter": false,
+      "newFlag": false
+    },
+    {
+      "omitted": true,
+      "index": 7405,
+      "x": 184.37515016412362,
+      "z": 161.79119672626257,
+      "family": 0,
+      "oldY": 96.49175773140686,
+      "newY": 96.49175773140686,
+      "rootRise": 0,
+      "basalVertices": 580,
+      "footprintTouches": 98,
+      "referenceSlope": 1.0795050879693604,
+      "currentSlope": 1.0795050879693604,
+      "before": {
+        "minimumDelta": -2.1124006370781245,
+        "maximumGap": 2.873840203049639,
+        "fractionAbove03": 0.5189655172413793,
+        "fractionBelowMinus05": 0.36551724137931035
+      },
+      "after": {
+        "minimumDelta": -2.183630866405821,
+        "maximumGap": 2.873840203049639,
+        "fractionAbove03": 0.5189655172413793,
+        "fractionBelowMinus05": 0.36551724137931035
+      },
+      "flagBefore": true,
+      "flagAfter": true,
+      "newFlag": false
+    },
+    {
+      "omitted": true,
+      "index": 7419,
+      "x": 232.2665890213102,
+      "z": 159.56841818988323,
+      "family": 0,
+      "oldY": 154.9588036610225,
+      "newY": 168.26914649399532,
+      "rootRise": 13.310342832972822,
+      "basalVertices": 580,
+      "footprintTouches": 580,
+      "referenceSlope": 1.1640126932782848,
+      "currentSlope": 0.5052785008258438,
+      "before": {
+        "minimumDelta": -1.7537804439152183,
+        "maximumGap": 2.414863707165665,
+        "fractionAbove03": 0.5017241379310344,
+        "fractionBelowMinus05": 0.3310344827586207
+      },
+      "after": {
+        "minimumDelta": -0.646543721793563,
+        "maximumGap": 0.9333973714360297,
+        "fractionAbove03": 0.4982758620689655,
+        "fractionBelowMinus05": 0.015517241379310345
+      },
+      "flagBefore": true,
+      "flagAfter": false,
+      "newFlag": false
+    },
+    {
+      "omitted": true,
+      "index": 7606,
+      "x": 251.7853880301118,
+      "z": 164.831383228302,
+      "family": 0,
+      "oldY": 168.8119560804284,
+      "newY": 168.89745555843314,
+      "rootRise": 0.08549947800474911,
+      "basalVertices": 580,
+      "footprintTouches": 580,
+      "referenceSlope": 1.0204899197702735,
+      "currentSlope": 1.0915327706225242,
+      "before": {
+        "minimumDelta": -1.9136727890532086,
+        "maximumGap": 1.715932549851658,
+        "fractionAbove03": 0.3413793103448276,
+        "fractionBelowMinus05": 0.4672413793103448
+      },
+      "after": {
+        "minimumDelta": -2.038469935945386,
+        "maximumGap": 1.7640423289225566,
+        "fractionAbove03": 0.33793103448275863,
+        "fractionBelowMinus05": 0.49137931034482757
+      },
+      "flagBefore": false,
+      "flagAfter": false,
+      "newFlag": false
+    },
+    {
+      "omitted": false,
+      "index": 7646,
+      "x": 196.07702316716313,
+      "z": 126.62486994639039,
+      "family": 1,
+      "oldY": 67.57295141264376,
+      "newY": 99.57295141264376,
+      "rootRise": 32,
+      "basalVertices": 279,
+      "footprintTouches": 279,
+      "referenceSlope": 1.616544592010387,
+      "currentSlope": 1.616544592010387,
+      "before": {
+        "minimumDelta": -0.4783880150843345,
+        "maximumGap": 0.5447861053269349,
+        "fractionAbove03": 0.2078853046594982,
+        "fractionBelowMinus05": 0
+      },
+      "after": {
+        "minimumDelta": -0.4783880150843345,
+        "maximumGap": 0.5447861053269349,
+        "fractionAbove03": 0.2078853046594982,
+        "fractionBelowMinus05": 0
+      },
+      "flagBefore": false,
+      "flagAfter": false,
+      "newFlag": false
+    },
+    {
+      "omitted": true,
+      "index": 7937,
+      "x": 196.37109098257497,
+      "z": 127.54576947540045,
+      "family": 0,
+      "oldY": 69.00930269194464,
+      "newY": 101.00930269194464,
+      "rootRise": 32,
+      "basalVertices": 580,
+      "footprintTouches": 580,
+      "referenceSlope": 1.616544592010387,
+      "currentSlope": 1.616544592010387,
+      "before": {
+        "minimumDelta": -3.0800136503507076,
+        "maximumGap": 2.7752363518163605,
+        "fractionAbove03": 0.5293103448275862,
+        "fractionBelowMinus05": 0.35517241379310344
+      },
+      "after": {
+        "minimumDelta": -3.0800136503507076,
+        "maximumGap": 2.7752363518163605,
+        "fractionAbove03": 0.5293103448275862,
+        "fractionBelowMinus05": 0.35517241379310344
+      },
+      "flagBefore": true,
+      "flagAfter": true,
+      "newFlag": false
+    },
+    {
+      "omitted": true,
+      "index": 8361,
+      "x": 185.81121871247888,
+      "z": 114.08134436234832,
+      "family": 0,
+      "oldY": 41.97944729729632,
+      "newY": 70.75035907995274,
+      "rootRise": 28.770911782656427,
+      "basalVertices": 580,
+      "footprintTouches": 580,
+      "referenceSlope": 1.8950605092881907,
+      "currentSlope": 3.0003795137752243,
+      "before": {
+        "minimumDelta": -3.3761166705415917,
+        "maximumGap": 3.8076012337034015,
+        "fractionAbove03": 0.503448275862069,
+        "fractionBelowMinus05": 0.3879310344827586
+      },
+      "after": {
+        "minimumDelta": -5.170232434252412,
+        "maximumGap": 7.20909878485876,
+        "fractionAbove03": 0.506896551724138,
+        "fractionBelowMinus05": 0.42931034482758623
+      },
+      "flagBefore": true,
+      "flagAfter": true,
+      "newFlag": false
+    },
+    {
+      "omitted": true,
+      "index": 8419,
+      "x": 178.80189231364056,
+      "z": 101.34616408497095,
+      "family": 0,
+      "oldY": 18.859957380886815,
+      "newY": 20.683726400107965,
+      "rootRise": 1.8237690192211495,
+      "basalVertices": 580,
+      "footprintTouches": 580,
+      "referenceSlope": 1.2893975720244304,
+      "currentSlope": 2.2642721338021357,
+      "before": {
+        "minimumDelta": -3.2022408537112277,
+        "maximumGap": 2.585127802938608,
+        "fractionAbove03": 0.4,
+        "fractionBelowMinus05": 0.4879310344827586
+      },
+      "after": {
+        "minimumDelta": -6.173708093689836,
+        "maximumGap": 4.0787698466146125,
+        "fractionAbove03": 0.41206896551724137,
+        "fractionBelowMinus05": 0.5344827586206896
+      },
+      "flagBefore": true,
+      "flagAfter": true,
+      "newFlag": false
+    },
+    {
+      "omitted": true,
+      "index": 8473,
+      "x": 205.11964831966907,
+      "z": 103.76724295318127,
+      "family": 1,
+      "oldY": 46.82051803440762,
+      "newY": 49.677487764017286,
+      "rootRise": 2.8569697296096663,
+      "basalVertices": 279,
+      "footprintTouches": 279,
+      "referenceSlope": 1.8507615150340329,
+      "currentSlope": 2.306922281477832,
+      "before": {
+        "minimumDelta": -0.5960223316338968,
+        "maximumGap": 0.683524190303082,
+        "fractionAbove03": 0.31899641577060933,
+        "fractionBelowMinus05": 0.043010752688172046
+      },
+      "after": {
+        "minimumDelta": -0.8669765149186901,
+        "maximumGap": 0.8114068346987011,
+        "fractionAbove03": 0.36917562724014336,
+        "fractionBelowMinus05": 0.11469534050179211
+      },
+      "flagBefore": false,
+      "flagAfter": false,
+      "newFlag": false
+    },
+    {
+      "omitted": true,
+      "index": 8585,
+      "x": 216.43054565647617,
+      "z": 117.69601501524448,
+      "family": 0,
+      "oldY": 77.29454341709118,
+      "newY": 83.93608136557994,
+      "rootRise": 6.641537948488761,
+      "basalVertices": 580,
+      "footprintTouches": 580,
+      "referenceSlope": 1.5638434057928237,
+      "currentSlope": 2.2750559280419527,
+      "before": {
+        "minimumDelta": -3.465877756243003,
+        "maximumGap": 2.6441773929551005,
+        "fractionAbove03": 0.4413793103448276,
+        "fractionBelowMinus05": 0.4672413793103448
+      },
+      "after": {
+        "minimumDelta": -6.139365578758941,
+        "maximumGap": 4.708414709871789,
+        "fractionAbove03": 0.3793103448275862,
+        "fractionBelowMinus05": 0.5413793103448276
+      },
+      "flagBefore": true,
+      "flagAfter": true,
+      "newFlag": false
+    },
+    {
+      "omitted": false,
+      "index": 8759,
+      "x": 200.26630237698555,
+      "z": 155.88833697140217,
+      "family": 1,
+      "oldY": 97.7630217800828,
+      "newY": 117.11530906894012,
+      "rootRise": 19.352287288857326,
+      "basalVertices": 279,
+      "footprintTouches": 279,
+      "referenceSlope": 0.6975107559543225,
+      "currentSlope": 0.8552592273259959,
+      "before": {
+        "minimumDelta": -0.37981086528526475,
+        "maximumGap": 0.4076179477636117,
+        "fractionAbove03": 0.06451612903225806,
+        "fractionBelowMinus05": 0
+      },
+      "after": {
+        "minimumDelta": -0.3534276964721528,
+        "maximumGap": 0.42730531830848406,
+        "fractionAbove03": 0.10752688172043011,
+        "fractionBelowMinus05": 0
+      },
+      "flagBefore": false,
+      "flagAfter": false,
+      "newFlag": false
+    },
+    {
+      "omitted": false,
+      "index": 8853,
+      "x": 244.17247331002727,
+      "z": 157.58071195334196,
+      "family": 1,
+      "oldY": 157.7527750158947,
+      "newY": 160.25398706184154,
+      "rootRise": 2.501212045946829,
+      "basalVertices": 279,
+      "footprintTouches": 279,
+      "referenceSlope": 1.410408924721441,
+      "currentSlope": 1.7039782515188655,
+      "before": {
+        "minimumDelta": -0.4302245085887648,
+        "maximumGap": 0.5891149790866734,
+        "fractionAbove03": 0.2078853046594982,
+        "fractionBelowMinus05": 0
+      },
+      "after": {
+        "minimumDelta": -0.5452012409146221,
+        "maximumGap": 0.6312771769424614,
+        "fractionAbove03": 0.2903225806451613,
+        "fractionBelowMinus05": 0.021505376344086023
+      },
+      "flagBefore": false,
+      "flagAfter": false,
+      "newFlag": false
+    },
+    {
+      "omitted": false,
+      "index": 8926,
+      "x": 174.23676560865715,
+      "z": 119.80145862326026,
+      "family": 1,
+      "oldY": 38.41664994445345,
+      "newY": 70.09981876475902,
+      "rootRise": 31.683168820305575,
+      "basalVertices": 279,
+      "footprintTouches": 279,
+      "referenceSlope": 2.044079281246072,
+      "currentSlope": 2.155063459370673,
+      "before": {
+        "minimumDelta": -0.668728156163354,
+        "maximumGap": 0.654324766052504,
+        "fractionAbove03": 0.31899641577060933,
+        "fractionBelowMinus05": 0.06810035842293907
+      },
+      "after": {
+        "minimumDelta": -0.6691208864599929,
+        "maximumGap": 0.6295115334621215,
+        "fractionAbove03": 0.31899641577060933,
+        "fractionBelowMinus05": 0.07885304659498207
+      },
+      "flagBefore": false,
+      "flagAfter": false,
+      "newFlag": false
+    },
+    {
+      "omitted": true,
+      "index": 9039,
+      "x": 207.41709645371884,
+      "z": 153.6842686496675,
+      "family": 1,
+      "oldY": 104.00079067211897,
+      "newY": 126.69738028412804,
+      "rootRise": 22.696589612009078,
+      "basalVertices": 279,
+      "footprintTouches": 279,
+      "referenceSlope": 2.0060719395529754,
+      "currentSlope": 2.075706041630296,
+      "before": {
+        "minimumDelta": -0.5663638034369853,
+        "maximumGap": 0.7229354630032674,
+        "fractionAbove03": 0.30824372759856633,
+        "fractionBelowMinus05": 0.03225806451612903
+      },
+      "after": {
+        "minimumDelta": -0.534134303837206,
+        "maximumGap": 0.7660608384033907,
+        "fractionAbove03": 0.31899641577060933,
+        "fractionBelowMinus05": 0.010752688172043012
+      },
+      "flagBefore": false,
+      "flagAfter": false,
+      "newFlag": false
+    },
+    {
+      "omitted": true,
+      "index": 9716,
+      "x": 254.43733071442693,
+      "z": 168.39912252500653,
+      "family": 0,
+      "oldY": 171.09506375260585,
+      "newY": 171.10913268852892,
+      "rootRise": 0.014068935923063464,
+      "basalVertices": 580,
+      "footprintTouches": 557,
+      "referenceSlope": 0.24001852144828545,
+      "currentSlope": 0.24861789679324214,
+      "before": {
+        "minimumDelta": -0.35642476546632906,
+        "maximumGap": 1.0571435225446635,
+        "fractionAbove03": 0.42758620689655175,
+        "fractionBelowMinus05": 0
+      },
+      "after": {
+        "minimumDelta": -0.3858546694133054,
+        "maximumGap": 1.0680226402967605,
+        "fractionAbove03": 0.4241379310344828,
+        "fractionBelowMinus05": 0
+      },
+      "flagBefore": false,
+      "flagAfter": false,
+      "newFlag": false
+    },
+    {
+      "omitted": true,
+      "index": 10466,
+      "x": 243.81276958156377,
+      "z": 171.6641798056662,
+      "family": 0,
+      "oldY": 171.83340347440395,
+      "newY": 172.01749418075283,
+      "rootRise": 0.1840907063488828,
+      "basalVertices": 580,
+      "footprintTouches": 580,
+      "referenceSlope": 0.4359734605439453,
+      "currentSlope": 0.4472710974017027,
+      "before": {
+        "minimumDelta": -1.1478290359475807,
+        "maximumGap": 0.8218246301767635,
+        "fractionAbove03": 0.3137931034482759,
+        "fractionBelowMinus05": 0.253448275862069
+      },
+      "after": {
+        "minimumDelta": -1.0922979604084162,
+        "maximumGap": 0.8061813208227022,
+        "fractionAbove03": 0.2706896551724138,
+        "fractionBelowMinus05": 0.2982758620689655
+      },
+      "flagBefore": false,
+      "flagAfter": false,
+      "newFlag": false
+    },
+    {
+      "omitted": true,
+      "index": 10617,
+      "x": 178.25579532654956,
+      "z": 136.8839993700385,
+      "family": 0,
+      "oldY": 66.76382227145818,
+      "newY": 81.96867477411101,
+      "rootRise": 15.204852502652827,
+      "basalVertices": 580,
+      "footprintTouches": 580,
+      "referenceSlope": 1.390137010748874,
+      "currentSlope": 3.794382154034882,
+      "before": {
+        "minimumDelta": -2.740507911132937,
+        "maximumGap": 2.414967227044073,
+        "fractionAbove03": 0.46206896551724136,
+        "fractionBelowMinus05": 0.4206896551724138
+      },
+      "after": {
+        "minimumDelta": -7.7460105646909625,
+        "maximumGap": 6.949545669338988,
+        "fractionAbove03": 0.39482758620689656,
+        "fractionBelowMinus05": 0.5586206896551724
+      },
+      "flagBefore": true,
+      "flagAfter": true,
+      "newFlag": false
+    },
+    {
+      "omitted": false,
+      "index": 10951,
+      "x": 194.52648711157963,
+      "z": 135.40735471993685,
+      "family": 1,
+      "oldY": 78.50870179276791,
+      "newY": 110.50870179276791,
+      "rootRise": 32,
+      "basalVertices": 279,
+      "footprintTouches": 279,
+      "referenceSlope": 1.6882568669290534,
+      "currentSlope": 1.6882568669290534,
+      "before": {
+        "minimumDelta": -0.491018266488112,
+        "maximumGap": 0.5601964611640113,
+        "fractionAbove03": 0.2616487455197133,
+        "fractionBelowMinus05": 0
+      },
+      "after": {
+        "minimumDelta": -0.491018266488112,
+        "maximumGap": 0.5601964611640113,
+        "fractionAbove03": 0.2616487455197133,
+        "fractionBelowMinus05": 0
+      },
+      "flagBefore": false,
+      "flagAfter": false,
+      "newFlag": false
+    },
+    {
+      "omitted": true,
+      "index": 11014,
+      "x": 217.63825700618327,
+      "z": 134.5885013975203,
+      "family": 0,
+      "oldY": 95.757789344407,
+      "newY": 125.12387575784949,
+      "rootRise": 29.36608641344249,
+      "basalVertices": 580,
+      "footprintTouches": 580,
+      "referenceSlope": 1.14549719492247,
+      "currentSlope": 1.9215614454228016,
+      "before": {
+        "minimumDelta": -2.531822876672919,
+        "maximumGap": 2.132704012450688,
+        "fractionAbove03": 0.5189655172413793,
+        "fractionBelowMinus05": 0.3396551724137931
+      },
+      "after": {
+        "minimumDelta": -3.4105354841325806,
+        "maximumGap": 4.543252747857963,
+        "fractionAbove03": 0.49482758620689654,
+        "fractionBelowMinus05": 0.36724137931034484
+      },
+      "flagBefore": true,
+      "flagAfter": true,
+      "newFlag": false
+    },
+    {
+      "omitted": true,
+      "index": 11553,
+      "x": 182.0423551253043,
+      "z": 149.7753876261413,
+      "family": 0,
+      "oldY": 87.08913775229242,
+      "newY": 88.5896412090676,
+      "rootRise": 1.5005034567751778,
+      "basalVertices": 580,
+      "footprintTouches": 578,
+      "referenceSlope": 1.8482247369368565,
+      "currentSlope": 3.4254542255754967,
+      "before": {
+        "minimumDelta": -3.9376820073529473,
+        "maximumGap": 3.068004760369007,
+        "fractionAbove03": 0.39655172413793105,
+        "fractionBelowMinus05": 0.5413793103448276
+      },
+      "after": {
+        "minimumDelta": -5.439343781980924,
+        "maximumGap": 3.114717104824095,
+        "fractionAbove03": 0.33620689655172414,
+        "fractionBelowMinus05": 0.6
+      },
+      "flagBefore": true,
+      "flagAfter": true,
+      "newFlag": false
+    },
+    {
+      "omitted": false,
+      "index": 12262,
+      "x": 219.1689936327748,
+      "z": 118.14971078187227,
+      "family": 1,
+      "oldY": 80.67087990108351,
+      "newY": 82.89873069902265,
+      "rootRise": 2.2278507979391406,
+      "basalVertices": 279,
+      "footprintTouches": 279,
+      "referenceSlope": 1.5707234666665177,
+      "currentSlope": 2.4685359053005365,
+      "before": {
+        "minimumDelta": -0.5537795011597382,
+        "maximumGap": 0.5734586989309491,
+        "fractionAbove03": 0.26881720430107525,
+        "fractionBelowMinus05": 0.010752688172043012
+      },
+      "after": {
+        "minimumDelta": -0.8113596966407499,
+        "maximumGap": 0.7443731853169169,
+        "fractionAbove03": 0.36200716845878134,
+        "fractionBelowMinus05": 0.11827956989247312
+      },
+      "flagBefore": false,
+      "flagAfter": false,
+      "newFlag": false
+    },
+    {
+      "omitted": false,
+      "index": 12281,
+      "x": 236.97140068979934,
+      "z": 164.99538581818342,
+      "family": 1,
+      "oldY": 162.08728837291088,
+      "newY": 167.40095765714096,
+      "rootRise": 5.313669284230087,
+      "basalVertices": 279,
+      "footprintTouches": 279,
+      "referenceSlope": 1.2193808270330728,
+      "currentSlope": 0.3332460902470346,
+      "before": {
+        "minimumDelta": -0.37829073717185224,
+        "maximumGap": 0.49952529680089697,
+        "fractionAbove03": 0.13620071684587814,
+        "fractionBelowMinus05": 0
+      },
+      "after": {
+        "minimumDelta": -0.22429100815853076,
+        "maximumGap": 0.27398131823198923,
+        "fractionAbove03": 0,
+        "fractionBelowMinus05": 0
+      },
+      "flagBefore": false,
+      "flagAfter": false,
+      "newFlag": false
+    },
+    {
+      "omitted": true,
+      "index": 12765,
+      "x": 179.85828580567613,
+      "z": 146.06682302430272,
+      "family": 0,
+      "oldY": 79.7745662461054,
+      "newY": 81.8294515524091,
+      "rootRise": 2.054885306303703,
+      "basalVertices": 580,
+      "footprintTouches": 580,
+      "referenceSlope": 1.7885777022500058,
+      "currentSlope": 2.3839083263138336,
+      "before": {
+        "minimumDelta": -3.2084661180971352,
+        "maximumGap": 3.494746857734981,
+        "fractionAbove03": 0.43103448275862066,
+        "fractionBelowMinus05": 0.4793103448275862
+      },
+      "after": {
+        "minimumDelta": -5.966656973676393,
+        "maximumGap": 4.465370240200272,
+        "fractionAbove03": 0.42758620689655175,
+        "fractionBelowMinus05": 0.4362068965517241
+      },
+      "flagBefore": true,
+      "flagAfter": true,
+      "newFlag": false
+    },
+    {
+      "omitted": true,
+      "index": 13204,
+      "x": 183.0677878111601,
+      "z": 102.14201640337706,
+      "family": 1,
+      "oldY": 23.38459443987959,
+      "newY": 26.709403038003703,
+      "rootRise": 3.3248085981241147,
+      "basalVertices": 279,
+      "footprintTouches": 279,
+      "referenceSlope": 1.5099731578554156,
+      "currentSlope": 3.2347362457407054,
+      "before": {
+        "minimumDelta": -0.446020298906344,
+        "maximumGap": 0.48709432383677864,
+        "fractionAbove03": 0.18996415770609318,
+        "fractionBelowMinus05": 0
+      },
+      "after": {
+        "minimumDelta": -0.8425013284636265,
+        "maximumGap": 0.7791526509644875,
+        "fractionAbove03": 0.35125448028673834,
+        "fractionBelowMinus05": 0.2222222222222222
+      },
+      "flagBefore": false,
+      "flagAfter": false,
+      "newFlag": false
+    },
+    {
+      "omitted": true,
+      "index": 13260,
+      "x": 193.81695875199512,
+      "z": 102.90851023048162,
+      "family": 0,
+      "oldY": 34.377300015413994,
+      "newY": 39.33334929707411,
+      "rootRise": 4.956049281660114,
+      "basalVertices": 580,
+      "footprintTouches": 580,
+      "referenceSlope": 1.666771055131663,
+      "currentSlope": 3.3035512847293655,
+      "before": {
+        "minimumDelta": -2.568534744523994,
+        "maximumGap": 2.990766405092927,
+        "fractionAbove03": 0.5051724137931034,
+        "fractionBelowMinus05": 0.4086206896551724
+      },
+      "after": {
+        "minimumDelta": -5.710059654673657,
+        "maximumGap": 5.465586373233606,
+        "fractionAbove03": 0.5396551724137931,
+        "fractionBelowMinus05": 0.4189655172413793
+      },
+      "flagBefore": true,
+      "flagAfter": true,
+      "newFlag": false
+    },
+    {
+      "omitted": true,
+      "index": 13867,
+      "x": 227.32806665590033,
+      "z": 159.41769065335393,
+      "family": 0,
+      "oldY": 150.29897933831336,
+      "newY": 164.04411007884792,
+      "rootRise": 13.745130740534563,
+      "basalVertices": 580,
+      "footprintTouches": 580,
+      "referenceSlope": 1.98661984812358,
+      "currentSlope": 1.5847855018277333,
+      "before": {
+        "minimumDelta": -3.250731788935269,
+        "maximumGap": 3.3346247909885847,
+        "fractionAbove03": 0.5275862068965518,
+        "fractionBelowMinus05": 0.38448275862068965
+      },
+      "after": {
+        "minimumDelta": -2.334040114010918,
+        "maximumGap": 2.361215925947505,
+        "fractionAbove03": 0.44310344827586207,
+        "fractionBelowMinus05": 0.42586206896551726
+      },
+      "flagBefore": true,
+      "flagAfter": true,
+      "newFlag": false
+    }
+  ],
+  "limits": [
+    "The historical loose 2m gap rule did not establish support; 25 uncorrected cases remain unacceptable and are not reported as clean.",
+    "The approved .75m/25% policy is a bounded static basal diagnostic; animation and actual appearance remain pending."
+  ]
+}

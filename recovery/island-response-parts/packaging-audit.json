@@ -1,0 +1,93 @@
+{
+  "recordedAt": "2026-10-01T06:53:47.645524+00:00",
+  "purpose": "Durable recovery packaging; no visual acceptance implied.",
+  "assetEntries": [
+    {
+      "creator": "Rico Cilliers; Rob Tuytel; derived response bake authored for Last Light Bay",
+      "sourcePage": "https://polyhaven.com/a/island_tree_02",
+      "sourceDownload": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/1k/island_tree_02/island_tree_02_1k.gltf",
+      "license": "CC0-1.0",
+      "attribution": "Optional; retained in docs/ASSET_LICENSES.md",
+      "downloadDate": "2026-09-05",
+      "name": "Island Tree02 source direct-diffuse response study",
+      "path": "public/assets/studies/island-response/island-direct-response.rgba16f",
+      "bytes": 25165824,
+      "sha256": "9f1e04acf3995292adb4a7bba6c28ba28088cd37a3e7e90374a4fac3d564f63f",
+      "derivedFrom": "public/assets/models/island-tree-near.glb",
+      "derivedFromSHA256": "c81e6ece28b7646aa59f2c2c68142619b2790d0db62c5d829278fec92e4373d7",
+      "authoringDate": "2026-10-01",
+      "modifications": "Inspection-only source-derived unit-white-sun direct diffuse; actual source albedo, normal maps, cutout geometry, self-shadow and transmission included once;24views x8relativeSun azimuths,6.021653966degree elevation;1024px source4xMSAA ->256px4x area ->128px2x area;premultiplied RGB/coverage RGBA16F;runtime conditional RGB uses unchanged existing alpha;defaultOFF.",
+      "dimensions": [
+        128,
+        128,
+        192
+      ],
+      "format": "RGBA16F",
+      "layout": "sun-major-view-major-bottom-first"
+    },
+    {
+      "creator": "Rico Cilliers; Rob Tuytel; derived response bake authored for Last Light Bay",
+      "sourcePage": "https://polyhaven.com/a/island_tree_02",
+      "sourceDownload": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/1k/island_tree_02/island_tree_02_1k.gltf",
+      "license": "CC0-1.0",
+      "attribution": "Optional; retained in docs/ASSET_LICENSES.md",
+      "downloadDate": "2026-09-05",
+      "name": "Island Tree02 direct-response study recipe",
+      "path": "public/assets/studies/island-response/response-manifest.json",
+      "bytes": 335275,
+      "sha256": "1935e1b8bd002959861fb97b768f8e9e184a71e08a5906f5eaa5987e65144601",
+      "derivedFrom": "public/assets/models/island-tree-near.glb",
+      "derivedFromSHA256": "c81e6ece28b7646aa59f2c2c68142619b2790d0db62c5d829278fec92e4373d7",
+      "authoringDate": "2026-10-01",
+      "modifications": "Inspection-only source-derived unit-white-sun direct diffuse; actual source albedo, normal maps, cutout geometry, self-shadow and transmission included once;24views x8relativeSun azimuths,6.021653966degree elevation;1024px source4xMSAA ->256px4x area ->128px2x area;premultiplied RGB/coverage RGBA16F;runtime conditional RGB uses unchanged existing alpha;defaultOFF."
+    }
+  ],
+  "validatedSourceSHA256": "c81e6ece28b7646aa59f2c2c68142619b2790d0db62c5d829278fec92e4373d7",
+  "archive": {
+    "method": "Ordinary non-ZIP64 DEFLATE level 9; sorted paths; DOS timestamp 1980-01-01 00:00:00; Unix regular file 0644; no extra fields/comments",
+    "sha256": "f93b6e0676f2140bd9b3b5880cd0dcb9fe7df6819a23484426f0ceeed5e78c8b",
+    "bytes": 3713278,
+    "partBytes": 1048576,
+    "parts": 4,
+    "deterministicRebuildByteEquality": true,
+    "zipCrcAndEntryByteEquality": true
+  },
+  "runtimeAssetCount": 43,
+  "historicalArchiveManifestsUnchanged": {
+    "asset-parts/manifest.json": "4dae836bbfad07e26405f0163b92734cf8c674baf93be456c97158db6a6a821a",
+    "derived-parts/manifest.json": "5bfe09b68b3466747ff1c3e5b032e8688c4423150d895e2ebef8c5ed9728c9dd"
+  },
+  "freshRestore": {
+    "status": "passed",
+    "result": {
+      "files": 43,
+      "restored": 44
+    },
+    "secondPass": {
+      "files": 43,
+      "restored": 0
+    },
+    "files": [
+      {
+        "path": "public/assets/studies/island-response/island-direct-response.rgba16f",
+        "bytes": 25165824,
+        "sha256": "9f1e04acf3995292adb4a7bba6c28ba28088cd37a3e7e90374a4fac3d564f63f",
+        "byteIdentical": true
+      },
+      {
+        "path": "public/assets/studies/island-response/response-manifest.json",
+        "bytes": 335275,
+        "sha256": "1935e1b8bd002959861fb97b768f8e9e184a71e08a5906f5eaa5987e65144601",
+        "byteIdentical": true
+      }
+    ],
+    "cgroupBeforeMiB": 5947.46875,
+    "isolatedOutputRemoved": true
+  },
+  "assetCheck": {
+    "status": "passed",
+    "command": "python3 scripts/control/check-assets.py",
+    "runtimeAssets": 43,
+    "result": "ASSET_CHECK_PASS: 43 vendored files; checksums, CC0 sources, embedded GLB resources and leaf alpha verified"
+  }
+}

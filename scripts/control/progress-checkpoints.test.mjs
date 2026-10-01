@@ -74,6 +74,24 @@ test('restored CLI preserves dimensions, profile controls and original video tim
  }finally{f.cleanup();}
 });
 
+test('response study preloads for a later enabled frame, and ordinary captures request no atlas',async()=>{
+ for(const islandDirectResponse of [false,true]){
+  const f=fixture();try{
+   const options=parseOptions(['width=8','height=4','views=0,1','out=still'],f.root);
+   options.timeline[1].islandDirectResponse=islandDirectResponse;
+   let observed;
+   await runProgressCapture(options,{captureFactory:async({islandResponseNeeded})=>{
+    observed=islandResponseNeeded;
+    return{build,graphics:{fixture:true},offlineAfterLoad:true,healthy:async()=>{},applySettings:async()=>{},
+     renderFrame:async entry=>({bytes:png(50+Number(entry.view)),stats:stats(Number(entry.view))}),close:async()=>{}};
+   },log:()=>{}});
+   assert.equal(observed,islandDirectResponse);
+   assert.deepEqual(validateProfile({islandDirectResponse}),{islandDirectResponse});
+   assert.throws(()=>validateProfile({islandDirectResponse:'true'}),/Invalid/);
+  }finally{f.cleanup();}
+ }
+});
+
 for(const scenario of ['missing','corrupt','dimensions','different-content','record-identity','record-time','record-order','settings','fps','timeline','bundle']){
  test('resume rejects '+scenario+' before changing committed manifest',()=>{
   const f=fixture();try{

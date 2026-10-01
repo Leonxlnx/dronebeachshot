@@ -5,6 +5,7 @@ const SAMPLE_COUNT = 4;
 /** A separate, default-off main output study. It never changes scene materials. */
 export function createLinearMainOutput(renderer: THREE.WebGLRenderer) {
   let enabled = false;
+  let requestedSampleScale: 1 | 2 = 1;
   let disposed = false;
   let supported: boolean | null = null;
   let supportError: string | null = null;
@@ -14,6 +15,7 @@ export function createLinearMainOutput(renderer: THREE.WebGLRenderer) {
   let outputMaterial: THREE.ShaderMaterial | null = null;
   let validatedWidth = 0;
   let validatedHeight = 0;
+  let maximumTargetExtent = 0;
   const outputCamera = new THREE.Camera();
   const size = new THREE.Vector2();
 
@@ -48,6 +50,11 @@ export function createLinearMainOutput(renderer: THREE.WebGLRenderer) {
         unsupported(name + ' does not support exactly four samples');
       }
     }
+    maximumTargetExtent = Math.min(renderer.capabilities.maxTextureSize,
+      gl.getParameter(gl.MAX_RENDERBUFFER_SIZE) as number);
+    if (!Number.isFinite(maximumTargetExtent) || maximumTargetExtent < 1) {
+      unsupported('invalid texture/renderbuffer size limits');
+    }
     supported = true;
   }
 
@@ -60,8 +67,15 @@ export function createLinearMainOutput(renderer: THREE.WebGLRenderer) {
   function ensureResources() {
     checkSupport();
     renderer.getDrawingBufferSize(size);
+    const width = size.x * requestedSampleScale, height = size.y * requestedSampleScale;
+    // Reject before creating/resizing a target. An oversized study request must
+    // leave existing resources usable when the caller returns to scale one.
+    if (!Number.isSafeInteger(width) || !Number.isSafeInteger(height) || width < 1 || height < 1
+      || width > maximumTargetExtent || height > maximumTargetExtent) {
+      throw Error(`Linear main output target ${width}x${height} exceeds the ${maximumTargetExtent}px texture/renderbuffer limit`);
+    }
     if (!target) {
-      target = new THREE.WebGLRenderTarget(size.x, size.y, {
+      target = new THREE.WebGLRenderTarget(width, height, {
         type: THREE.HalfFloatType,
         format: THREE.RGBAFormat,
         minFilter: THREE.NearestFilter,
@@ -79,7 +93,8 @@ export function createLinearMainOutput(renderer: THREE.WebGLRenderer) {
       ], 3));
       outputMaterial = new THREE.ShaderMaterial({
         name: 'main-linear-output',
-        uniforms: {uLinearColor: {value: target.texture}, uDebugMode: {value: 0}},
+        uniforms: {uLinearColor: {value: target.texture}, uDebugMode: {value: 0},
+          uSampleScale: {value: 1}},
         depthTest: false,
         depthWrite: false,
         blending: THREE.NoBlending,
@@ -88,9 +103,20 @@ export function createLinearMainOutput(renderer: THREE.WebGLRenderer) {
 void main(){vOutputUv=position.xy*.5+.5;gl_Position=vec4(position.xy,0.,1.);}`,
         fragmentShader: `uniform sampler2D uLinearColor;
 uniform float uDebugMode;
+uniform float uSampleScale;
 varying vec2 vOutputUv;
 void main(){
-  gl_FragColor=texture2D(uLinearColor,vOutputUv);
+  if(uSampleScale>1.5){
+    // The canvas viewport starts at zero. Each destination pixel resolves an
+    // exact 2x2 block of already MSAA-resolved linear HDR source texels.
+    ivec2 p=ivec2(gl_FragCoord.xy)*2;
+    gl_FragColor=(texelFetch(uLinearColor,p,0)
+      +texelFetch(uLinearColor,p+ivec2(1,0),0)
+      +texelFetch(uLinearColor,p+ivec2(0,1),0)
+      +texelFetch(uLinearColor,p+ivec2(1,1),0))*.25;
+  }else{
+    gl_FragColor=texture2D(uLinearColor,vOutputUv);
+  }
   if(uDebugMode==0.||uDebugMode==5.||uDebugMode==6.){
     #include <tonemapping_fragment>
   }
@@ -103,8 +129,8 @@ void main(){
       triangle.frustumCulled = false;
       outputScene = new THREE.Scene();
       outputScene.add(triangle);
-    } else if (target.width !== size.x || target.height !== size.y) {
-      target.setSize(size.x, size.y);
+    } else if (target.width !== width || target.height !== height) {
+      target.setSize(width, height);
     }
     return target;
   }
@@ -154,6 +180,7 @@ void main(){
     const dpr = renderer.getPixelRatio();
     renderer.setViewport(0, 0, size.x / dpr, size.y / dpr);
     renderer.setScissorTest(false);
+    outputMaterial!.uniforms.uSampleScale.value = requestedSampleScale;
     renderer.autoClear = false;
     // Keep the scene's normal auto-reset behavior, then accumulate the output draw.
     renderer.info.autoReset = false;
@@ -165,9 +192,21 @@ void main(){
     enabled = value;
   }
 
+  function setSampleScale(value: 1 | 2) {
+    assertAvailable();
+    if (value !== 1 && value !== 2) throw Error('Linear main sample scale must be one or two');
+    requestedSampleScale = value;
+  }
+
+  function getSampleScale(): 1 | 2 {
+    return enabled ? requestedSampleScale : 1;
+  }
+
   function getState() {
     return {
       enabled,
+      sampleScale: getSampleScale(),
+      requestedSampleScale,
       supported,
       supportError,
       initialized: target !== null,
@@ -231,5 +270,5 @@ void main(){
     disposed = true;
   }
 
-  return {setEnabled, getState, render, compile, dispose};
+  return {setEnabled, setSampleScale, getSampleScale, getState, render, compile, dispose};
 }

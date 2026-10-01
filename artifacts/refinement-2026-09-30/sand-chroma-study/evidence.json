@@ -1,0 +1,193 @@
+{
+  "kind": "read-only-sand-chroma-proposal-evidence",
+  "recordedAt": "2026-10-01T06:42:41.570471+00:00",
+  "status": "Root integrated reversible sandChroma inspection uniform, default 0; no candidate render or visual acceptance in this evidence.",
+  "sourceAsset": {
+    "path": "public/assets/textures/sand_03_diff_2k.webp",
+    "sha256": "190dcce01f0d7a5c66d3d3c06a987f117c3501c3d54c962f29148fe248c17fa5",
+    "width": 2048,
+    "height": 2048,
+    "meanEncodedRgb255": [
+      107.8074791431427,
+      96.2202377319336,
+      78.79200410842896
+    ],
+    "meanDecodedLinearRgb": [
+      0.15074317114588132,
+      0.1187235539717607,
+      0.07884461316669962
+    ],
+    "linearLuminance": 0.12265166505685333,
+    "method": "Full-resolution RGB histograms; standard sRGB EOTF decoded per 8-bit sample before arithmetic mean. No resize. Luminance coefficients .2126/.7152/.0722.",
+    "shaderLuminanceNormalization": 0.123,
+    "normalizationRelativeToMeasuredMean": 1.0028400343606032,
+    "sourceMeanChromaNormalizedToCurrentBaseLuminance": [
+      0.6657005830085029,
+      0.52429797313576,
+      0.34818761309829255
+    ]
+  },
+  "palette": {
+    "current": {
+      "linearRgb": [
+        0.58,
+        0.54,
+        0.445
+      ],
+      "linearLuminance": 0.541645,
+      "sRgbSwatchBeforeLighting": "#c8c2b2",
+      "fullyWetLinearRgb": [
+        0.35379999999999995,
+        0.3294,
+        0.27145
+      ]
+    },
+    "candidate": {
+      "linearRgb": [
+        0.64,
+        0.53,
+        0.37
+      ],
+      "linearLuminance": 0.541834,
+      "sRgbSwatchBeforeLighting": "#d1c0a4",
+      "fullyWetLinearRgb": [
+        0.3904,
+        0.32330000000000003,
+        0.22569999999999998
+      ]
+    },
+    "relativeLinearLuminanceChange": 0.0003489370344045284,
+    "unchanged": "Existing grain scale/filter, wet darkening x0.61, roughness, geometry, ocean absorption/scattering, Fresnel, reflection and lighting."
+  },
+  "reviewedFrames": [
+    {
+      "path": "artifacts/refinement-2026-09-30/candidate-10-cloud-coverage/shore-cloud-09.png",
+      "sha256": "fed2e1c15abbc8c0ea259c9a1433615a306ac9750169c697a4becc475a489bb9",
+      "width": 640,
+      "height": 360,
+      "absoluteTime": 10.5,
+      "cloudCoverage": 0.9
+    },
+    {
+      "path": "artifacts/refinement-2026-09-30/candidate-10-cloud-coverage/sunset-cloud-09.png",
+      "sha256": "82830c7f874585811326376d9ad2a117d3f37fa26c2074298067313e76da6bb5",
+      "width": 640,
+      "height": 360,
+      "absoluteTime": 19.5,
+      "cloudCoverage": 0.9
+    }
+  ],
+  "roiEvidence": {
+    "frame": "artifacts/refinement-2026-09-30/candidate-10-cloud-coverage/shore-cloud-09.png",
+    "coordinateConvention": "Original 640x360 PNG, origin top-left; x1/y1 exclusive.",
+    "regions": [
+      {
+        "label": "mid-wet-beach",
+        "xyxyExclusive": [
+          565,
+          240,
+          605,
+          280
+        ],
+        "pixelCount": 1600,
+        "meanEncodedRgb255": [
+          110.815625,
+          105.92125,
+          98.850625
+        ],
+        "standardDeviationEncodedRgb255": [
+          1.9516994797803786,
+          2.5862711453945373,
+          3.834489810832032
+        ]
+      },
+      {
+        "label": "near-wet-beach",
+        "xyxyExclusive": [
+          565,
+          300,
+          620,
+          330
+        ],
+        "pixelCount": 1650,
+        "meanEncodedRgb255": [
+          108.93818181818182,
+          102.47393939393939,
+          92.97818181818182
+        ],
+        "standardDeviationEncodedRgb255": [
+          2.1559915873023137,
+          1.5972285455217903,
+          1.2851634833994987
+        ]
+      },
+      {
+        "label": "brighter-upper-beach",
+        "xyxyExclusive": [
+          610,
+          216,
+          630,
+          226
+        ],
+        "pixelCount": 200,
+        "meanEncodedRgb255": [
+          144.36,
+          137.14,
+          125.865
+        ],
+        "standardDeviationEncodedRgb255": [
+          4.6979144308938166,
+          4.246221850068643,
+          3.671072731505044
+        ]
+      },
+      {
+        "label": "nearshore-water",
+        "xyxyExclusive": [
+          465,
+          308,
+          500,
+          337
+        ],
+        "pixelCount": 1015,
+        "meanEncodedRgb255": [
+          93.08374384236453,
+          106.03546798029556,
+          102.45320197044335
+        ],
+        "standardDeviationEncodedRgb255": [
+          5.091660502557068,
+          4.415012806491937,
+          6.189258699143453
+        ]
+      },
+      {
+        "label": "foreground-water",
+        "xyxyExclusive": [
+          115,
+          298,
+          150,
+          331
+        ],
+        "pixelCount": 1155,
+        "meanEncodedRgb255": [
+          84.9064935064935,
+          116.91861471861472,
+          117.45714285714286
+        ],
+        "standardDeviationEncodedRgb255": [
+          15.03329353615935,
+          8.137367698423727,
+          9.379291390518244
+        ]
+      }
+    ],
+    "limits": [
+      "Regions were chosen visually and are not object/material masks. They may contain reflection, foam, shading and mixed coverage.",
+      "Encoded display-RGB means describe these exact image regions; they are not measured material albedo or a colorimetric prediction.",
+      "Swatches are unlit sRGB encodings of linear albedo, not expected final pixels.",
+      "Persistent wet-film sky reflection may remain gray after changing substrate chroma.",
+      "Warmer substrate can shift toward green after red absorption; paired actual views must reject olive shallows or orange sunset sand."
+    ]
+  }
+}
