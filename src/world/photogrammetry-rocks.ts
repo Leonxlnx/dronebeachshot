@@ -45,7 +45,7 @@ export function upgradeNearRockOutcrops(geology:THREE.Group,source:THREE.Group,
  });
  placements.sort((a,b)=>a.distance-b.distance||a.mesh.name.localeCompare(b.mesh.name)||a.index-b.index);
  const selected=placements.slice(0,maximum),removed=new Map<THREE.InstancedMesh,Set<number>>();
- const records:Array<{variant:number,matrix:THREE.Matrix4,center:THREE.Vector3,scale:number}>=[];
+ const records:Array<{id:string,variant:number,matrix:THREE.Matrix4,center:THREE.Vector3,scale:number}>=[];
  const stats={family:'rock_moss_set_01',selected:selected.length,fullTriangles:0,mediumTriangles:0,
   uniformScaleMin:Infinity,uniformScaleMax:0,minimumPenetration:Infinity,maximumProtrusion:0,
   allHorizontalBoundsInsidePrevious:true,allTopsAtOrBelowPrevious:true,details:[] as object[]};
@@ -78,18 +78,20 @@ export function upgradeNearRockOutcrops(geology:THREE.Group,source:THREE.Group,
   stats.uniformScaleMin=Math.min(stats.uniformScaleMin,uniformScale);stats.uniformScaleMax=Math.max(stats.uniformScaleMax,uniformScale);
   stats.fullTriangles+=(geometry.index?.count??p.count)/3;
   stats.mediumTriangles+=(mediumIndices?.[variant]?.length??geometry.index!.count)/3;
-  records.push({variant,matrix:object.matrix.clone(),center:finalBox.getCenter(new THREE.Vector3()),scale:uniformScale});
+  records.push({id:`${item.mesh.name}:${item.index}`,variant,matrix:object.matrix.clone(),center:finalBox.getCenter(new THREE.Vector3()),scale:uniformScale});
   if(!removed.has(item.mesh))removed.set(item.mesh,new Set());removed.get(item.mesh)!.add(item.index);
   stats.details.push({originalMesh:item.mesh.name,originalIndex:item.index,variant,uniformScale,center:finalBox.getCenter(new THREE.Vector3()).toArray(),minimumPenetration:penetration,maximumProtrusion:protrusion,oldBounds:{min:item.box.min.toArray(),max:item.box.max.toArray()},newBounds:{min:finalBox.min.toArray(),max:finalBox.max.toArray()}});
  }
  for(const [mesh,indices]of removed){
   const retained=new THREE.InstancedMesh(mesh.geometry,mesh.material,mesh.count-indices.size);retained.name=mesh.name;retained.castShadow=mesh.castShadow;retained.receiveShadow=mesh.receiveShadow;
   let n=0;const color=new THREE.Color();for(let i=0;i<mesh.count;i++)if(!indices.has(i)){mesh.getMatrixAt(i,matrix);retained.setMatrixAt(n,matrix);if(mesh.instanceColor){mesh.getColorAt(i,color);retained.setColorAt(n,color)}n++}
+  if(mesh.userData.rockCohort)retained.userData.rockCohort=mesh.userData.rockCohort.filter((_:unknown,i:number)=>!indices.has(i));
   retained.computeBoundingSphere();geology.remove(mesh);geology.add(retained);mesh.dispose();
  }
  const batches=variants.map(variant=>{
   const items=records.filter(r=>r.variant===variant),near=new THREE.InstancedMesh(geometries[variant],material,items.length);
   near.name=`scanned-outcrop-${variant}-hero`;near.castShadow=near.receiveShadow=true;near.instanceMatrix.setUsage(THREE.DynamicDrawUsage);geology.add(near);
+  near.userData.rockCohort=items.map(item=>({id:item.id,kind:'near-scan',sourceVariant:variant}));
   let medium:THREE.InstancedMesh|undefined;
   if(mediumIndices?.[variant]){const g=geometries[variant].clone();g.setIndex(new THREE.BufferAttribute(mediumIndices[variant],1));medium=new THREE.InstancedMesh(g,material,items.length);medium.name=`scanned-outcrop-${variant}-medium`;medium.castShadow=medium.receiveShadow=true;medium.instanceMatrix.setUsage(THREE.DynamicDrawUsage);geology.add(medium)}
   return {items,near,medium};

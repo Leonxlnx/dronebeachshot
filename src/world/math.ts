@@ -1,4 +1,7 @@
 import {terrainFractureCut} from './terrain-fractures';
+import {principalFacePlaneCut,PRINCIPAL_FACE_STUDY_ENABLED} from './principal-face-planes';
+import {broadRecessPlaneCut,BROAD_RECESS_STUDY_ENABLED} from './broad-recess-planes';
+if(PRINCIPAL_FACE_STUDY_ENABLED&&BROAD_RECESS_STUDY_ENABLED)throw new Error('Enable only one terrain face study at a time');
 export const SEED=60829;
 export const clamp=(x:number,a=0,b=1)=>Math.max(a,Math.min(b,x));
 export const smooth=(a:number,b:number,x:number)=>{const t=clamp((x-a)/(b-a));return t*t*(3-2*t)};
@@ -107,8 +110,7 @@ for(let z=318;z<=384;z+=2)for(let x=-172;x<=-86;x+=2){
  const d=shoreDistance(x,z),relief=connectedRelief(x+12,z+10);
  ridgeReliefScale=Math.min(ridgeReliefScale,(425-coastalPlatform(x,z,d)-fineGround(x,z,d))/relief);
 }
-export function terrainHeight(x:number,z:number){
- const d=shoreDistance(x,z);
+function terrainBeforePrincipalFace(x:number,z:number,d:number){
  if(d<0)return Math.max(-85,d*.10)+noise(x*.02,z*.02)*Math.min(-d*.01,.9);
  const sand=coastalPlatform(x,z,d);
  // Exact beach/seabed behavior is preserved through 25 m inland. All callers,
@@ -119,6 +121,16 @@ export function terrainHeight(x:number,z:number){
  const base=sand+smooth(25,100,d)*relief+fineGround(x,z,d);
  return base-terrainFractureCut(x,z,base,d);
 }
-export function terrainSlope(x:number,z:number){const dx=(terrainHeight(x+1,z)-terrainHeight(x-1,z))*.5,dz=(terrainHeight(x,z+1)-terrainHeight(x,z-1))*.5;return Math.sqrt(dx*dx+dz*dz)}
+// Placement cohorts use the same authoritative landscape before the local edit.
+// This is a shared stage of the live implementation, not a frozen second terrain.
+export function terrainHeightBeforePrincipalFace(x:number,z:number){return terrainBeforePrincipalFace(x,z,shoreDistance(x,z))}
+export function terrainHeight(x:number,z:number){
+ const d=shoreDistance(x,z),preceding=terrainBeforePrincipalFace(x,z,d);
+ if(BROAD_RECESS_STUDY_ENABLED)return preceding-broadRecessPlaneCut(x,z,preceding,d);
+ return PRINCIPAL_FACE_STUDY_ENABLED?preceding-principalFacePlaneCut(x,z,preceding,d):preceding;
+}
+function slopeOf(height:(x:number,z:number)=>number,x:number,z:number){const dx=(height(x+1,z)-height(x-1,z))*.5,dz=(height(x,z+1)-height(x,z-1))*.5;return Math.sqrt(dx*dx+dz*dz)}
+export function terrainSlope(x:number,z:number){return slopeOf(terrainHeight,x,z)}
+export function terrainSlopeBeforePrincipalFace(x:number,z:number){return slopeOf(terrainHeightBeforePrincipalFace,x,z)}
 export const shorelineGLSL=`float shoreZ(float x){return 100.-.00235*x*x+12.*sin(x*.013)+5.*sin(x*.032);}float shoreDist(vec2 p){float grad=-.0047*p.x+.156*cos(p.x*.013)+.16*cos(p.x*.032);return (p.y-shoreZ(p.x))/sqrt(1.+grad*grad);}`;
 export const noiseGLSL=`float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7))+60829.)*43758.5453);}float noise(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(hash(i),hash(i+vec2(1,0)),f.x),mix(hash(i+vec2(0,1)),hash(i+1.),f.x),f.y);}float fbm(vec2 p){float f=0.,a=.5;for(int i=0;i<4;i++){f+=a*noise(p);p=mat2(1.83,-.41,.41,1.83)*p;a*=.52;}return f;}`;

@@ -18,3 +18,13 @@ public/assets/textures/
 
 # Local tree authoring evidence and raw readbacks.
 /artifacts/tree-form-authoring/
+
+# Private progress media; machine-readable review evidence remains versioned.
+/artifacts/refinement-2026-09-30/**/*.png
+/artifacts/refinement-2026-09-30/**/*.jpg
+/artifacts/refinement-2026-09-30/**/*.mp4
+# Reproducible full diagnostic arrays; compact support comparisons are versioned.
+/artifacts/refinement-2026-09-30/visible-flank-trees-*.json
+/artifacts/refinement-2026-09-30/**/render-bundle/
+/artifacts/refinement-2026-09-30/principal-face/*trees*.json
+/artifacts/refinement-2026-09-30/core-root-support-records.json

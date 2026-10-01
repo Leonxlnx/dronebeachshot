@@ -7,6 +7,7 @@ import {renderedTerrainHeight,TERRAIN_GRID} from '../../src/world/terrain-surfac
 import {treePlacements} from '../../src/world/ecology.ts';
 import {pathPosition,evaluationCameras} from '../../src/camera/cinematic.ts';
 import * as baseline from './fixtures/terrain-before-fractures.ts';
+import {PRINCIPAL_FACE_STUDY_ENABLED} from '../../src/world/principal-face-planes.ts';
 
 // Read-only CPU oracle. The independent pre-fracture implementation is frozen
 // byte-for-byte from commit 462588e855fc4773868321c73d1f703690344c5b. No Git history,
@@ -16,6 +17,11 @@ assert.equal(crypto.createHash('sha256').update(fixture).digest('hex'),
  'fea9ca1ffb2581113be9fcb128076f503ee116a33327969d4b18b894e850ded8','Baseline fixture changed');
 assert.equal(SEED,60829);assert.equal(SEED,baseline.SEED);
 assert.deepEqual(TERRAIN_GRID,{minX:-600,maxX:600,minZ:-800,maxZ:800,step:2,columns:601,rows:801});
+// Explicitly separate the original20m eastern gate from the rejected36m study.
+const principal=(x,z)=>PRINCIPAL_FACE_STUDY_ENABLED&&x> -207&&x< -106&&z>148&&z<284;
+const eastern=(x,z)=>x>252&&x<400&&z> -58&&z<143;
+const allowed=(x,z)=>principal(x,z)||eastern(x,z);
+const budget=(x,z)=>principal(x,z)?36:20;
 const columns=601,rows=801,count=columns*rows;
 const before=new Float32Array(count),after=new Float32Array(count);
 const protectedIndices=[],changedIndices=[];
@@ -25,33 +31,35 @@ for(let row=0;row<rows;row++)for(let col=0;col<columns;col++){
  const original=baseline.terrainHeight(x,z),current=terrainHeight(x,z);
  assert.ok(Number.isFinite(current),'Nonfinite authoritative terrain height');
  assert.ok(current<=original+1e-10,'Authoritative terrain rises above the baseline');
- assert.ok(original-current<=20+1e-8,'Authoritative erosion exceeds 20 metres');
- const protectedPoint=x<=252||x>=400||z<=-58||z>=143||baseline.shoreDistance(x,z)<=25
+ assert.ok(original-current<=budget(x,z)+1e-8,'Authoritative erosion exceeds its regional budget');
+ const protectedPoint=!allowed(x,z)||baseline.shoreDistance(x,z)<=25
   ||(x>=-172&&x<=-86&&z>=318&&z<=384);
  if(protectedPoint){assert.equal(current,original,'Protected authoritative terrain changed');protectedIndices.push(i)}
  before[i]=original;after[i]=current;
  if(before[i]!==after[i])changedIndices.push(i);
 }
 function inspectGrid(reference,candidate){
- let changed=0,maximumCut=0,maximumHeight=-Infinity;
+ let changed=0,easternChanges=0,principalChanges=0,maximumCut=0,maximumHeight=-Infinity;
  const changedBounds={minX:Infinity,maxX:-Infinity,minZ:Infinity,maxZ:-Infinity};
  for(let i=0;i<count;i++){
   assert.ok(Number.isFinite(candidate[i]),'Nonfinite rendered grid height');
+  const x=-600+(i%columns)*2,z=-800+Math.floor(i/columns)*2;
   const cut=reference[i]-candidate[i];assert.ok(cut>=0,'Rendered grid raises terrain');
-  assert.ok(cut<=20.0001,'Rendered grid erosion exceeds 20 metres');
+  assert.ok(cut<=budget(x,z)+.0001,'Rendered grid erosion exceeds its regional budget');
   maximumCut=Math.max(maximumCut,cut);maximumHeight=Math.max(maximumHeight,candidate[i]);
   if(cut>0){
-   changed++;const x=-600+(i%columns)*2,z=-800+Math.floor(i/columns)*2;
-   assert.ok(x>252&&x<400&&z>-58&&z<143,'Erosion escaped the agreed headland region');
+   changed++;if(eastern(x,z))easternChanges++;if(principal(x,z))principalChanges++;
+   assert.ok(allowed(x,z),'Erosion escaped the agreed regions');
    changedBounds.minX=Math.min(changedBounds.minX,x);changedBounds.maxX=Math.max(changedBounds.maxX,x);
    changedBounds.minZ=Math.min(changedBounds.minZ,z);changedBounds.maxZ=Math.max(changedBounds.maxZ,z);
   }
  }
  for(const i of protectedIndices)assert.equal(candidate[i],reference[i],'Protected rendered grid changed');
- assert.ok(changed>=250&&changed<=3000,'Missing or unbounded fracture footprint');
+ assert.ok(easternChanges>=250&&easternChanges<=3000,'Missing or unbounded eastern fracture footprint');
+ if(PRINCIPAL_FACE_STUDY_ENABLED)assert.ok(principalChanges>=500&&principalChanges<=4000,'Missing or unbounded principal-face footprint');else assert.equal(principalChanges,0);
  assert.ok(maximumCut>=14,'No substantial real fracture relief');
  assert.equal(maximumHeight,425,'The calibrated highest summit changed');
- return {changed,maximumCut,maximumHeight,changedBounds};
+ return {changed,easternChanges,principalChanges,maximumCut,maximumHeight,changedBounds};
 }
 const grid=inspectGrid(before,after);
 assert.equal(terrainHeight(-124,350),425);assert.equal(renderedTerrainHeight(-124,350),425);
@@ -78,9 +86,9 @@ for(let i=0;i<3000;i++){
  const sampled=gridSurface(x,z,after),current=terrainHeight(x,z),previous=baseline.terrainHeight(x,z);
  assert.ok(Math.abs(sampled-renderedTerrainHeight(x,z))<1e-9,'Rendered helper differs from actual Float32 triangles');
  assert.equal(current,terrainHeight(x,z),'Fracture height is nondeterministic');
- assert.ok(current<=previous+1e-10&&previous-current<=20+1e-8,'Off-grid erosion violates fixed depth bounds');
+ assert.ok(current<=previous+1e-10&&previous-current<=budget(x,z)+1e-8,'Off-grid erosion violates fixed depth bounds');
  assert.equal(shoreDistance(x,z),baseline.shoreDistance(x,z),'Authoritative shoreline formula changed');
- if(x<=252||x>=400||z<=-58||z>=143||baseline.shoreDistance(x,z)<=25)assert.equal(current,previous,'Protected off-grid terrain changed');
+ if(!allowed(x,z)||baseline.shoreDistance(x,z)<=25)assert.equal(current,previous,'Protected off-grid terrain changed');
 }
 // Exact production tile geometry for the only two touched tiles. No huge distant
 // terrain construction: this visits all real positions, indices and normals here.

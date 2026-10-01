@@ -1,9 +1,9 @@
 /** Fit a bounded cohort of original inland scans without changing the coast. */
 import * as THREE from 'three';
 import {upgradeNearRockOutcrops} from './photogrammetry-rocks';
-import {renderedTerrainHeight as height} from './terrain-surface';
+import {renderedTerrainHeightBeforePrincipalFace as height} from './terrain-surface';
 import {shoreDistance} from './math';
-import {treePlacements,type Placement} from './ecology';
+import {treePlacementsBeforePrincipalFace,type Placement} from './ecology';
 import {pathPosition,evaluationCameras} from '../camera/cinematic';
 
 type RootConstraint={tree:number,loweredBy:number};
@@ -18,7 +18,7 @@ const key=(mesh:THREE.InstancedMesh,index:number)=>`${mesh.name}:${index}`;
 function sourceGeometries(source:THREE.Group){const meshes:THREE.Mesh<THREE.BufferGeometry,THREE.MeshStandardMaterial>[]=[];source.traverse(m=>{if(m instanceof THREE.Mesh){if(!(m.material instanceof THREE.MeshStandardMaterial))throw Error('Rock source requires one standard material per mesh');meshes.push(m as THREE.Mesh<THREE.BufferGeometry,THREE.MeshStandardMaterial>)}});meshes.sort((a,b)=>a.name.localeCompare(b.name));if(meshes.length!==6)throw Error('Expected six original scans');return {meshes,geometries:meshes.map(m=>{const g=m.geometry.clone();g.computeBoundingBox();const c=g.boundingBox!.getCenter(new THREE.Vector3()),p=g.attributes.position;for(let i=0;i<p.count;i++)p.setXYZ(i,p.getX(i)-c.x,p.getY(i)-c.y,p.getZ(i)-c.z);g.computeBoundingBox();g.computeBoundingSphere();return g})};}
 function actualBounds(geometry:THREE.BufferGeometry,matrix:THREE.Matrix4){const box=new THREE.Box3(),point=new THREE.Vector3(),p=geometry.attributes.position;for(let i=0;i<p.count;i++)box.expandByPoint(point.fromBufferAttribute(p,i).applyMatrix4(matrix));return box;}
 
-export function upgradeRockOutcrops(geology:THREE.Group,source:THREE.Group,{settings=inlandRockSettings,trees=treePlacements()}:{settings?:typeof inlandRockSettings,trees?:readonly Placement[]}={}){
+export function upgradeRockOutcrops(geology:THREE.Group,source:THREE.Group,{settings=inlandRockSettings,trees=treePlacementsBeforePrincipalFace()}:{settings?:typeof inlandRockSettings,trees?:readonly Placement[]}={}){
  const matrix=new THREE.Matrix4(),point=new THREE.Vector3(),position=new THREE.Vector3(),scale=new THREE.Vector3(),rotation=new THREE.Quaternion(),euler=new THREE.Euler(),original:OriginalOutcrop[]=[];
  geology.traverse(mesh=>{if(!(mesh instanceof THREE.InstancedMesh)||!mesh.name.startsWith('fractured-bedrock-'))return;mesh.geometry.computeBoundingBox();for(let index=0;index<mesh.count;index++){
   mesh.getMatrixAt(index,matrix);matrix.decompose(position,rotation,scale);euler.setFromQuaternion(rotation,'YXZ');
@@ -66,9 +66,10 @@ export function upgradeRockOutcrops(geology:THREE.Group,source:THREE.Group,{sett
  const removals=new Map<string,Set<string>>();for(const fit of accepted){if(!removals.has(fit.item.mesh.name))removals.set(fit.item.mesh.name,new Set());removals.get(fit.item.mesh.name)!.add(fit.item.matrix.elements.join(','));}
  for(const mesh of [...geology.children]){if(!(mesh instanceof THREE.InstancedMesh))continue;const selected=removals.get(mesh.name);if(!selected)continue;const keep=[];for(let i=0;i<mesh.count;i++){mesh.getMatrixAt(i,matrix);if(!selected.has(matrix.elements.join(',')))keep.push(i);}
   const replacement=new THREE.InstancedMesh(mesh.geometry,mesh.material,keep.length);replacement.name=mesh.name;replacement.castShadow=mesh.castShadow;replacement.receiveShadow=mesh.receiveShadow;const color=new THREE.Color();keep.forEach((i,n)=>{mesh.getMatrixAt(i,matrix);replacement.setMatrixAt(n,matrix);if(mesh.instanceColor){mesh.getColorAt(i,color);replacement.setColorAt(n,color)}});replacement.computeBoundingSphere();geology.remove(mesh);geology.add(replacement);mesh.dispose();
+  if(mesh.userData.rockCohort)replacement.userData.rockCohort=keep.map(i=>mesh.userData.rockCohort[i]);
  }
  const material=meshes[0].material.clone();material.name='inland-rock-moss-original-pbr';
- for(const variant of variants){const items=accepted.filter(p=>p.variant===variant);if(!items.length){geometries[variant].dispose();continue;}const mesh=new THREE.InstancedMesh(geometries[variant],material,items.length);mesh.name=`inland-scanned-outcrop-${variant}`;mesh.castShadow=mesh.receiveShadow=true;items.forEach((item,index)=>mesh.setMatrixAt(index,item.matrix));mesh.computeBoundingSphere();geology.add(mesh);}
+ for(const variant of variants){const items=accepted.filter(p=>p.variant===variant);if(!items.length){geometries[variant].dispose();continue;}const mesh=new THREE.InstancedMesh(geometries[variant],material,items.length);mesh.name=`inland-scanned-outcrop-${variant}`;mesh.castShadow=mesh.receiveShadow=true;items.forEach((item,index)=>mesh.setMatrixAt(index,item.matrix));mesh.userData.rockCohort=items.map(item=>({id:item.item.id,kind:'inland-scan',sourceVariant:variant}));mesh.computeBoundingSphere();geology.add(mesh);}
  geometries[3].dispose();
  const stats={excludedUpperWoodFits,settings,candidateCount:candidates.length,accepted:accepted.length,rejected,nearPreserved:near.stats,records:accepted.map(f=>({id:f.item.id,sourceVariant:f.variant,sourceName:meshes[f.variant].name,originalCenter:f.item.center.toArray(),originalMatrix:f.item.matrix.toArray(),matrix:f.matrix.toArray(),uniformScale:f.uniformScale,oldExposure:f.item.exposure,newVertexExposure:f.exposure,penetration:f.penetration,oldBounds:{min:f.item.box.min.toArray(),max:f.item.box.max.toArray()},newBounds:{min:f.box.min.toArray(),max:f.box.max.toArray()},rootConstraints:f.rootConstraints,triangles:(f.geometry.index?.count??f.geometry.attributes.position.count)/3,removedTriangles:(f.item.mesh.geometry.index?.count??f.item.mesh.geometry.attributes.position.count)/3}))};
  geology.userData.inlandRocks=stats;return {group:geology,stats,accepted};

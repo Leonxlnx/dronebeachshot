@@ -1,7 +1,7 @@
-import {renderedTerrainHeight} from './terrain-surface';
+import {renderedTerrainHeightBeforePrincipalFace} from './terrain-surface';
 import * as THREE from 'three';
 import {ConvexGeometry} from 'three/addons/geometries/ConvexGeometry.js';
-import {terrainHeight,terrainSlope,shoreDistance,shoreZ,noise,fbm,rng} from './math';
+import {terrainHeight,terrainSlopeBeforePrincipalFace,shoreDistance,shoreZ,noise,fbm,rng} from './math';
 import {type Textures} from '../render/materials';
 import {createGroundMaterial,createRockMaterial} from '../render/ground-materials';
 // Continuous distant terrain. The central 48 tiles and shared coastal math
@@ -226,6 +226,9 @@ function fracturedRockGeometry(variant:number) {
  geometry.computeBoundingBox();geometry.computeBoundingSphere();return geometry;
 }
 export function createRocks(t:Textures){
+ // Build the reviewed reference cohort first. Local support is recomputed only
+ // after near/inland scan selection, so terrain edits cannot consume a different
+ // random stream or change scan identities elsewhere in the world.
  const root=new THREE.Group();root.name='geology';
  const random=rng(978),dummy=new THREE.Object3D(),color=new THREE.Color();
  const material=createRockMaterial(t);
@@ -233,7 +236,7 @@ export function createRocks(t:Textures){
  const colors:Array<THREE.Color[]>=Array.from({length:6},()=>[]);
  let bedrockCount=0,talusCount=0,clusters=0;
  function place(variant:number,x:number,z:number,sx:number,sy:number,sz:number,yaw:number,embed:number){
-  const h=renderedTerrainHeight(x,z);
+  const h=renderedTerrainHeightBeforePrincipalFace(x,z);
   dummy.position.set(x,h-sy*embed,z);dummy.rotation.set(0,yaw,0);
   dummy.scale.set(sx,sy,sz);dummy.updateMatrix();
   matrices[variant].push(dummy.matrix.clone());
@@ -246,10 +249,10 @@ export function createRocks(t:Textures){
  // patches; adjacent slabs share a strike and form a jointed bedrock exposure.
  for(let gz=-5;gz<=11;gz++)for(let gx=-9;gx<=9;gx++){
   const x=gx*52+(random()-.5)*20,z=gz*52+(random()-.5)*20;
-  const d=shoreDistance(x,z),h=renderedTerrainHeight(x,z);
-  if(d<35||h<38||terrainSlope(x,z)<1.05||noise(x*.008+13.1,z*.008-4.7)<.43)continue;
-  const dx=(renderedTerrainHeight(x+5,z)-renderedTerrainHeight(x-5,z))*.1;
-  const dz=(renderedTerrainHeight(x,z+5)-renderedTerrainHeight(x,z-5))*.1;
+  const d=shoreDistance(x,z),h=renderedTerrainHeightBeforePrincipalFace(x,z);
+  if(d<35||h<38||terrainSlopeBeforePrincipalFace(x,z)<1.05||noise(x*.008+13.1,z*.008-4.7)<.43)continue;
+  const dx=(renderedTerrainHeightBeforePrincipalFace(x+5,z)-renderedTerrainHeightBeforePrincipalFace(x-5,z))*.1;
+  const dz=(renderedTerrainHeightBeforePrincipalFace(x,z+5)-renderedTerrainHeightBeforePrincipalFace(x,z-5))*.1;
   const length=Math.hypot(dx,dz);if(length<.8)continue;
   const nx=-dx/length,nz=-dz/length,tx=nz,tz=-nx;
   const yaw=Math.atan2(nx,nz)+(noise(x*.003,z*.003)-.5)*.24;
@@ -258,7 +261,7 @@ export function createRocks(t:Textures){
   for(let j=0;j<slabs;j++){
    const along=(j-(slabs-1)*.5)*width*1.48;
    const px=x+tx*along+nx*(random()-.5)*4,pz=z+tz*along+nz*(random()-.5)*4;
-   if(shoreDistance(px,pz)<28||terrainSlope(px,pz)<.85)continue;
+   if(shoreDistance(px,pz)<28||terrainSlopeBeforePrincipalFace(px,pz)<.85)continue;
    const sy=height*(.82+random()*.32),sx=width*(.86+random()*.26),sz=7+random()*8;
    place((gx+gz+j+120)%6,px,pz,sx,sy,sz,yaw+(random()-.5)*.1,.82);bedrockCount++;
   }
@@ -282,6 +285,7 @@ export function createRocks(t:Textures){
   if(!matrices[variant].length)continue;
   const mesh=new THREE.InstancedMesh(fracturedRockGeometry(variant),material,matrices[variant].length);
   mesh.name=`fractured-bedrock-${variant}`;
+  mesh.userData.rockCohort=matrices[variant].map((_,index)=>({id:`${mesh.name}:${index}`,kind:'procedural'}));
   matrices[variant].forEach((matrix,index)=>{mesh.setMatrixAt(index,matrix);mesh.setColorAt(index,colors[variant][index])});
   mesh.castShadow=true;mesh.receiveShadow=true;mesh.computeBoundingSphere();root.add(mesh);
  }

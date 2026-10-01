@@ -20,10 +20,21 @@ vec2 cloudSegment(vec3 origin,vec3 direction){
 float filteredDensity(vec3 p,float footprint){
  if(p.y<cloudBase||p.y>cloudTop)return 0.;
  float radius=length(p.xz);if(radius>cloudWorldRadius)return 0.;
+ vec2 along=normalize(vec2(-.38,-.92)),across=vec2(-along.y,along.x);
+ vec2 openingDelta=p.xz-along*14000.;
+ float opening=length(vec2(dot(openingDelta,across)/3100.,dot(openingDelta,along)/10000.));
+ float clearing=smoothstep(.65,1.15,opening);
+ float distantFade=(1.-smoothstep(26000.,cloudWorldRadius,radius))*smoothstep(700.,2500.,radius);
+ if(clearing==0.||distantFade==0.)return 0.;
  float weather=noise(p.xz*.00021+vec2(8.3,2.7))*.8+.2*noise(p.xz*.00063);
  float cover=smoothstep(.26,.74,weather)*.61;
  if(cover<.001)return 0.;
  float height=(p.y-cloudBase)/(cloudTop-cloudBase);
+ // Regional cloud maturity changes the ceiling while sharing a condensation base.
+ float cloudType=noise(p.xz*.00013+vec2(47.2,-11.8));
+ float profile=smoothstep(0.,.11,height)*(1.-smoothstep(
+  mix(.42,.58,cloudType),mix(.80,1.,cloudType),height));
+ if(profile==0.)return 0.;
  // Inverted cellular noise supplies rounded connected lobes in all axes.
  // Gradient Perlin noise joins those lobes; a higher frequency sample erodes edges.
  vec3 coord=p*.00032;
@@ -31,10 +42,6 @@ float filteredDensity(vec3 p,float footprint){
  vec4 n=textureLod(uCloudNoise,coord,baseLod);
  float cellular=dot(n.gba,vec3(.35,.40,.25));
  float perlinWorley=clamp((n.r+cellular*.45-.18)/.72,0.,1.);
- // Regional cloud maturity changes the ceiling while sharing a condensation base.
- float cloudType=noise(p.xz*.00013+vec2(47.2,-11.8));
- float profile=smoothstep(0.,.11,height)*(1.-smoothstep(
-  mix(.42,.58,cloudType),mix(.80,1.,cloudType),height));
  float base=clamp((perlinWorley-(1.-cover))/max(cover,.001),0.,1.);
  base*=profile;
  if(base<.001)return 0.;
@@ -47,11 +54,6 @@ float filteredDensity(vec3 p,float footprint){
  float edgeWeight=1.-smoothstep(.35,.80,base);
  float threshold=amount*mix(.20,.34,edgeWeight);
  float shape=clamp((base-threshold)/max(1.-threshold,.001),0.,1.);
- vec2 along=normalize(vec2(-.38,-.92)),across=vec2(-along.y,along.x);
- vec2 openingDelta=p.xz-along*14000.;
- float opening=length(vec2(dot(openingDelta,across)/3100.,dot(openingDelta,along)/10000.));
- float clearing=smoothstep(.65,1.15,opening);
- float distantFade=(1.-smoothstep(26000.,cloudWorldRadius,radius))*smoothstep(700.,2500.,radius);
  return shape*clearing*distantFade;
 }
 float density(vec3 p){return filteredDensity(p,1.);}

@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+export const aerialDensity={value:.00014};
 
 // Shared scene-linear radiance fit. The same directional sky colors illuminate
 // visible air, distant land and the ocean; this is an artistic scattering model.

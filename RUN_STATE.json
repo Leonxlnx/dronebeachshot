@@ -1,5 +1,5 @@
 {
-  "status": "blocked-incomplete",
+  "status": "in-progress",
   "minimumSeconds": 86400,
   "intervals": [
     {
@@ -1835,6 +1835,342 @@
           "sha256": "da9b6fdace9da0e9a3698ed92b520af3b0dfbd11c9a59ec5a23fa8c3b17ea390"
         }
       ]
+    },
+    {
+      "start": "2026-10-01T01:21:21.678Z",
+      "category": "visual-review",
+      "description": "Current-browser baseline recovery and visual defect investigation for September 30 realism refinement",
+      "proofs": [
+        {
+          "at": "2026-10-01T01:30:14.331Z",
+          "files": [
+            {
+              "path": "src/render/ground-cover-culling.ts",
+              "sha256": "4c881fbd0ec9aadecd2c865ab45a3b106fd55aa7b434ee7cf414fff0c9a2f6ab"
+            },
+            {
+              "path": "scripts/progress-capture.mjs",
+              "sha256": "634d43e72b81aa8e25ed525f9fff79f0cdcec81e7127a9b0db55d268ec350a29"
+            },
+            {
+              "path": "src/render/lighting.ts",
+              "sha256": "19a2d97406ba83975116b89e9e5f7a7078c235999f03c69dcb36f229203d57f1"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-01T01:34:40.734Z",
+          "files": [
+            {
+              "path": "src/main.ts",
+              "sha256": "b5b15b1a31652cf9c989c01b892b56d9d0abf6421a59ccde8d84362368d66e9b"
+            },
+            {
+              "path": "src/world/atmosphere.ts",
+              "sha256": "e6fccb364f5efef8cdd073abd31eb40805c43e16f1154f35a18fb8923d064b7a"
+            },
+            {
+              "path": "src/world/ocean.ts",
+              "sha256": "e28acb057c8116a2ef4c41363288b4aaee9999bf81d3990c30f90a851fd98cc2"
+            }
+          ]
+        }
+      ],
+      "end": "2026-10-01T01:39:37.125Z",
+      "seconds": 1095.447,
+      "evidence": [
+        {
+          "path": "src/main.ts",
+          "sha256": "b5b15b1a31652cf9c989c01b892b56d9d0abf6421a59ccde8d84362368d66e9b"
+        },
+        {
+          "path": "src/world/atmosphere.ts",
+          "sha256": "03a5ac87872a0f690647653b74b380b7064d0011216ad0c783a2a373ee81cabd"
+        },
+        {
+          "path": "src/render/ground-cover-culling.ts",
+          "sha256": "6f6b5bacbfb3bc6be6b2da79ff4a251f32a0add17c08af551736430fe4a81711"
+        },
+        {
+          "path": "artifacts/refinement-2026-09-30/baseline-direct/manifest.json",
+          "sha256": "5d427811fe01f589f04dc78f3bbd4f02513c3eacca0683ab645bbd628a31438b"
+        }
+      ]
+    },
+    {
+      "start": "2026-10-01T01:39:37.702Z",
+      "category": "shaders",
+      "description": "First actual browser review; correct visible sky alpha and refine coherent coastal light, substrates, and water volume",
+      "proofs": [
+        {
+          "at": "2026-10-01T02:01:02.810Z",
+          "files": [
+            {
+              "path": "src/render/opaque-canvas.ts",
+              "sha256": "539e61c95b9faa8637d4debc49a105f3421474958ca564f37b781874d2bd517e"
+            },
+            {
+              "path": "src/world/ocean-tiles.ts",
+              "sha256": "41415fa01b9cfc1a765007308cdf56cc5c51dcca0e3e3b6bb17117fa08dd8f50"
+            },
+            {
+              "path": "artifacts/refinement-2026-09-30/culling-pixel-proof.json",
+              "sha256": "75ad57ee40ac869eeaaca319d9eaf07d1f42424604bd500ab507f2f96af88712"
+            },
+            {
+              "path": "artifacts/refinement-2026-09-30/candidate-02-lighting/manifest.json",
+              "sha256": "aec029c0368412f8ec241c9021d319a13f5bb4b9f2610e60fac0317ed87e7b4f"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-01T02:06:34.904Z",
+          "files": [
+            {
+              "path": "src/render/opaque-canvas.ts",
+              "sha256": "539e61c95b9faa8637d4debc49a105f3421474958ca564f37b781874d2bd517e"
+            },
+            {
+              "path": "src/world/ocean-tiles.ts",
+              "sha256": "41415fa01b9cfc1a765007308cdf56cc5c51dcca0e3e3b6bb17117fa08dd8f50"
+            },
+            {
+              "path": "artifacts/refinement-2026-09-30/culling-pixel-proof.json",
+              "sha256": "e49d7e7a918aa3802167959e6df711cd1e49e3b500e17edff4e21c256aa0825e"
+            },
+            {
+              "path": "src/world/visible-flank-fractures.ts",
+              "sha256": "d3a8013c889bbee826daa8183e205f6a8c01b1e4fc86de76af8f11c5a5064f04"
+            }
+          ]
+        }
+      ],
+      "end": "2026-10-01T02:09:16.414Z",
+      "seconds": 1778.712,
+      "evidence": [
+        {
+          "path": "src/render/opaque-canvas.ts",
+          "sha256": "539e61c95b9faa8637d4debc49a105f3421474958ca564f37b781874d2bd517e"
+        },
+        {
+          "path": "src/world/atmosphere.ts",
+          "sha256": "03a5ac87872a0f690647653b74b380b7064d0011216ad0c783a2a373ee81cabd"
+        },
+        {
+          "path": "src/world/ocean.ts",
+          "sha256": "b640885623ec71990e32432b63239f07846ad51853c3e3b2cf0a432b886a2d1a"
+        },
+        {
+          "path": "src/render/ground-materials.ts",
+          "sha256": "cec95c8e19bdfa619669e3a367e56d6195af6b5c85761af116cd61331bf033dd"
+        },
+        {
+          "path": "artifacts/refinement-2026-09-30/culling-pixel-proof.json",
+          "sha256": "e49d7e7a918aa3802167959e6df711cd1e49e3b500e17edff4e21c256aa0825e"
+        },
+        {
+          "path": "docs/continuation/2026-10-01-root-review.md",
+          "sha256": "775153578408e5d01eb10fec548773c8bb53fcc3eadd380b2ed4375d17cf9ec5"
+        }
+      ]
+    },
+    {
+      "start": "2026-10-01T02:09:16.556Z",
+      "category": "visual-review",
+      "description": "Review isolated forest density, mineral relief and foam-energy browser comparisons; investigate crown coverage and structural coastal relief",
+      "proofs": [
+        {
+          "at": "2026-10-01T02:11:23.124Z",
+          "files": [
+            {
+              "path": "src/render/far-crown-coverage.ts",
+              "sha256": "f1e6f0151f956b0d69e5a28b7fd8634e51377fca765ffa2ac4cc5d3bb1e5fb62"
+            },
+            {
+              "path": "src/main.ts",
+              "sha256": "a783cfea6ea276b701400cd8f1e59ae45fa419db935a0a822d80c16f174dcee0"
+            },
+            {
+              "path": "scripts/progress-capture.mjs",
+              "sha256": "46bce06dde4ee9918b375b34ab045dfa7a13832a1aa49bb67b1af034e213386f"
+            },
+            {
+              "path": "artifacts/refinement-2026-09-30/crown-shadow-plan.json",
+              "sha256": "b49e2168b40b6375f2e89563d0e442a2ab14fecec7f301aa2a6150d5d1286dfd"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-01T02:21:07.324Z",
+          "files": [
+            {
+              "path": "src/render/lighting.ts",
+              "sha256": "7c2f9bf85a7699f4c49480c659b0ad99ac8add831d0a13303859ed3abaef2e6c"
+            },
+            {
+              "path": "src/render/aerial-perspective.ts",
+              "sha256": "33bf6d488eea8fb970bd9b6922bf2b63f73e9d1f1b816cb337a87b02714800a8"
+            },
+            {
+              "path": "src/world/atmosphere.ts",
+              "sha256": "1a20180b86726fc4f24df0339b69427d11de8839ee8abb352ce0f7c47f40d0d9"
+            },
+            {
+              "path": "src/world/ocean.ts",
+              "sha256": "1081644fcfa7779d711bc78b0c87be50193b8c3db5578f5f3c6396a7af835cee"
+            },
+            {
+              "path": "src/render/ground-materials.ts",
+              "sha256": "a211e76849bea91735cf73bcc07095d5b87924faa049d5419ddc6141950c6d0e"
+            },
+            {
+              "path": "src/render/far-crown-coverage.ts",
+              "sha256": "f1e6f0151f956b0d69e5a28b7fd8634e51377fca765ffa2ac4cc5d3bb1e5fb62"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-01T02:27:45.564Z",
+          "files": [
+            {
+              "path": "artifacts/refinement-2026-09-30/checkpoint-tests.log",
+              "sha256": "069cbe701a87e5883a62090eff2596a8b8253df728444f5c153327a8a3233394"
+            },
+            {
+              "path": "artifacts/refinement-2026-09-30/foam-fast-path-pixel-proof.json",
+              "sha256": "2200b6a36e60c08737a598bcf9f8a277b0ede313b6f043d83bc05e710af25c45"
+            },
+            {
+              "path": "artifacts/refinement-2026-09-30/surface-review-proof.json",
+              "sha256": "b82a34e132f4bfb0a3fcf33dc28597beccf8c76f06158316b10f37d19941a451"
+            },
+            {
+              "path": "docs/continuation/2026-10-01-root-review.md",
+              "sha256": "3e1f84fea3c041aa776757e24c99243e4185b4e6b6fe15453f66691535790add"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-01T02:41:45.336Z",
+          "files": [
+            {
+              "path": "artifacts/refinement-2026-09-30/candidate-05-crown-light/manifest.json",
+              "sha256": "c1a101043c79a81dfbb8b5af1a51149fa7707ecb97dbf3891843ebd25d5982cf"
+            },
+            {
+              "path": "docs/continuation/2026-10-01-principal-face.md",
+              "sha256": "086f8114fad509180376b7845f4464d18e779b1245c4db16f3c3a5fa4f8a752a"
+            },
+            {
+              "path": "scripts/control/progress-checkpoints.mjs",
+              "sha256": "c37848107e9e9b9aa73701c483538eb31780d2c8b19fb1a6f00ed1b498f351a5"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-01T03:01:46.330Z",
+          "files": [
+            {
+              "path": "artifacts/refinement-2026-09-30/candidate-05-crown-light/manifest.json",
+              "sha256": "34e1f9f68176e5471449d3a86b54565bc5c90bb07e3c30d7975b1aa07810b587"
+            },
+            {
+              "path": "artifacts/refinement-2026-09-30/candidate-06-principal-shadow/manifest.json",
+              "sha256": "6cda2f503866cad55a429f4df9fbcd0cc64e0091c9c1c5a68e31a8fc7b62d88e"
+            },
+            {
+              "path": "src/render/remote-shadow-study.ts",
+              "sha256": "b715e96b569c7a2b2f8ac8b9583f2efe295262c88ede8235acb138bf48337c9b"
+            }
+          ]
+        }
+      ],
+      "end": "2026-10-01T03:01:46.435Z",
+      "seconds": 3149.879,
+      "evidence": [
+        {
+          "path": "artifacts/refinement-2026-09-30/candidate-05-crown-light/manifest.json",
+          "sha256": "34e1f9f68176e5471449d3a86b54565bc5c90bb07e3c30d7975b1aa07810b587"
+        },
+        {
+          "path": "src/render/remote-shadow-study.ts",
+          "sha256": "b715e96b569c7a2b2f8ac8b9583f2efe295262c88ede8235acb138bf48337c9b"
+        },
+        {
+          "path": "scripts/control/progress-checkpoints.mjs",
+          "sha256": "c37848107e9e9b9aa73701c483538eb31780d2c8b19fb1a6f00ed1b498f351a5"
+        }
+      ]
+    },
+    {
+      "start": "2026-10-01T03:01:46.534Z",
+      "category": "implementation",
+      "description": "Integrate and visually review principal-face geometry, preserve stable ecological and rock cohorts, and test real remote canopy shadows",
+      "proofs": [
+        {
+          "at": "2026-10-01T03:04:07.692Z",
+          "files": [
+            {
+              "path": "artifacts/refinement-2026-09-30/crown-light-review-proof.json",
+              "sha256": "dcfa58d41b9b9cf09eb78460acac9c4fd40d8ea06511b8e29622549d5e19fc83"
+            },
+            {
+              "path": "docs/continuation/2026-10-01-root-review.md",
+              "sha256": "e964472c7970230ced58e3c419c9eb71dd7d4e4cc9baf30bbc56300c15a02d18"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-01T03:11:28.512Z",
+          "files": [
+            {
+              "path": "src/main.ts",
+              "sha256": "7dde06c7d0711a432dca19563b630da8f972f2400e05d4911e075c2bfd366c9f"
+            },
+            {
+              "path": "src/render/ground-materials.ts",
+              "sha256": "5ce9ede6073ee6bcf3110b9cbbb499b7d88be478c1bdee4daf9f8bf62bb7c93c"
+            },
+            {
+              "path": "artifacts/refinement-2026-09-30/candidate-06-principal-shadow-retry/manifest.json",
+              "sha256": "220658b53957c0b634a1616ecaf2e11a1769b55cb2f66113347a8ad3d526b9d2"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-01T03:27:23.224Z",
+          "files": [
+            {
+              "path": "src/render/ground-materials.ts",
+              "sha256": "a2414a074223c6ede2a10ffa65bd81bd956e0900c51d3114458dc1ccd2bc438d"
+            },
+            {
+              "path": "src/world/ocean.ts",
+              "sha256": "684c13ecf5176c96cd8cf7b820d61a4e90673f54c04d07ad0ff52c63287f7950"
+            },
+            {
+              "path": "docs/continuation/2026-10-01-source-recovery.md",
+              "sha256": "f6abba65e7182b11efc602382818658ab3e7a60ac458c9590590dd17b8fe1a44"
+            }
+          ]
+        }
+      ],
+      "end": "2026-10-01T03:27:23.315Z",
+      "seconds": 1536.781,
+      "evidence": [
+        {
+          "path": "docs/continuation/2026-10-01-source-recovery.md",
+          "sha256": "f6abba65e7182b11efc602382818658ab3e7a60ac458c9590590dd17b8fe1a44"
+        },
+        {
+          "path": "src/world/ocean.ts",
+          "sha256": "684c13ecf5176c96cd8cf7b820d61a4e90673f54c04d07ad0ff52c63287f7950"
+        },
+        {
+          "path": "src/render/engine.ts",
+          "sha256": "530dd0981d93d7c7572028bed65f168195281a795cdf0b499c5ef16914aaccad"
+        }
+      ]
     }
   ],
   "cycles": [],
@@ -1851,7 +2187,47 @@
       "creditedSeconds": 0
     }
   ],
-  "open": null,
+  "open": {
+    "start": "2026-10-01T03:27:23.395Z",
+    "category": "debugging",
+    "description": "Restore reviewed source changes and validate resumed renderer after workspace file loss",
+    "proofs": [
+      {
+        "at": "2026-10-01T04:30:04.528Z",
+        "files": [
+          {
+            "path": "src/main.ts",
+            "sha256": "0f95c9fc9a3e819a83f13424ac801de121f238f39d37fdb95dc2b1571137fe99"
+          },
+          {
+            "path": "src/render/ground-cover-culling.ts",
+            "sha256": "0014a770b73acdc3bc05517ff5c757bd05d8afb1a46f0de03ffbe14f1669af71"
+          },
+          {
+            "path": "src/render/linear-main-output.ts",
+            "sha256": "dca401e489afb01a35301350da2e50cb59da27b0a084fbe0fe5273d0065098d9"
+          }
+        ]
+      },
+      {
+        "at": "2026-10-01T04:32:36.290Z",
+        "files": [
+          {
+            "path": "src/world/ocean-tiles.test.ts",
+            "sha256": "2c3192ed46e86a1485521c8aaa3ce2b9e5f1fd62e62aa171b1813fffa87e0f03"
+          },
+          {
+            "path": "src/render/ground-cover-culling.ts",
+            "sha256": "0014a770b73acdc3bc05517ff5c757bd05d8afb1a46f0de03ffbe14f1669af71"
+          },
+          {
+            "path": "src/main.ts",
+            "sha256": "0f95c9fc9a3e819a83f13424ac801de121f238f39d37fdb95dc2b1571137fe99"
+          }
+        ]
+      }
+    ]
+  },
   "nativeVisualCycles": [
     {
       "iteration": "01",
@@ -1907,5 +2283,13 @@
     "accepted": false,
     "browserCycles": 0,
     "note": "Actual three1920px native views reviewed. Source canopy visibility, refined cloud sampling,42deg camera framing, stable separate shadow/camera buffers, stone repetition correction and swash front fade accepted as narrow fixes. Macro geology, ecological structure, water/sky/sand art and final browser gates remain open."
+  },
+  "latestBrowserContinuation": {
+    "review": "docs/continuation/2026-10-01-root-review.md",
+    "renderer": "Chromium WebGL2 / ANGLE Vulkan SwiftShader / 4x MSAA",
+    "graphicsAvailable": true,
+    "consumerPerformanceVerified": false,
+    "progressVideoComplete": false,
+    "qualityTargetAccepted": false
   }
 }

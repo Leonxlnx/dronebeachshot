@@ -5,9 +5,10 @@ import {test} from 'node:test';
 import * as THREE from 'three';
 import {createDetailedRocks,ROCK_GEOMETRY_URL} from './detailed-rocks.ts';
 import {decodeRockGeometrySource} from './rock-geometry.ts';
-import {treePlacements} from './ecology.ts';
+import {treePlacements,treePlacementsBeforePrincipalFace} from './ecology.ts';
 import {renderedTerrainHeight} from './terrain-surface.ts';
 import {createCoastalField} from './coastal-field.ts';
+import {terrainHeight} from './math.ts';
 import type {Textures} from '../render/materials.ts';
 
 const sha=(bytes:Uint8Array|string)=>createHash('sha256').update(bytes).digest('hex');
@@ -21,12 +22,19 @@ const trees=treePlacements();
 test('inland source cohort remains embedded, root-safe and within its reviewed envelope',()=>{
  assert.equal(stats.accepted,21);
  assert.equal(sha(packed),'581b4f5b375b1eb2bed91178120d31811d09001904f43ee5f78e0168b61f6e42');
- const cohort=stats.records.map((r:{id:string,sourceVariant:number,matrix:number[]})=>({id:r.id,sourceVariant:r.sourceVariant,matrix:r.matrix}));
+ const cohort=stats.referenceRecords.map((r:{id:string,sourceVariant:number,matrix:number[]})=>({id:r.id,sourceVariant:r.sourceVariant,matrix:r.matrix}));
  assert.equal(sha(JSON.stringify(cohort)),'d14b6e9c75b5981424f50aecb8b69bd71e7129d136a5cd9f64959bc56a124a2b');
  assert.deepEqual(stats.excludedUpperWoodFits,['fractured-bedrock-5:9','fractured-bedrock-0:10','fractured-bedrock-0:23']);
- // Placement changes invalidate the source-bound upper-wood review and need a
- // fresh geometry review before updating this fingerprint.
- assert.equal(sha(JSON.stringify(trees)),'927ddf7d749c7c3ec4673acebd280e97dd02c0664d26c02225deb8fff7fb64e6');
+ // Preserve reviewed reference fingerprints; actual Y follows current geometry.
+ const referenceTrees=treePlacementsBeforePrincipalFace();
+ assert.equal(sha(JSON.stringify(referenceTrees)),'927ddf7d749c7c3ec4673acebd280e97dd02c0664d26c02225deb8fff7fb64e6');
+ assert.equal(trees.length,referenceTrees.length);
+ for(let i=0;i<trees.length;i++){assert.deepEqual({...trees[i],y:referenceTrees[i].y},referenceTrees[i]);assert.equal(trees[i].y,renderedTerrainHeight(trees[i].x,trees[i].z)-.06);}
+ for(const record of stats.records){
+  const reference=stats.referenceRecords.find((r:{id:string})=>r.id===record.id);assert.ok(reference);
+  assert.equal(record.sourceVariant,reference.sourceVariant);
+  record.matrix.forEach((value:number,i:number)=>{if(i!==13)assert.equal(value,reference.matrix[i]);});
+ }
  const point=new THREE.Vector3();
  for(const record of stats.records){
   assert.ok(!stats.excludedUpperWoodFits.includes(record.id));
@@ -53,10 +61,19 @@ test('inland source cohort remains embedded, root-safe and within its reviewed e
  }
 });
 
-test('inland cleanup preserves existing near scans, tidal rocks and the entire coastal field',()=>{
+test('local terrain refits preserve coastal masks while atlas R follows current geometry',()=>{
  assert.equal(stats.nearPreserved.selected,48);
  assert.equal(rocks.userData.offshoreRocks.instances,37);
  const field=createCoastalField(rocks);
- try{assert.equal(sha(new Uint8Array(field.texture.image.data.buffer)),'6fbe6e10c4769b2d2fd00c3a8219d2816194189327fc01394ee831cc1234de11');}
+ try{
+  const data=field.texture.image.data as Float32Array,coast=new Float32Array(1024*1024*3),[minX,minZ,maxX,maxZ]=field.bounds.toArray();
+  for(let row=0;row<1024;row++)for(let col=0;col<1024;col++){
+   const index=row*1024+col,x=minX+(col+.5)*(maxX-minX)/1024,z=minZ+(row+.5)*(maxZ-minZ)/1024;
+   assert.equal(data[index*4],Math.fround(terrainHeight(x,z)));
+   for(let channel=1;channel<4;channel++)coast[index*3+channel-1]=data[index*4+channel];
+  }
+  // Frozen-reference RGBA sha6fbe6e10…4de11 remains asserted by the worker audit.
+  assert.equal(sha(new Uint8Array(coast.buffer)),'870b02822c58ff33974af39ec99450265fe9dd69849a6d073e79dda461360828');
+ }
  finally{field.texture.dispose();}
 });

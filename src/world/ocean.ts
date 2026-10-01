@@ -1,10 +1,11 @@
 import {createDistantBathymetry,bathymetryGLSL} from './bathymetry';
-import {aerialPerspectiveGLSL} from '../render/aerial-perspective';
+import {aerialPerspectiveGLSL,aerialDensity} from '../render/aerial-perspective';
 import * as THREE from 'three';
 import {WIND} from './weather';
 import {waterSlopeFilterGLSL} from './water-slope-filter';
 import {waterReflectionGLSL} from './water-reflection';
 import {createDistantWaterGeometry} from './ocean-geometry';
+import {createOceanTiles} from './ocean-tiles';
 import {noiseGLSL,shorelineGLSL,shoreDistance,terrainHeight} from './math';
 import {coastalGLSL} from './coastal';
 import {createTerrainHeightTexture,terrainSurfaceGLSL} from './terrain-surface';
@@ -12,8 +13,9 @@ import {worldTime,debugMode} from '../render/materials';
 import {diagnosticOutputShader} from '../render/diagnostics';
 import {refractionUniforms,refractionGLSL} from '../render/refraction';
 import {sunDirection} from './atmosphere';
-import {reflectedSky,cloudShadow,cloudShadowBounds,solarDirection,cloudLightingGLSL,skyDecodeScale} from '../render/sky-lighting';
+import {reflectedSky,cloudShadow,cloudShadowBounds,solarDirection,cloudLightingGLSL,skyDecodeScale,solarColor,solarIntensity} from '../render/sky-lighting';
 import {coastalFieldGLSL,type CoastalField} from './coastal-field';
+export const foamDepthGate={value:1};
 const waterFns=`${noiseGLSL}${shorelineGLSL}${coastalGLSL}${coastalFieldGLSL}${terrainSurfaceGLSL}
 float coastalDistance(vec2 p){float original=shoreDist(p);float bound=1.-smoothstep(575.,600.,abs(p.x));return mix(min(original,-120.),original,bound);}
 // Coherent wave groups control both shoaling geometry and its breaking foam.
@@ -200,12 +202,27 @@ function swashGeometry(){
 export function createOcean(field:CoastalField,terrain:THREE.Group){
  const bathymetry=createDistantBathymetry(terrain);
  const terrainHeights=createTerrainHeightTexture();
- const material=new THREE.ShaderMaterial({polygonOffset:true,polygonOffsetFactor:-1,polygonOffsetUnits:-2,uniforms:{...refractionUniforms,uDistantBathymetry:{value:bathymetry.texture},uBathymetryBounds:{value:bathymetry.bounds},uTerrainHeights:{value:terrainHeights},uTime:worldTime,uSurfaceMode:{value:0},uSun:{value:sunDirection},uDebug:debugMode,uReflectedSky:reflectedSky,uSkyDecodeScale:skyDecodeScale,uCloudShadow:cloudShadow,uCloudShadowBounds:cloudShadowBounds,uSolarDirection:solarDirection,uCoastalField:{value:field.texture},uCoastalBounds:{value:field.bounds}},vertexShader:`
+ const material=new THREE.ShaderMaterial({lights:true,polygonOffset:true,polygonOffsetFactor:-1,polygonOffsetUnits:-2,uniforms:{...THREE.UniformsUtils.clone(THREE.UniformsLib.lights),...refractionUniforms,uFoamDepthGate:foamDepthGate,uAerialDensity:aerialDensity,uSunColor:solarColor,uSunIntensity:solarIntensity,uDistantBathymetry:{value:bathymetry.texture},uBathymetryBounds:{value:bathymetry.bounds},uTerrainHeights:{value:terrainHeights},uTime:worldTime,uSurfaceMode:{value:0},uSun:{value:sunDirection},uDebug:debugMode,uReflectedSky:reflectedSky,uSkyDecodeScale:skyDecodeScale,uCloudShadow:cloudShadow,uCloudShadowBounds:cloudShadowBounds,uSolarDirection:solarDirection,uCoastalField:{value:field.texture},uCoastalBounds:{value:field.bounds}},vertexShader:`
+#include <common>
+#include <shadowmap_pars_vertex>
  uniform float uTime,uSurfaceMode;varying vec3 vWorld;${waterFns}
- void main(){vec3 p=position;p.y=uSurfaceMode>.5&&uSurfaceMode<1.5?0.:waterHeight(p.xz,uTime);vWorld=p;gl_Position=projectionMatrix*viewMatrix*vec4(p,1.);}`,fragmentShader:`
+ void main(){vec3 p=position;p.y=uSurfaceMode>.5&&uSurfaceMode<1.5?0.:waterHeight(p.xz,uTime);vWorld=p;gl_Position=projectionMatrix*viewMatrix*vec4(p,1.);
+ #if defined(USE_SHADOWMAP) && NUM_DIR_LIGHT_SHADOWS > 0
+ #pragma unroll_loop_start
+ for(int i=0;i<NUM_DIR_LIGHT_SHADOWS;i++){
+  vDirectionalShadowCoord[i]=directionalShadowMatrix[i]*vec4(p+vec3(0.,directionalLightShadows[i].shadowNormalBias,0.),1.);
+ }
+ #pragma unroll_loop_end
+ #endif
+ }`,fragmentShader:`
  precision highp float;
+#include <common>
+#include <packing>
+#include <shadowmap_pars_fragment>
+uniform bool receiveShadow;
+#include <shadowmask_pars_fragment>
 ${aerialPerspectiveGLSL}${bathymetryGLSL}${waterReflectionGLSL}
-uniform float uTime,uDebug,uSurfaceMode,uSkyDecodeScale;uniform vec3 uSun;uniform samplerCube uReflectedSky;varying vec3 vWorld;${waterFns}${cloudLightingGLSL}${refractionGLSL}
+uniform float uTime,uDebug,uSurfaceMode,uSkyDecodeScale,uSunIntensity,uAerialDensity,uFoamDepthGate;uniform vec3 uSun,uSunColor;uniform samplerCube uReflectedSky;varying vec3 vWorld;${waterFns}${cloudLightingGLSL}${refractionGLSL}
  // Average unresolved foam octaves instead of turning distant bubbles into
  // unstable white pixels. The phase/advection field remains world anchored.
  float filteredFoamNoise(vec2 point,float footprint){
@@ -248,7 +265,7 @@ uniform float uTime,uDebug,uSurfaceMode,uSkyDecodeScale;uniform vec3 uSun;unifor
  vec2 edgeDistance=min(p-uCoastalBounds.xy,uCoastalBounds.zw-p);
  float detailWeight=smoothstep(0.,90.,min(edgeDistance.x,edgeDistance.y));
  float depth=max(-mix(distantSeabedHeight(p),coast.r,detailWeight),0.);
- vec3 deep=vec3(.018,.075,.09),shallow=vec3(.08,.34,.28),water=mix(shallow,deep,1.-exp(-depth*.11));water*=.8+noise(p*.075)*.27+noise(p*.31)*.09;
+ vec3 water=vec3(.01,.084,.12);
  reflection=mix(water,reflection,bounce.w);
  vec3 transmitted=transmittedCoast(vWorld,N,water,depth);vec3 col=mix(transmitted,reflection,fresnel);vec3 H=normalize(V+uSun);
  // Broaden the existing solar lobes by the same unresolved variance, conserving
@@ -257,17 +274,23 @@ uniform float uTime,uDebug,uSurfaceMode,uSkyDecodeScale;uniform vec3 uSun;unifor
  float broadPower=max(1.,2./(2./67.+unresolvedWaterSlopeVariance)-2.);
  float glint=pow(max(dot(N,H),0.),sharpPower)*.76*(sharpPower+2.)/522.
   +pow(max(dot(N,H),0.),broadPower)*.085*(broadPower+2.)/67.;
- float sunlight=atmosphericSunlight(vWorld),sunPath=glint*max(dot(N,uSun),.08)*sunlight;col+=vec3(13.,8.,3.2)*sunPath;
+ float sunlight=atmosphericSunlight(vWorld)*getShadowMask(),sunPath=glint*max(dot(N,uSun),.08)*sunlight;col+=uSunColor*(uSunIntensity/4.4)*13.*sunPath;
  float travel=coastPhase(p,t),breakBand=pow(.5+.5*sin(travel),14.),breakerActivity=smoothstep(3.,9.,-d)*(1.-smoothstep(24.,42.,-d));
  float group=breakingGroup(p,d,t);
  float waveEnergy=smoothstep(.30,.68,group)*mix(1.,.20,coast.a);
  // Local shoaling and genuine rock shelter gate where a coherent crest breaks.
  float breakingRatio=(.65+.80*waveEnergy)/max(depth,.25);
  float depthBreaking=smoothstep(.28,.64,breakingRatio);
- float crest=breakBand*breakerActivity*waveEnergy*(.35+.65*depthBreaking);
+ float crest=breakBand*breakerActivity*waveEnergy*mix(.35+.65*depthBreaking,depthBreaking,uFoamDepthGate);
  // Positive phase lag leaves residue seaward, behind the incoming crest.
- float previousEnergy=smoothstep(.30,.68,breakingGroup(p,d,t-1.1))*mix(1.,.20,coast.a);
- float residue=pow(.5+.5*sin(travel+1.1),3.)*breakerActivity*.24*previousEnergy;
+ float previousEnergy=smoothstep(.30,.68,breakingGroup(p,d,t-1.1/1.5))*mix(1.,.20,coast.a);
+ float previousBreaking=smoothstep(.28,.64,(.65+.80*previousEnergy)/max(depth,.25));
+ float residue=pow(.5+.5*sin(travel+1.1),3.)*breakerActivity*.24*previousEnergy*mix(1.,previousBreaking,uFoamDepthGate);
+ float swashEdge=1.-smoothstep(.0,.75,abs(d-filmReach+.28));
+ float washArea=smoothstep(-6.,-.5,d)*(1.-smoothstep(reach-2.,reach,d));
+ float rockEdge=(1.-smoothstep(.3,3.8,max(coast.g,0.)))*step(-.5,coast.g);
+ float foam=0.;
+ if(crest>0.||residue>0.||swashEdge>0.||washArea>0.||rockEdge>0.){
  // Swash displacement advects the foam in the coast-normal direction. The
  // derivative changes sign during retreat, so the same field flows back out.
  vec2 flow=(p-coastNormal(p.x)*reach)*1.6;flow+=vec2(sin(p.y*.3),sin(p.x*.24))*.23;
@@ -279,20 +302,18 @@ uniform float uTime,uDebug,uSurfaceMode,uSkyDecodeScale;uniform vec3 uSun;unifor
  // away. They share the original swash flow, so foam connects and drains with it.
  float raftNoise=filteredFoamNoise(flow*.0625,foamFootprint*.0625);
  float rafts=smoothstep(.34,.57,raftNoise);
- float foam=crest*(.18+.82*rafts)*(.30+.70*lace)
+ foam=crest*(.18+.82*rafts)*(.30+.70*lace)
   +residue*rafts*(.45+.55*lace);
- float swashEdge=1.-smoothstep(.0,.75,abs(d-filmReach+.28));
- float washArea=smoothstep(-6.,-.5,d)*(1.-smoothstep(reach-2.,reach,d));
  float swashEnergy=smoothstep(.24,.66,breakingGroup(p,0.,t-.7))*mix(1.,.35,coast.a);
  foam+=swashEdge*(.015+.56*lace)*rafts*(.20+.80*swashEnergy)
   +washArea*lace*rafts*.20*(.30+.70*swashEnergy);
  // Rock foam is attached to the rasterized waterline of actual scene geometry.
- float rockEdge=(1.-smoothstep(.3,3.8,max(coast.g,0.)))*step(-.5,coast.g);
  vec2 obstacleGradient=vec2(coastalFieldSample(p+vec2(1.,0.)).g-coastalFieldSample(p-vec2(1.,0.)).g,coastalFieldSample(p+vec2(0.,1.)).g-coastalFieldSample(p-vec2(0.,1.)).g);
  float facing=max(dot(obstacleGradient/max(length(obstacleGradient),.001),-coastNormal(p.x)),0.);
  float impact=pow(.5+.5*sin(travel),5.)*facing*(.25+.75*waveEnergy);
  foam+=rockEdge*(.28+impact*.9)*(.5+lace*.5);foam=clamp(foam,0.,.98);
- vec3 foamColor=vec3(.68,.72,.665)*(1.+max(dot(uSun,N),0.)*.35*sunlight);col=mix(col,foamColor,foam);
+ }
+ vec3 foamColor=vec3(.68,.72,.665)*(vec3(.58)+uSunColor*(uSunIntensity/4.4)*max(dot(uSun,N),0.)*.77*sunlight);col=mix(col,foamColor,foam);
  // A thinning swash front mixes coverage with the real opaque coast beneath it.
  // At zero thickness this tends exactly to the underlying ground color, removing
  // the former opaque, ruler-like reflection edge. No transparent sorting is used.
@@ -302,9 +323,9 @@ uniform float uTime,uDebug,uSurfaceMode,uSkyDecodeScale;uniform vec3 uSun;unifor
   vec3 underColor=texture2D(uUnderColor,underUv).rgb*uUnderDecodeScale;
   col=mix(underColor,col,filmCoverage);
  }
- col=bayAerialPerspective(col,cameraPosition,vWorld,uSun,.00014);
+ col=bayAerialPerspective(col,cameraPosition,vWorld,uSun,uAerialDensity);
  if(uDebug==1.)col=water;if(uDebug==2.)col=N*.5+.5;if(uDebug==3.)col=vec3(.12);if(uDebug==4.)col=vec3(clamp(distanceToEye/800.,0.,1.));
- if(uDebug==5.)col=vec3(13.,8.,3.2)*sunPath;if(uDebug==6.)col=mix(water,reflection,fresnel*.85);if(uDebug==7.)col=vec3(sunlight);if(uDebug==8.)col=vec3(.3);
+ if(uDebug==5.)col=uSunColor*(uSunIntensity/4.4)*13.*sunPath;if(uDebug==6.)col=mix(water,reflection,fresnel*.85);if(uDebug==7.)col=vec3(sunlight);if(uDebug==8.)col=vec3(.3);
  if(uDebug==9.)col=vec3(clamp(depth/20.,0.,1.));if(uDebug==10.)col=vec3(foam);
  if(uDebug==12.)col=vec3(0.);
  if(uDebug==11.){float lum=dot(col,vec3(.2126,.7152,.0722));col=lum<.015?vec3(.1,.2,1.):lum>3.?vec3(1.,.1,.05):vec3(lum*.25);}
@@ -314,16 +335,20 @@ uniform float uTime,uDebug,uSurfaceMode,uSkyDecodeScale;uniform vec3 uSun;unifor
  }`});
  material.fragmentShader=diagnosticOutputShader(material.fragmentShader);
  const root=new THREE.Group();root.name='ocean-and-swash';
- const near=new THREE.PlaneGeometry(1800,1800,900,900);near.rotateX(-Math.PI/2);near.translate(0,0,-350);const mesh=new THREE.Mesh(near,material);root.add(mesh);
+ const tiles:THREE.Mesh[]=[];
+ for(const geometry of createOceanTiles()){
+  const [x,z]=geometry.userData.oceanTile;const tile=new THREE.Mesh(geometry,material);tile.name=`ocean-tile-${x}-${z}`;tile.receiveShadow=true;tiles.push(tile);root.add(tile);
+ }
+ function setTiledCulling(enabled:boolean){for(const tile of tiles)tile.frustumCulled=enabled;}
  function surfaceMaterial(mode:number){
   // These surfaces share the same world uniforms, including live render targets.
   // ShaderMaterial.clone() drops render-target textures and duplicates atlas
   // Sources. Keep bindings shared; only the surface mode belongs to the mesh.
-  return new THREE.ShaderMaterial({vertexShader:material.vertexShader,fragmentShader:material.fragmentShader,
+  return new THREE.ShaderMaterial({lights:true,vertexShader:material.vertexShader,fragmentShader:material.fragmentShader,
    polygonOffset:material.polygonOffset,polygonOffsetFactor:material.polygonOffsetFactor,polygonOffsetUnits:material.polygonOffsetUnits,
    uniforms:{...material.uniforms,uSurfaceMode:{value:mode}}});
  }
- const swash=new THREE.Mesh(swashGeometry(),surfaceMaterial(2));swash.name='sand-following-swash';root.add(swash);
- const distant=new THREE.Mesh(createDistantWaterGeometry(),surfaceMaterial(1));distant.renderOrder=-1;root.add(distant);
- return {group:root,material};
+ const swash=new THREE.Mesh(swashGeometry(),surfaceMaterial(2));swash.name='sand-following-swash';swash.receiveShadow=true;root.add(swash);
+ const distant=new THREE.Mesh(createDistantWaterGeometry(),surfaceMaterial(1));distant.renderOrder=-1;distant.receiveShadow=true;root.add(distant);
+ return {group:root,material,setTiledCulling};
 }

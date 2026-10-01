@@ -21,6 +21,10 @@ See ASSET_LICENSES.md and public/assets/manifest.json for exact source pages, cr
 ## Outstanding research
 Additional primary coastal geomorphology, wave shoaling and real-drone movement references remain part of the unfinished refinement work. They have not been claimed as completed.
 
+### 2026-10-01 exposed coastal flank study
+- [National Park Service: Rocky Coast Landforms](https://www.nps.gov/articles/rocky-coast-landforms.htm): primary description of the role of rock type, layering, structure and wave erosion in coastal landforms. Design inference: the broad exposed face needs connected, irregular structural relief, with the sheltered pocket beach retained; a repeated texture or added wall cannot provide that relief.
+- [USGS: Coastal knickpoints and the competition between fluvial and wave-driven erosion on rocky coastlines](https://www.usgs.gov/publications/coastal-knickpoints-and-competition-between-fluvial-and-wave-driven-erosion-rocky), Limber and Barnard (2018), DOI 10.1016/j.geomorph.2017.12.035: primary research on interacting stream incision and wave-driven cliff retreat. Design inference: trial a bounded downhill incision into the existing height field. This scene is art-directed and does not claim to simulate the paper's erosion model.
+
 ### Spatial cloud density refinement
 - [Guerrilla: Nubis, Authoring Real-Time Volumetric Cloudscapes (2017)](https://www.guerrilla-games.com/read/nubis-authoring-real-time-volumetric-cloudscapes-with-the-decima-engine): primary conceptual reference for separate regional coverage, Perlin–Worley density and cloud illumination. The project uses its own deterministic periodic scalar-noise generator; no presentation images, generator source, or proprietary cloud assets were copied.
 

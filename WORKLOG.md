@@ -70,3 +70,11 @@ Only prospective, evidence-backed implementation and review intervals count. Par
 - 2026-09-06T08:04:48.483Z → 2026-09-06T08:38:16.969Z | technical-review | 2008.5 s | Audit recovered world and runtime; restore verification and close concrete defects | src/main.ts, src/world/offshore-rocks.ts, src/render/embedded-image-pool.ts, artifacts/continuation/final-source-comparison.json, artifacts/continuation/offshore-check.json, docs/continuation/REVIEW.md
 
 - 2026-09-06T09:02:23.308Z → 2026-09-06T10:34:58.868Z | implementation | 5555.6 s | Continue landscape refinement and recover permitted preview validation | artifacts/phase2/final-review.json, artifacts/phase2/landscape-v4/source-verification.json, artifacts/phase2/checks/verify-build-v4.log, artifacts/worker-cpu-check.json
+
+- 2026-10-01T01:21:21.678Z → 2026-10-01T01:39:37.125Z | visual-review | 1095.4 s | Current-browser baseline recovery and visual defect investigation for September 30 realism refinement | src/main.ts, src/world/atmosphere.ts, src/render/ground-cover-culling.ts, artifacts/refinement-2026-09-30/baseline-direct/manifest.json
+
+- 2026-10-01T01:39:37.702Z → 2026-10-01T02:09:16.414Z | shaders | 1778.7 s | First actual browser review; correct visible sky alpha and refine coherent coastal light, substrates, and water volume | src/render/opaque-canvas.ts, src/world/atmosphere.ts, src/world/ocean.ts, src/render/ground-materials.ts, artifacts/refinement-2026-09-30/culling-pixel-proof.json, docs/continuation/2026-10-01-root-review.md
+
+- 2026-10-01T02:09:16.556Z → 2026-10-01T03:01:46.435Z | visual-review | 3149.9 s | Review isolated forest density, mineral relief and foam-energy browser comparisons; investigate crown coverage and structural coastal relief | artifacts/refinement-2026-09-30/candidate-05-crown-light/manifest.json, src/render/remote-shadow-study.ts, scripts/control/progress-checkpoints.mjs
+
+- 2026-10-01T03:01:46.534Z → 2026-10-01T03:27:23.315Z | implementation | 1536.8 s | Integrate and visually review principal-face geometry, preserve stable ecological and rock cohorts, and test real remote canopy shadows | docs/continuation/2026-10-01-source-recovery.md, src/world/ocean.ts, src/render/engine.ts

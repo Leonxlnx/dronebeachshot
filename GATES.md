@@ -1,7 +1,7 @@
 # Gates: Last Light Bay
 - [ ] ROOT-TIME: At least 86400 verified active implementation/review seconds.
   CHECK: node scripts/control/active-time.mjs check
-  EXPECT: "verifiedSeconds"
+  EXPECT: ACTIVE_TIME_PASS
   EVIDENCE: pending
 - [ ] ROOT-WORLD: Complete true 3D reference-quality world, with every environment leaf visually verified.
   EVIDENCE: pending

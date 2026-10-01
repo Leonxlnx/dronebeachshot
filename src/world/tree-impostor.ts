@@ -4,6 +4,7 @@ import * as THREE from 'three';
 import {alphaWeightedColorTexture} from '../render/alpha-weighted-color';
 import {prepareTreeMaterial} from '../render/vegetation-material';
 import {excludeAboveWaterInstancesFromRefraction} from '../render/refraction';
+import {registerFarCrownBlendingMesh} from '../render/far-crown-blending';
 
 export type TreeImpostorMetadata={
  family:number;center:number[];halfSize:number;
@@ -104,6 +105,7 @@ export function createTreeImpostor(metadata:TreeImpostorMetadata,
  const mesh=new THREE.InstancedMesh(geometry,material,count);mesh.name='tree-impostor-family-'+metadata.family;
  mesh.customDepthMaterial=depth;mesh.castShadow=true;mesh.receiveShadow=true;
  excludeAboveWaterInstancesFromRefraction(mesh);
+ registerFarCrownBlendingMesh(mesh);
  // Apply the existing withCloudLighting once in the scene's normal material pass.
  // After setting matrices/colors, caller must recompute the instance bounds.
  return mesh;

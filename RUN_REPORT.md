@@ -1,5 +1,19 @@
 # Last Light Bay — implementation status
 
+## Active continuation — 2026-10-01
+
+The existing scene is under active refinement toward the user's minimum 8/10
+target. Actual Chromium WebGL2 rendering now works; the earlier browser blocker
+below is historical. The latest evidence and remaining visible defects are in
+`docs/continuation/2026-10-01-root-review.md`.
+
+Visible sky/canvas alpha, water depth/light balance and exact geometry-submission
+corrections have real browser evidence. Canopy coverage, mineral relief, foam,
+directional shadows and motion remain under review. A progress image was shared;
+no new progress video or final acceptance is claimed. No scheduled task exists.
+
+## Earlier checkpoint
+
 The source is maintained directly on main under the latest user instruction;
 no new PR is required. See docs/continuation/PHASE3.md for the current changes.
 

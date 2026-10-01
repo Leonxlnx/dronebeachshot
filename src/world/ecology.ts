@@ -1,15 +1,15 @@
-import {renderedTerrainHeight} from './terrain-surface.ts';
-import {rng,terrainSlope,shoreDistance} from './math.ts';
-import {habitatAt} from './habitat.ts';
+import {renderedTerrainHeight,renderedTerrainHeightBeforePrincipalFace} from './terrain-surface.ts';
+import {rng,terrainSlopeBeforePrincipalFace,shoreDistance} from './math.ts';
+import {habitatAtBeforePrincipalFace} from './habitat.ts';
 import {pathPosition} from '../camera/cinematic.ts';
 export type Placement={x:number,y:number,z:number,scale:number,angle:number,variant:number,family:number,exposure:number,moisture:number};
 const flightSamples=Array.from({length:601},(_,i)=>pathPosition(i/30));
-export function treePlacements(){
+export function treePlacementsBeforePrincipalFace(){
  const random=rng(86534),placements:Placement[]=[];
  for(let i=0;i<100000&&placements.length<14000;i++){
-  const x=(random()-.5)*1150,z=random()*1040-280,d=shoreDistance(x,z),y=renderedTerrainHeight(x,z),slope=terrainSlope(x,z);
+  const x=(random()-.5)*1150,z=random()*1040-280,d=shoreDistance(x,z),y=renderedTerrainHeightBeforePrincipalFace(x,z),slope=terrainSlopeBeforePrincipalFace(x,z);
   if(d<27||y<1||slope>3.4)continue;
-  const habitat=habitatAt(x,z),density=(.40+habitat.canopy*.60)*(.60+habitat.soil*.40);
+  const habitat=habitatAtBeforePrincipalFace(x,z),density=(.40+habitat.canopy*.60)*(.60+habitat.soil*.40);
   // The first full-scene review showed almost barren mountains: the old 26%
   // survival above slope 1.4 combined with the soil mask removed most crowns.
   // Woodland follows soil pockets up slopes; the steepest faces remain open.
@@ -24,3 +24,8 @@ export function treePlacements(){
  }
  return placements;
 }
+
+// Keep the reviewed cohort and every random identity stable. Only the actual
+// root height follows the local terrain edit; no rejection/refill moves trees
+// elsewhere. Steep-face/basal support is a separate explicit geometry review.
+export function treePlacements(){return treePlacementsBeforePrincipalFace().map(tree=>({...tree,y:renderedTerrainHeight(tree.x,tree.z)-.06}))}

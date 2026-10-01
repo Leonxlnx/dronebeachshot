@@ -2,6 +2,8 @@ import * as THREE from 'three';
 import {sceneCaptureScale} from './refraction';
 export const reflectedSky={value:null as THREE.CubeTexture|null};
 export const solarDirection={value:new THREE.Vector3(-.38,.105,-.92).normalize()};
+export const solarColor={value:new THREE.Color(0xffd1a1)};
+export const solarIntensity={value:4.4};
 export const skyDecodeScale={value:1};
 export const cloudShadow={value:null as THREE.Texture|null};
 export const cloudShadowBounds={value:new THREE.Vector4(-2000,-1600,2000,5000)};
