@@ -1,0 +1,334 @@
+{
+  "schema": "island-response-authoring-recovery-v1",
+  "purpose": "Reconstruct the exact33 authoring inputs for the completed default-OFF Island response study without committing node_modules or raw source renders. No GPU is launched by reconstruction.",
+  "originalHashLedger": "manifest.authoring.sourceHashes in the runtime response-manifest.json",
+  "sourceDependencies": [
+    {
+      "path": "scripts/control/check-source-direct-response.mjs",
+      "bytes": 17690,
+      "sha256": "abc6b683cf8f0cba6301ed00cd6dc4d66f4a161c2dfe8fdc566f9456fa49b7cc",
+      "fixture": "fixtures/scripts/control/check-source-direct-response.mjs",
+      "originPolicy": "frozen-fixture"
+    },
+    {
+      "path": "scripts/control/source-direct-response-pilot-page.mjs",
+      "bytes": 20346,
+      "sha256": "f4baebbc3189900e4b95fb7efd88c3b25da8950679f31db6d0f1366f469042ba",
+      "fixture": "fixtures/scripts/control/source-direct-response-pilot-page.mjs",
+      "originPolicy": "frozen-fixture"
+    },
+    {
+      "path": "node_modules/three/build/three.module.js",
+      "bytes": 650153,
+      "sha256": "bbf5ed13fe4373f5bd38b14ea8e62e9f157327da5638edc6d3863e08b167c9c7",
+      "originPolicy": "installed-dependency"
+    },
+    {
+      "path": "src/world/tree-impostor.ts",
+      "bytes": 7504,
+      "sha256": "d41501f0af3c543220d3afa3ed2f912b93ce986aa4e356f2dfaf7072176367c8",
+      "fixture": "fixtures/src/world/tree-impostor.ts",
+      "originPolicy": "frozen-fixture"
+    },
+    {
+      "path": "src/world/tree-impostor-data.ts",
+      "bytes": 980,
+      "sha256": "bdd6f275f338429d72b04db484b72ac4b98ff80fe748d9a6355f18ca8e234e2b",
+      "fixture": "fixtures/src/world/tree-impostor-data.ts",
+      "originPolicy": "frozen-fixture"
+    },
+    {
+      "path": "src/render/vegetation-material.ts",
+      "bytes": 12591,
+      "sha256": "5db7b31af15bb457944e1807b2a342e42d8d14d6a244fbeee1f642a9bbc08a89",
+      "fixture": "fixtures/src/render/vegetation-material.ts",
+      "originPolicy": "frozen-fixture"
+    },
+    {
+      "path": "src/render/source-sun-visibility.ts",
+      "bytes": 4337,
+      "sha256": "f3bd1b3f78863c8f9aeba0359fd8a3c0fe4ff9de1bd267cbef1bf1785cc41f2a",
+      "fixture": "fixtures/src/render/source-sun-visibility.ts",
+      "originPolicy": "frozen-fixture"
+    },
+    {
+      "path": "node_modules/three/examples/jsm/loaders/GLTFLoader.js",
+      "bytes": 114959,
+      "sha256": "97642d720f16cc9a0c9844934198e4d0c023bea8e89576d0f7545d03b2d103d2",
+      "originPolicy": "installed-dependency"
+    },
+    {
+      "path": "src/render/sky-lighting.ts",
+      "bytes": 2662,
+      "sha256": "2d8d3be053b16c1bf3a1d807c31cfceb004aee9175265fd3be8624c4aa40fb81",
+      "fixture": "fixtures/src/render/sky-lighting.ts",
+      "originPolicy": "frozen-fixture"
+    },
+    {
+      "path": "src/render/far-crown-blending.ts",
+      "bytes": 7266,
+      "sha256": "9790dbbad70ceda7b34f08beda32ef9e0939f781d0c7a45561b9dab6b1586d18",
+      "fixture": "fixtures/src/render/far-crown-blending.ts",
+      "originPolicy": "frozen-fixture"
+    },
+    {
+      "path": "src/render/diagnostics.ts",
+      "bytes": 2178,
+      "sha256": "fa897ab752278cea94e03d0966d90e1d4d1a4c9e9f7a9410cde3e582a2e9294a",
+      "fixture": "fixtures/src/render/diagnostics.ts",
+      "originPolicy": "frozen-fixture"
+    },
+    {
+      "path": "src/render/materials.ts",
+      "bytes": 2340,
+      "sha256": "24694202443318f0ff076e03853d4e222b2f95e318e107e0349cbec7097e1a6a",
+      "fixture": "fixtures/src/render/materials.ts",
+      "originPolicy": "frozen-fixture"
+    },
+    {
+      "path": "src/render/profiling-sync.ts",
+      "bytes": 2685,
+      "sha256": "b94dd23cffb33cab4d302794189a947ca82e54edb5fba1d655ba4c7898f4c651",
+      "fixture": "fixtures/src/render/profiling-sync.ts",
+      "originPolicy": "frozen-fixture"
+    },
+    {
+      "path": "scripts/control/source-direct-response-pilot-helper.mjs",
+      "bytes": 6729,
+      "sha256": "6163713d698ea8b57032abfd3ef43d5316f30d2d1797bb0c1678627e4f724c78",
+      "fixture": "fixtures/scripts/control/source-direct-response-pilot-helper.mjs",
+      "originPolicy": "frozen-fixture"
+    },
+    {
+      "path": "src/render/refraction.ts",
+      "bytes": 4670,
+      "sha256": "43945801b50936f78fd6bd715bc8db183391a8ad47556a8a5ac5c7ab08ef0eb0",
+      "fixture": "fixtures/src/render/refraction.ts",
+      "originPolicy": "frozen-fixture"
+    },
+    {
+      "path": "src/render/island-direct-response.ts",
+      "bytes": 13390,
+      "sha256": "7448e36342c57cef9f1f2e4311e9e6e980d58d23eb01918edacce5f9a46f5848",
+      "fixture": "fixtures/src/render/island-direct-response.ts",
+      "originPolicy": "frozen-fixture"
+    },
+    {
+      "path": "src/render/alpha-weighted-color.ts",
+      "bytes": 5057,
+      "sha256": "b667f945d96c5142df938b037fdd33d31fc4c41f8e147171a40c9fd445c97391",
+      "fixture": "fixtures/src/render/alpha-weighted-color.ts",
+      "originPolicy": "frozen-fixture"
+    },
+    {
+      "path": "node_modules/three/build/three.core.js",
+      "bytes": 1443056,
+      "sha256": "3718df126d69c125362a03340913204470d8c50238605150e57f808840fb7759",
+      "originPolicy": "installed-dependency"
+    },
+    {
+      "path": "src/render/far-crown-coverage.ts",
+      "bytes": 6971,
+      "sha256": "8adbde6b856aba60eba38f279ccec323221a4375bc26bf60c2b03505b9838757",
+      "fixture": "fixtures/src/render/far-crown-coverage.ts",
+      "originPolicy": "frozen-fixture"
+    },
+    {
+      "path": "src/world/weather.ts",
+      "bytes": 1079,
+      "sha256": "d38c3292ed627e63178815e8232325e7a9f3b9480bbc9115813ea5f06915da33",
+      "fixture": "fixtures/src/world/weather.ts",
+      "originPolicy": "frozen-fixture"
+    },
+    {
+      "path": "src/world/habitat.ts",
+      "bytes": 3922,
+      "sha256": "c4599e693e07a45f6cdfeae4c7a930fa8550fb6e553c52b9d82c33a36f98a21c",
+      "fixture": "fixtures/src/world/habitat.ts",
+      "originPolicy": "frozen-fixture"
+    },
+    {
+      "path": "src/world/lod.ts",
+      "bytes": 829,
+      "sha256": "432d693723a429950e460fdfe1975827aa9284e7d2464b2de8a2c599d4c6062f",
+      "fixture": "fixtures/src/world/lod.ts",
+      "originPolicy": "frozen-fixture"
+    },
+    {
+      "path": "node_modules/three/examples/jsm/utils/SkeletonUtils.js",
+      "bytes": 11535,
+      "sha256": "b1632a703206c3d830de9fcbe515696770d04b71a15ee6b50afa6d2c3298c86f",
+      "originPolicy": "installed-dependency"
+    },
+    {
+      "path": "node_modules/three/examples/jsm/utils/BufferGeometryUtils.js",
+      "bytes": 37621,
+      "sha256": "5c552223a9309883743b80538d6e9cdb45e3227f30d3ec56fb2c39b46e78d595",
+      "originPolicy": "installed-dependency"
+    },
+    {
+      "path": "src/world/math.ts",
+      "bytes": 10259,
+      "sha256": "dbe12812c66944386aad6a62e1882dc8323faf4188e9eeedeac6928e4a052ab8",
+      "fixture": "fixtures/src/world/math.ts",
+      "originPolicy": "frozen-fixture"
+    },
+    {
+      "path": "src/world/terrain-fractures.ts",
+      "bytes": 3053,
+      "sha256": "ebce2e7167cab9113c431bb1f4ad802312dfbb34bcc3f0d8e5bd9ea8935e16c8",
+      "fixture": "fixtures/src/world/terrain-fractures.ts",
+      "originPolicy": "frozen-fixture"
+    },
+    {
+      "path": "src/world/principal-face-planes.ts",
+      "bytes": 3325,
+      "sha256": "91afc6ff752c39bb5b312c61df10a118247f89b6a052679445c8df899370c4b0",
+      "fixture": "fixtures/src/world/principal-face-planes.ts",
+      "originPolicy": "frozen-fixture"
+    },
+    {
+      "path": "src/world/broad-recess-planes.ts",
+      "bytes": 1364,
+      "sha256": "41e99d8961dff6e5eb51ccff6aad03867bbccedff81c5b4a1d06732c4ecbd0ba",
+      "fixture": "fixtures/src/world/broad-recess-planes.ts",
+      "originPolicy": "frozen-fixture"
+    },
+    {
+      "path": "public/assets/models/island-tree-near.glb",
+      "bytes": 13299192,
+      "sha256": "c81e6ece28b7646aa59f2c2c68142619b2790d0db62c5d829278fec92e4373d7",
+      "originPolicy": "archive-backed-source-asset"
+    },
+    {
+      "path": "public/assets/impostors/island-albedo.png",
+      "bytes": 798481,
+      "sha256": "fa511d86ca9659007e0c4cc0d17d9344cda5b7c8c2868c524eb70a6f942d7eac",
+      "originPolicy": "archive-backed-source-asset"
+    },
+    {
+      "path": "public/assets/impostors/island-normal.png",
+      "bytes": 933462,
+      "sha256": "a6cd5cbb19f2647d6980a8eaeee9839d0622e81ba847033e321693fe1d4afd7a",
+      "originPolicy": "archive-backed-source-asset"
+    },
+    {
+      "path": "public/assets/impostors/island-visibility.rg8",
+      "bytes": 6291456,
+      "sha256": "511289cba41882d4d417c23b7081bfd5971242c879041f08ffb97bceeeb7017d",
+      "originPolicy": "archive-backed-source-asset"
+    },
+    {
+      "path": "scripts/control/source-island-response-bake.mjs",
+      "bytes": 6378,
+      "sha256": "f473ff98059f7bf89e6470186aa879c9a2471b642be9bb0e39721422df73b469",
+      "fixture": "fixtures/scripts/control/source-island-response-bake.mjs",
+      "originPolicy": "frozen-fixture"
+    }
+  ],
+  "supportFiles": [
+    {
+      "path": "package.json",
+      "bytes": 2401,
+      "sha256": "483bc831d352e30fed8707442b9bf3529202238c0fe56426a805512619e89309",
+      "role": "Node resolution support, separate from the original33 served/source hashes",
+      "fixture": "fixtures/package.json",
+      "originPolicy": "frozen-fixture"
+    },
+    {
+      "path": "scripts/control/ts-resolve.mjs",
+      "bytes": 341,
+      "sha256": "ee48d630e3cfcb7a816b802dd2305277a50bcda836b0f548e42265c47da92a14",
+      "role": "Node resolution support, separate from the original33 served/source hashes",
+      "fixture": "fixtures/scripts/control/ts-resolve.mjs",
+      "originPolicy": "frozen-fixture"
+    },
+    {
+      "path": "node_modules/three/package.json",
+      "bytes": 3826,
+      "sha256": "1d5c438acdc1fe5a52fb8ede2e417afd91fec91d22275c40f7b739591b24e4df",
+      "role": "Node resolution support, separate from the original33 served/source hashes",
+      "originPolicy": "installed-dependency-support"
+    }
+  ],
+  "installedTools": [
+    {
+      "package": "typescript",
+      "version": "5.9.3",
+      "files": [
+        {
+          "path": "node_modules/typescript/package.json",
+          "bytes": 3620,
+          "sha256": "822ef7ca6452205657b6288b066481ecf508bfbf43455d715cf7d3ec457561e6"
+        },
+        {
+          "path": "node_modules/typescript/lib/typescript.js",
+          "bytes": 9112572,
+          "sha256": "3ae902c92cc44dace175c0e69e13a4b0899f6983c6121d76b9ab8dd5795e7675"
+        }
+      ],
+      "action": "verify installed package and link; runtime support is not part of the original33 hash ledger"
+    },
+    {
+      "package": "playwright",
+      "version": "1.63.0",
+      "files": [
+        {
+          "path": "node_modules/playwright/package.json",
+          "bytes": 1359,
+          "sha256": "8bc2ddebe8d9b051b9ecb87d62c6c63877e59d08617f32c3215681ca8bb70998"
+        },
+        {
+          "path": "node_modules/playwright/index.mjs",
+          "bytes": 704,
+          "sha256": "a0f5715ea22354f922791a9c53dc012d5d5c067ff9cc4cd35ffb7cd272071a9f"
+        }
+      ],
+      "action": "verify installed package and link; runtime support is not part of the original33 hash ledger"
+    },
+    {
+      "package": "playwright-core",
+      "version": "1.63.0",
+      "files": [
+        {
+          "path": "node_modules/playwright-core/package.json",
+          "bytes": 876,
+          "sha256": "f061c58427e47e843e26d201f0a57076c734e57c734ecbbd87d4a23b7a20db9b"
+        },
+        {
+          "path": "node_modules/playwright-core/lib/coreBundle.js",
+          "bytes": 3477183,
+          "sha256": "549070af3acabb3efcc4f55bfe6210f9f7c2fcf633cf7eaa59bfe60719969171"
+        }
+      ],
+      "action": "verify installed package and link; runtime support is not part of the original33 hash ledger"
+    }
+  ],
+  "completedPayload": {
+    "path": "public/assets/studies/island-response/island-direct-response.rgba16f",
+    "bytes": 25165824,
+    "sha256": "9f1e04acf3995292adb4a7bba6c28ba28088cd37a3e7e90374a4fac3d564f63f"
+  },
+  "completedRuntimeManifest": {
+    "path": "public/assets/studies/island-response/response-manifest.json",
+    "bytes": 335275,
+    "sha256": "1935e1b8bd002959861fb97b768f8e9e184a71e08a5906f5eaa5987e65144601"
+  },
+  "bakeContract": {
+    "sourceRenderSize": 1024,
+    "samples": 4,
+    "viewCount": 24,
+    "sunCount": 8,
+    "sourceIntegration": "1024 ->256 by4x area ->128 by2x area;RGB and alpha together",
+    "startMemoryGiB": 6,
+    "stopMemoryGiB": 7.25,
+    "pageBudgetMs": 480000,
+    "totalBudgetMs": 600000
+  },
+  "limits": [
+    "Reconstructs byte-identical source inputs; GPU driver/browser binaries and host scheduling are not archived.",
+    "No raw layer images are bundled. A new full bake needs an explicitly authorized GPU window and empty output directory; completed public runtime assets restore separately through recovery/archives.json.",
+    "Tool runtime fingerprints and3Node-resolution supportfiles are separate from the original33source hashledger."
+  ],
+  "sourcePolicy": "Always use all24 exact frozen source-text fixtures. Verify/copy5 installedThree modules and4 archive-backed sourceassets; no binaryasset duplication."
+}

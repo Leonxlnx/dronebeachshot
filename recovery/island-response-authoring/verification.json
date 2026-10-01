@@ -1,0 +1,41 @@
+{
+  "ok": true,
+  "originalDependencyCount": 33,
+  "frozenSourceFixtureCount": 24,
+  "supportFixtureCount": 2,
+  "fixtureCount": 26,
+  "fixtureBytes": 150347,
+  "installedThreeModuleCount": 5,
+  "archiveBackedSourceAssetCount": 4,
+  "originalLedgerMatchesRuntimeManifest": true,
+  "allSourceTextUsesFrozenFixtures": true,
+  "checks": [
+    "current production diagnostics drift does not affect reconstruction",
+    "all24 exactsource fixtures match original33ledger",
+    "fresh temporary reconstruction hashes all33inputs",
+    "five Three modules copied physically",
+    "installed toolversions/entryhashes checked",
+    "unchanged reconstructed CPU entry passes17checks",
+    "existingoutput rejected",
+    "mismatched installedThreeinput rejected beforeoutputcreation",
+    "current sourcechange cannot override frozenfixture",
+    "corrupt fixture rejected beforeoutputcreation"
+  ],
+  "testCommand": "node --test recovery/island-response-authoring/reconstruct.test.mjs",
+  "browserLaunched": false,
+  "productionFilesModified": false,
+  "runtimeAssetsModified": false,
+  "rawRendersBundled": false,
+  "recoveryManifestSHA256": "46d42924c1f238e6bfde90c2a0cf2295d497fe2692c795612010f07b33c36c83",
+  "completedPayload": {
+    "path": "public/assets/studies/island-response/island-direct-response.rgba16f",
+    "bytes": 25165824,
+    "sha256": "9f1e04acf3995292adb4a7bba6c28ba28088cd37a3e7e90374a4fac3d564f63f"
+  },
+  "completedRuntimeManifest": {
+    "path": "public/assets/studies/island-response/response-manifest.json",
+    "bytes": 335275,
+    "sha256": "1935e1b8bd002959861fb97b768f8e9e184a71e08a5906f5eaa5987e65144601"
+  },
+  "independentReview": "Prior reconstruction flow reviewed independently; final change forces all24 source inputs through the same validated-fixture path instead of choosing current production bytes."
+}
