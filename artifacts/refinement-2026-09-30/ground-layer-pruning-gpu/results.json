@@ -1,0 +1,2215 @@
+{
+  "kind": "ground material differential fixture",
+  "size": 128,
+  "productionHashes": {
+    "ground": "2d347d9f44d797829a925e5228dba2ebde6c3bb1cb78652661fb6c4a960fd8ab",
+    "terrain": "d5e84d658e6e52f28abbded5673b945adf31f988378bc95efe7b7f51f103b733"
+  },
+  "candidateSHA256": "6c3782c5b6b047664b9a8a81d9f4947ea8e8266131cddf20cc36d048bcdbf3bf",
+  "cases": [
+    {
+      "name": "pure-sand-near",
+      "kind": "core",
+      "origin": [
+        10,
+        0.15,
+        106
+      ],
+      "span": [
+        2.13,
+        3.19
+      ],
+      "normal": [
+        0.13,
+        1,
+        0.04
+      ],
+      "maskPattern": 0,
+      "maskOffset": 0,
+      "bedding": 1,
+      "mineral": 0
+    },
+    {
+      "name": "mixed-quad-phase-seams",
+      "kind": "core",
+      "origin": [
+        53,
+        4,
+        110
+      ],
+      "span": [
+        35.17,
+        47.71
+      ],
+      "normal": [
+        0.34,
+        0.83,
+        0.19
+      ],
+      "maskPattern": 1,
+      "maskOffset": 0,
+      "bedding": 1,
+      "mineral": 0
+    },
+    {
+      "name": "grazing-anisotropic-bedding-off",
+      "kind": "core",
+      "origin": [
+        -143,
+        10,
+        75
+      ],
+      "span": [
+        1.13,
+        501.7
+      ],
+      "normal": [
+        0.66,
+        0.68,
+        0.17
+      ],
+      "maskPattern": 1,
+      "maskOffset": 1,
+      "bedding": 0,
+      "mineral": 0
+    },
+    {
+      "name": "mixed-mineral-positive",
+      "kind": "core",
+      "origin": [
+        171,
+        25,
+        35
+      ],
+      "span": [
+        26.91,
+        71.13
+      ],
+      "normal": [
+        0.68,
+        0.52,
+        0.25
+      ],
+      "maskPattern": 1,
+      "maskOffset": 2,
+      "bedding": 1,
+      "mineral": 0.65
+    },
+    {
+      "name": "continuation-rewritten-pure-core-sand",
+      "kind": "continuation",
+      "origin": [
+        1100,
+        22,
+        -500
+      ],
+      "span": [
+        58.73,
+        183.19
+      ],
+      "normal": [
+        0.47,
+        0.69,
+        0.54
+      ],
+      "maskPattern": 0,
+      "maskOffset": 0,
+      "bedding": 1,
+      "mineral": 0.65
+    },
+    {
+      "name": "continuation-rewritten-mixed",
+      "kind": "continuation",
+      "origin": [
+        -1100,
+        5,
+        -500
+      ],
+      "span": [
+        1.47,
+        218.33
+      ],
+      "normal": [
+        0.71,
+        0.47,
+        0.51
+      ],
+      "maskPattern": 1,
+      "maskOffset": 1,
+      "bedding": 0,
+      "mineral": 0.65
+    },
+    {
+      "name": "rock-positive-mineral",
+      "kind": "rock",
+      "origin": [
+        73,
+        18,
+        121
+      ],
+      "span": [
+        43.71,
+        87.19
+      ],
+      "normal": [
+        0.44,
+        0.71,
+        0.28
+      ],
+      "maskPattern": 0,
+      "maskOffset": 0,
+      "bedding": 1,
+      "mineral": 0.65
+    }
+  ],
+  "sourceRoutes": "actual transpiled original/candidate material; actual continuation hook; isolated source-derived GLSL math and diagnostic 2x2 habitat texture",
+  "productionModified": false,
+  "completed": true,
+  "metadata": {
+    "size": 128,
+    "threeRevision": "185",
+    "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "maxAnisotropy": 16,
+    "floatTarget": true,
+    "preview": "sRGB conversion of actual finite linear Float32 target; no tone mapping",
+    "sourceTextures": "separate synthetic and source-derived256 test sets"
+  },
+  "rows": [
+    {
+      "label": "synthetic-pure-sand-near-original-0",
+      "textureKind": "synthetic",
+      "fixture": "pure-sand-near",
+      "kind": "core",
+      "variant": "original",
+      "mode": 0,
+      "milliseconds": 769,
+      "statistics": {
+        "minimum": 0.450507840821147,
+        "maximum": 0.8055012420177459,
+        "mean": 0.520795122682336,
+        "deviation": 0.06475636284109337,
+        "litFraction": 1,
+        "opaqueFraction": 1
+      }
+    },
+    {
+      "label": "synthetic-pure-sand-near-candidate-0",
+      "textureKind": "synthetic",
+      "fixture": "pure-sand-near",
+      "kind": "core",
+      "variant": "candidate",
+      "mode": 0,
+      "milliseconds": 831,
+      "statistics": {
+        "minimum": 0.450507840821147,
+        "maximum": 0.8055012420177459,
+        "mean": 0.520795122682336,
+        "deviation": 0.06475636284109337,
+        "litFraction": 1,
+        "opaqueFraction": 1
+      }
+    },
+    {
+      "label": "synthetic-pure-sand-near-candidate-1",
+      "textureKind": "synthetic",
+      "fixture": "pure-sand-near",
+      "kind": "core",
+      "variant": "candidate",
+      "mode": 1,
+      "milliseconds": 97,
+      "statistics": {
+        "minimum": 0.450507840821147,
+        "maximum": 0.8055012420177459,
+        "mean": 0.520795122682336,
+        "deviation": 0.06475636284109337,
+        "litFraction": 1,
+        "opaqueFraction": 1
+      }
+    },
+    {
+      "label": "synthetic-pure-sand-near-candidate-2",
+      "textureKind": "synthetic",
+      "fixture": "pure-sand-near",
+      "kind": "core",
+      "variant": "candidate",
+      "mode": 2,
+      "milliseconds": 42,
+      "statistics": {
+        "minimum": 0.450507840821147,
+        "maximum": 0.8055012420177459,
+        "mean": 0.5207951226495001,
+        "deviation": 0.06475636313418746,
+        "litFraction": 1,
+        "opaqueFraction": 1
+      }
+    },
+    {
+      "label": "synthetic-mixed-quad-phase-seams-original-0",
+      "textureKind": "synthetic",
+      "fixture": "mixed-quad-phase-seams",
+      "kind": "core",
+      "variant": "original",
+      "mode": 0,
+      "milliseconds": 68,
+      "statistics": {
+        "minimum": 0.08236730059236289,
+        "maximum": 0.6700614979088306,
+        "mean": 0.28607911799006824,
+        "deviation": 0.17426433755916473,
+        "litFraction": 1,
+        "opaqueFraction": 1
+      }
+    },
+    {
+      "label": "synthetic-mixed-quad-phase-seams-candidate-0",
+      "textureKind": "synthetic",
+      "fixture": "mixed-quad-phase-seams",
+      "kind": "core",
+      "variant": "candidate",
+      "mode": 0,
+      "milliseconds": 70,
+      "statistics": {
+        "minimum": 0.08236730059236289,
+        "maximum": 0.6700614979088306,
+        "mean": 0.28607911799006824,
+        "deviation": 0.17426433755916473,
+        "litFraction": 1,
+        "opaqueFraction": 1
+      }
+    },
+    {
+      "label": "synthetic-mixed-quad-phase-seams-candidate-1",
+      "textureKind": "synthetic",
+      "fixture": "mixed-quad-phase-seams",
+      "kind": "core",
+      "variant": "candidate",
+      "mode": 1,
+      "milliseconds": 104,
+      "statistics": {
+        "minimum": 0.08236730059236289,
+        "maximum": 0.6700614979088306,
+        "mean": 0.28607911799006824,
+        "deviation": 0.17426433755916473,
+        "litFraction": 1,
+        "opaqueFraction": 1
+      }
+    },
+    {
+      "label": "synthetic-mixed-quad-phase-seams-candidate-2",
+      "textureKind": "synthetic",
+      "fixture": "mixed-quad-phase-seams",
+      "kind": "core",
+      "variant": "candidate",
+      "mode": 2,
+      "milliseconds": 103,
+      "statistics": {
+        "minimum": 0.08236730059236289,
+        "maximum": 0.6700614979088306,
+        "mean": 0.28607911801884744,
+        "deviation": 0.17426433760998356,
+        "litFraction": 1,
+        "opaqueFraction": 1
+      }
+    },
+    {
+      "label": "synthetic-grazing-anisotropic-bedding-off-original-0",
+      "textureKind": "synthetic",
+      "fixture": "grazing-anisotropic-bedding-off",
+      "kind": "core",
+      "variant": "original",
+      "mode": 0,
+      "milliseconds": 75,
+      "statistics": {
+        "minimum": 0.0595106230456382,
+        "maximum": 0.64276902115345,
+        "mean": 0.24769355675130003,
+        "deviation": 0.1701449072327846,
+        "litFraction": 1,
+        "opaqueFraction": 1
+      }
+    },
+    {
+      "label": "synthetic-grazing-anisotropic-bedding-off-candidate-0",
+      "textureKind": "synthetic",
+      "fixture": "grazing-anisotropic-bedding-off",
+      "kind": "core",
+      "variant": "candidate",
+      "mode": 0,
+      "milliseconds": 89,
+      "statistics": {
+        "minimum": 0.0595106230456382,
+        "maximum": 0.64276902115345,
+        "mean": 0.24769355675130003,
+        "deviation": 0.1701449072327846,
+        "litFraction": 1,
+        "opaqueFraction": 1
+      }
+    },
+    {
+      "label": "synthetic-grazing-anisotropic-bedding-off-candidate-1",
+      "textureKind": "synthetic",
+      "fixture": "grazing-anisotropic-bedding-off",
+      "kind": "core",
+      "variant": "candidate",
+      "mode": 1,
+      "milliseconds": 159,
+      "statistics": {
+        "minimum": 0.0595106230456382,
+        "maximum": 0.64276902115345,
+        "mean": 0.24769355675130003,
+        "deviation": 0.1701449072327846,
+        "litFraction": 1,
+        "opaqueFraction": 1
+      }
+    },
+    {
+      "label": "synthetic-grazing-anisotropic-bedding-off-candidate-2",
+      "textureKind": "synthetic",
+      "fixture": "grazing-anisotropic-bedding-off",
+      "kind": "core",
+      "variant": "candidate",
+      "mode": 2,
+      "milliseconds": 91,
+      "statistics": {
+        "minimum": 0.0595106230456382,
+        "maximum": 0.64276902115345,
+        "mean": 0.2476935566991782,
+        "deviation": 0.17014490716796973,
+        "litFraction": 1,
+        "opaqueFraction": 1
+      }
+    },
+    {
+      "label": "synthetic-mixed-mineral-positive-original-0",
+      "textureKind": "synthetic",
+      "fixture": "mixed-mineral-positive",
+      "kind": "core",
+      "variant": "original",
+      "mode": 0,
+      "milliseconds": 66,
+      "statistics": {
+        "minimum": 0.05156711518988013,
+        "maximum": 0.6188457832694053,
+        "mean": 0.2273895954492593,
+        "deviation": 0.15935723621335907,
+        "litFraction": 1,
+        "opaqueFraction": 1
+      }
+    },
+    {
+      "label": "synthetic-mixed-mineral-positive-candidate-0",
+      "textureKind": "synthetic",
+      "fixture": "mixed-mineral-positive",
+      "kind": "core",
+      "variant": "candidate",
+      "mode": 0,
+      "milliseconds": 69,
+      "statistics": {
+        "minimum": 0.05156711518988013,
+        "maximum": 0.6188457832694053,
+        "mean": 0.2273895954492593,
+        "deviation": 0.15935723621335907,
+        "litFraction": 1,
+        "opaqueFraction": 1
+      }
+    },
+    {
+      "label": "synthetic-mixed-mineral-positive-candidate-1",
+      "textureKind": "synthetic",
+      "fixture": "mixed-mineral-positive",
+      "kind": "core",
+      "variant": "candidate",
+      "mode": 1,
+      "milliseconds": 85,
+      "statistics": {
+        "minimum": 0.05156711518988013,
+        "maximum": 0.6188457832694053,
+        "mean": 0.2273895954492593,
+        "deviation": 0.15935723621335907,
+        "litFraction": 1,
+        "opaqueFraction": 1
+      }
+    },
+    {
+      "label": "synthetic-mixed-mineral-positive-candidate-2",
+      "textureKind": "synthetic",
+      "fixture": "mixed-mineral-positive",
+      "kind": "core",
+      "variant": "candidate",
+      "mode": 2,
+      "milliseconds": 99,
+      "statistics": {
+        "minimum": 0.05156711518988013,
+        "maximum": 0.6188457832694053,
+        "mean": 0.22738959548887727,
+        "deviation": 0.15935723627946022,
+        "litFraction": 1,
+        "opaqueFraction": 1
+      }
+    },
+    {
+      "label": "synthetic-continuation-rewritten-pure-core-sand-original-0",
+      "textureKind": "synthetic",
+      "fixture": "continuation-rewritten-pure-core-sand",
+      "kind": "continuation",
+      "variant": "original",
+      "mode": 0,
+      "milliseconds": 454,
+      "statistics": {
+        "minimum": 0.04894123161491006,
+        "maximum": 0.05839887342676521,
+        "mean": 0.05347413029170496,
+        "deviation": 0.0017807744450261146,
+        "litFraction": 1,
+        "opaqueFraction": 1
+      }
+    },
+    {
+      "label": "synthetic-continuation-rewritten-pure-core-sand-candidate-0",
+      "textureKind": "synthetic",
+      "fixture": "continuation-rewritten-pure-core-sand",
+      "kind": "continuation",
+      "variant": "candidate",
+      "mode": 0,
+      "milliseconds": 926,
+      "statistics": {
+        "minimum": 0.04894123161491006,
+        "maximum": 0.05839887342676521,
+        "mean": 0.05347413029170496,
+        "deviation": 0.0017807744450261146,
+        "litFraction": 1,
+        "opaqueFraction": 1
+      }
+    },
+    {
+      "label": "synthetic-continuation-rewritten-pure-core-sand-candidate-1",
+      "textureKind": "synthetic",
+      "fixture": "continuation-rewritten-pure-core-sand",
+      "kind": "continuation",
+      "variant": "candidate",
+      "mode": 1,
+      "milliseconds": 77,
+      "statistics": {
+        "minimum": 0.04894123161491006,
+        "maximum": 0.05839887342676521,
+        "mean": 0.05347413029170496,
+        "deviation": 0.0017807744450261146,
+        "litFraction": 1,
+        "opaqueFraction": 1
+      }
+    },
+    {
+      "label": "synthetic-continuation-rewritten-pure-core-sand-candidate-2",
+      "textureKind": "synthetic",
+      "fixture": "continuation-rewritten-pure-core-sand",
+      "kind": "continuation",
+      "variant": "candidate",
+      "mode": 2,
+      "milliseconds": 71,
+      "statistics": {
+        "minimum": 0.04894123161491006,
+        "maximum": 0.05839887342676521,
+        "mean": 0.05347413029170496,
+        "deviation": 0.0017807744450261146,
+        "litFraction": 1,
+        "opaqueFraction": 1
+      }
+    },
+    {
+      "label": "synthetic-continuation-rewritten-mixed-original-0",
+      "textureKind": "synthetic",
+      "fixture": "continuation-rewritten-mixed",
+      "kind": "continuation",
+      "variant": "original",
+      "mode": 0,
+      "milliseconds": 72,
+      "statistics": {
+        "minimum": 0.4104311998695135,
+        "maximum": 0.4304406150817871,
+        "mean": 0.41977236208436747,
+        "deviation": 0.003959995899410915,
+        "litFraction": 1,
+        "opaqueFraction": 1
+      }
+    },
+    {
+      "label": "synthetic-continuation-rewritten-mixed-candidate-0",
+      "textureKind": "synthetic",
+      "fixture": "continuation-rewritten-mixed",
+      "kind": "continuation",
+      "variant": "candidate",
+      "mode": 0,
+      "milliseconds": 73,
+      "statistics": {
+        "minimum": 0.4104311998695135,
+        "maximum": 0.4304406150817871,
+        "mean": 0.41977236208436747,
+        "deviation": 0.003959995899410915,
+        "litFraction": 1,
+        "opaqueFraction": 1
+      }
+    },
+    {
+      "label": "synthetic-continuation-rewritten-mixed-candidate-1",
+      "textureKind": "synthetic",
+      "fixture": "continuation-rewritten-mixed",
+      "kind": "continuation",
+      "variant": "candidate",
+      "mode": 1,
+      "milliseconds": 60,
+      "statistics": {
+        "minimum": 0.4104311998695135,
+        "maximum": 0.4304406150817871,
+        "mean": 0.41977236208436747,
+        "deviation": 0.003959995899410915,
+        "litFraction": 1,
+        "opaqueFraction": 1
+      }
+    },
+    {
+      "label": "synthetic-continuation-rewritten-mixed-candidate-2",
+      "textureKind": "synthetic",
+      "fixture": "continuation-rewritten-mixed",
+      "kind": "continuation",
+      "variant": "candidate",
+      "mode": 2,
+      "milliseconds": 70,
+      "statistics": {
+        "minimum": 0.4104311998695135,
+        "maximum": 0.4304406150817871,
+        "mean": 0.41977236208436747,
+        "deviation": 0.003959995899410915,
+        "litFraction": 1,
+        "opaqueFraction": 1
+      }
+    },
+    {
+      "label": "synthetic-rock-positive-mineral-original-0",
+      "textureKind": "synthetic",
+      "fixture": "rock-positive-mineral",
+      "kind": "rock",
+      "variant": "original",
+      "mode": 0,
+      "milliseconds": 277,
+      "statistics": {
+        "minimum": 0.13012047658711673,
+        "maximum": 0.30384047493636607,
+        "mean": 0.271537571310891,
+        "deviation": 0.038973759837113396,
+        "litFraction": 1,
+        "opaqueFraction": 1
+      }
+    },
+    {
+      "label": "synthetic-rock-positive-mineral-candidate-2",
+      "textureKind": "synthetic",
+      "fixture": "rock-positive-mineral",
+      "kind": "rock",
+      "variant": "candidate",
+      "mode": 2,
+      "milliseconds": 274,
+      "statistics": {
+        "minimum": 0.13012047658711673,
+        "maximum": 0.30384047493636607,
+        "mean": 0.271537571310891,
+        "deviation": 0.038973759837113396,
+        "litFraction": 1,
+        "opaqueFraction": 1
+      }
+    },
+    {
+      "label": "source256-pure-sand-near-original-0",
+      "textureKind": "source256",
+      "fixture": "pure-sand-near",
+      "kind": "core",
+      "variant": "original",
+      "mode": 0,
+      "milliseconds": 221,
+      "statistics": {
+        "minimum": 0.3100643670737743,
+        "maximum": 1.1764197890281676,
+        "mean": 0.39860689572878516,
+        "deviation": 0.054301281545840054,
+        "litFraction": 1,
+        "opaqueFraction": 1
+      }
+    },
+    {
+      "label": "source256-pure-sand-near-candidate-0",
+      "textureKind": "source256",
+      "fixture": "pure-sand-near",
+      "kind": "core",
+      "variant": "candidate",
+      "mode": 0,
+      "milliseconds": 71,
+      "statistics": {
+        "minimum": 0.3100643670737743,
+        "maximum": 1.1764197890281676,
+        "mean": 0.39860689572878516,
+        "deviation": 0.054301281545840054,
+        "litFraction": 1,
+        "opaqueFraction": 1
+      }
+    },
+    {
+      "label": "source256-pure-sand-near-candidate-1",
+      "textureKind": "source256",
+      "fixture": "pure-sand-near",
+      "kind": "core",
+      "variant": "candidate",
+      "mode": 1,
+      "milliseconds": 86,
+      "statistics": {
+        "minimum": 0.3100643670737743,
+        "maximum": 1.1764197890281676,
+        "mean": 0.39860689572878516,
+        "deviation": 0.054301281545840054,
+        "litFraction": 1,
+        "opaqueFraction": 1
+      }
+    },
+    {
+      "label": "source256-pure-sand-near-candidate-2",
+      "textureKind": "source256",
+      "fixture": "pure-sand-near",
+      "kind": "core",
+      "variant": "candidate",
+      "mode": 2,
+      "milliseconds": 51,
+      "statistics": {
+        "minimum": 0.3100643670737743,
+        "maximum": 1.1764197890281676,
+        "mean": 0.3986068961621127,
+        "deviation": 0.05430128164445692,
+        "litFraction": 1,
+        "opaqueFraction": 1
+      }
+    },
+    {
+      "label": "source256-mixed-quad-phase-seams-original-0",
+      "textureKind": "source256",
+      "fixture": "mixed-quad-phase-seams",
+      "kind": "core",
+      "variant": "original",
+      "mode": 0,
+      "milliseconds": 72,
+      "statistics": {
+        "minimum": 0.08351104482747615,
+        "maximum": 0.6509603905260563,
+        "mean": 0.2902858136883343,
+        "deviation": 0.16787510779127557,
+        "litFraction": 1,
+        "opaqueFraction": 1
+      }
+    },
+    {
+      "label": "source256-mixed-quad-phase-seams-candidate-0",
+      "textureKind": "source256",
+      "fixture": "mixed-quad-phase-seams",
+      "kind": "core",
+      "variant": "candidate",
+      "mode": 0,
+      "milliseconds": 56,
+      "statistics": {
+        "minimum": 0.08351104482747615,
+        "maximum": 0.6509603905260563,
+        "mean": 0.2902858136883343,
+        "deviation": 0.16787510779127557,
+        "litFraction": 1,
+        "opaqueFraction": 1
+      }
+    },
+    {
+      "label": "source256-mixed-quad-phase-seams-candidate-1",
+      "textureKind": "source256",
+      "fixture": "mixed-quad-phase-seams",
+      "kind": "core",
+      "variant": "candidate",
+      "mode": 1,
+      "milliseconds": 68,
+      "statistics": {
+        "minimum": 0.08351104482747615,
+        "maximum": 0.6509603905260563,
+        "mean": 0.2902858136883343,
+        "deviation": 0.16787510779127557,
+        "litFraction": 1,
+        "opaqueFraction": 1
+      }
+    },
+    {
+      "label": "source256-mixed-quad-phase-seams-candidate-2",
+      "textureKind": "source256",
+      "fixture": "mixed-quad-phase-seams",
+      "kind": "core",
+      "variant": "candidate",
+      "mode": 2,
+      "milliseconds": 76,
+      "statistics": {
+        "minimum": 0.08351104482747615,
+        "maximum": 0.6509603905260563,
+        "mean": 0.29028581369374096,
+        "deviation": 0.16787510778971992,
+        "litFraction": 1,
+        "opaqueFraction": 1
+      }
+    },
+    {
+      "label": "source256-grazing-anisotropic-bedding-off-original-0",
+      "textureKind": "source256",
+      "fixture": "grazing-anisotropic-bedding-off",
+      "kind": "core",
+      "variant": "original",
+      "mode": 0,
+      "milliseconds": 64,
+      "statistics": {
+        "minimum": 0.08502019179649652,
+        "maximum": 0.6427169471263885,
+        "mean": 0.27387347932028966,
+        "deviation": 0.15867196630387623,
+        "litFraction": 1,
+        "opaqueFraction": 1
+      }
+    },
+    {
+      "label": "source256-grazing-anisotropic-bedding-off-candidate-0",
+      "textureKind": "source256",
+      "fixture": "grazing-anisotropic-bedding-off",
+      "kind": "core",
+      "variant": "candidate",
+      "mode": 0,
+      "milliseconds": 64,
+      "statistics": {
+        "minimum": 0.08502019179649652,
+        "maximum": 0.6427169471263885,
+        "mean": 0.27387347932028966,
+        "deviation": 0.15867196630387623,
+        "litFraction": 1,
+        "opaqueFraction": 1
+      }
+    },
+    {
+      "label": "source256-grazing-anisotropic-bedding-off-candidate-1",
+      "textureKind": "source256",
+      "fixture": "grazing-anisotropic-bedding-off",
+      "kind": "core",
+      "variant": "candidate",
+      "mode": 1,
+      "milliseconds": 81,
+      "statistics": {
+        "minimum": 0.08502019179649652,
+        "maximum": 0.6427169471263885,
+        "mean": 0.27387347932028966,
+        "deviation": 0.15867196630387623,
+        "litFraction": 1,
+        "opaqueFraction": 1
+      }
+    },
+    {
+      "label": "source256-grazing-anisotropic-bedding-off-candidate-2",
+      "textureKind": "source256",
+      "fixture": "grazing-anisotropic-bedding-off",
+      "kind": "core",
+      "variant": "candidate",
+      "mode": 2,
+      "milliseconds": 82,
+      "statistics": {
+        "minimum": 0.08502019179649652,
+        "maximum": 0.6427169471263885,
+        "mean": 0.2738734793209729,
+        "deviation": 0.15867196630351132,
+        "litFraction": 1,
+        "opaqueFraction": 1
+      }
+    },
+    {
+      "label": "source256-mixed-mineral-positive-original-0",
+      "textureKind": "source256",
+      "fixture": "mixed-mineral-positive",
+      "kind": "core",
+      "variant": "original",
+      "mode": 0,
+      "milliseconds": 65,
+      "statistics": {
+        "minimum": 0.08158996904566884,
+        "maximum": 0.6222880621492862,
+        "mean": 0.2550413055561815,
+        "deviation": 0.1479591687841668,
+        "litFraction": 1,
+        "opaqueFraction": 1
+      }
+    },
+    {
+      "label": "source256-mixed-mineral-positive-candidate-0",
+      "textureKind": "source256",
+      "fixture": "mixed-mineral-positive",
+      "kind": "core",
+      "variant": "candidate",
+      "mode": 0,
+      "milliseconds": 79,
+      "statistics": {
+        "minimum": 0.08158996904566884,
+        "maximum": 0.6222880621492862,
+        "mean": 0.2550413055561815,
+        "deviation": 0.1479591687841668,
+        "litFraction": 1,
+        "opaqueFraction": 1
+      }
+    },
+    {
+      "label": "source256-mixed-mineral-positive-candidate-1",
+      "textureKind": "source256",
+      "fixture": "mixed-mineral-positive",
+      "kind": "core",
+      "variant": "candidate",
+      "mode": 1,
+      "milliseconds": 77,
+      "statistics": {
+        "minimum": 0.08158996904566884,
+        "maximum": 0.6222880621492862,
+        "mean": 0.2550413055561815,
+        "deviation": 0.1479591687841668,
+        "litFraction": 1,
+        "opaqueFraction": 1
+      }
+    },
+    {
+      "label": "source256-mixed-mineral-positive-candidate-2",
+      "textureKind": "source256",
+      "fixture": "mixed-mineral-positive",
+      "kind": "core",
+      "variant": "candidate",
+      "mode": 2,
+      "milliseconds": 72,
+      "statistics": {
+        "minimum": 0.08158996904566884,
+        "maximum": 0.6222880621492862,
+        "mean": 0.2550413055450823,
+        "deviation": 0.14795916878193294,
+        "litFraction": 1,
+        "opaqueFraction": 1
+      }
+    },
+    {
+      "label": "source256-continuation-rewritten-pure-core-sand-original-0",
+      "textureKind": "source256",
+      "fixture": "continuation-rewritten-pure-core-sand",
+      "kind": "continuation",
+      "variant": "original",
+      "mode": 0,
+      "milliseconds": 58,
+      "statistics": {
+        "minimum": 0.09613490590006112,
+        "maximum": 0.12694964703693987,
+        "mean": 0.10911021085250457,
+        "deviation": 0.005513173244870558,
+        "litFraction": 1,
+        "opaqueFraction": 1
+      }
+    },
+    {
+      "label": "source256-continuation-rewritten-pure-core-sand-candidate-0",
+      "textureKind": "source256",
+      "fixture": "continuation-rewritten-pure-core-sand",
+      "kind": "continuation",
+      "variant": "candidate",
+      "mode": 0,
+      "milliseconds": 56,
+      "statistics": {
+        "minimum": 0.09613490590006112,
+        "maximum": 0.12694964703693987,
+        "mean": 0.10911021085250457,
+        "deviation": 0.005513173244870558,
+        "litFraction": 1,
+        "opaqueFraction": 1
+      }
+    },
+    {
+      "label": "source256-continuation-rewritten-pure-core-sand-candidate-1",
+      "textureKind": "source256",
+      "fixture": "continuation-rewritten-pure-core-sand",
+      "kind": "continuation",
+      "variant": "candidate",
+      "mode": 1,
+      "milliseconds": 54,
+      "statistics": {
+        "minimum": 0.09613490590006112,
+        "maximum": 0.12694964703693987,
+        "mean": 0.10911021085250457,
+        "deviation": 0.005513173244870558,
+        "litFraction": 1,
+        "opaqueFraction": 1
+      }
+    },
+    {
+      "label": "source256-continuation-rewritten-pure-core-sand-candidate-2",
+      "textureKind": "source256",
+      "fixture": "continuation-rewritten-pure-core-sand",
+      "kind": "continuation",
+      "variant": "candidate",
+      "mode": 2,
+      "milliseconds": 58,
+      "statistics": {
+        "minimum": 0.09613490590006112,
+        "maximum": 0.12694964703693987,
+        "mean": 0.10911021085250457,
+        "deviation": 0.005513173244870558,
+        "litFraction": 1,
+        "opaqueFraction": 1
+      }
+    },
+    {
+      "label": "source256-continuation-rewritten-mixed-original-0",
+      "textureKind": "source256",
+      "fixture": "continuation-rewritten-mixed",
+      "kind": "continuation",
+      "variant": "original",
+      "mode": 0,
+      "milliseconds": 53,
+      "statistics": {
+        "minimum": 0.4119766431927681,
+        "maximum": 0.44446240740120413,
+        "mean": 0.42783537183057624,
+        "deviation": 0.004877143967565667,
+        "litFraction": 1,
+        "opaqueFraction": 1
+      }
+    },
+    {
+      "label": "source256-continuation-rewritten-mixed-candidate-0",
+      "textureKind": "source256",
+      "fixture": "continuation-rewritten-mixed",
+      "kind": "continuation",
+      "variant": "candidate",
+      "mode": 0,
+      "milliseconds": 56,
+      "statistics": {
+        "minimum": 0.4119766431927681,
+        "maximum": 0.44446240740120413,
+        "mean": 0.42783537183057624,
+        "deviation": 0.004877143967565667,
+        "litFraction": 1,
+        "opaqueFraction": 1
+      }
+    },
+    {
+      "label": "source256-continuation-rewritten-mixed-candidate-1",
+      "textureKind": "source256",
+      "fixture": "continuation-rewritten-mixed",
+      "kind": "continuation",
+      "variant": "candidate",
+      "mode": 1,
+      "milliseconds": 57,
+      "statistics": {
+        "minimum": 0.4119766431927681,
+        "maximum": 0.44446240740120413,
+        "mean": 0.42783537183057624,
+        "deviation": 0.004877143967565667,
+        "litFraction": 1,
+        "opaqueFraction": 1
+      }
+    },
+    {
+      "label": "source256-continuation-rewritten-mixed-candidate-2",
+      "textureKind": "source256",
+      "fixture": "continuation-rewritten-mixed",
+      "kind": "continuation",
+      "variant": "candidate",
+      "mode": 2,
+      "milliseconds": 60,
+      "statistics": {
+        "minimum": 0.4119766431927681,
+        "maximum": 0.44446240740120413,
+        "mean": 0.42783537183057624,
+        "deviation": 0.004877143967565667,
+        "litFraction": 1,
+        "opaqueFraction": 1
+      }
+    },
+    {
+      "label": "source256-rock-positive-mineral-original-0",
+      "textureKind": "source256",
+      "fixture": "rock-positive-mineral",
+      "kind": "rock",
+      "variant": "original",
+      "mode": 0,
+      "milliseconds": 69,
+      "statistics": {
+        "minimum": 0.2083402057826519,
+        "maximum": 0.37962347196489565,
+        "mean": 0.2897533985937295,
+        "deviation": 0.029480510286254428,
+        "litFraction": 1,
+        "opaqueFraction": 1
+      }
+    },
+    {
+      "label": "source256-rock-positive-mineral-candidate-2",
+      "textureKind": "source256",
+      "fixture": "rock-positive-mineral",
+      "kind": "rock",
+      "variant": "candidate",
+      "mode": 2,
+      "milliseconds": 54,
+      "statistics": {
+        "minimum": 0.2083402057826519,
+        "maximum": 0.37962347196489565,
+        "mean": 0.2897533985937295,
+        "deviation": 0.029480510286254428,
+        "litFraction": 1,
+        "opaqueFraction": 1
+      }
+    }
+  ],
+  "pairs": [
+    {
+      "textureKind": "synthetic",
+      "fixture": "pure-sand-near",
+      "kind": "core",
+      "from": "synthetic-pure-sand-near-original-0",
+      "to": "synthetic-pure-sand-near-candidate-0",
+      "changedComponents": 0,
+      "changedPixels": 0,
+      "maximumAbsolute": 0,
+      "rmse": 0,
+      "firstDifferences": []
+    },
+    {
+      "textureKind": "synthetic",
+      "fixture": "pure-sand-near",
+      "kind": "core",
+      "from": "synthetic-pure-sand-near-candidate-0",
+      "to": "synthetic-pure-sand-near-candidate-1",
+      "changedComponents": 0,
+      "changedPixels": 0,
+      "maximumAbsolute": 0,
+      "rmse": 0,
+      "firstDifferences": []
+    },
+    {
+      "textureKind": "synthetic",
+      "fixture": "pure-sand-near",
+      "kind": "core",
+      "from": "synthetic-pure-sand-near-candidate-1",
+      "to": "synthetic-pure-sand-near-candidate-2",
+      "changedComponents": 1242,
+      "changedPixels": 946,
+      "maximumAbsolute": 0.000007212162017822266,
+      "rmse": 4.549679975239275e-8,
+      "firstDifferences": [
+        {
+          "pixel": 49,
+          "channel": 2,
+          "before": 0.4005495607852936,
+          "after": 0.40054959058761597,
+          "absolute": 2.9802322387695312e-8
+        },
+        {
+          "pixel": 56,
+          "channel": 0,
+          "before": 1.0914572477340698,
+          "after": 1.091457486152649,
+          "absolute": 2.384185791015625e-7
+        },
+        {
+          "pixel": 56,
+          "channel": 1,
+          "before": 0.7051858305931091,
+          "after": 0.7051859498023987,
+          "absolute": 1.1920928955078125e-7
+        },
+        {
+          "pixel": 56,
+          "channel": 2,
+          "before": 0.3853233754634857,
+          "after": 0.3853234350681305,
+          "absolute": 5.960464477539063e-8
+        },
+        {
+          "pixel": 68,
+          "channel": 0,
+          "before": 1.0389970541000366,
+          "after": 1.038996934890747,
+          "absolute": 1.1920928955078125e-7
+        },
+        {
+          "pixel": 77,
+          "channel": 0,
+          "before": 1.0232188701629639,
+          "after": 1.0232189893722534,
+          "absolute": 1.1920928955078125e-7
+        },
+        {
+          "pixel": 84,
+          "channel": 0,
+          "before": 1.0047136545181274,
+          "after": 1.004713773727417,
+          "absolute": 1.1920928955078125e-7
+        },
+        {
+          "pixel": 112,
+          "channel": 0,
+          "before": 0.9038207530975342,
+          "after": 0.9038206338882446,
+          "absolute": 1.1920928955078125e-7
+        },
+        {
+          "pixel": 152,
+          "channel": 0,
+          "before": 1.1210987567901611,
+          "after": 1.1210988759994507,
+          "absolute": 1.1920928955078125e-7
+        },
+        {
+          "pixel": 153,
+          "channel": 0,
+          "before": 1.1143555641174316,
+          "after": 1.1143556833267212,
+          "absolute": 1.1920928955078125e-7
+        },
+        {
+          "pixel": 207,
+          "channel": 0,
+          "before": 0.9557796716690063,
+          "after": 0.9557796120643616,
+          "absolute": 5.960464477539063e-8
+        },
+        {
+          "pixel": 234,
+          "channel": 0,
+          "before": 0.9102082252502441,
+          "after": 0.9102082848548889,
+          "absolute": 5.960464477539063e-8
+        }
+      ]
+    },
+    {
+      "textureKind": "synthetic",
+      "fixture": "mixed-quad-phase-seams",
+      "kind": "core",
+      "from": "synthetic-mixed-quad-phase-seams-original-0",
+      "to": "synthetic-mixed-quad-phase-seams-candidate-0",
+      "changedComponents": 0,
+      "changedPixels": 0,
+      "maximumAbsolute": 0,
+      "rmse": 0,
+      "firstDifferences": []
+    },
+    {
+      "textureKind": "synthetic",
+      "fixture": "mixed-quad-phase-seams",
+      "kind": "core",
+      "from": "synthetic-mixed-quad-phase-seams-candidate-0",
+      "to": "synthetic-mixed-quad-phase-seams-candidate-1",
+      "changedComponents": 0,
+      "changedPixels": 0,
+      "maximumAbsolute": 0,
+      "rmse": 0,
+      "firstDifferences": []
+    },
+    {
+      "textureKind": "synthetic",
+      "fixture": "mixed-quad-phase-seams",
+      "kind": "core",
+      "from": "synthetic-mixed-quad-phase-seams-candidate-1",
+      "to": "synthetic-mixed-quad-phase-seams-candidate-2",
+      "changedComponents": 357,
+      "changedPixels": 348,
+      "maximumAbsolute": 2.384185791015625e-7,
+      "rmse": 4.755605081552696e-9,
+      "firstDifferences": [
+        {
+          "pixel": 40,
+          "channel": 0,
+          "before": 0.8764302730560303,
+          "after": 0.876430332660675,
+          "absolute": 5.960464477539063e-8
+        },
+        {
+          "pixel": 149,
+          "channel": 0,
+          "before": 0.904353141784668,
+          "after": 0.9043530821800232,
+          "absolute": 5.960464477539063e-8
+        },
+        {
+          "pixel": 165,
+          "channel": 1,
+          "before": 0.5643463730812073,
+          "after": 0.564346432685852,
+          "absolute": 5.960464477539063e-8
+        },
+        {
+          "pixel": 253,
+          "channel": 1,
+          "before": 0.5897276997566223,
+          "after": 0.5897278189659119,
+          "absolute": 1.1920928955078125e-7
+        },
+        {
+          "pixel": 268,
+          "channel": 1,
+          "before": 0.24989864230155945,
+          "after": 0.24989865720272064,
+          "absolute": 1.4901161193847656e-8
+        },
+        {
+          "pixel": 316,
+          "channel": 1,
+          "before": 0.24393035471439362,
+          "after": 0.24393032491207123,
+          "absolute": 2.9802322387695312e-8
+        },
+        {
+          "pixel": 362,
+          "channel": 1,
+          "before": 0.5844374895095825,
+          "after": 0.5844375491142273,
+          "absolute": 5.960464477539063e-8
+        },
+        {
+          "pixel": 457,
+          "channel": 1,
+          "before": 0.24752691388130188,
+          "after": 0.24752694368362427,
+          "absolute": 2.9802322387695312e-8
+        },
+        {
+          "pixel": 524,
+          "channel": 0,
+          "before": 0.9099984169006348,
+          "after": 0.9099984765052795,
+          "absolute": 5.960464477539063e-8
+        },
+        {
+          "pixel": 572,
+          "channel": 0,
+          "before": 0.8879661560058594,
+          "after": 0.8879660964012146,
+          "absolute": 5.960464477539063e-8
+        },
+        {
+          "pixel": 614,
+          "channel": 1,
+          "before": 0.2506237030029297,
+          "after": 0.2506237328052521,
+          "absolute": 2.9802322387695312e-8
+        },
+        {
+          "pixel": 675,
+          "channel": 1,
+          "before": 0.24678468704223633,
+          "after": 0.24678471684455872,
+          "absolute": 2.9802322387695312e-8
+        }
+      ]
+    },
+    {
+      "textureKind": "synthetic",
+      "fixture": "grazing-anisotropic-bedding-off",
+      "kind": "core",
+      "from": "synthetic-grazing-anisotropic-bedding-off-original-0",
+      "to": "synthetic-grazing-anisotropic-bedding-off-candidate-0",
+      "changedComponents": 0,
+      "changedPixels": 0,
+      "maximumAbsolute": 0,
+      "rmse": 0,
+      "firstDifferences": []
+    },
+    {
+      "textureKind": "synthetic",
+      "fixture": "grazing-anisotropic-bedding-off",
+      "kind": "core",
+      "from": "synthetic-grazing-anisotropic-bedding-off-candidate-0",
+      "to": "synthetic-grazing-anisotropic-bedding-off-candidate-1",
+      "changedComponents": 0,
+      "changedPixels": 0,
+      "maximumAbsolute": 0,
+      "rmse": 0,
+      "firstDifferences": []
+    },
+    {
+      "textureKind": "synthetic",
+      "fixture": "grazing-anisotropic-bedding-off",
+      "kind": "core",
+      "from": "synthetic-grazing-anisotropic-bedding-off-candidate-1",
+      "to": "synthetic-grazing-anisotropic-bedding-off-candidate-2",
+      "changedComponents": 388,
+      "changedPixels": 383,
+      "maximumAbsolute": 2.384185791015625e-7,
+      "rmse": 5.559060176650896e-9,
+      "firstDifferences": [
+        {
+          "pixel": 119,
+          "channel": 0,
+          "before": 0.8958773612976074,
+          "after": 0.8958772420883179,
+          "absolute": 1.1920928955078125e-7
+        },
+        {
+          "pixel": 127,
+          "channel": 0,
+          "before": 0.8961374759674072,
+          "after": 0.8961377143859863,
+          "absolute": 2.384185791015625e-7
+        },
+        {
+          "pixel": 148,
+          "channel": 0,
+          "before": 0.9165655374526978,
+          "after": 0.9165654182434082,
+          "absolute": 1.1920928955078125e-7
+        },
+        {
+          "pixel": 212,
+          "channel": 1,
+          "before": 0.582024335861206,
+          "after": 0.5820242762565613,
+          "absolute": 5.960464477539063e-8
+        },
+        {
+          "pixel": 289,
+          "channel": 1,
+          "before": 0.5897811651229858,
+          "after": 0.5897812247276306,
+          "absolute": 5.960464477539063e-8
+        },
+        {
+          "pixel": 313,
+          "channel": 1,
+          "before": 0.5889053344726562,
+          "after": 0.588905394077301,
+          "absolute": 5.960464477539063e-8
+        },
+        {
+          "pixel": 345,
+          "channel": 1,
+          "before": 0.5876870155334473,
+          "after": 0.587687075138092,
+          "absolute": 5.960464477539063e-8
+        },
+        {
+          "pixel": 406,
+          "channel": 1,
+          "before": 0.5901560187339783,
+          "after": 0.5901559591293335,
+          "absolute": 5.960464477539063e-8
+        },
+        {
+          "pixel": 510,
+          "channel": 0,
+          "before": 0.924148678779602,
+          "after": 0.9241485595703125,
+          "absolute": 1.1920928955078125e-7
+        },
+        {
+          "pixel": 547,
+          "channel": 1,
+          "before": 0.5739579200744629,
+          "after": 0.5739578604698181,
+          "absolute": 5.960464477539063e-8
+        },
+        {
+          "pixel": 664,
+          "channel": 1,
+          "before": 0.5602162480354309,
+          "after": 0.5602161884307861,
+          "absolute": 5.960464477539063e-8
+        },
+        {
+          "pixel": 690,
+          "channel": 1,
+          "before": 0.2342940717935562,
+          "after": 0.23429405689239502,
+          "absolute": 1.4901161193847656e-8
+        }
+      ]
+    },
+    {
+      "textureKind": "synthetic",
+      "fixture": "mixed-mineral-positive",
+      "kind": "core",
+      "from": "synthetic-mixed-mineral-positive-original-0",
+      "to": "synthetic-mixed-mineral-positive-candidate-0",
+      "changedComponents": 0,
+      "changedPixels": 0,
+      "maximumAbsolute": 0,
+      "rmse": 0,
+      "firstDifferences": []
+    },
+    {
+      "textureKind": "synthetic",
+      "fixture": "mixed-mineral-positive",
+      "kind": "core",
+      "from": "synthetic-mixed-mineral-positive-candidate-0",
+      "to": "synthetic-mixed-mineral-positive-candidate-1",
+      "changedComponents": 0,
+      "changedPixels": 0,
+      "maximumAbsolute": 0,
+      "rmse": 0,
+      "firstDifferences": []
+    },
+    {
+      "textureKind": "synthetic",
+      "fixture": "mixed-mineral-positive",
+      "kind": "core",
+      "from": "synthetic-mixed-mineral-positive-candidate-1",
+      "to": "synthetic-mixed-mineral-positive-candidate-2",
+      "changedComponents": 435,
+      "changedPixels": 430,
+      "maximumAbsolute": 1.7881393432617188e-7,
+      "rmse": 4.540197551250458e-9,
+      "firstDifferences": [
+        {
+          "pixel": 8,
+          "channel": 1,
+          "before": 0.22219793498516083,
+          "after": 0.22219790518283844,
+          "absolute": 2.9802322387695312e-8
+        },
+        {
+          "pixel": 88,
+          "channel": 1,
+          "before": 0.21665337681770325,
+          "after": 0.21665336191654205,
+          "absolute": 1.4901161193847656e-8
+        },
+        {
+          "pixel": 133,
+          "channel": 1,
+          "before": 0.2213597446680069,
+          "after": 0.22135977447032928,
+          "absolute": 2.9802322387695312e-8
+        },
+        {
+          "pixel": 171,
+          "channel": 1,
+          "before": 0.5552337169647217,
+          "after": 0.5552336573600769,
+          "absolute": 5.960464477539063e-8
+        },
+        {
+          "pixel": 219,
+          "channel": 0,
+          "before": 0.8520445227622986,
+          "after": 0.8520446419715881,
+          "absolute": 1.1920928955078125e-7
+        },
+        {
+          "pixel": 251,
+          "channel": 0,
+          "before": 0.8540581464767456,
+          "after": 0.8540582060813904,
+          "absolute": 5.960464477539063e-8
+        },
+        {
+          "pixel": 256,
+          "channel": 0,
+          "before": 0.864763081073761,
+          "after": 0.8647632002830505,
+          "absolute": 1.1920928955078125e-7
+        },
+        {
+          "pixel": 288,
+          "channel": 0,
+          "before": 0.8791487216949463,
+          "after": 0.8791486620903015,
+          "absolute": 5.960464477539063e-8
+        },
+        {
+          "pixel": 290,
+          "channel": 1,
+          "before": 0.22454476356506348,
+          "after": 0.2245447337627411,
+          "absolute": 2.9802322387695312e-8
+        },
+        {
+          "pixel": 306,
+          "channel": 1,
+          "before": 0.22299039363861084,
+          "after": 0.22299036383628845,
+          "absolute": 2.9802322387695312e-8
+        },
+        {
+          "pixel": 352,
+          "channel": 0,
+          "before": 0.8566939234733582,
+          "after": 0.8566938638687134,
+          "absolute": 5.960464477539063e-8
+        },
+        {
+          "pixel": 469,
+          "channel": 0,
+          "before": 0.8555343747138977,
+          "after": 0.8555344343185425,
+          "absolute": 5.960464477539063e-8
+        }
+      ]
+    },
+    {
+      "textureKind": "synthetic",
+      "fixture": "continuation-rewritten-pure-core-sand",
+      "kind": "continuation",
+      "from": "synthetic-continuation-rewritten-pure-core-sand-original-0",
+      "to": "synthetic-continuation-rewritten-pure-core-sand-candidate-0",
+      "changedComponents": 0,
+      "changedPixels": 0,
+      "maximumAbsolute": 0,
+      "rmse": 0,
+      "firstDifferences": []
+    },
+    {
+      "textureKind": "synthetic",
+      "fixture": "continuation-rewritten-pure-core-sand",
+      "kind": "continuation",
+      "from": "synthetic-continuation-rewritten-pure-core-sand-candidate-0",
+      "to": "synthetic-continuation-rewritten-pure-core-sand-candidate-1",
+      "changedComponents": 0,
+      "changedPixels": 0,
+      "maximumAbsolute": 0,
+      "rmse": 0,
+      "firstDifferences": []
+    },
+    {
+      "textureKind": "synthetic",
+      "fixture": "continuation-rewritten-pure-core-sand",
+      "kind": "continuation",
+      "from": "synthetic-continuation-rewritten-pure-core-sand-candidate-1",
+      "to": "synthetic-continuation-rewritten-pure-core-sand-candidate-2",
+      "changedComponents": 0,
+      "changedPixels": 0,
+      "maximumAbsolute": 0,
+      "rmse": 0,
+      "firstDifferences": []
+    },
+    {
+      "textureKind": "synthetic",
+      "fixture": "continuation-rewritten-mixed",
+      "kind": "continuation",
+      "from": "synthetic-continuation-rewritten-mixed-original-0",
+      "to": "synthetic-continuation-rewritten-mixed-candidate-0",
+      "changedComponents": 0,
+      "changedPixels": 0,
+      "maximumAbsolute": 0,
+      "rmse": 0,
+      "firstDifferences": []
+    },
+    {
+      "textureKind": "synthetic",
+      "fixture": "continuation-rewritten-mixed",
+      "kind": "continuation",
+      "from": "synthetic-continuation-rewritten-mixed-candidate-0",
+      "to": "synthetic-continuation-rewritten-mixed-candidate-1",
+      "changedComponents": 0,
+      "changedPixels": 0,
+      "maximumAbsolute": 0,
+      "rmse": 0,
+      "firstDifferences": []
+    },
+    {
+      "textureKind": "synthetic",
+      "fixture": "continuation-rewritten-mixed",
+      "kind": "continuation",
+      "from": "synthetic-continuation-rewritten-mixed-candidate-1",
+      "to": "synthetic-continuation-rewritten-mixed-candidate-2",
+      "changedComponents": 0,
+      "changedPixels": 0,
+      "maximumAbsolute": 0,
+      "rmse": 0,
+      "firstDifferences": []
+    },
+    {
+      "textureKind": "synthetic",
+      "fixture": "rock-positive-mineral",
+      "kind": "rock",
+      "from": "synthetic-rock-positive-mineral-original-0",
+      "to": "synthetic-rock-positive-mineral-candidate-2",
+      "changedComponents": 0,
+      "changedPixels": 0,
+      "maximumAbsolute": 0,
+      "rmse": 0,
+      "firstDifferences": []
+    },
+    {
+      "textureKind": "source256",
+      "fixture": "pure-sand-near",
+      "kind": "core",
+      "from": "source256-pure-sand-near-original-0",
+      "to": "source256-pure-sand-near-candidate-0",
+      "changedComponents": 0,
+      "changedPixels": 0,
+      "maximumAbsolute": 0,
+      "rmse": 0,
+      "firstDifferences": []
+    },
+    {
+      "textureKind": "source256",
+      "fixture": "pure-sand-near",
+      "kind": "core",
+      "from": "source256-pure-sand-near-candidate-0",
+      "to": "source256-pure-sand-near-candidate-1",
+      "changedComponents": 0,
+      "changedPixels": 0,
+      "maximumAbsolute": 0,
+      "rmse": 0,
+      "firstDifferences": []
+    },
+    {
+      "textureKind": "source256",
+      "fixture": "pure-sand-near",
+      "kind": "core",
+      "from": "source256-pure-sand-near-candidate-1",
+      "to": "source256-pure-sand-near-candidate-2",
+      "changedComponents": 678,
+      "changedPixels": 566,
+      "maximumAbsolute": 0.000005304813385009766,
+      "rmse": 4.330180529897967e-8,
+      "firstDifferences": [
+        {
+          "pixel": 171,
+          "channel": 2,
+          "before": 0.2818695902824402,
+          "after": 0.2818696200847626,
+          "absolute": 2.9802322387695312e-8
+        },
+        {
+          "pixel": 307,
+          "channel": 2,
+          "before": 0.2796982526779175,
+          "after": 0.27969828248023987,
+          "absolute": 2.9802322387695312e-8
+        },
+        {
+          "pixel": 349,
+          "channel": 2,
+          "before": 0.23542693257331848,
+          "after": 0.2354269176721573,
+          "absolute": 1.4901161193847656e-8
+        },
+        {
+          "pixel": 361,
+          "channel": 2,
+          "before": 0.24011217057704926,
+          "after": 0.24011215567588806,
+          "absolute": 1.4901161193847656e-8
+        },
+        {
+          "pixel": 414,
+          "channel": 0,
+          "before": 0.7381680011749268,
+          "after": 0.7381680607795715,
+          "absolute": 5.960464477539063e-8
+        },
+        {
+          "pixel": 464,
+          "channel": 2,
+          "before": 0.2510100305080414,
+          "after": 0.25101006031036377,
+          "absolute": 2.9802322387695312e-8
+        },
+        {
+          "pixel": 466,
+          "channel": 2,
+          "before": 0.23974721133708954,
+          "after": 0.23974718153476715,
+          "absolute": 2.9802322387695312e-8
+        },
+        {
+          "pixel": 586,
+          "channel": 2,
+          "before": 0.24757486581802368,
+          "after": 0.24757489562034607,
+          "absolute": 2.9802322387695312e-8
+        },
+        {
+          "pixel": 590,
+          "channel": 2,
+          "before": 0.23714113235473633,
+          "after": 0.23714116215705872,
+          "absolute": 2.9802322387695312e-8
+        },
+        {
+          "pixel": 903,
+          "channel": 2,
+          "before": 0.2639802396297455,
+          "after": 0.26398026943206787,
+          "absolute": 2.9802322387695312e-8
+        },
+        {
+          "pixel": 908,
+          "channel": 2,
+          "before": 0.26567110419273376,
+          "after": 0.2656710743904114,
+          "absolute": 2.9802322387695312e-8
+        },
+        {
+          "pixel": 909,
+          "channel": 0,
+          "before": 0.7371826171875,
+          "after": 0.7371826767921448,
+          "absolute": 5.960464477539063e-8
+        }
+      ]
+    },
+    {
+      "textureKind": "source256",
+      "fixture": "mixed-quad-phase-seams",
+      "kind": "core",
+      "from": "source256-mixed-quad-phase-seams-original-0",
+      "to": "source256-mixed-quad-phase-seams-candidate-0",
+      "changedComponents": 0,
+      "changedPixels": 0,
+      "maximumAbsolute": 0,
+      "rmse": 0,
+      "firstDifferences": []
+    },
+    {
+      "textureKind": "source256",
+      "fixture": "mixed-quad-phase-seams",
+      "kind": "core",
+      "from": "source256-mixed-quad-phase-seams-candidate-0",
+      "to": "source256-mixed-quad-phase-seams-candidate-1",
+      "changedComponents": 0,
+      "changedPixels": 0,
+      "maximumAbsolute": 0,
+      "rmse": 0,
+      "firstDifferences": []
+    },
+    {
+      "textureKind": "source256",
+      "fixture": "mixed-quad-phase-seams",
+      "kind": "core",
+      "from": "source256-mixed-quad-phase-seams-candidate-1",
+      "to": "source256-mixed-quad-phase-seams-candidate-2",
+      "changedComponents": 261,
+      "changedPixels": 251,
+      "maximumAbsolute": 1.1920928955078125e-7,
+      "rmse": 2.7161842666845995e-9,
+      "firstDifferences": [
+        {
+          "pixel": 2,
+          "channel": 2,
+          "before": 0.07956692576408386,
+          "after": 0.07956693321466446,
+          "absolute": 7.450580596923828e-9
+        },
+        {
+          "pixel": 10,
+          "channel": 0,
+          "before": 0.6023181080818176,
+          "after": 0.6023181676864624,
+          "absolute": 5.960464477539063e-8
+        },
+        {
+          "pixel": 122,
+          "channel": 2,
+          "before": 0.07376744598150253,
+          "after": 0.07376745343208313,
+          "absolute": 7.450580596923828e-9
+        },
+        {
+          "pixel": 175,
+          "channel": 2,
+          "before": 0.06720853596925735,
+          "after": 0.06720852851867676,
+          "absolute": 7.450580596923828e-9
+        },
+        {
+          "pixel": 284,
+          "channel": 2,
+          "before": 0.07381302118301392,
+          "after": 0.07381301373243332,
+          "absolute": 7.450580596923828e-9
+        },
+        {
+          "pixel": 332,
+          "channel": 1,
+          "before": 0.22608858346939087,
+          "after": 0.22608856856822968,
+          "absolute": 1.4901161193847656e-8
+        },
+        {
+          "pixel": 364,
+          "channel": 0,
+          "before": 0.3924719989299774,
+          "after": 0.39247196912765503,
+          "absolute": 2.9802322387695312e-8
+        },
+        {
+          "pixel": 534,
+          "channel": 1,
+          "before": 0.24679593741893768,
+          "after": 0.24679596722126007,
+          "absolute": 2.9802322387695312e-8
+        },
+        {
+          "pixel": 606,
+          "channel": 0,
+          "before": 0.6612844467163086,
+          "after": 0.6612845063209534,
+          "absolute": 5.960464477539063e-8
+        },
+        {
+          "pixel": 622,
+          "channel": 0,
+          "before": 0.5764119625091553,
+          "after": 0.5764118432998657,
+          "absolute": 1.1920928955078125e-7
+        },
+        {
+          "pixel": 638,
+          "channel": 2,
+          "before": 0.11617200076580048,
+          "after": 0.11617198586463928,
+          "absolute": 1.4901161193847656e-8
+        },
+        {
+          "pixel": 747,
+          "channel": 2,
+          "before": 0.08885319530963898,
+          "after": 0.08885320276021957,
+          "absolute": 7.450580596923828e-9
+        }
+      ]
+    },
+    {
+      "textureKind": "source256",
+      "fixture": "grazing-anisotropic-bedding-off",
+      "kind": "core",
+      "from": "source256-grazing-anisotropic-bedding-off-original-0",
+      "to": "source256-grazing-anisotropic-bedding-off-candidate-0",
+      "changedComponents": 0,
+      "changedPixels": 0,
+      "maximumAbsolute": 0,
+      "rmse": 0,
+      "firstDifferences": []
+    },
+    {
+      "textureKind": "source256",
+      "fixture": "grazing-anisotropic-bedding-off",
+      "kind": "core",
+      "from": "source256-grazing-anisotropic-bedding-off-candidate-0",
+      "to": "source256-grazing-anisotropic-bedding-off-candidate-1",
+      "changedComponents": 0,
+      "changedPixels": 0,
+      "maximumAbsolute": 0,
+      "rmse": 0,
+      "firstDifferences": []
+    },
+    {
+      "textureKind": "source256",
+      "fixture": "grazing-anisotropic-bedding-off",
+      "kind": "core",
+      "from": "source256-grazing-anisotropic-bedding-off-candidate-1",
+      "to": "source256-grazing-anisotropic-bedding-off-candidate-2",
+      "changedComponents": 327,
+      "changedPixels": 317,
+      "maximumAbsolute": 5.960464477539063e-8,
+      "rmse": 1.4624493809418185e-9,
+      "firstDifferences": [
+        {
+          "pixel": 9,
+          "channel": 1,
+          "before": 0.23894941806793213,
+          "after": 0.23894944787025452,
+          "absolute": 2.9802322387695312e-8
+        },
+        {
+          "pixel": 9,
+          "channel": 2,
+          "before": 0.08340424299240112,
+          "after": 0.08340423554182053,
+          "absolute": 7.450580596923828e-9
+        },
+        {
+          "pixel": 97,
+          "channel": 1,
+          "before": 0.23927028477191925,
+          "after": 0.23927031457424164,
+          "absolute": 2.9802322387695312e-8
+        },
+        {
+          "pixel": 113,
+          "channel": 2,
+          "before": 0.08359579741954803,
+          "after": 0.08359578996896744,
+          "absolute": 7.450580596923828e-9
+        },
+        {
+          "pixel": 174,
+          "channel": 1,
+          "before": 0.24478493630886078,
+          "after": 0.24478492140769958,
+          "absolute": 1.4901161193847656e-8
+        },
+        {
+          "pixel": 230,
+          "channel": 2,
+          "before": 0.08526429533958435,
+          "after": 0.08526428788900375,
+          "absolute": 7.450580596923828e-9
+        },
+        {
+          "pixel": 307,
+          "channel": 1,
+          "before": 0.2473941296339035,
+          "after": 0.2473941594362259,
+          "absolute": 2.9802322387695312e-8
+        },
+        {
+          "pixel": 315,
+          "channel": 1,
+          "before": 0.24720683693885803,
+          "after": 0.24720682203769684,
+          "absolute": 1.4901161193847656e-8
+        },
+        {
+          "pixel": 331,
+          "channel": 2,
+          "before": 0.08632358908653259,
+          "after": 0.0863235741853714,
+          "absolute": 1.4901161193847656e-8
+        },
+        {
+          "pixel": 339,
+          "channel": 1,
+          "before": 0.24710774421691895,
+          "after": 0.24710771441459656,
+          "absolute": 2.9802322387695312e-8
+        },
+        {
+          "pixel": 347,
+          "channel": 1,
+          "before": 0.24693767726421356,
+          "after": 0.24693770706653595,
+          "absolute": 2.9802322387695312e-8
+        },
+        {
+          "pixel": 392,
+          "channel": 2,
+          "before": 0.08643893152475357,
+          "after": 0.08643892407417297,
+          "absolute": 7.450580596923828e-9
+        }
+      ]
+    },
+    {
+      "textureKind": "source256",
+      "fixture": "mixed-mineral-positive",
+      "kind": "core",
+      "from": "source256-mixed-mineral-positive-original-0",
+      "to": "source256-mixed-mineral-positive-candidate-0",
+      "changedComponents": 0,
+      "changedPixels": 0,
+      "maximumAbsolute": 0,
+      "rmse": 0,
+      "firstDifferences": []
+    },
+    {
+      "textureKind": "source256",
+      "fixture": "mixed-mineral-positive",
+      "kind": "core",
+      "from": "source256-mixed-mineral-positive-candidate-0",
+      "to": "source256-mixed-mineral-positive-candidate-1",
+      "changedComponents": 0,
+      "changedPixels": 0,
+      "maximumAbsolute": 0,
+      "rmse": 0,
+      "firstDifferences": []
+    },
+    {
+      "textureKind": "source256",
+      "fixture": "mixed-mineral-positive",
+      "kind": "core",
+      "from": "source256-mixed-mineral-positive-candidate-1",
+      "to": "source256-mixed-mineral-positive-candidate-2",
+      "changedComponents": 275,
+      "changedPixels": 262,
+      "maximumAbsolute": 1.7881393432617188e-7,
+      "rmse": 2.1349202067467042e-9,
+      "firstDifferences": [
+        {
+          "pixel": 165,
+          "channel": 2,
+          "before": 0.07111210376024246,
+          "after": 0.07111211121082306,
+          "absolute": 7.450580596923828e-9
+        },
+        {
+          "pixel": 253,
+          "channel": 1,
+          "before": 0.2164502888917923,
+          "after": 0.2164502739906311,
+          "absolute": 1.4901161193847656e-8
+        },
+        {
+          "pixel": 266,
+          "channel": 1,
+          "before": 0.22895263135433197,
+          "after": 0.22895260155200958,
+          "absolute": 2.9802322387695312e-8
+        },
+        {
+          "pixel": 266,
+          "channel": 2,
+          "before": 0.08113376796245575,
+          "after": 0.08113376051187515,
+          "absolute": 7.450580596923828e-9
+        },
+        {
+          "pixel": 282,
+          "channel": 1,
+          "before": 0.24580034613609314,
+          "after": 0.24580031633377075,
+          "absolute": 2.9802322387695312e-8
+        },
+        {
+          "pixel": 354,
+          "channel": 0,
+          "before": 0.5427359938621521,
+          "after": 0.5427360534667969,
+          "absolute": 5.960464477539063e-8
+        },
+        {
+          "pixel": 378,
+          "channel": 1,
+          "before": 0.23222927749156952,
+          "after": 0.2322292923927307,
+          "absolute": 1.4901161193847656e-8
+        },
+        {
+          "pixel": 407,
+          "channel": 1,
+          "before": 0.23482562601566315,
+          "after": 0.23482559621334076,
+          "absolute": 2.9802322387695312e-8
+        },
+        {
+          "pixel": 439,
+          "channel": 2,
+          "before": 0.07963607460260391,
+          "after": 0.07963605970144272,
+          "absolute": 1.4901161193847656e-8
+        },
+        {
+          "pixel": 524,
+          "channel": 1,
+          "before": 0.20245946943759918,
+          "after": 0.20245949923992157,
+          "absolute": 2.9802322387695312e-8
+        },
+        {
+          "pixel": 612,
+          "channel": 2,
+          "before": 0.07833162695169449,
+          "after": 0.0783316120505333,
+          "absolute": 1.4901161193847656e-8
+        },
+        {
+          "pixel": 636,
+          "channel": 2,
+          "before": 0.0683576762676239,
+          "after": 0.0683576688170433,
+          "absolute": 7.450580596923828e-9
+        }
+      ]
+    },
+    {
+      "textureKind": "source256",
+      "fixture": "continuation-rewritten-pure-core-sand",
+      "kind": "continuation",
+      "from": "source256-continuation-rewritten-pure-core-sand-original-0",
+      "to": "source256-continuation-rewritten-pure-core-sand-candidate-0",
+      "changedComponents": 0,
+      "changedPixels": 0,
+      "maximumAbsolute": 0,
+      "rmse": 0,
+      "firstDifferences": []
+    },
+    {
+      "textureKind": "source256",
+      "fixture": "continuation-rewritten-pure-core-sand",
+      "kind": "continuation",
+      "from": "source256-continuation-rewritten-pure-core-sand-candidate-0",
+      "to": "source256-continuation-rewritten-pure-core-sand-candidate-1",
+      "changedComponents": 0,
+      "changedPixels": 0,
+      "maximumAbsolute": 0,
+      "rmse": 0,
+      "firstDifferences": []
+    },
+    {
+      "textureKind": "source256",
+      "fixture": "continuation-rewritten-pure-core-sand",
+      "kind": "continuation",
+      "from": "source256-continuation-rewritten-pure-core-sand-candidate-1",
+      "to": "source256-continuation-rewritten-pure-core-sand-candidate-2",
+      "changedComponents": 0,
+      "changedPixels": 0,
+      "maximumAbsolute": 0,
+      "rmse": 0,
+      "firstDifferences": []
+    },
+    {
+      "textureKind": "source256",
+      "fixture": "continuation-rewritten-mixed",
+      "kind": "continuation",
+      "from": "source256-continuation-rewritten-mixed-original-0",
+      "to": "source256-continuation-rewritten-mixed-candidate-0",
+      "changedComponents": 0,
+      "changedPixels": 0,
+      "maximumAbsolute": 0,
+      "rmse": 0,
+      "firstDifferences": []
+    },
+    {
+      "textureKind": "source256",
+      "fixture": "continuation-rewritten-mixed",
+      "kind": "continuation",
+      "from": "source256-continuation-rewritten-mixed-candidate-0",
+      "to": "source256-continuation-rewritten-mixed-candidate-1",
+      "changedComponents": 0,
+      "changedPixels": 0,
+      "maximumAbsolute": 0,
+      "rmse": 0,
+      "firstDifferences": []
+    },
+    {
+      "textureKind": "source256",
+      "fixture": "continuation-rewritten-mixed",
+      "kind": "continuation",
+      "from": "source256-continuation-rewritten-mixed-candidate-1",
+      "to": "source256-continuation-rewritten-mixed-candidate-2",
+      "changedComponents": 0,
+      "changedPixels": 0,
+      "maximumAbsolute": 0,
+      "rmse": 0,
+      "firstDifferences": []
+    },
+    {
+      "textureKind": "source256",
+      "fixture": "rock-positive-mineral",
+      "kind": "rock",
+      "from": "source256-rock-positive-mineral-original-0",
+      "to": "source256-rock-positive-mineral-candidate-2",
+      "changedComponents": 0,
+      "changedPixels": 0,
+      "maximumAbsolute": 0,
+      "rmse": 0,
+      "firstDifferences": []
+    }
+  ],
+  "allPairsFloatExact": false,
+  "pageErrors": [],
+  "consoleErrors": [],
+  "requestFailures": [],
+  "initialMemory": 6291386368,
+  "peakMemory": 6595432448,
+  "elapsedMilliseconds": 8178,
+  "limitations": [
+    "Synthetic masks/world footprints, not the full scene",
+    "Source256 inputs are downsampled diagnostic copies; original production sampler settings are retained",
+    "No claimed GPU speedup",
+    "PNG previews are sRGB encodings of real linear target pixels",
+    "Actual continuation shader hook is retained; continuation geometry is a tiny diagnostic plane"
+  ]
+}

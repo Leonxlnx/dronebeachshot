@@ -1,0 +1,348 @@
+{
+  "kind": "Quantized preview comparisons, supplement to stricter linear float pairs",
+  "allPNGFilesByteIdentical": true,
+  "pairs": [
+    {
+      "from": "synthetic-pure-sand-near-original-0",
+      "to": "synthetic-pure-sand-near-candidate-0",
+      "linearChangedPixels": 0,
+      "pngChangedPixels": 0,
+      "pngChangedComponents": 0,
+      "pngMaximumByteDifference": 0,
+      "pngFileByteIdentical": true
+    },
+    {
+      "from": "synthetic-pure-sand-near-candidate-0",
+      "to": "synthetic-pure-sand-near-candidate-1",
+      "linearChangedPixels": 0,
+      "pngChangedPixels": 0,
+      "pngChangedComponents": 0,
+      "pngMaximumByteDifference": 0,
+      "pngFileByteIdentical": true
+    },
+    {
+      "from": "synthetic-pure-sand-near-candidate-1",
+      "to": "synthetic-pure-sand-near-candidate-2",
+      "linearChangedPixels": 946,
+      "pngChangedPixels": 0,
+      "pngChangedComponents": 0,
+      "pngMaximumByteDifference": 0,
+      "pngFileByteIdentical": true
+    },
+    {
+      "from": "synthetic-mixed-quad-phase-seams-original-0",
+      "to": "synthetic-mixed-quad-phase-seams-candidate-0",
+      "linearChangedPixels": 0,
+      "pngChangedPixels": 0,
+      "pngChangedComponents": 0,
+      "pngMaximumByteDifference": 0,
+      "pngFileByteIdentical": true
+    },
+    {
+      "from": "synthetic-mixed-quad-phase-seams-candidate-0",
+      "to": "synthetic-mixed-quad-phase-seams-candidate-1",
+      "linearChangedPixels": 0,
+      "pngChangedPixels": 0,
+      "pngChangedComponents": 0,
+      "pngMaximumByteDifference": 0,
+      "pngFileByteIdentical": true
+    },
+    {
+      "from": "synthetic-mixed-quad-phase-seams-candidate-1",
+      "to": "synthetic-mixed-quad-phase-seams-candidate-2",
+      "linearChangedPixels": 348,
+      "pngChangedPixels": 0,
+      "pngChangedComponents": 0,
+      "pngMaximumByteDifference": 0,
+      "pngFileByteIdentical": true
+    },
+    {
+      "from": "synthetic-grazing-anisotropic-bedding-off-original-0",
+      "to": "synthetic-grazing-anisotropic-bedding-off-candidate-0",
+      "linearChangedPixels": 0,
+      "pngChangedPixels": 0,
+      "pngChangedComponents": 0,
+      "pngMaximumByteDifference": 0,
+      "pngFileByteIdentical": true
+    },
+    {
+      "from": "synthetic-grazing-anisotropic-bedding-off-candidate-0",
+      "to": "synthetic-grazing-anisotropic-bedding-off-candidate-1",
+      "linearChangedPixels": 0,
+      "pngChangedPixels": 0,
+      "pngChangedComponents": 0,
+      "pngMaximumByteDifference": 0,
+      "pngFileByteIdentical": true
+    },
+    {
+      "from": "synthetic-grazing-anisotropic-bedding-off-candidate-1",
+      "to": "synthetic-grazing-anisotropic-bedding-off-candidate-2",
+      "linearChangedPixels": 383,
+      "pngChangedPixels": 0,
+      "pngChangedComponents": 0,
+      "pngMaximumByteDifference": 0,
+      "pngFileByteIdentical": true
+    },
+    {
+      "from": "synthetic-mixed-mineral-positive-original-0",
+      "to": "synthetic-mixed-mineral-positive-candidate-0",
+      "linearChangedPixels": 0,
+      "pngChangedPixels": 0,
+      "pngChangedComponents": 0,
+      "pngMaximumByteDifference": 0,
+      "pngFileByteIdentical": true
+    },
+    {
+      "from": "synthetic-mixed-mineral-positive-candidate-0",
+      "to": "synthetic-mixed-mineral-positive-candidate-1",
+      "linearChangedPixels": 0,
+      "pngChangedPixels": 0,
+      "pngChangedComponents": 0,
+      "pngMaximumByteDifference": 0,
+      "pngFileByteIdentical": true
+    },
+    {
+      "from": "synthetic-mixed-mineral-positive-candidate-1",
+      "to": "synthetic-mixed-mineral-positive-candidate-2",
+      "linearChangedPixels": 430,
+      "pngChangedPixels": 0,
+      "pngChangedComponents": 0,
+      "pngMaximumByteDifference": 0,
+      "pngFileByteIdentical": true
+    },
+    {
+      "from": "synthetic-continuation-rewritten-pure-core-sand-original-0",
+      "to": "synthetic-continuation-rewritten-pure-core-sand-candidate-0",
+      "linearChangedPixels": 0,
+      "pngChangedPixels": 0,
+      "pngChangedComponents": 0,
+      "pngMaximumByteDifference": 0,
+      "pngFileByteIdentical": true
+    },
+    {
+      "from": "synthetic-continuation-rewritten-pure-core-sand-candidate-0",
+      "to": "synthetic-continuation-rewritten-pure-core-sand-candidate-1",
+      "linearChangedPixels": 0,
+      "pngChangedPixels": 0,
+      "pngChangedComponents": 0,
+      "pngMaximumByteDifference": 0,
+      "pngFileByteIdentical": true
+    },
+    {
+      "from": "synthetic-continuation-rewritten-pure-core-sand-candidate-1",
+      "to": "synthetic-continuation-rewritten-pure-core-sand-candidate-2",
+      "linearChangedPixels": 0,
+      "pngChangedPixels": 0,
+      "pngChangedComponents": 0,
+      "pngMaximumByteDifference": 0,
+      "pngFileByteIdentical": true
+    },
+    {
+      "from": "synthetic-continuation-rewritten-mixed-original-0",
+      "to": "synthetic-continuation-rewritten-mixed-candidate-0",
+      "linearChangedPixels": 0,
+      "pngChangedPixels": 0,
+      "pngChangedComponents": 0,
+      "pngMaximumByteDifference": 0,
+      "pngFileByteIdentical": true
+    },
+    {
+      "from": "synthetic-continuation-rewritten-mixed-candidate-0",
+      "to": "synthetic-continuation-rewritten-mixed-candidate-1",
+      "linearChangedPixels": 0,
+      "pngChangedPixels": 0,
+      "pngChangedComponents": 0,
+      "pngMaximumByteDifference": 0,
+      "pngFileByteIdentical": true
+    },
+    {
+      "from": "synthetic-continuation-rewritten-mixed-candidate-1",
+      "to": "synthetic-continuation-rewritten-mixed-candidate-2",
+      "linearChangedPixels": 0,
+      "pngChangedPixels": 0,
+      "pngChangedComponents": 0,
+      "pngMaximumByteDifference": 0,
+      "pngFileByteIdentical": true
+    },
+    {
+      "from": "synthetic-rock-positive-mineral-original-0",
+      "to": "synthetic-rock-positive-mineral-candidate-2",
+      "linearChangedPixels": 0,
+      "pngChangedPixels": 0,
+      "pngChangedComponents": 0,
+      "pngMaximumByteDifference": 0,
+      "pngFileByteIdentical": true
+    },
+    {
+      "from": "source256-pure-sand-near-original-0",
+      "to": "source256-pure-sand-near-candidate-0",
+      "linearChangedPixels": 0,
+      "pngChangedPixels": 0,
+      "pngChangedComponents": 0,
+      "pngMaximumByteDifference": 0,
+      "pngFileByteIdentical": true
+    },
+    {
+      "from": "source256-pure-sand-near-candidate-0",
+      "to": "source256-pure-sand-near-candidate-1",
+      "linearChangedPixels": 0,
+      "pngChangedPixels": 0,
+      "pngChangedComponents": 0,
+      "pngMaximumByteDifference": 0,
+      "pngFileByteIdentical": true
+    },
+    {
+      "from": "source256-pure-sand-near-candidate-1",
+      "to": "source256-pure-sand-near-candidate-2",
+      "linearChangedPixels": 566,
+      "pngChangedPixels": 0,
+      "pngChangedComponents": 0,
+      "pngMaximumByteDifference": 0,
+      "pngFileByteIdentical": true
+    },
+    {
+      "from": "source256-mixed-quad-phase-seams-original-0",
+      "to": "source256-mixed-quad-phase-seams-candidate-0",
+      "linearChangedPixels": 0,
+      "pngChangedPixels": 0,
+      "pngChangedComponents": 0,
+      "pngMaximumByteDifference": 0,
+      "pngFileByteIdentical": true
+    },
+    {
+      "from": "source256-mixed-quad-phase-seams-candidate-0",
+      "to": "source256-mixed-quad-phase-seams-candidate-1",
+      "linearChangedPixels": 0,
+      "pngChangedPixels": 0,
+      "pngChangedComponents": 0,
+      "pngMaximumByteDifference": 0,
+      "pngFileByteIdentical": true
+    },
+    {
+      "from": "source256-mixed-quad-phase-seams-candidate-1",
+      "to": "source256-mixed-quad-phase-seams-candidate-2",
+      "linearChangedPixels": 251,
+      "pngChangedPixels": 0,
+      "pngChangedComponents": 0,
+      "pngMaximumByteDifference": 0,
+      "pngFileByteIdentical": true
+    },
+    {
+      "from": "source256-grazing-anisotropic-bedding-off-original-0",
+      "to": "source256-grazing-anisotropic-bedding-off-candidate-0",
+      "linearChangedPixels": 0,
+      "pngChangedPixels": 0,
+      "pngChangedComponents": 0,
+      "pngMaximumByteDifference": 0,
+      "pngFileByteIdentical": true
+    },
+    {
+      "from": "source256-grazing-anisotropic-bedding-off-candidate-0",
+      "to": "source256-grazing-anisotropic-bedding-off-candidate-1",
+      "linearChangedPixels": 0,
+      "pngChangedPixels": 0,
+      "pngChangedComponents": 0,
+      "pngMaximumByteDifference": 0,
+      "pngFileByteIdentical": true
+    },
+    {
+      "from": "source256-grazing-anisotropic-bedding-off-candidate-1",
+      "to": "source256-grazing-anisotropic-bedding-off-candidate-2",
+      "linearChangedPixels": 317,
+      "pngChangedPixels": 0,
+      "pngChangedComponents": 0,
+      "pngMaximumByteDifference": 0,
+      "pngFileByteIdentical": true
+    },
+    {
+      "from": "source256-mixed-mineral-positive-original-0",
+      "to": "source256-mixed-mineral-positive-candidate-0",
+      "linearChangedPixels": 0,
+      "pngChangedPixels": 0,
+      "pngChangedComponents": 0,
+      "pngMaximumByteDifference": 0,
+      "pngFileByteIdentical": true
+    },
+    {
+      "from": "source256-mixed-mineral-positive-candidate-0",
+      "to": "source256-mixed-mineral-positive-candidate-1",
+      "linearChangedPixels": 0,
+      "pngChangedPixels": 0,
+      "pngChangedComponents": 0,
+      "pngMaximumByteDifference": 0,
+      "pngFileByteIdentical": true
+    },
+    {
+      "from": "source256-mixed-mineral-positive-candidate-1",
+      "to": "source256-mixed-mineral-positive-candidate-2",
+      "linearChangedPixels": 262,
+      "pngChangedPixels": 0,
+      "pngChangedComponents": 0,
+      "pngMaximumByteDifference": 0,
+      "pngFileByteIdentical": true
+    },
+    {
+      "from": "source256-continuation-rewritten-pure-core-sand-original-0",
+      "to": "source256-continuation-rewritten-pure-core-sand-candidate-0",
+      "linearChangedPixels": 0,
+      "pngChangedPixels": 0,
+      "pngChangedComponents": 0,
+      "pngMaximumByteDifference": 0,
+      "pngFileByteIdentical": true
+    },
+    {
+      "from": "source256-continuation-rewritten-pure-core-sand-candidate-0",
+      "to": "source256-continuation-rewritten-pure-core-sand-candidate-1",
+      "linearChangedPixels": 0,
+      "pngChangedPixels": 0,
+      "pngChangedComponents": 0,
+      "pngMaximumByteDifference": 0,
+      "pngFileByteIdentical": true
+    },
+    {
+      "from": "source256-continuation-rewritten-pure-core-sand-candidate-1",
+      "to": "source256-continuation-rewritten-pure-core-sand-candidate-2",
+      "linearChangedPixels": 0,
+      "pngChangedPixels": 0,
+      "pngChangedComponents": 0,
+      "pngMaximumByteDifference": 0,
+      "pngFileByteIdentical": true
+    },
+    {
+      "from": "source256-continuation-rewritten-mixed-original-0",
+      "to": "source256-continuation-rewritten-mixed-candidate-0",
+      "linearChangedPixels": 0,
+      "pngChangedPixels": 0,
+      "pngChangedComponents": 0,
+      "pngMaximumByteDifference": 0,
+      "pngFileByteIdentical": true
+    },
+    {
+      "from": "source256-continuation-rewritten-mixed-candidate-0",
+      "to": "source256-continuation-rewritten-mixed-candidate-1",
+      "linearChangedPixels": 0,
+      "pngChangedPixels": 0,
+      "pngChangedComponents": 0,
+      "pngMaximumByteDifference": 0,
+      "pngFileByteIdentical": true
+    },
+    {
+      "from": "source256-continuation-rewritten-mixed-candidate-1",
+      "to": "source256-continuation-rewritten-mixed-candidate-2",
+      "linearChangedPixels": 0,
+      "pngChangedPixels": 0,
+      "pngChangedComponents": 0,
+      "pngMaximumByteDifference": 0,
+      "pngFileByteIdentical": true
+    },
+    {
+      "from": "source256-rock-positive-mineral-original-0",
+      "to": "source256-rock-positive-mineral-candidate-2",
+      "linearChangedPixels": 0,
+      "pngChangedPixels": 0,
+      "pngChangedComponents": 0,
+      "pngMaximumByteDifference": 0,
+      "pngFileByteIdentical": true
+    }
+  ]
+}

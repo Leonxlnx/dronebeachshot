@@ -1,0 +1,44 @@
+{
+  "method": "Actual createTerrain continuation; exact source index identity and multiplicity; shared immutable attributes; complete referenced-vertex bounds; source-triangle plane exclusion audit",
+  "cellSize": 512,
+  "sourceHashes": {
+    "position": "1c34341f853aa8f6225bb7a91e5cdcb517b822c106e2aca73643642a1fa10849",
+    "normal": "95057824e9567885536d908615e66627052e8afdb76820b2df1a260ff56c6440",
+    "color": "514f01476621a3a8a4b1c14293b9753c0e4adfd77855a001dc837b635aa2ea7d",
+    "index": "d8f77757f9e9eef3cb4b56ff266c10abeaf6ff8b8ca2906870a54323cf32b4de"
+  },
+  "sourceVertices": 817600,
+  "sourceTriangles": 1629600,
+  "periphery": 2800,
+  "rings": 292,
+  "chunks": 932,
+  "partitionMilliseconds": 875.0579450000005,
+  "maxBoundExcess": 0,
+  "fits": [
+    {
+      "name": "production-sun",
+      "retainedChunks": 10,
+      "retainedTriangles": 214458,
+      "totalTriangles": 1629600,
+      "potentiallyVisibleTriangles": 27828,
+      "incorrectlyCulledTriangles": 0,
+      "retainedFraction": 0.13160162002945508
+    },
+    {
+      "name": "remote-study-sun",
+      "retainedChunks": 61,
+      "retainedTriangles": 457802,
+      "totalTriangles": 1629600,
+      "potentiallyVisibleTriangles": 310392,
+      "incorrectlyCulledTriangles": 0,
+      "retainedFraction": 0.2809290623465881
+    }
+  ],
+  "totalMilliseconds": 31254.225909,
+  "rss": 382386176,
+  "limits": [
+    "CPU source/bounds evidence only; actual rendered shadow/color equality and timings still required",
+    "Submitted triangle counts are conservative eligible bounds, not measured GPU vertex execution or speedups",
+    "Production study is not integrated or enabled by this audit"
+  ]
+}

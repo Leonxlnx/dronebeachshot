@@ -24,11 +24,12 @@ import {enableMaterialDiagnostics} from './render/diagnostics';
 import {withAerialPerspective,aerialDensity} from './render/aerial-perspective';
 import {withCloudLighting,solarColor,solarIntensity} from './render/sky-lighting';
 import {createRefractionPass} from './render/refraction';
-import {mineralReliefStrength,stoneBeddingAligned,sandRippleStrength,rockWeatheringStrength} from './render/ground-materials';
+import {mineralReliefStrength,stoneBeddingAligned,sandRippleStrength,sandRippleFilter,rockWeatheringStrength,groundLayerPruning} from './render/ground-materials';
 import {waitForProfilingFence} from './render/profiling-sync';
 import {cloudCoverageScale} from './world/clouds';
 import {createGroundCoverCulling} from './render/ground-cover-culling';
 import {createRemoteShadowStudy} from './render/remote-shadow-study';
+import {createTerrainShadowChunkStudy} from './render/terrain-shadow-chunks';
 import {getFarCrownCoverage,setFarCrownCoverage} from './render/far-crown-coverage';
 import {getFarCrownBlending,setFarCrownBlending,prepareFarCrownBlending,disposeFarCrownBlending} from './render/far-crown-blending';
 import {createLinearMainOutput} from './render/linear-main-output';
@@ -61,6 +62,7 @@ function chooseCamera(t:number,name?:string){if(name&&Object.hasOwn(evaluationCa
 let evalName=params.get('camera')||undefined;
 let environmentIntensity=.65,exposure=1.08,profileFrame=false;
 const remoteShadowStudy=(capture||inspect)?createRemoteShadowStudy(atmosphere.sun,vegetation.group):null;
+const terrainShadowStudy=(capture||inspect)?createTerrainShadowChunkStudy(terrain.getObjectByName('continuous-coastal-extension') as THREE.Mesh):null;
 function inspection(){readiness.assertReady();if(!capture&&!inspect)throw Error('Study controls require capture or inspection mode');if(capturing)throw Error('A frame capture is in progress');}
 function finite(value:unknown,lo:number,hi:number,key:string){if(typeof value!=='number'||!Number.isFinite(value)||value<lo||value>hi)throw Error('Invalid '+key);return value;}
 function boolean(value:unknown,key:string){if(typeof value!=='boolean')throw Error('Invalid '+key);return value;}
@@ -83,18 +85,19 @@ function setLighting(settings:Record<string,unknown>){
  cloudCoverageScale.value=next.cloudCoverage;
  renderer.toneMappingExposure=debugMode.value===11?1:exposure;atmosphere.invalidateLighting();return getLighting();
 }
-function getSurfaceStudy(){return {mineralRelief:mineralReliefStrength.value,foamDepthGate:foamDepthGate.value,stoneBedding:stoneBeddingAligned.value,sandRipple:sandRippleStrength.value,rockWeathering:rockWeatheringStrength.value};}
-function setSurfaceStudy(settings:Record<string,unknown>){inspection();const targets={mineralRelief:mineralReliefStrength,foamDepthGate,stoneBedding:stoneBeddingAligned,sandRipple:sandRippleStrength,rockWeathering:rockWeatheringStrength};for(const [key,value]of Object.entries(settings)){if(!Object.hasOwn(targets,key))throw Error('Unknown surface setting: '+key);finite(value,0,1,key);}for(const [key,value]of Object.entries(settings))targets[key as keyof typeof targets].value=value as number;return getSurfaceStudy();}
-function getShadowStudy(){return {mapSize:atmosphere.sun.shadow.mapSize.x,normalBias:atmosphere.sun.shadow.normalBias,bias:atmosphere.sun.shadow.bias,...remoteShadowStudy?.get()};}
+function getSurfaceStudy(){return {mineralRelief:mineralReliefStrength.value,foamDepthGate:foamDepthGate.value,stoneBedding:stoneBeddingAligned.value,sandRipple:sandRippleStrength.value,sandRippleFilter:sandRippleFilter.value,rockWeathering:rockWeatheringStrength.value,groundLayerPruning:groundLayerPruning.value};}
+function setSurfaceStudy(settings:Record<string,unknown>){inspection();const targets={mineralRelief:mineralReliefStrength,foamDepthGate,stoneBedding:stoneBeddingAligned,sandRipple:sandRippleStrength,sandRippleFilter,rockWeathering:rockWeatheringStrength,groundLayerPruning};for(const [key,value]of Object.entries(settings)){if(!Object.hasOwn(targets,key))throw Error('Unknown surface setting: '+key);if(key==='groundLayerPruning'){if(typeof value!=='number'||![0,1,2].includes(value))throw Error('Invalid ground layer sampling mode');}else finite(value,0,1,key);}for(const [key,value]of Object.entries(settings))targets[key as keyof typeof targets].value=value as number;return getSurfaceStudy();}
+function getShadowStudy(){return {mapSize:atmosphere.sun.shadow.mapSize.x,normalBias:atmosphere.sun.shadow.normalBias,bias:atmosphere.sun.shadow.bias,...remoteShadowStudy?.get(),...terrainShadowStudy?.get()};}
 function setShadowStudy(settings:Record<string,unknown>){
  inspection();for(const [key,value]of Object.entries(settings)){
-  if(['remoteFit','remoteCasters'].includes(key))boolean(value,key);
+  if(['remoteFit','remoteCasters','terrainChunks'].includes(key))boolean(value,key);
   else if(key==='mapSize'){if(![512,1024,2048,4096].includes(Number(value)))throw Error('Invalid shadow map size');}
   else if(key==='normalBias')finite(value,0,5,key);else if(key==='bias')finite(value,-.01,.01,key);else throw Error('Unknown shadow setting: '+key);
  }
  if(settings.mapSize!==undefined&&settings.mapSize!==atmosphere.sun.shadow.mapSize.x){atmosphere.sun.shadow.mapSize.setScalar(settings.mapSize as number);atmosphere.sun.shadow.map?.dispose();atmosphere.sun.shadow.map=null;}
  if(settings.normalBias!==undefined)atmosphere.sun.shadow.normalBias=settings.normalBias as number;
  if(settings.bias!==undefined)atmosphere.sun.shadow.bias=settings.bias as number;
+ if(settings.terrainChunks!==undefined)terrainShadowStudy?.set(settings.terrainChunks as boolean);
  const remote:Record<string,boolean>={};for(const key of ['remoteFit','remoteCasters'])if(settings[key]!==undefined)remote[key]=settings[key] as boolean;
  remoteShadowStudy?.set(remote);renderer.shadowMap.needsUpdate=true;return getShadowStudy();
 }
@@ -104,7 +107,7 @@ function frameWork(t:number,name=evalName){
  const phases:[string,()=>void][]=[
   ['cameraAndGroundCover',()=>{chooseCamera(t,name);groundCoverVisibility=groundCoverCulling.prepare(camera)}],
   ['atmosphere',()=>{atmosphere.update(renderer,camera.position,t);scene.environment=debugMode.value===5?null:atmosphere.environment;scene.environmentIntensity=environmentIntensity;}],
-  ['forestSelection',()=>{vegetation.update(camera.position);renderer.shadowMap.needsUpdate=true;if(renderer.shadowMap.enabled)vegetation.prepareSunShadow(atmosphere.sun);} ],
+  ['forestSelection',()=>{vegetation.update(camera.position);terrainShadowStudy?.beginFrame();renderer.shadowMap.needsUpdate=true;if(renderer.shadowMap.enabled)vegetation.prepareSunShadow(atmosphere.sun);} ],
   ['refractionAndSunShadow',()=>{refraction.render(scene,camera,ocean.group,spray)}],
   ['mainColor',()=>{vegetation.prepareMain(camera);prepareFarCrownBlending(camera);linearMain.render(scene,camera,debugMode.value);sealOpaqueCanvas(renderer);}]
  ];
@@ -175,5 +178,5 @@ const api={build:buildIdentity,
 }};
 Object.assign(window,{lastLightBay:api});
 if(inspect){const panel=document.createElement('div');panel.id='review-controls';panel.style.cssText='position:absolute;top:12px;right:12px;display:flex;flex-wrap:wrap;gap:4px;max-width:340px;justify-content:flex-end';for(const name of Object.keys(evaluationCameras)){const b=document.createElement('button');b.textContent=name;b.style.cssText='font-size:11px;padding:5px;min-height:25px';b.onclick=()=>{if(capturing)return;setPlaying(false);api.setCamera(name)};panel.append(b)}const download=document.createElement('button');download.textContent='Save 4K frame';download.onclick=async()=>{if(download.disabled)return;download.disabled=true;const filename=(evalName||'flight-'+time.toFixed(2))+'.png';try{const blob=await api.capture();const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=filename;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);download.textContent='Save 4K frame'}catch{download.textContent='Frame unavailable — try again'}finally{download.disabled=false}};panel.append(download);const modes=['beauty','albedo','normals','roughness','depth','direct light','environment','shadows','LOD','shore depth','foam','exposure','vegetation density'];const select=document.createElement('select');select.setAttribute('aria-label','Diagnostic view');select.style.cssText='color:white;background:#182b2d;padding:8px';modes.forEach((m,i)=>select.add(new Option(m,String(i))));select.onchange=()=>{if(!capturing)api.setDebug(Number(select.value))};panel.append(select);document.body.append(panel)}
-draw(time);window.addEventListener('pageshow',event=>{if(event.persisted){last=0;if(!capture)raf=requestAnimationFrame(loop);if(capturing){pendingResize=true;return}draw(time)}});window.addEventListener('pagehide',event=>{cancelAnimationFrame(raf);if(event.persisted){setPlaying(false);audio.pause();el('sound').textContent='Sound off';el('sound').setAttribute('aria-pressed','false');return}audio.dispose();disposeFarCrownBlending();linearMain.dispose();vegetation.disposeVisibility();atmosphere.dispose();refraction.dispose();const geometries=new Set<THREE.BufferGeometry>(),materials=new Set<THREE.Material>(),texturesToDispose=new Set<THREE.Texture>(Object.values(textures));scene.traverse(o=>{if(o instanceof THREE.Mesh||o instanceof THREE.Points){if(o instanceof THREE.InstancedMesh)o.dispose();geometries.add(o.geometry);if(o.customDepthMaterial)materials.add(o.customDepthMaterial);for(const m of Array.isArray(o.material)?o.material:[o.material]){materials.add(m);for(const texture of m.userData.sharedShaderTextures??[])if(texture instanceof THREE.Texture)texturesToDispose.add(texture);for(const value of Object.values(m))if(value instanceof THREE.Texture)texturesToDispose.add(value)}}});geometries.forEach(g=>g.dispose());materials.forEach(m=>{if(m instanceof THREE.ShaderMaterial)for(const uniform of Object.values(m.uniforms))if(uniform.value instanceof THREE.Texture)texturesToDispose.add(uniform.value);m.dispose()});for(const atlas of vegetation.farTextures){texturesToDispose.add(atlas.albedo);texturesToDispose.add(atlas.normals);texturesToDispose.add(atlas.visibility)}texturesToDispose.forEach(t=>t.dispose());renderer.dispose()});}
+draw(time);window.addEventListener('pageshow',event=>{if(event.persisted){last=0;if(!capture)raf=requestAnimationFrame(loop);if(capturing){pendingResize=true;return}draw(time)}});window.addEventListener('pagehide',event=>{cancelAnimationFrame(raf);if(event.persisted){setPlaying(false);audio.pause();el('sound').textContent='Sound off';el('sound').setAttribute('aria-pressed','false');return}audio.dispose();disposeFarCrownBlending();linearMain.dispose();vegetation.disposeVisibility();terrainShadowStudy?.dispose();atmosphere.dispose();refraction.dispose();const geometries=new Set<THREE.BufferGeometry>(),materials=new Set<THREE.Material>(),texturesToDispose=new Set<THREE.Texture>(Object.values(textures));scene.traverse(o=>{if(o instanceof THREE.Mesh||o instanceof THREE.Points){if(o instanceof THREE.InstancedMesh)o.dispose();geometries.add(o.geometry);if(o.customDepthMaterial)materials.add(o.customDepthMaterial);for(const m of Array.isArray(o.material)?o.material:[o.material]){materials.add(m);for(const texture of m.userData.sharedShaderTextures??[])if(texture instanceof THREE.Texture)texturesToDispose.add(texture);for(const value of Object.values(m))if(value instanceof THREE.Texture)texturesToDispose.add(value)}}});geometries.forEach(g=>g.dispose());materials.forEach(m=>{if(m instanceof THREE.ShaderMaterial)for(const uniform of Object.values(m.uniforms))if(uniform.value instanceof THREE.Texture)texturesToDispose.add(uniform.value);m.dispose()});for(const atlas of vegetation.farTextures){texturesToDispose.add(atlas.albedo);texturesToDispose.add(atlas.normals);texturesToDispose.add(atlas.visibility)}texturesToDispose.forEach(t=>t.dispose());renderer.dispose()});}
 start().catch(e=>{console.error(e);failure('The scene could not load. '+String(e))});

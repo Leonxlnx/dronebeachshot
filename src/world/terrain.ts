@@ -171,7 +171,8 @@ function createCoastalContinuation(t:Textures) {
   const normalized=Math.hypot(nx,ny,nz);normals.setXYZ(i,nx/normalized,ny/normalized,nz/normalized);
  }
  geometry.computeBoundingSphere();
- const material=createGroundMaterial(t);
+ // This wrapper consumes all layers and rewrites masks: keep original sampling.
+ const material=createGroundMaterial(t,false);
  const baseCompile=material.onBeforeCompile.bind(material);
  material.onBeforeCompile=(shader,renderer)=>{
   baseCompile(shader,renderer);
@@ -206,7 +207,7 @@ function createCoastalContinuation(t:Textures) {
  return mesh;
 }
 
-export function createTerrain(t:Textures){const group=new THREE.Group();group.name='land';const material=createGroundMaterial(t);const tileSize=200,segments=100;for(let tz=-4;tz<4;tz++)for(let tx=-3;tx<3;tx++){const g=new THREE.PlaneGeometry(tileSize,tileSize,segments,segments);g.rotateX(-Math.PI/2);g.translate(tx*tileSize+100,0,tz*tileSize+100);const p=g.attributes.position;const colors=new Float32Array(p.count*3);for(let i=0;i<p.count;i++){const x=p.getX(i),z=p.getZ(i),h=terrainHeight(x,z);p.setY(i,h);const c=.84+noise(x*.06,z*.06)*.16;colors.set([c,c,c],i*3)}g.setAttribute('color',new THREE.BufferAttribute(colors,3));g.computeVertexNormals();const mesh=new THREE.Mesh(g,material);mesh.receiveShadow=true;mesh.castShadow=true;mesh.name=`terrain-${tx}-${tz}`;group.add(mesh)}
+export function createTerrain(t:Textures){const group=new THREE.Group();group.name='land';const material=createGroundMaterial(t,true);const tileSize=200,segments=100;for(let tz=-4;tz<4;tz++)for(let tx=-3;tx<3;tx++){const g=new THREE.PlaneGeometry(tileSize,tileSize,segments,segments);g.rotateX(-Math.PI/2);g.translate(tx*tileSize+100,0,tz*tileSize+100);const p=g.attributes.position;const colors=new Float32Array(p.count*3);for(let i=0;i<p.count;i++){const x=p.getX(i),z=p.getZ(i),h=terrainHeight(x,z);p.setY(i,h);const c=.84+noise(x*.06,z*.06)*.16;colors.set([c,c,c],i*3)}g.setAttribute('color',new THREE.BufferAttribute(colors,3));g.computeVertexNormals();const mesh=new THREE.Mesh(g,material);mesh.receiveShadow=true;mesh.castShadow=true;mesh.name=`terrain-${tx}-${tz}`;group.add(mesh)}
 group.add(createCoastalContinuation(t));return group;}
 function fracturedRockGeometry(variant:number) {
  const random=rng(3701+variant*191),points:THREE.Vector3[]=[];

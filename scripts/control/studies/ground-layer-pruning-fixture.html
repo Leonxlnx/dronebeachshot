@@ -1,0 +1,130 @@
+<!doctype html><meta charset="utf-8"><link rel="icon" href="data:,"><title>Ground material differential fixture</title><canvas id="world"></canvas>
+<script type="importmap">{"imports":{"three":"/three/three.module.js","three/addons/":"/three-addons/"}}</script>
+<script type="module">
+import * as THREE from 'three';
+import * as original from '/virtual/original.ts';
+import * as candidate from '/virtual/candidate.ts';
+import {createContinuationMaterial as originalContinuation} from '/virtual/original-continuation.ts';
+import {createContinuationMaterial as candidateContinuation} from '/virtual/candidate-continuation.ts';
+import {worldTime} from '/src/render/materials.ts';
+import {waitForProfilingFence} from '/src/render/profiling-sync.ts';
+
+const size=128,canvas=document.getElementById('world'),renderer=new THREE.WebGLRenderer({canvas,antialias:false,alpha:false,preserveDrawingBuffer:false});
+renderer.setPixelRatio(1);renderer.setSize(size,size,false);renderer.toneMapping=THREE.NoToneMapping;renderer.outputColorSpace=THREE.LinearSRGBColorSpace;
+const gl=renderer.getContext(),shaderErrors=[];
+renderer.debug.onShaderError=(context,program,vertex,fragment)=>shaderErrors.push({program:context.getProgramInfoLog(program),vertex:context.getShaderInfoLog(vertex),fragment:context.getShaderInfoLog(fragment),fragmentSource:context.getShaderSource(fragment)});
+const assert=(value,message)=>{if(!value)throw Error(message);};
+assert(gl.getExtension('EXT_color_buffer_float'),'Float render target support is required for finite-output checks');
+const target=new THREE.WebGLRenderTarget(size,size,{type:THREE.FloatType,format:THREE.RGBAFormat,depthBuffer:true,minFilter:THREE.NearestFilter,magFilter:THREE.NearestFilter});
+target.texture.colorSpace=THREE.LinearSRGBColorSpace;
+const scene=new THREE.Scene(),camera=new THREE.OrthographicCamera(-1,1,1,-1,.1,30);
+camera.position.set(0,10,0);camera.up.set(0,0,-1);camera.lookAt(0,0,0);
+const sun=new THREE.DirectionalLight(0xffd1a1,4.4);sun.position.set(7,11,4);scene.add(sun,new THREE.HemisphereLight(0xdbefff,0x53432e,.65));
+const geometry=new THREE.PlaneGeometry(2,2,1,1);geometry.rotateX(-Math.PI/2);
+geometry.setAttribute('color',new THREE.Float32BufferAttribute(new Array(geometry.attributes.position.count*3).fill(1),3));
+const mesh=new THREE.Mesh(geometry);mesh.frustumCulled=false;scene.add(mesh);
+const fixture={uFixtureOrigin:{value:new THREE.Vector3()},uFixtureSpan:{value:new THREE.Vector2()},uFixtureNormal:{value:new THREE.Vector3()},uFixtureMaskPattern:{value:0},uFixtureMaskOffset:{value:0}};
+const textureFiles={rock:'marble_cliff_03_diff_2k',rockNormal:'marble_cliff_03_nor_gl_2k',rockARM:'marble_cliff_03_arm_2k',sand:'sand_03_diff_2k',sandNormal:'sand_03_nor_gl_2k',sandARM:'sand_03_arm_2k',soil:'forest_ground_05_diff_2k',soilNormal:'forest_ground_05_nor_gl_2k',soilARM:'forest_ground_05_arm_2k',moss:'forest_leaves_02_diff_2k',mossNormal:'forest_leaves_02_nor_gl_2k',mossARM:'forest_leaves_02_arm_2k'};
+const albedoNames=['rock','sand','soil','moss'];
+function configureTexture(tex,name){
+ tex.wrapS=tex.wrapT=THREE.RepeatWrapping;tex.anisotropy=['rock','rockNormal','rockARM'].includes(name)?1:4;
+ tex.colorSpace=albedoNames.includes(name)?THREE.SRGBColorSpace:THREE.NoColorSpace;
+ tex.minFilter=THREE.LinearMipmapLinearFilter;tex.magFilter=THREE.LinearFilter;tex.generateMipmaps=true;tex.flipY=true;tex.needsUpdate=true;return tex;
+}
+function syntheticTexture(name,index){
+ const n=256,data=new Uint8Array(n*n*4),normal=name.endsWith('Normal'),arm=name.endsWith('ARM');
+ for(let y=0;y<n;y++)for(let x=0;x<n;x++){
+  const i=(y*n+x)*4,a=Math.sin(x*.79+index)*Math.cos(y*.31-index),b=((x^y^(index*29))&31)/31;
+  let rgb;
+  if(normal){const nx=.4*a,ny=.35*Math.cos(y*.61+x*.17+index),nz=Math.sqrt(1-nx*nx-ny*ny);rgb=[nx*.5+.5,ny*.5+.5,nz*.5+.5];}
+  else if(arm)rgb=[.53+.43*b,.45+.48*(a*.5+.5),.11+.05*b];
+  else{const base=[[.62,.52,.42],[.61,.55,.39],[.24,.18,.12],[.18,.27,.095]][Math.floor(index/3)];rgb=base.map((v,c)=>v*(.73+.27*b)+.10*(a*.5+.5)*(c===1?1:.65));}
+  for(let c=0;c<3;c++)data[i+c]=Math.round(Math.max(0,Math.min(1,rgb[c]))*255);data[i+3]=255;
+ }
+ return configureTexture(new THREE.DataTexture(data,n,n,THREE.RGBAFormat),name);
+}
+const textureSets={},materials=new Map();
+async function textures(kind){
+ if(textureSets[kind])return textureSets[kind];
+ const result={};let index=0;
+ for(const [name,file]of Object.entries(textureFiles)){
+  result[name]=kind==='synthetic'?syntheticTexture(name,index):configureTexture(await new THREE.TextureLoader().loadAsync('/source256/'+file+'.png'),name);index++;
+ }
+ result.bark=result.soil;result.barkNormal=result.soilNormal;return textureSets[kind]=result;
+}
+const maskCode=`
+ // Deliberately force different exact layer masks inside 2x2 derivative quads.
+ // These are diagnostic masks, not a modified production terrain field.
+ float fixtureCell=mod(floor(gl_FragCoord.x+uFixtureMaskOffset)+3.*floor(gl_FragCoord.y),8.);
+ if(uFixtureMaskPattern<.5){cliff=0.;moss=0.;sediment=1.;}
+ else if(fixtureCell<1.){cliff=0.;moss=0.;sediment=1.;}
+ else if(fixtureCell<2.){cliff=0.;moss=0.;sediment=0.;}
+ else if(fixtureCell<3.){cliff=1.;moss=0.;sediment=0.;}
+ else if(fixtureCell<4.){cliff=.43;moss=.62;sediment=.2;}
+ else if(fixtureCell<5.){cliff=0.;moss=.4;sediment=.2;}
+ else if(fixtureCell<6.){cliff=.34;moss=0.;sediment=.21;}
+ else if(fixtureCell<7.){cliff=1.401298464e-45;moss=1.401298464e-45;sediment=1.401298464e-45;}
+ else{cliff=.9999999403953552;moss=.5;sediment=.9999999403953552;}
+`;
+async function materialFor(textureKind,variant,kind){
+ const key=textureKind+'/'+variant+'/'+kind;if(materials.has(key))return materials.get(key);
+ const t=await textures(textureKind),lib=variant==='original'?original:candidate;
+ const material=kind==='continuation'?(variant==='original'?originalContinuation:candidateContinuation)(t):kind==='rock'?lib.createRockMaterial(t):lib.createGroundMaterial(t,true);
+ const previous=material.onBeforeCompile.bind(material),keyBefore=material.customProgramCacheKey();
+ material.onBeforeCompile=(shader,renderer)=>{
+  previous(shader,renderer);Object.assign(shader.uniforms,fixture);
+  shader.vertexShader=shader.vertexShader.replace('#include <common>','#include <common>\nuniform vec3 uFixtureOrigin,uFixtureNormal;uniform vec2 uFixtureSpan;');
+  shader.vertexShader=shader.vertexShader.replace('vGroundWorld=(groundTransform*vec4(position,1.)).xyz;','vGroundWorld=uFixtureOrigin+vec3(position.x*uFixtureSpan.x,0.,position.z*uFixtureSpan.y);');
+  const normalStatement='vGroundNormal=normalize(gx*normal.x/max(dot(gx,gx),.0001)+gy*normal.y/max(dot(gy,gy),.0001)+gz*normal.z/max(dot(gz,gz),.0001));';
+  assert(shader.vertexShader.includes(normalStatement),'Production normal anchor changed');shader.vertexShader=shader.vertexShader.replace(normalStatement,'vGroundNormal=normalize(uFixtureNormal);');
+  if(kind!=='rock'){
+   shader.fragmentShader=shader.fragmentShader.replace('#include <common>','#include <common>\nuniform float uFixtureMaskPattern,uFixtureMaskOffset;');
+   const maskAnchor='float moss=patches*moisture*(.55+.45*habitat.a)*soilSupport*(1.-sediment);';
+   assert(shader.fragmentShader.includes(maskAnchor),'Production mask anchor changed');shader.fragmentShader=shader.fragmentShader.replace(maskAnchor,maskAnchor+maskCode);
+  }
+ };
+ // The production continuation overrides the base key. Keep variant in this
+ // fixture key so original/candidate cannot accidentally share one program.
+ material.customProgramCacheKey=()=>keyBefore+'-layer-fixture-v1-'+kind+'-'+variant;
+ materials.set(key,material);return material;
+}
+function base64(bytes){let str='';for(let i=0;i<bytes.length;i+=8192)str+=String.fromCharCode(...bytes.subarray(i,i+8192));return btoa(str);}
+function preview(pixels){
+ const output=document.createElement('canvas');output.width=output.height=size;const context=output.getContext('2d'),image=context.createImageData(size,size);
+ const srgb=value=>{value=Math.max(0,Math.min(1,value));return value<=.0031308?value*12.92:1.055*Math.pow(value,1/2.4)-.055;};
+ for(let y=0;y<size;y++)for(let x=0;x<size;x++)for(let c=0;c<4;c++)image.data[(y*size+x)*4+c]=c===3?255:Math.round(srgb(pixels[((size-1-y)*size+x)*4+c])*255);
+ context.putImageData(image,0,0);return output.toDataURL('image/png');
+}
+window.groundProbe={
+ metadata(){const ext=gl.getExtension('WEBGL_debug_renderer_info');return{size,threeRevision:THREE.REVISION,renderer:ext?gl.getParameter(ext.UNMASKED_RENDERER_WEBGL):gl.getParameter(gl.RENDERER),maxAnisotropy:renderer.capabilities.getMaxAnisotropy(),floatTarget:true,preview:'sRGB conversion of actual finite linear Float32 target; no tone mapping',sourceTextures:'separate synthetic and source-derived256 test sets'};},
+ async render({textureKind,variant,kind,mode,origin,span,normal,maskPattern,maskOffset,bedding,mineral}){
+  fixture.uFixtureOrigin.value.fromArray(origin);fixture.uFixtureSpan.value.fromArray(span);fixture.uFixtureNormal.value.fromArray(normal);
+  fixture.uFixtureMaskPattern.value=maskPattern;fixture.uFixtureMaskOffset.value=maskOffset;
+  worldTime.value=6.125;original.stoneBeddingAligned.value=candidate.stoneBeddingAligned.value=bedding;
+  original.mineralReliefStrength.value=candidate.mineralReliefStrength.value=mineral;
+  original.sandRippleStrength.value=candidate.sandRippleStrength.value=.2;
+  // Keep the independently integrated ripple filter out of this pruning study.
+  if(candidate.sandRippleFilter)candidate.sandRippleFilter.value=0;
+  original.rockWeatheringStrength.value=candidate.rockWeatheringStrength.value=.37;
+  candidate.groundLayerPruning.value=mode;
+  mesh.material=await materialFor(textureKind,variant,kind);
+  renderer.setRenderTarget(target);renderer.setClearColor(0x030711,1);renderer.clear();renderer.render(scene,camera);
+  await waitForProfilingFence(gl,{timeoutMilliseconds:30000,pollMilliseconds:2});
+  assert(!shaderErrors.length,JSON.stringify(shaderErrors));assert(!gl.isContextLost(),'Context lost');
+  const pixels=new Float32Array(size*size*4);renderer.readRenderTargetPixels(target,0,0,size,size,pixels);
+  assert(gl.getError()===gl.NO_ERROR,'WebGL read/render error');
+  let minimum=Infinity,maximum=-Infinity,sum=0,sum2=0,lit=0,opaque=0;
+  for(let i=0;i<pixels.length;i+=4){
+   for(let c=0;c<4;c++)assert(Number.isFinite(pixels[i+c]),'Nonfinite rendered component at '+(i+c));
+   const luminance=.2126*pixels[i]+.7152*pixels[i+1]+.0722*pixels[i+2];minimum=Math.min(minimum,luminance);maximum=Math.max(maximum,luminance);sum+=luminance;sum2+=luminance*luminance;
+   if(luminance>1e-5)lit++;if(pixels[i+3]>.99)opaque++;
+  }
+  const count=size*size,mean=sum/count,deviation=Math.sqrt(Math.max(0,sum2/count-mean*mean));
+  assert(lit/count>.99,'Blank/dark fixture: lit fraction '+lit/count);assert(opaque/count>.99,'Missing surface coverage');
+  assert(maximum-minimum>1e-4&&deviation>1e-5,'Uniform fixture: geometry/material did not render useful variation');
+  assert(minimum>=0&&maximum<100,'Invalid lighting range');
+  return{pixels:base64(new Uint8Array(pixels.buffer)),png:preview(pixels),statistics:{minimum,maximum,mean,deviation,litFraction:lit/count,opaqueFraction:opaque/count},shaderErrors};
+ },
+ dispose(){for(const material of materials.values())material.dispose();for(const set of Object.values(textureSets))for(const tex of new Set(Object.values(set)))tex.dispose();geometry.dispose();target.dispose();renderer.dispose();renderer.forceContextLoss();},
+};
+</script>

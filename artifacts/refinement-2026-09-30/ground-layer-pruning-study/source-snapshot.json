@@ -1,0 +1,16 @@
+{
+  "productionFiles": {
+    "src/render/ground-materials.ts": "2d347d9f44d797829a925e5228dba2ebde6c3bb1cb78652661fb6c4a960fd8ab",
+    "src/world/terrain.ts": "d5e84d658e6e52f28abbded5673b945adf31f988378bc95efe7b7f51f103b733"
+  },
+  "productionModifiedByStudy": false,
+  "gpuValidation": false,
+  "modeDefault": 0,
+  "modes": {
+    "0": "original sampling",
+    "1": "explicit source gradients without pruning",
+    "2": "exact zero layer pruning"
+  },
+  "continuationOptedIn": false,
+  "combinedRippleProposalVerified": true
+}
