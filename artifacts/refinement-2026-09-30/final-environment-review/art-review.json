@@ -1,0 +1,178 @@
+{
+  "kind": "actual-final-candidate-static-art-review",
+  "sourceIdentity": "301d9c4541e7b48f82d7166345cd39f3ebc7b3fba4140549f0ab3d997a6b095f",
+  "bundle": {
+    "entry": "dist/assets/index-D4RZMWwx.js",
+    "sha256": "1a0e677871901fa4d6d39a2721c97d785ee5831a2e307b4b613fb4b28cf526b1"
+  },
+  "dimensions": [
+    1280,
+    720
+  ],
+  "backend": "software",
+  "captureManifest": "artifacts/refinement-2026-09-30/final-environment-review/capture/manifest.json",
+  "captureSucceeded": true,
+  "manifestErrors": [],
+  "decisions": {
+    "retainedSandAlbedo": "ACCEPT as a bounded material-detail improvement: the wet strip now has resolved surface variation and no conspicuous new tiling seam was observed.",
+    "cloudContourRemoval": "NOT PASSED: fine repeated diagonal/horizontal lines remain visible in bright shore-view cloud lobes after the stable-cell change.",
+    "sunsetRegressionCheck": "No obvious new reflection slit, scene seam or sun/reflection inconsistency observed. Existing soft/stretched cloud morphology remains a limitation.",
+    "overall": "Useful candidate improvements; this review does not establish finished-environment or8/10 realism acceptance."
+  },
+  "observations": [
+    {
+      "view": "coast10.5",
+      "regionXYInclusive": [
+        1000,
+        415,
+        1279,
+        635
+      ],
+      "finding": "Wet sand retains fine surface variation instead of an almost featureless brown ribbon. Its broad smooth boundary still looks authored."
+    },
+    {
+      "view": "coast10.5",
+      "regionXYInclusive": [
+        220,
+        0,
+        485,
+        150
+      ],
+      "finding": "Repeated fine cloud lines remain visible. Correct source mathematics alone is insufficient to mark the target artifact removed."
+    },
+    {
+      "view": "coast10.5",
+      "finding": "Corrected water reflection remains coherent; no obvious tree-scale, grounding or reflection regression appears."
+    },
+    {
+      "view": "sunset19.5",
+      "finding": "Selected sky composition and coherent sun/water reflection remain. At1280 the clouds are conspicuously soft and swept, while the smooth shore/cliff forms remain simplified."
+    }
+  ],
+  "frames": [
+    {
+      "label": "coast-refined-10_5",
+      "png": "artifacts/refinement-2026-09-30/final-environment-review/capture/coast-refined-10_5.png",
+      "pngSha256": "6bd5ca6553f43a43574bc8634bfa6227a79b2e917a527f6d4ebdbff3fcaa9f34",
+      "timeSeconds": 10.5,
+      "camera": [
+        -36.98060456829655,
+        4.922138347995213,
+        84.31258981306148
+      ],
+      "coreTreeCount": 14016,
+      "linearMainOutput": {
+        "enabled": true,
+        "sampleScale": 1,
+        "requestedSampleScale": 1,
+        "supported": true,
+        "supportError": null,
+        "initialized": true,
+        "width": 1280,
+        "height": 720,
+        "samples": 4,
+        "framebufferValidated": true,
+        "format": "RGBA16F",
+        "colorSpace": "srgb-linear",
+        "resolveDrawsPerFrame": 1,
+        "disposed": false
+      },
+      "coastalReflection": {
+        "enabled": true,
+        "initialized": true,
+        "supported": true,
+        "supportError": null,
+        "width": 640,
+        "height": 360,
+        "scale": 0.5,
+        "samples": 4,
+        "format": "RGBA16F",
+        "resolvedDepth": true,
+        "alphaIsCoverage": false,
+        "distortion": 1,
+        "ready": true,
+        "renders": 1,
+        "failures": 0,
+        "skippedBelowSea": 0,
+        "lastDrawCalls": 456,
+        "lastTriangles": 7028223,
+        "disposed": false
+      },
+      "islandResponseEnabled": true
+    },
+    {
+      "label": "sunset-refined-19_5",
+      "png": "artifacts/refinement-2026-09-30/final-environment-review/capture/sunset-refined-19_5.png",
+      "pngSha256": "afe3b1e9bd06486cdb8e2815d57d0ab36c61ec0a61a84d9fbd2c66ddb3bcceb8",
+      "timeSeconds": 19.5,
+      "camera": [
+        85.95200008007154,
+        5.7945112973533766,
+        -41.677354028279616
+      ],
+      "coreTreeCount": 14016,
+      "linearMainOutput": {
+        "enabled": true,
+        "sampleScale": 1,
+        "requestedSampleScale": 1,
+        "supported": true,
+        "supportError": null,
+        "initialized": true,
+        "width": 1280,
+        "height": 720,
+        "samples": 4,
+        "framebufferValidated": true,
+        "format": "RGBA16F",
+        "colorSpace": "srgb-linear",
+        "resolveDrawsPerFrame": 1,
+        "disposed": false
+      },
+      "coastalReflection": {
+        "enabled": true,
+        "initialized": true,
+        "supported": true,
+        "supportError": null,
+        "width": 640,
+        "height": 360,
+        "scale": 0.5,
+        "samples": 4,
+        "format": "RGBA16F",
+        "resolvedDepth": true,
+        "alphaIsCoverage": false,
+        "distortion": 1,
+        "ready": true,
+        "renders": 2,
+        "failures": 0,
+        "skippedBelowSea": 0,
+        "lastDrawCalls": 260,
+        "lastTriangles": 3625063,
+        "disposed": false
+      },
+      "islandResponseEnabled": true
+    }
+  ],
+  "shoreComparison": {
+    "previous": "artifacts/refinement-2026-09-30/coastal-young-woodland/trial02-on/young-woodland-on-10_5.png",
+    "previousPngSha256": "05072e18f8f286028e0f9ddaae5433cdc315294c9b324fb408218c8a61e710c9",
+    "previousSourceIdentity": "87d484afea5ea36dc894e6dbf3aa89a8c7f6c7a641c3fb5eee961ccf075d463d",
+    "current": "coast-refined-10_5",
+    "sameTimeAndCamera": true,
+    "sameDimensions": true,
+    "differentPixels": 279473,
+    "maxChannelDelta": 50,
+    "changedBoundsInclusive": [
+      0,
+      0,
+      1279,
+      719
+    ]
+  },
+  "limits": [
+    "The shoreline pair uses separate pinned builds; this is an actual result comparison, not proof that every unrelated source byte is identical.",
+    "No prior1280 sunset control with exactly the same combined profile is available in this review; the sunset check is qualitative regression inspection.",
+    "Actual main output is linear sampleScale1 at1280x720, not an internal2x resolve at that output size.",
+    "There is no restored frame in this two-frame group and no restoration claim.",
+    "Two stills do not establish temporal quality, runtime performance, full-route acceptance or an8/10 score.",
+    "No production source, settings or GPU capture were changed/launched by this review."
+  ]
+}

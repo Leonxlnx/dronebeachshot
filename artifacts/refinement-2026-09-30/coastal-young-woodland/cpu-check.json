@@ -1,0 +1,1327 @@
+{
+  "status": "CPU support and unchanged-base validation; visual acceptance is recorded separately in README.md",
+  "defaultEnabled": true,
+  "base": {
+    "count": 14000,
+    "sha256": "927ddf7d749c7c3ec4673acebd280e97dd02c0664d26c02225deb8fff7fb64e6",
+    "exactPreservation": true
+  },
+  "youngCount": 16,
+  "groups": [
+    {
+      "group": 0,
+      "count": 4
+    },
+    {
+      "group": 1,
+      "count": 7
+    },
+    {
+      "group": 2,
+      "count": 5
+    }
+  ],
+  "sourceModels": [
+    {
+      "file": "public/assets/models/syringa-tree-near.glb",
+      "sha256": "cb794443092f8b4b7b257c4d86f42e6f2b0ec91a2f95d2d3f34043f0a3b49b07",
+      "bounds": {
+        "min": [
+          -4.021713733673096,
+          -0.07405596226453781,
+          -4.247942924499512
+        ],
+        "max": [
+          4.939471244812012,
+          13.925944328308105,
+          8.940140724182129
+        ]
+      },
+      "vertices": 709651,
+      "basalVertices": 279
+    },
+    {
+      "file": "public/assets/models/syringa-tree-hero.glb",
+      "sha256": "df11a6b9f0a2bf51b8ffd5bb12e4a18a864b47d767177cd53ad263996d8a5f2f",
+      "bounds": {
+        "min": [
+          -4.148251533508301,
+          -0.07405596226453781,
+          -4.238724231719971
+        ],
+        "max": [
+          5.0319294929504395,
+          13.983516693115234,
+          8.629205703735352
+        ]
+      },
+      "vertices": 32991,
+      "basalVertices": 77
+    },
+    {
+      "file": "public/assets/models/syringa-tree-medium.glb",
+      "sha256": "c4ef49e31bf9fb6565ccfdfa7dfa05b84ca6a9054401f2362c81c6f2538770de",
+      "bounds": {
+        "min": [
+          -4.375763893127441,
+          -0.07405596226453781,
+          -4.275949001312256
+        ],
+        "max": [
+          5.070832252502441,
+          14.297677993774414,
+          8.832913398742676
+        ]
+      },
+      "vertices": 9646,
+      "basalVertices": 70
+    }
+  ],
+  "heightRange": [
+    4.75194995965453,
+    7.493648467679792
+  ],
+  "nearestRoute": 70.91059728751154,
+  "maximumBasalGap": 0.11268311236402173,
+  "maximumBottomGap": -0.018897916229033918,
+  "method": "Actual source nodes/Float32 geometric normalization; actual Float32 instance yaw/lean/scale; all three geometric LOD basal points against rendered 2m Float32 triangle terrain. Dense 60Hz route polyline excludes full source bounds expanded2m.",
+  "limits": [
+    "Static source/support checks do not assess full-scene appearance; see the separate 9/10.5/12s still review.",
+    "Route check covers dense path polyline and conservative2m bounds, not an analytic spline extremum proof.",
+    "No rock/crown occlusion or animated visual acceptance is inferred from these static support checks."
+  ],
+  "records": [
+    {
+      "index": 0,
+      "group": 0,
+      "x": 108.3,
+      "y": 3.823790084002062,
+      "z": 127.11582794900706,
+      "scale": 0.37,
+      "angle": 0.38,
+      "variant": 0,
+      "family": 1,
+      "exposure": 0.4149681000780954,
+      "moisture": 0.412895803753928,
+      "actualHeight": 5.297545276740331,
+      "bounds": {
+        "min": [
+          106.96526618673036,
+          3.7957261262691544,
+          125.27956524883118
+        ],
+        "max": [
+          110.30911599841336,
+          9.093271403009485,
+          130.32720737336976
+        ]
+      },
+      "nearestRoute": 70.91059728751154,
+      "nearestBase": 5.613784799703714,
+      "nearestYoung": 6.138386634981746,
+      "support": [
+        {
+          "source": "public/assets/models/syringa-tree-near.glb",
+          "vertices": 279,
+          "bottomVertices": 73,
+          "minimum": -0.12191841157934524,
+          "maximum": 0.07403507481565397,
+          "bottomMaximum": -0.02318796862738548
+        },
+        {
+          "source": "public/assets/models/syringa-tree-hero.glb",
+          "vertices": 77,
+          "bottomVertices": 67,
+          "minimum": -0.12191841157934524,
+          "maximum": 0.045319306529728376,
+          "bottomMaximum": -0.028951509295351396
+        },
+        {
+          "source": "public/assets/models/syringa-tree-medium.glb",
+          "vertices": 70,
+          "bottomVertices": 67,
+          "minimum": -0.12191841157934524,
+          "maximum": 0.045319306529728376,
+          "bottomMaximum": -0.028951509295351396
+        }
+      ],
+      "views": [
+        {
+          "time": 9,
+          "pixel": [
+            611.2512784586455,
+            145.98172171904204
+          ],
+          "midpointInFrustum": true,
+          "terrainRayClear": true,
+          "limit": "Terrain-only midpoint probe; does not model crown/rock occlusion"
+        },
+        {
+          "time": 12,
+          "pixel": [
+            786.4166939476593,
+            162.9574818958544
+          ],
+          "midpointInFrustum": false,
+          "terrainRayClear": true,
+          "limit": "Terrain-only midpoint probe; does not model crown/rock occlusion"
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "group": 0,
+      "x": 112.7,
+      "y": 6.226445883167553,
+      "z": 131.395990385238,
+      "scale": 0.49,
+      "angle": 2.16,
+      "variant": 0,
+      "family": 1,
+      "exposure": 0.4498195584834852,
+      "moisture": 0.4044448763188795,
+      "actualHeight": 7.010669955723131,
+      "bounds": {
+        "min": [
+          110.03750345971392,
+          6.1919137487543825,
+          128.41953331935784
+        ],
+        "max": [
+          116.66609468575729,
+          13.202583704477513,
+          133.04450608031345
+        ]
+      },
+      "nearestRoute": 75.18615194551869,
+      "nearestBase": 4.262534888198767,
+      "nearestYoung": 6.138386634981746,
+      "support": [
+        {
+          "source": "public/assets/models/syringa-tree-near.glb",
+          "vertices": 279,
+          "bottomVertices": 73,
+          "minimum": -0.21263123750065738,
+          "maximum": 0.09794596801961131,
+          "bottomMaximum": -0.031087113841363312
+        },
+        {
+          "source": "public/assets/models/syringa-tree-hero.glb",
+          "vertices": 77,
+          "bottomVertices": 67,
+          "minimum": -0.21263123750065738,
+          "maximum": 0.07590561218524616,
+          "bottomMaximum": -0.033087557586135574
+        },
+        {
+          "source": "public/assets/models/syringa-tree-medium.glb",
+          "vertices": 70,
+          "bottomVertices": 67,
+          "minimum": -0.21263123750065738,
+          "maximum": 0.07590561218524616,
+          "bottomMaximum": -0.033087557586135574
+        }
+      ],
+      "views": [
+        {
+          "time": 9,
+          "pixel": [
+            616.9373767963924,
+            136.72233716049854
+          ],
+          "midpointInFrustum": true,
+          "terrainRayClear": true,
+          "limit": "Terrain-only midpoint probe; does not model crown/rock occlusion"
+        },
+        {
+          "time": 12,
+          "pixel": [
+            788.5224687223867,
+            141.80326290608022
+          ],
+          "midpointInFrustum": false,
+          "terrainRayClear": true,
+          "limit": "Terrain-only midpoint probe; does not model crown/rock occlusion"
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "group": 0,
+      "x": 120.1,
+      "y": 7.51085426411235,
+      "z": 129.42604397782327,
+      "scale": 0.43,
+      "angle": 4.73,
+      "variant": 0,
+      "family": 1,
+      "exposure": 0.46906899353540865,
+      "moisture": 0.39776491282680193,
+      "actualHeight": 6.21742578568662,
+      "bounds": {
+        "min": [
+          116.31607587038444,
+          7.477667790328477,
+          127.56379684824975
+        ],
+        "max": [
+          122.01136177154137,
+          13.695093576015097,
+          131.60307932398612
+        ]
+      },
+      "nearestRoute": 77.75047980740685,
+      "nearestBase": 5.168400741082211,
+      "nearestYoung": 6.529149363019024,
+      "support": [
+        {
+          "source": "public/assets/models/syringa-tree-near.glb",
+          "vertices": 279,
+          "bottomVertices": 73,
+          "minimum": -0.2170823560922699,
+          "maximum": 0.07913876210672033,
+          "bottomMaximum": -0.039217336614528975
+        },
+        {
+          "source": "public/assets/models/syringa-tree-hero.glb",
+          "vertices": 77,
+          "bottomVertices": 67,
+          "minimum": -0.2170823560922699,
+          "maximum": 0.04381368408074504,
+          "bottomMaximum": -0.04451186943075314
+        },
+        {
+          "source": "public/assets/models/syringa-tree-medium.glb",
+          "vertices": 70,
+          "bottomVertices": 67,
+          "minimum": -0.2170823560922699,
+          "maximum": -0.0195279439845768,
+          "bottomMaximum": -0.04451186943075314
+        }
+      ],
+      "views": [
+        {
+          "time": 9,
+          "pixel": [
+            609.098042056613,
+            133.66012401943289
+          ],
+          "midpointInFrustum": true,
+          "terrainRayClear": true,
+          "limit": "Terrain-only midpoint probe; does not model crown/rock occlusion"
+        },
+        {
+          "time": 12,
+          "pixel": [
+            754.5221192252444,
+            138.91174465365015
+          ],
+          "midpointInFrustum": false,
+          "terrainRayClear": true,
+          "limit": "Terrain-only midpoint probe; does not model crown/rock occlusion"
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "group": 0,
+      "x": 118.2,
+      "y": 4.055319682478399,
+      "z": 123.17946159986556,
+      "scale": 0.34,
+      "angle": 1.29,
+      "variant": 0,
+      "family": 1,
+      "exposure": 0.41825857976581304,
+      "moisture": 0.4131210425512438,
+      "actualHeight": 4.8547706132772355,
+      "bounds": {
+        "min": [
+          116.90126021672006,
+          4.030645776167752,
+          121.24243178060911
+        ],
+        "max": [
+          121.17307039862112,
+          8.885416389444988,
+          124.70589126059825
+        ]
+      },
+      "nearestRoute": 72.69297152762464,
+      "nearestBase": 2.6375488248776247,
+      "nearestYoung": 6.529149363019024,
+      "support": [
+        {
+          "source": "public/assets/models/syringa-tree-near.glb",
+          "vertices": 279,
+          "bottomVertices": 73,
+          "minimum": -0.11956605220175653,
+          "maximum": 0.06749686184690606,
+          "bottomMaximum": -0.02721377690227289
+        },
+        {
+          "source": "public/assets/models/syringa-tree-hero.glb",
+          "vertices": 77,
+          "bottomVertices": 67,
+          "minimum": -0.11956605220175653,
+          "maximum": 0.05296627385917052,
+          "bottomMaximum": -0.0376118457589909
+        },
+        {
+          "source": "public/assets/models/syringa-tree-medium.glb",
+          "vertices": 70,
+          "bottomVertices": 67,
+          "minimum": -0.11956605220175653,
+          "maximum": 0.05296627385917052,
+          "bottomMaximum": -0.0376118457589909
+        }
+      ],
+      "views": [
+        {
+          "time": 9,
+          "pixel": [
+            589.4439098821651,
+            143.892715581733
+          ],
+          "midpointInFrustum": true,
+          "terrainRayClear": true,
+          "limit": "Terrain-only midpoint probe; does not model crown/rock occlusion"
+        },
+        {
+          "time": 12,
+          "pixel": [
+            706.4904765365279,
+            164.6759262789331
+          ],
+          "midpointInFrustum": false,
+          "terrainRayClear": true,
+          "limit": "Terrain-only midpoint probe; does not model crown/rock occlusion"
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "group": 1,
+      "x": 151.8,
+      "y": 3.771817633432987,
+      "z": 98.97383883262145,
+      "scale": 0.39,
+      "angle": 5.14,
+      "variant": 0,
+      "family": 1,
+      "exposure": 0.3776065817225739,
+      "moisture": 0.42223638698106236,
+      "actualHeight": 5.63259661652417,
+      "bounds": {
+        "min": [
+          148.53982920859002,
+          3.7414949371523956,
+          97.58200991719374
+        ],
+        "max": [
+          153.87426635949657,
+          9.374091553676566,
+          101.1132379927439
+        ]
+      },
+      "nearestRoute": 74.01864824291805,
+      "nearestBase": 7.577767186418404,
+      "nearestYoung": 5.024253441488128,
+      "support": [
+        {
+          "source": "public/assets/models/syringa-tree-near.glb",
+          "vertices": 279,
+          "bottomVertices": 73,
+          "minimum": -0.1444286249957889,
+          "maximum": 0.07090248771654695,
+          "bottomMaximum": -0.030551662091362175
+        },
+        {
+          "source": "public/assets/models/syringa-tree-hero.glb",
+          "vertices": 77,
+          "bottomVertices": 67,
+          "minimum": -0.1444286249957889,
+          "maximum": 0.05103382733817652,
+          "bottomMaximum": -0.03489357049169417
+        },
+        {
+          "source": "public/assets/models/syringa-tree-medium.glb",
+          "vertices": 70,
+          "bottomVertices": 67,
+          "minimum": -0.1444286249957889,
+          "maximum": -0.003702316259072358,
+          "bottomMaximum": -0.03489357049169417
+        }
+      ],
+      "views": [
+        {
+          "time": 9,
+          "pixel": [
+            516.1732724611934,
+            138.36149495464494
+          ],
+          "midpointInFrustum": true,
+          "terrainRayClear": true,
+          "limit": "Terrain-only midpoint probe; does not model crown/rock occlusion"
+        },
+        {
+          "time": 12,
+          "pixel": [
+            521.9234230624079,
+            167.7099571228765
+          ],
+          "midpointInFrustum": true,
+          "terrainRayClear": true,
+          "limit": "Terrain-only midpoint probe; does not model crown/rock occlusion"
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "group": 1,
+      "x": 155.6,
+      "y": 6.222775522281704,
+      "z": 102.26064923851733,
+      "scale": 0.5,
+      "angle": 2.68,
+      "variant": 0,
+      "family": 1,
+      "exposure": 0.4213761141116533,
+      "moisture": 0.411623600513496,
+      "actualHeight": 7.174419924967858,
+      "bounds": {
+        "min": [
+          152.6901891944589,
+          6.187571848433483,
+          98.17904215944755
+        ],
+        "max": [
+          158.15207968798035,
+          13.361991773401341,
+          104.0940372821298
+        ]
+      },
+      "nearestRoute": 77.3957116326678,
+      "nearestBase": 4.263831712764488,
+      "nearestYoung": 5.024253441488128,
+      "support": [
+        {
+          "source": "public/assets/models/syringa-tree-near.glb",
+          "vertices": 279,
+          "bottomVertices": 73,
+          "minimum": -0.23275512588246539,
+          "maximum": 0.09408041889044494,
+          "bottomMaximum": -0.03368030880106865
+        },
+        {
+          "source": "public/assets/models/syringa-tree-hero.glb",
+          "vertices": 77,
+          "bottomVertices": 67,
+          "minimum": -0.23275512588246539,
+          "maximum": 0.04813976643878881,
+          "bottomMaximum": -0.03368030880106865
+        },
+        {
+          "source": "public/assets/models/syringa-tree-medium.glb",
+          "vertices": 70,
+          "bottomVertices": 67,
+          "minimum": -0.23275512588246539,
+          "maximum": 0.04813976643878881,
+          "bottomMaximum": -0.03368030880106865
+        }
+      ],
+      "views": [
+        {
+          "time": 9,
+          "pixel": [
+            519.5616481122154,
+            131.27336964085228
+          ],
+          "midpointInFrustum": true,
+          "terrainRayClear": true,
+          "limit": "Terrain-only midpoint probe; does not model crown/rock occlusion"
+        },
+        {
+          "time": 12,
+          "pixel": [
+            527.0179639441062,
+            155.1791759301721
+          ],
+          "midpointInFrustum": true,
+          "terrainRayClear": true,
+          "limit": "Terrain-only midpoint probe; does not model crown/rock occlusion"
+        }
+      ]
+    },
+    {
+      "index": 6,
+      "group": 1,
+      "x": 161.5,
+      "y": 4.595597831439529,
+      "z": 94.11509346898939,
+      "scale": 0.35,
+      "angle": 0.91,
+      "variant": 0,
+      "family": 1,
+      "exposure": 0.422888118200081,
+      "moisture": 0.4096567911917952,
+      "actualHeight": 5.0004492606334665,
+      "bounds": {
+        "min": [
+          160.39453324962713,
+          4.56971591793971,
+          92.02068014177048
+        ],
+        "max": [
+          164.20692118937188,
+          9.570165178573177,
+          96.31587368588922
+        ]
+      },
+      "nearestRoute": 78.87283630562628,
+      "nearestBase": 4.193697601393821,
+      "nearestYoung": 3.9433752367630865,
+      "support": [
+        {
+          "source": "public/assets/models/syringa-tree-near.glb",
+          "vertices": 279,
+          "bottomVertices": 73,
+          "minimum": -0.14292520318052393,
+          "maximum": 0.06755462670368395,
+          "bottomMaximum": -0.03185218294841974
+        },
+        {
+          "source": "public/assets/models/syringa-tree-hero.glb",
+          "vertices": 77,
+          "bottomVertices": 67,
+          "minimum": -0.14292520318052393,
+          "maximum": 0.043326744154048136,
+          "bottomMaximum": -0.033398193835282974
+        },
+        {
+          "source": "public/assets/models/syringa-tree-medium.glb",
+          "vertices": 70,
+          "bottomVertices": 67,
+          "minimum": -0.14292520318052393,
+          "maximum": 0.043326744154048136,
+          "bottomMaximum": -0.033398193835282974
+        }
+      ],
+      "views": [
+        {
+          "time": 9,
+          "pixel": [
+            502.5954578712524,
+            135.99009098451734
+          ],
+          "midpointInFrustum": true,
+          "terrainRayClear": true,
+          "limit": "Terrain-only midpoint probe; does not model crown/rock occlusion"
+        },
+        {
+          "time": 12,
+          "pixel": [
+            494.86644832719276,
+            166.53613301732355
+          ],
+          "midpointInFrustum": true,
+          "terrainRayClear": true,
+          "limit": "Terrain-only midpoint probe; does not model crown/rock occlusion"
+        }
+      ]
+    },
+    {
+      "index": 7,
+      "group": 1,
+      "x": 164.3,
+      "y": 6.889781314232668,
+      "z": 96.89181964524737,
+      "scale": 0.46,
+      "angle": 4.08,
+      "variant": 0,
+      "family": 1,
+      "exposure": 0.45841270057484534,
+      "moisture": 0.40099978403023934,
+      "actualHeight": 6.649205595170642,
+      "bounds": {
+        "min": [
+          160.8522571400317,
+          6.855188199760761,
+          94.11575953318359
+        ],
+        "max": [
+          165.92200030054198,
+          13.504393794931403,
+          99.68546156964352
+        ]
+      },
+      "nearestRoute": 80.62006964650588,
+      "nearestBase": 3.826008939576123,
+      "nearestYoung": 3.9433752367630865,
+      "support": [
+        {
+          "source": "public/assets/models/syringa-tree-near.glb",
+          "vertices": 279,
+          "bottomVertices": 73,
+          "minimum": -0.22419672926971757,
+          "maximum": 0.06956564298396106,
+          "bottomMaximum": -0.03336767690810216
+        },
+        {
+          "source": "public/assets/models/syringa-tree-hero.glb",
+          "vertices": 77,
+          "bottomVertices": 67,
+          "minimum": -0.22419672926971757,
+          "maximum": 0.028825689368447982,
+          "bottomMaximum": -0.03618905842553222
+        },
+        {
+          "source": "public/assets/models/syringa-tree-medium.glb",
+          "vertices": 70,
+          "bottomVertices": 67,
+          "minimum": -0.22419672926971757,
+          "maximum": 0.028825689368447982,
+          "bottomMaximum": -0.03618905842553222
+        }
+      ],
+      "views": [
+        {
+          "time": 9,
+          "pixel": [
+            508.5743230498502,
+            129.7405199557138
+          ],
+          "midpointInFrustum": true,
+          "terrainRayClear": true,
+          "limit": "Terrain-only midpoint probe; does not model crown/rock occlusion"
+        },
+        {
+          "time": 12,
+          "pixel": [
+            505.2282616563473,
+            155.07566994319774
+          ],
+          "midpointInFrustum": true,
+          "terrainRayClear": true,
+          "limit": "Terrain-only midpoint probe; does not model crown/rock occlusion"
+        }
+      ]
+    },
+    {
+      "index": 8,
+      "group": 1,
+      "x": 168.2,
+      "y": 4.036016499544664,
+      "z": 87.48808936084995,
+      "scale": 0.41,
+      "angle": 1.83,
+      "variant": 0,
+      "family": 1,
+      "exposure": 0.4451852808463247,
+      "moisture": 0.4069255613282259,
+      "actualHeight": 5.8586006610246,
+      "bounds": {
+        "min": [
+          166.27177214862985,
+          4.006899395570499,
+          85.44620390683802
+        ],
+        "max": [
+          171.90148146846758,
+          9.8655000565951,
+          89.13605307100042
+        ]
+      },
+      "nearestRoute": 79.2491104434888,
+      "nearestBase": 6.942722511538183,
+      "nearestYoung": 5.841896119499937,
+      "support": [
+        {
+          "source": "public/assets/models/syringa-tree-near.glb",
+          "vertices": 279,
+          "bottomVertices": 73,
+          "minimum": -0.15095178893587935,
+          "maximum": 0.08317417808419503,
+          "bottomMaximum": -0.02882828357466405
+        },
+        {
+          "source": "public/assets/models/syringa-tree-hero.glb",
+          "vertices": 77,
+          "bottomVertices": 67,
+          "minimum": -0.15095178893587935,
+          "maximum": 0.06984700915988906,
+          "bottomMaximum": -0.03344122460479948
+        },
+        {
+          "source": "public/assets/models/syringa-tree-medium.glb",
+          "vertices": 70,
+          "bottomVertices": 67,
+          "minimum": -0.15095178893587935,
+          "maximum": 0.06984700915988906,
+          "bottomMaximum": -0.03344122460479948
+        }
+      ],
+      "views": [
+        {
+          "time": 9,
+          "pixel": [
+            487.30992635740824,
+            135.4212507748193
+          ],
+          "midpointInFrustum": true,
+          "terrainRayClear": true,
+          "limit": "Terrain-only midpoint probe; does not model crown/rock occlusion"
+        },
+        {
+          "time": 12,
+          "pixel": [
+            467.12356379908,
+            167.54002004429432
+          ],
+          "midpointInFrustum": true,
+          "terrainRayClear": true,
+          "limit": "Terrain-only midpoint probe; does not model crown/rock occlusion"
+        }
+      ]
+    },
+    {
+      "index": 9,
+      "group": 1,
+      "x": 172.3,
+      "y": 7.199920232342466,
+      "z": 91.64954947372239,
+      "scale": 0.52,
+      "angle": 3.37,
+      "variant": 0,
+      "family": 1,
+      "exposure": 0.4946010416824269,
+      "moisture": 0.3933418125076864,
+      "actualHeight": 7.493648467679792,
+      "bounds": {
+        "min": [
+          169.80398348613357,
+          7.162251198575925,
+          87.03397983051214
+        ],
+        "max": [
+          174.46475032222912,
+          14.655899666255717,
+          94.14790227447781
+        ]
+      },
+      "nearestRoute": 83.04691045172937,
+      "nearestBase": 5.043333124613609,
+      "nearestYoung": 5.841896119499937,
+      "support": [
+        {
+          "source": "public/assets/models/syringa-tree-near.glb",
+          "vertices": 279,
+          "bottomVertices": 73,
+          "minimum": -0.24312042342492646,
+          "maximum": 0.07817459701653906,
+          "bottomMaximum": -0.018897916229033918
+        },
+        {
+          "source": "public/assets/models/syringa-tree-hero.glb",
+          "vertices": 77,
+          "bottomVertices": 67,
+          "minimum": -0.24312042342492646,
+          "maximum": 0.061117076268741855,
+          "bottomMaximum": -0.03071053577468419
+        },
+        {
+          "source": "public/assets/models/syringa-tree-medium.glb",
+          "vertices": 70,
+          "bottomVertices": 67,
+          "minimum": -0.24312042342492646,
+          "maximum": 0.061117076268741855,
+          "bottomMaximum": -0.03071053577468419
+        }
+      ],
+      "views": [
+        {
+          "time": 9,
+          "pixel": [
+            494.0586421274322,
+            127.60478332102268
+          ],
+          "midpointInFrustum": true,
+          "terrainRayClear": true,
+          "limit": "Terrain-only midpoint probe; does not model crown/rock occlusion"
+        },
+        {
+          "time": 12,
+          "pixel": [
+            478.53852680722815,
+            154.06649740712066
+          ],
+          "midpointInFrustum": true,
+          "terrainRayClear": true,
+          "limit": "Terrain-only midpoint probe; does not model crown/rock occlusion"
+        }
+      ]
+    },
+    {
+      "index": 10,
+      "group": 1,
+      "x": 174.1,
+      "y": 3.720829579106413,
+      "z": 82.04657012715428,
+      "scale": 0.33,
+      "angle": 5.72,
+      "variant": 0,
+      "family": 1,
+      "exposure": 0.46079516185777275,
+      "moisture": 0.40185801448490577,
+      "actualHeight": 4.75194995965453,
+      "bounds": {
+        "min": [
+          172.29237833584625,
+          3.6951714344402293,
+          80.91242105021249
+        ],
+        "max": [
+          176.143914576873,
+          8.44712139409476,
+          84.6733937350356
+        ]
+      },
+      "nearestRoute": 81.41990348091444,
+      "nearestBase": 5.171325143627286,
+      "nearestYoung": 8.026215270641574,
+      "support": [
+        {
+          "source": "public/assets/models/syringa-tree-near.glb",
+          "vertices": 279,
+          "bottomVertices": 73,
+          "minimum": -0.138598226211601,
+          "maximum": 0.05468423177407811,
+          "bottomMaximum": -0.022170306223256997
+        },
+        {
+          "source": "public/assets/models/syringa-tree-hero.glb",
+          "vertices": 77,
+          "bottomVertices": 67,
+          "minimum": -0.138598226211601,
+          "maximum": 0.04300778933060778,
+          "bottomMaximum": -0.027033291082171562
+        },
+        {
+          "source": "public/assets/models/syringa-tree-medium.glb",
+          "vertices": 70,
+          "bottomVertices": 67,
+          "minimum": -0.138598226211601,
+          "maximum": -0.01625967933296435,
+          "bottomMaximum": -0.027033291082171562
+        }
+      ],
+      "views": [
+        {
+          "time": 9,
+          "pixel": [
+            477.7499893189315,
+            136.47257647295035
+          ],
+          "midpointInFrustum": true,
+          "terrainRayClear": true,
+          "limit": "Terrain-only midpoint probe; does not model crown/rock occlusion"
+        },
+        {
+          "time": 12,
+          "pixel": [
+            450.72988255950094,
+            170.7498424234304
+          ],
+          "midpointInFrustum": true,
+          "terrainRayClear": true,
+          "limit": "Terrain-only midpoint probe; does not model crown/rock occlusion"
+        }
+      ]
+    },
+    {
+      "index": 11,
+      "group": 2,
+      "x": 207.7,
+      "y": 4.429524128827622,
+      "z": 58.40510035429198,
+      "scale": 0.36,
+      "angle": 2.41,
+      "variant": 0,
+      "family": 1,
+      "exposure": 0.4852789036280408,
+      "moisture": 0.3956018505876428,
+      "actualHeight": 5.157327917783393,
+      "bounds": {
+        "min": [
+          205.60474874017316,
+          4.404210069898868,
+          55.80855672004513
+        ],
+        "max": [
+          210.15747216179625,
+          9.56153798768226,
+          59.565355409986694
+        ]
+      },
+      "nearestRoute": 99.7485866874404,
+      "nearestBase": 4.575617842416508,
+      "nearestYoung": 5.605106237042726,
+      "support": [
+        {
+          "source": "public/assets/models/syringa-tree-near.glb",
+          "vertices": 279,
+          "bottomVertices": 73,
+          "minimum": -0.1480831199414121,
+          "maximum": 0.06256273162165193,
+          "bottomMaximum": -0.030724989243188006
+        },
+        {
+          "source": "public/assets/models/syringa-tree-hero.glb",
+          "vertices": 77,
+          "bottomVertices": 67,
+          "minimum": -0.1480831199414121,
+          "maximum": 0.04364615849053344,
+          "bottomMaximum": -0.03428167815221084
+        },
+        {
+          "source": "public/assets/models/syringa-tree-medium.glb",
+          "vertices": 70,
+          "bottomVertices": 67,
+          "minimum": -0.1480831199414121,
+          "maximum": 0.04364615849053344,
+          "bottomMaximum": -0.03428167815221084
+        }
+      ],
+      "views": [
+        {
+          "time": 9,
+          "pixel": [
+            432.8767951761554,
+            131.66976465826562
+          ],
+          "midpointInFrustum": true,
+          "terrainRayClear": true,
+          "limit": "Terrain-only midpoint probe; does not model crown/rock occlusion"
+        },
+        {
+          "time": 12,
+          "pixel": [
+            382.0801850097772,
+            169.35847947919282
+          ],
+          "midpointInFrustum": true,
+          "terrainRayClear": true,
+          "limit": "Terrain-only midpoint probe; does not model crown/rock occlusion"
+        }
+      ]
+    },
+    {
+      "index": 12,
+      "group": 2,
+      "x": 210.5,
+      "y": 7.442573410070549,
+      "z": 63.26073789518558,
+      "scale": 0.48,
+      "angle": 0.17,
+      "variant": 0,
+      "family": 1,
+      "exposure": 0.5204629006427913,
+      "moisture": 0.38568510752626345,
+      "actualHeight": 6.880534066510048,
+      "bounds": {
+        "min": [
+          208.5590355548444,
+          7.405858046981638,
+          61.038718638209204
+        ],
+        "max": [
+          212.8423051919403,
+          14.286392113491686,
+          67.58260454116444
+        ]
+      },
+      "nearestRoute": 104.33138386109091,
+      "nearestBase": 5.083786863943018,
+      "nearestYoung": 5.605106237042726,
+      "support": [
+        {
+          "source": "public/assets/models/syringa-tree-near.glb",
+          "vertices": 279,
+          "bottomVertices": 73,
+          "minimum": -0.22924011256459398,
+          "maximum": 0.09774108019091088,
+          "bottomMaximum": -0.02905839849744929
+        },
+        {
+          "source": "public/assets/models/syringa-tree-hero.glb",
+          "vertices": 77,
+          "bottomVertices": 67,
+          "minimum": -0.22924011256459398,
+          "maximum": 0.06327165334810658,
+          "bottomMaximum": -0.03263571644725172
+        },
+        {
+          "source": "public/assets/models/syringa-tree-medium.glb",
+          "vertices": 70,
+          "bottomVertices": 67,
+          "minimum": -0.22924011256459398,
+          "maximum": 0.010626179231776334,
+          "bottomMaximum": -0.03263571644725172
+        }
+      ],
+      "views": [
+        {
+          "time": 9,
+          "pixel": [
+            444.3715601720137,
+            125.31705896335723
+          ],
+          "midpointInFrustum": true,
+          "terrainRayClear": true,
+          "limit": "Terrain-only midpoint probe; does not model crown/rock occlusion"
+        },
+        {
+          "time": 12,
+          "pixel": [
+            400.205553874649,
+            159.3916798075608
+          ],
+          "midpointInFrustum": true,
+          "terrainRayClear": true,
+          "limit": "Terrain-only midpoint probe; does not model crown/rock occlusion"
+        }
+      ]
+    },
+    {
+      "index": 13,
+      "group": 2,
+      "x": 214,
+      "y": 4.579400132588782,
+      "z": 53.468363026754965,
+      "scale": 0.4,
+      "angle": 4.54,
+      "variant": 0,
+      "family": 1,
+      "exposure": 0.48488474423229966,
+      "moisture": 0.3977552661708973,
+      "actualHeight": 5.784743938479354,
+      "bounds": {
+        "min": [
+          210.56301457384617,
+          4.548714284585469,
+          51.69146801803432
+        ],
+        "max": [
+          215.71856018451686,
+          10.333458223064824,
+          55.6847466496788
+        ]
+      },
+      "nearestRoute": 103.20657946000614,
+      "nearestBase": 4.795438832184415,
+      "nearestYoung": 5.829205576093159,
+      "support": [
+        {
+          "source": "public/assets/models/syringa-tree-near.glb",
+          "vertices": 279,
+          "bottomVertices": 73,
+          "minimum": -0.1623898852074257,
+          "maximum": 0.0689335928003274,
+          "bottomMaximum": -0.03824449857244616
+        },
+        {
+          "source": "public/assets/models/syringa-tree-hero.glb",
+          "vertices": 77,
+          "bottomVertices": 67,
+          "minimum": -0.1623898852074257,
+          "maximum": 0.03591332483862342,
+          "bottomMaximum": -0.039856282781090435
+        },
+        {
+          "source": "public/assets/models/syringa-tree-medium.glb",
+          "vertices": 70,
+          "bottomVertices": 67,
+          "minimum": -0.1623898852074257,
+          "maximum": 0.019348458290455284,
+          "bottomMaximum": -0.039856282781090435
+        }
+      ],
+      "views": [
+        {
+          "time": 9,
+          "pixel": [
+            426.82611461739964,
+            130.52776249515378
+          ],
+          "midpointInFrustum": true,
+          "terrainRayClear": true,
+          "limit": "Terrain-only midpoint probe; does not model crown/rock occlusion"
+        },
+        {
+          "time": 12,
+          "pixel": [
+            373.76197835923955,
+            168.39940581768545
+          ],
+          "midpointInFrustum": true,
+          "terrainRayClear": true,
+          "limit": "Terrain-only midpoint probe; does not model crown/rock occlusion"
+        }
+      ]
+    },
+    {
+      "index": 14,
+      "group": 2,
+      "x": 216.8,
+      "y": 7.855723138637208,
+      "z": 58.58105680287294,
+      "scale": 0.51,
+      "angle": 1.66,
+      "variant": 0,
+      "family": 1,
+      "exposure": 0.5235133297218922,
+      "moisture": 0.38668502500428953,
+      "actualHeight": 7.284427513001152,
+      "bounds": {
+        "min": [
+          214.57845390194774,
+          7.81929348807677,
+          56.10924809856547
+        ],
+        "max": [
+          221.4604731466028,
+          15.103721001077922,
+          60.775825161121816
+        ]
+      },
+      "nearestRoute": 108.39153511848015,
+      "nearestBase": 2.836018257710017,
+      "nearestYoung": 5.829205576093159,
+      "support": [
+        {
+          "source": "public/assets/models/syringa-tree-near.glb",
+          "vertices": 279,
+          "bottomVertices": 73,
+          "minimum": -0.23893270639820052,
+          "maximum": 0.11268311236402173,
+          "bottomMaximum": -0.031770036627677634
+        },
+        {
+          "source": "public/assets/models/syringa-tree-hero.glb",
+          "vertices": 77,
+          "bottomVertices": 67,
+          "minimum": -0.23893270639820052,
+          "maximum": 0.09547383448275149,
+          "bottomMaximum": -0.04962545422718634
+        },
+        {
+          "source": "public/assets/models/syringa-tree-medium.glb",
+          "vertices": 70,
+          "bottomVertices": 67,
+          "minimum": -0.23893270639820052,
+          "maximum": 0.09547383448275149,
+          "bottomMaximum": -0.04962545422718634
+        }
+      ],
+      "views": [
+        {
+          "time": 9,
+          "pixel": [
+            435.20813006964516,
+            123.95356344258192
+          ],
+          "midpointInFrustum": true,
+          "terrainRayClear": true,
+          "limit": "Terrain-only midpoint probe; does not model crown/rock occlusion"
+        },
+        {
+          "time": 12,
+          "pixel": [
+            387.2693780086285,
+            158.5895948779367
+          ],
+          "midpointInFrustum": true,
+          "terrainRayClear": true,
+          "limit": "Terrain-only midpoint probe; does not model crown/rock occlusion"
+        }
+      ]
+    },
+    {
+      "index": 15,
+      "group": 2,
+      "x": 221,
+      "y": 5.378223439120373,
+      "z": 48.81371811488882,
+      "scale": 0.34,
+      "angle": 3.68,
+      "variant": 0,
+      "family": 1,
+      "exposure": 0.4836236762640126,
+      "moisture": 0.39653777232537313,
+      "actualHeight": 4.907599966314701,
+      "bounds": {
+        "min": [
+          219.0508550407442,
+          5.35318495970109,
+          46.05787297098385
+        ],
+        "max": [
+          222.2064844287585,
+          10.260784926015791,
+          50.68835275958036
+        ]
+      },
+      "nearestRoute": 109.93791615677578,
+      "nearestBase": 4.553476961355336,
+      "nearestYoung": 8.4062904574825,
+      "support": [
+        {
+          "source": "public/assets/models/syringa-tree-near.glb",
+          "vertices": 279,
+          "bottomVertices": 73,
+          "minimum": -0.15554958237069538,
+          "maximum": 0.04305111113030069,
+          "bottomMaximum": -0.02323900233291809
+        },
+        {
+          "source": "public/assets/models/syringa-tree-hero.glb",
+          "vertices": 77,
+          "bottomVertices": 67,
+          "minimum": -0.15554958237069538,
+          "maximum": 0.027957392650481694,
+          "bottomMaximum": -0.031644761797397614
+        },
+        {
+          "source": "public/assets/models/syringa-tree-medium.glb",
+          "vertices": 70,
+          "bottomVertices": 67,
+          "minimum": -0.15554958237069538,
+          "maximum": 0.027957392650481694,
+          "bottomMaximum": -0.031644761797397614
+        }
+      ],
+      "views": [
+        {
+          "time": 9,
+          "pixel": [
+            419.20943998852556,
+            129.4314269107774
+          ],
+          "midpointInFrustum": true,
+          "terrainRayClear": true,
+          "limit": "Terrain-only midpoint probe; does not model crown/rock occlusion"
+        },
+        {
+          "time": 12,
+          "pixel": [
+            363.7185184963678,
+            167.82308739683788
+          ],
+          "midpointInFrustum": true,
+          "terrainRayClear": true,
+          "limit": "Terrain-only midpoint probe; does not model crown/rock occlusion"
+        }
+      ]
+    }
+  ]
+}

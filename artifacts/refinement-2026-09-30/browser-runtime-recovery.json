@@ -1,0 +1,16 @@
+{
+  "previousExecutable": "/workspace/scratch/46479389b383/forest-capture-runtime/browser/chromium",
+  "failure": "Executable no longer exists; no browser launched for footprint-full-scene-01",
+  "standardPlaywrightInstall": "Failed: downloaded bytes were not a valid ZIP; direct CDN header request timed out",
+  "replacement": {
+    "package": "@sparticuz/chromium",
+    "version": "153.0.0",
+    "browserVersion": "Chromium 153.0.8010.0",
+    "delivery": "Normal npm registry installation; no proxy or network policy changes",
+    "executable": "/workspace/scratch/ff8fac50118b/browser-runtime/standalone/chromium",
+    "bytes": 209022176,
+    "sha256": "53a15d6c3a3d27dfb54c4ba60278b1683136f70cf1e67e989da7dfbd3d451ef0",
+    "extraction": "Brotli streams and tar --no-same-owner in this workspace; automatic package extraction tried unsupported ownership changes and was not used"
+  },
+  "comparisonLimit": "Current-source OFF/ON/restored frames must share the new browser. Old-browser byte equality is not assumed."
+}

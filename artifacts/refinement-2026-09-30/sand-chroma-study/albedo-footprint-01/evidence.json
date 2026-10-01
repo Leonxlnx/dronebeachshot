@@ -1,0 +1,221 @@
+{
+  "study": "sand source albedo footprint correction",
+  "status": "implemented, visual acceptance pending",
+  "sourceAsset": {
+    "path": "public/assets/textures/sand_03_diff_2k.webp",
+    "sha256": "190dcce01f0d7a5c66d3d3c06a987f117c3501c3d54c962f29148fe248c17fa5",
+    "dimensions": [
+      2048,
+      2048
+    ],
+    "runtimeUV": "gp.xz*.5; two-meter repeat",
+    "runtimeFiltering": "Three Texture defaults: generated trilinear mipmaps; loadTextures sets sand anisotropy4 and SRGBColorSpace"
+  },
+  "motivatingImage": {
+    "path": "artifacts/refinement-2026-09-30/coastal-young-woodland/trial02-on/young-woodland-on-9.png",
+    "sha256": "5ea5595a2cf59dc8ba0f6278f3b02318378f3b6e8dab72f28f75ccfe8cc5cee2",
+    "dimensions": [
+      1280,
+      720
+    ],
+    "time": 9,
+    "sourceIdentity": "87d484afea5ea36dc894e6dbf3aa89a8c7f6c7a641c3fb5eee961ccf075d463d"
+  },
+  "sourceBeforeSHA256": "1d99899f66daf04a755e53f6f6e980533b454d30607f5f56a8729dc71833e728",
+  "sourceAfterSHA256": "115a0fb929f1327e5e7048a4381e2a564429bdf09027ad98554006d257b2e6f2",
+  "change": {
+    "before": "palette*mix(1.,clamp(sandLuminance/.123,.62,1.38),sandGrain)",
+    "after": "palette*clamp(sandLuminance/.123,.62,1.38)",
+    "thresholdRemovedFromAlbedo": "sandGrain=1-smoothstep(.025,.18,groundFootprint); retained unchanged for normal detail",
+    "newControl": false
+  },
+  "numericMethod": "Decode actual uint8 source RGB using piecewise sRGB transfer, Y=.2126R+.7152G+.0722B, nonoverlapping linear box averages, then clamp(Y/.123,.62,1.38). These are independent CPU scale statistics, not captured GPU mip samples or final image predictions.",
+  "levels": [
+    {
+      "resolution": [
+        2048,
+        2048
+      ],
+      "worldCellMeters": 0.0009765625,
+      "linearYMean": 0.12265166505685332,
+      "linearYStandardDeviation": 0.022570056983706174,
+      "clampedRatioMean": 0.9951749706637415,
+      "clampedRatioStandardDeviation": 0.17124677209955178,
+      "clampedRatioPercentiles05_95": [
+        0.7151554213347296,
+        1.3028423242630487
+      ]
+    },
+    {
+      "resolution": [
+        1024,
+        1024
+      ],
+      "worldCellMeters": 0.001953125,
+      "linearYMean": 0.12265166505685332,
+      "linearYStandardDeviation": 0.015205518192112171,
+      "clampedRatioMean": 0.9967799190072029,
+      "clampedRatioStandardDeviation": 0.11897767707734976,
+      "clampedRatioPercentiles05_95": [
+        0.8092946559950277,
+        1.1955399508703564
+      ]
+    },
+    {
+      "resolution": [
+        512,
+        512
+      ],
+      "worldCellMeters": 0.00390625,
+      "linearYMean": 0.12265166505685332,
+      "linearYStandardDeviation": 0.010279124395175978,
+      "clampedRatioMean": 0.9970482575316794,
+      "clampedRatioStandardDeviation": 0.08188212622146683,
+      "clampedRatioPercentiles05_95": [
+        0.8708840887452534,
+        1.130495678986714
+      ]
+    },
+    {
+      "resolution": [
+        256,
+        256
+      ],
+      "worldCellMeters": 0.0078125,
+      "linearYMean": 0.12265166505685332,
+      "linearYStandardDeviation": 0.007638453606576556,
+      "clampedRatioMean": 0.9971348666677025,
+      "clampedRatioStandardDeviation": 0.0617568450857958,
+      "clampedRatioPercentiles05_95": [
+        0.9028700358298923,
+        1.1019506969248365
+      ]
+    },
+    {
+      "resolution": [
+        128,
+        128
+      ],
+      "worldCellMeters": 0.015625,
+      "linearYMean": 0.12265166505685332,
+      "linearYStandardDeviation": 0.006429927184172063,
+      "clampedRatioMean": 0.9971680085923035,
+      "clampedRatioStandardDeviation": 0.05227583076562654,
+      "clampedRatioPercentiles05_95": [
+        0.9187043487754418,
+        1.091883914516614
+      ]
+    },
+    {
+      "resolution": [
+        64,
+        64
+      ],
+      "worldCellMeters": 0.03125,
+      "linearYMean": 0.12265166505685332,
+      "linearYStandardDeviation": 0.005942900919538432,
+      "clampedRatioMean": 0.9971680085923034,
+      "clampedRatioStandardDeviation": 0.04831626763852383,
+      "clampedRatioPercentiles05_95": [
+        0.9260866663594256,
+        1.087735843538587
+      ]
+    },
+    {
+      "resolution": [
+        32,
+        32
+      ],
+      "worldCellMeters": 0.0625,
+      "linearYMean": 0.12265166505685332,
+      "linearYStandardDeviation": 0.005699778815122749,
+      "clampedRatioMean": 0.9971680085923034,
+      "clampedRatioStandardDeviation": 0.04633966516359959,
+      "clampedRatioPercentiles05_95": [
+        0.9306806664106071,
+        1.0881935393209574
+      ]
+    },
+    {
+      "resolution": [
+        16,
+        16
+      ],
+      "worldCellMeters": 0.125,
+      "linearYMean": 0.12265166505685332,
+      "linearYStandardDeviation": 0.005485672117083142,
+      "clampedRatioMean": 0.9971680085923035,
+      "clampedRatioStandardDeviation": 0.04459896030148896,
+      "clampedRatioPercentiles05_95": [
+        0.9370413202971707,
+        1.0848522364199213
+      ]
+    },
+    {
+      "resolution": [
+        8,
+        8
+      ],
+      "worldCellMeters": 0.25,
+      "linearYMean": 0.12265166505685332,
+      "linearYStandardDeviation": 0.005251116445464929,
+      "clampedRatioMean": 0.9971680085923036,
+      "clampedRatioStandardDeviation": 0.04269200362166608,
+      "clampedRatioPercentiles05_95": [
+        0.9424572731647438,
+        1.0797303403256904
+      ]
+    },
+    {
+      "resolution": [
+        4,
+        4
+      ],
+      "worldCellMeters": 0.5,
+      "linearYMean": 0.12265166505685335,
+      "linearYStandardDeviation": 0.004741956120420386,
+      "clampedRatioMean": 0.9971680085923037,
+      "clampedRatioStandardDeviation": 0.03855248878390558,
+      "clampedRatioPercentiles05_95": [
+        0.947904220125962,
+        1.0711860374315831
+      ]
+    },
+    {
+      "resolution": [
+        2,
+        2
+      ],
+      "worldCellMeters": 1.0,
+      "linearYMean": 0.1226516650568533,
+      "linearYStandardDeviation": 0.00431823027509959,
+      "clampedRatioMean": 0.9971680085923034,
+      "clampedRatioStandardDeviation": 0.035107563212191766,
+      "clampedRatioPercentiles05_95": [
+        0.9564676166542546,
+        1.0413412915610276
+      ]
+    },
+    {
+      "resolution": [
+        1,
+        1
+      ],
+      "worldCellMeters": 2.0,
+      "linearYMean": 0.12265166505685332,
+      "linearYStandardDeviation": 0.0,
+      "clampedRatioMean": 0.9971680085923035,
+      "clampedRatioStandardDeviation": 0.0,
+      "clampedRatioPercentiles05_95": [
+        0.9971680085923035,
+        0.9971680085923035
+      ]
+    }
+  ],
+  "limits": [
+    "At.18m/pixel a2m repeat still spans11.11pixels; broad scan variation can remain resolvable after the previous complete fade.",
+    "This changes substrate variation only, not wet-band geometry/width, runup, damp darkening, roughness, shadows, normal filtering or calibrated palette.",
+    "Actual fine texture/minification repetition and temporal stability require review; reject distracting tiling or shimmer.",
+    "No claim of overall8/10 quality or a guaranteed visible improvement."
+  ]
+}

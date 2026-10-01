@@ -1,0 +1,159 @@
+{
+  "kind": "actual-full-scene-static-art-review",
+  "decision": "REJECT east-spur trial03",
+  "dimensions": [
+    640,
+    360
+  ],
+  "sourceIdentities": {
+    "off": "5b3479529a796233889fd2de92d044f0aba207d73933c932ccb34c85b495e248",
+    "on": "5d7e83d11a91386a54d43155cde9852c5f97a37fb6779554930f2f9c8b7798f7"
+  },
+  "manifests": {
+    "off": "artifacts/refinement-2026-09-30/post-film-review-01/manifest.json",
+    "on": "artifacts/refinement-2026-09-30/east-wall-structure/trial03-on/manifest.json"
+  },
+  "observations": [
+    {
+      "timeSeconds": 9,
+      "regionXYInclusive": [
+        480,
+        0,
+        625,
+        115
+      ],
+      "finding": "The addition replaces broken forest/rock texture with a conspicuous pale, vertically stretched smooth bulge. No broad dim side or structural shoulder compensates for the loss of forest cover."
+    },
+    {
+      "timeSeconds": 12,
+      "regionXYInclusive": [
+        495,
+        0,
+        639,
+        150
+      ],
+      "finding": "The spur reads as a larger tan rounded face with only a narrow side gradient. It amplifies the existing smooth-bank weakness rather than creating natural monumental rock structure."
+    }
+  ],
+  "frames": [
+    {
+      "variant": "off",
+      "label": "spur-reference-9",
+      "png": "artifacts/refinement-2026-09-30/post-film-review-01/spur-reference-9.png",
+      "pngSha256": "34ced0073bea8c1fa9eaca215bdd67df2c1ed2e6de2258c34f655e644114427d",
+      "sourceIdentity": "5b3479529a796233889fd2de92d044f0aba207d73933c932ccb34c85b495e248",
+      "timeSeconds": 9,
+      "camera": [
+        -90,
+        19.057825209108657,
+        73
+      ],
+      "coreTreeCount": 14000,
+      "actualControls": {
+        "linearMainOutput": false,
+        "effectiveSampleScale": 1,
+        "islandDirectResponse": false,
+        "coastalReflection": false
+      }
+    },
+    {
+      "variant": "on",
+      "label": "east-spur-on-9",
+      "png": "artifacts/refinement-2026-09-30/east-wall-structure/trial03-on/east-spur-on-9.png",
+      "pngSha256": "93c8e880b2501e5412854483cce06e434b74880ed961623156ff36175da18c2f",
+      "sourceIdentity": "5d7e83d11a91386a54d43155cde9852c5f97a37fb6779554930f2f9c8b7798f7",
+      "timeSeconds": 9,
+      "camera": [
+        -90,
+        19.057825209108657,
+        73
+      ],
+      "coreTreeCount": 13954,
+      "actualControls": {
+        "linearMainOutput": false,
+        "effectiveSampleScale": 1,
+        "islandDirectResponse": false,
+        "coastalReflection": false
+      }
+    },
+    {
+      "variant": "off",
+      "label": "grass-palette-off-12",
+      "png": "artifacts/refinement-2026-09-30/post-film-review-01/grass-palette-off-12.png",
+      "pngSha256": "84bf41d56237ab56dd4ab3e2dd949f6a41f7c6c24962aac9bbbac1bd563228d1",
+      "sourceIdentity": "5b3479529a796233889fd2de92d044f0aba207d73933c932ccb34c85b495e248",
+      "timeSeconds": 12,
+      "camera": [
+        27.662314423143716,
+        4.6922244211306525,
+        81.46115474052641
+      ],
+      "coreTreeCount": 14000,
+      "actualControls": {
+        "linearMainOutput": false,
+        "effectiveSampleScale": 1,
+        "islandDirectResponse": false,
+        "coastalReflection": false
+      }
+    },
+    {
+      "variant": "on",
+      "label": "east-spur-on-12",
+      "png": "artifacts/refinement-2026-09-30/east-wall-structure/trial03-on/east-spur-on-12.png",
+      "pngSha256": "c15348e2967e4f8f40c696a3514d6382385fb8ac9b5057e916225af118c41dfa",
+      "sourceIdentity": "5d7e83d11a91386a54d43155cde9852c5f97a37fb6779554930f2f9c8b7798f7",
+      "timeSeconds": 12,
+      "camera": [
+        27.662314423143716,
+        4.6922244211306525,
+        81.46115474052641
+      ],
+      "coreTreeCount": 13954,
+      "actualControls": {
+        "linearMainOutput": false,
+        "effectiveSampleScale": 1,
+        "islandDirectResponse": false,
+        "coastalReflection": false
+      }
+    }
+  ],
+  "pixelComparisons": [
+    {
+      "off": "spur-reference-9",
+      "on": "east-spur-on-9",
+      "timeSeconds": 9,
+      "sameCamera": true,
+      "differentPixels": 13184,
+      "maxChannelDelta": 204,
+      "changedBoundsInclusive": [
+        224,
+        0,
+        639,
+        172
+      ]
+    },
+    {
+      "off": "grass-palette-off-12",
+      "on": "east-spur-on-12",
+      "timeSeconds": 12,
+      "sameCamera": true,
+      "differentPixels": 22381,
+      "maxChannelDelta": 211,
+      "changedBoundsInclusive": [
+        142,
+        0,
+        639,
+        199
+      ]
+    }
+  ],
+  "proofLimits": [
+    "ON and OFF are different pinned bundles by design; this is a geometry plus local-ecology comparison, not a material-only toggle.",
+    "Times and camera coordinates match exactly, and recorded output/reflection/response controls match; this review does not independently prove byte equality of all other source inputs.",
+    "Core tree counts are13954 ON versus14000 OFF. Successful support checks and intentional omissions do not establish art quality.",
+    "No restored frame or restoration claim is present for this geometry study.",
+    "Two static poses do not establish temporal behavior or all-route quality.",
+    "Decoded differences record locality; neither counts nor source geometry tests are used as quality proxies.",
+    "No production flags were edited by this review."
+  ]
+}

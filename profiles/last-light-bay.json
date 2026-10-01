@@ -1,0 +1,47 @@
+{
+  "coastalReflection": true,
+  "coastalReflectionDistortion": 1,
+  "coastalUnderstory": false,
+  "culling": true,
+  "debug": 0,
+  "farCrownBlending": false,
+  "farCrownCoverage": false,
+  "islandDirectResponse": true,
+  "lighting": {
+    "cloudCoverage": 0.4,
+    "cloudFogDensity": 4e-05,
+    "cloudMorphology": true,
+    "environmentIntensity": 0.55,
+    "exposure": 1.08,
+    "fogDensity": 6.5e-05,
+    "groundColor": "#365842",
+    "skyColor": "#a1c9ed",
+    "skyIntensity": 0.48,
+    "sunColor": "#ffdfb6",
+    "sunIntensity": 4.8
+  },
+  "linearMainOutput": true,
+  "linearMainSampleScale": 1,
+  "oceanCulling": true,
+  "profiling": false,
+  "shadowStudy": {
+    "bias": -4e-05,
+    "mapSize": 2048,
+    "normalBias": 0.25,
+    "remoteCasters": false,
+    "remoteFit": false,
+    "terrainChunks": false
+  },
+  "surfaceStudy": {
+    "foamDepthGate": 1,
+    "grassPalette": 1,
+    "groundLayerPruning": 0,
+    "mineralRelief": 0,
+    "rockWeathering": 0,
+    "sandChroma": 1,
+    "sandFilmDrying": 0,
+    "sandRipple": 0.2,
+    "sandRippleFilter": 0,
+    "stoneBedding": 1
+  }
+}

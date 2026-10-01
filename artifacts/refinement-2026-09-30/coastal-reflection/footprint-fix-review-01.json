@@ -1,0 +1,50 @@
+{
+  "study": "coastal reflection filtered capture validity",
+  "status": "implemented; CPU checks pass; actual full-scene acceptance pending",
+  "defaultEnabled": false,
+  "sourceHashes": {
+    "src/world/ocean.ts": "253d3a4ee1a7072272b38adad40e3d1db9df2ce429ec412af4a12a262d9e4f4f",
+    "src/render/coastal-reflection-filter.ts": "2597747471b4763f1023d0f9664b627074f7682d4cf1bd3ce2357c8663107424",
+    "src/render/coastal-reflection-filter.test.ts": "0e52a5ce0db7d99cc389d9963da82f56e99ee1cccd765f599e8237a9d7b9cb6c",
+    "scripts/control/isolated-coastal-reflection.mjs": "e339a0a789b5838d2a4c4d19ac2974508942bd3ec22a782c96163918fedb0be4"
+  },
+  "diagnosis": "Prior distorted-ray hard horizon gate ran even in flat control; OFF-identical bright slits established fallback transitions, not color mip filtering alone.",
+  "changes": [
+    "Flat control uses the mean-plane ray; unresolved wave angles do not gate its horizon.",
+    "Wave horizon uses pixel covariance /12 plus isotropic reflected-angle approximation2S(I-rrT), reduced to a compact moment-matched marginal box.",
+    "Positive support fraction and conditional representative avoid projecting negative geometry rays. Zero support retains original neighboring-water fallback.",
+    "Color LOD uses the principal axis of combined projected pixel/angular covariance; finite capture coverage uses separable projected moments.",
+    "Bilinear/trilinear reconstruction uses continuous phase-independent second-moment bounds and actual NPOT mip sizes.",
+    "Capture rectangle overlap uses a clipped sample centroid; source-depth availability limits destination coverage without multiplying coincident coverage twice.",
+    "All new derivative-bearing work runs in an ON-only uniform branch before varying discards, with the computed water normal reused after them.",
+    "Existing tiny fixture AST extraction imports and hashes the real filter helper."
+  ],
+  "structuralReview": {
+    "derivatives": "Ray and UV derivatives precede all production varying discards; sampling function has no varying early return before derivatives.",
+    "offPath": "Ready remains0 by default; original normal arithmetic and neighboringWaterReflection/cubemap/transmission path retained whenOFF. Actual byte-identity requires next GPU pair.",
+    "normalSpectrum": "Unchanged by this task.",
+    "colorFallback": "No global opacity, constant tint, invented coast, or negative geometry-ray extrapolation."
+  },
+  "validation": {
+    "numericTests": 5,
+    "numericTestsStatus": "pass",
+    "tscNoEmit": "pass",
+    "fixtureModuleImport": "pass,8524B expanded GLSL, no WebGL",
+    "gpuRunByThisTask": false
+  },
+  "limitations": [
+    "Scalar slope variance loses directional spectrum; isotropic reflected covariance is an approximation, not a guaranteed bound on real directional waves.",
+    "Positive representative matches a marginal moment; it is not exact multivariate truncation or full microfacet integration.",
+    "Separable UV coverage and limiting source/destination availability approximate their correlated joint footprint.",
+    "Mip reconstruction expression bounds second moment, not the strict support of every reconstruction phase.",
+    "One depth-guided proxy cannot reveal occluded geometry or trace secondary wave intersections.",
+    "Shader compilation, OFF restored equality, actual coastline quality and motion remain for root GPU review."
+  ],
+  "rootAmendment": {
+    "change": "Squared signed Jacobian projections using explicit multiplication instead of GLSL pow with potentially negative bases.",
+    "oceanSHA256": "d37c5aaf1a7aa12eac55320aaac436281284f01e954367365e6c68fbf1df61e0",
+    "builtIdentity": "bb1bdf0b976d1eb2080a1287635c1fd02b3fbd3aad450178cddfff9fa238cc25",
+    "actualCapture": "footprint-full-scene-02/manifest.json",
+    "actualResult": "Six frames succeeded; old OFF and restored OFF decoded RGBA match exactly; wave mode accepted at10.5/10.75 for combined review."
+  }
+}

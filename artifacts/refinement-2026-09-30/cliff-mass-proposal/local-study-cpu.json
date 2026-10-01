@@ -1,0 +1,58 @@
+{
+  "ok": true,
+  "method": "Original GLB/packed source hashes, exact Float32 proposal transforms/bounds, actual camera projection and setViewOffset ray equality; CPU only",
+  "sourceSHA256": "864ece45cf6cafeb7fab5ab65704b1810622ba411da2026ebad847a0a08eab2f",
+  "geometrySHA256": "581b4f5b375b1eb2bed91178120d31811d09001904f43ee5f78e0168b61f6e42",
+  "rows": [
+    {
+      "time": 9,
+      "fullFrame": [
+        512,
+        288
+      ],
+      "actualExposedVertexProjection": [
+        396.60118887196086,
+        1.2844100966168597,
+        409.68109928498586,
+        23.24484389776658
+      ],
+      "crop": [
+        371,
+        0,
+        64,
+        64
+      ],
+      "output": [
+        128,
+        128
+      ],
+      "cropEnlargement": 2,
+      "exposedVertices": 6923
+    },
+    {
+      "time": 10.5,
+      "fullFrame": [
+        512,
+        288
+      ],
+      "actualExposedVertexProjection": [
+        295.90004075282286,
+        26.47847379799692,
+        308.33044138367495,
+        48.97426475403237
+      ],
+      "crop": [
+        270,
+        8,
+        64,
+        64
+      ],
+      "output": [
+        128,
+        128
+      ],
+      "cropEnlargement": 2,
+      "exposedVertices": 6923
+    }
+  ]
+}

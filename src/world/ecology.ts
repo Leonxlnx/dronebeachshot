@@ -4,6 +4,7 @@ import {habitatAtBeforePrincipalFace} from './habitat.ts';
 import {pathPosition} from '../camera/cinematic.ts';
 import {EAST_SPUR_STUDY_ENABLED} from './east-spur.ts';
 import {eastSpurExcludesTree} from './east-spur-ecology.ts';
+import {COASTAL_YOUNG_WOODLAND_ENABLED,createCoastalYoungWoodland} from './coastal-young-woodland.ts';
 export type Placement={x:number,y:number,z:number,scale:number,angle:number,variant:number,family:number,exposure:number,moisture:number};
 const flightSamples=Array.from({length:601},(_,i)=>pathPosition(i/30));
 export function treePlacementsBeforePrincipalFace(){
@@ -33,3 +34,9 @@ export function treePlacementsBeforePrincipalFace(){
 export function treePlacements(){return treePlacementsBeforePrincipalFace()
  .filter((tree,index)=>!EAST_SPUR_STUDY_ENABLED||!eastSpurExcludesTree(index,tree.x,tree.z))
  .map(tree=>({...tree,y:renderedTerrainHeight(tree.x,tree.z)-.06}))}
+
+// Render-only extension. Original identities remain the input to rock refits,
+// forest-floor RNG and the existing shrub/snags sampler.
+export function renderTreePlacements(base:Placement[],enabled=COASTAL_YOUNG_WOODLAND_ENABLED){
+ return enabled?base.concat(createCoastalYoungWoodland(base)):base;
+}

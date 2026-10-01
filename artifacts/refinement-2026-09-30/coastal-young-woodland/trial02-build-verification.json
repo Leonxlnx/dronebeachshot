@@ -1,0 +1,315 @@
+{
+  "status": "Young woodland ON with canonical selected reflection; visual acceptance pending",
+  "startedAt": "2026-10-01T09:26:04.301Z",
+  "finishedAt": "2026-10-01T09:26:05.784Z",
+  "buildComplete": true,
+  "browserLaunched": false,
+  "gpuLaunched": false,
+  "output": "/workspace/scratch/ff8fac50118b/dronebeachshot/dist-young-woodland-trial02",
+  "currentOffSourceIdentity": "b622a249e967a5433f74272e7f1f8dc3d3c525bb127ff3537da17d0221057c81",
+  "studySourceIdentity": "87d484afea5ea36dc894e6dbf3aa89a8c7f6c7a641c3fb5eee961ccf075d463d",
+  "restoredSourceIdentity": "b622a249e967a5433f74272e7f1f8dc3d3c525bb127ff3537da17d0221057c81",
+  "sourceDifferencesDuringBuild": [
+    "src/world/coastal-young-woodland.ts"
+  ],
+  "workingFlagSha256": "deed2c3d903fae726a8d1967d8683a81671975fd19826b5617502d65756adc99",
+  "studyFlagSha256": "194f30649e3e08bead90658f1169e84c3f363f9507fb7b4cbdc52bd53525578e",
+  "exactFlagBytesRestored": true,
+  "workingYoungWoodland": false,
+  "studyYoungWoodland": true,
+  "eastSpur": false,
+  "principalFace": false,
+  "broadRecess": false,
+  "mainBundle": "assets/index-BTYdW6JS.js",
+  "mainBundleSha256": "59246bf853ee8a79966f9c303eb8413dd61a88e9c1f9dee0915167128af3b894",
+  "indexSha256": "cebf4b5866a1f836210c51111086bfb452eb001a330b9ea4f6a16260922d6210",
+  "bundles": {
+    "coastal-worker-CX67xNl9.js": "15732610fc01924ec8596fb543256118220a33955b0ae45605df4bf93c4b5206",
+    "index-BTYdW6JS.js": "59246bf853ee8a79966f9c303eb8413dd61a88e9c1f9dee0915167128af3b894",
+    "index-y4oHzDzR.css": "8565803f4bcaec7c44dcea3448ddeb77866f331d34d7b85a165ed93c3b747875"
+  },
+  "preservedNormalDist": {
+    "sourceIdentity": "bb1bdf0b976d1eb2080a1287635c1fd02b3fbd3aad450178cddfff9fa238cc25",
+    "entry": "/assets/index-Pk89tgYM.js",
+    "files": {
+      "index.html": "e8a156da1ff3c9ee7740113090312b5cd1a3205c830119255aa3dd7d21ad8eed",
+      "assets/coastal-worker-CX67xNl9.js": "15732610fc01924ec8596fb543256118220a33955b0ae45605df4bf93c4b5206",
+      "assets/index-Pk89tgYM.js": "4d9a206cde3e3ae8e59959d9057aa9caa6e4252a2d4e829666564667c17c5793",
+      "assets/index-y4oHzDzR.css": "8565803f4bcaec7c44dcea3448ddeb77866f331d34d7b85a165ed93c3b747875"
+    },
+    "notCurrentOffSource": true
+  },
+  "assetCount": 43,
+  "assets": [
+    {
+      "path": "assets/models/island-tree-far.glb",
+      "bytes": 1304260,
+      "sha256": "ac2213e39b8bfee6d5fe5d46d99486de24cf60efa93905d9c9f2b4c92ad2dc4a",
+      "regularCopiedFile": true
+    },
+    {
+      "path": "assets/models/island-tree-hero.glb",
+      "bytes": 3950040,
+      "sha256": "8d892e4a572bb30804aecc3a88adb57e92b852220ccf8f59068f400cf6713a5b",
+      "regularCopiedFile": true
+    },
+    {
+      "path": "assets/models/island-tree-medium.glb",
+      "bytes": 1739460,
+      "sha256": "2c210426ac4e761261b6c4dfc8c250fedd72ca1787de918abc965d4d3f32be64",
+      "regularCopiedFile": true
+    },
+    {
+      "path": "assets/models/palm-tree.glb",
+      "bytes": 490580,
+      "sha256": "5e3f42cc9bd4a52d1e4249184fc8cba7bf87acf91b1403711115acaa7f2ca0f6",
+      "regularCopiedFile": true
+    },
+    {
+      "path": "assets/textures/coast_sand_04_arm_1k.webp",
+      "bytes": 275234,
+      "sha256": "69da95f3d8a8c8ea0964f511301178d2a344498d6a5690306c64cac830430abd",
+      "regularCopiedFile": true
+    },
+    {
+      "path": "assets/textures/coast_sand_04_diff_1k.webp",
+      "bytes": 356474,
+      "sha256": "7eb7bd8dc8396c56abc1d75eeaf1d8a2f766505cf7c989529a86c4f1e5b0cc49",
+      "regularCopiedFile": true
+    },
+    {
+      "path": "assets/textures/coast_sand_04_nor_gl_1k.webp",
+      "bytes": 525074,
+      "sha256": "28d767a4d9febfbea240b292ba11c814391919e2f9874e1cf76e89db31dcd0a8",
+      "regularCopiedFile": true
+    },
+    {
+      "path": "assets/textures/palm_bark_arm_1k.webp",
+      "bytes": 175868,
+      "sha256": "7a6fbd0dde216fbb8a3693418e9a7f0f143af1b1151ee6219ed4f5fa4041b631",
+      "regularCopiedFile": true
+    },
+    {
+      "path": "assets/textures/palm_bark_diff_1k.webp",
+      "bytes": 176792,
+      "sha256": "3a9486460e7a643edc706ea7812a29da4b402e9267327cba0978f2bcd2e83f8f",
+      "regularCopiedFile": true
+    },
+    {
+      "path": "assets/textures/palm_bark_nor_gl_1k.webp",
+      "bytes": 534084,
+      "sha256": "70f0d74a1a1856b06898115d3df081044f9c87484983e895cd2240ad28833927",
+      "regularCopiedFile": true
+    },
+    {
+      "path": "assets/textures/seaside_rock_arm_1k.webp",
+      "bytes": 114332,
+      "sha256": "1463055dfaf523a08b85978c387c31fc1cf6b8484162546119f0c6b0b34d2fe2",
+      "regularCopiedFile": true
+    },
+    {
+      "path": "assets/textures/seaside_rock_diff_1k.webp",
+      "bytes": 319098,
+      "sha256": "3a4179bc1d586bee98e5613a491c7bb28b27ef153cdcd338e990150158a3b11a",
+      "regularCopiedFile": true
+    },
+    {
+      "path": "assets/textures/seaside_rock_nor_gl_1k.webp",
+      "bytes": 450138,
+      "sha256": "169e8a42a985e7f6f745eea02c9d234164bedcfc969fe4a687f9c8b7067bfaa7",
+      "regularCopiedFile": true
+    },
+    {
+      "path": "assets/models/syringa-tree-hero.glb",
+      "bytes": 3114880,
+      "sha256": "df11a6b9f0a2bf51b8ffd5bb12e4a18a864b47d767177cd53ad263996d8a5f2f",
+      "regularCopiedFile": true
+    },
+    {
+      "path": "assets/models/syringa-tree-medium.glb",
+      "bytes": 2254268,
+      "sha256": "c4ef49e31bf9fb6565ccfdfa7dfa05b84ca6a9054401f2362c81c6f2538770de",
+      "regularCopiedFile": true
+    },
+    {
+      "path": "assets/models/syringa-tree-far.glb",
+      "bytes": 2048168,
+      "sha256": "e0ed4e55345c21765804531340a285c2d10dddcb21f2a690fbb77cbfbd659523",
+      "regularCopiedFile": true
+    },
+    {
+      "path": "assets/textures/forest_ground_05_diff_2k.webp",
+      "bytes": 1193836,
+      "sha256": "d4cc33ba4a495a931122cda9976d9e0758a79021d5f66ca3bb8afefafd908634",
+      "regularCopiedFile": true
+    },
+    {
+      "path": "assets/textures/forest_ground_05_nor_gl_2k.webp",
+      "bytes": 8457132,
+      "sha256": "5f9e07b047de75b7475a45c57669dc338a99a92854989ae3eb243f3b78acc54c",
+      "regularCopiedFile": true
+    },
+    {
+      "path": "assets/textures/forest_ground_05_arm_2k.webp",
+      "bytes": 4059720,
+      "sha256": "a53ccffa1f4502fdcf1cba0a23543d3bbe73d7c3e419c7568c31073130e18c6a",
+      "regularCopiedFile": true
+    },
+    {
+      "path": "assets/textures/forest_leaves_02_diff_2k.webp",
+      "bytes": 2483370,
+      "sha256": "d4fdb0fc221f6141a0a0f160eaa5dd00aecad103e11a2b6a690e18863e45c109",
+      "regularCopiedFile": true
+    },
+    {
+      "path": "assets/textures/forest_leaves_02_nor_gl_2k.webp",
+      "bytes": 10375944,
+      "sha256": "33c631f816a1d351f87ce7e299f824c4ede95ab8b64b3b7d2689d572d74c446b",
+      "regularCopiedFile": true
+    },
+    {
+      "path": "assets/textures/forest_leaves_02_arm_2k.webp",
+      "bytes": 5133636,
+      "sha256": "3e4f7a3e4bde60276561d904468750e50c2c46d1be2a7e2b2866d0121265670a",
+      "regularCopiedFile": true
+    },
+    {
+      "path": "assets/models/island-tree-near.glb",
+      "bytes": 13299192,
+      "sha256": "c81e6ece28b7646aa59f2c2c68142619b2790d0db62c5d829278fec92e4373d7",
+      "regularCopiedFile": true
+    },
+    {
+      "path": "assets/models/syringa-tree-near.glb",
+      "bytes": 38586500,
+      "sha256": "cb794443092f8b4b7b257c4d86f42e6f2b0ec91a2f95d2d3f34043f0a3b49b07",
+      "regularCopiedFile": true
+    },
+    {
+      "path": "assets/impostors/island-albedo.png",
+      "bytes": 798481,
+      "sha256": "fa511d86ca9659007e0c4cc0d17d9344cda5b7c8c2868c524eb70a6f942d7eac",
+      "regularCopiedFile": true
+    },
+    {
+      "path": "assets/impostors/island-normal.png",
+      "bytes": 933462,
+      "sha256": "a6cd5cbb19f2647d6980a8eaeee9839d0622e81ba847033e321693fe1d4afd7a",
+      "regularCopiedFile": true
+    },
+    {
+      "path": "assets/impostors/syringa-albedo.png",
+      "bytes": 664818,
+      "sha256": "69045d0cbeebac3c0e15d4345142a99c9298076a75b15013e8cc6c906b1e2004",
+      "regularCopiedFile": true
+    },
+    {
+      "path": "assets/impostors/syringa-normal.png",
+      "bytes": 796819,
+      "sha256": "370dce1764a6ed7aa00afbfb023290a86e0388ca97bbe4e6de0ffc038f73ecb1",
+      "regularCopiedFile": true
+    },
+    {
+      "path": "assets/rocks/rock_moss_set_01_2k.glb",
+      "bytes": 3256512,
+      "sha256": "864ece45cf6cafeb7fab5ab65704b1810622ba411da2026ebad847a0a08eab2f",
+      "regularCopiedFile": true
+    },
+    {
+      "path": "assets/rocks/rock_moss_set_01_geometry.bin",
+      "bytes": 789976,
+      "sha256": "581b4f5b375b1eb2bed91178120d31811d09001904f43ee5f78e0168b61f6e42",
+      "regularCopiedFile": true
+    },
+    {
+      "path": "assets/textures/sand_03_diff_2k.webp",
+      "bytes": 1747168,
+      "sha256": "190dcce01f0d7a5c66d3d3c06a987f117c3501c3d54c962f29148fe248c17fa5",
+      "regularCopiedFile": true
+    },
+    {
+      "path": "assets/textures/sand_03_nor_gl_2k.webp",
+      "bytes": 1676214,
+      "sha256": "fbd85ea3821bff1681aa34d7d23feaac10666a875dbc25b950a66fc4079d81c6",
+      "regularCopiedFile": true
+    },
+    {
+      "path": "assets/textures/sand_03_arm_2k.webp",
+      "bytes": 683038,
+      "sha256": "8cecb65d928fd0b2598e5d024a71aa65bdae756e9f293a58cfb5dccfed173c41",
+      "regularCopiedFile": true
+    },
+    {
+      "path": "assets/textures/marble_cliff_03_diff_2k.webp",
+      "bytes": 1475290,
+      "sha256": "e1967f1ad5de34c328c1eb7ea9927de44b05235a75734959af47a2c60d23ced3",
+      "regularCopiedFile": true
+    },
+    {
+      "path": "assets/textures/marble_cliff_03_nor_gl_2k.webp",
+      "bytes": 1086742,
+      "sha256": "425bec3f1a4f29e1bc965ee7eaf888d085f838147d0432d7c3ee15a4ee128ccc",
+      "regularCopiedFile": true
+    },
+    {
+      "path": "assets/textures/marble_cliff_03_arm_2k.webp",
+      "bytes": 708852,
+      "sha256": "fed4947d4f0570e3e035c5973db816047f2009b33a14c4e1b9c5a7463913bc9f",
+      "regularCopiedFile": true
+    },
+    {
+      "path": "assets/impostors/island-visibility.rg8",
+      "bytes": 6291456,
+      "sha256": "511289cba41882d4d417c23b7081bfd5971242c879041f08ffb97bceeeb7017d",
+      "regularCopiedFile": true
+    },
+    {
+      "path": "assets/impostors/syringa-visibility.rg8",
+      "bytes": 6291456,
+      "sha256": "fcc1b601ed813ced3b6a7016e5d8fafbc5000f7baf819a4dd706ff29d060d63b",
+      "regularCopiedFile": true
+    },
+    {
+      "path": "assets/impostors/island-fork-open-albedo.png",
+      "bytes": 748664,
+      "sha256": "fd2cbeb540b28fbc15c36b0dbf6587625e91418753e70eb9b81cf1b54dabb9e9",
+      "regularCopiedFile": true
+    },
+    {
+      "path": "assets/impostors/island-fork-open-normal.png",
+      "bytes": 853733,
+      "sha256": "306f6223065425833328e63e8390e2bcdfad8d84b9973e22349acbc987b39d1b",
+      "regularCopiedFile": true
+    },
+    {
+      "path": "assets/impostors/island-fork-open-visibility.rg8",
+      "bytes": 6291456,
+      "sha256": "9dd1c765ade0caa5af2e80fa8574b64efee51bc8d69162adfb883355d7f4974d",
+      "regularCopiedFile": true
+    },
+    {
+      "path": "assets/studies/island-response/island-direct-response.rgba16f",
+      "bytes": 25165824,
+      "sha256": "9f1e04acf3995292adb4a7bba6c28ba28088cd37a3e7e90374a4fac3d564f63f",
+      "regularCopiedFile": true
+    },
+    {
+      "path": "assets/studies/island-response/response-manifest.json",
+      "bytes": 335275,
+      "sha256": "1935e1b8bd002959861fb97b768f8e9e184a71e08a5906f5eaa5987e65144601",
+      "regularCopiedFile": true
+    }
+  ],
+  "profileSource": "profiles/last-light-bay.json",
+  "profileSHA256": "c52fde34e833e3e7a50865a3960e5a5a970373f46418647a76c8583c6877d8d2",
+  "plannedDimensions": [
+    1280,
+    720
+  ],
+  "plannedTimes": [
+    9,
+    10.5,
+    12
+  ],
+  "validation": "Plain Vite build, exact before/after current source identity and43 source/copied asset hashes. Old normaldist preserved separately; exact current-source OFF comparison requires a fresh OFF build. No actual visual acceptance."
+}

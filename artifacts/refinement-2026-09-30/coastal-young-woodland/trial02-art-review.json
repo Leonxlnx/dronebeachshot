@@ -1,0 +1,370 @@
+{
+  "kind": "actual-combined-full-scene-static-art-review",
+  "sourceIdentity": "87d484afea5ea36dc894e6dbf3aa89a8c7f6c7a641c3fb5eee961ccf075d463d",
+  "dimensions": [
+    1280,
+    720
+  ],
+  "backend": "software",
+  "captureManifest": "artifacts/refinement-2026-09-30/coastal-young-woodland/trial02-on/manifest.json",
+  "captureSucceeded": true,
+  "manifestErrors": [],
+  "profile": {
+    "path": "artifacts/refinement-2026-09-30/coastal-young-woodland/trial02-profile.json",
+    "sha256": "c52fde34e833e3e7a50865a3960e5a5a970373f46418647a76c8583c6877d8d2",
+    "settings": {
+      "coastalReflection": true,
+      "coastalReflectionDistortion": 1,
+      "coastalUnderstory": false,
+      "culling": true,
+      "debug": 0,
+      "farCrownBlending": false,
+      "farCrownCoverage": false,
+      "islandDirectResponse": true,
+      "lighting": {
+        "cloudCoverage": 0.4,
+        "cloudFogDensity": 4e-05,
+        "cloudMorphology": true,
+        "environmentIntensity": 0.55,
+        "exposure": 1.08,
+        "fogDensity": 6.5e-05,
+        "groundColor": "#365842",
+        "skyColor": "#a1c9ed",
+        "skyIntensity": 0.48,
+        "sunColor": "#ffdfb6",
+        "sunIntensity": 4.8
+      },
+      "linearMainOutput": true,
+      "linearMainSampleScale": 1,
+      "oceanCulling": true,
+      "profiling": false,
+      "shadowStudy": {
+        "bias": -4e-05,
+        "mapSize": 2048,
+        "normalBias": 0.25,
+        "remoteCasters": false,
+        "remoteFit": false,
+        "terrainChunks": false
+      },
+      "surfaceStudy": {
+        "foamDepthGate": 1,
+        "grassPalette": 1,
+        "groundLayerPruning": 0,
+        "mineralRelief": 0,
+        "rockWeathering": 0,
+        "sandChroma": 1,
+        "sandFilmDrying": 0,
+        "sandRipple": 0.2,
+        "sandRippleFilter": 0,
+        "stoneBedding": 1
+      }
+    }
+  },
+  "decisions": {
+    "youngWoodland": "ACCEPT as a narrow, visually modest lower cohort: subordinate scale, retained gaps and no obvious floating stems or beach obstruction at these rendered views.",
+    "combinedProfile": "Useful bounded improvements remain, particularly coherent water/reflection, but the combined images are not final quality acceptance: cloud raster contours and the broad smooth wet ribbon remain conspicuous."
+  },
+  "observations": [
+    {
+      "scope": "young cohort",
+      "finding": "Mapped9s/12s groups remain below mature crowns. They do not form a continuous hedge or block beach intervals. Benefit is modest; the additions do not solve the cliff form or overall forest structure."
+    },
+    {
+      "scope": "water",
+      "finding": "Accepted color and corrected coastal reflection remain coherent; the earlier hard bright reflection slits do not return."
+    },
+    {
+      "scope": "wet sand",
+      "view": 10.5,
+      "regionXYInclusive": [
+        1000,
+        415,
+        1279,
+        635
+      ],
+      "finding": "The broad uniform smooth brown ribbon remains a major foreground defect."
+    },
+    {
+      "scope": "cloud sampling",
+      "view": 10.5,
+      "regionXYInclusive": [
+        160,
+        0,
+        480,
+        150
+      ],
+      "finding": "Fine repeated horizontal/diagonal raster contours are visible across bright lobes."
+    },
+    {
+      "scope": "cloud sampling",
+      "view": 12,
+      "regionXYInclusive": [
+        20,
+        0,
+        540,
+        220
+      ],
+      "finding": "Cloud raster contours persist and are separate from the intentionally softer morphology."
+    },
+    {
+      "scope": "cliff",
+      "finding": "The dominant pale face still reads as a steep continuous bank rather than distinct thick rock masses."
+    }
+  ],
+  "youngProjectionReference": {
+    "path": "artifacts/refinement-2026-09-30/coastal-young-woodland/cpu-check.json",
+    "method": "Existing terrain-only crown-midpoint projection at640x360, coordinates multiplied by2 for these1280x720 images. This is not a full crown/rock occlusion or basal-support proof.",
+    "regions": [
+      {
+        "timeSeconds": 9,
+        "treeIds": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "crownMidpointBoundsXYInclusive": [
+          1179,
+          267,
+          1234,
+          292
+        ]
+      },
+      {
+        "timeSeconds": 9,
+        "treeIds": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "crownMidpointBoundsXYInclusive": [
+          955,
+          255,
+          1039,
+          277
+        ]
+      },
+      {
+        "timeSeconds": 9,
+        "treeIds": [
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "crownMidpointBoundsXYInclusive": [
+          838,
+          248,
+          889,
+          263
+        ]
+      },
+      {
+        "timeSeconds": 12,
+        "treeIds": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "crownMidpointBoundsXYInclusive": [
+          901,
+          308,
+          1054,
+          341
+        ]
+      },
+      {
+        "timeSeconds": 12,
+        "treeIds": [
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "crownMidpointBoundsXYInclusive": [
+          727,
+          317,
+          800,
+          339
+        ]
+      }
+    ],
+    "note": "IDs0\u20133 leave the right edge by12 seconds."
+  },
+  "cloudSourceHypothesis": {
+    "source": "src/world/atmosphere.ts",
+    "finding": "The inspected visible march used ceil(span/30) and stepLen=span/steps. Count changes redistribute all midpoints along constant-elevation ray contours, matching the observed band orientation.",
+    "proposedNarrowCorrection": "Stable max(30,span/512) cells with clipped final-cell width/midpoint and actual cell width in extinction and density footprint. Keep the separate fixed-direction shadow march unchanged for the initial isolated comparison.",
+    "status": "Source-based hypothesis, shared with the assigned renderer agent; no correction or GPU proof performed by this review."
+  },
+  "frames": [
+    {
+      "label": "young-woodland-on-9",
+      "png": "artifacts/refinement-2026-09-30/coastal-young-woodland/trial02-on/young-woodland-on-9.png",
+      "pngSha256": "5ea5595a2cf59dc8ba0f6278f3b02318378f3b6e8dab72f28f75ccfe8cc5cee2",
+      "timeSeconds": 9,
+      "camera": [
+        -90,
+        19.057825209108657,
+        73
+      ],
+      "coreTreeCount": 14016,
+      "linearMainOutput": {
+        "enabled": true,
+        "sampleScale": 1,
+        "requestedSampleScale": 1,
+        "supported": true,
+        "supportError": null,
+        "initialized": true,
+        "width": 1280,
+        "height": 720,
+        "samples": 4,
+        "framebufferValidated": true,
+        "format": "RGBA16F",
+        "colorSpace": "srgb-linear",
+        "resolveDrawsPerFrame": 1,
+        "disposed": false
+      },
+      "coastalReflection": {
+        "enabled": true,
+        "initialized": true,
+        "supported": true,
+        "supportError": null,
+        "width": 640,
+        "height": 360,
+        "scale": 0.5,
+        "samples": 4,
+        "format": "RGBA16F",
+        "resolvedDepth": true,
+        "alphaIsCoverage": false,
+        "distortion": 1,
+        "ready": true,
+        "renders": 1,
+        "failures": 0,
+        "skippedBelowSea": 0,
+        "lastDrawCalls": 424,
+        "lastTriangles": 6362302,
+        "disposed": false
+      },
+      "islandResponseEnabled": true
+    },
+    {
+      "label": "young-woodland-on-10_5",
+      "png": "artifacts/refinement-2026-09-30/coastal-young-woodland/trial02-on/young-woodland-on-10_5.png",
+      "pngSha256": "05072e18f8f286028e0f9ddaae5433cdc315294c9b324fb408218c8a61e710c9",
+      "timeSeconds": 10.5,
+      "camera": [
+        -36.98060456829655,
+        4.922138347995213,
+        84.31258981306148
+      ],
+      "coreTreeCount": 14016,
+      "linearMainOutput": {
+        "enabled": true,
+        "sampleScale": 1,
+        "requestedSampleScale": 1,
+        "supported": true,
+        "supportError": null,
+        "initialized": true,
+        "width": 1280,
+        "height": 720,
+        "samples": 4,
+        "framebufferValidated": true,
+        "format": "RGBA16F",
+        "colorSpace": "srgb-linear",
+        "resolveDrawsPerFrame": 1,
+        "disposed": false
+      },
+      "coastalReflection": {
+        "enabled": true,
+        "initialized": true,
+        "supported": true,
+        "supportError": null,
+        "width": 640,
+        "height": 360,
+        "scale": 0.5,
+        "samples": 4,
+        "format": "RGBA16F",
+        "resolvedDepth": true,
+        "alphaIsCoverage": false,
+        "distortion": 1,
+        "ready": true,
+        "renders": 2,
+        "failures": 0,
+        "skippedBelowSea": 0,
+        "lastDrawCalls": 456,
+        "lastTriangles": 7028223,
+        "disposed": false
+      },
+      "islandResponseEnabled": true
+    },
+    {
+      "label": "young-woodland-on-12",
+      "png": "artifacts/refinement-2026-09-30/coastal-young-woodland/trial02-on/young-woodland-on-12.png",
+      "pngSha256": "f6d7b9befbf86e69291cbc3bb73617a7b702650d90b4d8abedfec9a85cc1c11f",
+      "timeSeconds": 12,
+      "camera": [
+        27.662314423143716,
+        4.6922244211306525,
+        81.46115474052641
+      ],
+      "coreTreeCount": 14016,
+      "linearMainOutput": {
+        "enabled": true,
+        "sampleScale": 1,
+        "requestedSampleScale": 1,
+        "supported": true,
+        "supportError": null,
+        "initialized": true,
+        "width": 1280,
+        "height": 720,
+        "samples": 4,
+        "framebufferValidated": true,
+        "format": "RGBA16F",
+        "colorSpace": "srgb-linear",
+        "resolveDrawsPerFrame": 1,
+        "disposed": false
+      },
+      "coastalReflection": {
+        "enabled": true,
+        "initialized": true,
+        "supported": true,
+        "supportError": null,
+        "width": 640,
+        "height": 360,
+        "scale": 0.5,
+        "samples": 4,
+        "format": "RGBA16F",
+        "resolvedDepth": true,
+        "alphaIsCoverage": false,
+        "distortion": 1,
+        "ready": true,
+        "renders": 3,
+        "failures": 0,
+        "skippedBelowSea": 0,
+        "lastDrawCalls": 423,
+        "lastTriangles": 6753577,
+        "disposed": false
+      },
+      "islandResponseEnabled": true
+    }
+  ],
+  "limits": [
+    "This ON-only combined run has no matching OFF young-tree control with the same profile and resolution, so a strong isolated improvement claim is not justified.",
+    "Image inspection cannot certify every basal contact; the existing CPU support audit is separate evidence.",
+    "Actual main output is1280x720 linear sampleScale1, not an internal2x resolve at1280 output.",
+    "Three stills do not establish motion quality or full-route acceptance.",
+    "No8/10 score, performance claim or completed-environment acceptance is made.",
+    "No production code or settings were edited by this review."
+  ]
+}

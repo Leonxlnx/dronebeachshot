@@ -1,6 +1,6 @@
 # Rounded east spur: isolated proof and default-off full-scene candidate
 
-Status: **ready for one full-scene comparison, not visually accepted**. The exact positive heightfield tested in `rounded-spur-render-01/` is integrated behind `src/world/east-spur.ts` → `EAST_SPUR_STUDY_ENABLED=false`. No build, full scene GPU launch, commit or publication was performed by this leaf.
+Status: **rejected in the actual full-scene trial03 at 9 and 12 seconds; keep OFF**. The smooth pale bulge and exposed ground weakened the coast. See `trial03-art-review.md` for the current decision. The isolated results below are historical diagnostic evidence, not acceptance.
 
 ## Why this target
 
@@ -55,9 +55,11 @@ A deliberately approximate family crown-midpoint/terrain-ray check finds 11 remo
 After the renderer/bake owner releases a build window, root can run:
 
 ```sh
-node scripts/control/build-east-spur-study.mjs --out-dir=dist-east-spur-study-trial01
+node scripts/control/build-east-spur-study.mjs --out-dir=dist-east-spur-study-trial03
 ```
 
-The wrapper requires a fresh output name, copies source to a retained temporary stage, changes only the copied flag, builds normal Vite output in the separate directory and records its truthful staged source identity. Working source/flag hashes are verified unchanged; the ordinary `dist/` and pinned film are not touched. It has passed syntax inspection but has deliberately not been executed before the coordinated build window.
+The wrapper requires a fresh output name, copies source to a retained temporary stage, changes only the copied flag, builds normal Vite output in the separate directory and records its truthful staged source identity. Working source/flag hashes are verified unchanged; the ordinary `dist/` and pinned film are not touched. It was subsequently executed in the root-authorized build window as trial02 after the diagnostics fix. `trial02-build-verification.json` proves only the staged flag differs, the ordinary baseline remains intact, and all response assets copied exactly. Trial01 is stale. Full-scene WebGL validation remains pending.
 
 Reject the candidate if the full scene turns the flank into a stripe, loses the useful side behind crowns, exposes implausible local plants, or costs more composition than it adds. Revert simply by keeping the production flag false; default-OFF output geometry has been proved exact.
+
+The two-view full-scene comparison is saved in `fullscene-spur-plan.json`, with a byte-identical copy of the root source-response profile in `fullscene-spur-profile.json`. Use 640×360 at 9 and 10.5 seconds, response/blend OFF, sandChroma 0, SSAA 1×, terrain shadow chunks OFF. The baseline matrix lacks a 9-second OFF frame, so root must capture that matching view.

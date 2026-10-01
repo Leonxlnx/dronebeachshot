@@ -1,0 +1,279 @@
+{
+  "kind": "actual-full-scene-static-art-review",
+  "decision": "ACCEPT corrected coastal reflection with distortion1 as the preferred optical mode for the combined profile",
+  "selectedSettings": {
+    "coastalReflection": true,
+    "coastalReflectionDistortion": 1
+  },
+  "sourceIdentity": "bb1bdf0b976d1eb2080a1287635c1fd02b3fbd3aad450178cddfff9fa238cc25",
+  "captureManifest": "artifacts/refinement-2026-09-30/coastal-reflection/footprint-full-scene-02/manifest.json",
+  "captureSucceeded": true,
+  "manifestErrors": [],
+  "dimensions": [
+    640,
+    360
+  ],
+  "backend": "software",
+  "timesSeconds": [
+    10.5,
+    10.75
+  ],
+  "supersedesOpticalRejectionAt": "artifacts/refinement-2026-09-30/coastal-reflection/full-scene-art-review-01.json",
+  "observations": [
+    {
+      "pose": "shore10.5",
+      "regionXYInclusive": [
+        0,
+        184,
+        515,
+        265
+      ],
+      "finding": "The previous hard bright cutout slits are absent in both corrected flat and wave modes. Coast-colored water is coherent rather than interrupted by binary-looking bands."
+    },
+    {
+      "pose": "shore10.5",
+      "regionXYInclusive": [
+        270,
+        220,
+        510,
+        330
+      ],
+      "finding": "Wave retains plausible irregular highlights and variation; flat is smoother and slightly duller. Wave is preferred."
+    },
+    {
+      "pose": "nearby10.75",
+      "regionXYInclusive": [
+        220,
+        190,
+        575,
+        330
+      ],
+      "finding": "Muted brown/green coast contribution persists with irregular wave highlights. The previous parallel slits do not return; shoreline contact remains stable without an obvious edge halo, displaced reflection or pasted flat strip."
+    }
+  ],
+  "frames": [
+    {
+      "label": "shore-off",
+      "png": "artifacts/refinement-2026-09-30/coastal-reflection/footprint-full-scene-02/shore-off.png",
+      "pngSha256": "fed2e1c15abbc8c0ea259c9a1433615a306ac9750169c697a4becc475a489bb9",
+      "timeSeconds": 10.5,
+      "camera": [
+        -36.98060456829655,
+        4.922138347995213,
+        84.31258981306148
+      ],
+      "actualReflectionState": {
+        "enabled": false,
+        "ready": false,
+        "initialized": false,
+        "width": 0,
+        "height": 0,
+        "samples": 4,
+        "distortion": 1,
+        "renders": 0,
+        "failures": 0
+      }
+    },
+    {
+      "label": "shore-flat",
+      "png": "artifacts/refinement-2026-09-30/coastal-reflection/footprint-full-scene-02/shore-flat.png",
+      "pngSha256": "bbf477dbbb9f272552ddd51bb977fc1219bf1cfdec1ce7e2882256e0186681c1",
+      "timeSeconds": 10.5,
+      "camera": [
+        -36.98060456829655,
+        4.922138347995213,
+        84.31258981306148
+      ],
+      "actualReflectionState": {
+        "enabled": true,
+        "ready": true,
+        "initialized": true,
+        "width": 320,
+        "height": 180,
+        "samples": 4,
+        "distortion": 0,
+        "renders": 1,
+        "failures": 0
+      }
+    },
+    {
+      "label": "shore-wave",
+      "png": "artifacts/refinement-2026-09-30/coastal-reflection/footprint-full-scene-02/shore-wave.png",
+      "pngSha256": "ae6b902a9f98695daa1a57387895c60c0c9879fff182f1bce67bcebdbd6253c3",
+      "timeSeconds": 10.5,
+      "camera": [
+        -36.98060456829655,
+        4.922138347995213,
+        84.31258981306148
+      ],
+      "actualReflectionState": {
+        "enabled": true,
+        "ready": true,
+        "initialized": true,
+        "width": 320,
+        "height": 180,
+        "samples": 4,
+        "distortion": 1,
+        "renders": 2,
+        "failures": 0
+      }
+    },
+    {
+      "label": "shore-off-restored",
+      "png": "artifacts/refinement-2026-09-30/coastal-reflection/footprint-full-scene-02/shore-off-restored.png",
+      "pngSha256": "fed2e1c15abbc8c0ea259c9a1433615a306ac9750169c697a4becc475a489bb9",
+      "timeSeconds": 10.5,
+      "camera": [
+        -36.98060456829655,
+        4.922138347995213,
+        84.31258981306148
+      ],
+      "actualReflectionState": {
+        "enabled": false,
+        "ready": false,
+        "initialized": true,
+        "width": 320,
+        "height": 180,
+        "samples": 4,
+        "distortion": 1,
+        "renders": 2,
+        "failures": 0
+      }
+    },
+    {
+      "label": "nearby-off",
+      "png": "artifacts/refinement-2026-09-30/coastal-reflection/footprint-full-scene-02/nearby-off.png",
+      "pngSha256": "79efee5313bcf985093fc50a1129bec5aebe6930e2c210c3166b84f531f421e8",
+      "timeSeconds": 10.75,
+      "camera": [
+        -27.044043283726065,
+        4.81755618508428,
+        85.79036071899104
+      ],
+      "actualReflectionState": {
+        "enabled": false,
+        "ready": false,
+        "initialized": true,
+        "width": 320,
+        "height": 180,
+        "samples": 4,
+        "distortion": 1,
+        "renders": 2,
+        "failures": 0
+      }
+    },
+    {
+      "label": "nearby-wave",
+      "png": "artifacts/refinement-2026-09-30/coastal-reflection/footprint-full-scene-02/nearby-wave.png",
+      "pngSha256": "0a0a714ed1061442a56e0e85c18549de804a886512c9f06d050d80e2e81a3646",
+      "timeSeconds": 10.75,
+      "camera": [
+        -27.044043283726065,
+        4.81755618508428,
+        85.79036071899104
+      ],
+      "actualReflectionState": {
+        "enabled": true,
+        "ready": true,
+        "initialized": true,
+        "width": 320,
+        "height": 180,
+        "samples": 4,
+        "distortion": 1,
+        "renders": 3,
+        "failures": 0
+      }
+    }
+  ],
+  "pixelComparisons": [
+    {
+      "a": "shore-off",
+      "b": "shore-flat",
+      "differentPixels": 88665,
+      "differentChannelValues": 259140,
+      "maxChannelDelta": 71,
+      "changedBoundsInclusive": [
+        0,
+        180,
+        528,
+        359
+      ]
+    },
+    {
+      "a": "shore-flat",
+      "b": "shore-wave",
+      "differentPixels": 86629,
+      "differentChannelValues": 243271,
+      "maxChannelDelta": 49,
+      "changedBoundsInclusive": [
+        0,
+        180,
+        528,
+        359
+      ]
+    },
+    {
+      "a": "shore-off",
+      "b": "shore-wave",
+      "differentPixels": 83983,
+      "differentChannelValues": 241178,
+      "maxChannelDelta": 46,
+      "changedBoundsInclusive": [
+        0,
+        180,
+        527,
+        359
+      ]
+    },
+    {
+      "a": "nearby-off",
+      "b": "nearby-wave",
+      "differentPixels": 92696,
+      "differentChannelValues": 265398,
+      "maxChannelDelta": 47,
+      "changedBoundsInclusive": [
+        0,
+        180,
+        639,
+        359
+      ]
+    },
+    {
+      "a": "shore-off",
+      "b": "shore-off-restored",
+      "differentPixels": 0,
+      "differentChannelValues": 0,
+      "maxChannelDelta": 0,
+      "changedBoundsInclusive": null
+    }
+  ],
+  "priorBuildOffComparisons": [
+    {
+      "current": "shore-off",
+      "oldControl": "artifacts/refinement-2026-09-30/post-film-review-01/shore-off.png",
+      "oldControlSourceIdentity": "5b3479529a796233889fd2de92d044f0aba207d73933c932ccb34c85b495e248",
+      "differentPixels": 0,
+      "differentChannelValues": 0,
+      "maxChannelDelta": 0,
+      "changedBoundsInclusive": null
+    },
+    {
+      "current": "nearby-off",
+      "oldControl": "artifacts/refinement-2026-09-30/post-film-review-01/nearby-off.png",
+      "oldControlSourceIdentity": "5b3479529a796233889fd2de92d044f0aba207d73933c932ccb34c85b495e248",
+      "differentPixels": 0,
+      "differentChannelValues": 0,
+      "maxChannelDelta": 0,
+      "changedBoundsInclusive": null
+    }
+  ],
+  "pixelMethod": "Pillow PNG decoding to uint8 RGBA, exact channel comparison. PNG SHA256 is checked against the manifest for provenance only.",
+  "limits": [
+    "Bounded static optical acceptance at two nearby shoreline poses; larger combined views remain a separate validation.",
+    "A live-wave/temporal test is not established by two stills.",
+    "No runtime performance, high/balanced/low hardware budget or all-route quality conclusion follows from these frames.",
+    "Resolved rendering state confirms the intended pass ran, not physical correctness of every reflected ray.",
+    "Flat is a valid control but is not the selected final optical mode.",
+    "No production source or profile settings were edited by this review."
+  ]
+}

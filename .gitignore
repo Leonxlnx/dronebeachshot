@@ -12,9 +12,10 @@ public/assets/textures/
 public/assets/studies/
 dist-east-spur-study-*/
 dist-startup-queue-study-*/
+dist-young-woodland-trial*/
 .capture-lock.json
 
-# New diagnostic images remain private pending explicit publication approval.
+# Generated diagnostic images stay out of Git; plans and review evidence are versioned.
 /artifacts/phase2/**/*.png
 /artifacts/phase2/**/*.jpg
 # Phase-three diagnostics contain private environment metadata and images.

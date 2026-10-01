@@ -58,6 +58,15 @@ type ReflectionOptions={
  restoreCamera:(camera:THREE.PerspectiveCamera)=>void;
 };
 
+/** A capability failure that callers may handle after render restores state.
+ * Rendering and restoration failures retain their original error types. */
+export class CoastalReflectionUnsupportedError extends Error{
+ constructor(reason:string){
+  super('Coastal reflection requires RGBA16F MSAA4 with resolved depth: '+reason);
+  this.name='CoastalReflectionUnsupportedError';
+ }
+}
+
 /** Separate post-refraction/pre-main study. Color already contains the sky;
  * alpha is NOT coverage (cube transmittance and A2C alpha both invalidate that
  * interpretation). MSAA depth is a resolved sample, not conservative coverage. */
@@ -67,7 +76,7 @@ export function createCoastalReflectionPass(renderer:THREE.WebGLRenderer){
  let renders=0,failures=0,skippedBelowSea=0,lastDrawCalls=0,lastTriangles=0;
  const mirror=new THREE.PerspectiveCamera(),size=new THREE.Vector2();
  function available(){if(disposed)throw Error('Coastal reflection has been disposed');}
- function unsupported(reason:string):never{supported=false;supportError=reason;throw Error('Coastal reflection requires RGBA16F MSAA4 with resolved depth: '+reason);}
+ function unsupported(reason:string):never{supported=false;supportError=reason;throw new CoastalReflectionUnsupportedError(reason);}
  function checkSupport(){
   if(supported===true)return;if(supported===false)unsupported(supportError!);
   const gl=renderer.getContext() as WebGL2RenderingContext;

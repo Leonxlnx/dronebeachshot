@@ -1,0 +1,2439 @@
+{
+  "kind": "intermediate-progress",
+  "startedAt": "2026-10-01T09:39:27.029Z",
+  "width": 1280,
+  "height": 720,
+  "frames": [
+    {
+      "index": 0,
+      "view": "coast-refined-10_5",
+      "settings": {
+        "label": "coast-refined-10_5",
+        "view": 10.5
+      },
+      "time": 10.5,
+      "width": 1280,
+      "height": 720,
+      "sizeBytes": 2253175,
+      "sha256": "6bd5ca6553f43a43574bc8634bfa6227a79b2e917a527f6d4ebdbff3fcaa9f34",
+      "milliseconds": 151400,
+      "stats": {
+        "ready": true,
+        "sourceIdentity": "301d9c4541e7b48f82d7166345cd39f3ebc7b3fba4140549f0ab3d997a6b095f",
+        "seed": 60829,
+        "time": 10.5,
+        "quality": "high",
+        "renderer": "WebGL2",
+        "imageSharing": {
+          "uniqueImages": 38,
+          "sharedImages": 20,
+          "closedBitmaps": 18,
+          "closedBitmapPixels": 18874368
+        },
+        "offshoreRocks": 37,
+        "coastalField": {
+          "resolution": 1024,
+          "texelMeters": [
+            1.171875,
+            1.513671875
+          ],
+          "textureBytes": 16777216,
+          "instancesVisited": 521,
+          "instancesRasterized": 148,
+          "trianglesVisited": 513340,
+          "trianglesRasterized": 3552,
+          "degenerateTriangles": 0,
+          "rockSamples": 3654,
+          "blockingSamples": 2322,
+          "buildMilliseconds": 4363.60000000149,
+          "terrainMilliseconds": 4043.8000000044703,
+          "rasterMilliseconds": 100.79999999701977,
+          "distanceMilliseconds": 51.19999999552965,
+          "shelter": "directional-advection-diffusion",
+          "shelterMilliseconds": 167.30000000447035,
+          "distanceMethod": "anisotropic-8-neighbor-chamfer"
+        },
+        "sprayEmitters": 45,
+        "forestStructure": {
+          "seed": 607193,
+          "shrubs": 267,
+          "snags": 24,
+          "leafSurfaces": 23400,
+          "drawCalls": 14,
+          "instancedTriangles": 281766,
+          "sourceTriangles": 5538,
+          "routeRejected": 0,
+          "spacingRejected": 45,
+          "shrubAttempts": 30000,
+          "snagAttempts": 1852,
+          "placementSignature": "ae63e39f",
+          "coastalSampling": false,
+          "coastalAttempts": 0,
+          "coastalShrubs": 0,
+          "buildMilliseconds": 634.1000000014901,
+          "maxShrubHeight": 2.1181964351542826,
+          "maxSnagHeight": 9.1795644109924
+        },
+        "coastalUnderstory": false,
+        "trees": 14016,
+        "youngTrees": 16,
+        "distantTrees": 225775,
+        "cells": 259,
+        "drawCalls": 1480,
+        "triangles": 37774503,
+        "geometries": 757,
+        "textures": 82,
+        "programs": 84,
+        "camera": [
+          -36.98060456829655,
+          4.922138347995213,
+          84.31258981306148
+        ],
+        "groundCoverVisibility": {
+          "enabled": true,
+          "tested": 50337,
+          "kept": 17529,
+          "culled": 32808,
+          "meshes": 7
+        },
+        "synchronizedPhaseMilliseconds": null,
+        "profilingMethod": null,
+        "preFrameQueueMilliseconds": null,
+        "capturePageMilliseconds": {
+          "action": "renderAt",
+          "render": 908.5,
+          "pngExport": 150285.70000000298
+        },
+        "shadowStudy": {
+          "mapSize": 2048,
+          "normalBias": 0.25,
+          "bias": -0.00004,
+          "remoteFit": false,
+          "remoteCasters": false,
+          "remoteBatches": 83,
+          "remoteInstances": 29109,
+          "remoteCasterBoundsMaxNdc": null,
+          "terrainChunks": false,
+          "terrainShadowSourceTriangles": 1629600,
+          "terrainShadowChunks": 0,
+          "terrainShadowSubmittedTriangles": null,
+          "terrainShadowSubmittedChunks": null
+        },
+        "linearMainOutput": {
+          "enabled": true,
+          "sampleScale": 1,
+          "requestedSampleScale": 1,
+          "supported": true,
+          "supportError": null,
+          "initialized": true,
+          "width": 1280,
+          "height": 720,
+          "samples": 4,
+          "framebufferValidated": true,
+          "format": "RGBA16F",
+          "colorSpace": "srgb-linear",
+          "resolveDrawsPerFrame": 1,
+          "disposed": false
+        },
+        "islandDirectResponse": {
+          "enabled": true,
+          "ready": true,
+          "loading": false,
+          "error": null,
+          "registeredMaterials": 616,
+          "scope": "base Island far crowns only; fork-open/Syringa/near LODs unchanged",
+          "manifestURL": "http://127.0.0.1:44431/assets/studies/island-response/response-manifest.json",
+          "dataSHA256": "9f1e04acf3995292adb4a7bba6c28ba28088cd37a3e7e90374a4fac3d564f63f",
+          "baseBytes": 25165824,
+          "logicalTextureBytesWithMips": 33554432,
+          "normalization": "response RGB / response coverage; existing map alpha unchanged",
+          "tint": "linear instance tint once; nonlinear source transmission tint is approximate"
+        },
+        "coastalReflection": {
+          "enabled": true,
+          "initialized": true,
+          "supported": true,
+          "supportError": null,
+          "width": 640,
+          "height": 360,
+          "scale": 0.5,
+          "samples": 4,
+          "format": "RGBA16F",
+          "resolvedDepth": true,
+          "alphaIsCoverage": false,
+          "distortion": 1,
+          "ready": true,
+          "renders": 1,
+          "failures": 0,
+          "skippedBelowSea": 0,
+          "lastDrawCalls": 456,
+          "lastTriangles": 7028223,
+          "disposed": false
+        }
+      }
+    },
+    {
+      "index": 1,
+      "view": "sunset-refined-19_5",
+      "settings": {
+        "label": "sunset-refined-19_5",
+        "view": 19.5
+      },
+      "time": 19.5,
+      "width": 1280,
+      "height": 720,
+      "sizeBytes": 1613797,
+      "sha256": "afe3b1e9bd06486cdb8e2815d57d0ab36c61ec0a61a84d9fbd2c66ddb3bcceb8",
+      "milliseconds": 71873,
+      "stats": {
+        "ready": true,
+        "sourceIdentity": "301d9c4541e7b48f82d7166345cd39f3ebc7b3fba4140549f0ab3d997a6b095f",
+        "seed": 60829,
+        "time": 19.5,
+        "quality": "high",
+        "renderer": "WebGL2",
+        "imageSharing": {
+          "uniqueImages": 38,
+          "sharedImages": 20,
+          "closedBitmaps": 18,
+          "closedBitmapPixels": 18874368
+        },
+        "offshoreRocks": 37,
+        "coastalField": {
+          "resolution": 1024,
+          "texelMeters": [
+            1.171875,
+            1.513671875
+          ],
+          "textureBytes": 16777216,
+          "instancesVisited": 521,
+          "instancesRasterized": 148,
+          "trianglesVisited": 513340,
+          "trianglesRasterized": 3552,
+          "degenerateTriangles": 0,
+          "rockSamples": 3654,
+          "blockingSamples": 2322,
+          "buildMilliseconds": 4363.60000000149,
+          "terrainMilliseconds": 4043.8000000044703,
+          "rasterMilliseconds": 100.79999999701977,
+          "distanceMilliseconds": 51.19999999552965,
+          "shelter": "directional-advection-diffusion",
+          "shelterMilliseconds": 167.30000000447035,
+          "distanceMethod": "anisotropic-8-neighbor-chamfer"
+        },
+        "sprayEmitters": 45,
+        "forestStructure": {
+          "seed": 607193,
+          "shrubs": 267,
+          "snags": 24,
+          "leafSurfaces": 23400,
+          "drawCalls": 14,
+          "instancedTriangles": 281766,
+          "sourceTriangles": 5538,
+          "routeRejected": 0,
+          "spacingRejected": 45,
+          "shrubAttempts": 30000,
+          "snagAttempts": 1852,
+          "placementSignature": "ae63e39f",
+          "coastalSampling": false,
+          "coastalAttempts": 0,
+          "coastalShrubs": 0,
+          "buildMilliseconds": 634.1000000014901,
+          "maxShrubHeight": 2.1181964351542826,
+          "maxSnagHeight": 9.1795644109924
+        },
+        "coastalUnderstory": false,
+        "trees": 14016,
+        "youngTrees": 16,
+        "distantTrees": 225775,
+        "cells": 259,
+        "drawCalls": 1015,
+        "triangles": 21845795,
+        "geometries": 856,
+        "textures": 82,
+        "programs": 84,
+        "camera": [
+          85.95200008007154,
+          5.7945112973533766,
+          -41.677354028279616
+        ],
+        "groundCoverVisibility": {
+          "enabled": true,
+          "tested": 50337,
+          "kept": 2578,
+          "culled": 47759,
+          "meshes": 7
+        },
+        "synchronizedPhaseMilliseconds": null,
+        "profilingMethod": null,
+        "preFrameQueueMilliseconds": null,
+        "capturePageMilliseconds": {
+          "action": "renderAt",
+          "render": 240.19999999552965,
+          "pngExport": 71486.89999999851
+        },
+        "shadowStudy": {
+          "mapSize": 2048,
+          "normalBias": 0.25,
+          "bias": -0.00004,
+          "remoteFit": false,
+          "remoteCasters": false,
+          "remoteBatches": 83,
+          "remoteInstances": 29109,
+          "remoteCasterBoundsMaxNdc": null,
+          "terrainChunks": false,
+          "terrainShadowSourceTriangles": 1629600,
+          "terrainShadowChunks": 0,
+          "terrainShadowSubmittedTriangles": null,
+          "terrainShadowSubmittedChunks": null
+        },
+        "linearMainOutput": {
+          "enabled": true,
+          "sampleScale": 1,
+          "requestedSampleScale": 1,
+          "supported": true,
+          "supportError": null,
+          "initialized": true,
+          "width": 1280,
+          "height": 720,
+          "samples": 4,
+          "framebufferValidated": true,
+          "format": "RGBA16F",
+          "colorSpace": "srgb-linear",
+          "resolveDrawsPerFrame": 1,
+          "disposed": false
+        },
+        "islandDirectResponse": {
+          "enabled": true,
+          "ready": true,
+          "loading": false,
+          "error": null,
+          "registeredMaterials": 616,
+          "scope": "base Island far crowns only; fork-open/Syringa/near LODs unchanged",
+          "manifestURL": "http://127.0.0.1:44431/assets/studies/island-response/response-manifest.json",
+          "dataSHA256": "9f1e04acf3995292adb4a7bba6c28ba28088cd37a3e7e90374a4fac3d564f63f",
+          "baseBytes": 25165824,
+          "logicalTextureBytesWithMips": 33554432,
+          "normalization": "response RGB / response coverage; existing map alpha unchanged",
+          "tint": "linear instance tint once; nonlinear source transmission tint is approximate"
+        },
+        "coastalReflection": {
+          "enabled": true,
+          "initialized": true,
+          "supported": true,
+          "supportError": null,
+          "width": 640,
+          "height": 360,
+          "scale": 0.5,
+          "samples": 4,
+          "format": "RGBA16F",
+          "resolvedDepth": true,
+          "alphaIsCoverage": false,
+          "distortion": 1,
+          "ready": true,
+          "renders": 2,
+          "failures": 0,
+          "skippedBelowSea": 0,
+          "lastDrawCalls": 260,
+          "lastTriangles": 3625063,
+          "disposed": false
+        }
+      }
+    }
+  ],
+  "errors": [],
+  "failedRequests": [],
+  "diagnostics": {
+    "backend": "software",
+    "memoryGuard": {
+      "enabled": true,
+      "file": "/sys/fs/cgroup/memory.current",
+      "memoryStartMiB": 6144,
+      "memoryLimitMiB": 7424,
+      "memoryMetric": "working",
+      "statFile": "/sys/fs/cgroup/memory.stat",
+      "discountFormula": "min(raw, max(0, inactive_file - file_mapped - file_dirty - file_writeback))",
+      "pollIntervalMs": 750,
+      "startBytes": 4308602880,
+      "peakBytes": 6036025344,
+      "startRawBytes": 4308602880,
+      "startEffectiveBytes": 3944415232,
+      "peakRawBytes": 6036025344,
+      "peakEffectiveBytes": 5949386752,
+      "samples": 431,
+      "abort": null,
+      "lastRawBytes": 5947883520,
+      "lastBytes": 5947883520,
+      "lastEffectiveBytes": 5821095936,
+      "lastDiscountBytes": 126787584,
+      "lastStat": {
+        "anon": 2317701120,
+        "file": 3469496320,
+        "kernel": 159096832,
+        "kernel_stack": 1982464,
+        "pagetables": 15392768,
+        "sec_pagetables": 0,
+        "percpu": 7436,
+        "sock": 4096,
+        "vmalloc": 4096,
+        "shmem": 421888,
+        "file_mapped": 203280384,
+        "file_dirty": 13754368,
+        "file_writeback": 0,
+        "swapcached": 0,
+        "anon_thp": 0,
+        "file_thp": 673185792,
+        "shmem_thp": 0,
+        "inactive_anon": 2317987840,
+        "active_anon": 126976,
+        "inactive_file": 343822336,
+        "active_file": 3125252096,
+        "unevictable": 0,
+        "slab_reclaimable": 138545168,
+        "slab_unreclaimable": 3077872,
+        "slab": 141623040,
+        "workingset_refault_anon": 0,
+        "workingset_refault_file": 4435874,
+        "workingset_activate_anon": 0,
+        "workingset_activate_file": 630097,
+        "workingset_restore_anon": 0,
+        "workingset_restore_file": 88322,
+        "workingset_nodereclaim": 0,
+        "pgdemote_kswapd": 0,
+        "pgdemote_direct": 0,
+        "pgdemote_khugepaged": 0,
+        "pgdemote_proactive": 0,
+        "pgscan": 4744946,
+        "pgsteal": 4683724,
+        "pswpin": 0,
+        "pswpout": 0,
+        "pgscan_kswapd": 0,
+        "pgscan_direct": 4744946,
+        "pgscan_khugepaged": 0,
+        "pgscan_proactive": 0,
+        "pgsteal_kswapd": 0,
+        "pgsteal_direct": 4683724,
+        "pgsteal_khugepaged": 0,
+        "pgsteal_proactive": 0,
+        "pgfault": 339788658,
+        "pgmajfault": 13523,
+        "pgrefill": 391048,
+        "pgactivate": 5445387,
+        "pgdeactivate": 358330,
+        "pglazyfree": 73,
+        "pglazyfreed": 0,
+        "swpin_zero": 0,
+        "swpout_zero": 0,
+        "thp_fault_alloc": 9449,
+        "thp_collapse_alloc": 37,
+        "thp_swpout": 0,
+        "thp_swpout_fallback": 0
+      },
+      "lastSampleAt": "2026-10-01T09:44:50.883Z"
+    },
+    "stage": "frame-health-after",
+    "stageHistory": [
+      {
+        "stage": "serve-bundle",
+        "at": "2026-10-01T09:39:27.030Z"
+      },
+      {
+        "stage": "hash-served-glbs",
+        "at": "2026-10-01T09:39:27.037Z"
+      },
+      {
+        "stage": "memory-preflight",
+        "at": "2026-10-01T09:39:27.095Z"
+      },
+      {
+        "stage": "launch-browser",
+        "at": "2026-10-01T09:39:27.097Z"
+      },
+      {
+        "stage": "install-glb-transport",
+        "at": "2026-10-01T09:39:27.955Z"
+      },
+      {
+        "stage": "navigate",
+        "at": "2026-10-01T09:39:27.957Z"
+      },
+      {
+        "stage": "scene-readiness",
+        "at": "2026-10-01T09:39:29.250Z"
+      },
+      {
+        "stage": "validate-build",
+        "at": "2026-10-01T09:41:07.487Z"
+      },
+      {
+        "stage": "health-before-network-drain",
+        "at": "2026-10-01T09:41:07.503Z"
+      },
+      {
+        "stage": "preload-island-response",
+        "at": "2026-10-01T09:41:07.521Z"
+      },
+      {
+        "stage": "network-drain",
+        "at": "2026-10-01T09:41:07.729Z"
+      },
+      {
+        "stage": "offline-transition",
+        "at": "2026-10-01T09:41:07.986Z"
+      },
+      {
+        "stage": "health-after-offline",
+        "at": "2026-10-01T09:41:07.988Z"
+      },
+      {
+        "stage": "graphics-state",
+        "at": "2026-10-01T09:41:07.991Z"
+      },
+      {
+        "stage": "capture-ready",
+        "at": "2026-10-01T09:41:08.001Z"
+      },
+      {
+        "stage": "apply-settings",
+        "at": "2026-10-01T09:41:08.002Z"
+      },
+      {
+        "stage": "apply-settings",
+        "at": "2026-10-01T09:41:08.014Z"
+      },
+      {
+        "stage": "frame-health-before",
+        "at": "2026-10-01T09:41:08.018Z"
+      },
+      {
+        "stage": "frame-render-and-png",
+        "at": "2026-10-01T09:41:08.023Z"
+      },
+      {
+        "stage": "frame-health-after",
+        "at": "2026-10-01T09:43:39.354Z"
+      },
+      {
+        "stage": "apply-settings",
+        "at": "2026-10-01T09:43:39.416Z"
+      },
+      {
+        "stage": "frame-health-before",
+        "at": "2026-10-01T09:43:39.422Z"
+      },
+      {
+        "stage": "frame-render-and-png",
+        "at": "2026-10-01T09:43:39.425Z"
+      },
+      {
+        "stage": "frame-health-after",
+        "at": "2026-10-01T09:44:51.219Z"
+      }
+    ],
+    "glbInventory": {
+      "/assets/models/island-tree-far.glb": {
+        "sizeBytes": 1304260,
+        "sha256": "ac2213e39b8bfee6d5fe5d46d99486de24cf60efa93905d9c9f2b4c92ad2dc4a"
+      },
+      "/assets/models/island-tree-hero.glb": {
+        "sizeBytes": 3950040,
+        "sha256": "8d892e4a572bb30804aecc3a88adb57e92b852220ccf8f59068f400cf6713a5b"
+      },
+      "/assets/models/island-tree-medium.glb": {
+        "sizeBytes": 1739460,
+        "sha256": "2c210426ac4e761261b6c4dfc8c250fedd72ca1787de918abc965d4d3f32be64"
+      },
+      "/assets/models/island-tree-near.glb": {
+        "sizeBytes": 13299192,
+        "sha256": "c81e6ece28b7646aa59f2c2c68142619b2790d0db62c5d829278fec92e4373d7"
+      },
+      "/assets/models/palm-tree.glb": {
+        "sizeBytes": 490580,
+        "sha256": "5e3f42cc9bd4a52d1e4249184fc8cba7bf87acf91b1403711115acaa7f2ca0f6"
+      },
+      "/assets/models/syringa-tree-far.glb": {
+        "sizeBytes": 2048168,
+        "sha256": "e0ed4e55345c21765804531340a285c2d10dddcb21f2a690fbb77cbfbd659523"
+      },
+      "/assets/models/syringa-tree-hero.glb": {
+        "sizeBytes": 3114880,
+        "sha256": "df11a6b9f0a2bf51b8ffd5bb12e4a18a864b47d767177cd53ad263996d8a5f2f"
+      },
+      "/assets/models/syringa-tree-medium.glb": {
+        "sizeBytes": 2254268,
+        "sha256": "c4ef49e31bf9fb6565ccfdfa7dfa05b84ca6a9054401f2362c81c6f2538770de"
+      },
+      "/assets/models/syringa-tree-near.glb": {
+        "sizeBytes": 38586500,
+        "sha256": "cb794443092f8b4b7b257c4d86f42e6f2b0ec91a2f95d2d3f34043f0a3b49b07"
+      },
+      "/assets/rocks/rock_moss_set_01_2k.glb": {
+        "sizeBytes": 3256512,
+        "sha256": "864ece45cf6cafeb7fab5ab65704b1810622ba411da2026ebad847a0a08eab2f"
+      }
+    },
+    "jsHeap": {
+      "requestedMiB": 384,
+      "launchArgument": "--js-flags=--max-old-space-size=384",
+      "forcedGC": false
+    },
+    "networkEvents": [
+      {
+        "event": "finished",
+        "id": 15,
+        "url": "http://127.0.0.1:44431/assets/textures/forest_ground_05_nor_gl_2k.webp",
+        "method": "GET",
+        "resourceType": "image",
+        "startedAt": "2026-10-01T09:39:29.074Z",
+        "stage": "navigate",
+        "status": 200,
+        "contentLength": "8457132",
+        "finishedAt": "2026-10-01T09:39:29.231Z"
+      },
+      {
+        "event": "finished",
+        "id": 18,
+        "url": "http://127.0.0.1:44431/assets/textures/forest_leaves_02_nor_gl_2k.webp",
+        "method": "GET",
+        "resourceType": "image",
+        "startedAt": "2026-10-01T09:39:29.074Z",
+        "stage": "navigate",
+        "status": 200,
+        "contentLength": "10375944",
+        "finishedAt": "2026-10-01T09:39:29.243Z"
+      },
+      {
+        "event": "finished",
+        "id": 4,
+        "url": "http://127.0.0.1:44431/assets/coastal-worker-CX67xNl9.js",
+        "method": "GET",
+        "resourceType": "script",
+        "startedAt": "2026-10-01T09:39:29.056Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "205281",
+        "finishedAt": "2026-10-01T09:39:29.262Z"
+      },
+      {
+        "event": "finished",
+        "id": 5,
+        "url": "http://127.0.0.1:44431/assets/rocks/rock_moss_set_01_2k.glb",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:39:29.064Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "3256512",
+        "finishedAt": "2026-10-01T09:39:29.263Z"
+      },
+      {
+        "event": "request",
+        "id": 20,
+        "url": "blob:http://127.0.0.1:44431/63cd78da-4b03-432b-976b-0a72e79d79d9",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:39:29.318Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 21,
+        "url": "blob:http://127.0.0.1:44431/13363781-1323-49b4-a756-704bf5f67abc",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:39:29.318Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 22,
+        "url": "blob:http://127.0.0.1:44431/09519bb2-87f1-41f5-9a8c-2f255f2109b0",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:39:29.318Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "finished",
+        "id": 20,
+        "url": "blob:http://127.0.0.1:44431/63cd78da-4b03-432b-976b-0a72e79d79d9",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:39:29.318Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "649415",
+        "finishedAt": "2026-10-01T09:39:29.319Z"
+      },
+      {
+        "event": "finished",
+        "id": 21,
+        "url": "blob:http://127.0.0.1:44431/13363781-1323-49b4-a756-704bf5f67abc",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:39:29.318Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "293827",
+        "finishedAt": "2026-10-01T09:39:29.319Z"
+      },
+      {
+        "event": "finished",
+        "id": 22,
+        "url": "blob:http://127.0.0.1:44431/09519bb2-87f1-41f5-9a8c-2f255f2109b0",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:39:29.318Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "840957",
+        "finishedAt": "2026-10-01T09:39:29.320Z"
+      },
+      {
+        "event": "request",
+        "id": 23,
+        "url": "http://127.0.0.1:44431/assets/rocks/rock_moss_set_01_geometry.bin",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:39:30.293Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "finished",
+        "id": 23,
+        "url": "http://127.0.0.1:44431/assets/rocks/rock_moss_set_01_geometry.bin",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:39:30.293Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "789976",
+        "finishedAt": "2026-10-01T09:39:30.301Z"
+      },
+      {
+        "event": "request",
+        "id": 24,
+        "url": "http://127.0.0.1:44431/assets/impostors/island-visibility.rg8",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:37.219Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 25,
+        "url": "http://127.0.0.1:44431/assets/impostors/syringa-visibility.rg8",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:37.219Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 26,
+        "url": "http://127.0.0.1:44431/assets/impostors/island-fork-open-visibility.rg8",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:37.219Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 27,
+        "url": "http://127.0.0.1:44431/assets/impostors/island-albedo.png",
+        "method": "GET",
+        "resourceType": "image",
+        "startedAt": "2026-10-01T09:40:37.219Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 28,
+        "url": "http://127.0.0.1:44431/assets/impostors/island-normal.png",
+        "method": "GET",
+        "resourceType": "image",
+        "startedAt": "2026-10-01T09:40:37.219Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 29,
+        "url": "http://127.0.0.1:44431/assets/impostors/syringa-albedo.png",
+        "method": "GET",
+        "resourceType": "image",
+        "startedAt": "2026-10-01T09:40:37.219Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 30,
+        "url": "http://127.0.0.1:44431/assets/impostors/syringa-normal.png",
+        "method": "GET",
+        "resourceType": "image",
+        "startedAt": "2026-10-01T09:40:37.219Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 31,
+        "url": "http://127.0.0.1:44431/assets/impostors/island-fork-open-albedo.png",
+        "method": "GET",
+        "resourceType": "image",
+        "startedAt": "2026-10-01T09:40:37.219Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 32,
+        "url": "http://127.0.0.1:44431/assets/impostors/island-fork-open-normal.png",
+        "method": "GET",
+        "resourceType": "image",
+        "startedAt": "2026-10-01T09:40:37.220Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "finished",
+        "id": 29,
+        "url": "http://127.0.0.1:44431/assets/impostors/syringa-albedo.png",
+        "method": "GET",
+        "resourceType": "image",
+        "startedAt": "2026-10-01T09:40:37.219Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "664818",
+        "finishedAt": "2026-10-01T09:40:37.278Z"
+      },
+      {
+        "event": "finished",
+        "id": 27,
+        "url": "http://127.0.0.1:44431/assets/impostors/island-albedo.png",
+        "method": "GET",
+        "resourceType": "image",
+        "startedAt": "2026-10-01T09:40:37.219Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "798481",
+        "finishedAt": "2026-10-01T09:40:37.278Z"
+      },
+      {
+        "event": "finished",
+        "id": 28,
+        "url": "http://127.0.0.1:44431/assets/impostors/island-normal.png",
+        "method": "GET",
+        "resourceType": "image",
+        "startedAt": "2026-10-01T09:40:37.219Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "933462",
+        "finishedAt": "2026-10-01T09:40:37.279Z"
+      },
+      {
+        "event": "finished",
+        "id": 32,
+        "url": "http://127.0.0.1:44431/assets/impostors/island-fork-open-normal.png",
+        "method": "GET",
+        "resourceType": "image",
+        "startedAt": "2026-10-01T09:40:37.220Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "853733",
+        "finishedAt": "2026-10-01T09:40:37.325Z"
+      },
+      {
+        "event": "finished",
+        "id": 31,
+        "url": "http://127.0.0.1:44431/assets/impostors/island-fork-open-albedo.png",
+        "method": "GET",
+        "resourceType": "image",
+        "startedAt": "2026-10-01T09:40:37.219Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "748664",
+        "finishedAt": "2026-10-01T09:40:37.326Z"
+      },
+      {
+        "event": "finished",
+        "id": 30,
+        "url": "http://127.0.0.1:44431/assets/impostors/syringa-normal.png",
+        "method": "GET",
+        "resourceType": "image",
+        "startedAt": "2026-10-01T09:40:37.219Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "796819",
+        "finishedAt": "2026-10-01T09:40:37.326Z"
+      },
+      {
+        "event": "finished",
+        "id": 25,
+        "url": "http://127.0.0.1:44431/assets/impostors/syringa-visibility.rg8",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:37.219Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "6291456",
+        "finishedAt": "2026-10-01T09:40:37.378Z"
+      },
+      {
+        "event": "finished",
+        "id": 26,
+        "url": "http://127.0.0.1:44431/assets/impostors/island-fork-open-visibility.rg8",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:37.219Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "6291456",
+        "finishedAt": "2026-10-01T09:40:37.419Z"
+      },
+      {
+        "event": "finished",
+        "id": 24,
+        "url": "http://127.0.0.1:44431/assets/impostors/island-visibility.rg8",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:37.219Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "6291456",
+        "finishedAt": "2026-10-01T09:40:37.438Z"
+      },
+      {
+        "event": "request",
+        "id": 33,
+        "url": "http://127.0.0.1:44431/assets/models/island-tree-near.glb",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:37.441Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "finished",
+        "id": 33,
+        "url": "http://127.0.0.1:44431/assets/models/island-tree-near.glb",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:37.441Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "13299192",
+        "finishedAt": "2026-10-01T09:40:37.649Z"
+      },
+      {
+        "event": "request",
+        "id": 34,
+        "url": "blob:http://127.0.0.1:44431/f32325c0-1fe2-45da-a48f-865ca8060315",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:37.836Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 35,
+        "url": "blob:http://127.0.0.1:44431/58e0c936-8744-4151-88d7-c529fe8bae2b",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:37.836Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 36,
+        "url": "blob:http://127.0.0.1:44431/ad17c348-70c4-4758-a0f1-bafac97b0f48",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:37.836Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 37,
+        "url": "blob:http://127.0.0.1:44431/57720e4c-57d5-4bf0-a5fe-77c3f0fe4e56",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:37.836Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 38,
+        "url": "blob:http://127.0.0.1:44431/f13d0493-4c38-4bd5-b5f6-07c5b451b12d",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:37.836Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 39,
+        "url": "blob:http://127.0.0.1:44431/56aef95c-2735-4132-8b89-31bc7ca71032",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:37.847Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 40,
+        "url": "blob:http://127.0.0.1:44431/9a169c6a-da5f-45e7-b1db-abb23a743ae8",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:37.847Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 41,
+        "url": "blob:http://127.0.0.1:44431/3a1472ff-a52d-44bf-be1d-185f42d894fc",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:37.848Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 42,
+        "url": "blob:http://127.0.0.1:44431/58d2e766-61f2-46cf-b603-ad6fcf5c8104",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:37.848Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "finished",
+        "id": 35,
+        "url": "blob:http://127.0.0.1:44431/58e0c936-8744-4151-88d7-c529fe8bae2b",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:37.836Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "187298",
+        "finishedAt": "2026-10-01T09:40:37.849Z"
+      },
+      {
+        "event": "finished",
+        "id": 34,
+        "url": "blob:http://127.0.0.1:44431/f32325c0-1fe2-45da-a48f-865ca8060315",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:37.836Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "304600",
+        "finishedAt": "2026-10-01T09:40:37.849Z"
+      },
+      {
+        "event": "finished",
+        "id": 38,
+        "url": "blob:http://127.0.0.1:44431/f13d0493-4c38-4bd5-b5f6-07c5b451b12d",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:37.836Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "130986",
+        "finishedAt": "2026-10-01T09:40:37.888Z"
+      },
+      {
+        "event": "finished",
+        "id": 39,
+        "url": "blob:http://127.0.0.1:44431/56aef95c-2735-4132-8b89-31bc7ca71032",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:37.847Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "90060",
+        "finishedAt": "2026-10-01T09:40:37.889Z"
+      },
+      {
+        "event": "finished",
+        "id": 41,
+        "url": "blob:http://127.0.0.1:44431/3a1472ff-a52d-44bf-be1d-185f42d894fc",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:37.848Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "110840",
+        "finishedAt": "2026-10-01T09:40:37.889Z"
+      },
+      {
+        "event": "finished",
+        "id": 40,
+        "url": "blob:http://127.0.0.1:44431/9a169c6a-da5f-45e7-b1db-abb23a743ae8",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:37.847Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "172280",
+        "finishedAt": "2026-10-01T09:40:37.890Z"
+      },
+      {
+        "event": "finished",
+        "id": 42,
+        "url": "blob:http://127.0.0.1:44431/58d2e766-61f2-46cf-b603-ad6fcf5c8104",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:37.848Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "270078",
+        "finishedAt": "2026-10-01T09:40:37.894Z"
+      },
+      {
+        "event": "finished",
+        "id": 37,
+        "url": "blob:http://127.0.0.1:44431/57720e4c-57d5-4bf0-a5fe-77c3f0fe4e56",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:37.836Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "331894",
+        "finishedAt": "2026-10-01T09:40:37.896Z"
+      },
+      {
+        "event": "finished",
+        "id": 36,
+        "url": "blob:http://127.0.0.1:44431/ad17c348-70c4-4758-a0f1-bafac97b0f48",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:37.836Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "476714",
+        "finishedAt": "2026-10-01T09:40:37.897Z"
+      },
+      {
+        "event": "request",
+        "id": 43,
+        "url": "http://127.0.0.1:44431/assets/models/island-tree-hero.glb",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:39.304Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "finished",
+        "id": 43,
+        "url": "http://127.0.0.1:44431/assets/models/island-tree-hero.glb",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:39.304Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "3950040",
+        "finishedAt": "2026-10-01T09:40:39.345Z"
+      },
+      {
+        "event": "request",
+        "id": 44,
+        "url": "blob:http://127.0.0.1:44431/d3725860-a967-46af-af96-5e539aaf3ef8",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:39.386Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 45,
+        "url": "blob:http://127.0.0.1:44431/1d13a3f9-3e6d-4cde-9e1b-78f90ac7b549",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:39.386Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 46,
+        "url": "blob:http://127.0.0.1:44431/25e2c036-b38d-4713-93e9-64f055dc247e",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:39.386Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 47,
+        "url": "blob:http://127.0.0.1:44431/e8cf9cc5-fd4d-438f-a124-0fb171167438",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:39.386Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 48,
+        "url": "blob:http://127.0.0.1:44431/b36a851c-d7fb-4b23-9563-a517e2b937c1",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:39.386Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 49,
+        "url": "blob:http://127.0.0.1:44431/5bf97166-f976-42fc-a18f-8b76df4e7ec1",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:39.386Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 50,
+        "url": "blob:http://127.0.0.1:44431/1184a893-ec3c-499f-92e7-932d18f9d640",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:39.386Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 51,
+        "url": "blob:http://127.0.0.1:44431/5df6114e-f1c7-4f12-b5c2-ab9eed73c113",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:39.386Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 52,
+        "url": "blob:http://127.0.0.1:44431/815fb95c-0e45-4ea4-8d4b-713c054d5b13",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:39.386Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "finished",
+        "id": 44,
+        "url": "blob:http://127.0.0.1:44431/d3725860-a967-46af-af96-5e539aaf3ef8",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:39.386Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "199346",
+        "finishedAt": "2026-10-01T09:40:39.391Z"
+      },
+      {
+        "event": "finished",
+        "id": 45,
+        "url": "blob:http://127.0.0.1:44431/1d13a3f9-3e6d-4cde-9e1b-78f90ac7b549",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:39.386Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "111706",
+        "finishedAt": "2026-10-01T09:40:39.391Z"
+      },
+      {
+        "event": "finished",
+        "id": 47,
+        "url": "blob:http://127.0.0.1:44431/e8cf9cc5-fd4d-438f-a124-0fb171167438",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:39.386Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "55458",
+        "finishedAt": "2026-10-01T09:40:39.391Z"
+      },
+      {
+        "event": "finished",
+        "id": 49,
+        "url": "blob:http://127.0.0.1:44431/5bf97166-f976-42fc-a18f-8b76df4e7ec1",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:39.386Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "52896",
+        "finishedAt": "2026-10-01T09:40:39.395Z"
+      },
+      {
+        "event": "finished",
+        "id": 48,
+        "url": "blob:http://127.0.0.1:44431/b36a851c-d7fb-4b23-9563-a517e2b937c1",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:39.386Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "82018",
+        "finishedAt": "2026-10-01T09:40:39.395Z"
+      },
+      {
+        "event": "finished",
+        "id": 50,
+        "url": "blob:http://127.0.0.1:44431/1184a893-ec3c-499f-92e7-932d18f9d640",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:39.386Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "110660",
+        "finishedAt": "2026-10-01T09:40:39.395Z"
+      },
+      {
+        "event": "finished",
+        "id": 51,
+        "url": "blob:http://127.0.0.1:44431/5df6114e-f1c7-4f12-b5c2-ab9eed73c113",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:39.386Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "61012",
+        "finishedAt": "2026-10-01T09:40:39.395Z"
+      },
+      {
+        "event": "finished",
+        "id": 52,
+        "url": "blob:http://127.0.0.1:44431/815fb95c-0e45-4ea4-8d4b-713c054d5b13",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:39.386Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "183204",
+        "finishedAt": "2026-10-01T09:40:39.414Z"
+      },
+      {
+        "event": "finished",
+        "id": 46,
+        "url": "blob:http://127.0.0.1:44431/25e2c036-b38d-4713-93e9-64f055dc247e",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:39.386Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "358506",
+        "finishedAt": "2026-10-01T09:40:39.414Z"
+      },
+      {
+        "event": "request",
+        "id": 53,
+        "url": "http://127.0.0.1:44431/assets/models/island-tree-medium.glb",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:39.835Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "finished",
+        "id": 53,
+        "url": "http://127.0.0.1:44431/assets/models/island-tree-medium.glb",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:39.835Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "1739460",
+        "finishedAt": "2026-10-01T09:40:39.860Z"
+      },
+      {
+        "event": "request",
+        "id": 54,
+        "url": "blob:http://127.0.0.1:44431/7157cf95-0891-49a4-ba30-ea2149cc4ff2",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:39.905Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 55,
+        "url": "blob:http://127.0.0.1:44431/61ac6fe4-9dd7-44e0-b672-8428e9ed1628",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:39.905Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 56,
+        "url": "blob:http://127.0.0.1:44431/a5214a16-8879-423b-9c1d-7769c4d9bf4f",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:39.905Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 57,
+        "url": "blob:http://127.0.0.1:44431/ed4aea8a-df77-4bda-aebb-c24b60e08eac",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:39.905Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 58,
+        "url": "blob:http://127.0.0.1:44431/23dd2867-694b-48db-9641-c54b36a9a197",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:39.905Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 59,
+        "url": "blob:http://127.0.0.1:44431/d262378b-4d18-42a5-ae64-661124ebf139",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:39.905Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 60,
+        "url": "blob:http://127.0.0.1:44431/b199d95b-5e0c-4aef-9dca-bd72d3a01d44",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:39.905Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 61,
+        "url": "blob:http://127.0.0.1:44431/b3d3ec65-a474-4a4f-908e-705790cb8b52",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:39.905Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 62,
+        "url": "blob:http://127.0.0.1:44431/dfdb87fe-b455-40a9-8e45-205199ed7663",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:39.910Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "finished",
+        "id": 55,
+        "url": "blob:http://127.0.0.1:44431/61ac6fe4-9dd7-44e0-b672-8428e9ed1628",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:39.905Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "111706",
+        "finishedAt": "2026-10-01T09:40:39.921Z"
+      },
+      {
+        "event": "finished",
+        "id": 54,
+        "url": "blob:http://127.0.0.1:44431/7157cf95-0891-49a4-ba30-ea2149cc4ff2",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:39.905Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "199346",
+        "finishedAt": "2026-10-01T09:40:39.921Z"
+      },
+      {
+        "event": "finished",
+        "id": 57,
+        "url": "blob:http://127.0.0.1:44431/ed4aea8a-df77-4bda-aebb-c24b60e08eac",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:39.905Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "55458",
+        "finishedAt": "2026-10-01T09:40:39.921Z"
+      },
+      {
+        "event": "finished",
+        "id": 59,
+        "url": "blob:http://127.0.0.1:44431/d262378b-4d18-42a5-ae64-661124ebf139",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:39.905Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "52896",
+        "finishedAt": "2026-10-01T09:40:39.921Z"
+      },
+      {
+        "event": "finished",
+        "id": 58,
+        "url": "blob:http://127.0.0.1:44431/23dd2867-694b-48db-9641-c54b36a9a197",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:39.905Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "82018",
+        "finishedAt": "2026-10-01T09:40:39.940Z"
+      },
+      {
+        "event": "finished",
+        "id": 61,
+        "url": "blob:http://127.0.0.1:44431/b3d3ec65-a474-4a4f-908e-705790cb8b52",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:39.905Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "61012",
+        "finishedAt": "2026-10-01T09:40:39.941Z"
+      },
+      {
+        "event": "finished",
+        "id": 60,
+        "url": "blob:http://127.0.0.1:44431/b199d95b-5e0c-4aef-9dca-bd72d3a01d44",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:39.905Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "110660",
+        "finishedAt": "2026-10-01T09:40:39.941Z"
+      },
+      {
+        "event": "finished",
+        "id": 62,
+        "url": "blob:http://127.0.0.1:44431/dfdb87fe-b455-40a9-8e45-205199ed7663",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:39.910Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "183204",
+        "finishedAt": "2026-10-01T09:40:39.941Z"
+      },
+      {
+        "event": "finished",
+        "id": 56,
+        "url": "blob:http://127.0.0.1:44431/a5214a16-8879-423b-9c1d-7769c4d9bf4f",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:39.905Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "358506",
+        "finishedAt": "2026-10-01T09:40:39.941Z"
+      },
+      {
+        "event": "request",
+        "id": 63,
+        "url": "http://127.0.0.1:44431/assets/models/syringa-tree-near.glb",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:40.033Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "finished",
+        "id": 63,
+        "url": "http://127.0.0.1:44431/assets/models/syringa-tree-near.glb",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:40.033Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "38586500",
+        "finishedAt": "2026-10-01T09:40:40.275Z"
+      },
+      {
+        "event": "request",
+        "id": 64,
+        "url": "blob:http://127.0.0.1:44431/68800e1a-73bb-408a-b5b0-0a4d4dd147f5",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:40.854Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 65,
+        "url": "blob:http://127.0.0.1:44431/739cf551-2df6-4da8-a13c-717f65e53b2d",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:40.854Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 66,
+        "url": "blob:http://127.0.0.1:44431/f48c6538-6167-45d3-8450-539200debd99",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:40.854Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 67,
+        "url": "blob:http://127.0.0.1:44431/7eb8263c-1b0e-459f-b3bb-3a82e2d655bd",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:40.854Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 68,
+        "url": "blob:http://127.0.0.1:44431/edacec5d-ca2d-40da-857a-2cf3087c3d13",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:40.854Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 69,
+        "url": "blob:http://127.0.0.1:44431/02e1057a-0014-436a-addc-dba0051014b5",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:40.854Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 70,
+        "url": "blob:http://127.0.0.1:44431/a666abf2-93c3-417b-837d-b4a351da6696",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:40.854Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 71,
+        "url": "blob:http://127.0.0.1:44431/09b8379b-ee40-461e-8d39-856caacad71a",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:40.854Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 72,
+        "url": "blob:http://127.0.0.1:44431/b707f3d2-1b62-4ad1-a325-0b65057e2f79",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:40.854Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "finished",
+        "id": 64,
+        "url": "blob:http://127.0.0.1:44431/68800e1a-73bb-408a-b5b0-0a4d4dd147f5",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:40.854Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "449977",
+        "finishedAt": "2026-10-01T09:40:40.858Z"
+      },
+      {
+        "event": "finished",
+        "id": 65,
+        "url": "blob:http://127.0.0.1:44431/739cf551-2df6-4da8-a13c-717f65e53b2d",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:40.854Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "375732",
+        "finishedAt": "2026-10-01T09:40:40.858Z"
+      },
+      {
+        "event": "finished",
+        "id": 66,
+        "url": "blob:http://127.0.0.1:44431/f48c6538-6167-45d3-8450-539200debd99",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:40.854Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "581596",
+        "finishedAt": "2026-10-01T09:40:40.863Z"
+      },
+      {
+        "event": "finished",
+        "id": 68,
+        "url": "blob:http://127.0.0.1:44431/edacec5d-ca2d-40da-857a-2cf3087c3d13",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:40.854Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "633698",
+        "finishedAt": "2026-10-01T09:40:40.868Z"
+      },
+      {
+        "event": "finished",
+        "id": 69,
+        "url": "blob:http://127.0.0.1:44431/02e1057a-0014-436a-addc-dba0051014b5",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:40.854Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "681604",
+        "finishedAt": "2026-10-01T09:40:40.870Z"
+      },
+      {
+        "event": "finished",
+        "id": 71,
+        "url": "blob:http://127.0.0.1:44431/09b8379b-ee40-461e-8d39-856caacad71a",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:40.854Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "708242",
+        "finishedAt": "2026-10-01T09:40:40.870Z"
+      },
+      {
+        "event": "finished",
+        "id": 70,
+        "url": "blob:http://127.0.0.1:44431/a666abf2-93c3-417b-837d-b4a351da6696",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:40.854Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "863246",
+        "finishedAt": "2026-10-01T09:40:40.872Z"
+      },
+      {
+        "event": "finished",
+        "id": 72,
+        "url": "blob:http://127.0.0.1:44431/b707f3d2-1b62-4ad1-a325-0b65057e2f79",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:40.854Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "1228646",
+        "finishedAt": "2026-10-01T09:40:40.879Z"
+      },
+      {
+        "event": "finished",
+        "id": 67,
+        "url": "blob:http://127.0.0.1:44431/7eb8263c-1b0e-459f-b3bb-3a82e2d655bd",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:40.854Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "2338424",
+        "finishedAt": "2026-10-01T09:40:40.884Z"
+      },
+      {
+        "event": "request",
+        "id": 73,
+        "url": "http://127.0.0.1:44431/assets/models/syringa-tree-hero.glb",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:41.319Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "finished",
+        "id": 73,
+        "url": "http://127.0.0.1:44431/assets/models/syringa-tree-hero.glb",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:41.319Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "3114880",
+        "finishedAt": "2026-10-01T09:40:41.380Z"
+      },
+      {
+        "event": "request",
+        "id": 74,
+        "url": "blob:http://127.0.0.1:44431/c14500d2-d83f-485b-93f6-cfce03b383a2",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:41.438Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 75,
+        "url": "blob:http://127.0.0.1:44431/bea622e8-00b7-476d-ad72-1349816f26f8",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:41.438Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 76,
+        "url": "blob:http://127.0.0.1:44431/ba63a213-e0e5-46b7-8c7a-6b84cfb1fcb5",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:41.438Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 77,
+        "url": "blob:http://127.0.0.1:44431/07d19cac-e1cc-40c2-9d50-3e1f04686428",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:41.438Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 78,
+        "url": "blob:http://127.0.0.1:44431/8a483a00-264d-4a1c-b8fa-ec90ec17cfd2",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:41.438Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 79,
+        "url": "blob:http://127.0.0.1:44431/02d1a3bf-ce97-4d5e-b5dc-e2a00c509d3a",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:41.439Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 80,
+        "url": "blob:http://127.0.0.1:44431/92e0dafe-9904-436e-968a-e1ca92075eb7",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:41.439Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 81,
+        "url": "blob:http://127.0.0.1:44431/370cff56-2734-494a-9e50-b31d4f4ff704",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:41.439Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 82,
+        "url": "blob:http://127.0.0.1:44431/5c4869db-0078-4a2b-b32d-0b2264364566",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:41.439Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "finished",
+        "id": 74,
+        "url": "blob:http://127.0.0.1:44431/c14500d2-d83f-485b-93f6-cfce03b383a2",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:41.438Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "96950",
+        "finishedAt": "2026-10-01T09:40:41.443Z"
+      },
+      {
+        "event": "finished",
+        "id": 75,
+        "url": "blob:http://127.0.0.1:44431/bea622e8-00b7-476d-ad72-1349816f26f8",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:41.438Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "56302",
+        "finishedAt": "2026-10-01T09:40:41.443Z"
+      },
+      {
+        "event": "finished",
+        "id": 76,
+        "url": "blob:http://127.0.0.1:44431/ba63a213-e0e5-46b7-8c7a-6b84cfb1fcb5",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:41.438Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "141648",
+        "finishedAt": "2026-10-01T09:40:41.444Z"
+      },
+      {
+        "event": "finished",
+        "id": 77,
+        "url": "blob:http://127.0.0.1:44431/07d19cac-e1cc-40c2-9d50-3e1f04686428",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:41.438Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "491980",
+        "finishedAt": "2026-10-01T09:40:41.444Z"
+      },
+      {
+        "event": "finished",
+        "id": 78,
+        "url": "blob:http://127.0.0.1:44431/8a483a00-264d-4a1c-b8fa-ec90ec17cfd2",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:41.438Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "109602",
+        "finishedAt": "2026-10-01T09:40:41.444Z"
+      },
+      {
+        "event": "finished",
+        "id": 79,
+        "url": "blob:http://127.0.0.1:44431/02d1a3bf-ce97-4d5e-b5dc-e2a00c509d3a",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:41.439Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "142670",
+        "finishedAt": "2026-10-01T09:40:41.444Z"
+      },
+      {
+        "event": "finished",
+        "id": 81,
+        "url": "blob:http://127.0.0.1:44431/370cff56-2734-494a-9e50-b31d4f4ff704",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:41.439Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "138838",
+        "finishedAt": "2026-10-01T09:40:41.444Z"
+      },
+      {
+        "event": "finished",
+        "id": 80,
+        "url": "blob:http://127.0.0.1:44431/92e0dafe-9904-436e-968a-e1ca92075eb7",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:41.439Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "293964",
+        "finishedAt": "2026-10-01T09:40:41.445Z"
+      },
+      {
+        "event": "finished",
+        "id": 82,
+        "url": "blob:http://127.0.0.1:44431/5c4869db-0078-4a2b-b32d-0b2264364566",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:41.439Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "432402",
+        "finishedAt": "2026-10-01T09:40:41.446Z"
+      },
+      {
+        "event": "request",
+        "id": 83,
+        "url": "http://127.0.0.1:44431/assets/models/syringa-tree-medium.glb",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:41.551Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "finished",
+        "id": 83,
+        "url": "http://127.0.0.1:44431/assets/models/syringa-tree-medium.glb",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:41.551Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "2254268",
+        "finishedAt": "2026-10-01T09:40:41.565Z"
+      },
+      {
+        "event": "request",
+        "id": 84,
+        "url": "blob:http://127.0.0.1:44431/b969e2d7-db51-474f-801d-760f158bf661",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:41.590Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 85,
+        "url": "blob:http://127.0.0.1:44431/53055017-06b5-4a89-8498-1ab8fcff6e0a",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:41.590Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 86,
+        "url": "blob:http://127.0.0.1:44431/ec4a3eb1-33cd-4b68-ab72-df4eee0c0c25",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:41.590Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 87,
+        "url": "blob:http://127.0.0.1:44431/d6d1207e-86c2-49e2-a794-3d6e94556445",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:41.590Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 88,
+        "url": "blob:http://127.0.0.1:44431/64a45601-41fe-4a39-ad42-0237bd8b6677",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:41.591Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 89,
+        "url": "blob:http://127.0.0.1:44431/37e57374-61b7-4ec6-be4a-f7275b14a74d",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:41.591Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 90,
+        "url": "blob:http://127.0.0.1:44431/98623606-33bd-4a3d-bc51-83542700b1c5",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:41.591Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 91,
+        "url": "blob:http://127.0.0.1:44431/b61cb5b4-1f14-419e-b7b5-26cff0efd6ad",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:41.591Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 92,
+        "url": "blob:http://127.0.0.1:44431/a0029e2e-d86c-4d1e-b75b-de781db9ee48",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:41.591Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "finished",
+        "id": 84,
+        "url": "blob:http://127.0.0.1:44431/b969e2d7-db51-474f-801d-760f158bf661",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:41.590Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "96950",
+        "finishedAt": "2026-10-01T09:40:41.594Z"
+      },
+      {
+        "event": "finished",
+        "id": 85,
+        "url": "blob:http://127.0.0.1:44431/53055017-06b5-4a89-8498-1ab8fcff6e0a",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:41.590Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "56302",
+        "finishedAt": "2026-10-01T09:40:41.594Z"
+      },
+      {
+        "event": "finished",
+        "id": 86,
+        "url": "blob:http://127.0.0.1:44431/ec4a3eb1-33cd-4b68-ab72-df4eee0c0c25",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:41.590Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "141648",
+        "finishedAt": "2026-10-01T09:40:41.594Z"
+      },
+      {
+        "event": "finished",
+        "id": 88,
+        "url": "blob:http://127.0.0.1:44431/64a45601-41fe-4a39-ad42-0237bd8b6677",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:41.591Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "109602",
+        "finishedAt": "2026-10-01T09:40:41.594Z"
+      },
+      {
+        "event": "finished",
+        "id": 89,
+        "url": "blob:http://127.0.0.1:44431/37e57374-61b7-4ec6-be4a-f7275b14a74d",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:41.591Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "142670",
+        "finishedAt": "2026-10-01T09:40:41.594Z"
+      },
+      {
+        "event": "finished",
+        "id": 91,
+        "url": "blob:http://127.0.0.1:44431/b61cb5b4-1f14-419e-b7b5-26cff0efd6ad",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:41.591Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "138838",
+        "finishedAt": "2026-10-01T09:40:41.599Z"
+      },
+      {
+        "event": "finished",
+        "id": 87,
+        "url": "blob:http://127.0.0.1:44431/d6d1207e-86c2-49e2-a794-3d6e94556445",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:41.590Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "491980",
+        "finishedAt": "2026-10-01T09:40:41.599Z"
+      },
+      {
+        "event": "finished",
+        "id": 90,
+        "url": "blob:http://127.0.0.1:44431/98623606-33bd-4a3d-bc51-83542700b1c5",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:41.591Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "293964",
+        "finishedAt": "2026-10-01T09:40:41.599Z"
+      },
+      {
+        "event": "finished",
+        "id": 92,
+        "url": "blob:http://127.0.0.1:44431/a0029e2e-d86c-4d1e-b75b-de781db9ee48",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:41.591Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "432402",
+        "finishedAt": "2026-10-01T09:40:41.599Z"
+      },
+      {
+        "event": "request",
+        "id": 93,
+        "url": "http://127.0.0.1:44431/assets/models/palm-tree.glb",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:41.688Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "finished",
+        "id": 93,
+        "url": "http://127.0.0.1:44431/assets/models/palm-tree.glb",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:41.688Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "490580",
+        "finishedAt": "2026-10-01T09:40:41.697Z"
+      },
+      {
+        "event": "request",
+        "id": 94,
+        "url": "blob:http://127.0.0.1:44431/c17b98ce-4c86-4f6c-977b-ab26ff10f2dd",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:41.711Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "request",
+        "id": 95,
+        "url": "blob:http://127.0.0.1:44431/96851f7a-4768-4080-a7ce-9860ba54abb6",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:41.711Z",
+        "stage": "scene-readiness"
+      },
+      {
+        "event": "finished",
+        "id": 94,
+        "url": "blob:http://127.0.0.1:44431/c17b98ce-4c86-4f6c-977b-ab26ff10f2dd",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:41.711Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "243362",
+        "finishedAt": "2026-10-01T09:40:41.712Z"
+      },
+      {
+        "event": "finished",
+        "id": 95,
+        "url": "blob:http://127.0.0.1:44431/96851f7a-4768-4080-a7ce-9860ba54abb6",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:40:41.711Z",
+        "stage": "scene-readiness",
+        "status": 200,
+        "contentLength": "215552",
+        "finishedAt": "2026-10-01T09:40:41.712Z"
+      },
+      {
+        "event": "request",
+        "id": 96,
+        "url": "http://127.0.0.1:44431/assets/studies/island-response/response-manifest.json",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:41:07.553Z",
+        "stage": "preload-island-response"
+      },
+      {
+        "event": "finished",
+        "id": 96,
+        "url": "http://127.0.0.1:44431/assets/studies/island-response/response-manifest.json",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:41:07.553Z",
+        "stage": "preload-island-response",
+        "status": 200,
+        "contentLength": "335275",
+        "finishedAt": "2026-10-01T09:41:07.561Z"
+      },
+      {
+        "event": "request",
+        "id": 97,
+        "url": "http://127.0.0.1:44431/assets/studies/island-response/island-direct-response.rgba16f",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:41:07.563Z",
+        "stage": "preload-island-response"
+      },
+      {
+        "event": "finished",
+        "id": 97,
+        "url": "http://127.0.0.1:44431/assets/studies/island-response/island-direct-response.rgba16f",
+        "method": "GET",
+        "resourceType": "fetch",
+        "startedAt": "2026-10-01T09:41:07.563Z",
+        "stage": "preload-island-response",
+        "status": 200,
+        "contentLength": "25165824",
+        "finishedAt": "2026-10-01T09:41:07.646Z"
+      }
+    ],
+    "startupMemory": {
+      "version": 1,
+      "jsHeapMiB": 384,
+      "intervalMs": 5000,
+      "timeoutMs": 3000,
+      "maxSamples": 80,
+      "samples": [
+        {
+          "at": "2026-10-01T09:39:27.947Z",
+          "stage": "launch-browser",
+          "label": "before-navigation",
+          "cgroupBytes": 4086140928,
+          "heap": {
+            "usedSize": 815652,
+            "totalSize": 1310720,
+            "embedderHeapUsedSize": 1384832,
+            "backingStorageSize": 0
+          },
+          "page": {
+            "label": null,
+            "progress": null,
+            "ready": false,
+            "visibleError": null,
+            "jsHeapSizeLimit": 521000000
+          },
+          "settledAt": "2026-10-01T09:39:27.955Z"
+        },
+        {
+          "at": "2026-10-01T09:39:32.957Z",
+          "stage": "scene-readiness",
+          "cgroupBytes": 4298637312,
+          "heap": {
+            "usedSize": 3571564,
+            "totalSize": 10330112,
+            "embedderHeapUsedSize": 757936,
+            "backingStorageSize": 19400315
+          },
+          "page": {
+            "label": "Loading coastal materials",
+            "progress": 40,
+            "ready": false,
+            "visibleError": "",
+            "jsHeapSizeLimit": 521000000
+          },
+          "settledAt": "2026-10-01T09:39:32.969Z"
+        },
+        {
+          "at": "2026-10-01T09:39:37.957Z",
+          "stage": "scene-readiness",
+          "cgroupBytes": 4069892096,
+          "heap": {
+            "usedSize": 3586808,
+            "totalSize": 10330112,
+            "embedderHeapUsedSize": 925016,
+            "backingStorageSize": 19400340
+          },
+          "page": {
+            "label": "Loading coastal materials",
+            "progress": 40,
+            "ready": false,
+            "visibleError": "",
+            "jsHeapSizeLimit": 521000000
+          },
+          "settledAt": "2026-10-01T09:39:37.963Z"
+        },
+        {
+          "at": "2026-10-01T09:39:42.957Z",
+          "stage": "scene-readiness",
+          "cgroupBytes": 4053037056,
+          "error": "Error: Startup memory sample timed out",
+          "settledAt": "2026-10-01T09:39:45.960Z"
+        }
+      ],
+      "stoppedReason": "sample-failed",
+      "stoppedAt": "2026-10-01T09:39:45.960Z"
+    },
+    "glbDelivery": {
+      "version": 1,
+      "mode": "drain-and-verify-glb-before-three",
+      "records": [
+        {
+          "url": "http://127.0.0.1:44431/assets/rocks/rock_moss_set_01_2k.glb",
+          "path": "/assets/rocks/rock_moss_set_01_2k.glb",
+          "status": 200,
+          "sizeBytes": 3256512,
+          "sha256": "864ece45cf6cafeb7fab5ab65704b1810622ba411da2026ebad847a0a08eab2f",
+          "startedAt": "2026-10-01T09:39:29.056Z",
+          "completedAt": "2026-10-01T09:39:29.269Z"
+        },
+        {
+          "url": "http://127.0.0.1:44431/assets/models/island-tree-near.glb",
+          "path": "/assets/models/island-tree-near.glb",
+          "status": 200,
+          "sizeBytes": 13299192,
+          "sha256": "c81e6ece28b7646aa59f2c2c68142619b2790d0db62c5d829278fec92e4373d7",
+          "startedAt": "2026-10-01T09:40:37.439Z",
+          "completedAt": "2026-10-01T09:40:37.673Z"
+        },
+        {
+          "url": "http://127.0.0.1:44431/assets/models/island-tree-hero.glb",
+          "path": "/assets/models/island-tree-hero.glb",
+          "status": 200,
+          "sizeBytes": 3950040,
+          "sha256": "8d892e4a572bb30804aecc3a88adb57e92b852220ccf8f59068f400cf6713a5b",
+          "startedAt": "2026-10-01T09:40:39.301Z",
+          "completedAt": "2026-10-01T09:40:39.348Z"
+        },
+        {
+          "url": "http://127.0.0.1:44431/assets/models/island-tree-medium.glb",
+          "path": "/assets/models/island-tree-medium.glb",
+          "status": 200,
+          "sizeBytes": 1739460,
+          "sha256": "2c210426ac4e761261b6c4dfc8c250fedd72ca1787de918abc965d4d3f32be64",
+          "startedAt": "2026-10-01T09:40:39.830Z",
+          "completedAt": "2026-10-01T09:40:39.862Z"
+        },
+        {
+          "url": "http://127.0.0.1:44431/assets/models/syringa-tree-near.glb",
+          "path": "/assets/models/syringa-tree-near.glb",
+          "status": 200,
+          "sizeBytes": 38586500,
+          "sha256": "cb794443092f8b4b7b257c4d86f42e6f2b0ec91a2f95d2d3f34043f0a3b49b07",
+          "startedAt": "2026-10-01T09:40:40.031Z",
+          "completedAt": "2026-10-01T09:40:40.338Z"
+        },
+        {
+          "url": "http://127.0.0.1:44431/assets/models/syringa-tree-hero.glb",
+          "path": "/assets/models/syringa-tree-hero.glb",
+          "status": 200,
+          "sizeBytes": 3114880,
+          "sha256": "df11a6b9f0a2bf51b8ffd5bb12e4a18a864b47d767177cd53ad263996d8a5f2f",
+          "startedAt": "2026-10-01T09:40:41.314Z",
+          "completedAt": "2026-10-01T09:40:41.384Z"
+        },
+        {
+          "url": "http://127.0.0.1:44431/assets/models/syringa-tree-medium.glb",
+          "path": "/assets/models/syringa-tree-medium.glb",
+          "status": 200,
+          "sizeBytes": 2254268,
+          "sha256": "c4ef49e31bf9fb6565ccfdfa7dfa05b84ca6a9054401f2362c81c6f2538770de",
+          "startedAt": "2026-10-01T09:40:41.548Z",
+          "completedAt": "2026-10-01T09:40:41.568Z"
+        },
+        {
+          "url": "http://127.0.0.1:44431/assets/models/palm-tree.glb",
+          "path": "/assets/models/palm-tree.glb",
+          "status": 200,
+          "sizeBytes": 490580,
+          "sha256": "5e3f42cc9bd4a52d1e4249184fc8cba7bf87acf91b1403711115acaa7f2ca0f6",
+          "startedAt": "2026-10-01T09:40:41.685Z",
+          "completedAt": "2026-10-01T09:40:41.696Z"
+        }
+      ],
+      "failures": []
+    },
+    "requestsBeforeOffline": []
+  },
+  "captureSucceeded": true,
+  "build": {
+    "sourceIdentity": "301d9c4541e7b48f82d7166345cd39f3ebc7b3fba4140549f0ab3d997a6b095f",
+    "production": true
+  },
+  "graphics": {
+    "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+    "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "unmaskedRendererAvailable": true,
+    "samples": 4,
+    "backend": "software"
+  },
+  "offlineAfterLoad": true,
+  "finishedAt": "2026-10-01T09:44:51.297Z"
+}

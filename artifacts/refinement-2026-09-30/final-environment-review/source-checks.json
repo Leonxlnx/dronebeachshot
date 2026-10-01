@@ -1,0 +1,30 @@
+{
+  "at": "2026-10-01T09:40:57.224Z",
+  "sourceIdentity": "301d9c4541e7b48f82d7166345cd39f3ebc7b3fba4140549f0ab3d997a6b095f",
+  "sourceCheck": {
+    "passed": true,
+    "files": 101
+  },
+  "tests": {
+    "command": "npm test",
+    "total": 143,
+    "passed": 143,
+    "failed": 0,
+    "logSHA256": "940bcfba967fb43c298bf198170e06575a2054e3f10c9aba320acb0e1682f000"
+  },
+  "productionBuild": {
+    "command": "npm run build",
+    "passed": true,
+    "restoredAssetChecks": 43,
+    "typeScript": true
+  },
+  "youngWoodlandAudit": {
+    "passed": true,
+    "evidence": "../coastal-young-woodland/cpu-check.json"
+  },
+  "limits": [
+    "Numeric cloud model does not independently prove shader equivalence or appearance.",
+    "Actual laptop GPU/OS execution remains unverified.",
+    "No full-flight motion, final media or 8/10 art acceptance is claimed."
+  ]
+}

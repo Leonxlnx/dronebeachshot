@@ -154,12 +154,12 @@ export function createGroundMaterial(t:Textures,allowLayerPruning=false){
  // Calibrated pale sediment retains the scan's relative grain variation.
  // This changes substrate albedo; sunset lighting and wetness remain separate.
  float sandLuminance=dot(sand,vec3(.2126,.7152,.0722));
- // Keep close grain, but average sub-pixel contrast at grazing/aerial angles.
- // Use the footprint on the ground, not camera distance, so a steep aerial
- // view retains the detail it can actually resolve.
+ // Retain the source color variation already filtered by its mip/anisotropic
+ // sampler. The additional footprint fade is only for normal-map grain;
+ // applying it to albedo also erased broader, still-resolvable scan features.
  float sandFootprint=max(length(dFdx(gp.xz)),length(dFdy(gp.xz)));
  float sandGrain=1.-smoothstep(.025,.18,sandFootprint);
- sand=mix(vec3(.58,.54,.445),vec3(.64,.53,.37),uSandChroma)*mix(1.,clamp(sandLuminance/.123,.62,1.38),sandGrain);
+ sand=mix(vec3(.58,.54,.445),vec3(.64,.53,.37),uSandChroma)*clamp(sandLuminance/.123,.62,1.38);
  vec3 ground=mix(soil,stone,cliff);ground=mix(ground,living,moss*.76);ground=mix(ground,sand,sediment);
  float macro=.91+.18*fbm(gp.xz*.027),wet=sandWetness(gp.x,d,uTime);
  // Darkening is bounded. Shaded ground must remain readable under sky fill.

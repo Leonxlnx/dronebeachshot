@@ -10,8 +10,10 @@ const root=path.resolve(fileURLToPath(new URL('../../',import.meta.url))),output
 const oceanPath='src/world/ocean.ts',ocean=fs.readFileSync(path.join(root,oceanPath),'utf8'),ast=ts.createSourceFile(oceanPath,ocean,ts.ScriptTarget.Latest,true);
 const declaration=ast.statements.find(node=>ts.isVariableStatement(node)&&node.declarationList.declarations.some(item=>item.name.getText(ast)==='coastalReflectionGLSL'));
 if(!declaration)throw Error('Actual ocean coastalReflectionGLSL declaration missing');
-const selected='export '+declaration.getText(ast).replace(/^export\s+/,'');
+const filterPath='src/render/coastal-reflection-filter.ts',filterSource=fs.readFileSync(path.join(root,filterPath),'utf8');
+const selected="import {coastalReflectionFilterGLSL} from '/"+filterPath+"';\nexport "+declaration.getText(ast).replace(/^export\s+/,'');
 const hash=data=>createHash('sha256').update(data).digest('hex'),sourceHashes={[oceanPath]:hash(ocean),'selected coastalReflectionGLSL declaration':hash(selected)};
+sourceHashes[filterPath]=hash(filterSource);
 // The helper only consumes this binding. Extract its actual declaration so the
 // fixture does not execute materials.ts's unrelated habitat-field generation.
 const materialSource=fs.readFileSync(path.join(root,'src/render/materials.ts'),'utf8'),materialAst=ts.createSourceFile('materials.ts',materialSource,ts.ScriptTarget.Latest,true);

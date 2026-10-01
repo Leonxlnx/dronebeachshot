@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import * as THREE from 'three';
-import {createCoastalReflectionPass,updateCoastalReflectionCamera,coastalReflectionUniforms as uniforms,coastalReflectionPass,coastalReflectionSeaLevel} from './coastal-reflection.ts';
+import {createCoastalReflectionPass,updateCoastalReflectionCamera,CoastalReflectionUnsupportedError,coastalReflectionUniforms as uniforms,coastalReflectionPass,coastalReflectionSeaLevel} from './coastal-reflection.ts';
 import {debugMode} from './materials.ts';
 import {sceneCaptureScale} from './refraction.ts';
 
@@ -37,11 +37,11 @@ test('mirrored, rolled parented camera clips below sea and reconstructs actual o
 
 function fixture(){
  const state={target:null as THREE.WebGLRenderTarget|null,face:3,mip:2,viewport:new THREE.Vector4(7,8,123,99),scissor:new THREE.Vector4(3,4,90,80),scissorTest:true,
-  depthMask:false,queries:0,renders:0,samples:4,dpr:2,activeViewport:new THREE.Vector4(14,16,246,198),activeScissor:new THREE.Vector4(6,8,180,160),activeScissorTest:true,drawSize:new THREE.Vector2(640,360),hook:()=>{}};
+  depthMask:false,queries:0,renders:0,samples:4,framebufferStatus:8,dpr:2,activeViewport:new THREE.Vector4(14,16,246,198),activeScissor:new THREE.Vector4(6,8,180,160),activeScissorTest:true,drawSize:new THREE.Vector2(640,360),hook:()=>{}};
  const gl={RGBA16F:1,DEPTH_COMPONENT24:2,RENDERBUFFER:3,SAMPLES:4,MAX_RENDERBUFFER_SIZE:5,DEPTH_WRITEMASK:6,FRAMEBUFFER:7,FRAMEBUFFER_COMPLETE:8,
   getInternalformatParameter:()=>new Int32Array([4,2,1]),
   getParameter:(key:number)=>{state.queries++;return key===5?8192:key===6?state.depthMask:key===4?state.samples:undefined;},
-  checkFramebufferStatus:()=>8};
+  checkFramebufferStatus:()=>state.framebufferStatus};
  const renderer={getContext:()=>gl,extensions:{has:()=>true},capabilities:{maxSamples:4,maxTextureSize:8192},
   xr:{enabled:true},shadowMap:{autoUpdate:true,needsUpdate:true},autoClear:false,autoClearColor:false,autoClearDepth:false,autoClearStencil:true,
   info:{autoReset:true,render:{calls:19,triangles:200}},state:{buffers:{depth:{setMask:(value:boolean)=>{state.depthMask=value;}}}},
@@ -110,15 +110,63 @@ test('returning to a non-null target preserves its physical viewport/scissor and
 test('preparation/render/restore failures cannot leave packed camera or shadow/target state active',()=>{
  for(const stage of ['prepare','render','restore'] as const){
   const f=fixture(),pass=createCoastalReflectionPass(f.renderer),prepare=f.options.prepareCamera,restore=f.options.restoreCamera;
+  const failure=Error(stage+' failed');
   pass.setEnabled(true);
-  if(stage==='prepare')f.options.prepareCamera=camera=>{prepare(camera);throw Error('prepare failed');};
-  if(stage==='render')f.state.hook=()=>{throw Error('render failed');};
-  if(stage==='restore')f.options.restoreCamera=camera=>{restore(camera);throw Error('restore failed');};
-  assert.throws(()=>pass.render(f.scene,f.camera,f.options),new RegExp(stage+' failed'));
+  if(stage==='prepare')f.options.prepareCamera=camera=>{prepare(camera);throw failure;};
+  if(stage==='render')f.state.hook=()=>{throw failure;};
+  if(stage==='restore')f.options.restoreCamera=camera=>{restore(camera);throw failure;};
+  assert.throws(()=>pass.render(f.scene,f.camera,f.options),error=>{
+   assert.equal(error,failure);assert.equal(error instanceof CoastalReflectionUnsupportedError,false);return true;
+  });
   assert.deepEqual(f.counts(),{prepared:1,restored:1,packedFor:'main'});assert.equal(pass.getState().ready,false);assert.equal(pass.getState().failures,1);
   assert.deepEqual([f.state.target,f.state.face,f.state.mip],[null,3,2]);assert.equal(f.renderer.shadowMap.needsUpdate,true);assert.equal(f.options.spray.visible,true);assert.equal(coastalReflectionPass.value,0);
   pass.dispose();
  }
  const f=fixture(),pass=createCoastalReflectionPass(f.renderer);pass.setEnabled(true);f.state.samples=2;
  assert.throws(()=>pass.render(f.scene,f.camera,f.options),/has 2 samples/);assert.equal(f.counts().prepared,0);assert.equal(f.state.target,null);assert.equal(f.options.spray.visible,true);pass.dispose();
+});
+
+test('actual allocation capability errors are typed only after scene and renderer restoration',()=>{
+ for(const mode of ['framebuffer','samples'] as const){
+  const f=fixture(),pass=createCoastalReflectionPass(f.renderer);
+  const background=f.scene.background,override=f.scene.overrideMaterial;
+  const baseline=[debugMode.value,sceneCaptureScale.value,coastalReflectionPass.value,coastalReflectionSeaLevel.value];
+  try{
+   pass.setEnabled(true);assert.equal(pass.getState().supported,true);
+   if(mode==='framebuffer')f.state.framebufferStatus=9;else f.state.samples=2;
+   assert.throws(()=>pass.render(f.scene,f.camera,f.options),error=>{
+    assert.ok(error instanceof CoastalReflectionUnsupportedError);
+    assert.match(error.message,mode==='framebuffer'?/incomplete framebuffer/:/has 2 samples/);
+    assert.equal(f.scene.background,background);assert.equal(f.scene.overrideMaterial,override);
+    assert.deepEqual([f.scene.backgroundIntensity,f.scene.backgroundBlurriness],[.7,.3]);
+    assert.deepEqual(f.scene.backgroundRotation.toArray().slice(0,3),[.1,.2,.3]);
+    assert.deepEqual([f.options.water.visible,f.options.spray.visible,f.options.dome.visible],[false,true,false]);
+    assert.deepEqual([f.state.target,f.state.face,f.state.mip,f.state.depthMask],[null,3,2,false]);
+    assert.deepEqual([f.renderer.xr.enabled,f.renderer.shadowMap.autoUpdate,f.renderer.shadowMap.needsUpdate],[true,true,true]);
+    assert.deepEqual([f.renderer.autoClear,f.renderer.autoClearColor,f.renderer.autoClearDepth,f.renderer.autoClearStencil,f.renderer.info.autoReset],[false,false,false,true,true]);
+    assert.deepEqual([debugMode.value,sceneCaptureScale.value,coastalReflectionPass.value,coastalReflectionSeaLevel.value],baseline);
+    return true;
+   });
+   assert.deepEqual(f.counts(),{prepared:0,restored:0,packedFor:'main'});
+   assert.equal(f.state.renders,0);assert.equal(pass.getState().ready,false);
+   assert.equal(pass.getState().supported,false);assert.equal(pass.getState().failures,1);
+  }finally{pass.dispose();}
+ }
+});
+
+test('unsupported allocation plus target restoration failure stays an AggregateError',()=>{
+ const f=fixture(),pass=createCoastalReflectionPass(f.renderer),restoreTarget=f.renderer.setRenderTarget.bind(f.renderer);
+ const restorationFailure=Error('restore target failed');
+ try{
+  pass.setEnabled(true);f.state.samples=2;
+  f.renderer.setRenderTarget=(target,face,mip)=>{restoreTarget(target,face,mip);if(target===null)throw restorationFailure;};
+  assert.throws(()=>pass.render(f.scene,f.camera,f.options),error=>{
+   assert.ok(error instanceof AggregateError);
+   assert.equal(error instanceof CoastalReflectionUnsupportedError,false);
+   assert.equal(error.errors.length,2);assert.ok(error.errors[0] instanceof CoastalReflectionUnsupportedError);
+   assert.equal(error.errors[1],restorationFailure);return true;
+  });
+  assert.equal(pass.getState().supported,false);assert.equal(pass.getState().ready,false);assert.equal(pass.getState().failures,1);
+  assert.equal(f.options.spray.visible,true);assert.equal(coastalReflectionPass.value,0);
+ }finally{pass.dispose();}
 });

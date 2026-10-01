@@ -13,6 +13,7 @@ import {worldTime,debugMode} from '../render/materials';
 import {diagnosticOutputShader} from '../render/diagnostics';
 import {refractionUniforms,refractionGLSL} from '../render/refraction';
 import {coastalReflectionUniforms,coastalReflectionSeaLevel} from '../render/coastal-reflection';
+import {coastalReflectionFilterGLSL} from '../render/coastal-reflection-filter';
 import {sunDirection} from './atmosphere';
 import {reflectedSky,cloudShadow,cloudShadowBounds,solarDirection,cloudLightingGLSL,skyDecodeScale,solarColor,solarIntensity} from '../render/sky-lighting';
 import {coastalFieldGLSL,type CoastalField} from './coastal-field';
@@ -22,12 +23,23 @@ uniform sampler2D uCoastalReflectionColor,uCoastalReflectionDepth;
 uniform vec2 uCoastalReflectionResolution;
 uniform mat4 uCoastalReflectionInverseViewProjection,uCoastalReflectionTextureMatrix;
 uniform float uCoastalReflectionReady,uCoastalReflectionDistortion,uCoastalReflectionSeaLevel;
+${coastalReflectionFilterGLSL}
 float coastalSignedDenominator(float w){return (w<0.?-1.:1.)*max(abs(w),.00001);}
-vec3 coastalReflectedRadiance(vec3 surface,vec3 ray,vec3 fallback,float slopeVariance){
+vec4 coastalReflectionSample(vec3 surface,vec3 ray,float slopeVariance){
  vec3 planePoint=vec3(surface.x,uCoastalReflectionSeaLevel,surface.z);
+ vec3 mirrorEye=vec3(cameraPosition.x,2.*uCoastalReflectionSeaLevel-cameraPosition.y,cameraPosition.z);
+ vec3 flatRay=normalize(planePoint-mirrorEye);
+ // The flat control is genuinely mean-plane based. In wave mode, filter the
+ // horizon over the actual pixel/angular footprint, never an arbitrary angle.
+ vec3 footprintRay=normalize(mix(flatRay,ray,uCoastalReflectionDistortion));
+ vec3 rayDx=dFdx(footprintRay),rayDy=dFdy(footprintRay);
+ // Flat mode retains a mean-plane horizon; unresolved wave angles belong to
+ // the wave study. Its existing roughness/texture filtering remains below.
+ vec4 positive=coastalPositiveRay(footprintRay,rayDx,rayDy,slopeVariance*uCoastalReflectionDistortion);
  vec4 flatProjection=uCoastalReflectionTextureMatrix*vec4(planePoint,1.);
  vec2 flatUv=flatProjection.xy/coastalSignedDenominator(flatProjection.w);
  vec2 texel=1./uCoastalReflectionResolution;
+ vec2 flatDx=dFdx(flatUv),flatDy=dFdy(flatUv);
  vec2 depthUv=clamp(flatUv,texel*.5,vec2(1.)-texel*.5);
  float coastDepth=texture2D(uCoastalReflectionDepth,depthUv).r;
  vec4 coastH=uCoastalReflectionInverseViewProjection*vec4(depthUv*2.-1.,coastDepth*2.-1.,1.);
@@ -38,20 +50,17 @@ vec3 coastalReflectedRadiance(vec3 surface,vec3 ray,vec3 fallback,float slopeVar
  // captured geometry. At an empty sky texel only direction matters. No main
  // color-buffer image, target-alpha mask or reconstructed coverage is used.
  vec4 distorted=coastHit
-  ?uCoastalReflectionTextureMatrix*vec4(planePoint+ray*coastRange,1.)
-  :uCoastalReflectionTextureMatrix*vec4(ray,0.);
+  ?uCoastalReflectionTextureMatrix*vec4(planePoint+positive.xyz*coastRange,1.)
+  :uCoastalReflectionTextureMatrix*vec4(positive.xyz,0.);
  vec4 projected=mix(flatProjection,distorted,uCoastalReflectionDistortion);
  float denominator=coastalSignedDenominator(projected.w);
  vec2 uv=projected.xy/denominator;
  // Recombine before derivatives: depth and validity can vary within a quad.
- float pixelFootprint=max(length(dFdx(uv)*uCoastalReflectionResolution),
-  length(dFdy(uv)*uCoastalReflectionResolution));
+ vec2 uvDx=dFdx(uv),uvDy=dFdy(uv);
  // Small normal-angle variance becomes about four times that reflection-ray
  // variance. Project the angular cone through the same capture Jacobian.
  // Sky uses a direction (unit range); finite coast uses its measured range.
  float rayScale=coastHit?coastRange:1.;
- vec3 mirrorEye=vec3(cameraPosition.x,2.*uCoastalReflectionSeaLevel-cameraPosition.y,cameraPosition.z);
- vec3 flatRay=normalize(planePoint-mirrorEye);
  vec4 flatReference=coastHit?uCoastalReflectionTextureMatrix*vec4(coast,1.)
   :uCoastalReflectionTextureMatrix*vec4(flatRay,0.);
  // The flat control has the same UV at the water plane and coast, but a
@@ -60,18 +69,52 @@ vec3 coastalReflectedRadiance(vec3 surface,vec3 ray,vec3 fallback,float slopeVar
  vec2 jx=(uCoastalReflectionTextureMatrix[0].xy-uv*uCoastalReflectionTextureMatrix[0].w)/coneDenominator;
  vec2 jy=(uCoastalReflectionTextureMatrix[1].xy-uv*uCoastalReflectionTextureMatrix[1].w)/coneDenominator;
  vec2 jz=(uCoastalReflectionTextureMatrix[2].xy-uv*uCoastalReflectionTextureMatrix[2].w)/coneDenominator;
- vec2 conePixels=2.*sqrt(max(slopeVariance,0.))*rayScale
-  *sqrt(jx*jx+jy*jy+jz*jz)*uCoastalReflectionResolution;
- float footprint=max(pixelFootprint,max(conePixels.x,conePixels.y));
+ // One shared angular approximation drives color LOD and capture coverage.
+ vec3 ju=vec3(jx.x,jy.x,jz.x),jv=vec3(jx.y,jy.y,jz.y);
+ vec3 coneRay=normalize(mix(flatRay,positive.xyz,uCoastalReflectionDistortion));
+ vec2 projectedDot=vec2(dot(ju,coneRay),dot(jv,coneRay));
+ // Explicit products keep signed Jacobian projections valid on every GLSL backend.
+ vec2 angularVariance=2.*max(slopeVariance,0.)*rayScale*rayScale*max(vec2(0.),
+  vec2(dot(ju,ju),dot(jv,jv))-projectedDot*projectedDot);
+ vec2 pixelVariance=(uvDx*uvDx+uvDy*uvDy)/12.;
+ float crossVariance=(uvDx.x*uvDx.y+uvDy.x*uvDy.y)/12.
+  +2.*max(slopeVariance,0.)*rayScale*rayScale*(dot(ju,jv)-projectedDot.x*projectedDot.y);
+ float footprint=coastalFootprintWidth(pixelVariance+angularVariance,crossVariance,uCoastalReflectionResolution);
  float maximumLod=floor(log2(max(uCoastalReflectionResolution.x,uCoastalReflectionResolution.y)));
  float lod=clamp(log2(max(footprint,1.)),0.,maximumLod);
- vec3 captured=textureLod(uCoastalReflectionColor,clamp(uv,texel*.5,vec2(1.)-texel*.5),lod).rgb;
- bool valid=flatProjection.w>.00001&&projected.w>.00001&&ray.y>0.
-  &&all(greaterThanEqual(flatUv,vec2(0.)))&&all(lessThanEqual(flatUv,vec2(1.)))
-  &&all(greaterThanEqual(uv,vec2(0.)))&&all(lessThanEqual(uv,vec2(1.)));
- vec2 edgePixels=min(uv,vec2(1.)-uv)*uCoastalReflectionResolution;
- float edge=clamp(min(edgePixels.x,edgePixels.y),0.,1.);
- return mix(fallback,captured,valid?edge:0.);
+ // Project the same isotropic angular approximation for capture coverage.
+ // A separable, moment-matched box and its clipped centroid approximate the
+ // joint footprint; neither the joint distribution nor a ray trace is exact.
+ // A box-prefiltered mip texel contributes 1/12 variance; bilinear centers
+ // contribute at most 1/4. Blend these phase-independent moment bounds between
+ // the actual (possibly NPOT) mip sizes. This is not a strict support bound.
+ float lowerLod=floor(lod),upperLod=min(lowerLod+1.,maximumLod);
+ vec2 lowerSize=max(vec2(1.),floor(uCoastalReflectionResolution/exp2(lowerLod)));
+ vec2 upperSize=max(vec2(1.),floor(uCoastalReflectionResolution/exp2(upperLod)));
+ vec2 textureVariance=mix(1./(3.*lowerSize*lowerSize),1./(3.*upperSize*upperSize),fract(lod));
+ vec2 halfWidth=sqrt(3.*(pixelVariance+angularVariance+textureVariance));
+ vec2 captureU=coastalCaptureBox(uv.x,halfWidth.x),captureV=coastalCaptureBox(uv.y,halfWidth.y);
+ vec2 sampleUv=clamp(vec2(captureU.y,captureV.y),texel*.5,vec2(1.)-texel*.5);
+ vec3 captured=textureLod(uCoastalReflectionColor,sampleUv,lod).rgb;
+ // The wave proxy needs a real source depth footprint as well as a valid
+ // destination. Flat mode already accounts for this same footprint once.
+ vec2 sourceHalf=sqrt((flatDx*flatDx+flatDy*flatDy)*.25+texel*texel*.25);
+ float sourceCoverage=coastalCaptureBox(flatUv.x,sourceHalf.x).x
+  *coastalCaptureBox(flatUv.y,sourceHalf.y).x;
+ float destinationCoverage=captureU.x*captureV.x;
+ // Treat the source depth as limiting availability, not an independent mask:
+ // coincident source/destination edges must not accidentally square coverage.
+ // This remains an approximation to their correlated joint footprint.
+ float captureCoverage=mix(destinationCoverage,min(sourceCoverage,destinationCoverage),uCoastalReflectionDistortion);
+ float coverage=positive.w*captureCoverage;
+ if(flatProjection.w<=.00001||projected.w<=.00001)coverage=0.;
+ return vec4(captured,coverage);
+}
+// Kept for the isolated production-function fixture. Main computes this sample
+// before varying discards, then combines it with the unchanged water fallback.
+vec3 coastalReflectedRadiance(vec3 surface,vec3 ray,vec3 fallback,float slopeVariance){
+ vec4 sampleValue=coastalReflectionSample(surface,ray,slopeVariance);
+ return mix(fallback,sampleValue.rgb,sampleValue.a);
 }
 `;
 const waterFns=`${noiseGLSL}${shorelineGLSL}${coastalGLSL}${coastalFieldGLSL}${terrainSurfaceGLSL}
@@ -297,6 +340,15 @@ uniform float uTime,uDebug,uSurfaceMode,uSkyDecodeScale,uSunIntensity,uAerialDen
  // Evaluate before any nonuniform discard; values are world meters per pixel.
  vec2 waterPixelDx=dFdx(p),waterPixelDy=dFdy(p);
  float d=coastalDistance(p),t=uTime;
+ // The study is a uniform branch. All of its ray/UV derivatives must execute
+ // before varying shoreline/domain discards. Cache the normal to evaluate the
+ // spectrum only once; the disabled study retains the original normal path.
+ vec3 coastalNormal=vec3(0.,1.,0.);vec4 coastalSample=vec4(0.);
+ if(uCoastalReflectionReady>.5){
+  vec3 coastalView=normalize(cameraPosition-vWorld);
+  coastalNormal=waterNormal(p,t,length(cameraPosition-vWorld),waterPixelDx,waterPixelDy);
+  coastalSample=coastalReflectionSample(vWorld,reflect(-coastalView,coastalNormal),unresolvedWaterSlopeVariance);
+ }
  if(uSurfaceMode<.5&&abs(p.x)<575.&&d>=-60.)discard;
  if(uSurfaceMode>1.5&&(abs(p.x)>=575.||d< -60.))discard;
  float reach=runup(p.x,t);
@@ -306,12 +358,13 @@ uniform float uTime,uDebug,uSurfaceMode,uSkyDecodeScale,uSunIntensity,uAerialDen
              +(noise(vec2(p.x*2.1,t*.11))-.5)*.16;
  float filmReach=reach+fringe;if(d>filmReach)discard;
  vec4 coast=coastalFieldSample(p);if(coast.g<-.25&&coast.b>vWorld.y+.06)discard;
- vec3 V=normalize(cameraPosition-vWorld);float distanceToEye=length(cameraPosition-vWorld);vec3 N=waterNormal(p,t,distanceToEye,waterPixelDx,waterPixelDy);
+ vec3 V=normalize(cameraPosition-vWorld);float distanceToEye=length(cameraPosition-vWorld);vec3 N;
+ if(uCoastalReflectionReady>.5)N=coastalNormal;
+ else N=waterNormal(p,t,distanceToEye,waterPixelDx,waterPixelDy);
  float fresnel=.025+.975*pow(1.-max(dot(V,N),0.),5.);
  // Cubemap mip footprint approximates the unresolved reflected-normal cone.
  // Keep ordinary gradient-selected mip filtering when it is already broader.
  vec3 reflected=reflect(-V,N);
- vec3 coastalRay=reflected;
  // Below-horizon probe rays meet the adjacent water surface. A secondary
  // reflection supplies sky radiance; its transmitted share uses local water.
  // Above-horizon rays are unchanged, including their Fresnel/roughness response.
@@ -326,7 +379,7 @@ uniform float uTime,uDebug,uSurfaceMode,uSkyDecodeScale,uSunIntensity,uAerialDen
  float depth=max(-mix(distantSeabedHeight(p),coast.r,detailWeight),0.);
  vec3 water=vec3(.01,.084,.12);
  reflection=mix(water,reflection,bounce.w);
- if(uCoastalReflectionReady>.5)reflection=coastalReflectedRadiance(vWorld,coastalRay,reflection,unresolvedWaterSlopeVariance);
+ if(uCoastalReflectionReady>.5)reflection=mix(reflection,coastalSample.rgb,coastalSample.a);
  vec3 transmitted=transmittedCoast(vWorld,N,water,depth);vec3 col=mix(transmitted,reflection,fresnel);vec3 H=normalize(V+uSun);
  // Broaden the existing solar lobes by the same unresolved variance, conserving
  // their integrated energy instead of inventing extra light at lower detail.

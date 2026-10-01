@@ -19,12 +19,17 @@ void main(){vec3 ray=normalize(vDirection);float h=max(ray.y,0.);float sunDot=do
 float pixelAngle=max(length(dFdx(ray)),length(dFdy(ray)));
 vec2 interval=cloudSegment(uEye,ray);
 if(interval.y>interval.x){
- float steps=clamp(ceil((interval.y-interval.x)/30.),12.,512.);float stepLen=(interval.y-interval.x)/steps;float trans=1.;vec3 cloudLight=vec3(0.);
+ float span=interval.y-interval.x;
+ // Keep interior cells fixed as a ray's span crosses a 30 m boundary. Only
+ // its clipped tail changes; ceil-based repartition moved every sample and
+ // can produce elevation contours. Short/long rays retain 12/512 cells.
+ float stepLen=clamp(30.,span/512.,span/12.);float trans=1.;vec3 cloudLight=vec3(0.);
  for(int i=0;i<512;i++){
-  if(float(i)>=steps)break;
-  // Midpoint quadrature avoids per-pixel grain; the shorter segment resolves cloud edges.
-  float dist=interval.x+(float(i)+.5)*stepLen;vec3 p=uEye+ray*dist;p.xz-=worldWind*uTime;
-  float footprint=max(dist*pixelAngle,stepLen*.5);
+  float begin=float(i)*stepLen;if(begin>=span)break;
+  float end=min(begin+stepLen,span),cellLength=end-begin;
+  // Midpoint and optical depth use the actual tail length, with no jitter.
+  float dist=interval.x+(begin+end)*.5;vec3 p=uEye+ray*dist;p.xz-=worldWind*uTime;
+  float footprint=max(dist*pixelAngle,cellLength*.5);
   float d=filteredDensity(p,footprint);if(d<.0002)continue;
   float illumination=cloudSunTransmission(p,uSun);
   float heightFill=mix(.75,1.15,smoothstep(cloudBase,cloudTop,p.y));
@@ -32,7 +37,7 @@ if(interval.y>interval.x){
   float forward=pow(max(sunDot,0.),10.);
   // Match the existing directional-light tint in linear RGB, at similar luminance.
   vec3 lit=ambient+uSolarColor*(uSolarIntensity/4.4)*1.02*(illumination+.22*sqrt(illumination))*(.65+.55*forward);
-  float alpha=1.-exp(-d*stepLen*cloudExtinction);
+  float alpha=1.-exp(-d*cellLength*cloudExtinction);
   lit=bayAerialPerspective(lit,uEye,uEye+ray*dist,uSun,uCloudFog);
   cloudLight+=lit*alpha*trans;trans*=1.-alpha;if(trans<.008)break;
  }

@@ -11,7 +11,7 @@ import {excludeAboveWaterInstancesFromRefraction} from '../render/refraction';
 import {updateHabitatCanopy} from './habitat';
 import * as THREE from 'three';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
-import {treePlacements,type Placement} from './ecology';
+import {treePlacements,renderTreePlacements,type Placement} from './ecology';
 import {noise} from './math';
 import {activeLods,lodRanges,type QualityTier} from './lod';
 import {prepareTreeMaterial,lodCamera,setVegetationQuality} from '../render/vegetation-material';
@@ -75,7 +75,8 @@ if (isHeightSource) {
  }
  imagePool.clear();
  const formFor=(p:Placement)=>growthForms?treeFormFor(p):0;
- const placements=treePlacements();updateHabitatCanopy(placements);const bins=new Map<string,Placement[]>();
+ const basePlacements=treePlacements(),placements=renderTreePlacements(basePlacements),youngCount=placements.length-basePlacements.length;
+ updateHabitatCanopy(placements);const bins=new Map<string,Placement[]>();
  for(const plant of placements){const key=[Math.floor(plant.x/100),Math.floor(plant.z/100),plant.family,formFor(plant)].join(',');const list=bins.get(key)||[];list.push(plant);bins.set(key,list)}
  const instanceFrustumPacker=createInstanceFrustumPacker();
  const group=new THREE.Group();group.name='forest';const distant=terrain?createDistantForest(terrain,farTextures):null;if(distant)group.add(distant);const cells:Cell[]=[];const dummy=new THREE.Object3D();const up=new THREE.Vector3(0,1,0),windAxis=new THREE.Vector3(WIND[1],0,-WIND[0]).normalize(),tilt=new THREE.Quaternion();
@@ -139,5 +140,6 @@ if (isHeightSource) {
    }
   }
  }
- return {formStats:{forkOpen:placements.filter(p=>formFor(p)===1).length,scope:'bounded core forest; remote forms unchanged'},imageSharing:imagePool.stats,prepareMain:instanceFrustumPacker.prepareMain,prepareSunShadow:instanceFrustumPacker.prepareSunShadow,disposeVisibility:instanceFrustumPacker.dispose,group,placements,farTextures,distantCount:distant?.userData.stats.trees??0,distantStats:distant?.userData.stats??null,update,setTier:(value:QualityTier)=>{tier=value;setVegetationQuality(value)},count:placements.length,cells:cells.length};
+ group.userData.youngWoodland={count:youngCount};
+ return {formStats:{forkOpen:placements.filter(p=>formFor(p)===1).length,scope:'bounded core forest; remote forms unchanged'},imageSharing:imagePool.stats,prepareMain:instanceFrustumPacker.prepareMain,prepareSunShadow:instanceFrustumPacker.prepareSunShadow,disposeVisibility:instanceFrustumPacker.dispose,group,placements:basePlacements,youngCount,farTextures,distantCount:distant?.userData.stats.trees??0,distantStats:distant?.userData.stats??null,update,setTier:(value:QualityTier)=>{tier=value;setVegetationQuality(value)},count:placements.length,cells:cells.length};
 }

@@ -1,0 +1,24 @@
+{
+  "createdAt": "2026-10-01T09:39:44.870Z",
+  "sourceIdentity": "301d9c4541e7b48f82d7166345cd39f3ebc7b3fba4140549f0ab3d997a6b095f",
+  "entry": "/assets/index-D4RZMWwx.js",
+  "bundleSHA256": "1a0e677871901fa4d6d39a2721c97d785ee5831a2e307b4b613fb4b28cf526b1",
+  "profile": "profiles/last-light-bay.json",
+  "profileSHA256": "c52fde34e833e3e7a50865a3960e5a5a970373f46418647a76c8583c6877d8d2",
+  "viewport": [
+    1280,
+    720
+  ],
+  "times": [
+    10.5,
+    19.5
+  ],
+  "normalBuild": true,
+  "youngWoodland": true,
+  "changesSinceTrial02": [
+    "Normal app reflection capability fallback and pending-atlas quality guard",
+    "Cloud primary quadrature stable cells; unchanged directional cloud-shadow integrator",
+    "Retain mip-filtered sand albedo instead of redundant footprint fade"
+  ],
+  "visualAcceptance": "pending actual screenshots"
+}

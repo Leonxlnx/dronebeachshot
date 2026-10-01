@@ -19,12 +19,13 @@ import {applyCinematic,evaluationCameras,DURATION,cameraDiagnostics} from './cam
 import {Ambience} from './app/audio';
 import {timelineTime,captureDimensions,validateCloudCoverage} from './app/capture-state';
 import {createSceneReadiness} from './app/scene-readiness';
+import {canonicalLook,canonicalIslandResponseManifest} from './app/canonical-look';
 import {SEED,clamp} from './world/math';
 import {enableMaterialDiagnostics} from './render/diagnostics';
 import {withAerialPerspective,aerialDensity} from './render/aerial-perspective';
 import {withCloudLighting,solarColor,solarIntensity,skyDecodeScale} from './render/sky-lighting';
 import {createRefractionPass} from './render/refraction';
-import {createCoastalReflectionPass} from './render/coastal-reflection';
+import {createCoastalReflectionPass,CoastalReflectionUnsupportedError} from './render/coastal-reflection';
 import {mineralReliefStrength,stoneBeddingAligned,sandRippleStrength,sandRippleFilter,sandChroma,sandFilmDrying,rockWeatheringStrength,groundLayerPruning} from './render/ground-materials';
 import {waitForProfilingFence} from './render/profiling-sync';
 import {cloudCoverageScale,getCloudMorphologyStudy,setCloudMorphologyStudy} from './world/clouds';
@@ -59,7 +60,25 @@ const coastalForestStructure=(capture||inspect)?createForestStructure(textures,v
 let coastalUnderstory=false;if(coastalForestStructure){coastalForestStructure.group.visible=false;cover.add(coastalForestStructure.group);}
 const groundCoverCulling=createGroundCoverCulling(cover);scene.traverse(o=>{if(o instanceof THREE.Mesh&&o.castShadow&&o.material instanceof THREE.MeshStandardMaterial&&typeof o.material.userData.windBark==='boolean')o.customDepthMaterial=createGroundWindDepth(o.material)});const cloudMaterials=new Set<THREE.Material>();scene.traverse(o=>{if(o instanceof THREE.Mesh)for(const m of Array.isArray(o.material)?o.material:[o.material])if(m instanceof THREE.MeshStandardMaterial&&!cloudMaterials.has(m)){enableMaterialDiagnostics(m);withCloudLighting(m);withAerialPerspective(m);cloudMaterials.add(m)}});progress(76,'Warming the light and water');
 let capturing=false,pendingResize=false,pendingQuality:Tier|undefined;
-function setQuality(value:Tier){tier=value;el<HTMLSelectElement>('quality').value=tier;vegetation.setTier(tier);renderer.shadowMap.enabled=tier!=='low'&&debugMode.value!==6;atmosphere.sun.shadow.mapSize.setScalar(tiers[tier].shadow||512);atmosphere.sun.shadow.map?.dispose();atmosphere.sun.shadow.map=null;renderer.shadowMap.needsUpdate=true;engine.resize(tier,capture);cover.visible=tier!=='low'&&debugMode.value!==12}
+function setQuality(value:Tier){
+ tier=value;el<HTMLSelectElement>('quality').value=tier;vegetation.setTier(tier);
+ renderer.shadowMap.enabled=tier!=='low'&&debugMode.value!==6;atmosphere.sun.shadow.mapSize.setScalar(tiers[tier].shadow||512);
+ atmosphere.sun.shadow.map?.dispose();atmosphere.sun.shadow.map=null;renderer.shadowMap.needsUpdate=true;
+ engine.resize(tier,capture);cover.visible=tier!=='low'&&debugMode.value!==12;
+ if(!capture){
+  const response=getIslandDirectResponseStudy();
+  if(response.ready&&!response.loading)setIslandDirectResponseStudy(canonicalLook.islandDirectResponse&&tier!=='low');
+  coastalReflection.setDistortion(canonicalLook.coastalReflectionDistortion);
+  if(canonicalLook.coastalReflection&&tier!=='low'){
+   try{coastalReflection.setEnabled(true);}
+   catch(error){
+    // Optional app capability; strict inspection/capture setters still throw.
+    if(coastalReflection.getState().supported!==false)throw error;
+    coastalReflection.setEnabled(false);
+   }
+  }else coastalReflection.setEnabled(false);
+ }
+}
 setQuality(tier);
 function chooseCamera(t:number,name?:string){if(name&&Object.hasOwn(evaluationCameras,name)){const c=evaluationCameras[name];camera.position.copy(c.position);camera.up.set(0,1,0);camera.lookAt(c.target);camera.fov=54;camera.updateProjectionMatrix();}else{applyCinematic(camera,t);if(!playing&&(freeYaw||freePitch)){camera.rotateY(freeYaw);camera.rotateX(freePitch)}}}
 let evalName=params.get('camera')||undefined;
@@ -70,8 +89,8 @@ function inspection(){readiness.assertReady();if(!capture&&!inspect)throw Error(
 function finite(value:unknown,lo:number,hi:number,key:string){if(typeof value!=='number'||!Number.isFinite(value)||value<lo||value>hi)throw Error('Invalid '+key);return value;}
 function boolean(value:unknown,key:string){if(typeof value!=='boolean')throw Error('Invalid '+key);return value;}
 function getLighting(){return {exposure,sunIntensity:atmosphere.lighting.sunIntensity,skyIntensity:atmosphere.lighting.skyIntensity,environmentIntensity,sunColor:'#'+atmosphere.sun.color.getHexString(),skyColor:'#'+atmosphere.hemi.color.getHexString(),groundColor:'#'+atmosphere.hemi.groundColor.getHexString(),fogDensity:aerialDensity.value,cloudFogDensity:cloudAerialDensity.value,cloudCoverage:cloudCoverageScale.value,cloudMorphology:getCloudMorphologyStudy()};}
-function setLighting(settings:Record<string,unknown>){
- inspection();const next={...getLighting()};
+function applyLighting(settings:Record<string,unknown>){
+ const next={...getLighting()};
  for(const [key,value] of Object.entries(settings)){
   if(!Object.hasOwn(next,key))throw Error('Unknown lighting setting: '+key);
   if(key.endsWith('Color')){if(typeof value!=='string'||!/^#[a-f0-9]{6}$/i.test(value))throw Error('Invalid light color');}
@@ -89,8 +108,10 @@ function setLighting(settings:Record<string,unknown>){
  cloudCoverageScale.value=next.cloudCoverage;setCloudMorphologyStudy(next.cloudMorphology);
  renderer.toneMappingExposure=debugMode.value===11?1:exposure;atmosphere.invalidateLighting();return getLighting();
 }
+function setLighting(settings:Record<string,unknown>){inspection();return applyLighting(settings);}
 function getSurfaceStudy(){return {mineralRelief:mineralReliefStrength.value,foamDepthGate:foamDepthGate.value,stoneBedding:stoneBeddingAligned.value,sandRipple:sandRippleStrength.value,sandRippleFilter:sandRippleFilter.value,sandChroma:sandChroma.value,sandFilmDrying:sandFilmDrying.value,rockWeathering:rockWeatheringStrength.value,groundLayerPruning:groundLayerPruning.value,grassPalette:grassPaletteSRGB.value};}
-function setSurfaceStudy(settings:Record<string,unknown>){inspection();const targets={mineralRelief:mineralReliefStrength,foamDepthGate,stoneBedding:stoneBeddingAligned,sandRipple:sandRippleStrength,sandRippleFilter,sandChroma,sandFilmDrying,rockWeathering:rockWeatheringStrength,groundLayerPruning,grassPalette:grassPaletteSRGB};for(const [key,value]of Object.entries(settings)){if(!Object.hasOwn(targets,key))throw Error('Unknown surface setting: '+key);if(key==='groundLayerPruning'){if(typeof value!=='number'||![0,1,2].includes(value))throw Error('Invalid ground layer sampling mode');}else if(key==='grassPalette'){if(value!==0&&value!==1)throw Error('Invalid grass palette study');}else finite(value,0,1,key);}for(const [key,value]of Object.entries(settings))targets[key as keyof typeof targets].value=value as number;return getSurfaceStudy();}
+function applySurfaceStudy(settings:Record<string,unknown>){const targets={mineralRelief:mineralReliefStrength,foamDepthGate,stoneBedding:stoneBeddingAligned,sandRipple:sandRippleStrength,sandRippleFilter,sandChroma,sandFilmDrying,rockWeathering:rockWeatheringStrength,groundLayerPruning,grassPalette:grassPaletteSRGB};for(const [key,value]of Object.entries(settings)){if(!Object.hasOwn(targets,key))throw Error('Unknown surface setting: '+key);if(key==='groundLayerPruning'){if(typeof value!=='number'||![0,1,2].includes(value))throw Error('Invalid ground layer sampling mode');}else if(key==='grassPalette'){if(value!==0&&value!==1)throw Error('Invalid grass palette study');}else finite(value,0,1,key);}for(const [key,value]of Object.entries(settings))targets[key as keyof typeof targets].value=value as number;return getSurfaceStudy();}
+function setSurfaceStudy(settings:Record<string,unknown>){inspection();return applySurfaceStudy(settings);}
 function getShadowStudy(){return {mapSize:atmosphere.sun.shadow.mapSize.x,normalBias:atmosphere.sun.shadow.normalBias,bias:atmosphere.sun.shadow.bias,...remoteShadowStudy?.get(),...terrainShadowStudy?.get()};}
 function setShadowStudy(settings:Record<string,unknown>){
  inspection();for(const [key,value]of Object.entries(settings)){
@@ -105,6 +126,19 @@ function setShadowStudy(settings:Record<string,unknown>){
  const remote:Record<string,boolean>={};for(const key of ['remoteFit','remoteCasters'])if(settings[key]!==undefined)remote[key]=settings[key] as boolean;
  remoteShadowStudy?.set(remote);renderer.shadowMap.needsUpdate=true;return getShadowStudy();
 }
+function renderCoastalReflection(){
+ try{
+  coastalReflection.render(scene,camera,{water:ocean.group,spray,dome:atmosphere.dome,skyTexture:atmosphere.skyTarget.texture,skyDecodeScale:skyDecodeScale.value,
+   prepareCamera:mirror=>{vegetation.update(mirror.position);groundCoverCulling.prepare(mirror);vegetation.prepareMain(mirror);prepareFarCrownBlending(mirror);},
+   restoreCamera:mainCamera=>{vegetation.update(mainCamera.position);groundCoverCulling.prepare(mainCamera);vegetation.prepareMain(mainCamera);prepareFarCrownBlending(mainCamera);}});
+ }catch(error){
+  // The pass has already restored its state. A restoration failure is an
+  // AggregateError, never this narrow optional-capability fallback.
+  if(capture||inspect||!(error instanceof CoastalReflectionUnsupportedError)||coastalReflection.getState().supported!==false||graphics.isContextLost())throw error;
+  readiness.assertAvailable(); // Context loss and prior scene failure stay terminal.
+  coastalReflection.setEnabled(false);
+ }
+}
 function frameWork(t:number,name=evalName){
  readiness.assertAvailable();renderer.info.reset();worldTime.value=t;
  let groundCoverVisibility:ReturnType<typeof groundCoverCulling.prepare>|null=null;
@@ -113,15 +147,13 @@ function frameWork(t:number,name=evalName){
   ['atmosphere',()=>{atmosphere.update(renderer,camera.position,t);scene.environment=debugMode.value===5?null:atmosphere.environment;scene.environmentIntensity=environmentIntensity;}],
   ['forestSelection',()=>{vegetation.update(camera.position);renderer.shadowMap.needsUpdate=true;if(renderer.shadowMap.enabled)vegetation.prepareSunShadow(atmosphere.sun);} ],
   ['refractionAndSunShadow',()=>{terrainShadowStudy?.prepareSunShadow(renderer,scene,camera,atmosphere.sun);try{refraction.render(scene,camera,ocean.group,spray,linearMain.getSampleScale())}finally{terrainShadowStudy?.finishSunShadow();}}],
-  ['coastalReflection',()=>{coastalReflection.render(scene,camera,{water:ocean.group,spray,dome:atmosphere.dome,skyTexture:atmosphere.skyTarget.texture,skyDecodeScale:skyDecodeScale.value,
-   prepareCamera:mirror=>{vegetation.update(mirror.position);groundCoverCulling.prepare(mirror);vegetation.prepareMain(mirror);prepareFarCrownBlending(mirror);},
-   restoreCamera:mainCamera=>{vegetation.update(mainCamera.position);groundCoverCulling.prepare(mainCamera);vegetation.prepareMain(mainCamera);prepareFarCrownBlending(mainCamera);}});}],
+  ['coastalReflection',renderCoastalReflection],
   ['mainColor',()=>{vegetation.prepareMain(camera);prepareFarCrownBlending(camera);linearMain.render(scene,camera,debugMode.value);sealOpaqueCanvas(renderer);}]
  ];
  function finish(timings:Record<string,number>|null=null,preFrameQueueMilliseconds:number|null=null){
   readiness.assertAvailable();if(engine.shaderErrors.length)throw Error('Shader compilation failed: '+engine.shaderErrors.join(' | '));
   el('clock').textContent='0:'+Math.floor(t).toString().padStart(2,'0');el<HTMLInputElement>('timeline').value=String(t);
-  const info={ready,sourceIdentity:buildIdentity.sourceIdentity,seed:SEED,time:t,quality:tier,renderer:'WebGL2',imageSharing:vegetation.imageSharing,offshoreRocks:rocks.userData.offshoreRocks.instances,coastalField:field.diagnostics,sprayEmitters:spray.userData.emitters,forestStructure:coastalUnderstory?coastalForestStructure!.stats:forestStructure.stats,coastalUnderstory,trees:vegetation.count,distantTrees:vegetation.distantCount,cells:vegetation.cells,drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles,geometries:renderer.info.memory.geometries,textures:renderer.info.memory.textures,programs:renderer.info.programs?.length,camera:camera.position.toArray(),groundCoverVisibility,synchronizedPhaseMilliseconds:timings,profilingMethod:timings?'webgl2-fence':null,preFrameQueueMilliseconds};if(inspect){el('diagnostics').textContent=JSON.stringify(info,null,2);document.documentElement.dataset.scene=JSON.stringify(info)}return info;
+  const info={ready,sourceIdentity:buildIdentity.sourceIdentity,seed:SEED,time:t,quality:tier,renderer:'WebGL2',imageSharing:vegetation.imageSharing,offshoreRocks:rocks.userData.offshoreRocks.instances,coastalField:field.diagnostics,sprayEmitters:spray.userData.emitters,forestStructure:coastalUnderstory?coastalForestStructure!.stats:forestStructure.stats,coastalUnderstory,trees:vegetation.count,youngTrees:vegetation.youngCount,distantTrees:vegetation.distantCount,cells:vegetation.cells,drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles,geometries:renderer.info.memory.geometries,textures:renderer.info.memory.textures,programs:renderer.info.programs?.length,camera:camera.position.toArray(),groundCoverVisibility,synchronizedPhaseMilliseconds:timings,profilingMethod:timings?'webgl2-fence':null,preFrameQueueMilliseconds};if(inspect){el('diagnostics').textContent=JSON.stringify(info,null,2);document.documentElement.dataset.scene=JSON.stringify(info)}return info;
  }
  return {phases,finish};
 }
@@ -143,7 +175,16 @@ async function drawProfiled(t:number,name=evalName){
  }
 }
 function drawInspected(t:number,name=evalName){return profileFrame?drawProfiled(t,name):draw(t,name);}
-chooseCamera(time,evalName);vegetation.update(camera.position);atmosphere.update(renderer,camera.position,time);scene.environment=atmosphere.environment;scene.environmentIntensity=.65;await renderer.compileAsync(scene,camera);await refraction.compile(scene,camera);for(const moment of capture?[]:[0,3,7,11,15,19]){draw(moment,'');progress(78+moment,'Preparing the flight');await new Promise<void>(resolve=>requestAnimationFrame(()=>resolve()))}draw(time);if(engine.shaderErrors.length)throw Error("Shader compilation failed: "+engine.shaderErrors.join(" | "));readiness.markReady();progress(100,'Ready');ready=true;el('loading').hidden=true;el('intro').hidden=capture;el('controls').hidden=capture;el('show-controls').hidden=capture;el('diagnostics').hidden=!inspect;document.body.classList.toggle('capture',capture);document.documentElement.dataset.ready='true';
+if(!capture){
+ applyLighting(canonicalLook.lighting);applySurfaceStudy(canonicalLook.surfaceStudy);
+ setFarCrownBlending(canonicalLook.farCrownBlending);
+ // Validate the 24 MiB source payload before readiness in every app tier. Low
+ // keeps the response shader off; caching makes later quality switches atomic.
+ progress(76,'Preparing forest lighting');
+ await loadIslandDirectResponseStudy(canonicalIslandResponseManifest);
+ setIslandDirectResponseStudy(canonicalLook.islandDirectResponse&&tier!=='low');
+}
+chooseCamera(time,evalName);vegetation.update(camera.position);atmosphere.update(renderer,camera.position,time);scene.environment=atmosphere.environment;scene.environmentIntensity=environmentIntensity;await renderer.compileAsync(scene,camera);await refraction.compile(scene,camera);for(const moment of capture?[]:[0,3,7,11,15,19]){draw(moment,'');progress(78+moment,'Preparing the flight');await new Promise<void>(resolve=>requestAnimationFrame(()=>resolve()))}draw(time);if(engine.shaderErrors.length)throw Error("Shader compilation failed: "+engine.shaderErrors.join(" | "));readiness.markReady();progress(100,'Ready');ready=true;el('loading').hidden=true;el('intro').hidden=capture;el('controls').hidden=capture;el('show-controls').hidden=capture;el('diagnostics').hidden=!inspect;document.body.classList.toggle('capture',capture);document.documentElement.dataset.ready='true';
 function showControls(){document.body.classList.add('controls-visible');clearTimeout(controlsTimer);controlsTimer=window.setTimeout(()=>{if(playing)document.body.classList.remove('controls-visible')},2400)}
 function setPlaying(value:boolean){if(capturing&&value)return;if(value&&time>=DURATION)time=0;playing=value;el('play').textContent=playing?'Pause':'Resume';el('play').setAttribute('aria-label',playing?'Pause flight':'Resume flight');document.body.classList.toggle('flying',playing);el('intro').hidden=true;last=0;if(playing){evalName=undefined;freeYaw=freePitch=0;showControls()}else document.body.classList.add('controls-visible')}
 function seek(value:number){readiness.assertReady();if(capturing)throw Error('A frame capture is in progress');time=timelineTime(value);evalName=undefined;freeYaw=freePitch=0;setPlaying(false);audio.update(time);return drawInspected(time)}

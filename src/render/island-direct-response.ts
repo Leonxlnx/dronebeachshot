@@ -2,8 +2,9 @@ import * as THREE from 'three';
 import {treeImpostorDefinitions} from '../world/tree-impostor-data';
 import type {TreeImpostorMetadata} from '../world/tree-impostor';
 
-// Inspection study only. No texture is fetched and no shader is changed while
-// OFF. Base Island framing distinguishes it from the family-0 fork-open form.
+// Optional source response, loaded explicitly by app startup or inspection.
+// Registration alone does not fetch it or change OFF shaders. Base Island
+// framing distinguishes it from the family-0 fork-open form.
 const defineName='BAY_ISLAND_DIRECT_RESPONSE';
 const cellSize=128,viewCount=24,sunCount=8,layerCount=viewCount*sunCount;
 const payloadBytes=cellSize*cellSize*layerCount*4*2;
@@ -84,7 +85,7 @@ export function createIslandDirectResponseAtlas(manifestValue:unknown,payload:Ar
   if(!covered)throw Error('Island response has an empty view layer');
  }
  const texture=new THREE.DataArrayTexture(data,cellSize,cellSize,layerCount);
- texture.name='Island source direct diffuse / inspection only';
+ texture.name='Island source direct diffuse';
  texture.type=THREE.HalfFloatType;texture.format=THREE.RGBAFormat;texture.colorSpace=THREE.NoColorSpace;
  texture.generateMipmaps=true;texture.minFilter=THREE.LinearMipmapLinearFilter;texture.magFilter=THREE.LinearFilter;
  texture.wrapS=texture.wrapT=THREE.ClampToEdgeWrapping;texture.flipY=false;texture.unpackAlignment=1;texture.needsUpdate=true;
@@ -175,7 +176,7 @@ export function getIslandDirectResponseStudy():StudyState{
 }
 const digest=async(bytes:ArrayBuffer)=>Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',bytes)),v=>v.toString(16).padStart(2,'0')).join('');
 
-/** Explicit, lazy loading for inspection. No fetch occurs during registration. */
+/** Explicit loading for app startup or inspection; registration never fetches. */
 export function loadIslandDirectResponseStudy(manifestURL:string){
  const url=new URL(manifestURL,globalThis.location?.href).href;
  if(atlas&&loadedURL===url)return Promise.resolve(getIslandDirectResponseStudy());

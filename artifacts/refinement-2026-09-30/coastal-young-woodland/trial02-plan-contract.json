@@ -1,0 +1,36 @@
+{
+  "status": "Ready for actual selected-look720p comparison, not visually accepted",
+  "dimensions": [
+    1280,
+    720
+  ],
+  "times": [
+    9,
+    10.5,
+    12
+  ],
+  "profile": "artifacts/refinement-2026-09-30/coastal-young-woodland/trial02-profile.json",
+  "profileSource": "profiles/last-light-bay.json",
+  "profileSHA256": "c52fde34e833e3e7a50865a3960e5a5a970373f46418647a76c8583c6877d8d2",
+  "plan": "artifacts/refinement-2026-09-30/coastal-young-woodland/trial02-on-plan.json",
+  "candidate": {
+    "dist": "dist-young-woodland-trial02",
+    "sourceIdentity": "87d484afea5ea36dc894e6dbf3aa89a8c7f6c7a641c3fb5eee961ccf075d463d",
+    "expectedYoungTrees": 16
+  },
+  "exactOffReference": {
+    "sourceIdentity": "b622a249e967a5433f74272e7f1f8dc3d3c525bb127ff3537da17d0221057c81",
+    "expectedYoungTrees": 0,
+    "requiresFreshBuild": true
+  },
+  "preservedOlderNormalDistIdentity": "bb1bdf0b976d1eb2080a1287635c1fd02b3fbd3aad450178cddfff9fa238cc25",
+  "onlySourceDifference": "src/world/coastal-young-woodland.ts",
+  "exactFlagBytesRestored": true,
+  "requiredAppearance": [
+    "Lower foliage masses at natural source proportions, with open group gaps.",
+    "No hedge, miniature mature-tree appearance, unsupported roots or obvious rock intersections.",
+    "Same selected reflection, water, palette, atmosphere and output profile for every pair."
+  ],
+  "browserLaunched": false,
+  "workingYoungWoodland": false
+}

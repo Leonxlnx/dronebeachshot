@@ -1,0 +1,36 @@
+[
+  {
+    "label": "shore-off",
+    "view": 10.5,
+    "coastalReflection": false,
+    "coastalReflectionDistortion": 1
+  },
+  {
+    "label": "shore-flat",
+    "view": 10.5,
+    "coastalReflection": true,
+    "coastalReflectionDistortion": 0
+  },
+  {
+    "label": "shore-wave",
+    "view": 10.5,
+    "coastalReflection": true,
+    "coastalReflectionDistortion": 1
+  },
+  {
+    "label": "shore-off-restored",
+    "view": 10.5,
+    "coastalReflection": false
+  },
+  {
+    "label": "nearby-off",
+    "view": 10.75,
+    "coastalReflection": false
+  },
+  {
+    "label": "nearby-wave",
+    "view": 10.75,
+    "coastalReflection": true,
+    "coastalReflectionDistortion": 1
+  }
+]

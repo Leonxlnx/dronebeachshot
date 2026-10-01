@@ -8,43 +8,56 @@ Use Node 22.12+ or 24, then run `npm ci` and `npm run dev`. Development and buil
 
 Controls: Begin flight; Space to pause/resume; R to replay; arrow keys to move by half a second; drag to look around while paused; touch controls, sound and quality settings are available. Reduced-motion users begin paused. `?inspect=1` exposes named evaluation cameras and diagnostic modes. `?capture=1&quality=high&t=0` hides the interface and fixes time.
 
-## Current status
+## Current status — 2026-10-01
 
-The [2026-09-07 continuation](docs/continuation/PHASE3.md) works directly on main,
-as requested, without PRs. It improves cloud shapes, stone normal detail and
-wave filtering, connects shoaling amplitude to breaking groups, and removes a
-visible seam between the near and distant ocean.
+The current continuation works directly on `main`. Ordinary app startup now uses
+reviewed warmer sand, a less chalky grass palette, clearer lighting and fog,
+wind-shaped clouds at coverage 0.4, and source-based distant crown lighting in
+balanced/high quality. [Application appearance](docs/canonical-look.md) explains
+the defaults and their device costs. The same artistic settings are recorded in
+`profiles/last-light-bay.json` for reproducible local capture.
 
-The 2026-09-06 continuation adds 37 grounded tidal rock instances, distant cloud
-occlusion, sand minification filtering, shared embedded texture images and exact
-terrain-height memoization. Playback and capture state handling were repaired.
-See [the continuation review](docs/continuation/REVIEW.md) for current evidence,
-before/after frames, limitations and the remaining acceptance work.
-The [second continuation](docs/continuation/PHASE2.md) adds automatic build-asset
-restoration, GitHub verification, capture/lifecycle fixes, water roughness, and
-independently reviewed cliff/forest candidates. Visually rejected canopy changes
-were removed from production. New diagnostic images are private
-review attachments pending explicit GitHub publication approval.
+Actual WebGL2/SwiftShader screenshots now exist: the 47-frame comparison series
+checked grass, output sampling, crown response, sand, clouds and reflections.
+The separate east-spur comparison was visually rejected; its smooth pale bulge
+remains disabled. The old reflection produced hard bands. Its corrected
+footprint removes those slits and was accepted in six frames at two shore poses.
+Three later 1280×720 combined views at 9, 10.5 and 12 seconds also support a
+narrow acceptance of 16 additional young woodland trees. That addition is now
+enabled; the original 14,000-tree cohort is unchanged. The gain is modest and
+does not establish full-route or motion acceptance.
 
-The TypeScript/source checks, deterministic terrain and camera tests, GLB resource checks and production build are verified separately from completion. `npm run verify` intentionally exits nonzero until every completion condition is met. It is not appropriate to weaken its conditions to label this checkpoint finished.
+The latest candidate stabilizes the primary cloud integration grid and retains
+already mip-filtered sand albedo instead of fading its variation out a second
+time. Its TypeScript/Vite build, 43 asset checks and all 143 tests passed. Actual
+1280×720 shore and sunset images accept the retained sand detail as a bounded
+improvement. Fine cloud contours remain visible, so their removal is not
+accepted; a focused sky-only diagnosis is in progress. The normal app passed
+startup defaults, study-access and low/high quality-switch checks, but its final
+software PNG readback exceeded the 180-second test deadline. That smoke run is
+recorded as incomplete, not a full pass.
 
-The managed browser cannot create even a 16×16 WebGL context. An independent native
-ANGLE/Mesa renderer now executes the actual production Three.js modules and has
-produced a baseline and repeated diagnostic iterations. It starts no browser.
-Native images exposed and helped correct real shader, geometry, foliage, sky and
-water defects. The scene is still visibly below the supplied reference quality.
-No accepted browser refinement cycle, final gallery, final film, consumer FPS,
-mobile/offline browser result or complete-deliverable acceptance is claimed.
+The user cancelled further cloud video rendering in favour of environment work
+and screenshots. The interrupted 24-fps prefix is preserved; no completed movie
+is claimed. Use the [German local GPU handoff](docs/continuation/2026-10-01-local-render-handoff.md)
+for four hardware screenshots followed by a 20-second 1440p60 master and 1080p60
+copy. Hardware mode rejects known software renderers and supports verified PNG
+checkpoint resume. Actual laptop hardware and OS execution remain unverified.
 
-The largest remaining art problems are the radial cone landforms, sparse/pale
-far canopy, procedural cloud shapes, remote terrain and overly uniform surf.
-See `RUN_REPORT.md`, `docs/native-render/cycles-02-07-review.md`, `GATES.md` and
-`RUN_STATE.json`. Earlier additive-cliff and distant-canopy prototypes were rejected and remain
-archived; their previous reviews are not production acceptance.
+The cliff's broad smooth faces, the wet-sand ribbon and some procedural water/
+canopy structure still limit realism. This is a refinement checkpoint, not an
+8/10 acceptance, final gallery or completed media delivery. `npm run verify`
+intentionally remains separate from source/build checks and will fail while
+those final project gates are unfinished. See the
+[screenshot refinement record](docs/continuation/2026-10-01-screenshot-refinement.md),
+`GATES.md` and `RUN_STATE.json` for the evidence and remaining work.
+
+Earlier continuation reports remain historical evidence, not current browser
+availability or current acceptance decisions.
 
 ## Verification and capture
 
-- `npm run verify:build`: source checks, 27 tests (including fresh asset recovery), actual texture-alpha/license/checksum inspection, CPU world-geometry construction, TypeScript and production build.
+- `npm run verify:build`: source checks, automated tests (including fresh asset recovery), actual texture-alpha/license/checksum inspection, CPU world-geometry construction, TypeScript and production build.
 - `npm run check:landscape`: independent terrain-fracture protection, grounding and route checks, plus offshore shelter/clearance controls. Rejected prototype checkers are archived separately.
 - `node --experimental-strip-types --loader ./scripts/control/ts-resolve.mjs scripts/control/check-offshore.mjs`: independent dense route clearance, seabed contact, real wave-shelter rasterization and an empty-scene negative control for offshore rocks.
 - `node scripts/control/check-worker.mjs`: after build/world checks, confirms the compiled worker transfers the exact same coastal atlas; CPU-only.
@@ -61,4 +74,4 @@ unfinished browser, art, media or active-time gates.
 
 Runtime Three.js is pinned to 0.185.1. Poly Haven materials/tree and Yughues palm are CC0. All optimized production assets, source pages, creators, modifications and SHA-256 checksums are in `public/assets/manifest.json` and `docs/ASSET_LICENSES.md`. Original environment geometry, shaders, ecology, camera and procedural ambience were authored for this project. No reference image is used as a scene backdrop.
 
-Sites identity has been registered but no version was published. Preserve `.openai/hosting.json` when resuming; do not create a second Site. Verified improvements are saved directly to main under the 2026-09-07 user amendment; full completion remains conditional on the remaining acceptance gates.
+Sites identity has been registered but no version was published. Preserve `.openai/hosting.json` when resuming; do not create a second Site. The user's fresh 2026-10-01 instruction authorizes pushing this unfinished checkpoint to main for the local-render handoff. That authorization does not mark the remaining visual and delivery gates complete.
