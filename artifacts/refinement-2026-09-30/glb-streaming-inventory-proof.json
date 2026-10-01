@@ -1,0 +1,48 @@
+{
+  "method": "Fixed 1MiB streaming inventory compared against established vendored source hashes and sizes",
+  "files": 10,
+  "totalBytes": 70043860,
+  "matches": true,
+  "actual": {
+    "/assets/models/island-tree-far.glb": {
+      "sizeBytes": 1304260,
+      "sha256": "ac2213e39b8bfee6d5fe5d46d99486de24cf60efa93905d9c9f2b4c92ad2dc4a"
+    },
+    "/assets/models/island-tree-hero.glb": {
+      "sizeBytes": 3950040,
+      "sha256": "8d892e4a572bb30804aecc3a88adb57e92b852220ccf8f59068f400cf6713a5b"
+    },
+    "/assets/models/island-tree-medium.glb": {
+      "sizeBytes": 1739460,
+      "sha256": "2c210426ac4e761261b6c4dfc8c250fedd72ca1787de918abc965d4d3f32be64"
+    },
+    "/assets/models/island-tree-near.glb": {
+      "sizeBytes": 13299192,
+      "sha256": "c81e6ece28b7646aa59f2c2c68142619b2790d0db62c5d829278fec92e4373d7"
+    },
+    "/assets/models/palm-tree.glb": {
+      "sizeBytes": 490580,
+      "sha256": "5e3f42cc9bd4a52d1e4249184fc8cba7bf87acf91b1403711115acaa7f2ca0f6"
+    },
+    "/assets/models/syringa-tree-far.glb": {
+      "sizeBytes": 2048168,
+      "sha256": "e0ed4e55345c21765804531340a285c2d10dddcb21f2a690fbb77cbfbd659523"
+    },
+    "/assets/models/syringa-tree-hero.glb": {
+      "sizeBytes": 3114880,
+      "sha256": "df11a6b9f0a2bf51b8ffd5bb12e4a18a864b47d767177cd53ad263996d8a5f2f"
+    },
+    "/assets/models/syringa-tree-medium.glb": {
+      "sizeBytes": 2254268,
+      "sha256": "c4ef49e31bf9fb6565ccfdfa7dfa05b84ca6a9054401f2362c81c6f2538770de"
+    },
+    "/assets/models/syringa-tree-near.glb": {
+      "sizeBytes": 38586500,
+      "sha256": "cb794443092f8b4b7b257c4d86f42e6f2b0ec91a2f95d2d3f34043f0a3b49b07"
+    },
+    "/assets/rocks/rock_moss_set_01_2k.glb": {
+      "sizeBytes": 3256512,
+      "sha256": "864ece45cf6cafeb7fab5ab65704b1810622ba411da2026ebad847a0a08eab2f"
+    }
+  }
+}

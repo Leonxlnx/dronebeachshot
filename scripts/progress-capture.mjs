@@ -3,6 +3,7 @@
  * Still plans: plan=entries.json, or views=0,6,10.5,19.5
  * Video: fps=24 duration=20 start=0 profile=settings.json [resume]
  * Optional guard: memoryStartMiB=6144 memoryLimitMiB=7424
+ * Optional heap experiment and startup measurements: jsHeapMiB=512
  * A video pins its first dist bundle. Resume validates every committed PNG and
  * replays it into a fresh encoder before rendering the missing suffix.
  */
@@ -17,13 +18,14 @@ import {acquireCaptureLock,makeVideoContract,openVideoCheckpoint,validateProfile
 import {trackCaptureRequests} from './control/progress-network.mjs';
 import {captureGlbManifest,installCaptureGlbFetch} from './control/progress-glb-fetch.mjs';
 import {createCaptureMemoryGuard,validateCaptureMemoryLimits} from './control/progress-memory.mjs';
+import {createStartupMemorySampler,validateJsHeapMiB} from './control/progress-startup-memory.mjs';
 
 const projectRoot=fileURLToPath(new URL('../',import.meta.url));
 const settingMethods={lighting:'setLighting',surfaceStudy:'setSurfaceStudy',shadowStudy:'setShadowStudy',
  culling:'setGroundCulling',oceanCulling:'setOceanCulling',debug:'setDebug',farCrownCoverage:'setFarCrownCoverage',islandDirectResponse:'setIslandDirectResponseStudy',
  farCrownBlending:'setFarCrownBlending',linearMainOutput:'setLinearMainOutput',linearMainSampleScale:'setLinearMainSampleScale',profiling:'setFrameProfiling',coastalUnderstory:'setCoastalUnderstory'};
 const settingsOf=entry=>Object.fromEntries(Object.entries(entry).filter(([key])=>key!=='view'&&key!=='label'));
-const supportedArguments=new Set(['width','height','out','dist','plan','views','times','fps','duration','start','profile','writeTimeout','exitTimeout','readyTimeout','networkTimeout','memoryStartMiB','memoryLimitMiB','resume','video']);
+const supportedArguments=new Set(['width','height','out','dist','plan','views','times','fps','duration','start','profile','writeTimeout','exitTimeout','readyTimeout','networkTimeout','memoryStartMiB','memoryLimitMiB','jsHeapMiB','resume','video']);
 export function parseOptions(argv,root=projectRoot){
  const args={};let video=false,resume=false;
  for(const item of argv){
@@ -46,6 +48,7 @@ export function parseOptions(argv,root=projectRoot){
   writeTimeout:Number(args.writeTimeout??120000),exitTimeout:Number(args.exitTimeout??120000),readyTimeout:Number(args.readyTimeout??300000),networkTimeout:Number(args.networkTimeout??30000)};
  for(const key of ['writeTimeout','exitTimeout','readyTimeout','networkTimeout'])if(!Number.isFinite(options[key])||options[key]<=0)throw Error('Invalid '+key);
  Object.assign(options,validateCaptureMemoryLimits(args.memoryStartMiB,args.memoryLimitMiB));
+ if(args.jsHeapMiB!==undefined)options.jsHeapMiB=validateJsHeapMiB(args.jsHeapMiB);
  if(video)options.contract=makeVideoContract({...options,timeline});
  else{if(resume)throw Error('Resume is supported for video checkpoints only');options.timeline=validateTimeline(timeline??[0,6,10.5,19.5].map(view=>({view})));}
  return options;
@@ -71,18 +74,19 @@ async function serveBundle(directory,diagnostics={}){
 function captureStatus(output,stage,{name,...counts}={}){
  if(output)writeAtomicJson(path.join(output,'capture-status.json'),{stage,...(name===undefined?{}:{name}),timestamp:new Date().toISOString(),...counts});
 }
-export async function browserCapture({directory,output,width,height,readyTimeout,networkTimeout=30000,islandResponseNeeded=false,memoryStartMiB,memoryLimitMiB,errors,failedRequests,diagnostics={}},
- {launchBrowser=async options=>{const {chromium}=await import('playwright');return chromium.launch(options);},serve=serveBundle,memoryDependencies}={}){
+export async function browserCapture({directory,output,width,height,readyTimeout,networkTimeout=30000,islandResponseNeeded=false,memoryStartMiB,memoryLimitMiB,jsHeapMiB,errors,failedRequests,diagnostics={}},
+ {launchBrowser=async options=>{const {chromium}=await import('playwright');return chromium.launch(options);},serve=serveBundle,memoryDependencies,startupMemoryDependencies}={}){
+ jsHeapMiB=validateJsHeapMiB(jsHeapMiB);
  let startup=true;
  const stage=(name,{persist=startup,frameName}={})=>{
   diagnostics.stage=name;const history=diagnostics.stageHistory??=[];history.push({stage:name,at:new Date().toISOString()});if(history.length>64)history.shift();
   if(persist)captureStatus(output,name,{name:frameName,errorCount:errors.length,failedRequestCount:failedRequests.length});
  };
  const memory=createCaptureMemoryGuard({memoryStartMiB,memoryLimitMiB,diagnostics,getStage:()=>diagnostics.stage},memoryDependencies);
- stage('serve-bundle');const server=await serve(directory,diagnostics);let browser,context,page,requests;
+ stage('serve-bundle');const server=await serve(directory,diagnostics);let browser,context,page,requests,startupMemory;
  async function close(){
   diagnostics.closing=true;memory.stop();
-  try{await context?.close();}finally{try{await browser?.close();}finally{try{await memory.finish();}finally{requests?.dispose();await server.close();}}}
+  try{await startupMemory?.stop();}finally{try{await context?.close();}finally{try{await browser?.close();}finally{try{await memory.finish();}finally{requests?.dispose();await server.close();}}}}
  }
  async function diagnose(error){
   error=memory.error??error;
@@ -106,8 +110,10 @@ export async function browserCapture({directory,output,width,height,readyTimeout
   stage('hash-served-glbs');diagnostics.glbInventory=captureGlbManifest(directory);
   if(memoryStartMiB!==undefined){stage('memory-preflight');memory.preflight();}
   stage('launch-browser');
+  const jsFlags=jsHeapMiB===undefined?[]:[`--js-flags=--max-old-space-size=${jsHeapMiB}`];
+  if(jsHeapMiB!==undefined)diagnostics.jsHeap={requestedMiB:jsHeapMiB,launchArgument:jsFlags[0],forcedGC:false};
   browser=await launchBrowser({executablePath:process.env.BAY_BROWSER_EXECUTABLE,headless:true,timeout:120000,
-   args:['--no-sandbox','--disable-dev-shm-usage','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader','--force-color-profile=srgb']});
+   args:['--no-sandbox','--disable-dev-shm-usage','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader','--force-color-profile=srgb',...jsFlags]});
   memory.attachBrowser(browser);memory.assertHealthy();
   context=await browser.newContext({viewport:{width,height},deviceScaleFactor:1,reducedMotion:'reduce'});
   page=await context.newPage();page.setDefaultTimeout(0);
@@ -117,6 +123,10 @@ export async function browserCapture({directory,output,width,height,readyTimeout
   page.on('pageerror',runtimeError);
   page.on('console',message=>{if(message.type()==='error')runtimeError(message.text());});
   requests=trackCaptureRequests(page,{failedRequests,diagnostics,getStage:()=>diagnostics.closing?'browser-cleanup':diagnostics.stage});
+  if(jsHeapMiB!==undefined){
+   startupMemory=createStartupMemorySampler({context,page,output,diagnostics,jsHeapMiB,getStage:()=>diagnostics.stage},startupMemoryDependencies);
+   await startupMemory.start();
+  }
   stage('install-glb-transport');await page.addInitScript(installCaptureGlbFetch,diagnostics.glbInventory);
   stage('navigate');
   await page.goto(server.url+'/?capture=1&quality=high',{waitUntil:'load',timeout:120000});
@@ -157,6 +167,7 @@ export async function browserCapture({directory,output,width,height,readyTimeout
   stage('health-after-offline');await healthy();
   stage('graphics-state');
   const graphics=await page.evaluate(()=>{const gl=document.getElementById('world').getContext('webgl2'),extension=gl.getExtension('WEBGL_debug_renderer_info');return{version:gl.getParameter(gl.VERSION),renderer:extension?gl.getParameter(extension.UNMASKED_RENDERER_WEBGL):gl.getParameter(gl.RENDERER),samples:gl.getParameter(gl.SAMPLES)};});
+  await startupMemory?.stop('capture-ready');
   stage('capture-ready');startup=false;
   return {build,graphics,offlineAfterLoad:true,healthy,diagnose,get failure(){return memory.error;},
    async applySettings(settings){

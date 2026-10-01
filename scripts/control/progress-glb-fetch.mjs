@@ -1,16 +1,24 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import {sha256} from './capture-integrity.mjs';
+import crypto from 'node:crypto';
 
 /** Hash only served GLBs. No scene/source mutation or response rewriting on disk. */
 export function captureGlbManifest(directory){
- const assets=path.join(directory,'assets'),manifest={};
+ const assets=path.join(directory,'assets'),manifest={},buffer=Buffer.allocUnsafe(1024*1024);
  function walk(relative){
   for(const name of fs.readdirSync(path.join(directory,relative)).sort()){
    const child=relative+'/'+name,file=path.join(directory,child),stat=fs.lstatSync(file);
    if(stat.isSymbolicLink())throw Error('Capture GLB inventory refuses symlink: '+child);
    if(stat.isDirectory())walk(child);
-   else if(stat.isFile()&&name.endsWith('.glb')){const bytes=fs.readFileSync(file);manifest['/'+child.split('/').map(encodeURIComponent).join('/')]={sizeBytes:bytes.length,sha256:sha256(bytes)};}
+   else if(stat.isFile()&&name.endsWith('.glb')){
+    // The inventory retains only hashes. A fixed buffer avoids leaving several
+    // complete source GLBs pending garbage collection before browser startup.
+    const hash=crypto.createHash('sha256'),fd=fs.openSync(file,'r');let sizeBytes=0;
+    try{for(let count;(count=fs.readSync(fd,buffer,0,buffer.length,null))>0;){hash.update(buffer.subarray(0,count));sizeBytes+=count;}}
+    finally{fs.closeSync(fd);}
+    if(sizeBytes!==stat.size)throw Error('Capture GLB changed size while hashing: '+child);
+    manifest['/'+child.split('/').map(encodeURIComponent).join('/')]={sizeBytes,sha256:hash.digest('hex')};
+   }
   }
  }
  if(fs.existsSync(assets))walk('assets');return manifest;

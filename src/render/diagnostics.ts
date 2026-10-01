@@ -14,16 +14,28 @@ export function diagnosticOutputShader(fragment:string){
  fragment=fragment.replace('#include <colorspace_fragment>','if(uDebug==0.||uDebug==1.||uDebug==5.||uDebug==6.){\n#include <colorspace_fragment>\n}');
  return fragment;
 }
+function declaredUniforms(fragment:string){
+ // Material hooks can put several names in one declaration. Ignore comments
+ // and inspect complete declarators, not a substring such as "uDebug;".
+ const source=fragment.replace(/\/\*[\s\S]*?\*\//g,' ').replace(/\/\/[^\n]*/g,' '),names=new Set<string>();
+ for(const declaration of source.matchAll(/\buniform\s+(?:(?:lowp|mediump|highp)\s+)?\w+\s+([^;{}]+);/g)){
+  for(const declarator of declaration[1].split(',')){
+   const name=/^\s*([A-Za-z_]\w*)\b/.exec(declarator)?.[1];if(name)names.add(name);
+  }
+ }
+ return names;
+}
 export function enableMaterialDiagnostics(material:THREE.MeshStandardMaterial){
  if(material.userData.diagnostics)return;material.userData.diagnostics=true;
  const previous=material.onBeforeCompile.bind(material),key=material.customProgramCacheKey();
  material.onBeforeCompile=(shader,renderer)=>{
   previous(shader,renderer);shader.uniforms.uDebug=debugMode;shader.uniforms.uLod={value:Number(material.userData.lod??-1)};
-  const uniform=shader.fragmentShader.includes('uDebug;')?'uniform float uLod;':'uniform float uDebug,uLod;';
+  const declared=declaredUniforms(shader.fragmentShader),missing=['uDebug','uLod'].filter(name=>!declared.has(name));
+  const uniform=missing.length?'uniform float '+missing.join(',')+';':'';
   shader.fragmentShader=shader.fragmentShader.replace('#include <common>','#include <common>\n'+uniform)
    .replace('#include <shadowmap_pars_fragment>','#include <shadowmap_pars_fragment>\n'+THREE.ShaderChunk.shadowmask_pars_fragment)
    .replace('#include <opaque_fragment>','#include <opaque_fragment>\n'+diagnosticFragment);
   shader.fragmentShader=diagnosticOutputShader(shader.fragmentShader);
  };
- material.customProgramCacheKey=()=>key+'-diagnostics-v2';
+ material.customProgramCacheKey=()=>key+'-diagnostics-v3';
 }
