@@ -4,6 +4,8 @@ The six-frame, sky-only probe supports changing the nominal primary step from 30
 
 ## Historical source and fidelity
 
+Historical local commit IDs are mapped to their published equivalents in `docs/continuation/2026-10-01-github-transfer.json`. For a fresh GitHub checkout, use published baseline `2c3bc7eec0ede6e06116c82003df3e94e2dfb76a` in place of local `4f773c7`; their complete Git trees are identical. The authenticated transfer changed commit metadata, not the recorded source or evidence.
+
 The probe preserves the **30 m baseline** from commit `4f773c7`, whose full-scene source identity is `301d9c4541e7b48f82d7166345cd39f3ebc7b3fba4140549f0ab3d997a6b095f`. Its frozen atmosphere source SHA-256 matches that commit exactly: `8062216960907d9e2de8bd808366860d3d8f7d22ec5374dcdcdbe45e30e8967b`.
 
 The physical 256×128 crop uses the actual 1280×720 camera at 10.5 seconds, offset (220, 0), the production atmosphere, and the production RGBA16F/MSAA4 linear output path. Its first **84 rows match the full-scene baseline byte for byte: 21,504 RGB pixels, zero differences**. The initial top-96 assumption included 104 tree pixels; tree occlusion starts at local row 84. Whole-crop differences therefore do not indicate camera mismatch.

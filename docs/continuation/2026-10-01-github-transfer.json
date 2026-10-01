@@ -1,0 +1,101 @@
+{
+  "kind": "github-authenticated-transfer",
+  "repository": "Leonxlnx/dronebeachshot",
+  "base": "b027d2abf86eaf4c1185f000c064ea9bea49d218",
+  "reason": "Shell git push had no configured credentials. Authenticated GitHub Git Data API recreated the local checkpoints in order, verifying each tree against the local tree before creating its commit. Commit metadata and IDs differ; file contents and modes match exactly.",
+  "localFinal": "8a05aa10e9f2d29eb5857de09184a4f71175638f",
+  "transferredCheckpoint": "11a7e6306b567540b0d98d47dabb8c8db23b3633",
+  "verifiedCheckpointTree": "82c9ac9e2d29a43f51875460c1e8a8cf38120c41",
+  "commits": [
+    {
+      "localCommit": "657b5c87d05139ec13a4c199c9ccfdabbd5cbd45",
+      "remoteCommit": "2bf7930e790bef460fca4390ac9c94d260b1ed13",
+      "tree": "1e3e8a2728bdd2f13e4097440bb24ccd379c113d",
+      "index": 0
+    },
+    {
+      "localCommit": "9cad0d8a4f5af8681f56a92618a110047ee917a3",
+      "remoteCommit": "6b23c9d4cefdf5e79929954cf7bd69ab73bd7c4a",
+      "tree": "d1622e03f9c98f4e3a95240d2065d43862abf9f5",
+      "index": 1
+    },
+    {
+      "localCommit": "c604d9004ccecce4a27fc7b99d4a629458022536",
+      "remoteCommit": "79aa7ef9bf6f159be19f1564487e448cdfb0b7f4",
+      "tree": "d5d147f2faa1621f1dc635f03267c1f98f122a04",
+      "index": 2
+    },
+    {
+      "localCommit": "6f6f08e8c544803224eaad47dceeffe24af57a1a",
+      "remoteCommit": "25008090de42727f472a57cfd028bd35e518f697",
+      "tree": "73695883942d45da29ab1c4d616ff55bd70751d2",
+      "index": 3
+    },
+    {
+      "localCommit": "9975e755aa546c7ef36578bc92c83765184b90cc",
+      "remoteCommit": "98723a3ce6b8619b833ed373a25f6145e6a9b7e7",
+      "tree": "8a0383d95e56f2a44cf5bd0c7e57394889bb5fd7",
+      "index": 4
+    },
+    {
+      "localCommit": "ce714b8c03abaf95b7be041b2fc567023160dc60",
+      "remoteCommit": "964dca95049fe47b879a94f9985ccda8ca98976a",
+      "tree": "8638bc2ce5e4afbace42de6a884ac0a9c5469a72",
+      "index": 5
+    },
+    {
+      "localCommit": "01be07e3550a9e908ed20d4831d43ab0b0a9c192",
+      "remoteCommit": "fb15ed4b87d77af829abe0f5f7ae49df263f6280",
+      "tree": "8f91a8ebdfcce3a20c118e2f9ea7fdf4928de157",
+      "index": 6
+    },
+    {
+      "localCommit": "c9dee07b80ce3c0d0bc41eeee7e1b82c8d61df8e",
+      "remoteCommit": "f503bb6a3407439db06553614a07fd8e836464ba",
+      "tree": "b38671e8681181fcedac8182817d568b17bb85b3",
+      "index": 7
+    },
+    {
+      "localCommit": "1956b26a33d5a35a45d3d34e2e1acc803dc5355c",
+      "remoteCommit": "504f5d2c236f6d2d9317b7bbfcbc17ff69d49c2e",
+      "tree": "6c573f8659e2fcd1152ec905b2b0a3b4aa798275",
+      "index": 8
+    },
+    {
+      "localCommit": "fca5aec076104de8d5a7f0c1b4c6915283d61435",
+      "remoteCommit": "7f3e2e9a498df7583f5584ee2d8330b62df2ed66",
+      "tree": "1dcef940440bbecbb7c74f7149017277fff7ec91",
+      "index": 9
+    },
+    {
+      "localCommit": "44221522c79d18d1a3ec82be9f09d2299cf3428d",
+      "remoteCommit": "a216dcb3df61bea756752686cfd33112d4ca9029",
+      "tree": "387b48195e5289455075b0bcfc0803dfc5446d9a",
+      "index": 10
+    },
+    {
+      "localCommit": "10f1826b2d78a6811ce136fcdd5d3f79d3bfe396",
+      "remoteCommit": "512f7a7fae58ca94b70333ac9b5842302e0d2b9b",
+      "tree": "4532013ff13447d632533ed90152e62cc82c91b7",
+      "index": 11
+    },
+    {
+      "localCommit": "0811cbceea2594b7ce4d9185f894c156378b8908",
+      "remoteCommit": "ea5a7c0c0d9972028d320f7e9c5e6bd72f29cb12",
+      "tree": "2d2995dc4f62d0105a15aaeb76f2ff8d99738c8b",
+      "index": 12
+    },
+    {
+      "localCommit": "4f773c7c721b2ed01917f6dc5396303e269121df",
+      "remoteCommit": "2c3bc7eec0ede6e06116c82003df3e94e2dfb76a",
+      "tree": "2e3a2953422271e3183e5f58c98c05d8243504e8",
+      "index": 13
+    },
+    {
+      "localCommit": "8a05aa10e9f2d29eb5857de09184a4f71175638f",
+      "remoteCommit": "11a7e6306b567540b0d98d47dabb8c8db23b3633",
+      "tree": "82c9ac9e2d29a43f51875460c1e8a8cf38120c41",
+      "index": 14
+    }
+  ]
+}
