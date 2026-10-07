@@ -3,6 +3,7 @@ import {rng,noise,smooth} from './math';
 import {createTreeImpostor} from './tree-impostor';
 import {treeImpostorDefinitions} from './tree-impostor-data';
 import {createLandscapeSampler} from './landscape-sampler';
+import {treeTint} from './tree-palette';
 
 type Atlas={albedo:THREE.Texture,normals:THREE.Texture,visibility?:THREE.DataTexture|null};
 type DistantPlacement={x:number,y:number,z:number,scale:number,angle:number,family:number};
@@ -69,7 +70,7 @@ export function createDistantForest(terrain:THREE.Group,atlases:Atlas[]){
   for(let i=0;i<items.length;i++){
    const p=items[i];object.position.set(p.x,p.y,p.z);object.rotation.set(0,p.angle,0);object.scale.setScalar(p.scale);object.updateMatrix();
    mesh.setMatrixAt(i,object.matrix);
-   color.setHSL(.24,.08,.86+noise(p.z,p.x)*.08);mesh.setColorAt(i,color);
+   mesh.setColorAt(i,treeTint(p.x,p.z,p.family,color));
   }
   mesh.instanceMatrix.needsUpdate=true;mesh.instanceColor!.needsUpdate=true;
   // These ranges lie outside the near sun-shadow volume. Their normal atlases

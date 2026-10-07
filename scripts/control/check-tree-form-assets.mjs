@@ -7,7 +7,8 @@ const read=p=>fs.readFileSync(p);
 const hash=p=>crypto.createHash('sha256').update(read(p)).digest('hex');
 const record=JSON.parse(read('docs/tree-form-authoring/island-fork-open.json'));
 const manifest=JSON.parse(read('public/assets/manifest.json'));
-assert.equal(hash('src/world/tree-form.ts'),record.formSourceSha256,'Growth geometry changed: regenerate and review its far-view atlas');
+// Git may check source out with CRLF; the authoring record hashes its canonical LF text.
+assert.equal(crypto.createHash('sha256').update(read('src/world/tree-form.ts').toString('utf8').replace(/\r\n/g,'\n')).digest('hex'),record.formSourceSha256,'Growth geometry changed: regenerate and review its far-view atlas');
 assert.equal(hash('public/assets/models/island-tree-near.glb'),record.sourceModelSha256,'Atlas source model changed');
 assert.deepEqual(islandForkOpenDefinition,record.definition,'Runtime framing differs from the baked source geometry');
 for(const file of record.files){

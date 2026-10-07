@@ -35,7 +35,7 @@ test('surface study defaults off and changes only the composed roughness respons
  assert.ok(shader.fragmentShader.includes('float exposedFilm=wet*sediment*smoothstep(-.25,.10,gp.y);'));
  const use=shader.fragmentShader.indexOf('float drainedFilm=sandFilmWetness(');
  assert.ok(use>shader.fragmentShader.indexOf('#include <roughnessmap_fragment>'));
- assert.ok(use<shader.fragmentShader.indexOf('roughnessFactor=mix(roughnessFactor,.20,exposedFilm)'));
+ assert.ok(use<shader.fragmentShader.indexOf('roughnessFactor=mix(roughnessFactor,mix(.20,.30,uSandFilmDrying),exposedFilm)'));
  assert.ok(shader.fragmentShader.includes('if(uSandFilmDrying>0.)'));
  material.dispose();for(const texture of Object.values(textures))texture.dispose();
 });

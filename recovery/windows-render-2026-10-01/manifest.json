@@ -1,0 +1,48 @@
+{
+  "description": "Byte-identical historical helper and report snapshots from the October 1 workspace; generated video and device metadata omitted.",
+  "historicalCommit": "e4f13884e607b420cdef7dc21c233bd7d0d82618",
+  "files": [
+    {
+      "file": "capture-opengl.mjs",
+      "originalRelativePath": "work/capture-opengl.mjs",
+      "bytes": 623,
+      "sha256": "3b19c2d99e87100b2cc342fa0b77ef0d65f031f48096156f585aaa367b22e9be"
+    },
+    {
+      "file": "render.ps1",
+      "originalRelativePath": "work/render.ps1",
+      "bytes": 943,
+      "sha256": "205663a713ba80c412bccb0bb1cbd22b57b20fed68ce25adaf2554219da5143a"
+    },
+    {
+      "file": "check-playback.mjs",
+      "originalRelativePath": "work/check-playback.mjs",
+      "bytes": 2900,
+      "sha256": "b7b3c0bfba7fcedb7409b10e863dec9bfc09eaf6adebe7ba6e6fcd079d0dceaa"
+    },
+    {
+      "file": "probe-gpu.mjs",
+      "originalRelativePath": "work/probe-gpu.mjs",
+      "bytes": 1298,
+      "sha256": "dba0c1a55101f4ce7269483e0e7b1e2ec2c66bb94fdc277dc0b43b9851d9e352"
+    },
+    {
+      "file": "verify-media.py",
+      "originalRelativePath": "work/verify-media.py",
+      "bytes": 4516,
+      "sha256": "f399f2c29303d74970f65072b2a847dcbb50a03e0b94e34d9221b0b70d1f0124"
+    },
+    {
+      "file": "player.html",
+      "originalRelativePath": "work/player.html",
+      "bytes": 233,
+      "sha256": "9c3dafaa5f46a490c7e1bf5a3a648f0a0b7fe0b1f19dc2381558d10b9cfda8d0"
+    },
+    {
+      "file": "render-pruefbericht.txt",
+      "originalRelativePath": "outputs/render-pruefbericht.txt",
+      "bytes": 7615,
+      "sha256": "759ea76fe9b3c046b364c56e8c60a0533131b770c691d2db7caf473144c7e7b1"
+    }
+  ]
+}

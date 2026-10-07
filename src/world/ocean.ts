@@ -143,12 +143,12 @@ float waterHeight(vec2 p,float t){
  // must never pull the sea up onto the elevated inland terrain at x=575–600 m.
  if(abs(p.x)<600.&&actualDistance> -3.&&actualDistance<12.){
   float contact=smoothstep(-3.,0.,actualDistance)*(1.-smoothstep(6.,12.,actualDistance));
-  h=mix(h,renderedTerrainHeight(p)+.028,contact);
+  h=mix(h,renderedTerrainHeight(p)+.012+swashDepth(p.x,actualDistance,t),contact);
  }
  return h;
 }
 ${waterSlopeFilterGLSL}
-// The displaced mesh, contact film and their full FD gradient remain unchanged.
+// Filter oscillating swell phase; retain the full contact-film FD gradient.
 // These envelopes reproduce the existing phase amplitudes at the same stencil.
 vec2 swellSlopeAmplitude(vec2 p,float t){
  float d=coastalDistance(p),actualDistance=shoreDist(p),contact=0.;
@@ -207,7 +207,10 @@ vec3 waterNormal(vec2 p,float t,float dist,vec2 pixelDx,vec2 pixelDy){
  float baseVariance=0.;
  slope+=filteredSwellCorrection(p,t,pixelDx,pixelDy,baseVariance);
  float distanceVisibility=1.-smoothstep(250.,1400.,dist);
- float shoreAmplitude=1.-smoothstep(-2.,4.,coastalDistance(p));
+ // A finite swash sheet retains small capillary slopes instead of becoming a
+ // perfect mirror at the fixed d=4 contour. The same depth sets its geometry.
+ float shoreAmplitude=max(1.-smoothstep(-2.,4.,coastalDistance(p)),
+  .30*smoothstep(.0,.04,swashDepth(p.x,shoreDist(p),t)));
  float micro=distanceVisibility*shoreAmplitude;
  vec2 along=normalize(vec2(${WIND[0]},${WIND[1]})),across=vec2(-along.y,along.x);
  // Deterministic broad directional spectrum: many independent components
@@ -288,8 +291,8 @@ vec3 waterNormal(vec2 p,float t,float dist,vec2 pixelDx,vec2 pixelDy){
 }
 `;
 function swashGeometry(){
- // Same grid vertices and triangle diagonals as the land. When a wave wets
- // positive-shore triangles, its surface stays exactly 28mm above that sand.
+ // Same grid vertices and triangle diagonals as land. Positive-shore triangles
+ // carry the time-varying film above the same sand with 12 mm raster clearance.
  const positions:number[]=[],indices:number[]=[],vertexMap=new Map<string,number>();
  function vertex(x:number,z:number){const key=x+','+z;if(vertexMap.has(key))return vertexMap.get(key)!;const i=positions.length/3;positions.push(x,terrainHeight(x,z),z);vertexMap.set(key,i);return i}
  // Cover the entire near-ocean domain: the outer crescent reaches beyond
@@ -352,11 +355,9 @@ uniform float uTime,uDebug,uSurfaceMode,uSkyDecodeScale,uSunIntensity,uAerialDen
  if(uSurfaceMode<.5&&abs(p.x)<575.&&d>=-60.)discard;
  if(uSurfaceMode>1.5&&(abs(p.x)>=575.||d< -60.))discard;
  float reach=runup(p.x,t);
- // Small connected fingers break the advancing front without teleporting foam.
- // The CPU wetness history includes a one-metre fringe, covering this 0.24 m offset.
- float fringe=(noise(vec2(p.x*.83,t*.07))-.5)*.32
-             +(noise(vec2(p.x*2.1,t*.11))-.5)*.16;
- float filmReach=reach+fringe;if(d>filmReach)discard;
+ // One front drives geometry, foam advection and the CPU/GPU moisture history.
+ float filmReach=reach;if(d>filmReach)discard;
+ float localFilmDepth=swashDepth(p.x,d,t);
  vec4 coast=coastalFieldSample(p);if(coast.g<-.25&&coast.b>vWorld.y+.06)discard;
  vec3 V=normalize(cameraPosition-vWorld);float distanceToEye=length(cameraPosition-vWorld);vec3 N;
  if(uCoastalReflectionReady>.5)N=coastalNormal;
@@ -400,7 +401,7 @@ uniform float uTime,uDebug,uSurfaceMode,uSkyDecodeScale,uSunIntensity,uAerialDen
  float previousBreaking=smoothstep(.28,.64,(.65+.80*previousEnergy)/max(depth,.25));
  float residue=pow(.5+.5*sin(travel+1.1),3.)*breakerActivity*.24*previousEnergy*mix(1.,previousBreaking,uFoamDepthGate);
  float swashEdge=1.-smoothstep(.0,.75,abs(d-filmReach+.28));
- float washArea=smoothstep(-6.,-.5,d)*(1.-smoothstep(reach-2.,reach,d));
+ float washArea=smoothstep(-6.,-.5,d)*smoothstep(.008,.035,localFilmDepth);
  float rockEdge=(1.-smoothstep(.3,3.8,max(coast.g,0.)))*step(-.5,coast.g);
  float foam=0.;
  if(crest>0.||residue>0.||swashEdge>0.||washArea>0.||rockEdge>0.){
@@ -415,10 +416,16 @@ uniform float uTime,uDebug,uSurfaceMode,uSkyDecodeScale,uSunIntensity,uAerialDen
  // away. They share the original swash flow, so foam connects and drains with it.
  float raftNoise=filteredFoamNoise(flow*.0625,foamFootprint*.0625);
  float rafts=smoothstep(.34,.57,raftNoise);
+ // Leading bubbles are centimetre-scale lace, not the metre-scale rafts used
+ // by breakers. Filter the formed lace toward its area coverage; filtering its
+ // noise first would turn every unresolved bubble into one opaque white bar.
+ float bubbleNoise=noise(flow*6.25);
+ float bubbleLace=1.-smoothstep(.04,.12,abs(bubbleNoise-.5));
+ bubbleLace=mix(.255,bubbleLace,1.-smoothstep(.35,1.25,foamFootprint*6.25));
  foam=crest*(.18+.82*rafts)*(.30+.70*lace)
   +residue*rafts*(.45+.55*lace);
  float swashEnergy=smoothstep(.24,.66,breakingGroup(p,0.,t-.7))*mix(1.,.35,coast.a);
- foam+=swashEdge*(.015+.56*lace)*rafts*(.20+.80*swashEnergy)
+ foam+=swashEdge*.68*bubbleLace*(.25+.75*lace)*(.45+.55*rafts)*(.25+.75*swashEnergy)
   +washArea*lace*rafts*.20*(.30+.70*swashEnergy);
  // Rock foam is attached to the rasterized waterline of actual scene geometry.
  vec2 obstacleGradient=vec2(coastalFieldSample(p+vec2(1.,0.)).g-coastalFieldSample(p-vec2(1.,0.)).g,coastalFieldSample(p+vec2(0.,1.)).g-coastalFieldSample(p-vec2(0.,1.)).g);
@@ -426,16 +433,19 @@ uniform float uTime,uDebug,uSurfaceMode,uSkyDecodeScale,uSunIntensity,uAerialDen
  float impact=pow(.5+.5*sin(travel),5.)*facing*(.25+.75*waveEnergy);
  foam+=rockEdge*(.28+impact*.9)*(.5+lace*.5);foam=clamp(foam,0.,.98);
  }
- vec3 foamColor=vec3(.68,.72,.665)*(vec3(.58)+uSunColor*(uSunIntensity/4.4)*max(dot(uSun,N),0.)*.77*sunlight);col=mix(col,foamColor,foam);
+ vec3 foamColor=vec3(.68,.72,.665)*(vec3(.58)+uSunColor*(uSunIntensity/4.4)*max(dot(uSun,N),0.)*.77*sunlight);
  // A thinning swash front mixes coverage with the real opaque coast beneath it.
  // At zero thickness this tends exactly to the underlying ground color, removing
  // the former opaque, ruler-like reflection edge. No transparent sorting is used.
- float filmCoverage=smoothstep(0.,.55,filmReach-d);
+ float filmCoverage=smoothstep(0.,.008,localFilmDepth);
  if(uUnderReady>.5){
   vec2 underUv=gl_FragCoord.xy/uUnderResolution;
   vec3 underColor=texture2D(uUnderColor,underUv).rgb*uUnderDecodeScale;
   col=mix(underColor,col,filmCoverage);
  }
+ // Bubble coverage survives over a thinning transparent sheet. Applying foam
+ // before film coverage erased the leading lace exactly where wash meets sand.
+ col=mix(col,foamColor,foam*smoothstep(0.,.08,filmReach-d));
  col=bayAerialPerspective(col,cameraPosition,vWorld,uSun,uAerialDensity);
  if(uDebug==1.)col=water;if(uDebug==2.)col=N*.5+.5;if(uDebug==3.)col=vec3(.12);if(uDebug==4.)col=vec3(clamp(distanceToEye/800.,0.,1.));
  if(uDebug==5.)col=uSunColor*(uSunIntensity/4.4)*13.*sunPath;if(uDebug==6.)col=mix(water,reflection,fresnel*.85);if(uDebug==7.)col=vec3(sunlight);if(uDebug==8.)col=vec3(.3);

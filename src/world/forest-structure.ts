@@ -220,10 +220,10 @@ export function createForestStructure(textures: Textures, liveTrees:readonly {x:
   // Same 20-second route and 1/30-second sampling convention used by ecology.ts.
   const flight = Array.from({ length: 601 }, (_, i) => pathPosition(i / 30));
   let placements: PlantPlacement[] = [];
-  const selectionSlope=EAST_SPUR_STUDY_ENABLED?terrainSlopeBeforePrincipalFace:terrainSlope;
-  const selectionHabitat=EAST_SPUR_STUDY_ENABLED?habitatAtBeforePrincipalFace:habitatAt;
-  const selectionHeight=EAST_SPUR_STUDY_ENABLED?renderedTerrainHeightBeforePrincipalFace:renderedTerrainHeight;
-  const selectionTrees=EAST_SPUR_STUDY_ENABLED?treePlacementsBeforePrincipalFace():liveTrees;
+  // Preserve reference selection and RNG; changed terrain is applied only in
+  // the support pass after the complete cohort has been selected.
+  const selectionSlope=terrainSlopeBeforePrincipalFace,selectionHabitat=habitatAtBeforePrincipalFace;
+  const selectionHeight=renderedTerrainHeightBeforePrincipalFace,selectionTrees=treePlacementsBeforePrincipalFace();
   const coastalSampling = options.coastalSampling ?? COASTAL_SHRUB_SAMPLING_STUDY_ENABLED;
   const stats: ForestStructureStats = { seed: SEED, shrubs: 0, snags: 0, leafSurfaces: 0,
     drawCalls: 0, instancedTriangles: 0, sourceTriangles: 0, routeRejected: 0, spacingRejected: 0,
@@ -313,10 +313,16 @@ export function createForestStructure(textures: Textures, liveTrees:readonly {x:
   const referenceCounts={shrubs:stats.shrubs,snags:stats.snags,coastalShrubs:stats.coastalShrubs};
   const coastalStart=placements.length-stats.coastalShrubs;
   const localRecords:{sourceOrdinal:number,kind:Kind,x:number,z:number,oldY:number,y:number,maximumBasalGap:number|null,omitted:boolean,reason?:string}[]=[];
-  if(EAST_SPUR_STUDY_ENABLED){
+  {
     const object=new THREE.Object3D(),point=new THREE.Vector3();
     placements=placements.flatMap((p,index)=>{
-      if(!eastSpurTouchesBounds(p.x-p.radius,p.x+p.radius,p.z-p.radius,p.z+p.radius))return[p];
+      let local=EAST_SPUR_STUDY_ENABLED&&eastSpurTouchesBounds(p.x-p.radius,p.x+p.radius,p.z-p.radius,p.z+p.radius);
+      for(let sample=0;sample<9&&!local;sample++){
+        const a=sample*Math.PI/4,r=sample===8?0:p.radius;
+        const x=p.x+Math.cos(a)*r,z=p.z+Math.sin(a)*r;
+        local=renderedTerrainHeight(x,z)!==selectionHeight(x,z);
+      }
+      if(!local)return[p];
       const current={...p,y:renderedTerrainHeight(p.x,p.z)-.055},h=habitatAt(p.x,p.z),slope=terrainSlope(p.x,p.z);
       let reason:string|undefined;
       if(slope>(p.kind==='shrub'?.82:.85))reason='Current local slope fails original eligibility';

@@ -12,7 +12,7 @@ import {updateHabitatCanopy} from './habitat';
 import * as THREE from 'three';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {treePlacements,renderTreePlacements,type Placement} from './ecology';
-import {noise} from './math';
+import {treeTint} from './tree-palette';
 import {activeLods,lodRanges,type QualityTier} from './lod';
 import {prepareTreeMaterial,lodCamera,setVegetationQuality} from '../render/vegetation-material';
 type Part={geometry:THREE.BufferGeometry,material:THREE.MeshStandardMaterial,depth:THREE.MeshDepthMaterial};
@@ -97,7 +97,7 @@ if (isHeightSource) {
      const p=list[i];
      dummy.position.set(p.x,p.y,p.z);const lean=p.variant===2?.055*p.exposure:.016;dummy.quaternion.setFromAxisAngle(up,p.angle).premultiply(tilt.setFromAxisAngle(windAxis,lean));
      dummy.scale.set(p.scale*(1+p.variant*.06),p.scale,p.scale);dummy.updateMatrix();
-     mesh.setMatrixAt(i,dummy.matrix);mesh.setColorAt(i,new THREE.Color().setHSL(.23+noise(p.x,p.z)*.035,.11,.82+noise(p.z,p.x)*.1));
+     mesh.setMatrixAt(i,dummy.matrix);mesh.setColorAt(i,treeTint(p.x,p.z,p.family));
     }
     if(family!==2){mesh.userData.sourceMatrices=mesh.instanceMatrix.array.slice();mesh.userData.sourceColors=mesh.instanceColor?.array.slice();mesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage);mesh.instanceColor?.setUsage(THREE.DynamicDrawUsage)}
     mesh.instanceMatrix.needsUpdate=true;if(mesh.instanceColor)mesh.instanceColor.needsUpdate=true;

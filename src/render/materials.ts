@@ -3,7 +3,7 @@ import {weatherGLSL} from '../world/weather';
 import {habitatUniform} from '../world/habitat';
 export const worldTime={value:0};
 export const debugMode={value:0};
-export type Textures={rock:THREE.Texture,rockNormal:THREE.Texture,rockARM:THREE.Texture,sand:THREE.Texture,sandNormal:THREE.Texture,sandARM:THREE.Texture,bark:THREE.Texture,barkNormal:THREE.Texture,soil:THREE.Texture,soilNormal:THREE.Texture,soilARM:THREE.Texture,moss:THREE.Texture,mossNormal:THREE.Texture,mossARM:THREE.Texture};
+export type Textures={rock:THREE.Texture,rockNormal:THREE.Texture,rockARM:THREE.Texture,sand:THREE.Texture,sandNormal:THREE.Texture,sandARM:THREE.Texture,bark:THREE.Texture,barkNormal:THREE.Texture,soil:THREE.Texture,soilNormal:THREE.Texture,soilARM:THREE.Texture,moss:THREE.Texture,mossNormal:THREE.Texture,mossARM:THREE.Texture,groundARM:THREE.DataArrayTexture};
 function bindGroundWind(m:THREE.Material,bark:boolean,colorPass:boolean){
  m.onBeforeCompile=s=>{
   s.uniforms.uTime=worldTime;s.uniforms.uHabitat=habitatUniform;

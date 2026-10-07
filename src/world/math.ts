@@ -1,4 +1,4 @@
-import {terrainFractureCut} from './terrain-fractures';
+import {terrainFractureCut,coastalFaceFractureCut} from './terrain-fractures';
 import {principalFacePlaneCut,PRINCIPAL_FACE_STUDY_ENABLED} from './principal-face-planes';
 import {broadRecessPlaneCut,BROAD_RECESS_STUDY_ENABLED} from './broad-recess-planes';
 import {eastSpurUplift,EAST_SPUR_STUDY_ENABLED} from './east-spur';
@@ -129,7 +129,8 @@ export function terrainHeight(x:number,z:number){
  const d=shoreDistance(x,z),preceding=terrainBeforePrincipalFace(x,z,d);
  if(EAST_SPUR_STUDY_ENABLED)return preceding+eastSpurUplift(x,z,d);
  if(BROAD_RECESS_STUDY_ENABLED)return preceding-broadRecessPlaneCut(x,z,preceding,d);
- return PRINCIPAL_FACE_STUDY_ENABLED?preceding-principalFacePlaneCut(x,z,preceding,d):preceding;
+ return PRINCIPAL_FACE_STUDY_ENABLED?preceding-principalFacePlaneCut(x,z,preceding,d)
+  :preceding-coastalFaceFractureCut(x,z,preceding,d);
 }
 function slopeOf(height:(x:number,z:number)=>number,x:number,z:number){const dx=(height(x+1,z)-height(x-1,z))*.5,dz=(height(x,z+1)-height(x,z-1))*.5;return Math.sqrt(dx*dx+dz*dz)}
 export function terrainSlope(x:number,z:number){return slopeOf(terrainHeight,x,z)}

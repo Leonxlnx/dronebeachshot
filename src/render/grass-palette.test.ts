@@ -10,7 +10,7 @@ import {grassPaletteSRGB} from './grass-palette.ts';
 import type {Textures} from './materials.ts';
 
 // Exact pre-study file, not a baseline reconstructed by undoing the candidate.
-const source=fs.readFileSync(new URL('./grass-palette-before.test-fixture.txt',import.meta.url),'utf8');
+const source=fs.readFileSync(new URL('./grass-palette-before.test-fixture.txt',import.meta.url),'utf8').replace(/\r\n/g,'\n');
 assert.equal(createHash('sha256').update(source).digest('hex'),'944ac0c56aa7a17fe4551f2bd0efad44bb55325e167a9f6b6d4eb8e568989142');
 const rewritten=source.replace(/(from\s*['"])([^'"]+)(['"])/g,(_,a,specifier,c)=>{
  const resolved=specifier==='three'?new URL('../../node_modules/three/build/three.module.js',import.meta.url):

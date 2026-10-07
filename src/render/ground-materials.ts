@@ -113,11 +113,26 @@ export function createGroundMaterial(t:Textures,allowLayerPruning=false){
  const layerPruningMode=allowLayerPruning?groundLayerPruning:{value:0};
  const material=new THREE.MeshStandardMaterial({color:0xffffff,roughness:1,vertexColors:true});
  material.onBeforeCompile=shader=>{
-  attachWorld(shader);Object.assign(shader.uniforms,{uHabitat:habitatUniform,uTime:worldTime,uMineralRelief:mineralReliefStrength,uStoneBeddingAligned:stoneBeddingAligned,uSandRipple:sandRippleStrength,uSandRippleFilter:sandRippleFilter,uSandChroma:sandChroma,uSandFilmDrying:sandFilmDrying,uRockWeathering:rockWeatheringStrength,uGroundLayerPruning:layerPruningMode,uDebug:debugMode,uRock:{value:t.rock},uRockN:{value:t.rockNormal},uRockARM:{value:t.rockARM},uSand:{value:t.sand},uSandN:{value:t.sandNormal},uSandARM:{value:t.sandARM},uSoil:{value:t.soil},uSoilN:{value:t.soilNormal},uSoilARM:{value:t.soilARM},uMoss:{value:t.moss},uMossN:{value:t.mossNormal},uMossARM:{value:t.mossARM}});
+  attachWorld(shader);Object.assign(shader.uniforms,{uHabitat:habitatUniform,uTime:worldTime,uMineralRelief:mineralReliefStrength,uStoneBeddingAligned:stoneBeddingAligned,uSandRipple:sandRippleStrength,uSandRippleFilter:sandRippleFilter,uSandChroma:sandChroma,uSandFilmDrying:sandFilmDrying,uRockWeathering:rockWeatheringStrength,uGroundLayerPruning:layerPruningMode,uDebug:debugMode,uRock:{value:t.rock},uRockN:{value:t.rockNormal},uRockARM:{value:t.rockARM},uSand:{value:t.sand},uSandN:{value:t.sandNormal},uGroundARM:{value:t.groundARM},uSoil:{value:t.soil},uSoilN:{value:t.soilNormal},uMoss:{value:t.moss},uMossN:{value:t.mossNormal}});
   shader.fragmentShader=shader.fragmentShader.replace('#include <common>',`#include <common>
  varying vec3 vGroundWorld,vGroundNormal;uniform float uTime,uMineralRelief,uStoneBeddingAligned,uSandRipple,uSandRippleFilter,uSandChroma,uSandFilmDrying,uRockWeathering;uniform float uDebug,uGroundLayerPruning;
- uniform sampler2D uRock,uRockN,uRockARM,uSand,uSandN,uSandARM,uSoil,uSoilN,uSoilARM,uMoss,uMossN,uMossARM;
- ${noiseGLSL}${shorelineGLSL}${coastalGLSL}${sandFilmGLSL}${habitatGLSL}${projection}${groundLayerProjection}`)
+ uniform sampler2D uRock,uRockN,uRockARM,uSand,uSandN,uSoil,uSoilN,uMoss,uMossN;
+ uniform highp sampler2DArray uGroundARM;
+ ${noiseGLSL}${shorelineGLSL}${coastalGLSL}${sandFilmGLSL}${habitatGLSL}${projection}${groundLayerProjection}
+ vec3 triGroundARM(vec3 p,vec3 n,float layer){vec3 w=triWeights(n);return texture(uGroundARM,vec3(p.yz,layer)).rgb*w.x+texture(uGroundARM,vec3(p.xz,layer)).rgb*w.y+texture(uGroundARM,vec3(p.xy,layer)).rgb*w.z;}
+ vec3 triGroundARMGrad(vec3 p,vec3 n,vec3 dx,vec3 dy,float layer){vec3 w=triWeights(n);return textureGrad(uGroundARM,vec3(p.yz,layer),dx.yz,dy.yz).rgb*w.x+textureGrad(uGroundARM,vec3(p.xz,layer),dx.xz,dy.xz).rgb*w.y+textureGrad(uGroundARM,vec3(p.xy,layer),dx.xy,dy.xy).rgb*w.z;}
+ // Sand uses the accepted source-phase lattice for every material channel.
+ // Only the array fetch differs from groundStoneSampleGrad; layer zero is sand.
+ vec3 groundSandARMGrad(vec2 uv,vec2 dx,vec2 dy){
+  vec2 skew=vec2(uv.x-uv.y*.57735026919,uv.y*1.15470053838);
+  vec2 cell=floor(skew),f=fract(skew);float upper=step(1.,f.x+f.y);
+  vec2 a=cell+vec2(upper),b=cell+vec2(1.-upper,upper),c=cell+vec2(upper,1.-upper);
+  vec3 w=mix(vec3(1.-f.x-f.y,f.x,f.y),vec3(f.x+f.y-1.,1.-f.x,1.-f.y),upper);
+  w=pow(max(w,vec3(0.)),vec3(6.));w/=max(dot(w,vec3(1.)),.000001);
+  return textureGrad(uGroundARM,vec3(uv+stonePhase(a),0.),dx,dy).rgb*w.x
+   +textureGrad(uGroundARM,vec3(uv+stonePhase(b),0.),dx,dy).rgb*w.y
+   +textureGrad(uGroundARM,vec3(uv+stonePhase(c),0.),dx,dy).rgb*w.z;
+ }`)
   .replace('#include <map_fragment>',`#include <map_fragment>
  vec3 gp=vGroundWorld,gn=normalize(vGroundNormal);float d=shoreDist(gp.xz);
  float slope=1.-gn.y,cliff=smoothstep(.13,.43,slope),sediment=(1.-smoothstep(22.,53.,d))*(1.-smoothstep(5.,18.,gp.y))*smoothstep(.5,.86,gn.y);
@@ -143,13 +158,13 @@ export function createGroundMaterial(t:Textures,allowLayerPruning=false){
  bool groundNeedSand=!groundPrune||sediment!=0.;
  vec3 stone,soil,living,sand;
  if(uGroundLayerPruning==0.){
-  stone=bedrockAlbedo(triStone(uRock,gp/5.7483,gn),gp,gn,habitat);soil=triSample(uSoil,gp*.5,gn);living=triSample(uMoss,gp/3.,gn);sand=texture2D(uSand,gp.xz*.5).rgb;
+  stone=bedrockAlbedo(triStone(uRock,gp/5.7483,gn),gp,gn,habitat);soil=triSample(uSoil,gp*.5,gn);living=triSample(uMoss,gp/3.,gn);sand=groundStoneSampleGrad(uSand,groundSandUV,groundSandDx,groundSandDy);
  }else{
   stone=vec3(0.);soil=vec3(0.);living=vec3(0.);sand=vec3(0.);
   if(groundNeedStone)stone=bedrockAlbedo(groundTriStoneGrad(uRock,groundRockP,gn,groundRockDx,groundRockDy),gp,gn,habitat);
   if(groundNeedSoil)soil=groundTriSampleGrad(uSoil,groundSoilP,gn,groundSoilDx,groundSoilDy);
   if(groundNeedMoss)living=groundTriSampleGrad(uMoss,groundMossP,gn,groundMossDx,groundMossDy);
-  if(groundNeedSand)sand=textureGrad(uSand,groundSandUV,groundSandDx,groundSandDy).rgb;
+  if(groundNeedSand)sand=groundStoneSampleGrad(uSand,groundSandUV,groundSandDx,groundSandDy);
  }
  // Calibrated pale sediment retains the scan's relative grain variation.
  // This changes substrate albedo; sunset lighting and wetness remain separate.
@@ -166,14 +181,14 @@ export function createGroundMaterial(t:Textures,allowLayerPruning=false){
  ground*=macro*mix(1.,.61,wet*sediment);diffuseColor.rgb*=ground;
  vec3 surfaceARM;
  if(uGroundLayerPruning==0.){
-  surfaceARM=mix(triSample(uSoilARM,gp*.5,gn),triStone(uRockARM,gp/5.7483,gn),cliff);
-  surfaceARM=mix(surfaceARM,triSample(uMossARM,gp/3.,gn),moss*.76);surfaceARM=mix(surfaceARM,texture2D(uSandARM,gp.xz*.5).rgb,sediment);
+  surfaceARM=mix(triGroundARM(gp*.5,gn,1.),triStone(uRockARM,gp/5.7483,gn),cliff);
+  surfaceARM=mix(surfaceARM,triGroundARM(gp/3.,gn,2.),moss*.76);surfaceARM=mix(surfaceARM,groundSandARMGrad(groundSandUV,groundSandDx,groundSandDy),sediment);
  }else{
   vec3 soilARM=vec3(0.),stoneARM=vec3(0.),mossARM=vec3(0.),sandARM=vec3(0.);
-  if(groundNeedSoil)soilARM=groundTriSampleGrad(uSoilARM,groundSoilP,gn,groundSoilDx,groundSoilDy);
+  if(groundNeedSoil)soilARM=triGroundARMGrad(groundSoilP,gn,groundSoilDx,groundSoilDy,1.);
   if(groundNeedStone)stoneARM=groundTriStoneGrad(uRockARM,groundRockP,gn,groundRockDx,groundRockDy);
-  if(groundNeedMoss)mossARM=groundTriSampleGrad(uMossARM,groundMossP,gn,groundMossDx,groundMossDy);
-  if(groundNeedSand)sandARM=textureGrad(uSandARM,groundSandUV,groundSandDx,groundSandDy).rgb;
+  if(groundNeedMoss)mossARM=triGroundARMGrad(groundMossP,gn,groundMossDx,groundMossDy,2.);
+  if(groundNeedSand)sandARM=groundSandARMGrad(groundSandUV,groundSandDx,groundSandDy);
   surfaceARM=mix(soilARM,stoneARM,cliff);surfaceARM=mix(surfaceARM,mossARM,moss*.76);surfaceARM=mix(surfaceARM,sandARM,sediment);
  }`)
   .replace('#include <roughnessmap_fragment>',`#include <roughnessmap_fragment>
@@ -186,18 +201,20 @@ export function createGroundMaterial(t:Textures,allowLayerPruning=false){
   float drainedFilm=sandFilmWetness(gp.x,d,uTime);
   exposedFilm=mix(wet,drainedFilm,uSandFilmDrying)*sediment*smoothstep(-.25,.10,gp.y);
  }
- roughnessFactor=mix(roughnessFactor,.20,exposedFilm);`)
+ // Grain still scatters light through the drained film. The separate ocean
+ // owns the smoother air/water interface while the sheet actually covers sand.
+ roughnessFactor=mix(roughnessFactor,mix(.20,.30,uSandFilmDrying),exposedFilm);`)
   .replace('#include <normal_fragment_maps>',`#include <normal_fragment_maps>
  vec3 detail,sandNormal;
  if(uGroundLayerPruning==0.){
   detail=mix(triDetail(uSoilN,gp*.5,gn),triStoneDetail(uRockN,gp/5.7483,gn),cliff);detail=mix(detail,triDetail(uMossN,gp/3.,gn),moss*.76);
-  sandNormal=texture2D(uSandN,gp.xz*.5).xyz*2.-1.;
+  sandNormal=groundStoneSampleGrad(uSandN,groundSandUV,groundSandDx,groundSandDy)*2.-1.;
  }else{
   vec3 soilDetail=vec3(0.),stoneDetail=vec3(0.),mossDetail=vec3(0.);sandNormal=vec3(0.);
   if(groundNeedSoil)soilDetail=groundTriDetailGrad(uSoilN,groundSoilP,gn,groundSoilDx,groundSoilDy);
   if(groundNeedStone)stoneDetail=groundTriStoneDetailGrad(uRockN,groundRockP,gn,groundRockDx,groundRockDy);
   if(groundNeedMoss)mossDetail=groundTriDetailGrad(uMossN,groundMossP,gn,groundMossDx,groundMossDy);
-  if(groundNeedSand)sandNormal=textureGrad(uSandN,groundSandUV,groundSandDx,groundSandDy).xyz*2.-1.;
+  if(groundNeedSand)sandNormal=groundStoneSampleGrad(uSandN,groundSandUV,groundSandDx,groundSandDy)*2.-1.;
   detail=mix(soilDetail,stoneDetail,cliff);detail=mix(detail,mossDetail,moss*.76);
  }
  detail=mix(detail,vec3(sandNormal.x,0.,sandNormal.y)*sandGrain,sediment);
@@ -222,9 +239,14 @@ export function createGroundMaterial(t:Textures,allowLayerPruning=false){
   .replace('#include <aomap_fragment>',`#include <aomap_fragment>
  reflectedLight.indirectDiffuse*=mix(.72,1.,surfaceARM.r);`)
   .replace('#include <opaque_fragment>',`#include <opaque_fragment>
- if(uDebug==9.)gl_FragColor.rgb=vec3(clamp(d/100.,0.,1.));if(uDebug==12.)gl_FragColor.rgb=mix(vec3(.06,.12,.4),vec3(.3,.9,.18),habitat.a);`);
+ if(uDebug==9.)gl_FragColor.rgb=vec3(clamp(d/100.,0.,1.));if(uDebug==12.)gl_FragColor.rgb=mix(vec3(.06,.12,.4),vec3(.3,.9,.18),habitat.a);
+ // Temporary direct versus phased source isolation at the fixed 1280 px capture.
+ float directSandLuminance=dot(textureGrad(uSand,groundSandUV,groundSandDx,groundSandDy).rgb,vec3(.2126,.7152,.0722));
+ if(uDebug==2.)gl_FragColor.rgb=vec3(directSandLuminance*4.);
+ if(uDebug==3.)gl_FragColor.rgb=vec3(sandLuminance*4.);
+ if(uDebug==4.)gl_FragColor.rgb=vec3((gl_FragCoord.x<640.?directSandLuminance:sandLuminance)*4.);`);
  };
- material.customProgramCacheKey=()=> 'soil-rock-moss-sediment-v17-ripple-filter-study-layer-pruning';return material;
+ material.customProgramCacheKey=()=> 'soil-rock-moss-sediment-v19-phased-sand';return material;
 }
 export function createRockMaterial(t:Textures){
  const material=new THREE.MeshStandardMaterial({color:0xffffff,roughness:.86});

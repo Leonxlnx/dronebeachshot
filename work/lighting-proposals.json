@@ -1,0 +1,122 @@
+{
+  "status": "lighting-02 reviewed; shadow-recovery-limit preferred unchanged, pending final atmosphere/geology source recheck; no profile/source changes by this leaf",
+  "matchedReview": {
+    "batch": "C:/Users/User/Documents/Codex/2026-10-02/continue-developing-last-light-bay-the/outputs/lighting-02",
+    "sourceIdentity": "71d2087249a88d7a165b87367f2b72af38a8ad164eac3ea381b16527d9bd2526",
+    "verified": "All 16 native 1280x720 PNGs viewed. Manifest reports hardware AMD Radeon 780M, one production source and no errors. Each of four views has all four exact full lighting profiles; PNG CRCs, dimensions and SHA-256 values match the manifest.",
+    "selection": "shadow-recovery-limit",
+    "selectionStatus": "Preferred lighting profile for integration recheck, not final visual acceptance of the scene or full route.",
+    "revision": null,
+    "rationale": "The brighter fill bracket is the only candidate that improves the backlit near forest. Its cooler fill lifts the darkest canopy while the slightly softer sun preserves warm cliff/sand detail. Balanced and clear-dimensional darken the same backlit regions; their reduced haze increases apparent saturation but does not meet the shadow-readability priority.",
+    "perView": [
+      {"view": "headland", "control": "Warm ochre rock and olive trees retain grain, but foliage interiors are dark.", "balanced": "A small cooler/less ochre change; no decisive interior-detail gain.", "dimensional": "Slightly stronger dark edges, with little added structural reading.", "shadowRecovery": "Cleaner green foliage and more readable trunk/interior transitions. Warm rock grain survives; it does not visibly become chalky."},
+      {"view": "mountain-wide", "control": "Pale cliff and dark forest separate mostly through albedo; distant ridge remains muted.", "balanced": "Lower haze is visible but the lower-right forest is more closed.", "dimensional": "More dark/light separation, but dark masses lose readability and geometric limitations remain.", "shadowRecovery": "Best lower-right forest readability and natural green/ochre separation. Existing cliff form remains legible, but lighting does not repair the rejected geology."},
+      {"view": 10.5, "control": "Canopy is dark yellow-olive above a warm cliff and detailed cool water.", "balanced": "Less orange rock; foliage still closes down slightly.", "dimensional": "Harder shadow contrast with more near-black canopy pixels.", "shadowRecovery": "Best shadow detail and cleaner green foliage, with slightly cooler water and retained sand/cliff grain. The image remains warm in direct light."},
+      {"view": 19.5, "control": "Warm sunset and cool sea work, but near trees read as a dense dark band.", "balanced": "Near and far backlit forests darken; haze reduction is not shadow recovery.", "dimensional": "Darkest backlit near forest, with little useful extra internal structure.", "shadowRecovery": "Near-tree interiors brighten while the far ridge stays close to the control. Sun/reflection warmth remains, and the near forest does not become a uniform grey patch."}
+    ],
+    "measurements": {
+      "method": "Pillow read-only sampling of the supplied PNGs; sRGB bytes decoded to linear, then Rec.709 luminance. Fixed rectangles contain mixed scene materials, not semantic masks. Values are display-referred after ACES and cannot establish physical radiance or overall quality.",
+      "variantOrder": ["lighting-control", "balanced-warm-cool", "clear-dimensional", "shadow-recovery-limit"],
+      "rows": [
+        {"view": 19.5, "region": "near forest", "boxXYXY": [30,332,310,428], "mean": [0.013958,0.012247,0.010387,0.016108], "meanDeltaPercent": [0,-12.26,-25.58,15.40], "p10": [0.009796,0.008193,0.006753,0.011072], "p90p10": [1.988,2.162,2.271,2.058]},
+        {"view": 19.5, "region": "far forest", "boxXYXY": [540,359,690,399], "mean": [0.049243,0.036670,0.032308,0.047965], "meanDeltaPercent": [0,-25.53,-34.39,-2.60], "p90p10": [1.380,1.380,1.396,1.353]},
+        {"view": 10.5, "region": "near canopy", "boxXYXY": [810,190,1080,320], "mean": [0.048607,0.046287,0.046749,0.048199], "meanDeltaPercent": [0,-4.77,-3.82,-0.84], "p10": [0.005522,0.005239,0.004460,0.006603], "nearBlackPercent": [0.1994,0.4188,0.7578,0.1282]},
+        {"view": 10.5, "region": "cliff and vegetation", "boxXYXY": [603,73,707,180], "mean": [0.181567,0.175181,0.178942,0.177719], "meanDeltaPercent": [0,-3.52,-1.45,-2.12], "p90": [0.386920,0.375389,0.385335,0.375189]},
+        {"view": 10.5, "region": "foreground water", "boxXYXY": [0,475,500,690], "mean": [0.168191,0.164104,0.159560,0.169779], "meanDeltaPercent": [0,-2.43,-5.13,0.94]}
+      ],
+      "thresholds": "Near-black means all RGB bytes <=5. Clipped means any RGB byte >=254; none of the five sampled rectangles contained such pixels for any candidate. This is not a whole-frame clipping claim."
+    },
+    "remainingLimits": [
+      "The same-source batch includes shore pass 2 and coastal understory enabled, per the driver; preference applies to that common scene state.",
+      "Cloud/geology 02 shapes remain rejected independently. Their next source changes can alter PMREM, direct occlusion and visible depth, so rerender preferred lighting against the same-source canonical control afterward.",
+      "Recheck the four matched views plus opening 0 and follow-up 3/6/9/12 before promoting a global canonical profile. Do not introduce camera-specific exposure changes.",
+      "The large grey cloud ceiling at 19.5 and pale rounded geology remain visible. No lighting profile in this batch establishes the requested final scene quality."
+    ]
+  },
+  "baselineProfile": "profiles/last-light-bay.json",
+  "baselineSourceIdentity": "362b128cde592fb45eacf4beb74efc0eb15360376b4f3fae5fad69ab8d733247",
+  "baselineCaveat": "Both supplied manifests verify this source and hardware rendering, but do not record effective lighting. The declared control baseline is the checked-in canonical profile.",
+  "baselineLighting": {
+    "cloudCoverage": 0.4, "cloudFogDensity": 0.00004, "cloudMorphology": true,
+    "environmentIntensity": 0.55, "exposure": 1.08, "fogDensity": 0.000065,
+    "groundColor": "#365842", "skyColor": "#a1c9ed", "skyIntensity": 0.48,
+    "sunColor": "#ffdfb6", "sunIntensity": 4.8
+  },
+  "observations": [
+    {"view": 0, "finding": "Backlit forest is muted olive/brown; near foliage detail remains visible, while the distant sea/horizon takes a broad warm-grey veil."},
+    {"view": 3, "finding": "Water already has useful turquoise depth. Forest shadows are densely packed; boosting overall exposure would also lift pale shore and glitter."},
+    {"view": 6, "finding": "Beach rock shadows remain legible. Water color is stronger than the vegetation; preserve the subdued foam and warm sand detail."},
+    {"view": 9, "finding": "Warm cliff and olive woodland sit above a cool but grey reflective sea. Background ridge separation is weak."},
+    {"view": 10.5, "finding": "Near sand grain and water detail survive. Direct-lit cliff is pale peach, while tree masses are dark olive with little cool shadow separation."},
+    {"view": 12, "finding": "The same warm pale cliff/dark olive canopy split persists; stronger global saturation would amplify sand and foliage yellow together."},
+    {"view": 19.5, "finding": "Sun/reflection alignment and blue foreground sea are coherent. Backlit ridges are muted, clouds dominate with broad grey-white areas."},
+    {"view": "headland", "finding": "Local foliage/trunk detail is available. Broad cliff faces remain rounded and pale; lighting alone cannot supply missing geological planes or cavities."},
+    {"view": "mountain-wide", "finding": "Pale cliffs separate from forest mainly by albedo. Distant terrain is grey-green; added grade must not substitute for structural relief or actual cast shadows."}
+  ],
+  "sourceResponse": [
+    {"source": "src/main.ts:91-109", "finding": "All proposed keys are public lighting controls; colors are converted by THREE.Color and changes invalidate the sky probe/cloud shadows."},
+    {"source": "src/world/atmosphere.ts:36-46", "finding": "sunColor/sunIntensity also affect cloud radiance. skyColor/groundColor/skyIntensity affect only HemisphereLight, not visible sky or its probe."},
+    {"source": "src/render/aerial-perspective.ts:8-24", "finding": "Visible clear sky and in-scattering share fixed directional bayClearSky colors. fogDensity changes height-dependent extinction, not haze hue."},
+    {"source": "src/main.ts:147; src/world/atmosphere.ts:54-84", "finding": "environmentIntensity scales MeshStandard PMREM lighting generated from the visible sky; raising it broadly can wash shaded materials."},
+    {"source": "src/world/ocean.ts:369-394,430-439", "finding": "Ocean samples reflectedSky directly, so environmentIntensity is not an ocean saturation/brightness control. Sun controls affect glitter/foam and fogDensity affects eye-to-water air."},
+    {"source": "src/render/linear-main-output.ts:121-124; src/render/engine.ts:4", "finding": "The baseline linear path resolves radiance before one ACES/sRGB conversion. Exposure acts globally; no existing saturation, contrast, shadow-lift or tone-curve profile controls exist."},
+    {"source": "scripts/progress-capture.mjs:310-312", "finding": "Plan settings accumulate. Supply each complete alternative lighting object on every row; preserve the same full base profile for all non-lighting controls."}
+  ],
+  "alternatives": [
+    {
+      "id": "balanced-warm-cool",
+      "priority": 1,
+      "controls": {"lighting": {
+        "cloudCoverage": 0.4, "cloudFogDensity": 0.000035, "cloudMorphology": true,
+        "environmentIntensity": 0.50, "exposure": 1.05, "fogDensity": 0.000048,
+        "groundColor": "#405a4c", "skyColor": "#a3c6e8", "skyIntensity": 0.66,
+        "sunColor": "#ffe5c4", "sunIntensity": 4.5
+      }},
+      "rationale": "First choice: less orange direct light, more cool hemisphere fill, slightly less broad PMREM fill and haze. Lower sun/exposure protects the pale rock and sand while cooler fill should reveal foliage and recesses.",
+      "inputRatiosToBaseline": {"directLumaTimesExposure": 0.957, "upHemiLumaTimesExposure": 1.302, "downHemiLumaTimesExposure": 1.463, "environmentScaleTimesExposure": 0.884},
+      "rejectIf": "Canopy becomes cyan/flat, foliage hue loses its natural olive component, or the reduced air removes near/far ridge separation. The sunset must retain warm light and a readable reflection path."
+    },
+    {
+      "id": "clear-dimensional",
+      "priority": 2,
+      "controls": {"lighting": {
+        "cloudCoverage": 0.4, "cloudFogDensity": 0.00003, "cloudMorphology": true,
+        "environmentIntensity": 0.46, "exposure": 1.02, "fogDensity": 0.000045,
+        "groundColor": "#3a5549", "skyColor": "#a3c8eb", "skyIntensity": 0.57,
+        "sunColor": "#ffe3bf", "sunIntensity": 4.95
+      }},
+      "rationale": "Stronger shape bracket: keep exposed direct-light luminance close to baseline, reduce broad ambient and air, and modestly strengthen cool hemisphere fill. This should test whether new geological planes read without an exposure increase.",
+      "inputRatiosToBaseline": {"directLumaTimesExposure": 1.006, "upHemiLumaTimesExposure": 1.114, "downHemiLumaTimesExposure": 1.083, "environmentScaleTimesExposure": 0.790},
+      "rejectIf": "Tree masses merge into black, cracks read only as dark paint, rock highlights lose grain, or cliff improvement is merely an increase in bright/dark albedo contrast."
+    },
+    {
+      "id": "shadow-recovery-limit",
+      "priority": 3,
+      "controls": {"lighting": {
+        "cloudCoverage": 0.4, "cloudFogDensity": 0.00004, "cloudMorphology": true,
+        "environmentIntensity": 0.52, "exposure": 1.06, "fogDensity": 0.00006,
+        "groundColor": "#475f52", "skyColor": "#acceee", "skyIntensity": 0.80,
+        "sunColor": "#ffe9cf", "sunIntensity": 4.2
+      }},
+      "rationale": "Upper fill bracket, primarily for diagnosing canopy readability: stronger cooler fill and a softer, less orange sun, with most baseline aerial depth retained. Prefer the first alternative unless this supplies necessary shadow information.",
+      "inputRatiosToBaseline": {"directLumaTimesExposure": 0.932, "upHemiLumaTimesExposure": 1.743, "downHemiLumaTimesExposure": 2.032, "environmentScaleTimesExposure": 0.928},
+      "rejectIf": "Foliage looks chalky, trunk/leaf contrast collapses, cliffs flatten, warm/cool separation looks artificially blue/orange, or broad grey fill increases."
+    }
+  ],
+  "inputRatioCaveat": "Calculated from THREE.Color linear RGB and Rec.709 luminance, then multiplied by the stated intensity/exposure. These are input-term ratios, not predicted pixel changes. Environment ratio excludes the changed probe radiance; reflected sunlight and nonlinear ACES responses need actual renders.",
+  "matchedBatch": {
+    "firstPassViews": ["headland", "mountain-wide", 10.5, 19.5],
+    "followupViewsForWinner": [0, 3, 6, 9, 12],
+    "order": "For each view: same-source canonical baseline, then alternatives in priority order. Match resolution, time, camera, geometry, materials, clouds, shadow settings and linear output path.",
+    "lightingOverridesPerView": [],
+    "perViewGuidance": [
+      {"views": ["headland", "mountain-wide"], "criterion": "Read distinct illuminated planes and cool recesses while retaining rock grain. Judge the same geometry first with the canonical light."},
+      {"views": [9, 10.5, 12], "criterion": "Retain sand/foam detail and turquoise water; tree interiors must become more readable without pale haze."},
+      {"views": [0, 19.5], "criterion": "Keep warm backlight, cool foreground water and ordered ridge depth. Avoid camera-specific exposure fixes; final flight uses one coherent lighting profile."},
+      {"views": [3, 6], "criterion": "Preserve rock shadow shape, natural green canopy, and existing water hue; do not compensate for shoreline geometry with lighting."}
+    ],
+    "acceptance": "Inspect matched native PNGs and fixed material ROIs; reject new channel clipping, lost shadow texture or lost highlight grain. A brighter whole-frame histogram alone is not improvement. Profile proposals remain unaccepted until this batch is reviewed."
+  },
+  "heldFixed": "Cloud coverage/morphology, shadow-map/bias/casters, all surface and geology controls, camera, sun direction, linear output, sample scale, coastal reflection and Island source-response remain on the parent's same-source baseline. No global saturation/contrast grade or material recoloring is proposed.",
+  "knownLimit": "If the warm-grey horizon persists, these controls cannot directly repair its fixed spectral colors. That needs the atmosphere owner's shared sky/aerial/probe response review, followed by another matched batch; do not disguise the issue by darkening exposure."
+}

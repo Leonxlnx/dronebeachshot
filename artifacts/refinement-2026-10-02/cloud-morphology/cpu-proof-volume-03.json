@@ -1,0 +1,49 @@
+{
+  "ok": true,
+  "method": "CPU shader composition and analytic bounds; no GPU/pixel/mean-density acceptance",
+  "originalFieldLiteralUnchanged": true,
+  "offShaderExact": true,
+  "offOnOffShaderExact": true,
+  "sharedCompiledDensityAcrossThreeConsumers": true,
+  "disposalDisablesIncompleteSet": true,
+  "changedAnchorLeavesOffUsable": true,
+  "maximumScalarNoiseCallsPerDensity": 3,
+  "maximumTextureSamplesPerDensity": 2,
+  "profileBoundSamples": 8481,
+  "profileAlwaysWithin01": true,
+  "zeroOccupancyHasZeroDensity": true,
+  "localVolumeStrictlyInsideMarchBounds": true,
+  "macroAspectAlongWind": 1.25,
+  "maximumWindShearMeters": 312,
+  "maximumCoordinateStretch": 1.5366217096765995,
+  "maximumUnwarpedStretch": 1.0122024880609155,
+  "maximumWarpStretch": 0.5244192216156841,
+  "minimumWarpedStretch": 0.2659364724634389,
+  "conservativeFootprintScale": 1.54,
+  "localBaseBoundsMeters": [
+    690,
+    1410
+  ],
+  "maximumLocalCloudTopMeters": 3010,
+  "marchBoundsMeters": [
+    600,
+    3200
+  ],
+  "maximumDistantFadeMeters": 34000,
+  "localSunlightMidpointPartitionMeters": [
+    0,
+    80,
+    300,
+    810
+  ],
+  "localSunlightConstantAndLinearIntegralExact": true,
+  "coverageScaleUnchanged": true,
+  "equalMeanDensityGuaranteed": false,
+  "limits": [
+    "Envelope integral is not actual cloud mass/occupancy; domains and nonlinear erosion also change.",
+    "ON shader requires actual GPU compile and image review.",
+    "Set control and invalidate lighting only between frames; register visible/reflection/shadow materials."
+  ],
+  "originalFieldSHA256": "d6ce3eae1d6c2156185306aa5a6f3f2f8af4486cd84d158952741c95db937cde",
+  "variantFieldSHA256": "3947a5131da4204aa10d9f1d7cd88491bdecbb324f16fab7715df53c7069e782"
+}

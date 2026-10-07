@@ -1,0 +1,129 @@
+Lokaler Render – Last Light Bay – 1. Oktober 2026
+
+Ergebnis: Beide angeforderten MP4-Dateien wurden erzeugt und technisch geprüft.
+Die Dateien enthalten vollständig 1200 Frames. Eine Echtzeit-Wiedergabe ohne
+ausgelassene Anzeige-Frames wurde im Chromium-Headless-Test nicht erreicht.
+
+Dateien (relativ zu diesem Bericht)
+  last-light-bay-1440p60.mp4  – 2560×1440, 200789431 Bytes
+  last-light-bay-1080p60.mp4  – 1920×1080, 91813934 Bytes
+
+Beide Dateien: 60/1 fps, 1200 dekodierte Frames, 20.000000 Sekunden,
+genau ein H.264-Videostream, yuv420p, kein Audio. Vollständige Dekodierung
+mit ffmpeg -v error -xerror erfolgreich und ohne Fehlerausgabe.
+Der Master ist eine unveränderte Kopie der Checkpoint-MP4. Die Webversion
+wurde daraus mit Lanczos, libx264, preset medium, CRF 18 und +faststart
+erzeugt. Keine interpolierten oder ausgelassenen Szenenzeitpunkte.
+Keine zusätzlichen Farbraum-Tags oder Veränderungen am Master-Exporter.
+
+Provenienz
+  Repository: https://github.com/Leonxlnx/dronebeachshot
+  Commit: e4f13884e607b420cdef7dc21c233bd7d0d82618
+  Beim Klonen mit origin/main über git ls-remote abgeglichen.
+  Produktionsidentität:
+    362b128cde592fb45eacf4beb74efc0eb15360376b4f3fae5fad69ab8d733247
+  Profil: profiles/last-light-bay.json, unverändert
+  Profil-SHA256:
+    444ba9c5b1d3fc30f63c6d35cacd5c768a968b90bf299650304370f435eed2c3
+  Szene und alle versionierten Repository-Dateien unverändert;
+  git status --short am Ende leer. Separater Klon, keine vorhandene lokale
+  Arbeit zurückgesetzt oder überschrieben. Kein Upload, Push oder Publishing.
+
+Werkzeuge und Hardware
+  Windows-Laptop, AMD Radeon 780M Graphics
+  AMD-Treiber 32.0.31041.1004
+  Node v24.21.0, lokal eingerichtet und Download-SHA256 geprüft
+  Playwright 1.63.0, lokales Chromium 153.0.8010.12 / Revision 1243
+  FFmpeg / FFprobe 8.0.1, libx264 verfügbar
+  npm ci und npm run build erfolgreich; 43 Assets aus Archiv restauriert
+  37 vorhandene Hardware-/Checkpoint-/Portable-Lock-Tests bestanden
+
+Bestätigter Szenen-Renderer (Preflight UND tatsächliche Produktionsszene):
+  ANGLE (ATI Technologies Inc., AMD Radeon 780M Graphics, OpenGL 4.5.0)
+  WebGL 2.0 (OpenGL ES 3.0 Chromium)
+  backend=hardware, unmaskierter Renderer bestätigt, 4 MSAA-Samples
+  Chromium-Sandbox eingeschaltet. Kein Software-Rendering verwendet.
+  linearMainOutput=true, linearMainSampleScale=1; alle 1200 Master-Frames
+  bestätigen RGBA16F, 4 Samples und den validierten 2560×1440-Framebuffer.
+
+Behobene lokale Startprobleme
+  1. Die bereits vorhandene globale Chromium-Installation startete wegen
+     fehlender Side-by-Side-Assemblierung 153.0.8010.12 nicht. Neue Installation
+     im separaten work/tools/browsers, globale Installation bewahrt.
+  2. Chromium forderte /favicon.ico an; der unveränderte Build enthielt dieses
+     Symbol nicht. Der 404 wurde vom Runner korrekt als Fehler abgebrochen.
+     Nur im lokalen dist wurde ein 16×16-Browser-Symbol ergänzt. Der eingefrorene
+     render-bundle enthält und prüft dieses Zusatzasset; Szene/Profil/Quellcode
+     blieben unverändert.
+  3. Standard-ANGLE/D3D11 bestätigte dieselbe Radeon, erlaubte aber nur
+     MAX_TEXTURE_IMAGE_UNITS=16. Vier Fragment-Shader überschritten dieses
+     Limit und verhinderten den Szenenstart. ANGLE/OpenGL stellt auf derselben
+     Hardware 32 Fragment-Sampler bereit. Der lokale Launcher ergänzt ausschließlich
+     --use-angle=gl und ruft den unveränderten Projekt-Runner mit seinen normalen
+     Hardware-, Sandbox-, Identitäts- und Fehlerprüfungen auf.
+     capabilities: gpu-capabilities.json
+     Frühere Fehlläufe bleiben in local-hardware-stills, -02 und -03 erhalten.
+
+Testbilder und Master
+  local-hardware-stills-opengl/
+    flight-0.000.png, flight-6.000.png, flight-10.500.png, flight-19.500.png
+    Vier 1280×720-Testbilder vor dem Master visuell und anhand des Manifests
+    geprüft. captureSucceeded=true; korrekte Zeiten, high quality,
+    Produktionsidentität, offlineAfterLoad=true, keine Browser-/Ladefehler.
+  local-render-1440p60/
+    frames/000000.png bis frames/001199.png
+    manifest.json, capture-status.json, render-bundle/
+    last-light-bay-progress.mp4 (unveränderte Checkpoint-Datei)
+    captureSucceeded=true, 1200 Frame-Einträge, alle PNG-SHA256 und alle
+    eingefrorenen Build-Dateien überprüft. Keine Capture-Fehler, kein Resume
+    erforderlich, kein verbleibender Capture-Lock.
+    Szenenzeitpunkte: 0.00000000 bis 19.98333333 in Schritten von 1/60 Sekunde.
+    Master-Lauf: 21:57:47 bis 22:25:11 MESZ, etwa 27 Minuten 24 Sekunden.
+    Netzteil angeschlossen; automatischer Standby während des Renders verhindert.
+
+Wiedergabeprüfung und konkrete Einschränkung
+  Beide Videos in lokalem Chromium mit nativer HTML-Video-Wiedergabe bei
+  playbackRate=1 vollständig bis ended=true/currentTime=20 abgespielt.
+  Beide Player melden totalVideoFrames=1200 und keine MediaError-Ereignisse.
+  OpenGL-Headless-Wiedergabe: 603 / 581 ausgelassene Anzeige-Frames.
+  Standard-D3D11-Wiedergabe: 3 / 2 ausgelassene Anzeige-Frames beim Kaltstart;
+  nach explizitem Vorladen: 16 / 6. Die Schwankung ist nicht abschließend
+  erklärt. Sie betrifft die Echtzeit-Darstellung, nicht fehlende MP4-Frames.
+  Hardware-Video-Dekodierung und Radeon-D3D11-Compositing sind im Browser
+  aktiviert und in playback-gpu-info.json dokumentiert.
+  Eine garantierte Wiedergabe ohne Frame-Drops wird deshalb nicht behauptet.
+  Belege: playback-check.json, playback-check-d3d11-cold.json,
+          playback-check-opengl.json und zugehörige Logs.
+
+Bildprüfung
+  Alle 1200 dekodierten Master-Frames über 20 Kontaktbögen geprüft:
+  review-master/second-01.jpg bis second-20.jpg, jeweils 60 Frames von links
+  nach rechts und oben nach unten (256×144 je Thumbnail).
+  Zusätzlich Original-Master-Frames 000000, 000360, 000630 und 001170
+  bei 0 / 6 / 10.5 / 19.5 Sekunden geprüft.
+  Webversion: 80 Stichproben über die ganzen 20 Sekunden in review-web/.
+  Beide Dateien zusätzlich anhand aller 1200 dekodierten 64×36-RGB-Frames
+  auf schwarze Bilder, identische Nachbarframes und Farbabweichungen geprüft.
+  Keine schwarzen Bilder oder identischen Nachbarframes gefunden.
+  Mittlere absolute RGB-Differenz Master/Web nach gemeinsamer Skalierung:
+  0.293 auf einer Skala von 0 bis 255; maximaler Frame-Mittelwert 0.582.
+  Keine auffällige zusätzliche Farb- oder Helligkeitsabweichung der Webversion.
+  Sichtbare offene Szenenprobleme: stilisierte, verwaschene Wolkenformen;
+  regelmäßige Muster im Wasser/flachen Küstenbereich und Sand;
+  teils körnige bzw. dünne Vegetationssilhouetten und vereinfachte Fernberge.
+  Diese Prüfung ist keine finale Realismusfreigabe und ersetzt keine Projekt-Gates.
+
+Datei-SHA256
+  1440p60: 31154d50794afa6a7e4a9faa5d6db6f7061f2b3b83ef409a2e4b23eac5270c31
+  1080p60: c37b376238ba19796b748ebd1075a198c80a2b865d410fbc31ca42a3eac669fa
+  Maschinenlesbare Ergebnisse: verification.json
+  Streamdaten: last-light-bay-1440p60.mp4.ffprobe.json,
+               last-light-bay-1080p60.mp4.ffprobe.json
+
+Reproduzierbarer Aufruf / Resume
+  Aus dem Chat-Arbeitsverzeichnis:
+  & .\work\render.ps1 'video' 'width=2560' 'height=1440' 'fps=60' 'duration=20' 'start=0' 'backend=hardware' 'profile=profiles/last-light-bay.json' 'out=../../outputs/local-render-1440p60' 'resume'
+  Der Launcher setzt nur lokale Werkzeugpfade, entfernt BAY_BROWSER_EXECUTABLE,
+  verhindert Standby und wählt den oben dokumentierten OpenGL-Hardwarepfad.
+  Checkpoints einschließlich Profil, Renderer, Browser, Timing und Build bewahren.
+  Der bestehende vollständige Master braucht keine Wiederaufnahme.

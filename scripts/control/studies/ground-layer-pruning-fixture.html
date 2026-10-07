@@ -7,6 +7,7 @@ import * as candidate from '/virtual/candidate.ts';
 import {createContinuationMaterial as originalContinuation} from '/virtual/original-continuation.ts';
 import {createContinuationMaterial as candidateContinuation} from '/virtual/candidate-continuation.ts';
 import {worldTime} from '/src/render/materials.ts';
+import {createGroundARMArray} from '/src/world/assets.ts';
 import {waitForProfilingFence} from '/src/render/profiling-sync.ts';
 
 const size=128,canvas=document.getElementById('world'),renderer=new THREE.WebGLRenderer({canvas,antialias:false,alpha:false,preserveDrawingBuffer:false});
@@ -50,6 +51,7 @@ async function textures(kind){
  for(const [name,file]of Object.entries(textureFiles)){
   result[name]=kind==='synthetic'?syntheticTexture(name,index):configureTexture(await new THREE.TextureLoader().loadAsync('/source256/'+file+'.png'),name);index++;
  }
+ result.groundARM=createGroundARMArray([result.sandARM,result.soilARM,result.mossARM]);
  result.bark=result.soil;result.barkNormal=result.soilNormal;return textureSets[kind]=result;
 }
 const maskCode=`

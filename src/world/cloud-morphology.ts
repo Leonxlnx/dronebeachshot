@@ -1,13 +1,16 @@
 import type {ShaderMaterial} from 'three';
 
-// One bounded inspection variant. It changes density support, not radiance or
-// opacity scaling. Equal coverage controls do not imply equal occupied volume.
+// One shared volume variant for visible sky, reflection and ground shadows.
+// Coverage controls regional occupancy separately from within-cloud density.
 export const cloudBankParameters=Object.freeze({
- alongScale:.4,shear:.30,footprintScale:1.02,
- weatherAlong:.000085,weatherAcross:.00030,
- fragmentAlong:.000255,fragmentAcross:.00063,
- maturityAlong:.000065,maturityAcross:.00016,
- lowTopStart:.28,highTopStart:.58,lowTopEnd:.56,highTopEnd:1,
+ alongScale:.8,shear:.12,footprintScale:1.54,
+ weatherAlong:.00016,weatherAcross:.00024,
+ fragmentAlong:.00044,fragmentAcross:.00052,
+ maturityAlong:.00010,maturityAcross:.00014,
+ warpAlong:1100,warpAcross:350,warpHeight:180,
+ lowerBound:600,upperBound:3200,
+ baseHeight:750,baseRange:600,baseFragmentRange:120,
+ minimumDepth:500,depthRange:1100,
 });
 const defineName='BAY_CLOUD_WIND_BANKS';
 const float=(value:number)=>Number.isInteger(value)?value+'.':String(value);
@@ -20,25 +23,63 @@ export function createCloudMorphologyStudy(originalField:string){
   return source.replace(from,to);
  };
  function buildBankField(){
- let bankField=replace(originalField,
-  'float weather=noise(p.xz*.00021+vec2(8.3,2.7))*.8+.2*noise(p.xz*.00063);',
-  `vec2 bankAlong=normalize(worldWind),bankAcross=vec2(-bankAlong.y,bankAlong.x);
+ const start=originalField.indexOf('float filteredDensity('),end=originalField.indexOf('\nfloat density(');
+ if(start<0||end<start)throw Error('Cloud morphology source anchor changed: density function');
+ let bankField=replace(originalField,originalField.slice(start,end),`float filteredDensity(vec3 p,float footprint){
+ if(p.y<cloudBase||p.y>cloudTop)return 0.;
+ float radius=length(p.xz);if(radius>cloudWorldRadius)return 0.;
+ float distantFade=smoothstep(700.,2500.,radius);
+ if(distantFade==0.)return 0.;
+ vec2 bankAlong=normalize(worldWind),bankAcross=vec2(-bankAlong.y,bankAlong.x);
  vec2 bankXZ=vec2(dot(p.xz,bankAlong),dot(p.xz,bankAcross));
- float weather=noise(bankXZ*vec2(${float(p.weatherAlong)},${float(p.weatherAcross)})+vec2(8.3,2.7))*.8
-  +.2*noise(bankXZ*vec2(${float(p.fragmentAlong)},${float(p.fragmentAcross)}));`);
- bankField=replace(bankField,'float cloudType=noise(p.xz*.00013+vec2(47.2,-11.8));',
-  `float cloudType=noise(bankXZ*vec2(${float(p.maturityAlong)},${float(p.maturityAcross)})+vec2(47.2,-11.8));`);
+ float bankMass=noise(bankXZ*vec2(${float(p.weatherAlong)},${float(p.weatherAcross)})+vec2(8.3,2.7));
+ float bankFragment=noise(bankXZ*vec2(${float(p.fragmentAlong)},${float(p.fragmentAcross)}));
+ float cloudType=noise(bankXZ*vec2(${float(p.maturityAlong)},${float(p.maturityAcross)})+vec2(47.2,-11.8));
+ // The sunset opening biases weather, rather than cutting an ellipse out of a slab.
+ vec2 along=normalize(vec2(-.38,-.92)),across=vec2(-along.y,along.x);
+ vec2 openingDelta=p.xz-along*14000.;
+ float opening=length(vec2(dot(openingDelta,across)/3100.,dot(openingDelta,along)/10000.));
+ float clearing=smoothstep(.65,1.15,opening);
+ float weather=bankMass*.8+bankFragment*.2+.30*(uCloudCoverageScale-.4)-.12*(1.-clearing);
+ float occupancy=smoothstep(.50,.70,weather);
+ if(occupancy==0.)return 0.;
+ // End separate weather systems at different distances, before the integration cylinder.
+ distantFade*=1.-smoothstep(14000.+6000.*bankFragment,24000.+10000.*cloudType,radius);
+ if(distantFade==0.)return 0.;
+ float localBase=${float(p.baseHeight)}+${float(p.baseRange)}*cloudType+${float(p.baseFragmentRange)}*(bankFragment-.5);
+ float thickness=(${float(p.minimumDepth)}+${float(p.depthRange)}*bankMass)*mix(.55,1.,occupancy);
+ float height=(p.y-localBase)/thickness;
+ if(height<=0.||height>=1.)return 0.;
+ // The vertical envelope raises the lobe surface threshold; it does not fill
+ // a slab above a common floor. Mature bodies can grow farther upward.
+ float vertical=height<.42?(height-.42)/.42:(height-.42)/.58;
+ // Regional distortion breaks texture repetition without stretching every lobe.
+ vec3 coord=vec3((bankXZ.x-${float(p.shear)}*(p.y-cloudBase)+(bankMass-.5)*${float(p.warpAlong)})*${float(p.alongScale)},
+  p.y+(cloudType-.5)*${float(p.warpHeight)},bankXZ.y+(bankFragment-.5)*${float(p.warpAcross)})*.00032;
+ // Bounds shear plus the regional warp Jacobian (maximum stretch < 1.54).
+ float baseLod=max(0.,log2(max(footprint,1.)*.00032*64.*${float(p.footprintScale)}));
+ vec4 n=textureLod(uCloudNoise,coord,baseLod);
+ // G/B are inverted 3D nearest-feature distances. Their threshold is actual
+ // rounded support: a union of large and smaller billows, not density paint
+ // inside a weather slab. Perlin perturbs their radius without filling gaps.
+ float lobes=max(n.g,.85*n.b)+(n.r-.5)*.12;
+ float surface=mix(.67,.52,occupancy)+.72*vertical*vertical;
+ float base=max(lobes-surface,0.);
+ if(base<.001)return 0.;
+ float detailLod=max(0.,log2(max(footprint,1.)*.00032*5.*64.));
+ vec4 detail=textureLod(uCloudNoise,p*.00032*5.+vec3(.18,.31,.13),detailLod);
+ float erosion=dot(detail.gba,vec3(.625,.25,.125));
+ float amount=mix(1.-erosion,erosion,smoothstep(.05,.4,height));
+ float edgeWeight=1.-smoothstep(.08,.22,base);
+ float threshold=amount*mix(.025,.065,edgeWeight);
+ float shape=clamp((base-threshold)/.18,0.,1.);
+ return shape*occupancy*distantFade;
+}`);
+ bankField=replace(bankField,'const float cloudBase=1000.;',`const float cloudBase=${float(p.lowerBound)};`);
+ bankField=replace(bankField,'const float cloudTop=2250.;',`const float cloudTop=${float(p.upperBound)};`);
  bankField=replace(bankField,
-  'mix(.42,.58,cloudType),mix(.80,1.,cloudType),height)',
-  `mix(${float(p.lowTopStart)},${float(p.highTopStart)},cloudType),mix(${float(p.lowTopEnd)},${float(p.highTopEnd)},cloudType),height)`);
- bankField=replace(bankField,'vec3 coord=p*.00032;',
-  `// Macro banks stretch along the actual shared wind. Upper lobes lean downwind.
- vec3 coord=vec3((bankXZ.x-${float(p.shear)}*(p.y-cloudBase))*${float(p.alongScale)},p.y,bankXZ.y)*.00032;`);
- bankField=replace(bankField,'float baseLod=max(0.,log2(max(footprint,1.)*.00032*64.));',
-  `// 1.02 bounds the sheared coordinate map's largest singular value (~1.0085).
- float baseLod=max(0.,log2(max(footprint,1.)*.00032*64.*${float(p.footprintScale)}));`);
- bankField=replace(bankField,'textureLod(uCloudNoise,coord*5.+vec3(.18,.31,.13),detailLod)',
-  'textureLod(uCloudNoise,p*.00032*5.+vec3(.18,.31,.13),detailLod)');
+  'float depth=density(point+sun*95.)*135.+density(point+sun*275.)*250.+density(point+sun*620.)*380.;',
+  '// Contiguous midpoint cells cover 0..810 m and resolve nearby self-shadow.\n float depth=density(point+sun*40.)*80.+density(point+sun*190.)*220.+density(point+sun*555.)*510.;');
  return bankField;
  }
 
